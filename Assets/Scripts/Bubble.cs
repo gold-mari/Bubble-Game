@@ -52,6 +52,15 @@ public class Bubble : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        // Runs when this object is destroyed. Used to update remove our adjacency from
+        // ALL of the bubbles in our adjacency list.
+        // ================
+
+        RemoveAllAdjacencies();
+    }
+
     private void AddAdjacency(Bubble other)
     {
         // Adds Bubble other to this's adjacency list. If the bubbles are of the same
@@ -74,13 +83,46 @@ public class Bubble : MonoBehaviour
         // ================
 
         adjacencies.Remove(other);
+        other.adjacencies.Remove(this);
         // If they are of the same color as us, AND we're the younger bubble...
         if ( other.bubbleColor == bubbleColor && age > other.age ) {
             // AND we're in the same chain...
-            if ( chain == other.chain) {
+            if ( chain == other.chain ) {
                 // Run the Distribution algorithm on our chain.
                 chain.Distribute();
             }
+        }
+    }
+
+    public void RemoveAllAdjacencies()
+    {
+        // Removes all bubbles in this's adjacency list. If ANY bubble is of the same
+        // color, also distributes their chain.
+        // ================
+
+        // Make a copy of our adjacency list.
+        List<Bubble> adjCopy = new List<Bubble>(adjacencies);
+        // Keep track of if we'll have to distribute.
+        bool distribute = false;
+
+        foreach (Bubble bubble in adjCopy) {
+            adjacencies.Remove(bubble);
+            bubble.adjacencies.Remove(this);
+
+            // If they are of the same color as us, AND we're the younger bubble...
+            if ( bubble.bubbleColor == bubbleColor && age > bubble.age ) {
+                // AND we're in the same chain...
+                if ( chain == bubble.chain ) {
+                    // Note that we'll need to distribute.
+                    distribute = true;
+                }
+            }
+        }
+
+        // If by the end we need to distribute,
+        if ( distribute ) {
+            // run the Distribution algorithm on our chain.
+            chain.Distribute();
         }
     }
 

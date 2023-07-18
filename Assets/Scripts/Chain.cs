@@ -63,6 +63,9 @@ public class Chain : ScriptableObject
 
     void OnDestroy()
     {
+        // Runs when this object is destroyed.
+        // ================
+
         members.Clear();
     }
 
@@ -76,6 +79,8 @@ public class Chain : ScriptableObject
         // determine connected components. Each connected component is added to a new chain.
         // ================
 
+        Debug.Log("Distributing!");
+        
         // Run the DFS algorithm, visiting all bubbles to determine connected components.
         DFS_Main();
         
