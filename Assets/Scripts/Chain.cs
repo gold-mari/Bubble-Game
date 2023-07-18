@@ -92,7 +92,7 @@ public class Chain : ScriptableObject
         // ================
 
         foreach (Bubble bubble in members) {
-            if (bubble.gameObject) {
+            if (bubble) {
                 Destroy(bubble.gameObject);
             }
         }
