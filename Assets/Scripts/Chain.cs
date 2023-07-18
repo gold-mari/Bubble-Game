@@ -104,8 +104,6 @@ public class Chain : ScriptableObject
         // Distributes a chain into connected components. Is built off a DFS algorithm to
         // determine connected components. Each connected component is added to a new chain.
         // ================
-
-        Debug.Log("Distributing!");
         
         // Run the DFS algorithm, visiting all bubbles to determine connected components.
         DFS_Main();

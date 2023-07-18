@@ -516,6 +516,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nilChain: {fileID: 11400000, guid: 83523781210cefa4c9912d4153ddd914, type: 2}
   bubble: {fileID: 5062526010735810590, guid: 3fe8ed8d6eb320a469a0c3fb0462ef70, type: 3}
+  currentColor: {fileID: 11400000, guid: f772af05bd226f34bb65321c9e08e1d1, type: 2}
+  upcomingColor: {fileID: 11400000, guid: 6b6ac6c0c19a62649b99ee046ce6dcae, type: 2}
 --- !u!4 &939673289
 Transform:
   m_ObjectHideFlags: 0
