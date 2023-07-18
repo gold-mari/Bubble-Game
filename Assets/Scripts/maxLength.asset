@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5842611a1bdcf604d90b85f848f140b9, type: 3}
-  m_Name: NIL Chain
+  m_Script: {fileID: 11500000, guid: 65cd3fec2f0678548ba391a6383b05ac, type: 3}
+  m_Name: maxLength
   m_EditorClassIdentifier: 
-  ID: -1007070562
-  chainColor: 0
-  members: []
-  length: 0
-  maxLength: {fileID: 11400000, guid: f8135a0e4c086004b969a200daef9671, type: 2}
+  value: 6

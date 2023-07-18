@@ -10,13 +10,13 @@ public class Chain : ScriptableObject
     [ReadOnly]
     public int ID = 0;
     [ReadOnly]
-    public Bubble.Color chainColor = Bubble.Color.NONE;
+    public Bubble.Bubble_Color chainColor = Bubble.Bubble_Color.NONE;
     [ReadOnly]
     public List<Bubble> members = new List<Bubble>();
     [ReadOnly]
     public uint length = 0;
-    [ReadOnly]
-    public uint maxLength = 6;
+    [Expandable]
+    public uintVar maxLength;
 
     // ================================================================
     // Constructors and Destructors
@@ -33,7 +33,7 @@ public class Chain : ScriptableObject
         // Adds a bubble to this Chain.
         // ================
         // If we have not decided a chainColor yet, set our chainColor to bubbleColor.
-        if ( chainColor == Bubble.Color.NONE ) {
+        if ( chainColor == Bubble.Bubble_Color.NONE ) {
             chainColor = bubble.bubbleColor;
         }
 
@@ -42,7 +42,7 @@ public class Chain : ScriptableObject
         length++;
 
         // If incrementing length takes us over our max, destroy this chain.
-        if (length >= maxLength) {
+        if (length >= maxLength.value) {
             DestroyAllMembers();
         }
 
@@ -55,7 +55,7 @@ public class Chain : ScriptableObject
         // Adds the contents of another Chain to this Chain.
         // ================
         // If we have not decided a chainColor yet, set our chainColor to theirs.
-        if ( chainColor == Bubble.Color.NONE ) {
+        if ( chainColor == Bubble.Bubble_Color.NONE ) {
             chainColor = chain.chainColor;
         }
 
@@ -64,7 +64,7 @@ public class Chain : ScriptableObject
         length += chain.length;
 
         // If adding to length takes us over our max, destroy this chain.
-        if (length >= maxLength) {
+        if (length >= maxLength.value) {
             DestroyAllMembers();
         }
 
@@ -125,7 +125,12 @@ public class Chain : ScriptableObject
         // Step 1: Create and white-out the DFS dictionary.
         Dictionary<Bubble, DFS_Color> dict = new Dictionary<Bubble, DFS_Color>();
         foreach (Bubble bubble in members) {
-            dict.Add(bubble, DFS_Color.White);
+            // In the rare case a neighbor was removed and readded while we were
+            // calculating, then it will already be in our dictionary. If it's not
+            // present, add it as white.
+            if ( !dict.ContainsKey(bubble) ) {
+                dict.Add(bubble, DFS_Color.White);
+            }
         }
 
         // Step 2: Begin visiting each bubble.
@@ -134,6 +139,8 @@ public class Chain : ScriptableObject
             if (dict[bubble] == DFS_Color.White) {
                 // Create a new chain, intializing it to the first bubble.
                 Chain newChain = ScriptableObject.CreateInstance<Chain>();
+                // Pass on the maxLength variable.
+                newChain.maxLength = maxLength;
                 // Visit the bubble.
                 DFS_Visit(bubble, dict, newChain);
             }
@@ -156,6 +163,12 @@ public class Chain : ScriptableObject
         // Visit each of its unexplored children.
         List<Bubble> adj = new List<Bubble>(bubble.adjacencies);
         foreach (Bubble neighbor in adj) {
+            // In the rare case a neighbor was added while we were calculating, then it
+            // will not be in our dictionary. If it's not present, add it as white.
+            if ( !dict.ContainsKey(neighbor) ) {
+                dict.Add(neighbor, DFS_Color.White);
+            }
+
             // If the bubble color matches our color AND the DFS_Color is white, aka we
             // have't visited it yet,
             if (neighbor.bubbleColor == chainColor && dict[neighbor] == DFS_Color.White) {
