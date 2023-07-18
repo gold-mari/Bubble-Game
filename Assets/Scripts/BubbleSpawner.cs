@@ -5,7 +5,6 @@ using NaughtyAttributes;
 
 public class BubbleSpawner : MonoBehaviour
 {
-    public float dropHeight = 5f;
     public Chain nilChain;
     public GameObject bubble;
     [Expandable]
@@ -19,23 +18,21 @@ public class BubbleSpawner : MonoBehaviour
     {
         upcomingColor.value = Bubble_Color_Methods.random();
         currentColor.value = Bubble_Color_Methods.random();
-        Debug_Broadcast();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ( Input.GetKeyDown(KeyCode.Space) ) {
+        if ( Input.GetButtonDown("Fire1") ) {
             SpawnBubble(currentColor.value);
             currentColor.value = upcomingColor.value;
             upcomingColor.value = Bubble_Color_Methods.random();
-            Debug_Broadcast();
         }
     }
 
     private void SpawnBubble(Bubble_Color color)
     {
-        Vector2 worldPosition = new Vector2 (Camera.main.ScreenToWorldPoint(Input.mousePosition).x, dropHeight);
+        Vector2 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         GameObject obj = Instantiate(bubble, worldPosition, Quaternion.identity, transform);
         Bubble objBubble = obj.GetComponent<Bubble>();
 
@@ -62,9 +59,5 @@ public class BubbleSpawner : MonoBehaviour
                 sprite.color = new Color(0.2980392f,1f,0.5218196f);
                 break;
         }
-    }
-
-    private void Debug_Broadcast() {
-        Debug.Log($"Current Color is {currentColor.value}. Next up is {upcomingColor.value}");
     }
 }
