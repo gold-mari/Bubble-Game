@@ -5,7 +5,7 @@ using NaughtyAttributes;
 
 public class Bubble : MonoBehaviour
 {
-    public enum Color {NONE, Red};
+    public enum Color {NONE, Red, Blue};
 
     // ================================================================
 
@@ -24,6 +24,18 @@ public class Bubble : MonoBehaviour
 
     // ================================================================
     
+    void OnDrawGizmos()
+    {
+        // Draw a sphere at the transform's position
+        float r,g,b; 
+        r = (Mathf.Abs(chain.ID)/2)%100;     
+        g = (Mathf.Abs(chain.ID)/3)%100;   
+        b = (Mathf.Abs(chain.ID)/5)%100;
+        
+        Gizmos.color = new UnityEngine.Color(r/100f,g/100f,b/100f);
+        Gizmos.DrawSphere(transform.position, 0.5f);
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         // Detects collision starts between our collider and other colliders. Used to
