@@ -149,6 +149,11 @@ public class Bubble : MonoBehaviour
             other.chain.AddBubble(other);
         }
 
+        // After this, check to make sure we are not consolidating a chain to itself.
+        if (chain == other.chain) {
+            return;
+        }
+
         // Begin by comparing chain length. The shorter one will be added to the longer one.
         // If there is a tie, add from this to other.
 
@@ -165,7 +170,9 @@ public class Bubble : MonoBehaviour
         // Append the contents of shorter to the end of longer.
         longer.Concatenate(shorter);
 
-        // Finally, unload the old chain if it is now unused.
-        Resources.UnloadUnusedAssets();
+        // Finally, delete the old chain if it wasn't nil.
+        if ( shorter.length != 0 ) {
+             Destroy(shorter);
+        }
     }
 }
