@@ -15,6 +15,8 @@ public class Chain : ScriptableObject
     public List<Bubble> members = new List<Bubble>();
     [ReadOnly]
     public uint length = 0;
+    [ReadOnly]
+    public uint maxLength = 6;
 
     // ================================================================
     // Constructors and Destructors
@@ -39,6 +41,11 @@ public class Chain : ScriptableObject
         members.Add(bubble);
         length++;
 
+        // If incrementing length takes us over our max, destroy this chain.
+        if (length >= maxLength) {
+            DestroyAllMembers();
+        }
+
         // Update their field.
         bubble.chain = this;
     }
@@ -56,6 +63,11 @@ public class Chain : ScriptableObject
         members.AddRange(chain.members);
         length += chain.length;
 
+        // If adding to length takes us over our max, destroy this chain.
+        if (length >= maxLength) {
+            DestroyAllMembers();
+        }
+
         foreach (Bubble bubble in chain.members) {
             bubble.chain = this;
         }
@@ -72,6 +84,20 @@ public class Chain : ScriptableObject
     // ================================================================
     // Member functions
     // ================================================================
+
+    void DestroyAllMembers()
+    {
+        // Destroys all members of the chain, usually called when a chain goes over its
+        // maximum length.
+        // ================
+
+        foreach (Bubble bubble in members) {
+            if (bubble.gameObject) {
+                Destroy(bubble.gameObject);
+            }
+        }
+        Destroy(this);
+    }
 
     public void Distribute()
     {
@@ -128,7 +154,8 @@ public class Chain : ScriptableObject
         chain.AddBubble(bubble);
 
         // Visit each of its unexplored children.
-        foreach (Bubble neighbor in bubble.adjacencies) {
+        List<Bubble> adj = new List<Bubble>(bubble.adjacencies);
+        foreach (Bubble neighbor in adj) {
             // If the bubble color matches our color AND the DFS_Color is white, aka we
             // have't visited it yet,
             if (neighbor.bubbleColor == chainColor && dict[neighbor] == DFS_Color.White) {
