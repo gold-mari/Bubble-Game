@@ -5,6 +5,7 @@ using NaughtyAttributes;
 
 public class BubbleSpawner : MonoBehaviour
 {
+    public float dropHeight = 5f;
     public Chain nilChain;
     public GameObject bubble;
     [Expandable]
@@ -34,7 +35,7 @@ public class BubbleSpawner : MonoBehaviour
 
     private void SpawnBubble(Bubble_Color color)
     {
-        Vector2 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 worldPosition = new Vector2 (Camera.main.ScreenToWorldPoint(Input.mousePosition).x, dropHeight);
         GameObject obj = Instantiate(bubble, worldPosition, Quaternion.identity, transform);
         Bubble objBubble = obj.GetComponent<Bubble>();
 
