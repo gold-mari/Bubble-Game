@@ -5,12 +5,12 @@ using NaughtyAttributes;
 
 public class Bubble : MonoBehaviour
 {
-    public enum Color {NONE, Red, Blue};
+    public enum Bubble_Color {NONE, Red, Blue, Yellow, Green};
 
     // ================================================================
 
     // Bubbles of like colors are eligible to join in chains together.
-    public Color bubbleColor = Color.Red;
+    public Bubble_Color bubbleColor = Bubble_Color.Red;
     // When a collision occurs, to avoid doublecounting, the Bubble with the oldest/smallest age
     // runs the calculation.
     public uint age = 0;
@@ -32,8 +32,8 @@ public class Bubble : MonoBehaviour
         g = (Mathf.Abs(chain.ID)/3)%100;   
         b = (Mathf.Abs(chain.ID)/5)%100;
         
-        Gizmos.color = new UnityEngine.Color(r/100f,g/100f,b/100f);
-        Gizmos.DrawSphere(transform.position, 0.5f);
+        Gizmos.color = new Color(r/100f,g/100f,b/100f);
+        Gizmos.DrawSphere(transform.position, 0.33f);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -153,11 +153,19 @@ public class Bubble : MonoBehaviour
         // first. The nil chain, and ONLY the nil chain, has a length of 0. We can thus
         // check for length == 0 as a subsitute.
         if (chain.length == 0) {
+            // Cache the maxLength uintVar, supplant the chain, and apply it back.
+            uintVar maxLengthCache = chain.maxLength;
             chain = ScriptableObject.CreateInstance<Chain>();
+            chain.maxLength = maxLengthCache;
+
             chain.AddBubble(this);
         }
         if (other.chain.length == 0) {
+            // Cache the maxLength uintVar, supplant the chain, and apply it back.
+            uintVar maxLengthCache = other.chain.maxLength;
             other.chain = ScriptableObject.CreateInstance<Chain>();
+            other.chain.maxLength = maxLengthCache;
+
             other.chain.AddBubble(other);
         }
 
