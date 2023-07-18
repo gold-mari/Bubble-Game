@@ -38,6 +38,20 @@ public class Bubble : MonoBehaviour
         }
     }
 
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        // Detects collision endings between our collider and other colliders. Used to
+        // update adjacencies and to distribute chains, if needed.
+        // ================
+
+        Bubble otherBubble = other.gameObject.GetComponent<Bubble>();
+        // If the otherBubble is not null...
+        if ( otherBubble ) {
+            // Remove them from our adjacency list.
+            RemoveAdjacency(otherBubble);
+        }
+    }
+
     private void AddAdjacency(Bubble other)
     {
         // Adds Bubble other to this's adjacency list. If the bubbles are of the same
@@ -55,7 +69,19 @@ public class Bubble : MonoBehaviour
 
     public void RemoveAdjacency(Bubble other)
     {
+        // Removes Bubble other to this's adjacency list. If the bubbles are of the same
+        // color, also distributes their chain.
+        // ================
 
+        adjacencies.Remove(other);
+        // If they are of the same color as us, AND we're the younger bubble...
+        if ( other.bubbleColor == bubbleColor && age > other.age ) {
+            // AND we're in the same chain...
+            if ( chain == other.chain) {
+                // Run the Distribution algorithm on our chain.
+                chain.Distribute();
+            }
+        }
     }
 
     private void Consolidate(Bubble other)
@@ -74,11 +100,11 @@ public class Bubble : MonoBehaviour
         // check for length == 0 as a subsitute.
         if (chain.length == 0) {
             chain = ScriptableObject.CreateInstance<Chain>();
-            chain.Initialize(this);
+            chain.AddBubble(this);
         }
         if (other.chain.length == 0) {
             other.chain = ScriptableObject.CreateInstance<Chain>();
-            other.chain.Initialize(other);
+            other.chain.AddBubble(other);
         }
 
         // Begin by comparing chain length. The shorter one will be added to the longer one.
@@ -95,14 +121,7 @@ public class Bubble : MonoBehaviour
         }
 
         // Append the contents of shorter to the end of longer.
-        longer.members.AddRange(shorter.members);
-        // Update length.
-        longer.length += shorter.length;
-
-        // For each Bubble in shorter, point their chains to longer.
-        foreach (Bubble bubble in shorter.members) {
-            bubble.chain = longer;
-        }
+        longer.Concatenate(shorter);
 
         // Finally, unload the old chain if it is now unused.
         Resources.UnloadUnusedAssets();
