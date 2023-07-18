@@ -10,7 +10,7 @@ public class Chain : ScriptableObject
     [ReadOnly]
     public int ID = 0;
     [ReadOnly]
-    public Bubble.Bubble_Color chainColor = Bubble.Bubble_Color.NONE;
+    public Bubble_Color chainColor = Bubble_Color.NONE;
     [ReadOnly]
     public List<Bubble> members = new List<Bubble>();
     [ReadOnly]
@@ -33,7 +33,7 @@ public class Chain : ScriptableObject
         // Adds a bubble to this Chain.
         // ================
         // If we have not decided a chainColor yet, set our chainColor to bubbleColor.
-        if ( chainColor == Bubble.Bubble_Color.NONE ) {
+        if ( chainColor == Bubble_Color.NONE ) {
             chainColor = bubble.bubbleColor;
         }
 
@@ -55,7 +55,7 @@ public class Chain : ScriptableObject
         // Adds the contents of another Chain to this Chain.
         // ================
         // If we have not decided a chainColor yet, set our chainColor to theirs.
-        if ( chainColor == Bubble.Bubble_Color.NONE ) {
+        if ( chainColor == Bubble_Color.NONE ) {
             chainColor = chain.chainColor;
         }
 

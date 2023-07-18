@@ -5,8 +5,6 @@ using NaughtyAttributes;
 
 public class Bubble : MonoBehaviour
 {
-    public enum Bubble_Color {NONE, Red, Blue, Yellow, Green};
-
     // ================================================================
 
     // Bubbles of like colors are eligible to join in chains together.
