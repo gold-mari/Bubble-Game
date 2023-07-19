@@ -13,6 +13,7 @@ public class BubbleSpawner : MonoBehaviour
 
     public float radius = 4.5f;
     public Vector2 center = new Vector2(0,0);
+    public uint initialRoundSize = 20;
 
     uint age = 1;
 
@@ -22,7 +23,7 @@ public class BubbleSpawner : MonoBehaviour
         // ================
 
         RandomizeColors();
-        MassSpawnBubble(200);
+        MassSpawnBubble(initialRoundSize);
         StartCoroutine(RegularSpawnRoutine());
         //StartCoroutine(ImpatientSpawnRoutine());
     }
