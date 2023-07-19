@@ -11,6 +11,11 @@ public class BubbleSpawner : MonoBehaviour
     public bubble_ColorVar currentColor;
     [Expandable]
     public bubble_ColorVar upcomingColor;
+    public float spawnDelay = 1f;
+
+    public float radius = 4.5f;
+    public Vector2 center = new Vector2(0,0);
+
     uint age = 1;
 
     // Start is called before the first frame update
@@ -18,22 +23,30 @@ public class BubbleSpawner : MonoBehaviour
     {
         upcomingColor.value = Bubble_Color_Methods.random();
         currentColor.value = Bubble_Color_Methods.random();
+
+        StartCoroutine(SpawnRoutine());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator SpawnRoutine()
     {
-        if ( Input.GetButtonDown("Fire1") ) {
+        var wait = new WaitForSeconds(spawnDelay);
+
+        while (true) {
             SpawnBubble(currentColor.value);
             currentColor.value = upcomingColor.value;
             upcomingColor.value = Bubble_Color_Methods.random();
+
+            yield return wait;
         }
     }
 
     private void SpawnBubble(Bubble_Color color)
     {
-        Vector2 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        GameObject obj = Instantiate(bubble, worldPosition, Quaternion.identity, transform);
+        // Get the mouse position on the screen.
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        // The spawn point is the vector from the center to the mouse position, normalized and then multiplied by the radius.
+        Vector2 spawnPoint = (mousePosition - center).normalized * radius;
+        GameObject obj = Instantiate(bubble, spawnPoint, Quaternion.identity, transform);
         Bubble objBubble = obj.GetComponent<Bubble>();
 
         // Initialize color, age, and chain.
