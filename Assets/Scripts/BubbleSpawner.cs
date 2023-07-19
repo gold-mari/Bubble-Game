@@ -8,9 +8,7 @@ public class BubbleSpawner : MonoBehaviour
     public Chain nilChain;
     public GameObject bubble;
     [Expandable]
-    public bubble_ColorVar currentColor;
-    [Expandable]
-    public bubble_ColorVar upcomingColor;
+    public List<bubble_ColorVar> colors;
     public float spawnDelay = 1f;
 
     public float radius = 4.5f;
@@ -18,12 +16,12 @@ public class BubbleSpawner : MonoBehaviour
 
     uint age = 1;
 
-    // Start is called before the first frame update
     void Start()
     {
-        upcomingColor.value = Bubble_Color_Methods.random();
-        currentColor.value = Bubble_Color_Methods.random();
+        // Start is called before the first frame update
+        // ================
 
+        RandomizeColors();
         StartCoroutine(SpawnRoutine());
     }
 
@@ -32,12 +30,40 @@ public class BubbleSpawner : MonoBehaviour
         var wait = new WaitForSeconds(spawnDelay);
 
         while (true) {
-            SpawnBubble(currentColor.value);
-            currentColor.value = upcomingColor.value;
-            upcomingColor.value = Bubble_Color_Methods.random();
+            SpawnBubble(colors[0].value);
+            UpdateColors();
 
             yield return wait;
         }
+    }
+
+    private void RandomizeColors()
+    {
+        // Updates the Bubble_Colors in the array colors. Each color is randomized.
+        // ================
+        
+        for (int i = 0; i < colors.Count; i++)
+        {
+            // Generate colors.
+            colors[i].value = Bubble_Color_Methods.random();
+        }
+    }
+
+    private void UpdateColors()
+    {
+        // Updates the Bubble_Colors in the array colors. For all i > 0, the Bubble_Color
+        // at colors[i] is passed to colors[i-1]. The color at colors[Count-1] is then
+        // randomly regenerated.
+        // ================
+        
+        for (int i = 1; i < colors.Count; i++)
+        {
+            // Pass the colors backwards.
+            colors[i-1].value = colors[i].value;
+        }
+
+        // Regenerate the final color.
+        colors[colors.Count-1].value = Bubble_Color_Methods.random();  
     }
 
     private void SpawnBubble(Bubble_Color color)
