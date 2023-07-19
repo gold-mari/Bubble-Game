@@ -1232,6 +1232,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3110091087881957687, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147317678282269186, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8070634603405789312, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: m_Name
       value: Bubble Spawner

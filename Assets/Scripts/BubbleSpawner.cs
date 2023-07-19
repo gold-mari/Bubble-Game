@@ -22,6 +22,7 @@ public class BubbleSpawner : MonoBehaviour
         // ================
 
         RandomizeColors();
+        MassSpawnBubble(200);
         StartCoroutine(RegularSpawnRoutine());
         //StartCoroutine(ImpatientSpawnRoutine());
     }
@@ -36,24 +37,25 @@ public class BubbleSpawner : MonoBehaviour
 
         while (true) {
             yield return wait;
-            SpawnBubble(colors[0].value);
+            CursorSpawnBubble(colors[0].value);
             UpdateColors();
         }
     }
 
-    IEnumerator ImpatientSpawnRoutine()
+    /*IEnumerator ImpatientSpawnRoutine()
     {
         // Spawns a new bubble at the cursor on cursor click. Updates colors after
         // spawning a bubble.
+        // ================
 
         while (true) {
             if ( Input.GetButtonDown("Fire1") ) {
-                SpawnBubble(colors[0].value);
+                CursorSpawnBubble(colors[0].value);
                 UpdateColors();
             }
             yield return null;
         }
-    }
+    }*/
 
     private void RandomizeColors()
     {
@@ -84,20 +86,48 @@ public class BubbleSpawner : MonoBehaviour
         colors[colors.Count-1].value = Bubble_Color_Methods.random();  
     }
 
-    private void SpawnBubble(Bubble_Color color)
+    private void MassSpawnBubble(uint number)
     {
+        // Spawns number Bubbles at an orbit around the screen at regular intervals, all
+        // at once.
+        // ================
+
+        for (int i = 0; i < number; i++) {
+            Quaternion rotation = Quaternion.Euler(0,0,(360*i/number));
+            Vector2 spawnPoint = rotation * Vector2.up * radius;
+            SpawnBubble(spawnPoint, Bubble_Color_Methods.random());
+        }
+    }
+
+    private void CursorSpawnBubble(Bubble_Color color)
+    {
+        // Spawns a bubble at the mouse orbital position. Initializes with a call to
+        // InitializeBubble().
+        // ================
+
         // Get the mouse position on the screen.
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // The spawn point is the vector from the center to the mouse position, normalized and then multiplied by the radius.
         Vector2 spawnPoint = (mousePosition - center).normalized * radius;
+        
+        SpawnBubble(spawnPoint, color);
+    }
+
+    private void SpawnBubble(Vector2 spawnPoint, Bubble_Color color)
+    {
+        // Spawns a Bubble at spawnPoint and initializes its Bubble_Color, age, chain,
+        // and sprite color.
+        // ================
+
         GameObject obj = Instantiate(bubble, spawnPoint, Quaternion.identity, transform);
         Bubble objBubble = obj.GetComponent<Bubble>();
 
         // Initialize color, age, and chain.
         objBubble.bubbleColor = color;
         objBubble.age = age;
-        age++;
         objBubble.chain = nilChain;
+        // Increment age after we spawn it.
+        age++;
 
         // Initialize sprite color.
         SpriteRenderer sprite = obj.GetComponent<SpriteRenderer>();
