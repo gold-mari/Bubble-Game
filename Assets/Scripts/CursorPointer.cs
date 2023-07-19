@@ -5,7 +5,10 @@ using UnityEngine;
 public class CursorPointer : MonoBehaviour
 {
 
-    float radius = 4.5f;
+    // radius.x: inner radius --- radius.y: outer radius
+    public Vector2 radius = new Vector2(1f, 4.4f);
+    public floatVar gravityStrength;
+    SpriteRenderer sprite;
     Vector2 center = new Vector2(0,0);
 
     // Start is called before the first frame update
@@ -17,6 +20,8 @@ public class CursorPointer : MonoBehaviour
             radius = spawner.radius;
             center = spawner.center;
         }
+
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -25,7 +30,17 @@ public class CursorPointer : MonoBehaviour
         // Get the mouse position on the screen.
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // The spawn point is the vector from the center to the mouse position, normalized and then multiplied by the radius.
-        transform.position = (Vector3)((mousePosition - center).normalized * radius);
+        transform.position = (Vector3)((mousePosition - center).normalized);
+        // If gravity points inwards, multiply by outer radius.
+        if (gravityStrength.value < 0) {
+            transform.position *= radius.y;
+            sprite.flipY = true;
+        }
+        // If gravity points outwards, multiply by inner radius.
+        if (gravityStrength.value > 0) {
+            transform.position *= radius.x;
+            sprite.flipY = false;
+        }
 
         transform.rotation = Quaternion.LookRotation(Vector3.forward, transform.position);
     }
