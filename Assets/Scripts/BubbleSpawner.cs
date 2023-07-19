@@ -35,10 +35,9 @@ public class BubbleSpawner : MonoBehaviour
         var wait = new WaitForSeconds(spawnDelay);
 
         while (true) {
+            yield return wait;
             SpawnBubble(colors[0].value);
             UpdateColors();
-
-            yield return wait;
         }
     }
 
