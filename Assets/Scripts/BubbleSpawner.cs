@@ -22,11 +22,16 @@ public class BubbleSpawner : MonoBehaviour
         // ================
 
         RandomizeColors();
-        StartCoroutine(SpawnRoutine());
+        StartCoroutine(RegularSpawnRoutine());
+        //StartCoroutine(ImpatientSpawnRoutine());
     }
 
-    IEnumerator SpawnRoutine()
+    IEnumerator RegularSpawnRoutine()
     {
+        // Spawns a new bubble at the cursor every spawnDelay seconds. Updates colors
+        // after spawning a bubble.
+        // ================
+
         var wait = new WaitForSeconds(spawnDelay);
 
         while (true) {
@@ -34,6 +39,20 @@ public class BubbleSpawner : MonoBehaviour
             UpdateColors();
 
             yield return wait;
+        }
+    }
+
+    IEnumerator ImpatientSpawnRoutine()
+    {
+        // Spawns a new bubble at the cursor on cursor click. Updates colors after
+        // spawning a bubble.
+
+        while (true) {
+            if ( Input.GetButtonDown("Fire1") ) {
+                SpawnBubble(colors[0].value);
+                UpdateColors();
+            }
+            yield return null;
         }
     }
 
