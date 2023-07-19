@@ -836,6 +836,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3110091087881957687, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8b2818426b9dd3247ab57038eacb0a8f, type: 3}
+    - target: {fileID: 3110091087881957687, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539702208292328714, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539702208292328714, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539702208292328714, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 8070634603405789312, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: m_Name
       value: Bubble Spawner
@@ -885,8 +905,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: radius
-      value: 4.5
+      propertyPath: spawnDelay
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
