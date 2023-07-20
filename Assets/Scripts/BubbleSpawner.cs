@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using NaughtyAttributes;
 
 public class BubbleSpawner : MonoBehaviour
@@ -15,7 +16,8 @@ public class BubbleSpawner : MonoBehaviour
     public Vector2 radius = new Vector2(1f, 4.4f);
     public Vector2 center = new Vector2(0,0);
     public uint initialRoundSize = 20;
-    public floatVar gravityStrength;
+    public boolVar gravityFlipped;
+    public UnityEvent flipGravity;
     public uint spawnsBeforeFlip = 6;
 
     uint age = 1;
@@ -24,8 +26,6 @@ public class BubbleSpawner : MonoBehaviour
     {
         // Start is called before the first frame update
         // ================
-
-        gravityStrength.value = -1;
 
         RandomizeColors();
         MassSpawnBubble(initialRoundSize);
@@ -51,15 +51,10 @@ public class BubbleSpawner : MonoBehaviour
             counter++;
 
             if (counter >= spawnsBeforeFlip) {
-                DEBUG_GravityFlip();
+                flipGravity.Invoke();
                 counter = 0;
             }
         }
-    }
-
-    private void DEBUG_GravityFlip()
-    {
-        gravityStrength.value *= -1;
     }
 
     /*IEnumerator ImpatientSpawnRoutine()
@@ -123,10 +118,6 @@ public class BubbleSpawner : MonoBehaviour
         for (int i = 0; i < number; i++) {
             Quaternion rotation = Quaternion.Euler(0,0,(360*i/number));
             Vector2 spawnPoint = rotation * Vector2.up;
-            // If gravity points inwards, multiply by outer radius.
-            if (gravityStrength.value < 0) spawnPoint *= radius.y;
-            // If gravity points outwards, multiply by inner radius.
-            if (gravityStrength.value > 0) spawnPoint *= radius.x;
 
             SpawnBubble(spawnPoint, Bubble_Color_Methods.random());
         }
@@ -149,10 +140,6 @@ public class BubbleSpawner : MonoBehaviour
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // The spawn point is the vector from the center to the mouse position, normalized and then multiplied by the radius.
         Vector2 spawnPoint = (mousePosition - center).normalized;
-        // If gravity points inwards, multiply by outer radius.
-        if (gravityStrength.value < 0) spawnPoint *= radius.y;
-        // If gravity points outwards, multiply by inner radius.
-        if (gravityStrength.value > 0) spawnPoint *= radius.x;
         
         SpawnBubble(spawnPoint, color);
     }
@@ -162,6 +149,15 @@ public class BubbleSpawner : MonoBehaviour
         // Spawns a Bubble at spawnPoint and initializes its Bubble_Color, age, chain,
         // and sprite color.
         // ================
+
+        // If gravity isn't flipped, multiply by outer radius.
+        if (!gravityFlipped.value) {
+            spawnPoint *= radius.y;
+        }
+        // Otherwise, multiply by inner radius.
+        else {
+            spawnPoint *= radius.x;
+        }
 
         GameObject obj = Instantiate(bubble, spawnPoint, Quaternion.identity, transform);
         Bubble objBubble = obj.GetComponent<Bubble>();
