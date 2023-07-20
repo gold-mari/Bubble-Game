@@ -5,16 +5,22 @@ using NaughtyAttributes;
 
 public class Chain : ScriptableObject
 {
-    enum DFS_Color {White, Grey, Black};
+    // Used with DFS to indicated discovered-ness. White: undiscovered. Grey: discovered.
+    enum DFS_Color {White, Grey};
 
+    [Tooltip("The numerical ID of this chain, randomly generated on Awake.")]
     [ReadOnly]
     public int ID = 0;
+    [Tooltip("The Bubble_Color of the bubbles in this chain.")]
     [ReadOnly]
     public Bubble_Color chainColor = Bubble_Color.NONE;
+    [Tooltip("The list of bubbles in this chain.")]
     [ReadOnly]
     public List<Bubble> members = new List<Bubble>();
+    [Tooltip("The length of this chain.")]
     [ReadOnly]
     public uint length = 0;
+    [Tooltip("The uintVar representing the maximum length of ALL chains.")]
     [Expandable]
     public uintVar maxLength;
 
@@ -24,6 +30,9 @@ public class Chain : ScriptableObject
 
     void Awake()
     {
+        // Awake runs on Scriptable Object startup, either on game start or on creation.
+        // ================
+
         // Create a random ID.
         ID = Random.Range(int.MinValue,int.MaxValue);
     }
@@ -32,6 +41,7 @@ public class Chain : ScriptableObject
     {
         // Adds a bubble to this Chain.
         // ================
+
         // If we have not decided a chainColor yet, set our chainColor to bubbleColor.
         if ( chainColor == Bubble_Color.NONE ) {
             chainColor = bubble.bubbleColor;
@@ -54,6 +64,7 @@ public class Chain : ScriptableObject
     {
         // Adds the contents of another Chain to this Chain.
         // ================
+
         // If we have not decided a chainColor yet, set our chainColor to theirs.
         if ( chainColor == Bubble_Color.NONE ) {
             chainColor = chain.chainColor;
@@ -156,9 +167,8 @@ public class Chain : ScriptableObject
     private void DFS_Visit(Bubble bubble, Dictionary<Bubble, DFS_Color> dict, Chain chain)
     {
         // The recursive portion of the DFS algorithm. Each time we visit a bubble, we
-        // set its color to grey. Once we have visited all its adjacencies, we mark it
-        // as black. Every bubble visited within a single recursive walk of DFS_Visit
-        // will be added to the same chain.
+        // set its color to grey. Every bubble visited within a single recursive walk of
+        // DFS_Visit will be added to the same chain.
         // ============
 
         // Mark the visited bubble as grey (partially explored).
@@ -182,10 +192,5 @@ public class Chain : ScriptableObject
                 DFS_Visit(neighbor, dict, chain);
             }
         }
-
-        // Mark the visited bubble as black (fully explored.)
-        dict[bubble] = DFS_Color.Black;
     }
-
-
 }

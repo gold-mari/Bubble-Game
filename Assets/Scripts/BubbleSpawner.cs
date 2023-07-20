@@ -6,20 +6,36 @@ using NaughtyAttributes;
 
 public class BubbleSpawner : MonoBehaviour
 {
-    public Chain nilChain;
+    [Tooltip("The bubble prefab to spawn.\n\nIMPORTANT: This bubble should be initialized with the"
+           + "NIL chain.")]
     public GameObject bubble;
     [Expandable]
+    [Tooltip("The list of current and upcoming Bubble_Colors to spawn, represented by a list of "
+           + "bubble_ColorVars. The 0th index is the current color, and each successive index is "
+           + "the next upcoming color.\n\nThis array may be ANY size.")]
     public List<bubble_ColorVar> colors;
+    [Tooltip("The number of seconds between the regular spawn routine waits between spawning "
+           + "bubbles.\n\nTHIS WILL BE OVERHAULED TO BE ON A TIMEKEEPER MANAGER.")]
     public float spawnDelay = 1f;
-
-    // radius.x: inner radius --- radius.y: outer radius
-    public Vector2 radius = new Vector2(1f, 4.4f);
+    [Tooltip("The center of the playable space.\n\nDefault: (0,0)")]
     public Vector2 center = new Vector2(0,0);
-    public uint initialRoundSize = 20;
-    public boolVar gravityFlipped;
-    public UnityEvent flipGravity;
-    public uint spawnsBeforeFlip = 6;
 
+    [Tooltip("The radii (inner, outer) at which to spawn bubbles. When gravity isn't "
+           + "inverted, the outer radius is used. When gravity IS inverted, the inner "
+           + "radius is used.\n\nDefault: (1,4.4)")]
+    public Vector2 radius = new Vector2(1f, 4.4f);
+    [Tooltip("The number of bubbles to spawn at the start of the game.\n\nDefault: 30 ")]
+    public uint initialRoundSize = 30;
+    [Tooltip("The boolVar which signals if gravity is flipped to point outwards instead of inwards.")]
+    public boolVar gravityFlipped;
+    [Tooltip("A UnityEvent which communicates with GravityManager, telling it to flip gravity.\n\n"
+           + "THIS WILL BE OVERHAULED TO BE ON A TIMEKEEPER MANAGER.")]
+    public UnityEvent flipGravity;
+    [Tooltip("The number of bullets that must spawn before gravity flips.\n\n"
+           + "THIS WILL BE OVERHAULED ENTIRELY.")]
+    public uint spawnsBeforeFlip = 6;
+    // The internal age variable that is passed along to bubbles. When a bubble is
+    // spawned, we increment the age here.
     uint age = 1;
 
     void Start()
@@ -59,8 +75,7 @@ public class BubbleSpawner : MonoBehaviour
 
     /*IEnumerator ImpatientSpawnRoutine()
     {
-        // Spawns a new bubble at the cursor on cursor click. Updates colors after
-        // spawning a bubble.
+        // Spawns a new bubble at the on cursor click. Updates colors after spawning.
         // ================
 
         while (true) {
@@ -104,7 +119,8 @@ public class BubbleSpawner : MonoBehaviour
     private void MassSpawnBubble(uint number)
     {
         // Spawns number Bubbles at an orbit around the screen at regular intervals, all
-        // at once.
+        // at once. The radius at which to spawn the bubble is determined in SpawnBubble
+        // depending on if gravity is flipped.
         // ================
 
         // DEBUG DEBUG DEBUG //
@@ -116,6 +132,8 @@ public class BubbleSpawner : MonoBehaviour
         // DEBUG DEBUG DEBUG //
 
         for (int i = 0; i < number; i++) {
+            // Each spawnPoint should be a unit vector, equally spaced out depending on
+            // the size of i.
             Quaternion rotation = Quaternion.Euler(0,0,(360*i/number));
             Vector2 spawnPoint = rotation * Vector2.up;
 
@@ -125,7 +143,8 @@ public class BubbleSpawner : MonoBehaviour
 
     private void CursorSpawnBubble(Bubble_Color color)
     {
-        // Spawns a bubble at the mouse orbital position.
+        // Spawns a bubble at the mouse orbital position. The radius at which to spawn
+        // the bubble is determined in SpawnBubble depending on if gravity is flipped.
         // ================
 
         // DEBUG DEBUG DEBUG //
@@ -146,8 +165,8 @@ public class BubbleSpawner : MonoBehaviour
 
     private void SpawnBubble(Vector2 spawnPoint, Bubble_Color color)
     {
-        // Spawns a Bubble at spawnPoint and initializes its Bubble_Color, age, chain,
-        // and sprite color.
+        // Spawns a Bubble at spawnPoint and initializes its Bubble_Color, age, and
+        // sprite color.
         // ================
 
         // If gravity isn't flipped, multiply by outer radius.
@@ -162,10 +181,9 @@ public class BubbleSpawner : MonoBehaviour
         GameObject obj = Instantiate(bubble, spawnPoint, Quaternion.identity, transform);
         Bubble objBubble = obj.GetComponent<Bubble>();
 
-        // Initialize color, age, and chain.
+        // Initialize color and age.
         objBubble.bubbleColor = color;
         objBubble.age = age;
-        objBubble.chain = nilChain;
         // Increment age after we spawn it.
         age++;
 

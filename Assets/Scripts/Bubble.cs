@@ -8,23 +8,32 @@ public class Bubble : MonoBehaviour
     // ================================================================
 
     // Bubbles of like colors are eligible to join in chains together.
+    [Tooltip("This bubble's color, represented as a Bubble_Color variable.")]
     public Bubble_Color bubbleColor = Bubble_Color.Red;
     // When a collision occurs, to avoid doublecounting, the Bubble with the oldest/smallest age
     // runs the calculation.
+    [Tooltip("This bubble's age, assigned normally by BubbleSpawner, and used to prevent double"
+           + "calculations occuring during collisions.\n\nExposed here for debug use, if needed.")]
     public uint age = 0;
     // The chain this bubble is a part of. When new bubbles spawn, they are by default of the NIL
     // chain. This is assigned elsewhere.
+    [Tooltip("This bubble's Chain, assigned in collisions.\n\nDefault: the NIL chain.")]
     [Expandable]
     public Chain chain;
     // The list of adjacent bubbles to this one. Updated OnCollisionEnter and OnCollisionExit,
     // among other places.
+    [Tooltip("The bubbles which are adjacent to this one. Exposed for debug use.")]
+    [ReadOnly]
     public List<Bubble> adjacencies = new List<Bubble>();
 
     // ================================================================
     
     void OnDrawGizmos()
     {
-        // Draw a sphere at the transform's position
+        // Use the ID of this bullet's chain to determine the color of this bullet's
+        // gizmo. Use modulo and prime numbers to hash the ID into RGB values.
+        // ================
+
         float r,g,b; 
         r = (Mathf.Abs(chain.ID)/2)%100;     
         g = (Mathf.Abs(chain.ID)/3)%100;   
@@ -89,7 +98,7 @@ public class Bubble : MonoBehaviour
     public void RemoveAdjacency(Bubble other)
     {
         // Removes Bubble other to this's adjacency list. If the bubbles are of the same
-        // color, also distributes their chain.
+        // color and chain, also distributes their chain.
         // ================
 
         adjacencies.Remove(other);
@@ -140,7 +149,7 @@ public class Bubble : MonoBehaviour
     {
         // Consolidates two bubbles with like colors in a collision, this and other,
         // into a single chain. Due to how this function is called in AddAdjacency,
-        // this will be younger than other.
+        // this will always be younger than other.
         // Prerequisites: this.chain != null, other.chain != null
         // ====================
 
