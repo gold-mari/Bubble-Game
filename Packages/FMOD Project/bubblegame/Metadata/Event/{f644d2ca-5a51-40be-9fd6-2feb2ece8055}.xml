@@ -33,7 +33,6 @@
 		</relationship>
 		<relationship name="banks">
 			<destination>{12c9fb6a-c202-4ec0-bdf0-b702c743bd30}</destination>
-			<destination>{93214fad-dea4-460e-9c1c-5c1770e833dc}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{c819844c-32a4-4626-b127-161cfc396d31}">
