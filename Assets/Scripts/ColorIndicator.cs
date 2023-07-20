@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class ColorIndicator : MonoBehaviour
 {
+    // ================================================================
+    // Parameters
+    // ================================================================
+
     [Tooltip("The bubble_ColorVar that this script should monitor.")]
     public bubble_ColorVar color;
     // The sprite renderer on this gameObject.
     SpriteRenderer sprite;
+
+    // ================================================================
+    // Default methods
+    // ================================================================
 
     void Start()
     {

@@ -5,6 +5,11 @@ using NaughtyAttributes;
 
 public class RadialGravity : MonoBehaviour
 {
+
+    // ================================================================
+    // Parameters
+    // ================================================================
+
     [Tooltip("The floatVar representing the current, vector strength of gravity. Negative is "
            + "inwards, positive is outwards.")]
     [Expandable]
@@ -14,6 +19,10 @@ public class RadialGravity : MonoBehaviour
     // The Rigidbody2D on this object.
     Rigidbody2D body;
 
+    // ================================================================
+    // Default methods
+    // ================================================================
+    
     void Start()
     {
         // Start is called before the first frame update. Used to define body.

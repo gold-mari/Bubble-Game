@@ -6,6 +6,10 @@ using NaughtyAttributes;
 public class CursorPointer : MonoBehaviour
 {
 
+    // ================================================================
+    // Parameters
+    // ================================================================
+
     [Tooltip("Whether this script should inherit its parent's BubbleSpawner script. Turn "
            + "this off if you need to fine-tune things.\n\nDefault: true")]
     public bool takeCenterAndRadius = true;
@@ -21,6 +25,10 @@ public class CursorPointer : MonoBehaviour
     public boolVar gravityFlipped;
     // This objects SpriteRenderer. We need a reference to flip the sprite when gravity changes.
     SpriteRenderer sprite;
+
+    // ================================================================
+    // Default methods
+    // ================================================================
 
     void Start()
     {

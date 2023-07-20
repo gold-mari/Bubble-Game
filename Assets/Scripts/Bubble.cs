@@ -5,7 +5,9 @@ using NaughtyAttributes;
 
 public class Bubble : MonoBehaviour
 {
-    // ================================================================
+    // ==============================================================
+    // Parameters
+    // ==============================================================
 
     // Bubbles of like colors are eligible to join in chains together.
     [Tooltip("This bubble's color, represented as a Bubble_Color variable.")]
@@ -26,7 +28,9 @@ public class Bubble : MonoBehaviour
     [ReadOnly]
     public List<Bubble> adjacencies = new List<Bubble>();
 
-    // ================================================================
+    // ==============================================================
+    // Default methods
+    // ==============================================================
     
     void OnDrawGizmos()
     {
@@ -79,6 +83,10 @@ public class Bubble : MonoBehaviour
 
         RemoveAllAdjacencies();
     }
+
+    // ==============================================================
+    // Data-manipulation methods
+    // ==============================================================
 
     private void AddAdjacency(Bubble other)
     {

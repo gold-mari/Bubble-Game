@@ -6,10 +6,16 @@ public enum Bubble_Color {NONE, Red, Blue, Yellow, Green}
 
 public class Bubble_Color_Methods : MonoBehaviour
 {
+    //===============================================================
+    // Static fields
+    //===============================================================
+
     // Returns the number of non-NONE Bubble_Colors
     public static int length = System.Enum.GetValues(typeof(Bubble_Color)).Length;
 
-    //================================================================================================================
+    //===============================================================
+    // Static methods
+    //===============================================================
 
     public static Bubble_Color random()
     {

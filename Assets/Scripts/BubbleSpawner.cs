@@ -6,6 +6,10 @@ using NaughtyAttributes;
 
 public class BubbleSpawner : MonoBehaviour
 {
+    // ==============================================================
+    // Parameters
+    // ==============================================================
+
     [Tooltip("The bubble prefab to spawn.\n\nIMPORTANT: This bubble should be initialized with the"
            + "NIL chain.")]
     public GameObject bubble;
@@ -34,9 +38,18 @@ public class BubbleSpawner : MonoBehaviour
     [Tooltip("The number of bullets that must spawn before gravity flips.\n\n"
            + "THIS WILL BE OVERHAULED ENTIRELY.")]
     public uint spawnsBeforeFlip = 6;
+
+    // ==============================================================
+    // Internal variables
+    // ==============================================================
+
     // The internal age variable that is passed along to bubbles. When a bubble is
     // spawned, we increment the age here.
     uint age = 1;
+
+    // ==============================================================
+    // Default methods
+    // ==============================================================
 
     void Start()
     {
@@ -48,6 +61,10 @@ public class BubbleSpawner : MonoBehaviour
         StartCoroutine(RegularSpawnRoutine());
         //StartCoroutine(ImpatientSpawnRoutine());
     }
+
+    // ==============================================================
+    // Instantiation/Destruction Methods
+    // ==============================================================
 
     IEnumerator RegularSpawnRoutine()
     {
@@ -86,35 +103,6 @@ public class BubbleSpawner : MonoBehaviour
             yield return null;
         }
     }*/
-
-    private void RandomizeColors()
-    {
-        // Updates the Bubble_Colors in the array colors. Each color is randomized.
-        // ================
-        
-        for (int i = 0; i < colors.Count; i++)
-        {
-            // Generate colors.
-            colors[i].value = Bubble_Color_Methods.random();
-        }
-    }
-
-    private void UpdateColors()
-    {
-        // Updates the Bubble_Colors in the array colors. For all i > 0, the Bubble_Color
-        // at colors[i] is passed to colors[i-1]. The color at colors[Count-1] is then
-        // randomly regenerated.
-        // ================
-        
-        for (int i = 1; i < colors.Count; i++)
-        {
-            // Pass the colors backwards.
-            colors[i-1].value = colors[i].value;
-        }
-
-        // Regenerate the final color.
-        colors[colors.Count-1].value = Bubble_Color_Methods.random();  
-    }
 
     private void MassSpawnBubble(uint number)
     {
@@ -190,5 +178,38 @@ public class BubbleSpawner : MonoBehaviour
         // Initialize sprite color.
         SpriteRenderer sprite = obj.GetComponent<SpriteRenderer>();
         sprite.color = Bubble_Color_Methods.getSpriteColor(color);
+    }
+
+    // ==============================================================
+    // Data-manipulation methods
+    // ==============================================================
+
+    private void RandomizeColors()
+    {
+        // Updates the Bubble_Colors in the array colors. Each color is randomized.
+        // ================
+        
+        for (int i = 0; i < colors.Count; i++)
+        {
+            // Generate colors.
+            colors[i].value = Bubble_Color_Methods.random();
+        }
+    }
+
+    private void UpdateColors()
+    {
+        // Updates the Bubble_Colors in the array colors. For all i > 0, the Bubble_Color
+        // at colors[i] is passed to colors[i-1]. The color at colors[Count-1] is then
+        // randomly regenerated.
+        // ================
+        
+        for (int i = 1; i < colors.Count; i++)
+        {
+            // Pass the colors backwards.
+            colors[i-1].value = colors[i].value;
+        }
+
+        // Regenerate the final color.
+        colors[colors.Count-1].value = Bubble_Color_Methods.random();  
     }
 }

@@ -5,6 +5,10 @@ using NaughtyAttributes;
 
 public class GravityManager : MonoBehaviour
 {
+    // ================================================================
+    // Parameters
+    // ================================================================
+
     [Tooltip("The MAGNITUDE strength of gravity, applied as a scalar to the strengthVar.\n\n"
            + "Default: 1\n\nIMPORTANT: gravityStrength should have a minimum value of 0.")]
     [MinValue(0.0f)]
@@ -15,6 +19,10 @@ public class GravityManager : MonoBehaviour
     [Tooltip("The boolVar which signals if gravity is flipped to point outwards instead of inwards.")]
     public boolVar gravityFlipped;
 
+    // ================================================================
+    // Default methods
+    // ================================================================
+
     void Start()
     {
         // Start is called before the first frame update. We use it to initialize 
@@ -24,6 +32,10 @@ public class GravityManager : MonoBehaviour
         strengthVar.value = -gravityStrength;
         gravityFlipped.value = false;
     }
+
+    // ================================================================
+    // Data-manipulation methods
+    // ================================================================
 
     public void FlipGravity()
     {

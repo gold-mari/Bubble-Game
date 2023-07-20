@@ -8,6 +8,10 @@ public class Chain : ScriptableObject
     // Used with DFS to indicated discovered-ness. White: undiscovered. Grey: discovered.
     enum DFS_Color {White, Grey};
 
+    // ==============================================================
+    // Parameters
+    // ==============================================================
+
     [Tooltip("The numerical ID of this chain, randomly generated on Awake.")]
     [ReadOnly]
     public int ID = 0;
@@ -24,9 +28,9 @@ public class Chain : ScriptableObject
     [Expandable]
     public uintVar maxLength;
 
-    // ================================================================
-    // Constructors and Destructors
-    // ================================================================
+    // ==============================================================
+    // Default methods
+    // ==============================================================
 
     void Awake()
     {
@@ -36,6 +40,44 @@ public class Chain : ScriptableObject
         // Create a random ID.
         ID = Random.Range(int.MinValue,int.MaxValue);
     }
+
+    void OnDestroy()
+    {
+        // Runs when this object is destroyed.
+        // ================
+
+        members.Clear();
+    }
+
+    // ================================================================
+    // Instantiation/Destruction Methods
+    // ================================================================
+
+    void DestroyAllMembers()
+    {
+        // Destroys all members of the chain, usually called when a chain goes over its
+        // maximum length.
+        // ================
+
+        // DEBUG DEBUG DEBUG //
+        // DEBUG DEBUG DEBUG //
+        // DEBUG DEBUG DEBUG //
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/ChainDestroy");
+        // DEBUG DEBUG DEBUG //
+        // DEBUG DEBUG DEBUG //
+        // DEBUG DEBUG DEBUG //
+
+        foreach (Bubble bubble in members) {
+            if (bubble) {
+                Destroy(bubble.gameObject);
+            }
+        }
+        Destroy(this);
+    }
+
+    // ==============================================================
+    // Data-manipulation methods
+    // ==============================================================
 
     public void AddBubble(Bubble bubble)
     {
@@ -82,40 +124,6 @@ public class Chain : ScriptableObject
         foreach (Bubble bubble in chain.members) {
             bubble.chain = this;
         }
-    }
-
-    void OnDestroy()
-    {
-        // Runs when this object is destroyed.
-        // ================
-
-        members.Clear();
-    }
-
-    // ================================================================
-    // Member functions
-    // ================================================================
-
-    void DestroyAllMembers()
-    {
-        // Destroys all members of the chain, usually called when a chain goes over its
-        // maximum length.
-        // ================
-
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/ChainDestroy");
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
-
-        foreach (Bubble bubble in members) {
-            if (bubble) {
-                Destroy(bubble.gameObject);
-            }
-        }
-        Destroy(this);
     }
 
     public void Distribute()
