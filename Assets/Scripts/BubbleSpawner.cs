@@ -112,6 +112,14 @@ public class BubbleSpawner : MonoBehaviour
         // at once.
         // ================
 
+        // DEBUG DEBUG DEBUG //
+        // DEBUG DEBUG DEBUG //
+        // DEBUG DEBUG DEBUG //
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/BubbleSpawn");
+        // DEBUG DEBUG DEBUG //
+        // DEBUG DEBUG DEBUG //
+        // DEBUG DEBUG DEBUG //
+
         for (int i = 0; i < number; i++) {
             Quaternion rotation = Quaternion.Euler(0,0,(360*i/number));
             Vector2 spawnPoint = rotation * Vector2.up;
@@ -126,9 +134,16 @@ public class BubbleSpawner : MonoBehaviour
 
     private void CursorSpawnBubble(Bubble_Color color)
     {
-        // Spawns a bubble at the mouse orbital position. Initializes with a call to
-        // InitializeBubble().
+        // Spawns a bubble at the mouse orbital position.
         // ================
+
+        // DEBUG DEBUG DEBUG //
+        // DEBUG DEBUG DEBUG //
+        // DEBUG DEBUG DEBUG //
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/BubbleSpawn");
+        // DEBUG DEBUG DEBUG //
+        // DEBUG DEBUG DEBUG //
+        // DEBUG DEBUG DEBUG //
 
         // Get the mouse position on the screen.
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
