@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65cd3fec2f0678548ba391a6383b05ac, type: 3}
   m_Name: maxLength
   m_EditorClassIdentifier: 
-  value: 5
+  value: 6
