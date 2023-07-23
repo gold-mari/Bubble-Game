@@ -11,12 +11,17 @@ public class DangerTracker : MonoBehaviour
 
     [Tooltip("The boolVar which signals if gravity is flipped to point outwards instead of inwards.")]
     public boolVar gravityFlipped;
-    DangerManager dangerManager;
+    [Tooltip("The DangerManager that we update when we enter and exit danger. Normally assigned in "
+           + " BubbleSpawner, but exposed here for debug purposes.")]
+    public DangerManager dangerManager;
     [Tooltip("The radii (inner, outer) past which a bullet is considered in danger. When gravity "
            + "isn't inverted, the outer radius is used. When gravity IS inverted, the inner radius "
            + "is used.")]
     [SerializeField]
     Vector2 dangerRadii;
+    // The radius of this object, used in distance calculation. Because bubbles are presumed to be
+    // circular, taking either the width or the height will approximate diameter well enough.
+    float bubbleRadius;
     [Tooltip("The center of the playspace.\n\nDefault: (0,0)")]
     [SerializeField] 
     Vector2 center = new Vector2(0,0);
@@ -31,7 +36,6 @@ public class DangerTracker : MonoBehaviour
     bool checkForDanger = false;
     // A cached reference to WaitForSeconds(initialDelay).
     WaitForSeconds wait;
-    // B
     // The BubbleSpawner with System.Action that is shouted when gravity flips.
     // IMPORTANT: THIS WILL BE OVERHAULED AND CONNECTED TO A TIMEKEEPER MANAGER.
     BubbleSpawner spawner;
@@ -46,6 +50,11 @@ public class DangerTracker : MonoBehaviour
         // Start is called before the first frame update. We use it to define flipGravity
         // and toggle checkForDanger after initialDelay seconds.
         // ================
+
+        // Define the radius of our bubble using a bounding box. Again, because bubbles
+        // are presumed to be circular, width is an acceptable substitute for diameter.
+        // Divide by 2 to get radius instead of diameter.
+        bubbleRadius = (GetComponent<CircleCollider2D>().bounds.size.x)/2f;
 
         wait = new WaitForSeconds(initialDelay);
         yield return wait;
@@ -99,17 +108,20 @@ public class DangerTracker : MonoBehaviour
         // Calculate distance from center to use later. Casting a Vector3 to a Vector2
         // discards the z value. 
         float distance = ((Vector2)transform.position - center).magnitude;
-        // Also track if we're past the range. We compare this to inDanger, later.
+
+        // Also, track if we're past the range. We compare this to inDanger, later.
         bool pastRange = false;
 
         // If gravity isn't flipped, check if we're further than the outer radius. If so,
-        // then note that we're past range.
-        if ( !gravityFlipped.value && distance > dangerRadii.y ) {    
+        // then note that we're past range. ALSO, add bubbleRadius to find the distance
+        // to the furthest point on the bubble from the center.
+        if ( !gravityFlipped.value && (distance + bubbleRadius) > dangerRadii.y ) {    
             pastRange = true;
         }
         // Otherwise, check if we're further than the inner radius. If so, then note that
-        // we're past range.
-        else if ( gravityFlipped.value && distance < dangerRadii.x ) {
+        // we're past range. ALSO, subtract bubbleRadius to find the distance to the
+        // closest point on the bubble from the center.
+        else if ( gravityFlipped.value && (distance - bubbleRadius) < dangerRadii.x ) {
             pastRange = true;
         }
         // Recall pastRange is initialized to false. If it isn't set to true by one of
@@ -124,13 +136,13 @@ public class DangerTracker : MonoBehaviour
 
         // If we're pastRange but not inDanger, we just entered danger.
         if ( pastRange && !inDanger ) {
-            // Update DangerManager.
+            dangerManager.Increment();
             Debug.Log("Entered danger!", this);
             inDanger = pastRange;
         }
         // If we're not pastRange but we're inDanger, we just exited danger.
         if ( !pastRange && inDanger ) {
-            // Update DangerManager.
+            dangerManager.Decrement();
             Debug.Log("Left danger!", this);
             inDanger = pastRange;
         }

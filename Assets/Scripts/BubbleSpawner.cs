@@ -13,6 +13,10 @@ public class BubbleSpawner : MonoBehaviour
     [Tooltip("The bubble prefab to spawn.\n\nIMPORTANT: This bubble should be initialized with the"
            + "NIL chain.")]
     public GameObject bubble;
+    [Tooltip("The DangerManager object present in the scene. This is passed off to the "
+           + "DangerTracker components in spawned bubbles.")]
+    [SerializeField]
+    private DangerManager dangerManager;
     [Expandable]
     [Tooltip("The list of current and upcoming Bubble_Colors to spawn, represented by a list of "
            + "bubble_ColorVars. The 0th index is the current color, and each successive index is "
@@ -181,6 +185,9 @@ public class BubbleSpawner : MonoBehaviour
         // Initialize sprite color.
         SpriteRenderer sprite = obj.GetComponent<SpriteRenderer>();
         sprite.color = Bubble_Color_Methods.getSpriteColor(color);
+
+        // Intialize dangerManager reference in dangerTracker.
+        obj.GetComponent<DangerTracker>().dangerManager = dangerManager;
     }
 
     // ==============================================================

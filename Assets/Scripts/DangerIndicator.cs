@@ -14,7 +14,7 @@ public class DangerIndicator : MonoBehaviour
     [SerializeField]
     private boolVar gravityFlipped;
     [Tooltip("The floatVar, ranging from 0 to 1, which signals how close we are to a game over.")]
-    [SerializeField] [Expandable]
+    [SerializeField]
     private floatVar dangerAmount;
     [Tooltip("The size of the mask, ranging from 0 to 1, corresponding to min to max danger when "
            + "gravity is flipped OUTWARDS.\n\nIMPORTANT: Used with VisibleInsideMask.")]
