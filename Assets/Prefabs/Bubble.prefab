@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5062526010735810577}
   - component: {fileID: 1197809473423300111}
   - component: {fileID: 5062526010735810576}
+  - component: {fileID: 3540284537023933622}
   m_Layer: 0
   m_Name: Bubble
   m_TagString: Untagged
@@ -155,3 +156,19 @@ MonoBehaviour:
   age: 2
   chain: {fileID: 11400000, guid: 83523781210cefa4c9912d4153ddd914, type: 2}
   adjacencies: []
+--- !u!114 &3540284537023933622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5062526010735810590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27511d9e54b505340bd8bdc062b42bff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravityFlipped: {fileID: 11400000, guid: 9c2171a126b23a74f98c7c6802930645, type: 2}
+  dangerRadii: {x: 2, y: 3.7}
+  center: {x: 0, y: 0}
+  initialDelay: 1

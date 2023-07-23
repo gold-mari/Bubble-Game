@@ -19,7 +19,7 @@ public class BubbleSpawner : MonoBehaviour
            + "the next upcoming color.\n\nThis array may be ANY size.")]
     public List<bubble_ColorVar> colors;
     [Tooltip("The number of seconds between the regular spawn routine waits between spawning "
-           + "bubbles.\n\nTHIS WILL BE OVERHAULED TO BE ON A TIMEKEEPER MANAGER.")]
+           + "bubbles.\n\nIMPORTANT: THIS WILL BE OVERHAULED TO BE ON A TIMEKEEPER MANAGER.")]
     public float spawnDelay = 1f;
     [Tooltip("The center of the playable space.\n\nDefault: (0,0)")]
     public Vector2 center = new Vector2(0,0);
@@ -33,10 +33,12 @@ public class BubbleSpawner : MonoBehaviour
     [Tooltip("The boolVar which signals if gravity is flipped to point outwards instead of inwards.")]
     public boolVar gravityFlipped;
     [Tooltip("A UnityEvent which communicates with GravityManager, telling it to flip gravity.\n\n"
-           + "THIS WILL BE OVERHAULED TO BE ON A TIMEKEEPER MANAGER.")]
+           + "IMPORTANT: THIS WILL BE OVERHAULED TO BE ON A TIMEKEEPER MANAGER.")]
     public UnityEvent flipGravity;
+    // A System.Action version for use with instantiated bubbles.
+    public System.Action flipGravityAction;
     [Tooltip("The number of bullets that must spawn before gravity flips.\n\n"
-           + "THIS WILL BE OVERHAULED ENTIRELY.")]
+           + "IMPORTANT: THIS WILL BE OVERHAULED ENTIRELY.")]
     public uint spawnsBeforeFlip = 6;
 
     // ==============================================================
@@ -85,6 +87,7 @@ public class BubbleSpawner : MonoBehaviour
 
             if (counter >= spawnsBeforeFlip) {
                 flipGravity.Invoke();
+                flipGravityAction.Invoke();
                 counter = 0;
             }
         }

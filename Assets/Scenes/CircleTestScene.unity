@@ -475,7 +475,7 @@ Transform:
   - {fileID: 840650900}
   - {fileID: 1343432045}
   m_Father: {fileID: 1632959958}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &512483412
 GameObject:
@@ -1096,7 +1096,7 @@ Transform:
   m_Children:
   - {fileID: 668213886}
   m_Father: {fileID: 1632959958}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &753665206
 GameObject:
@@ -1465,7 +1465,7 @@ Transform:
   - {fileID: 1999521817}
   - {fileID: 1540098992}
   m_Father: {fileID: 1632959958}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &900635913
 GameObject:
@@ -1961,7 +1961,7 @@ Transform:
   m_Children:
   - {fileID: 1027602523}
   m_Father: {fileID: 1632959958}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1423262513
 SpriteRenderer:
@@ -2041,7 +2041,7 @@ MonoBehaviour:
   gravityFlipped: {fileID: 11400000, guid: 9c2171a126b23a74f98c7c6802930645, type: 2}
   dangerAmount: {fileID: 11400000, guid: 3369c800a1d2ec7468c5799920b35aa1, type: 2}
   innerRange: {x: 0, y: 0.425}
-  outerRange: {x: 1, y: 0.75}
+  outerRange: {x: 1, y: 0.76}
 --- !u!4 &1425966890 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8070634603405789326, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
@@ -2258,6 +2258,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 391615237}
+  - {fileID: 1649246006}
   - {fileID: 1425966890}
   - {fileID: 859156721}
   - {fileID: 1423262512}
@@ -2265,6 +2266,37 @@ Transform:
   - {fileID: 723333264}
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1649246005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1649246006}
+  m_Layer: 0
+  m_Name: Danger Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1649246006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649246005}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1632959958}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1711827056
 GameObject:
@@ -2569,9 +2601,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bubble Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 8070634603405789312, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8070634603405789326, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8070634603405789326, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2612,6 +2648,10 @@ PrefabInstance:
     - target: {fileID: 8070634603405789326, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: initialRoundSize
