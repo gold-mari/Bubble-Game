@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 5062526010735810590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 5, z: 0}
-  m_LocalScale: {x: 0.24, y: 0.24, z: 0.24}
+  m_LocalScale: {x: 0.23, y: 0.23, z: 0.23}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -103,8 +103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e268a40c27ebcb4fa84a279acbe7534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brightness: 0
   baseColor: {r: 1, g: 1, b: 1, a: 1}
+  brightness: 0
 --- !u!58 &5062526010735810588
 CircleCollider2D:
   m_ObjectHideFlags: 0
