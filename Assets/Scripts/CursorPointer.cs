@@ -34,6 +34,9 @@ public class CursorPointer : MonoBehaviour
     // Updated whenever gravityFlipped changes to store the previous value of brightness. We
     // compare this to the current value of gravityFlipped to detect if it has changed.
     private bool lastGravityFlipped;
+    [Tooltip("The vector2Var equalling the unit vector from the cursor position to the center.")]
+    [SerializeField]
+    private vector2Var cursorUnitVector;
     // The animator on this object.
     Animator animator;
     // This objects SpriteRenderer. We need a reference to flip the sprite when gravity changes.
@@ -75,6 +78,7 @@ public class CursorPointer : MonoBehaviour
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // The spawn point is the vector from the center to the mouse position, normalized and then multiplied by the radius.
         transform.position = (Vector3)((mousePosition - center).normalized);
+        cursorUnitVector.value = (Vector2)transform.position;
 
         // Calculate our lerped radius.
         trueRadius = Mathf.Lerp(radius.y, radius.x, radiusLerper);

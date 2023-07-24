@@ -332,6 +332,7 @@ MonoBehaviour:
   radius: {x: 1, y: 4.5}
   radiusLerper: 1
   gravityFlipped: {fileID: 11400000, guid: 9c2171a126b23a74f98c7c6802930645, type: 2}
+  cursorUnitVector: {fileID: 11400000, guid: d897fa1b5632702439a181ff7e697313, type: 2}
 --- !u!114 &6572034767605892259
 MonoBehaviour:
   m_ObjectHideFlags: 0
