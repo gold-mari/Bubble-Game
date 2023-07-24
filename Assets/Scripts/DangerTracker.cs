@@ -137,13 +137,13 @@ public class DangerTracker : MonoBehaviour
         // If we're pastRange but not inDanger, we just entered danger.
         if ( pastRange && !inDanger ) {
             dangerManager.Increment();
-            Debug.Log("Entered danger!", this);
+            //Debug.Log("Entered danger!", this);
             inDanger = pastRange;
         }
         // If we're not pastRange but we're inDanger, we just exited danger.
         if ( !pastRange && inDanger ) {
             dangerManager.Decrement();
-            Debug.Log("Left danger!", this);
+            //Debug.Log("Left danger!", this);
             inDanger = pastRange;
         }
     }
