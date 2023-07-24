@@ -2704,10 +2704,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bubble Spawner
       objectReference: {fileID: 0}
-    - target: {fileID: 8070634603405789312, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8070634603405789326, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2753,37 +2749,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: spawnDelay
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: dangerManager
       value: 
       objectReference: {fileID: 1649246007}
-    - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: initialRoundSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: spawnsBeforeFlip
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: flipGravity.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: flipGravity.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: flipGravity.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: flipGravity.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2792,30 +2760,6 @@ PrefabInstance:
       propertyPath: flipGravity.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1649246007}
-    - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: flipGravity.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: flipGravity.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FlipGravity
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: flipGravity.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ZeroOut
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: flipGravity.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GravityManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: flipGravity.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: DangerManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: flipGravity.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
 --- !u!1 &2095050683

@@ -18,29 +18,29 @@ public class DangerTracker : MonoBehaviour
            + "isn't inverted, the outer radius is used. When gravity IS inverted, the inner radius "
            + "is used.")]
     [SerializeField]
-    Vector2 dangerRadii;
+    private Vector2 dangerRadii;
     // The radius of this object, used in distance calculation. Because bubbles are presumed to be
     // circular, taking either the width or the height will approximate diameter well enough.
-    float bubbleRadius;
+    private float bubbleRadius;
     [Tooltip("The center of the playspace.\n\nDefault: (0,0)")]
     [SerializeField] 
     Vector2 center = new Vector2(0,0);
     [Tooltip("How long to wait, in seconds, before we start checking for danger.\n\nDefault: 0.5")]
     [SerializeField]
-    float initialDelay = 0.5f;
+    private float initialDelay = 0.5f;
     // Used to determine if this bullet is in the danger range. We compare this in Update to the
     // boolean valuation of if we're in the danger radius- if at any point they differ, update
     // DangerManager and then update inDanger.
-    bool inDanger = false;
-    // Used to halt update from running caltulations until after initialDelay seconds.
-    bool checkForDanger = false;
+    private bool inDanger = false;
+    // Used to halt update from running calculations until after initialDelay seconds.
+    private bool checkForDanger = false;
     // A cached reference to WaitForSeconds(initialDelay).
-    WaitForSeconds wait;
+    private WaitForSeconds wait;
     // The BubbleSpawner with System.Action that is shouted when gravity flips.
     // IMPORTANT: THIS WILL BE OVERHAULED AND CONNECTED TO A TIMEKEEPER MANAGER.
-    BubbleSpawner spawner;
+    private BubbleSpawner spawner;
     // The Animator on this bubble. Used to start the flashing animation when we're in danger.
-    Animator animator;
+    private Animator animator;
     
 
     // ================================================================
