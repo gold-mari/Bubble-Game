@@ -83,7 +83,7 @@ public class DangerTracker : MonoBehaviour
         if (spawner) {
             spawner.flipGravityAction -= OnFlipGravity;
         }
-        if (inDanger) {
+        if (dangerManager && inDanger) {
             dangerManager.Decrement();
         }
     }
@@ -136,15 +136,17 @@ public class DangerTracker : MonoBehaviour
         // If pastRange != inDanger, then pastRange just changed. Note the change, and
         // then update inDanger so it once again matches pastRange.
 
+        if ( dangerManager ) {
         // If we're pastRange but not inDanger, we just entered danger.
-        if ( pastRange && !inDanger ) {
-            dangerManager.Increment();
-            inDanger = pastRange;
-        }
-        // If we're not pastRange but we're inDanger, we just exited danger.
-        if ( !pastRange && inDanger ) {
-            dangerManager.Decrement();
-            inDanger = pastRange;
+            if ( pastRange && !inDanger ) {
+                dangerManager.Increment();
+                inDanger = pastRange;
+            }
+            // If we're not pastRange but we're inDanger, we just exited danger.
+            if ( !pastRange && inDanger ) {
+                dangerManager.Decrement();
+                inDanger = pastRange;
+            }
         }
 
         // Finally, if the animator exists, update the animator.
