@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityFlipped: {fileID: 11400000, guid: 9c2171a126b23a74f98c7c6802930645, type: 2}
+  dangerManager: {fileID: 0}
   dangerRadii: {x: 2, y: 3.7}
   center: {x: 0, y: 0}
   initialDelay: 1

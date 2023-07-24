@@ -69,10 +69,12 @@ public class DangerManager : MonoBehaviour
 
     public void ZeroOut()
     {
-        // Sets bubblesInDanger to 0.
+        // Sets bubblesInDanger to 0, dangerAmount to 0, and stops all coroutines.
         // ================
 
         BubblesInDanger = 0;
+        StopAllCoroutines();
+        dangerAmount.value = 0;
     }
 
     private void BubblesInDangerUpdated()
@@ -112,6 +114,14 @@ public class DangerManager : MonoBehaviour
 
         // Finally, set dangerAmount to 1 to smooth over floating point inconsistencies.
         dangerAmount.value = 1;
+        FullDanger();
+        StopAllCoroutines();
+    }
+
+    void FullDanger()
+    {
+        // A method to be run at the end of InDangerRoutine, when dangerAmount is 1.
+        // ================
     }
 
     IEnumerator OutOfDangerRoutine() 
@@ -133,5 +143,6 @@ public class DangerManager : MonoBehaviour
 
         // Finally, set dangerAmount to 0 to smooth over floating point inconsistencies.
         dangerAmount.value = 0;
+        StopAllCoroutines();
     }
 }

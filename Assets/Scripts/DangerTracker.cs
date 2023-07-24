@@ -71,11 +71,15 @@ public class DangerTracker : MonoBehaviour
 
     void OnDestroy()
     {
-        // OnDestroy is used to remove OnFlipGravity from flipGravity, if possible.
+        // OnDestroy is used to remove OnFlipGravity from flipGravity, if possible. Also,
+        // if this bubble is inDanger, we decrement the number of bubbles in danger.
         // ================
 
         if (spawner) {
             spawner.flipGravityAction -= OnFlipGravity;
+        }
+        if (inDanger) {
+            dangerManager.Decrement();
         }
     }
 
