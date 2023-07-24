@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 6147317678282269186}
   - component: {fileID: 1977139331}
   - component: {fileID: 6572034767605892259}
+  - component: {fileID: 6512167162871676599}
   m_Layer: 0
   m_Name: Cursor
   m_TagString: Untagged
@@ -329,6 +330,7 @@ MonoBehaviour:
   takeCenterAndRadius: 1
   center: {x: 0, y: 0}
   radius: {x: 1, y: 4.5}
+  radiusLerper: 1
   gravityFlipped: {fileID: 11400000, guid: 9c2171a126b23a74f98c7c6802930645, type: 2}
 --- !u!114 &6572034767605892259
 MonoBehaviour:
@@ -343,6 +345,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {fileID: 11400000, guid: f772af05bd226f34bb65321c9e08e1d1, type: 2}
+--- !u!95 &6512167162871676599
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3235331138037480211}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 64d13121c1dffa740b9965999012a13a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &6571574709548563219
 GameObject:
   m_ObjectHideFlags: 0

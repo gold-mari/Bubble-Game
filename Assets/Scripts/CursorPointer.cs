@@ -21,8 +21,21 @@ public class CursorPointer : MonoBehaviour
            + "used.\n\nDefault: (1,4.4)")]
     [HideIf("takeCenterAndRadius")]
     public Vector2 radius = new Vector2(1f, 4.4f);
+    // A float from 0 to 1, using the radius Vector2 to indicate what radius we should orbit at.
+    // A radiusLerper of 1 means we're fully at the outer radius. A radiusLerper of 0 means we're
+    // fully at the inner radius. In between is in between.
+    [HideInInspector]
+    public float radiusLerper = 1;
+    // Store a variable which represents the true radius we orbit at.
+    private float trueRadius;
     [Tooltip("The boolVar which signals if gravity is flipped to point outwards instead of inwards.")]
-    public boolVar gravityFlipped;
+    [SerializeField]
+    private boolVar gravityFlipped;
+    // Updated whenever gravityFlipped changes to store the previous value of brightness. We
+    // compare this to the current value of gravityFlipped to detect if it has changed.
+    private bool lastGravityFlipped;
+    // The animator on this object.
+    Animator animator;
     // This objects SpriteRenderer. We need a reference to flip the sprite when gravity changes.
     SpriteRenderer sprite;
 
@@ -32,10 +45,16 @@ public class CursorPointer : MonoBehaviour
 
     void Start()
     {
-        // Start is called before the first frame update. We use it to define sprite AND
-        // to inherit radius and center if necessary.
+        // Start is called before the first frame update. We use it to define sprite and
+        // animator, to initialize lastGravityFlipped, and to inherit radius and center
+        // if necessary.
         // ================
         
+        sprite = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+
+        lastGravityFlipped = gravityFlipped.value;
+
         // If we want to take our center and radius, do so.
         if (takeCenterAndRadius) {
             BubbleSpawner spawner = transform.parent.GetComponent<BubbleSpawner>();
@@ -45,8 +64,6 @@ public class CursorPointer : MonoBehaviour
             radius = spawner.radius;
             center = spawner.center;
         }
-
-        sprite = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -59,17 +76,22 @@ public class CursorPointer : MonoBehaviour
         // The spawn point is the vector from the center to the mouse position, normalized and then multiplied by the radius.
         transform.position = (Vector3)((mousePosition - center).normalized);
 
-        // If gravity isn't flipped, multiply by outer radius.
-        if (!gravityFlipped.value) {
-            transform.position *= radius.y;
-            sprite.flipY = true;
-        }
-        // Otherwise, multiply by inner radius.
-        else {
-            transform.position *= radius.x;
-            sprite.flipY = false;
+        // Calculate our lerped radius.
+        trueRadius = Mathf.Lerp(radius.y, radius.x, radiusLerper);
+
+        // Apply this radius to our position.
+        transform.position *= trueRadius;
+
+        if ( lastGravityFlipped != gravityFlipped.value ) {
+            lastGravityFlipped = gravityFlipped.value;
+            animator.SetBool("gravityFlipped", gravityFlipped.value);
         }
 
+        // Point towards the center.
         transform.rotation = Quaternion.LookRotation(Vector3.forward, transform.position);
+        // Multiply this by a custom rotation which flips the cursor during animations.
+        // When radiusLerper is 0, we want to flip 180 degrees. When 1, flip 0 degrees.
+        float xAmount = (radiusLerper * 180f);
+        transform.rotation *= Quaternion.Euler(xAmount, 0, 0);
     }
 }

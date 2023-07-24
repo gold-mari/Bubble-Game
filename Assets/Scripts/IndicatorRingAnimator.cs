@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class IndicatorRingAnimator : MonoBehaviour
 {
+    [Tooltip("The boolVar which signals if gravity is flipped to point outwards instead of inwards.")]
     [SerializeField]
     private boolVar gravityFlipped;
     // Updated whenever gravityFlipped changes to store the previous value of brightness. We
