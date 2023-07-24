@@ -16,7 +16,7 @@ public class DangerManager : MonoBehaviour
     [Tooltip("The number of bubbles in danger. If this is above 0, dangerAmount steadily increases.")]
     [SerializeField] [ReadOnly]
     private uint bubblesInDanger = 0;   // The field.
-    private uint BubblesInDanger {      // THe property
+    private uint BubblesInDanger {      // The property.
         get 
         {
             return bubblesInDanger;

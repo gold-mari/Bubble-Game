@@ -44,7 +44,7 @@ public class Bubble : MonoBehaviour
         b = (Mathf.Abs(chain.ID)/5)%100;
         
         Gizmos.color = new Color(r/100f,g/100f,b/100f);
-        Gizmos.DrawSphere(transform.position, 0.33f);
+        Gizmos.DrawSphere(transform.position, 0.25f);
     }
 
     private void OnCollisionEnter2D(Collision2D other)

@@ -39,6 +39,8 @@ public class DangerTracker : MonoBehaviour
     // The BubbleSpawner with System.Action that is shouted when gravity flips.
     // IMPORTANT: THIS WILL BE OVERHAULED AND CONNECTED TO A TIMEKEEPER MANAGER.
     BubbleSpawner spawner;
+    // The Animator on this bubble. Used to start the flashing animation when we're in danger.
+    Animator animator;
     
 
     // ================================================================
@@ -65,6 +67,9 @@ public class DangerTracker : MonoBehaviour
             spawner.flipGravityAction += OnFlipGravity;
         }
 
+        // Define the animator.
+        animator = GetComponent<Animator>();
+
         // Finally, note we can checkForDanger.
         checkForDanger = true;
     }
@@ -83,18 +88,11 @@ public class DangerTracker : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Update is called once per frame. We use it to check if we're past our danger
-        // range, and update inDanger accordingly. Using edge detection to ... ???
-        // ???????????// ???????????
-        // ???????????
-        // ???????????
-        // ???????????// ???????????
-
-
-        // ???????????
+        // range, and update inDanger accordingly. We use edge detection to increment and
+        // decrement dangerManager.
         // ================
 
         // ================================
@@ -141,14 +139,17 @@ public class DangerTracker : MonoBehaviour
         // If we're pastRange but not inDanger, we just entered danger.
         if ( pastRange && !inDanger ) {
             dangerManager.Increment();
-            //Debug.Log("Entered danger!", this);
             inDanger = pastRange;
         }
         // If we're not pastRange but we're inDanger, we just exited danger.
         if ( !pastRange && inDanger ) {
             dangerManager.Decrement();
-            //Debug.Log("Left danger!", this);
             inDanger = pastRange;
+        }
+
+        // Finally, if the animator exists, update the animator.
+        if ( animator ) {
+            animator.SetBool("inDanger", inDanger);
         }
     }
 
@@ -171,6 +172,7 @@ public class DangerTracker : MonoBehaviour
         // ================
 
         inDanger = false;
+        animator.SetBool("inDanger", false);
         checkForDanger = false;
         // Reset DangerManager.
         yield return wait;

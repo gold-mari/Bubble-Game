@@ -2757,6 +2757,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: spawnDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: dangerManager
       value: 
       objectReference: {fileID: 1649246007}
