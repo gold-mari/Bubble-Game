@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using NaughtyAttributes;
 
 public class DangerManager : MonoBehaviour
@@ -34,6 +35,8 @@ public class DangerManager : MonoBehaviour
            + "\n\nDefault: 0.667")]
     [SerializeField] 
     private float outOfDangerLerpTime = 0.667f;
+    [SerializeField] [Scene]
+    private int DEBUG_loseScene;
 
     // ================================================================
     // Default methods
@@ -91,7 +94,11 @@ public class DangerManager : MonoBehaviour
         // If we're out of danger, start the OutOfDanger routine.
         else if ( BubblesInDanger == 0 ) {
             StopAllCoroutines();
-            StartCoroutine(OutOfDangerRoutine());
+            // This coroutine has a nasty habit of starting one scene transition and
+            // raising errors.
+            if (gameObject.activeInHierarchy) {
+                StartCoroutine(OutOfDangerRoutine());
+            }
         }
     }
 
@@ -122,6 +129,12 @@ public class DangerManager : MonoBehaviour
     {
         // A method to be run at the end of InDangerRoutine, when dangerAmount is 1.
         // ================
+
+        // DEBUG
+        // DEBUG
+        // DEBUG
+        // DEBUG
+        SceneManager.LoadScene(DEBUG_loseScene);
     }
 
     IEnumerator OutOfDangerRoutine() 

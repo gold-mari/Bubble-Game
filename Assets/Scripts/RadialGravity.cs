@@ -31,7 +31,7 @@ public class RadialGravity : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // Update is called once per frame. Used to apply the force of gravity onto body.
         // ================
