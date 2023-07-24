@@ -88,7 +88,6 @@ public class BubbleSpawner : MonoBehaviour
             UpdateColors();
 
             counter++;
-            print(counter);
 
             if (counter >= spawnsBeforeFlip) {
                 flipGravity.Invoke();
