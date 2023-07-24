@@ -89,12 +89,16 @@ public class DangerManager : MonoBehaviour
         // If we're in danger, start the InDanger routine.
         if ( BubblesInDanger > 0 ) {
             StopAllCoroutines();
-            StartCoroutine(InDangerRoutine());
+            // This coroutine has a nasty habit of starting on scene transition and
+            // raising errors. No clue why.
+            if (gameObject.activeInHierarchy) {
+                StartCoroutine(InDangerRoutine());
+            }
         }
         // If we're out of danger, start the OutOfDanger routine.
         else if ( BubblesInDanger == 0 ) {
             StopAllCoroutines();
-            // This coroutine has a nasty habit of starting one scene transition and
+            // This coroutine has a nasty habit of starting on scene transition and
             // raising errors.
             if (gameObject.activeInHierarchy) {
                 StartCoroutine(OutOfDangerRoutine());
