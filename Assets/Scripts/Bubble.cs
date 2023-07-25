@@ -47,13 +47,13 @@ public class Bubble : MonoBehaviour
         Gizmos.DrawSphere(transform.position, 0.25f);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        // Detects collision starts between our collider and other colliders. Used to
+        // Detects collision starts between our collider and other triggers. Used to
         // update adjacencies and to consolidate bubbles into chains, if needed.
         // ================
 
-        Bubble otherBubble = other.gameObject.GetComponent<Bubble>();
+        Bubble otherBubble = other.transform.parent.GetComponent<Bubble>();
         // If the otherBubble is not null...
         if ( otherBubble ) {
             // Add them to our adjacency list.
@@ -61,13 +61,13 @@ public class Bubble : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        // Detects collision endings between our collider and other colliders. Used to
+        // Detects collision endings between our collider and other triggers. Used to
         // update adjacencies and to distribute chains, if needed.
         // ================
 
-        Bubble otherBubble = other.gameObject.GetComponent<Bubble>();
+        Bubble otherBubble = other.transform.parent.GetComponent<Bubble>();
         // If the otherBubble is not null...
         if ( otherBubble ) {
             // Remove them from our adjacency list.
