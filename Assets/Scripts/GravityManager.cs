@@ -39,6 +39,15 @@ public class GravityManager : MonoBehaviour
 
     public void FlipGravity()
     {
+        // A small helper function called elsewhere via events. Flips the direction of
+        // gravity, and notes that we flipped it. Also plays a sound effect, for now.
+        // ================
+
+        // DEBUG???
+        // DEBUG!!!
+        // i got a glock in my rari
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/GravityFlip");
+
         strengthVar.value *= -1;
         gravityFlipped.value = !gravityFlipped.value;
     }

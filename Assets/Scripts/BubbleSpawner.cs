@@ -90,6 +90,7 @@ public class BubbleSpawner : MonoBehaviour
             CursorSpawnBubble(colors[0].value);
             UpdateColors();
 
+            // flipCounter and massCounter run on seperate clocks.
             flipcounter++;
             masscounter++;
 
