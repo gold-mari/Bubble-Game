@@ -33,8 +33,12 @@ public class BubbleColorHelper : MonoBehaviour
         // ================
 
         brightness = lastBrightness = 0;
-        baseColor = Bubble_Color_Methods.getSpriteColor(GetComponent<Bubble>().bubbleColor);
+        
+        // Get the color from our parent's Bubble component.
+        baseColor = Bubble_Color_Methods.getSpriteColor(transform.parent.GetComponent<Bubble>().bubbleColor);
+        // Define sprite and apply baseColor to it.
         sprite = GetComponent<SpriteRenderer>();
+        sprite.color = baseColor;
     }
 
     void Update()

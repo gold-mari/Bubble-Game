@@ -182,10 +182,6 @@ public class BubbleSpawner : MonoBehaviour
         // Increment age after we spawn it.
         age++;
 
-        // Initialize sprite color.
-        SpriteRenderer sprite = obj.GetComponent<SpriteRenderer>();
-        sprite.color = Bubble_Color_Methods.getSpriteColor(color);
-
         // Intialize dangerManager reference in dangerTracker.
         obj.GetComponent<DangerTracker>().dangerManager = dangerManager;
     }
