@@ -843,7 +843,7 @@ GameObject:
   m_Component:
   - component: {fileID: 611594877}
   - component: {fileID: 611594879}
-  - component: {fileID: 611594878}
+  - component: {fileID: 611594880}
   m_Layer: 0
   m_Name: Joystick
   m_TagString: Untagged
@@ -866,20 +866,6 @@ Transform:
   m_Father: {fileID: 371661997}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &611594878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 611594876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fea56b2e5c3df7f4bb017942d824ccb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitVector: {fileID: 11400000, guid: d897fa1b5632702439a181ff7e697313, type: 2}
-  maxRadius: 0.5
 --- !u!212 &611594879
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -932,6 +918,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &611594880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611594876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f51145541816ee345ad84c90332b5240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointVector: {fileID: 11400000, guid: d897fa1b5632702439a181ff7e697313, type: 2}
+  radiusScale: 0.11
+  maxRadius: 0.5
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -3065,6 +3066,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1632959958}
     m_Modifications:
+    - target: {fileID: 1977139331, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: cursorPointVector
+      value: 
+      objectReference: {fileID: 11400000, guid: d897fa1b5632702439a181ff7e697313, type: 2}
     - target: {fileID: 8070634603405789312, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: m_Name
       value: Bubble Spawner

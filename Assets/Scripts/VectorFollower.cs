@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitVectorFollower : MonoBehaviour
+public class VectorFollower : MonoBehaviour
 {
     // ================================================================
     // Parameters
     // ================================================================
 
     [SerializeField]
-    private vector2Var unitVector;
+    private vector2Var pointVector;
+    [SerializeField]
+    private float radiusScale;
     [SerializeField]
     private float maxRadius;
     private Vector2 center;
@@ -23,6 +25,11 @@ public class UnitVectorFollower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = (Vector3)(center + (unitVector.value * maxRadius));
+        Vector2 scaledVector = (pointVector.value * radiusScale);
+        if ( scaledVector.magnitude > maxRadius ) {
+            scaledVector = scaledVector.normalized * maxRadius;
+        }
+
+        transform.position = (Vector3)(center + scaledVector);
     }
 }
