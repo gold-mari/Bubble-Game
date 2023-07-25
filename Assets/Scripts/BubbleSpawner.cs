@@ -32,8 +32,8 @@ public class BubbleSpawner : MonoBehaviour
            + "inverted, the outer radius is used. When gravity IS inverted, the inner "
            + "radius is used.\n\nDefault: (1,4.4)")]
     public Vector2 radius = new Vector2(1f, 4.4f);
-    [Tooltip("The number of bubbles to spawn at the start of the game.\n\nDefault: 30 ")]
-    public uint initialRoundSize = 30;
+    [Tooltip("The number of bubbles to spawn in mass rounds.\n\nDefault: 20")]
+    public uint massRoundSize = 20;
     [Tooltip("The boolVar which signals if gravity is flipped to point outwards instead of inwards.")]
     public boolVar gravityFlipped;
     [Tooltip("A UnityEvent which communicates with GravityManager, telling it to flip gravity.\n\n"
@@ -43,7 +43,10 @@ public class BubbleSpawner : MonoBehaviour
     public System.Action flipGravityAction;
     [Tooltip("The number of bullets that must spawn before gravity flips.\n\n"
            + "IMPORTANT: THIS WILL BE OVERHAULED ENTIRELY.")]
-    public uint spawnsBeforeFlip = 6;
+    public uint spawnsBeforeFlip = 8;
+    [Tooltip("The number of bullets that must spawn before a mass wave spawns.\n\n"
+           + "IMPORTANT: THIS WILL BE OVERHAULED ENTIRELY.")]
+    public uint spawnsBeforeMass = 16;
 
     // ==============================================================
     // Internal variables
@@ -63,7 +66,7 @@ public class BubbleSpawner : MonoBehaviour
         // ================
 
         RandomizeColors();
-        MassSpawnBubble(initialRoundSize);
+        MassSpawnBubble(massRoundSize);
         StartCoroutine(RegularSpawnRoutine());
         //StartCoroutine(ImpatientSpawnRoutine());
     }
@@ -79,20 +82,28 @@ public class BubbleSpawner : MonoBehaviour
         // ================
 
         var wait = new WaitForSeconds(spawnDelay);
-        yield return wait;
-        uint counter = 0;
+        uint flipcounter = 0;
+        uint masscounter = 0;
 
         while (true) {
             yield return wait;
             CursorSpawnBubble(colors[0].value);
             UpdateColors();
 
-            counter++;
+            flipcounter++;
+            masscounter++;
 
-            if (counter >= spawnsBeforeFlip) {
+            if (flipcounter >= spawnsBeforeFlip) {
+                yield return wait;
                 flipGravity.Invoke();
                 flipGravityAction.Invoke();
-                counter = 0;
+                flipcounter = 0;
+            }
+
+            if (masscounter >= spawnsBeforeMass) {
+                yield return wait;
+                MassSpawnBubble(massRoundSize);
+                masscounter = 0;
             }
         }
     }

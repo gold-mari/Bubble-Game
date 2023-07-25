@@ -665,7 +665,7 @@ Transform:
   - {fileID: 804401541}
   - {fileID: 742640116}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &512483414
 SortingGroup:
@@ -1531,7 +1531,7 @@ GameObject:
   - component: {fileID: 804401541}
   - component: {fileID: 804401540}
   m_Layer: 0
-  m_Name: Peter_Griffin_1
+  m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2621,7 +2621,7 @@ Transform:
   - {fileID: 458402878}
   - {fileID: 723333264}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &1632959959
 SortingGroup:
@@ -3130,6 +3130,18 @@ PrefabInstance:
       propertyPath: dangerManager
       value: 
       objectReference: {fileID: 1649246007}
+    - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: massRoundSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: spawnsBeforeFlip
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: spawnsBeforeMass
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 8070634603405789327, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: flipGravity.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
