@@ -577,7 +577,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1632959958}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &391615238
 MonoBehaviour:
@@ -631,7 +631,7 @@ Transform:
   - {fileID: 840650900}
   - {fileID: 1343432045}
   m_Father: {fileID: 1632959958}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &512483412
 GameObject:
@@ -690,7 +690,6 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
-  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -802,37 +801,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attenuationObject: {fileID: 0}
---- !u!114 &519420034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -60412168
-      Data2: 1101255176
-      Data3: 1376886182
-      Data4: -225480031
-    Path: event:/Music/DEBUG-Music
-  Event: 
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &611594876
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,6 +911,7 @@ GameObject:
   m_Component:
   - component: {fileID: 619394802}
   - component: {fileID: 619394801}
+  - component: {fileID: 619394803}
   m_Layer: 0
   m_Name: Global Light 2D
   m_TagString: Untagged
@@ -1044,6 +1013,90 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &619394803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619394800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
+--- !u!1 &625595083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 625595084}
+  - component: {fileID: 625595085}
+  m_Layer: 0
+  m_Name: Timekeeper Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &625595084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625595083}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1632959958}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &625595085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625595083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50363f1275f6eb14c8c22197ac3c89d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endgameManager: {fileID: 990701828}
+  waitLength: 159
+  musicEvent:
+    Guid:
+      Data1: -60412168
+      Data2: 1101255176
+      Data3: 1376886182
+      Data4: -225480031
+    Path: event:/Music/DEBUG-Music
 --- !u!1 &642447471
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,7 +1419,7 @@ Transform:
   m_Children:
   - {fileID: 668213886}
   m_Father: {fileID: 1632959958}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &742640115
 GameObject:
@@ -1819,7 +1872,7 @@ Transform:
   - {fileID: 1999521817}
   - {fileID: 1540098992}
   m_Father: {fileID: 1632959958}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &900635913
 GameObject:
@@ -1949,7 +2002,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1632959958}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &990701828
 MonoBehaviour:
@@ -1963,6 +2016,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e490f87045ea7e54ba3d5eadc4d81653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneOnLose: 1
+  sceneOnWin: 2
 --- !u!1 &1027602522
 GameObject:
   m_ObjectHideFlags: 0
@@ -2359,7 +2414,7 @@ Transform:
   m_Children:
   - {fileID: 1027602523}
   m_Father: {fileID: 1632959958}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1423262513
 SpriteRenderer:
@@ -2657,6 +2712,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 320711699}
+  - {fileID: 625595084}
   - {fileID: 990701827}
   - {fileID: 391615237}
   - {fileID: 1649246006}
@@ -2709,7 +2765,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1632959958}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1649246007
 MonoBehaviour:
@@ -2723,11 +2779,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a8abe4c9caec9241adea0b67fb3369b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endgameManager: {fileID: 990701828}
   dangerAmount: {fileID: 11400000, guid: 3369c800a1d2ec7468c5799920b35aa1, type: 2}
   bubblesInDanger: 0
   inDangerLerpTime: 5
   outOfDangerLerpTime: 0.667
-  DEBUG_loseScene: 1
 --- !u!1 &1711827056
 GameObject:
   m_ObjectHideFlags: 0
@@ -3125,7 +3181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8070634603405789326, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8070634603405789326, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: m_LocalPosition.x

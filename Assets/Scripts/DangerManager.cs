@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using NaughtyAttributes;
 
 public class DangerManager : MonoBehaviour
@@ -10,6 +9,9 @@ public class DangerManager : MonoBehaviour
     // Parameters
     // ================================================================
 
+    [Tooltip("The Endgame Manager present in the scene.")]
+    [SerializeField] 
+    private EndgameManager endgameManager;
     [Tooltip("The floatVar, ranging from 0 to 1, which signals how close we are to a game over.")]
     [SerializeField] [Expandable]
     private floatVar dangerAmount;
@@ -35,8 +37,6 @@ public class DangerManager : MonoBehaviour
            + "\n\nDefault: 0.667")]
     [SerializeField] 
     private float outOfDangerLerpTime = 0.667f;
-    [SerializeField] [Scene]
-    private int DEBUG_loseScene;
 
     // ================================================================
     // Default methods
@@ -129,16 +129,12 @@ public class DangerManager : MonoBehaviour
         StopAllCoroutines();
     }
 
-    void FullDanger()
+    private void FullDanger()
     {
         // A method to be run at the end of InDangerRoutine, when dangerAmount is 1.
         // ================
 
-        // DEBUG
-        // DEBUG
-        // DEBUG
-        // DEBUG
-        SceneManager.LoadScene(DEBUG_loseScene);
+        endgameManager.TriggerLoss();
     }
 
     IEnumerator OutOfDangerRoutine() 
