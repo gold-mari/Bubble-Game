@@ -138,13 +138,28 @@ public class BubbleSpawner : MonoBehaviour
         // DEBUG DEBUG DEBUG //
         // DEBUG DEBUG DEBUG //
 
+        // Used to generate Bubble_Colors non-repetitiously.
+        Bubble_Color currentColor;
+        Bubble_Color lastColor = Bubble_Color.NONE;
+        Bubble_Color colorBeforeThat = Bubble_Color.NONE;
+
         for (int i = 0; i < number; i++) {
             // Each spawnPoint should be a unit vector, equally spaced out depending on
             // the size of i.
             Quaternion rotation = Quaternion.Euler(0,0,(360*i/number));
             Vector2 spawnPoint = rotation * Vector2.up;
 
-            SpawnBubble(spawnPoint, Bubble_Color_Methods.random());
+            // If the Color we generated was one of the last two Colors we generated,
+            // regenerate it.
+            do {
+                currentColor = Bubble_Color_Methods.random();
+            } while ( currentColor == lastColor || currentColor == colorBeforeThat );
+
+            SpawnBubble(spawnPoint, currentColor);
+
+            // After spawning, pass back the Colors we've seen.
+            colorBeforeThat = lastColor;
+            lastColor = currentColor;
         }
     }
 

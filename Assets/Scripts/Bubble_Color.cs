@@ -24,7 +24,7 @@ public class Bubble_Color_Methods : MonoBehaviour
 
         return (Bubble_Color)Random.Range(1, length);
     }
-
+    
     // Color references used with getSpriteColor.
     private static Color red = new Color(1f,0.2962264f,0.2962264f);
     private static Color blue = new Color(0.2980392f,0.6712846f,1f);
