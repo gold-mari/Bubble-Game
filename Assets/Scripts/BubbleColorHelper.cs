@@ -9,7 +9,8 @@ public class BubbleColorHelper : MonoBehaviour
     // Parameters
     // ==============================================================
 
-    [Tooltip("This object's base color.")]
+    [Tooltip("This object's base color. By default we get this from our Bubble_Color, but it can "
+           + "updated at runtime if you wish.")]
     [SerializeField]
     private Color baseColor;
     [Tooltip("A float (-1 to 1) which is used to lerp the base color towards white, if Brightness "
