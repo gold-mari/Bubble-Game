@@ -15,7 +15,12 @@ public class DangerManager : MonoBehaviour
     [Tooltip("The floatVar, ranging from 0 to 1, which signals how close we are to a game over.")]
     [SerializeField] [Expandable]
     private floatVar dangerAmount;
-    [Tooltip("The boolVar, corresponding to if dangerAmount is over 0.")]
+    [Tooltip("The float threshold compared against dangerAmount to determine if inDanger is true."
+           + "\n\nDefault: 0.2f")]
+    [SerializeField]
+    private float dangerThreshold = 0.2f;
+    [Tooltip("The boolVar, corresponding to if dangerAmount is greater than or equal to "
+           + "dangerThreshold. Communicated to animators and other sources.")]
     [SerializeField]
     private boolVar inDanger;
     [Tooltip("The number of bubbles in danger. If this is above 0, dangerAmount steadily increases.")]
@@ -52,6 +57,20 @@ public class DangerManager : MonoBehaviour
 
         dangerAmount.value = 0;
         inDanger.value = false;
+    }
+
+    void Update()
+    {
+        // Update is called once per frame. We use it to update inDanger based on the
+        // value of dangerAmount and dangerThreshold.
+        // ================
+
+        if ( dangerAmount.value >= dangerThreshold ) {
+            inDanger.value = true;
+        }
+        else {  // dangerAmount.value < dangerThreshold
+            inDanger.value = false;
+        }
     }
 
     // ================================================================
@@ -92,7 +111,6 @@ public class DangerManager : MonoBehaviour
 
         // If we're in danger, start the InDanger routine.
         if ( BubblesInDanger > 0 ) {
-            inDanger.value = true;
             StopAllCoroutines();
             // This coroutine has a nasty habit of starting on scene transition and
             // raising errors. No clue why. Put a check in to fix it.
@@ -102,7 +120,6 @@ public class DangerManager : MonoBehaviour
         }
         // If we're out of danger, start the OutOfDanger routine.
         else if ( BubblesInDanger == 0 ) {
-            inDanger.value = false;
             StopAllCoroutines();
             // This coroutine has a nasty habit of starting on scene transition and
             // raising errors. Put a check in to fix it.
@@ -140,7 +157,7 @@ public class DangerManager : MonoBehaviour
         // A method to be run at the end of InDangerRoutine, when dangerAmount is 1.
         // ================
 
-        endgameManager.TriggerLoss();
+        //endgameManager.TriggerLoss();
     }
 
     IEnumerator OutOfDangerRoutine() 

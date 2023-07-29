@@ -2894,6 +2894,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endgameManager: {fileID: 990701828}
   dangerAmount: {fileID: 11400000, guid: 3369c800a1d2ec7468c5799920b35aa1, type: 2}
+  dangerThreshold: 0.1
   inDanger: {fileID: 11400000, guid: 777dc729eac653f408c903a2f488b24a, type: 2}
   bubblesInDanger: 0
   inDangerLerpTime: 5

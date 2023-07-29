@@ -36,6 +36,7 @@ public class CharacterAnimator : MonoBehaviour
             lastInDanger = inDanger.value;
             // If we are now in danger, change the state.
             if ( inDanger.value ) {
+                print("IN DANGER");
                 animator.SetTrigger("changeState");
             }
         }
@@ -49,17 +50,20 @@ public class CharacterAnimator : MonoBehaviour
     {
         animator.SetTrigger("chainBreak");
         animator.SetTrigger("changeState");
+        print("CHAIN BREAK");
     }
 
     public void OnTriggerWin()
     {
         animator.SetTrigger("triggerWin");
         animator.SetTrigger("changeState");
+        print("TRIGGER WIN");
     }
 
     public void OnTriggerLoss()
     {
         animator.SetTrigger("triggerLoss");
         animator.SetTrigger("changeState");
+        print("TRIGGER LOSS");
     }
 }
