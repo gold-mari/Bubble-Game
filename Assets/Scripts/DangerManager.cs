@@ -8,13 +8,16 @@ public class DangerManager : MonoBehaviour
     // ================================================================
     // Parameters
     // ================================================================
-
+    
     [Tooltip("The Endgame Manager present in the scene.")]
     [SerializeField] 
     private EndgameManager endgameManager;
     [Tooltip("The floatVar, ranging from 0 to 1, which signals how close we are to a game over.")]
     [SerializeField] [Expandable]
     private floatVar dangerAmount;
+    [Tooltip("The boolVar, corresponding to if dangerAmount is over 0.")]
+    [SerializeField]
+    private boolVar inDanger;
     [Tooltip("The number of bubbles in danger. If this is above 0, dangerAmount steadily increases.")]
     [SerializeField] [ReadOnly]
     private uint bubblesInDanger = 0;   // The field.
@@ -48,6 +51,7 @@ public class DangerManager : MonoBehaviour
         // ================
 
         dangerAmount.value = 0;
+        inDanger.value = false;
     }
 
     // ================================================================
@@ -88,18 +92,20 @@ public class DangerManager : MonoBehaviour
 
         // If we're in danger, start the InDanger routine.
         if ( BubblesInDanger > 0 ) {
+            inDanger.value = true;
             StopAllCoroutines();
             // This coroutine has a nasty habit of starting on scene transition and
-            // raising errors. No clue why.
+            // raising errors. No clue why. Put a check in to fix it.
             if (gameObject.activeInHierarchy) {
                 StartCoroutine(InDangerRoutine());
             }
         }
         // If we're out of danger, start the OutOfDanger routine.
         else if ( BubblesInDanger == 0 ) {
+            inDanger.value = false;
             StopAllCoroutines();
             // This coroutine has a nasty habit of starting on scene transition and
-            // raising errors.
+            // raising errors. Put a check in to fix it.
             if (gameObject.activeInHierarchy) {
                 StartCoroutine(OutOfDangerRoutine());
             }
@@ -139,7 +145,7 @@ public class DangerManager : MonoBehaviour
 
     IEnumerator OutOfDangerRoutine() 
     {
-        // Lerps dangerAmount up from 0 to 1 in maximum inDangerLerpTime.
+        // Lerps dangerAmount down from 1 to 0 in maximum outOfDangerLerpTime.
         // ================
 
         // We may be starting from a nonone dangerAmount. Calculate how much time has

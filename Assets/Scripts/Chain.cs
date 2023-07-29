@@ -53,6 +53,16 @@ public class Chain : ScriptableObject
     // Instantiation/Destruction Methods
     // ================================================================
 
+    void BreakChain()
+    {
+        // Called when a chain breaks. Passes a call up to the ChainBreakHandler and then
+        // destroys all members.
+        // ================
+
+        members[0].transform.parent.GetComponent<ChainBreakHandler>().ShoutChainBreak();
+        DestroyAllMembers();
+    }
+
     void DestroyAllMembers()
     {
         // Destroys all members of the chain, usually called when a chain goes over its
@@ -95,7 +105,7 @@ public class Chain : ScriptableObject
 
         // If incrementing length takes us over our max, destroy this chain.
         if (length >= maxLength.value) {
-            DestroyAllMembers();
+            BreakChain();
         }
 
         // Update their field.
@@ -118,7 +128,7 @@ public class Chain : ScriptableObject
 
         // If adding to length takes us over our max, destroy this chain.
         if (length >= maxLength.value) {
-            DestroyAllMembers();
+            BreakChain();
         }
 
         foreach (Bubble bubble in chain.members) {

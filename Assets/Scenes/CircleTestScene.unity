@@ -594,6 +594,11 @@ MonoBehaviour:
   gravityStrength: 5
   strengthVar: {fileID: 11400000, guid: 1f488925cb89b6d468b3f5a8e5d480b1, type: 2}
   gravityFlipped: {fileID: 11400000, guid: 9c2171a126b23a74f98c7c6802930645, type: 2}
+--- !u!1 &425131615 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8070634603405789312, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+  m_PrefabInstance: {fileID: 2059667138}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &458402877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1584,6 +1589,7 @@ GameObject:
   - component: {fileID: 804401541}
   - component: {fileID: 804401540}
   - component: {fileID: 804401542}
+  - component: {fileID: 804401543}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -1632,7 +1638,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -4
-  m_Sprite: {fileID: -534856300, guid: 82c7ad90c72dea9489bfb511f1c06b0d, type: 3}
+  m_Sprite: {fileID: 930557438, guid: 82c7ad90c72dea9489bfb511f1c06b0d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1678,6 +1684,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &804401543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804401539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe29cc6fe8476fc44bcc70f0cb0e530d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inDanger: {fileID: 11400000, guid: 777dc729eac653f408c903a2f488b24a, type: 2}
 --- !u!1 &828605496
 GameObject:
   m_ObjectHideFlags: 0
@@ -2039,6 +2058,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneOnLose: 1
   sceneOnWin: 2
+  winTriggered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 804401543}
+        m_TargetAssemblyTypeName: CharacterAnimator, Assembly-CSharp
+        m_MethodName: OnTriggerWin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  lossTriggered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 804401543}
+        m_TargetAssemblyTypeName: CharacterAnimator, Assembly-CSharp
+        m_MethodName: OnTriggerLoss
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1027602522
 GameObject:
   m_ObjectHideFlags: 0
@@ -2521,6 +2570,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8070634603405789326, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
   m_PrefabInstance: {fileID: 2059667138}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1425966892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425131615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 261617c9eedadc14ca74ad0929756353, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chainBreak:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 804401543}
+        m_TargetAssemblyTypeName: CharacterAnimator, Assembly-CSharp
+        m_MethodName: OnChainBreak
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1540098991
 GameObject:
   m_ObjectHideFlags: 0
@@ -2802,6 +2878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endgameManager: {fileID: 990701828}
   dangerAmount: {fileID: 11400000, guid: 3369c800a1d2ec7468c5799920b35aa1, type: 2}
+  inDanger: {fileID: 11400000, guid: 777dc729eac653f408c903a2f488b24a, type: 2}
   bubblesInDanger: 0
   inDangerLerpTime: 5
   outOfDangerLerpTime: 0.667
@@ -3194,7 +3271,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: d897fa1b5632702439a181ff7e697313, type: 2}
     - target: {fileID: 8070634603405789312, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: m_Name
-      value: Bubble Spawner
+      value: Bubble Manager
       objectReference: {fileID: 0}
     - target: {fileID: 8070634603405789312, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: m_IsActive
