@@ -5,9 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class PersistOnLoad : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // ==============================================================
+    // Default methods
+    // ==============================================================
+
     void Start()
     {
+        // Start is called before the first frame update. We use it to call 
+        // DontDestroyOnLoad on this object.
+        // ================
+
         DontDestroyOnLoad(this.gameObject);
     }
 }

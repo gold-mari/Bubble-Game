@@ -7,7 +7,7 @@ using UnityEngine;
 public class LerpKit : MonoBehaviour
 {
     // ==============================================================
-    // Lerp methods
+    // Static methods
     // ==============================================================
 
     public static float Flip(float t)

@@ -14,17 +14,35 @@ public class VectorFollower : MonoBehaviour
     private float radiusScale;
     [SerializeField]
     private float maxRadius;
+
+    // ================================================================
+    // Internal variables
+    // ================================================================
+
+    // The point in 2D space where this object is centered. The pointVector is applied to this
+    // center. It is defined as the point this gameObject is at when this script starts.
     private Vector2 center;
 
-    // Start is called before the first frame update
+    // ================================================================
+    // Default methods
+    // ================================================================
+
     void Start()
     {
+        // Start is called before the first frame update. We use it to define center as
+        // the origin point of this object.
+        // ================
+
         center = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // Update is called once per frame. We use it to scale pointVector by
+        // radiusScale, and clamp it's magnitude to maxRadius. We then apply this to
+        // center.
+        // ================
+        
         Vector2 scaledVector = (pointVector.value * radiusScale);
         if ( scaledVector.magnitude > maxRadius ) {
             scaledVector = scaledVector.normalized * maxRadius;
