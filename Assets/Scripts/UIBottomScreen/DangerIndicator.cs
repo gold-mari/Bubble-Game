@@ -24,7 +24,14 @@ public class DangerIndicator : MonoBehaviour
            + "gravity points INWARDS.\n\nIMPORTANT: Used with VisibleOutsideMask.")]
     [SerializeField]
     private Vector2 outerRange;
+
+    // ================================================================
+    // Internal variables
+    // ================================================================
+
+    // The sprite used as the danger indicator.
     private SpriteRenderer indicatorSprite;
+    // The transform of the sprite used to mask the indicatorSprite.
     private Transform maskTransform;
 
     // ================================================================
@@ -34,7 +41,7 @@ public class DangerIndicator : MonoBehaviour
     void Start()
     {
         // Start is called before the first frame update. Used to define indicatorSprite
-        // and mask.
+        // and maskTransform.
         // ================
 
         // Get indicatorSprite from us.
@@ -54,10 +61,12 @@ public class DangerIndicator : MonoBehaviour
         Vector2 range = Vector2.zero;
 
         if (!gravityFlipped.value) {
+            // If gravity points inwards, then the danger zone is on the outside.
             indicatorSprite.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
             range = outerRange;
         }
         else { // if gravityFlipped is true...
+            // If gravity points outwards, then the danger zone is on the inside.
             indicatorSprite.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
             range = innerRange;
         }

@@ -10,8 +10,13 @@ public class ColorIndicator : MonoBehaviour
 
     [Tooltip("The bubble_ColorVar that this script should monitor.")]
     public bubble_ColorVar color;
+
+    // ================================================================
+    // Internal variables
+    // ================================================================
+
     // The sprite renderer on this gameObject.
-    SpriteRenderer sprite;
+    private SpriteRenderer sprite;
 
     // ================================================================
     // Default methods

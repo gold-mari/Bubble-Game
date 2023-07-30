@@ -21,6 +21,17 @@ public class CursorPointer : MonoBehaviour
            + "used.\n\nDefault: (1,4.4)")]
     [HideIf("takeCenterAndRadius")]
     public Vector2 radius = new Vector2(1f, 4.4f);
+    [Tooltip("The boolVar which signals if gravity is flipped to point outwards instead of inwards.")]
+    [SerializeField]
+    private boolVar gravityFlipped;
+    [Tooltip("The vector2Var equalling the vector from the cursor position to the center.")]
+    [SerializeField]
+    private vector2Var cursorPointVector;
+
+    // ================================================================
+    // Internal variables
+    // ================================================================
+
     // A float from 0 to 1, using the radius Vector2 to indicate what radius we should orbit at.
     // A radiusLerper of 1 means we're fully at the outer radius. A radiusLerper of 0 means we're
     // fully at the inner radius. In between is in between.
@@ -28,15 +39,9 @@ public class CursorPointer : MonoBehaviour
     public float radiusLerper = 1;
     // Store a variable which represents the true radius we orbit at.
     private float trueRadius;
-    [Tooltip("The boolVar which signals if gravity is flipped to point outwards instead of inwards.")]
-    [SerializeField]
-    private boolVar gravityFlipped;
     // Updated whenever gravityFlipped changes to store the previous value of brightness. We
     // compare this to the current value of gravityFlipped to detect if it has changed.
     private bool lastGravityFlipped;
-    [Tooltip("The vector2Var equalling the vector from the cursor position to the center.")]
-    [SerializeField]
-    private vector2Var cursorPointVector;
     // The animator on this object.
     Animator animator;
     // This objects SpriteRenderer. We need a reference to flip the sprite when gravity changes.

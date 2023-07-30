@@ -4,14 +4,27 @@ using UnityEngine;
 
 public class IndicatorRingAnimator : MonoBehaviour
 {
+    // ================================================================
+    // Parameters
+    // ================================================================
+
     [Tooltip("The boolVar which signals if gravity is flipped to point outwards instead of inwards.")]
     [SerializeField]
     private boolVar gravityFlipped;
+
+    // ================================================================
+    // Internal variables
+    // ================================================================
+
     // Updated whenever gravityFlipped changes to store the previous value of brightness. We
     // compare this to the current value of gravityFlipped to detect if it has changed.
     private bool lastGravityFlipped;
     // The animator on this object.
     Animator animator;
+
+    // ================================================================
+    // Default methods
+    // ================================================================
 
     void Start()
     {
