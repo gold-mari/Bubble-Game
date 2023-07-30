@@ -17,30 +17,12 @@ public class EndgameManager : MonoBehaviour
     [Tooltip("The scene we transition to on a win- reaching the end of the song.")]
     [SerializeField] [Scene]
     private int sceneOnWin;
-    [Tooltip("A UnityEvent which communicates with ..., noting that we have just won.")]
+    [Tooltip("A UnityEvent which communicates with CharacterAnimator that we have just won.")]
     [SerializeField]
     UnityEvent winTriggered;
-    [Tooltip("A UnityEvent which communicates with ..., noting that we have just lost.")]
+    [Tooltip("A UnityEvent which communicates with CharacterAnimator that we have just lost.")]
     [SerializeField]
     UnityEvent lossTriggered;
-
-    // ...
-
-    // ================================================================
-    // Default methods
-    // ================================================================
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     // ================================================================
     // State-changing methods
