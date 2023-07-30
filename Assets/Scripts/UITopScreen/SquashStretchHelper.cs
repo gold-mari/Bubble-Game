@@ -19,9 +19,14 @@ public class SquashStretchHelper : MonoBehaviour
     private float squetch = 0;
     [Tooltip("The magnitude of squash / stretch. When magnitude is 2, max stretch is 2x as tall "
            + "and 0.5x as wide as the rest state. When magnitude is 5, max stretch is 5x as tall "
-           + "as the rest state. Etc.\n\nDefault: 2")]
+           + "and 0.2x as wide as the rest state. Etc.\n\nDefault: 2")]
     [SerializeField]
     private float magnitude = 2;
+
+    // ==============================================================
+    // Internal variables
+    // ==============================================================
+
     // Updated whenever squetch changes to store the previous value of squetch. We compare
     // this to the current value of squetch to detect if it has changed.
     private float lastSquetch;
@@ -44,6 +49,10 @@ public class SquashStretchHelper : MonoBehaviour
 
     void Update()
     {
+        // Update is called once per frame. We use it to detect when squetch changes and
+        // to call the update function on it when it does.
+        // ================
+
         // If squetch has changed, update squetch.
         if ( squetch != lastSquetch ) {
             UpdateSquetch();
@@ -57,7 +66,6 @@ public class SquashStretchHelper : MonoBehaviour
         // is above 0, lerps towards full stretch. If it is below 0, lerps towards full
         // squash.
         // ================
-
 
         float width = baseScale.x * Mathf.Pow(magnitude, squetch);
         float height = baseScale.y * Mathf.Pow(magnitude, -squetch);
