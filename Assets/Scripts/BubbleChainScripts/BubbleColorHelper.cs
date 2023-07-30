@@ -17,6 +17,11 @@ public class BubbleColorHelper : MonoBehaviour
            + "is positive, or towards black, if Brightness is negative.")]
     [SerializeField]
     private float brightness = 0;
+
+    // ==============================================================
+    // Internal variables
+    // ==============================================================
+
     // Updated whenever brightness changes to store the previous value of brightness. We compare
     // this to the current value of brightness to detect if it has changed.
     private float lastBrightness;

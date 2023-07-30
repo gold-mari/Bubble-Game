@@ -14,7 +14,7 @@ public class Bubble : MonoBehaviour
     public Bubble_Color bubbleColor = Bubble_Color.Red;
     // When a collision occurs, to avoid doublecounting, the Bubble with the oldest/smallest age
     // runs the calculation.
-    [Tooltip("This bubble's age, assigned normally by BubbleSpawner, and used to prevent double"
+    [Tooltip("This bubble's age, assigned normally by BubbleSpawner, and used to prevent double "
            + "calculations occuring during collisions.\n\nExposed here for debug use, if needed.")]
     public uint age = 0;
     // The chain this bubble is a part of. When new bubbles spawn, they are by default of the NIL
@@ -207,7 +207,7 @@ public class Bubble : MonoBehaviour
 
         // Finally, delete the old chain if it wasn't nil.
         if ( shorter.length != 0 ) {
-             Destroy(shorter);
+            Destroy(shorter);
         }
     }
 }

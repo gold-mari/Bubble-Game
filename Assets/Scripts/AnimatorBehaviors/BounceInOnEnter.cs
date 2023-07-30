@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class BounceInOnEnter : StateMachineBehaviour
 {
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        // Used to trigger "bounceIn" when we enter this state.
+        // OnStateEnter is called when a transition starts and the state machine starts
+        // to evaluate this state. Used to trigger "bounceIn" when we enter this state.
         // ================
 
         animator.SetTrigger("bounceIn");    

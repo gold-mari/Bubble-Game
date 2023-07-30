@@ -19,20 +19,26 @@ public class DangerTracker : MonoBehaviour
            + "is used.")]
     [SerializeField]
     private Vector2 dangerRadii;
-    // The radius of this object, used in distance calculation. Because bubbles are presumed to be
-    // circular, taking either the width or the height will approximate diameter well enough.
-    private float bubbleRadius;
     [Tooltip("The center of the playspace.\n\nDefault: (0,0)")]
     [SerializeField] 
     Vector2 center = new Vector2(0,0);
     [Tooltip("How long to wait, in seconds, before we start checking for danger.\n\nDefault: 0.5")]
     [SerializeField]
     private float initialDelay = 0.5f;
+
+    // ==============================================================
+    // Internal variables
+    // ==============================================================
+
+    // The radius of this bubble, used in distance calculation. Because bubbles are presumed to be
+    // circular, taking either the width or the height of the bounding box will approximate
+    // diameter well enough.
+    private float bubbleRadius;
     // Used to determine if this bullet is in the danger range. We compare this in Update to the
     // boolean valuation of if we're in the danger radius- if at any point they differ, update
     // DangerManager and then update inDanger.
     private bool inDanger = false;
-    // Used to halt update from running calculations until after initialDelay seconds.
+    // Used to halt Update from running calculations until after initialDelay seconds.
     private bool checkForDanger = false;
     // A cached reference to WaitForSeconds(initialDelay).
     private WaitForSeconds wait;
@@ -53,10 +59,13 @@ public class DangerTracker : MonoBehaviour
         // and toggle checkForDanger after initialDelay seconds.
         // ================
 
+        // First, check to make sure this object has a Collider2D.
+        Collider2D collider = GetComponent<Collider2D>();
+        Debug.Assert( collider != null, "DangerTracker Error: Start() failed: gameObject must have a Collider2D.", this );
         // Define the radius of our bubble using a bounding box. Again, because bubbles
         // are presumed to be circular, width is an acceptable substitute for diameter.
         // Divide by 2 to get radius instead of diameter.
-        bubbleRadius = (GetComponent<CircleCollider2D>().bounds.size.x)/2f;
+        bubbleRadius = collider.bounds.size.x/2f;
 
         wait = new WaitForSeconds(initialDelay);
         yield return wait;

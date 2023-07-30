@@ -10,7 +10,7 @@ public class BubbleSpawner : MonoBehaviour
     // Parameters
     // ==============================================================
 
-    [Tooltip("The bubble prefab to spawn.\n\nIMPORTANT: This bubble should be initialized with the"
+    [Tooltip("The bubble prefab to spawn.\n\nIMPORTANT: This bubble should be initialized with the "
            + "NIL chain.")]
     public GameObject bubble;
     [Tooltip("The DangerManager object present in the scene. This is passed off to the "
@@ -20,10 +20,10 @@ public class BubbleSpawner : MonoBehaviour
     [Expandable]
     [Tooltip("The list of current and upcoming Bubble_Colors to spawn, represented by a list of "
            + "bubble_ColorVars. The 0th index is the current color, and each successive index is "
-           + "the next upcoming color.\n\nThis array may be ANY size.")]
+           + "the color after that.\n\nThis array may be ANY size.")]
     public List<bubble_ColorVar> colors;
-    [Tooltip("The number of seconds between the regular spawn routine waits between spawning "
-           + "bubbles.\n\nIMPORTANT: THIS WILL BE OVERHAULED TO BE ON A TIMEKEEPER MANAGER.")]
+    [Tooltip("The number of seconds the regular spawn routine waits between spawning bubbles."
+           + "\n\nIMPORTANT: THIS WILL BE OVERHAULED TO BE ON A TIMEKEEPER MANAGER.")]
     public float spawnDelay = 1f;
     [Tooltip("The center of the playable space.\n\nDefault: (0,0)")]
     public Vector2 center = new Vector2(0,0);

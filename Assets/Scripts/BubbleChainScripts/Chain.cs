@@ -41,14 +41,6 @@ public class Chain : ScriptableObject
         ID = Random.Range(int.MinValue,int.MaxValue);
     }
 
-    void OnDestroy()
-    {
-        // Runs when this object is destroyed.
-        // ================
-
-        members.Clear();
-    }
-
     // ================================================================
     // Instantiation/Destruction Methods
     // ================================================================
@@ -59,7 +51,14 @@ public class Chain : ScriptableObject
         // destroys all members.
         // ================
 
-        members[0].transform.parent.GetComponent<ChainBreakHandler>().ShoutChainBreak();
+        // Attempt to get the handler from the parent of our first member. This should be
+        // the BubbleSpawner.
+        ChainBreakHandler handler = members[0].transform.parent.GetComponent<ChainBreakHandler>();
+        // Check that the handler exists. If not, raise an error.
+        Debug.Assert( handler != null, "Chain Error: BreakChain() failed: parent of member 0 must have a ChainBreakHandler.", members[0] );
+        // Otherwise, shout the chain break.
+        handler.ShoutChainBreak();
+
         DestroyAllMembers();
     }
 
@@ -78,6 +77,7 @@ public class Chain : ScriptableObject
         // DEBUG DEBUG DEBUG //
 
         foreach (Bubble bubble in members) {
+            // We check for bubble just in case it leaves our list while we're looping.
             if (bubble) {
                 Destroy(bubble.gameObject);
             }
