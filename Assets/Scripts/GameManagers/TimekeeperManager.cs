@@ -121,6 +121,7 @@ public class TimekeeperManager : MonoBehaviour
         description.getLength(out lengthInMilliseconds);
         musicLength = lengthInMilliseconds/1000f;
         
+        // Pump up the jams!
         instance.start();
     }
 
