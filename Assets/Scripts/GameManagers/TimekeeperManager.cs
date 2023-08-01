@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // Beat detection logic written with the help of ColinVAudio:
 // https://www.youtube.com/watch?v=hNQX1fsQL4Q
 // Partial subdivision, chiefly the idea of using ChannelGroups for DSP clock counting from user
-// bloo_regard_q_kazoo on the Unity forums.
+// bloo_regard_q_kazoo on the FMOD forums.
 // https://drive.google.com/file/d/1r8ROjgsMh-mwKqGTZT7IWMCsJcs3GuU9/view AND
 // https://qa.fmod.com/t/perfect-beat-tracking-in-unity/18788/2
 
@@ -83,13 +83,14 @@ public class TimekeeperManager : MonoBehaviour
     // An unsigned long which tracks our current number of samples.
     private ulong dspClock;
     // A reference to the DSP clock of the parent ChannelGroup. Discarded.
-    private ulong discard_parentDSP;
+    private ulong DISCARD_parentDSP;
     // The current and previous playhead positions, obtained from the DSP clock.
     private double lastTime = 0f, currentTime = 0f;
     // The difference between lastTime and currentTime at any point.
     private double DSPdeltaTime;
-    // Floats used internally to hold the length of different note values at the current tempo.
-    private double quarterLength, length8th, length16th, length32nd;
+    // Floats used to hold the length of different note values at the current tempo.
+    [HideInInspector]
+    public double length4th, length8th, length16th, length32nd;
     // Timers used to help determine if we ought to fire the note events yet at a given time.
     private double timer8th = 0, timer16th = 0, timer32nd = 0;
     // Timers used to determine if we ought to fire the note events yet at a given time.
@@ -150,8 +151,8 @@ public class TimekeeperManager : MonoBehaviour
         FMODUnity.RuntimeManager.CoreSystem.getMasterChannelGroup(out masterChannelGroup);
         // Define our sample rate. Discard the outs for the speaker mode and the number of speakers.
         FMODUnity.RuntimeManager.CoreSystem.getSoftwareFormat(out sampleRate,
-                                                              out FMOD.SPEAKERMODE discard_mode,
-                                                              out int discard_num);
+                                                              out FMOD.SPEAKERMODE DISCARD_mode,
+                                                              out int DISCARD_num);
 
         fire8th = fire16th = fire32nd = true;
 
@@ -165,8 +166,6 @@ public class TimekeeperManager : MonoBehaviour
         // - Shout tempoUpdated when timelineInfo.currentTempo changes
         // - Shout markerUpdated when timelineInfo.lastMarker changes
         // ================
-
-        // Part 1: Callbacks ================
 
         if ( lastBeat != timelineInfo.currentBeat ) {
             lastBeat = timelineInfo.currentBeat;
@@ -193,64 +192,6 @@ public class TimekeeperManager : MonoBehaviour
         // Also update our DSP time, and calculate subdivisions.
         UpdateDSPTime();
         CalculateSubdivisions();
-    }
-
-    void CalculateSubdivisions()
-    {
-        // This function calls our subdivision events, Our subdivision events are:
-        // - eighthNoteUpdated, called every 8th note
-        // - sixteenthNoteUpdated, ... 16th note
-        // - thirtysecondNoteUpdated, ... 32nd note
-        // ================
-
-        // Define our note length values. We must do this each cycle in case tempo changes.
-        // First, convert tempo to seconds per beat.
-        quarterLength = Mathf.Pow((timelineInfo.currentTempo/60f), -1);
-        // Get subdivision lengths.
-        length8th = quarterLength/2f;
-        length16th = length8th/2f;
-        length32nd = length16th/2f;
-
-        if ( fire8th ) {
-            if ( eighthNoteEvent != null ) {
-                eighthNoteEvent.Invoke();
-            }
-            // Reset this timer, and tell all our lower subdivisions to also fire.
-            fire8th = false;
-            timer8th = 0;
-            fire16th = fire32nd = true;
-        }
-        if ( fire16th ) {
-            if ( sixteenthNoteEvent != null ) {
-                sixteenthNoteEvent.Invoke();
-            }
-            // Reset this timer, and tell all our lower subdivisions to also fire.
-            fire16th = false;
-            timer16th = 0;
-            fire32nd = true;
-        }
-        if ( fire32nd ) {
-            if ( thirtysecondNoteEvent != null ) {
-                thirtysecondNoteEvent.Invoke();
-            }
-            // Reset this timer.
-            fire32nd = false;
-            timer32nd = 0;
-        }
-        
-        timer8th += DSPdeltaTime;
-        timer16th += DSPdeltaTime;
-        timer32nd += DSPdeltaTime;
-
-        if ( timer8th >= length8th ) {
-            fire8th = fire16th = fire32nd = true;
-        }
-        if ( timer16th >= length16th ) {
-            fire16th = fire32nd = true;
-        }
-        if ( timer32nd >= length32nd ) {
-            fire32nd = true;
-        }
     }
 
     void OnDestroy()
@@ -284,15 +225,85 @@ public class TimekeeperManager : MonoBehaviour
     // Data-manipulation methods
     // ================================================================
 
+void CalculateSubdivisions()
+    {
+        // This function calls our subdivision events, Our subdivision events are:
+        // - eighthNoteUpdated, called every 8th note
+        // - sixteenthNoteUpdated, ... 16th note
+        // - thirtysecondNoteUpdated, ... 32nd note
+        // ================
+
+        // Define our note length values. We must do this each cycle in case tempo changes.
+        // First, convert tempo to seconds per beat.
+        length4th = Mathf.Pow((timelineInfo.currentTempo/60f), -1);
+        // Get subdivision lengths.
+        length8th = length4th/2f;
+        length16th = length8th/2f;
+        length32nd = length16th/2f;
+
+        // Check if we should fire any of our subdivision events.
+        if ( fire8th ) {
+            // If we're to fire the 8th note event, do so.
+            if ( eighthNoteEvent != null ) {
+                eighthNoteEvent.Invoke();
+            }
+            // Reset this timer, and tell all our lower subdivisions to also fire, to
+            // prevent drift.
+            fire8th = false;
+            timer8th = 0;
+
+            fire16th = fire32nd = true;
+        }
+        if ( fire16th ) {
+            if ( sixteenthNoteEvent != null ) {
+                sixteenthNoteEvent.Invoke();
+            }
+            // Reset this timer, and tell all our lower subdivisions to also fire, to
+            // prevent drift.
+            fire16th = false;
+            timer16th = 0;
+
+            fire32nd = true;
+        }
+        if ( fire32nd ) {
+            if ( thirtysecondNoteEvent != null ) {
+                thirtysecondNoteEvent.Invoke();
+            }
+            // Reset this timer.
+            fire32nd = false;
+            timer32nd = 0;
+        }
+        
+        // Next, update the timers with the DSPdeltaTime, used as a very accurate timer.
+        timer8th += DSPdeltaTime;
+        timer16th += DSPdeltaTime;
+        timer32nd += DSPdeltaTime;
+
+        // Finally, check if we should fire any events on the next update.
+        if ( timer8th >= length8th ) {
+            fire8th = fire16th = fire32nd = true;
+        }
+        else if ( timer16th >= length16th ) {
+            fire16th = fire32nd = true;
+        }
+        else if ( timer32nd >= length32nd ) {
+            fire32nd = true;
+        }
+    }
+
     void UpdateDSPTime()
     {
         // Updates currentTime based on the value of dspClock from the 
         // masterChannelGroup. Also writes the DSPdeltaTime since the last update.
+        // Shoutouts to bloo_regard_q_kazoo from the FMOD forums!
         // ================
 
-        masterChannelGroup.getDSPClock(out dspClock, out discard_parentDSP);
+        // Write into dspClock.
+        masterChannelGroup.getDSPClock(out dspClock, out DISCARD_parentDSP);
+        // Cache the currentTime as lastTime, and update currentTime.
         lastTime = currentTime;
         currentTime = (double)dspClock / (double)sampleRate;
+        // Calculate the deltaTime between these values.
         DSPdeltaTime = currentTime - lastTime;
     }
 

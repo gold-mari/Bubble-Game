@@ -486,11 +486,11 @@ MonoBehaviour:
   endgameManager: {fileID: 0}
   musicEvent:
     Guid:
-      Data1: -1473417762
-      Data2: 1157469071
-      Data3: -1988359541
-      Data4: -459322978
-    Path: event:/Music/DEBUG-DrumsSpeedup
+      Data1: -60412168
+      Data2: 1101255176
+      Data3: 1376886182
+      Data4: -225480031
+    Path: event:/Music/DEBUG-Music
   winOffset: 1
   musicLength: 0
 --- !u!4 &1559363194

@@ -121,6 +121,9 @@
 		<property name="position">
 			<value>0</value>
 		</property>
+		<property name="tempo">
+			<value>180</value>
+		</property>
 		<relationship name="timeline">
 			<destination>{0ea99eff-724c-4afb-9ee2-653d59e2acd2}</destination>
 		</relationship>
