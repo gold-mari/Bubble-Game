@@ -17,14 +17,15 @@ public class BubbleSpawner : MonoBehaviour
            + "DangerTracker components in spawned bubbles.")]
     [SerializeField]
     private DangerManager dangerManager;
+    [Tooltip("The TimekeeperManager object present in the scene. This is used to time bubble "
+           + "spawns, among other things.")]
+    [SerializeField]
+    private TimekeeperManager timekeeperManager;
     [Expandable]
     [Tooltip("The list of current and upcoming Bubble_Colors to spawn, represented by a list of "
            + "bubble_ColorVars. The 0th index is the current color, and each successive index is "
            + "the color after that.\n\nThis array may be ANY size.")]
     public List<bubble_ColorVar> colors;
-    [Tooltip("The number of seconds the regular spawn routine waits between spawning bubbles."
-           + "\n\nIMPORTANT: THIS WILL BE OVERHAULED TO BE ON A TIMEKEEPER MANAGER.")]
-    public float spawnDelay = 1f;
     [Tooltip("The center of the playable space.\n\nDefault: (0,0)")]
     public Vector2 center = new Vector2(0,0);
 
@@ -41,12 +42,15 @@ public class BubbleSpawner : MonoBehaviour
     public UnityEvent flipGravity;
     // A System.Action version for use with instantiated bubbles.
     public System.Action flipGravityAction;
-    [Tooltip("The number of bullets that must spawn before gravity flips.\n\n"
-           + "IMPORTANT: THIS WILL BE OVERHAULED ENTIRELY.")]
-    public uint spawnsBeforeFlip = 8;
-    [Tooltip("The number of bullets that must spawn before a mass wave spawns.\n\n"
-           + "IMPORTANT: THIS WILL BE OVERHAULED ENTIRELY.")]
-    public uint spawnsBeforeMass = 16;
+    [Tooltip("The number of beats between bubble spawns.\n\nDefault: 2")]
+    public uint beatsBeforeSpawn = 2;
+    private uint spawnBeatCounter = 0;
+    [Tooltip("The number of beats that must pass before gravity flips.\n\nDefault: 16")]
+    public uint beatsBeforeFlip = 16;
+    private uint flipBeatCounter = 0;
+    [Tooltip("The number of beats that must pass before a mass wave spawns.\n\nDefault: 32")]
+    public uint beatsBeforeMass = 32;
+    private uint massBeatCounter = 0;
 
     // ==============================================================
     // Internal variables
@@ -62,66 +66,59 @@ public class BubbleSpawner : MonoBehaviour
 
     void Start()
     {
-        // Start is called before the first frame update
+        // Start is called before the first frame update. We use it to initialize the
+        // state of bubbles, and to subscribe to the timekeeper.
         // ================
 
         RandomizeColors();
         MassSpawnBubble(massRoundSize);
-        StartCoroutine(RegularSpawnRoutine());
-        //StartCoroutine(ImpatientSpawnRoutine());
+        timekeeperManager.beatUpdated += Spawn;
+    }
+
+    void OnDestroy()
+    {
+        // We use OnDestroy to unsubscribe from the timekeeper.
+        // ================
+
+        timekeeperManager.beatUpdated -= Spawn;
     }
 
     // ==============================================================
     // Instantiation/Destruction Methods
     // ==============================================================
 
-    IEnumerator RegularSpawnRoutine()
+    void Spawn()
     {
-        // Spawns a new bubble at the cursor every spawnDelay seconds. Updates colors
-        // after spawning a bubble.
+        // Spawns a new bubble at the cursor on recieving a beatEvent. Updates colors
+        // after spawning a bubble. Also keeps track of when to switch gravity and when
+        // to spawn a mass round.
         // ================
 
-        var wait = new WaitForSeconds(spawnDelay);
-        uint flipcounter = 0;
-        uint masscounter = 0;
+        // Everything runs on separate clocks.
+        spawnBeatCounter++;
+        flipBeatCounter++;
+        massBeatCounter++;
 
-        while (true) {
-            yield return wait;
+        if (spawnBeatCounter >= beatsBeforeSpawn) {
             CursorSpawnBubble(colors[0].value);
             UpdateColors();
+            spawnBeatCounter = 0;
+            return;
+        }
 
-            // flipCounter and massCounter run on seperate clocks.
-            flipcounter++;
-            masscounter++;
+        if (flipBeatCounter >= beatsBeforeFlip) {
+            flipGravity.Invoke();
+            flipGravityAction.Invoke();
+            flipBeatCounter = 0;
+            return;
+        }
 
-            if (flipcounter >= spawnsBeforeFlip) {
-                yield return wait;
-                flipGravity.Invoke();
-                flipGravityAction.Invoke();
-                flipcounter = 0;
-            }
-
-            if (masscounter >= spawnsBeforeMass) {
-                yield return wait;
-                MassSpawnBubble(massRoundSize);
-                masscounter = 0;
-            }
+        if (massBeatCounter >= beatsBeforeMass) {
+            MassSpawnBubble(massRoundSize);
+            massBeatCounter = 0;
+            return;
         }
     }
-
-    /*IEnumerator ImpatientSpawnRoutine()
-    {
-        // Spawns a new bubble at the on cursor click. Updates colors after spawning.
-        // ================
-
-        while (true) {
-            if ( Input.GetButtonDown("Fire1") ) {
-                CursorSpawnBubble(colors[0].value);
-                UpdateColors();
-            }
-            yield return null;
-        }
-    }*/
 
     private void MassSpawnBubble(uint number)
     {
