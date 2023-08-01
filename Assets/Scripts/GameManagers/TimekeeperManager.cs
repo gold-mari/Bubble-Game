@@ -6,6 +6,10 @@ using System.Runtime.InteropServices;
 
 // Beat detection logic written with the help of ColinVAudio:
 // https://www.youtube.com/watch?v=hNQX1fsQL4Q
+// Partial subdivision, chiefly the idea of using ChannelGroups for DSP clock counting from user
+// bloo_regard_q_kazoo on the Unity forums.
+// https://drive.google.com/file/d/1r8ROjgsMh-mwKqGTZT7IWMCsJcs3GuU9/view AND
+// https://qa.fmod.com/t/perfect-beat-tracking-in-unity/18788/2
 
 public class TimekeeperManager : MonoBehaviour
 {
@@ -16,12 +20,15 @@ public class TimekeeperManager : MonoBehaviour
     [Tooltip("The Endgame Manager present in the scene.")]
     [SerializeField]
     private EndgameManager endgameManager;
-    [Tooltip("Not gonna write a meaningful tooltip for this one since it's next on the list to be deprecated.")]
-    [SerializeField]
-    private float waitLength = 159f;
     [Tooltip("The music event that plays in this scene.")]
     [SerializeField]
     private FMODUnity.EventReference musicEvent;
+    [Tooltip("The amount of time, in seconds, after the song ends that we whould wait before "
+           + "calling the victory event. Use a negative offset to call it before the song ends."
+           + "\n\nItems called on victory include: starting the win animation, stopping bubbles "
+           + "from spawning, etc.\n\nDefault: 1f")]
+    [SerializeField]
+    private float winOffset = 1f;
     
     // ================================================================
     // Internal variables
@@ -29,29 +36,66 @@ public class TimekeeperManager : MonoBehaviour
 
     // A reference to the instance of musicEvent.
     private FMOD.Studio.EventInstance instance;
-    // Store a struct to the timeline info that we will reference. We want this struct to
-    // be sequential in memory, so add the following tag.
+
+    // timeline callbacks: ============================================
+
+    // Store a struct to the timeline info that we will reference. We want this struct to be 
+    // sequential in memory, so add the following tag.
     [StructLayout(LayoutKind.Sequential)]
     public class TimelineInfo
     {
         // The current beat in the song. Resets per bar.
         public int currentBeat = 0;
+        // The current position in the song, in milliseconds.
+        public int currentPosition = 0;
+        // The current tempo in the song, in beats per minute.
+        public float currentTempo = 0;
         // FMOD.StringWrapper is an FMOD string type. Look for the last timeline marker.
         public FMOD.StringWrapper lastMarker = new FMOD.StringWrapper();
     }
     // An instance of our timelineInfo class which other scripts will refer to.
     public TimelineInfo timelineInfo;
-    // GCHandle is a tool used to help access managed memory in runtime. We're streaming
-    // data using C++ here, and use this handle to prevent garbage collection while we're
-    // doing it.
+    // GCHandle is a tool used to help access managed memory in runtime. We're streaming data using
+    // C here, and use this handle to prevent garbage collection while we're doing it.
     private GCHandle timelineHandle;
-    // An event callback variable which ...
-    // TODO TODO TODO TODO
-    // TODO TODO TODO TODO
-    // TODO TODO TODO TODO
-    // TODO TODO TODO TODO
+    // An event callback variable which we assign to the callback function BeatEventCallback.
     private FMOD.Studio.EVENT_CALLBACK beatCallback;
+    // The previous values (as of the last frame) of currentBeat.
+    private int lastBeat = 0;
+    // The same for currentTempo.
+    private float lastTempo = 0f;
+    // The same for lastMarker.
+    private string lastLastMarker = "";
+    // Actions shouted each beat, when the tempo updates, and at a new marker, respectively.
+    public System.Action beatUpdated, tempoUpdated, markerUpdated;
 
+    // duration and subdivision: ======================================
+
+    // An event description for musicEvent.
+    private FMOD.Studio.EventDescription description;
+    // The length of musicEvent in seconds.
+    [HideInInspector]
+    public float musicLength = 0f;
+    // A ChannelGroup used to access the DSP clock, which runs at sample rate.
+    private FMOD.ChannelGroup masterChannelGroup;
+    // The sample rate of our master channel group.
+    private int sampleRate;
+    // An unsigned long which tracks our current number of samples.
+    private ulong dspClock;
+    // A reference to the DSP clock of the parent ChannelGroup. Discarded.
+    private ulong discard_parentDSP;
+    // The current and previous playhead positions, obtained from the DSP clock.
+    private double lastTime = 0f, currentTime = 0f;
+    // The difference between lastTime and currentTime at any point.
+    private double DSPdeltaTime;
+    // Floats used internally to hold the length of different note values at the current tempo.
+    private double quarterLength, length8th, length16th, length32nd;
+    // Timers used to help determine if we ought to fire the note events yet at a given time.
+    private double timer8th = 0, timer16th = 0, timer32nd = 0;
+    // Timers used to determine if we ought to fire the note events yet at a given time.
+    private bool fire8th = false, fire16th = false, fire32nd = false;
+    // Actions shouted each eighth note, each sixteenth note, and each thirtysecond note.
+    public System.Action eighthNoteEvent, sixteenthNoteEvent, thirtysecondNoteEvent;
     
     // ================================================================
     // Default methods
@@ -67,14 +111,22 @@ public class TimekeeperManager : MonoBehaviour
         bool eventExists = (musicEvent.Path.Length > 0);
         Debug.Assert( eventExists, "TimekeeperManager Error: Awake() failed: musicEvent must not be null.", this );
 
+        // Create the instance and get its description.
+        FMOD.Studio.EventDescription description;
         instance = FMODUnity.RuntimeManager.CreateInstance(musicEvent);
+        instance.getDescription(out description);
+        // Define the length of the song in seconds.
+        int lengthInMilliseconds = 0;
+        description.getLength(out lengthInMilliseconds);
+        musicLength = lengthInMilliseconds/1000f;
+        
         instance.start();
     }
 
     void Start()
     {
-        // Start is called before the first frame update. For now, we just use it to
-        // start the music.
+        // Start is called before the first frame update. We use it to set up callback
+        // parameters, to start the music, and to start the waitWin coroutine.
         // ================
 
         // We don't need to check if the music event exists since we do that in Awake.
@@ -94,7 +146,111 @@ public class TimekeeperManager : MonoBehaviour
         instance.setCallback(beatCallback, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT | 
                                            FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
 
-        StartCoroutine(BAD_BAD_BAD_DEBUG_REPLACE_THIS_waitWin());
+        // Create our master channel group for monitoring subdivisions.
+        FMODUnity.RuntimeManager.CoreSystem.getMasterChannelGroup(out masterChannelGroup);
+        // Define our sample rate. Discard the outs for the speaker mode and the number of speakers.
+        FMODUnity.RuntimeManager.CoreSystem.getSoftwareFormat(out sampleRate,
+                                                              out FMOD.SPEAKERMODE discard_mode,
+                                                              out int discard_num);
+
+        fire8th = fire16th = fire32nd = true;
+
+        StartCoroutine(waitWin());
+    }
+
+    void Update()
+    {
+        // Update is called once per frame. We use it to do the following:
+        // - Shout beatUpdated when timelineInfo.currentBeat changes
+        // - Shout tempoUpdated when timelineInfo.currentTempo changes
+        // - Shout markerUpdated when timelineInfo.lastMarker changes
+        // ================
+
+        // Part 1: Callbacks ================
+
+        if ( lastBeat != timelineInfo.currentBeat ) {
+            lastBeat = timelineInfo.currentBeat;
+            if ( beatUpdated != null ) {
+                beatUpdated.Invoke();
+            }
+
+            // Also, note that we should fire all our subdivision events to avoid drift.
+            fire8th = fire16th = fire32nd = true;
+        }
+        if ( lastTempo != timelineInfo.currentTempo ) {
+            lastTempo = timelineInfo.currentTempo;
+            if ( tempoUpdated != null ) {
+                tempoUpdated.Invoke();
+            }
+        }
+        if ( lastLastMarker != timelineInfo.lastMarker ) {
+            lastLastMarker = timelineInfo.lastMarker;
+            if ( markerUpdated != null ) {
+                markerUpdated.Invoke();
+            }
+        }
+
+        // Also update our DSP time, and calculate subdivisions.
+        UpdateDSPTime();
+        CalculateSubdivisions();
+    }
+
+    void CalculateSubdivisions()
+    {
+        // This function calls our subdivision events, Our subdivision events are:
+        // - eighthNoteUpdated, called every 8th note
+        // - sixteenthNoteUpdated, ... 16th note
+        // - thirtysecondNoteUpdated, ... 32nd note
+        // ================
+
+        // Define our note length values. We must do this each cycle in case tempo changes.
+        // First, convert tempo to seconds per beat.
+        quarterLength = Mathf.Pow((timelineInfo.currentTempo/60f), -1);
+        // Get subdivision lengths.
+        length8th = quarterLength/2f;
+        length16th = length8th/2f;
+        length32nd = length16th/2f;
+
+        if ( fire8th ) {
+            if ( eighthNoteEvent != null ) {
+                eighthNoteEvent.Invoke();
+            }
+            // Reset this timer, and tell all our lower subdivisions to also fire.
+            fire8th = false;
+            timer8th = 0;
+            fire16th = fire32nd = true;
+        }
+        if ( fire16th ) {
+            if ( sixteenthNoteEvent != null ) {
+                sixteenthNoteEvent.Invoke();
+            }
+            // Reset this timer, and tell all our lower subdivisions to also fire.
+            fire16th = false;
+            timer16th = 0;
+            fire32nd = true;
+        }
+        if ( fire32nd ) {
+            if ( thirtysecondNoteEvent != null ) {
+                thirtysecondNoteEvent.Invoke();
+            }
+            // Reset this timer.
+            fire32nd = false;
+            timer32nd = 0;
+        }
+        
+        timer8th += DSPdeltaTime;
+        timer16th += DSPdeltaTime;
+        timer32nd += DSPdeltaTime;
+
+        if ( timer8th >= length8th ) {
+            fire8th = fire16th = fire32nd = true;
+        }
+        if ( timer16th >= length16th ) {
+            fire16th = fire32nd = true;
+        }
+        if ( timer32nd >= length32nd ) {
+            fire32nd = true;
+        }
     }
 
     void OnDestroy()
@@ -111,17 +267,34 @@ public class TimekeeperManager : MonoBehaviour
         timelineHandle.Free();
     }
 
+#if UNITY_EDITOR
     void OnGUI()
     {
         // Prints timelineInfo stats to an onscreen GUI box.
         // ================
 
-        GUILayout.Box(String.Format("Current Beat = {0}, Last Marker = {1}", timelineInfo.currentBeat, (string)timelineInfo.lastMarker));
+        GUILayout.Box(String.Format("Current beat = {0}, Last marker = {1}", timelineInfo.currentBeat, (string)timelineInfo.lastMarker));
+        GUILayout.Box(String.Format("Current position = {0}, Current BPM = {1}", timelineInfo.currentPosition, timelineInfo.currentTempo));
+        GUILayout.Box(String.Format("Current time = {0:0.0000000000}", currentTime));
+        GUILayout.Box(String.Format("Song length = {0} seconds", musicLength));
     }
+#endif
 
     // ================================================================
     // Data-manipulation methods
     // ================================================================
+
+    void UpdateDSPTime()
+    {
+        // Updates currentTime based on the value of dspClock from the 
+        // masterChannelGroup. Also writes the DSPdeltaTime since the last update.
+        // ================
+
+        masterChannelGroup.getDSPClock(out dspClock, out discard_parentDSP);
+        lastTime = currentTime;
+        currentTime = (double)dspClock / (double)sampleRate;
+        DSPdeltaTime = currentTime - lastTime;
+    }
 
     // Use this tag to get data from unmanaged memory, which we neeed since we're working
     // with pointers.
@@ -156,16 +329,18 @@ public class TimekeeperManager : MonoBehaviour
                 case FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT:
                     {
                         // Convert parameterPtr to parameter. We use marshalling because
-                        // we're going from a pointer to a C# variable.
+                        // we're going from a C pointer to a C# variable.
                         var parameter = (FMOD.Studio.TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(FMOD.Studio.TIMELINE_BEAT_PROPERTIES));
-                        // Set currentBeat to the most recent beat.
+                        // Set currentBeat, currentPosition, and tempo.
                         timelineInfo.currentBeat = parameter.beat;
+                        timelineInfo.currentPosition = parameter.position;
+                        timelineInfo.currentTempo = parameter.tempo;
                     }
                     break;
                 case FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER:
                     {
                         // Convert parameterPtr to parameter. We use marshalling because
-                        // we're going from a pointer to a C# variable.
+                        // we're going from a C pointer to a C# variable.
                         var parameter = (FMOD.Studio.TIMELINE_MARKER_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(FMOD.Studio.TIMELINE_MARKER_PROPERTIES));
                         // Set lastMarker to the name of this marker.
                         timelineInfo.lastMarker = parameter.name;
@@ -179,12 +354,14 @@ public class TimekeeperManager : MonoBehaviour
     }
 
     // ================================================================
-    // Soon-to-be-deprecated methods
+    // Event-handling methods
     // ================================================================
 
-    IEnumerator BAD_BAD_BAD_DEBUG_REPLACE_THIS_waitWin()
+    IEnumerator waitWin()
     {
-        yield return new WaitForSeconds(waitLength);
-        endgameManager.TriggerWin();
+        yield return new WaitForSeconds(musicLength + winOffset);
+        if ( endgameManager ) {
+            endgameManager.TriggerWin();
+        }
     }
 }
