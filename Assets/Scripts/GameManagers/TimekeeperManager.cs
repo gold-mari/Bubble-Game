@@ -214,18 +214,18 @@ public class TimekeeperManager : MonoBehaviour
         timelineHandle.Free();
     }
 
-#if UNITY_EDITOR
+/*#if UNITY_EDITOR
     void OnGUI()
     {
         // Prints timelineInfo stats to an onscreen GUI box.
         // ================
 
         GUILayout.Box(String.Format("Current beat = {0}, Last marker = {1}", timelineInfo.currentBeat, (string)timelineInfo.lastMarker));
-        //GUILayout.Box(String.Format("Current position = {0}, Current BPM = {1}", timelineInfo.currentPosition, timelineInfo.currentTempo));
+        GUILayout.Box(String.Format("Current position = {0}, Current BPM = {1}", timelineInfo.currentPosition, timelineInfo.currentTempo));
         GUILayout.Box(String.Format("Current time = {0:0.0000000000}", currentTime));
-        //GUILayout.Box(String.Format("Song length = {0} seconds", musicLength));
+        GUILayout.Box(String.Format("Song length = {0} seconds", musicLength));
     }
-#endif
+#endif*/
 
     // ================================================================
     // Data-manipulation methods

@@ -85,16 +85,6 @@ public class BubbleSpawner : MonoBehaviour
         timekeeperManager.beatUpdated -= Spawn;
     }
 
-#if UNITY_EDITOR
-    void OnGUI()
-    {
-        // Prints beatCount to an onscreen GUI box.
-        // ================
-
-        GUILayout.Box($"Current beatCount = {beatCount}");
-    }
-#endif
-
     // ==============================================================
     // Instantiation/Destruction Methods
     // ==============================================================
