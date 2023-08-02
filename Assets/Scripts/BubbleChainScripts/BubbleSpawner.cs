@@ -98,9 +98,8 @@ public class BubbleSpawner : MonoBehaviour
 
     void Spawn()
     {
-        // Spawns a new bubble at the cursor on recieving a beatEvent. Updates colors
-        // after spawning a bubble. Also keeps track of when to switch gravity and when
-        // to spawn a mass round.
+        // Tracks incoming beatEvents, spawning bubbles, flipping gravity, and spawning
+        // mass bubbles as dictated by song. Updates colors after spawning a bubble.
         // ================
 
         // Everything runs on a shared clock.
