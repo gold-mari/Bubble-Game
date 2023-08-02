@@ -50,12 +50,14 @@ public class BubbleSpawner : MonoBehaviour
     // The internal age variable that is passed along to bubbles. When a bubble is
     // spawned, we increment the age here.
     private uint age = 1;
-    // The number of beats that have elapsed in this cycle.
-    private uint beatCount = 1;
     // The song being played from TimekeeperManager.
     private songObject song;
+    // The number of beats that have elapsed in this cycle.
+    private uint beatCount = 1;
     // Indices for the beat lists in song.
     private int spawnIndex = 0, flipIndex = 0, massIndex = 0;
+    // Whether or not we should spawn bubbles, as determined by timeline markers from song.
+    private bool shouldSpawn = false;
 
     // ==============================================================
     // Default methods
@@ -71,6 +73,7 @@ public class BubbleSpawner : MonoBehaviour
         MassSpawnBubble(massRoundSize);
 
         timekeeperManager.beatUpdated += Spawn;
+        timekeeperManager.markerUpdated += PassedMarker;
         song = timekeeperManager.song;
     }
 
@@ -101,6 +104,10 @@ public class BubbleSpawner : MonoBehaviour
         // Tracks incoming beatEvents, spawning bubbles, flipping gravity, and spawning
         // mass bubbles as dictated by song. Updates colors after spawning a bubble.
         // ================
+
+        if ( !shouldSpawn ) {
+            return;
+        }
 
         // Everything runs on a shared clock.
         if ( beatCount >= song.loopLength ) {
@@ -252,5 +259,20 @@ public class BubbleSpawner : MonoBehaviour
 
         // Regenerate the final color.
         colors[colors.Count-1].value = Bubble_Color_Methods.random();  
+    }
+
+    private void PassedMarker()
+    {
+        // Updates shouldSpawn based on the lastMarker.
+        // ================
+
+        if ( timekeeperManager.timelineInfo.lastMarker == "dontSpawn" ) {
+            shouldSpawn = false;
+        }
+        if ( timekeeperManager.timelineInfo.lastMarker == "doSpawn" ) {
+            shouldSpawn = true;
+            // Also update beatCount to be the current beat in the measure.
+            beatCount = (uint)timekeeperManager.timelineInfo.currentBeat;
+        }
     }
 }

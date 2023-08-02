@@ -24,6 +24,7 @@
 		</relationship>
 		<relationship name="markerTracks">
 			<destination>{584074b8-ff68-40ce-80bc-06f057d53475}</destination>
+			<destination>{28e8db1f-dc98-4efd-9eec-ceb41528cde1}</destination>
 		</relationship>
 		<relationship name="groupTracks">
 			<destination>{2e662f3f-8a17-4027-971e-5786da438fe7}</destination>
@@ -59,6 +60,7 @@
 	</object>
 	<object class="EventAutomatableProperties" id="{827623ca-6e6f-4712-8b7e-1d0b89a8bcd3}" />
 	<object class="MarkerTrack" id="{584074b8-ff68-40ce-80bc-06f057d53475}" />
+	<object class="MarkerTrack" id="{28e8db1f-dc98-4efd-9eec-ceb41528cde1}" />
 	<object class="GroupTrack" id="{2e662f3f-8a17-4027-971e-5786da438fe7}">
 		<relationship name="modules">
 			<destination>{ea0a0ae7-cfd7-49ff-a24f-9ad178953a68}</destination>
@@ -73,6 +75,9 @@
 		</relationship>
 		<relationship name="markers">
 			<destination>{a4bc6fe4-ca7c-496c-aa86-cafd1c220cb6}</destination>
+			<destination>{ef455220-1485-49b1-9935-06adf69d6fde}</destination>
+			<destination>{5cd4f0e1-cfbd-4213-8b4c-540d912a32a5}</destination>
+			<destination>{18e4ac4d-cc91-4885-bc8f-3bc17ce187dd}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{6e2020f5-4d52-4a14-a11c-09e39d98473c}">
@@ -94,7 +99,7 @@
 	<object class="MixerBusPanner" id="{dbc7cc2f-15ad-461d-a305-a0eb19a38748}" />
 	<object class="SingleSound" id="{ea0a0ae7-cfd7-49ff-a24f-9ad178953a68}">
 		<property name="length">
-			<value>160.00341666666668</value>
+			<value>160.00341666666685</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{91b359e4-38d5-4f9d-80bb-3115758e57c5}</destination>
@@ -129,6 +134,48 @@
 		</relationship>
 		<relationship name="markerTrack">
 			<destination>{584074b8-ff68-40ce-80bc-06f057d53475}</destination>
+		</relationship>
+	</object>
+	<object class="NamedMarker" id="{ef455220-1485-49b1-9935-06adf69d6fde}">
+		<property name="position">
+			<value>1.3333333333333333</value>
+		</property>
+		<property name="name">
+			<value>doSpawn</value>
+		</property>
+		<relationship name="timeline">
+			<destination>{0ea99eff-724c-4afb-9ee2-653d59e2acd2}</destination>
+		</relationship>
+		<relationship name="markerTrack">
+			<destination>{28e8db1f-dc98-4efd-9eec-ceb41528cde1}</destination>
+		</relationship>
+	</object>
+	<object class="NamedMarker" id="{5cd4f0e1-cfbd-4213-8b4c-540d912a32a5}">
+		<property name="position">
+			<value>152.33333333333331</value>
+		</property>
+		<property name="name">
+			<value>dontSpawn</value>
+		</property>
+		<relationship name="timeline">
+			<destination>{0ea99eff-724c-4afb-9ee2-653d59e2acd2}</destination>
+		</relationship>
+		<relationship name="markerTrack">
+			<destination>{28e8db1f-dc98-4efd-9eec-ceb41528cde1}</destination>
+		</relationship>
+	</object>
+	<object class="NamedMarker" id="{18e4ac4d-cc91-4885-bc8f-3bc17ce187dd}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="name">
+			<value>dontSpawn</value>
+		</property>
+		<relationship name="timeline">
+			<destination>{0ea99eff-724c-4afb-9ee2-653d59e2acd2}</destination>
+		</relationship>
+		<relationship name="markerTrack">
+			<destination>{28e8db1f-dc98-4efd-9eec-ceb41528cde1}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{74c9c448-a2fc-4180-b523-b5032de562bb}">
