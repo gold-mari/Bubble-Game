@@ -59,6 +59,8 @@ public class BubbleSpawner : MonoBehaviour
     // The internal age variable that is passed along to bubbles. When a bubble is
     // spawned, we increment the age here.
     uint age = 1;
+    // The song being played from TimekeeperManager.
+    private songObject song;
 
     // ==============================================================
     // Default methods

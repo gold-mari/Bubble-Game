@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Runtime.InteropServices;
+using NaughtyAttributes;
 
 // Beat detection logic written with the help of ColinVAudio:
 // https://www.youtube.com/watch?v=hNQX1fsQL4Q
@@ -20,9 +21,9 @@ public class TimekeeperManager : MonoBehaviour
     [Tooltip("The Endgame Manager present in the scene.")]
     [SerializeField]
     private EndgameManager endgameManager;
-    [Tooltip("The music event that plays in this scene.")]
-    [SerializeField]
-    private FMODUnity.EventReference musicEvent;
+    [Tooltip("The song that plays in this scene.")]
+    [SerializeField] [Expandable]
+    songObject song;    
     [Tooltip("The amount of time, in seconds, after the song ends that we whould wait before "
            + "calling the victory event. Use a negative offset to call it before the song ends."
            + "\n\nItems called on victory include: starting the win animation, stopping bubbles "
@@ -34,6 +35,8 @@ public class TimekeeperManager : MonoBehaviour
     // Internal variables
     // ================================================================
 
+    // The musicEvent in song.
+    private FMODUnity.EventReference musicEvent;
     // A reference to the instance of musicEvent.
     private FMOD.Studio.EventInstance instance;
 
@@ -106,6 +109,8 @@ public class TimekeeperManager : MonoBehaviour
     {
         // Awake is called before Start. We use it to start our music.
         // ================
+
+        musicEvent = song.musicEvent;
 
         // A music event is defined if it has a nonzero path length. Check if the music
         // event is undefined.

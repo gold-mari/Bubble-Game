@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dadb898e130b98c4a80ea68961dbefd9, type: 3}
+  m_Name: DEBUG_PokemonGo
+  m_EditorClassIdentifier: 
+  musicEvent:
+    Guid:
+      Data1: -60412168
+      Data2: 1101255176
+      Data3: 1376886182
+      Data4: -225480031
+    Path: event:/Music/DEBUG-Music
+  loopLength: 32
+  spawnBeats: 020000000400000006000000080000000a0000000c0000000e000000120000001400000016000000180000001a0000001c000000
+  flipBeats: 100000001e000000
+  massBeats: 20000000
