@@ -22,8 +22,8 @@ public class TimekeeperManager : MonoBehaviour
     [SerializeField]
     private EndgameManager endgameManager;
     [Tooltip("The song that plays in this scene.")]
-    [SerializeField] [Expandable]
-    songObject song;    
+    [Expandable]
+    public songObject song;    
     [Tooltip("The amount of time, in seconds, after the song ends that we whould wait before "
            + "calling the victory event. Use a negative offset to call it before the song ends."
            + "\n\nItems called on victory include: starting the win animation, stopping bubbles "
@@ -221,9 +221,9 @@ public class TimekeeperManager : MonoBehaviour
         // ================
 
         GUILayout.Box(String.Format("Current beat = {0}, Last marker = {1}", timelineInfo.currentBeat, (string)timelineInfo.lastMarker));
-        GUILayout.Box(String.Format("Current position = {0}, Current BPM = {1}", timelineInfo.currentPosition, timelineInfo.currentTempo));
+        //GUILayout.Box(String.Format("Current position = {0}, Current BPM = {1}", timelineInfo.currentPosition, timelineInfo.currentTempo));
         GUILayout.Box(String.Format("Current time = {0:0.0000000000}", currentTime));
-        GUILayout.Box(String.Format("Song length = {0} seconds", musicLength));
+        //GUILayout.Box(String.Format("Song length = {0} seconds", musicLength));
     }
 #endif
 

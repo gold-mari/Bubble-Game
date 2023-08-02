@@ -1138,13 +1138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endgameManager: {fileID: 990701828}
-  musicEvent:
-    Guid:
-      Data1: -60412168
-      Data2: 1101255176
-      Data3: 1376886182
-      Data4: -225480031
-    Path: event:/Music/DEBUG-Music
+  song: {fileID: 11400000, guid: 065296291d32dbf4aa0a069e37f34aba, type: 2}
   winOffset: 0
   musicLength: 0
   length4th: 0
@@ -3127,7 +3121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1649246006
 Transform:
   m_ObjectHideFlags: 0

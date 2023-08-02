@@ -42,15 +42,6 @@ public class BubbleSpawner : MonoBehaviour
     public UnityEvent flipGravity;
     // A System.Action version for use with instantiated bubbles.
     public System.Action flipGravityAction;
-    [Tooltip("The number of beats between bubble spawns.\n\nDefault: 2")]
-    public uint beatsBeforeSpawn = 2;
-    private uint spawnBeatCounter = 0;
-    [Tooltip("The number of beats that must pass before gravity flips.\n\nDefault: 16")]
-    public uint beatsBeforeFlip = 16;
-    private uint flipBeatCounter = 0;
-    [Tooltip("The number of beats that must pass before a mass wave spawns.\n\nDefault: 32")]
-    public uint beatsBeforeMass = 32;
-    private uint massBeatCounter = 0;
 
     // ==============================================================
     // Internal variables
@@ -58,9 +49,13 @@ public class BubbleSpawner : MonoBehaviour
 
     // The internal age variable that is passed along to bubbles. When a bubble is
     // spawned, we increment the age here.
-    uint age = 1;
+    private uint age = 1;
+    // The number of beats that have elapsed in this cycle.
+    private uint beatCount = 1;
     // The song being played from TimekeeperManager.
     private songObject song;
+    // Indices for the beat lists in song.
+    private int spawnIndex = 0, flipIndex = 0, massIndex = 0;
 
     // ==============================================================
     // Default methods
@@ -74,7 +69,9 @@ public class BubbleSpawner : MonoBehaviour
 
         RandomizeColors();
         MassSpawnBubble(massRoundSize);
+
         timekeeperManager.beatUpdated += Spawn;
+        song = timekeeperManager.song;
     }
 
     void OnDestroy()
@@ -84,6 +81,16 @@ public class BubbleSpawner : MonoBehaviour
 
         timekeeperManager.beatUpdated -= Spawn;
     }
+
+#if UNITY_EDITOR
+    void OnGUI()
+    {
+        // Prints beatCount to an onscreen GUI box.
+        // ================
+
+        GUILayout.Box($"Current beatCount = {beatCount}");
+    }
+#endif
 
     // ==============================================================
     // Instantiation/Destruction Methods
@@ -96,29 +103,32 @@ public class BubbleSpawner : MonoBehaviour
         // to spawn a mass round.
         // ================
 
-        // Everything runs on separate clocks.
-        spawnBeatCounter++;
-        flipBeatCounter++;
-        massBeatCounter++;
+        // Everything runs on a shared clock.
+        if ( beatCount >= song.loopLength ) {
+            beatCount = 1;
+            spawnIndex = flipIndex = massIndex = 0;
+        }
+        else {
+            beatCount++;
+        }
 
-        if (spawnBeatCounter >= beatsBeforeSpawn) {
+        print($"spawn: {spawnIndex} | flip: {flipIndex} | mass: {massIndex}");
+
+        if (spawnIndex < song.spawnBeats.Count && beatCount == song.spawnBeats[spawnIndex]) {
             CursorSpawnBubble(colors[0].value);
             UpdateColors();
-            spawnBeatCounter = 0;
-            return;
+            spawnIndex++;
         }
 
-        if (flipBeatCounter >= beatsBeforeFlip) {
+        if (flipIndex < song.flipBeats.Count && beatCount == song.flipBeats[flipIndex]) {
             flipGravity.Invoke();
             flipGravityAction.Invoke();
-            flipBeatCounter = 0;
-            return;
+            flipIndex++;
         }
 
-        if (massBeatCounter >= beatsBeforeMass) {
+        if (massIndex < song.massBeats.Count && beatCount == song.massBeats[massIndex]) {
             MassSpawnBubble(massRoundSize);
-            massBeatCounter = 0;
-            return;
+            massIndex++;
         }
     }
 
