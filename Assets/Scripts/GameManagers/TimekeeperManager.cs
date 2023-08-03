@@ -114,10 +114,12 @@ public class TimekeeperManager : MonoBehaviour
 
         musicEvent = song.musicEvent;
 
+        /*
         // A music event is defined if it has a nonzero path length. Check if the music
         // event is undefined.
         bool eventExists = (musicEvent.Path.Length > 0);
         Debug.Assert( eventExists, "TimekeeperManager Error: Awake() failed: musicEvent must not be null.", this );
+        */
 
         // Create the instance and get its description.
         FMOD.Studio.EventDescription description;
