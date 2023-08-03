@@ -24,13 +24,6 @@ public class BeatIndicator : MonoBehaviour
         maskTransform = mask.transform;
         UpdateUI(0f);
 
-        string printstring = "";
-        for ( float f=1; f <= timekeeper.song.loopLength; f++)
-        {
-            printstring += $"{f/timekeeper.song.loopLength} ";
-        }
-        print(printstring);
-
         timekeeper.markerUpdated += PassedMarker;
         timekeeper.beatUpdated += HitBeat;
     }
