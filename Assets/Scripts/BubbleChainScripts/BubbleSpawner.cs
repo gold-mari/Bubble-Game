@@ -259,7 +259,7 @@ public class BubbleSpawner : MonoBehaviour
             shouldSpawn = false;
         }
         if ( timekeeperManager.timelineInfo.lastMarker == "doSpawn" ) {
-            // Update beatCount to be the current beat in the measure minus one.
+            // Update beatCount to be the current beat in the measure.
             beatCount = (uint)timekeeperManager.timelineInfo.currentBeat;
             shouldSpawn = true;
         }

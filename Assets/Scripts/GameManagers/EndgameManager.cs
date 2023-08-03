@@ -30,7 +30,10 @@ public class EndgameManager : MonoBehaviour
 
     public void TriggerWin()
     {
-        StartCoroutine(WinRoutine());
+        // IE don't run anything if we're inactive.
+        if ( gameObject.activeInHierarchy ) {
+            StartCoroutine(WinRoutine());
+        }
     }
     IEnumerator WinRoutine()
     {
@@ -42,7 +45,10 @@ public class EndgameManager : MonoBehaviour
 
     public void TriggerLoss()
     {
-        StartCoroutine(LossRoutine());
+        // IE don't run anything if we're inactive.
+        if ( gameObject.activeInHierarchy ) {
+            StartCoroutine(LossRoutine());
+        }
     }
     IEnumerator LossRoutine()
     {

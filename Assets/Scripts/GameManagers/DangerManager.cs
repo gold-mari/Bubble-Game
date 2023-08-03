@@ -157,7 +157,9 @@ public class DangerManager : MonoBehaviour
         // A method to be run at the end of InDangerRoutine, when dangerAmount is 1.
         // ================
 
-        endgameManager.TriggerLoss();
+        if ( endgameManager ) {
+            endgameManager.TriggerLoss();
+        }
     }
 
     IEnumerator OutOfDangerRoutine() 

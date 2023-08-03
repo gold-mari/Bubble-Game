@@ -1224,6 +1224,7 @@ MonoBehaviour:
   song: {fileID: 11400000, guid: 065296291d32dbf4aa0a069e37f34aba, type: 2}
   winOffset: 0
   musicLength: 0
+  DSPdeltaTime: 0
   length4th: 0
   length8th: 0
   length16th: 0
@@ -1618,7 +1619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81fb2896552859842bf2a1351dddad46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timekeeperManager: {fileID: 625595085}
+  timekeeper: {fileID: 625595085}
   mask: {fileID: 292383482}
   angleRange: {x: 41.65, y: 138.26}
 --- !u!1 &723333263
@@ -1637,7 +1638,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &723333264
 Transform:
   m_ObjectHideFlags: 0
@@ -2406,7 +2407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &990701827
 Transform:
   m_ObjectHideFlags: 0
@@ -3318,7 +3319,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1649246006
 Transform:
   m_ObjectHideFlags: 0

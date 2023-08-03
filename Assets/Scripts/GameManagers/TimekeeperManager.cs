@@ -92,7 +92,8 @@ public class TimekeeperManager : MonoBehaviour
     // The current and previous playhead positions, obtained from the DSP clock.
     private double lastTime = 0f, currentTime = 0f;
     // The difference between lastTime and currentTime at any point.
-    private double DSPdeltaTime;
+    [HideInInspector]
+    public double DSPdeltaTime;
     // Floats used to hold the length, in seconds, of different note values at the current tempo.
     [HideInInspector]
     public double length4th, length8th, length16th, length32nd;

@@ -5,49 +5,104 @@ using UnityEngine;
 public class BeatIndicator : MonoBehaviour
 {
     [SerializeField]
-    private TimekeeperManager timekeeperManager;
+    private TimekeeperManager timekeeper;
     [SerializeField]
     private SpriteMask mask;
     private Transform maskTransform;
     [SerializeField]
     private Vector2 angleRange;
-    float timer = 0;
-    bool shouldReset = false;
-    double loopDuration = 0;
+    // The number of beats that have elapsed in this cycle.
+    private uint beatCount = 1;
+    bool shouldUpdate = false;
 
     // Start is called before the first frame update
     void Start()
     {
         maskTransform = mask.transform;
-        timekeeperManager.beatUpdated += ResetTimer;
+        UpdateUI(0f);
+
+        string printstring = "";
+        for ( float f=1; f <= timekeeper.song.loopLength; f++)
+        {
+            printstring += $"{f/timekeeper.song.loopLength} ";
+        }
+        print(printstring);
+
+        timekeeper.markerUpdated += PassedMarker;
+        timekeeper.beatUpdated += HitBeat;
     }
 
     void OnDestroy()
     {
-        timekeeperManager.beatUpdated -= ResetTimer;
+        timekeeper.markerUpdated -= PassedMarker;
+        timekeeper.beatUpdated -= HitBeat;
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator LerpBetweenPoints(int currentBeat)
     {
-        loopDuration = timekeeperManager.song.loopLength * timekeeperManager.length4th;
-        if ( loopDuration != 0 ) {
-            float zRot = Mathf.Lerp(angleRange.x, angleRange.y, (float)(timer/loopDuration));
-            maskTransform.rotation = Quaternion.Euler(0,0,zRot);
+        double elapsed = 0;
+        double duration  = timekeeper.length4th;
+        float start = LerpPointFromBeat(currentBeat-1);
+        float end = LerpPointFromBeat(currentBeat);
+        float currentAmount = start;
+
+        UpdateUI(start);
+
+        while (elapsed <= duration) {
+            currentAmount = Mathf.Lerp(start, end, LerpKit.EaseIn((float)(elapsed/duration), 3f));
+            UpdateUI(currentAmount);
+
+            elapsed += Time.deltaTime;
+            duration = timekeeper.length4th;
+            yield return null;
         }
 
-        timer += Time.deltaTime;
+        UpdateUI(end);
+    }
 
-        if ( timer > loopDuration ) {
-            shouldReset = true;
+    float LerpPointFromBeat(int beat)
+    {
+        return ((float)beat)/timekeeper.song.loopLength;
+    }
+
+    void UpdateUI(float amount)
+    {
+        float zRot = Mathf.Lerp(angleRange.x, angleRange.y, amount);
+        maskTransform.rotation = Quaternion.Euler(0,0,zRot);
+    }
+
+    private void HitBeat()
+    {
+        // ...
+        // ================
+
+        if ( shouldUpdate ) {
+            StopAllCoroutines();
+            StartCoroutine(LerpBetweenPoints((int)beatCount));
+
+            // Update beatCount.
+            if ( beatCount >= timekeeper.song.loopLength ) {
+                beatCount = 1;
+            }
+            else {
+                beatCount++;
+            }
         }
     }
 
-    void ResetTimer()
+    private void PassedMarker()
     {
-        if ( shouldReset ) {
-            timer = 0;
-            shouldReset = false;
+        // Updates shouldUpdate based on the lastMarker.
+        // ================
+
+        if ( timekeeper.timelineInfo.lastMarker == "dontSpawn" ) {
+            UpdateUI(0f);
+            shouldUpdate = false;
+        }
+        if ( timekeeper.timelineInfo.lastMarker == "doSpawn" ) {
+            // Update beatCount to be the current beat in the measure.
+            beatCount = (uint)timekeeper.timelineInfo.currentBeat;
+            shouldUpdate = true;
         }
     }
 }
