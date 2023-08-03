@@ -11,6 +11,8 @@ public class BeatIndicator : MonoBehaviour
     private Transform maskTransform;
     [SerializeField]
     private Vector2 angleRange;
+    [SerializeField]
+    private GhostBeatIndicator ghost;
     // The number of beats that have elapsed in this cycle.
     private uint beatCount = 1;
     bool shouldUpdate = false;

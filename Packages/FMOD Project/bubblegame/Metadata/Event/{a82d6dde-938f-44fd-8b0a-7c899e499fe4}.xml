@@ -301,7 +301,7 @@
 			<value>0</value>
 		</property>
 		<property name="name">
-			<value>doSpawn</value>
+			<value>dontSpawn</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{552a49df-915e-4793-a29e-fa448c98768a}</destination>
