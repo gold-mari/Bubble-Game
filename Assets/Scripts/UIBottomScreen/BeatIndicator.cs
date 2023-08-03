@@ -12,7 +12,8 @@ public class BeatIndicator : MonoBehaviour
     [SerializeField]
     private Vector2 angleRange;
     [SerializeField]
-    private GhostBeatIndicator ghost;
+    private Animator ghost;
+    private bool canTriggerGhost = false;
     // The number of beats that have elapsed in this cycle.
     private uint beatCount = 1;
     bool shouldUpdate = false;
@@ -82,8 +83,14 @@ public class BeatIndicator : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine(LerpBetweenPoints((int)beatCount));
 
+            // If we just hit the first beat, ping the ghost animator to fade down.
+            if ( canTriggerGhost && beatCount == 1 ) {
+                ghost.SetTrigger("FadeDown");
+            }
+
             // Update beatCount.
             if ( beatCount >= timekeeper.song.loopLength ) {
+                canTriggerGhost = true;
                 beatCount = 1;
             }
             else {
@@ -103,7 +110,7 @@ public class BeatIndicator : MonoBehaviour
         }
         if ( timekeeper.timelineInfo.lastMarker == "doSpawn" ) {
             // Update beatCount to be the current beat in the measure.
-            beatCount = (uint)timekeeper.timelineInfo.currentBeat;
+            beatCount = (uint)timekeeper.timelineInfo.currentBeat;  
             shouldUpdate = true;
         }
     }
