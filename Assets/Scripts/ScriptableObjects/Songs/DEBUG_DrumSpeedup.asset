@@ -19,7 +19,7 @@ MonoBehaviour:
       Data3: -1988359541
       Data4: -459322978
     Path: event:/Music/DEBUG-DrumsSpeedup
-  showBeatInfo: 1
+  showBeatInfo: 0
   loopLength: 4
   spawnBeats: 01000000020000000300000004000000
   flipBeats: 

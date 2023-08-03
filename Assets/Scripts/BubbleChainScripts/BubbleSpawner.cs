@@ -101,11 +101,8 @@ public class BubbleSpawner : MonoBehaviour
         // ================
 
         if ( !shouldSpawn ) {
-            print($"DONTSPAWN: beatCount: {beatCount}");
             return;
         }
-
-        print($"DOSPAWN: beatCount: {beatCount}");
 
         if (song.spawnBeats.Contains(beatCount)) {
             CursorSpawnBubble(colors[0].value);
@@ -265,7 +262,6 @@ public class BubbleSpawner : MonoBehaviour
             // Update beatCount to be the current beat in the measure minus one.
             beatCount = (uint)timekeeperManager.timelineInfo.currentBeat;
             shouldSpawn = true;
-            print("======== enabled ========");
         }
     }
 }

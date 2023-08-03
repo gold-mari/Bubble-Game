@@ -129,9 +129,6 @@ public class TimekeeperManager : MonoBehaviour
         int lengthInMilliseconds = 0;
         description.getLength(out lengthInMilliseconds);
         musicLength = lengthInMilliseconds/1000f;
-        
-        // Pump up the jams!
-        instance.start();
     }
 
     void Start()
@@ -166,7 +163,8 @@ public class TimekeeperManager : MonoBehaviour
 
         fire8th = fire16th = fire32nd = true;
 
-        StartCoroutine(waitWin());
+        StartCoroutine(DEBUG_WaitStartMusic());
+        StartCoroutine(WaitWin());
     }
 
     void Update()
@@ -187,13 +185,11 @@ public class TimekeeperManager : MonoBehaviour
             lastLastMarker = timelineInfo.lastMarker;
             if ( markerUpdated != null ) {
                 markerUpdated.Invoke();
-                //print("Hit marker");
             }
         }
         if ( lastBeat != timelineInfo.currentBeat ) {
             lastBeat = timelineInfo.currentBeat;
             if ( beatUpdated != null ) {
-                //print("Hit beat");
                 beatUpdated.Invoke();
             }
 
@@ -236,6 +232,14 @@ public class TimekeeperManager : MonoBehaviour
     // ================================================================
     // Data-manipulation methods
     // ================================================================
+
+    public void StartMusic()
+    {
+        // Pump up the jams!
+        // ====================
+
+        instance.start();
+    }
 
     void CalculateSubdivisionLengths()
     {
@@ -389,11 +393,22 @@ public class TimekeeperManager : MonoBehaviour
     // Event-handling methods
     // ================================================================
 
-    IEnumerator waitWin()
+    IEnumerator WaitWin()
     {
         yield return new WaitForSeconds(musicLength + winOffset);
         if ( endgameManager ) {
             endgameManager.TriggerWin();
         }
+    }
+
+    // ================================================================
+    // DEBUG methods
+    // ================================================================
+
+    IEnumerator DEBUG_WaitStartMusic()
+    {
+        // Wait a frame and then start the music.
+        yield return null;
+        StartMusic();
     }
 }
