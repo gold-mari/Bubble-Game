@@ -177,15 +177,6 @@ public class TimekeeperManager : MonoBehaviour
         // - Shout markerUpdated when timelineInfo.lastMarker changes
         // ================
 
-        if ( lastBeat != timelineInfo.currentBeat ) {
-            lastBeat = timelineInfo.currentBeat;
-            if ( beatUpdated != null ) {
-                beatUpdated.Invoke();
-            }
-
-            // Also, note that we should fire all our subdivision events to avoid drift.
-            fire8th = fire16th = fire32nd = true;
-        }
         if ( lastTempo != timelineInfo.currentTempo ) {
             lastTempo = timelineInfo.currentTempo;
             if ( tempoUpdated != null ) {
@@ -196,7 +187,18 @@ public class TimekeeperManager : MonoBehaviour
             lastLastMarker = timelineInfo.lastMarker;
             if ( markerUpdated != null ) {
                 markerUpdated.Invoke();
+                //print("Hit marker");
             }
+        }
+        if ( lastBeat != timelineInfo.currentBeat ) {
+            lastBeat = timelineInfo.currentBeat;
+            if ( beatUpdated != null ) {
+                //print("Hit beat");
+                beatUpdated.Invoke();
+            }
+
+            // Also, note that we should fire all our subdivision events to avoid drift.
+            fire8th = fire16th = fire32nd = true;
         }
 
         // Also update our DSP time, and calculate subdivisions.

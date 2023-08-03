@@ -54,14 +54,21 @@ public class BubbleSpawner : MonoBehaviour
     private songObject song;
     // The number of beats that have elapsed in this cycle.
     private uint beatCount = 1;
-    // Indices for the beat lists in song.
-    private int spawnIndex = 0, flipIndex = 0, massIndex = 0;
     // Whether or not we should spawn bubbles, as determined by timeline markers from song.
-    private bool shouldSpawn = true;
+    private bool shouldSpawn = false;
 
     // ==============================================================
     // Default methods
     // ==============================================================
+
+    void Awake()
+    {
+        // Awake is called before start. We use it to subscribe to the timekeeper.
+        // ================
+
+        timekeeperManager.beatUpdated += Spawn;
+        timekeeperManager.markerUpdated += PassedMarker;
+    }
 
     void Start()
     {
@@ -72,8 +79,6 @@ public class BubbleSpawner : MonoBehaviour
         RandomizeColors();
         MassSpawnBubble(massRoundSize);
 
-        timekeeperManager.beatUpdated += Spawn;
-        timekeeperManager.markerUpdated += PassedMarker;
         song = timekeeperManager.song;
     }
 
@@ -96,35 +101,32 @@ public class BubbleSpawner : MonoBehaviour
         // ================
 
         if ( !shouldSpawn ) {
+            print($"DONTSPAWN: beatCount: {beatCount}");
             return;
+        }
+
+        print($"DOSPAWN: beatCount: {beatCount}");
+
+        if (song.spawnBeats.Contains(beatCount)) {
+            CursorSpawnBubble(colors[0].value);
+            UpdateColors();
+        }
+
+        if (song.flipBeats.Contains(beatCount)) {
+            flipGravity.Invoke();
+            flipGravityAction.Invoke();
+        }
+
+        if (song.massBeats.Contains(beatCount)) {
+            MassSpawnBubble(massRoundSize);
         }
 
         // Everything runs on a shared clock.
         if ( beatCount >= song.loopLength ) {
             beatCount = 1;
-            spawnIndex = flipIndex = massIndex = 0;
         }
         else {
             beatCount++;
-        }
-
-        print($"spawn: {spawnIndex} | flip: {flipIndex} | mass: {massIndex}");
-
-        if (spawnIndex < song.spawnBeats.Count && beatCount == song.spawnBeats[spawnIndex]) {
-            CursorSpawnBubble(colors[0].value);
-            UpdateColors();
-            spawnIndex++;
-        }
-
-        if (flipIndex < song.flipBeats.Count && beatCount == song.flipBeats[flipIndex]) {
-            flipGravity.Invoke();
-            flipGravityAction.Invoke();
-            flipIndex++;
-        }
-
-        if (massIndex < song.massBeats.Count && beatCount == song.massBeats[massIndex]) {
-            MassSpawnBubble(massRoundSize);
-            massIndex++;
         }
     }
 
@@ -260,9 +262,10 @@ public class BubbleSpawner : MonoBehaviour
             shouldSpawn = false;
         }
         if ( timekeeperManager.timelineInfo.lastMarker == "doSpawn" ) {
-            shouldSpawn = true;
-            // Also update beatCount to be the current beat in the measure.
+            // Update beatCount to be the current beat in the measure minus one.
             beatCount = (uint)timekeeperManager.timelineInfo.currentBeat;
+            shouldSpawn = true;
+            print("======== enabled ========");
         }
     }
 }
