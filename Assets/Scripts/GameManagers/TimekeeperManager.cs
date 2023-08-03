@@ -50,7 +50,9 @@ public class TimekeeperManager : MonoBehaviour
         // The current beat in the song. Resets per bar.
         public int currentBeat = 0;
         // The current position in the song, in milliseconds.
-        public int currentPosition = 0;
+        public int currentPositionMS = 0;
+        // The current position in the song, in seconds.
+        public float currentPositionS = 0;
         // The current tempo in the song, in beats per minute.
         public float currentTempo = 0;
         // FMOD.StringWrapper is an FMOD string type. Look for the last timeline marker.
@@ -91,7 +93,7 @@ public class TimekeeperManager : MonoBehaviour
     private double lastTime = 0f, currentTime = 0f;
     // The difference between lastTime and currentTime at any point.
     private double DSPdeltaTime;
-    // Floats used to hold the length of different note values at the current tempo.
+    // Floats used to hold the length, in seconds, of different note values at the current tempo.
     [HideInInspector]
     public double length4th, length8th, length16th, length32nd;
     // Timers used to help determine if we ought to fire the note events yet at a given time.
@@ -197,7 +199,7 @@ public class TimekeeperManager : MonoBehaviour
 
         // Also update our DSP time, and calculate subdivisions.
         UpdateDSPTime();
-        CalculateSubdivisions();
+        ShoutSubdivisions();
     }
 
     void OnDestroy()
@@ -221,7 +223,7 @@ public class TimekeeperManager : MonoBehaviour
         // ================
 
         GUILayout.Box(String.Format("Current beat = {0}, Last marker = {1}", timelineInfo.currentBeat, (string)timelineInfo.lastMarker));
-        GUILayout.Box(String.Format("Current position = {0}, Current BPM = {1}", timelineInfo.currentPosition, timelineInfo.currentTempo));
+        GUILayout.Box(String.Format("Current position = {0}, Current BPM = {1}", timelineInfo.currentPositionMS, timelineInfo.currentTempo));
         GUILayout.Box(String.Format("Current time = {0:0.0000000000}", currentTime));
         GUILayout.Box(String.Format("Song length = {0} seconds", musicLength));
     }
@@ -231,21 +233,29 @@ public class TimekeeperManager : MonoBehaviour
     // Data-manipulation methods
     // ================================================================
 
-void CalculateSubdivisions()
+    void CalculateSubdivisionLengths()
     {
-        // This function calls our subdivision events, Our subdivision events are:
-        // - eighthNoteUpdated, called every 8th note
-        // - sixteenthNoteUpdated, ... 16th note
-        // - thirtysecondNoteUpdated, ... 32nd note
+        // Calculates the length of subdivisions.
         // ================
 
-        // Define our note length values. We must do this each cycle in case tempo changes.
         // First, convert tempo to seconds per beat.
         length4th = Mathf.Pow((timelineInfo.currentTempo/60f), -1);
         // Get subdivision lengths.
         length8th = length4th/2f;
         length16th = length8th/2f;
         length32nd = length16th/2f;
+    }
+
+    void ShoutSubdivisions()
+    {
+        // This function calls our subdivision events. Our subdivision events are:
+        // - eighthNoteUpdated, called every 8th note
+        // - sixteenthNoteUpdated, ... 16th note
+        // - thirtysecondNoteUpdated, ... 32nd note
+        // ================
+
+        // Define our note length values. We must do this each cycle in case tempo changes.
+        CalculateSubdivisionLengths();
 
         // Check if we should fire any of our subdivision events.
         if ( fire8th ) {
@@ -350,7 +360,8 @@ void CalculateSubdivisions()
                         var parameter = (FMOD.Studio.TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(FMOD.Studio.TIMELINE_BEAT_PROPERTIES));
                         // Set currentBeat, currentPosition, and tempo.
                         timelineInfo.currentBeat = parameter.beat;
-                        timelineInfo.currentPosition = parameter.position;
+                        timelineInfo.currentPositionMS = parameter.position;
+                        timelineInfo.currentPositionS = parameter.position/1000f;
                         timelineInfo.currentTempo = parameter.tempo;
                     }
                     break;

@@ -57,7 +57,7 @@ public class BubbleSpawner : MonoBehaviour
     // Indices for the beat lists in song.
     private int spawnIndex = 0, flipIndex = 0, massIndex = 0;
     // Whether or not we should spawn bubbles, as determined by timeline markers from song.
-    private bool shouldSpawn = false;
+    private bool shouldSpawn = true;
 
     // ==============================================================
     // Default methods
@@ -138,7 +138,7 @@ public class BubbleSpawner : MonoBehaviour
         // DEBUG DEBUG DEBUG //
         // DEBUG DEBUG DEBUG //
         // DEBUG DEBUG DEBUG //
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/BubbleSpawn");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/MassBubbleSpawn");
         // DEBUG DEBUG DEBUG //
         // DEBUG DEBUG DEBUG //
         // DEBUG DEBUG DEBUG //
