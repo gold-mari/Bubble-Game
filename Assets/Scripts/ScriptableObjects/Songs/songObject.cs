@@ -35,12 +35,18 @@ public class songObject : ScriptableObject
 
     public void Reset()
     {
+        // Resets our position in our beat list.
+        // ================
+
         index = 0;
         upcomingBeat = nonNullBeats[index];
     }
 
     public void Advance()
     {
+        // Advances to the next position in our beat list.
+        // ================
+
         if ( index < nonNullBeats.Count-1 ) {
             index++;
             upcomingBeat = nonNullBeats[index];

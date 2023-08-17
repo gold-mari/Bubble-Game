@@ -105,7 +105,8 @@ public class BubbleSpawner : MonoBehaviour
             return;
         }
 
-        if ( song.upcomingBeat.number == beatCount ) {
+        // If the upcoming beat is this beat,
+        if ( song.upcomingBeat.number >= beatCount ) {
             switch ( song.upcomingBeat.type )
             {
                 case BeatType.SingleSpawn:
@@ -275,6 +276,7 @@ public class BubbleSpawner : MonoBehaviour
         if ( timekeeperManager.timelineInfo.lastMarker == "doSpawn" ) {
             // Update beatCount to be the current beat in the measure.
             beatCount = (uint)timekeeperManager.timelineInfo.currentBeat;
+            song.Reset();
             shouldSpawn = true;
         }
     }
