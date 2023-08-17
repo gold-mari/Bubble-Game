@@ -10,18 +10,34 @@ public class BeatIconPopulator : MonoBehaviour
     private Vector2 angleRange;
     [SerializeField]
     private GameObject icon;
+    [SerializeField]
+    private int displaySize;
 
     // Start is called before the first frame update
     void Start()
     {
         float lerpAmount = 0;
         float spawnAngle = 0;
-        for ( float f=0; f < timekeeper.song.loopLength; f++)
-        {
-            lerpAmount = f/timekeeper.song.loopLength;
-            spawnAngle = Mathf.Lerp(angleRange.x, angleRange.y, lerpAmount);
+        uint beatToDisplay = 1;
+        int batch = 1;
 
-            Instantiate(icon, Vector3.zero, Quaternion.Euler(0,0,spawnAngle), transform);
+        songObject song = timekeeper.song;
+
+        while ( beatToDisplay <= song.loopLength )
+        {
+            for ( int i = 0; i < displaySize && beatToDisplay <= song.loopLength; i++ )
+            {
+                print( $"{batch}, {beatToDisplay}" );
+
+                lerpAmount = (float)beatToDisplay/song.loopLength;
+                spawnAngle = Mathf.Lerp(angleRange.x, angleRange.y, lerpAmount);
+                if ( song.GetBeatType(beatToDisplay) != BeatType.NONE ) {
+                    Instantiate(icon, Vector3.zero, Quaternion.Euler(0,0,spawnAngle), transform);
+                }        
+
+                beatToDisplay++;
+            }
+            batch++;
         }
     }
 
