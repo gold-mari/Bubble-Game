@@ -38,8 +38,8 @@ public class BeatIndicator : MonoBehaviour
     {
         double elapsed = 0;
         double duration  = timekeeper.length4th;
-        float start = LerpPointFromBeat(currentBeat-1);
-        float end = LerpPointFromBeat(currentBeat);
+        float start = GetLerpPointFromBeat(currentBeat-1);
+        float end = GetLerpPointFromBeat(currentBeat);
         float currentAmount = start;
 
         UpdateUI(start);
@@ -56,20 +56,27 @@ public class BeatIndicator : MonoBehaviour
         UpdateUI(end);
     }
 
-    float LerpPointFromBeat(int beat)
+    float GetLerpPointFromBeat(int beat)
     {
+        // Returns how far into the song loop we are, from 0 to 1.
+        // ================
+
         return ((float)beat)/timekeeper.song.loopLength;
     }
 
     void UpdateUI(float amount)
-    {
+    {   
+        // Helper function which lerps the rotation of the maskTransform, depending on
+        // the value of amount (min: 0, max: 1).
+        // ================
+
         float zRot = Mathf.Lerp(angleRange.x, angleRange.y, amount);
         maskTransform.rotation = Quaternion.Euler(0,0,zRot);
     }
 
     private void HitBeat()
     {
-        // ...
+        // Runs when the timekeeper notes we hit a beat.
         // ================
 
         if ( shouldUpdate ) {
@@ -79,9 +86,12 @@ public class BeatIndicator : MonoBehaviour
             // If we just hit the first beat, ping the ghost animator to fade down.
             if ( canTriggerGhost && beatCount == 1 ) {
                 ghost.SetTrigger("FadeDown");
+                // Note that we can't do this again until we organically reach the end.
+                canTriggerGhost = false;
             }
 
-            // Update beatCount.
+            // Update beatCount. If we organically reach the end, note that we can show
+            // the ghost!
             if ( beatCount >= timekeeper.song.loopLength ) {
                 canTriggerGhost = true;
                 beatCount = 1;
@@ -98,7 +108,6 @@ public class BeatIndicator : MonoBehaviour
         // ================
 
         if ( timekeeper.timelineInfo.lastMarker == "dontSpawn" ) {
-            UpdateUI(0f);
             shouldUpdate = false;
         }
         if ( timekeeper.timelineInfo.lastMarker == "doSpawn" ) {
