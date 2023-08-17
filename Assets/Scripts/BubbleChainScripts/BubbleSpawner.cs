@@ -106,7 +106,7 @@ public class BubbleSpawner : MonoBehaviour
         }
 
         // If the upcoming beat is this beat,
-        if ( song.upcomingBeat.number >= beatCount ) {
+        if ( song.upcomingBeat.number <= beatCount ) {
             switch ( song.upcomingBeat.type )
             {
                 case BeatType.SingleSpawn:

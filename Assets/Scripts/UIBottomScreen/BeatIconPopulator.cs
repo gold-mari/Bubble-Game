@@ -7,8 +7,6 @@ public class BeatIconPopulator : MonoBehaviour
     [SerializeField]
     private TimekeeperManager timekeeper;
     [SerializeField]
-    private Vector3 spawnPoint = new Vector3(-5.27f, 0, 0);
-    [SerializeField]
     private Vector2 angleRange;
     [SerializeField]
     private GameObject icon;
