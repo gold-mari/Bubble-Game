@@ -113,7 +113,10 @@ public class TimekeeperManager : MonoBehaviour
         // Awake is called before Start. We use it to start our music.
         // ================
 
+        // Define our song reference.
         musicEvent = song.musicEvent;
+        // Initialize the beat dictionary.
+        song.InitializeBeatsDict();
 
         /*
         // A music event is defined if it has a nonzero path length. Check if the music

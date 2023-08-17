@@ -8,13 +8,17 @@ public enum BeatType { NONE, SingleSpawn, MassSpawn, GravityFlip }
 [System.Serializable]
 public class Beat 
 {
-    public int number;
+    public uint number;
     public BeatType type;
 }
 
 [CreateAssetMenu(fileName="New Song", menuName="Song")]
 public class songObject : ScriptableObject
 {
+    // ================================================================
+    // Parameters
+    // ================================================================
+
     [Tooltip("The music event associated with this song.")]
     public FMODUnity.EventReference musicEvent;
     [Tooltip("Whether or not we should display beat information.")]
@@ -23,33 +27,52 @@ public class songObject : ScriptableObject
     [Tooltip("The number of beats per event loop. 1-indexed: the first beat is beat 1.")]
     [ShowIf("showBeatInfo")]
     public uint loopLength;
-
     [Tooltip("All beats with non-null actions.")]
     [ShowIf("showBeatInfo")]
     public List<Beat> nonNullBeats;
-    [Tooltip("The next nonNullBeat coming up.")]
-    [ShowIf("showBeatInfo")] [ReadOnly]
-    public Beat upcomingBeat;
 
-    private int index;
+    // ================================================================
+    // Internal variables
+    // ================================================================
 
-    public void Reset()
+    // A dictionary object which is filled with the contents of nonNullBeats.
+    public Dictionary<uint, BeatType> nonNullBeatsDict = new Dictionary<uint, BeatType>();
+
+    // ================================================================
+    // Data-accessor methods
+    // ================================================================
+
+    public BeatType GetBeatType( uint number )
     {
-        // Resets our position in our beat list.
+        // Accessor function used to return the beat type of a given beat, including
+        // returning NONE if it is not in our dictionary.
         // ================
 
-        index = 0;
-        upcomingBeat = nonNullBeats[index];
+        if ( nonNullBeatsDict.ContainsKey(number) ) {
+            return nonNullBeatsDict[number];
+        }
+        else {
+            return BeatType.NONE;
+        }
     }
 
-    public void Advance()
+    // ================================================================
+    // Data-manipulation methods
+    // ================================================================
+
+    public void InitializeBeatsDict()
     {
-        // Advances to the next position in our beat list.
+        // Called from TimekeeperManager. Resets and repopulates our dictionary from our
+        // nonNullBeats list.
         // ================
 
-        if ( index < nonNullBeats.Count-1 ) {
-            index++;
-            upcomingBeat = nonNullBeats[index];
+        nonNullBeatsDict.Clear();
+        foreach ( Beat beat in nonNullBeats )
+        {
+            if ( !nonNullBeatsDict.ContainsKey(beat.number) ) {
+                nonNullBeatsDict.Add(beat.number, beat.type);
+                Debug.Log( $"Added ({beat.number}, {beat.type})" );
+            }
         }
     }
 }

@@ -80,7 +80,6 @@ public class BubbleSpawner : MonoBehaviour
         MassSpawnBubble(massRoundSize);
 
         song = timekeeperManager.song;
-        song.Reset();
     }
 
     void OnDestroy()
@@ -105,39 +104,44 @@ public class BubbleSpawner : MonoBehaviour
             return;
         }
 
-        // If the upcoming beat is this beat,
-        if ( song.upcomingBeat.number <= beatCount ) {
-            switch ( song.upcomingBeat.type )
-            {
-                case BeatType.SingleSpawn:
-                {
-                    CursorSpawnBubble(colors[0].value);
-                    UpdateColors();
-                    break;
-                }
-                case BeatType.MassSpawn:
-                {
-                    MassSpawnBubble(massRoundSize);
-                    break;
-                }
-                case BeatType.GravityFlip:
-                {
-                    flipGravity.Invoke();
-                    flipGravityAction.Invoke();
-                    break; 
-                }
-            }
+        // Get the type of the current beat.
+        BeatType type = song.GetBeatType(beatCount);
 
-            song.Advance();
+        // If the upcoming beat is this beat,
+        switch ( type )
+        {
+            case BeatType.NONE:
+            {
+                print("NONE");
+                break;
+            }
+            case BeatType.SingleSpawn:
+            {
+                print("Single");
+                CursorSpawnBubble(colors[0].value);
+                UpdateColors();
+                break;
+            }
+            case BeatType.MassSpawn:
+            {
+                print("Mass");
+                MassSpawnBubble(massRoundSize);
+                break;
+            }
+            case BeatType.GravityFlip:
+            {
+                print("Gravity");
+                flipGravity.Invoke();
+                flipGravityAction.Invoke();
+                break; 
+            }
         }
 
         // Everything runs on a shared clock.
         if ( beatCount >= song.loopLength ) {
             beatCount = 1;
-            song.Reset();
         }
         else {
-            print(beatCount);
             beatCount++;
         }
     }
@@ -276,7 +280,6 @@ public class BubbleSpawner : MonoBehaviour
         if ( timekeeperManager.timelineInfo.lastMarker == "doSpawn" ) {
             // Update beatCount to be the current beat in the measure.
             beatCount = (uint)timekeeperManager.timelineInfo.currentBeat;
-            song.Reset();
             shouldSpawn = true;
         }
     }

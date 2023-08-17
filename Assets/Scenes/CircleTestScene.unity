@@ -3366,9 +3366,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timekeeper: {fileID: 625595085}
-  spawnPoint: {x: -5.27, y: 0, z: 0}
   angleRange: {x: -47, y: 47}
   icon: {fileID: 8666601734840800240, guid: a8dd55152f8183e4e91588dc99167623, type: 3}
+  displaySize: 9
 --- !u!210 &1664299072
 SortingGroup:
   m_ObjectHideFlags: 0
