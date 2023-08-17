@@ -80,6 +80,7 @@ public class BubbleSpawner : MonoBehaviour
         MassSpawnBubble(massRoundSize);
 
         song = timekeeperManager.song;
+        song.Reset();
     }
 
     void OnDestroy()
@@ -104,25 +105,38 @@ public class BubbleSpawner : MonoBehaviour
             return;
         }
 
-        if (song.spawnBeats.Contains(beatCount)) {
-            CursorSpawnBubble(colors[0].value);
-            UpdateColors();
-        }
+        if ( song.upcomingBeat.number == beatCount ) {
+            switch ( song.upcomingBeat.type )
+            {
+                case BeatType.SingleSpawn:
+                {
+                    CursorSpawnBubble(colors[0].value);
+                    UpdateColors();
+                    break;
+                }
+                case BeatType.MassSpawn:
+                {
+                    MassSpawnBubble(massRoundSize);
+                    break;
+                }
+                case BeatType.GravityFlip:
+                {
+                    flipGravity.Invoke();
+                    flipGravityAction.Invoke();
+                    break; 
+                }
+            }
 
-        if (song.flipBeats.Contains(beatCount)) {
-            flipGravity.Invoke();
-            flipGravityAction.Invoke();
-        }
-
-        if (song.massBeats.Contains(beatCount)) {
-            MassSpawnBubble(massRoundSize);
+            song.Advance();
         }
 
         // Everything runs on a shared clock.
         if ( beatCount >= song.loopLength ) {
             beatCount = 1;
+            song.Reset();
         }
         else {
+            print(beatCount);
             beatCount++;
         }
     }
