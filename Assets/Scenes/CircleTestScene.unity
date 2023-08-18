@@ -1340,7 +1340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endgameManager: {fileID: 990701828}
-  song: {fileID: 11400000, guid: caefbce19c9c1d4479004fbf90d49797, type: 2}
+  song: {fileID: 11400000, guid: 97e84ace15e5b7e41aaccc1d5c9444c8, type: 2}
   winOffset: 0
   musicLength: 0
   DSPdeltaTime: 0
@@ -1653,12 +1653,12 @@ GameObject:
   - component: {fileID: 695008896}
   - component: {fileID: 695008897}
   m_Layer: 0
-  m_Name: Indicator
+  m_Name: Fill Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &695008894
 Transform:
   m_ObjectHideFlags: 0
@@ -1765,6 +1765,7 @@ GameObject:
   m_Component:
   - component: {fileID: 723333264}
   - component: {fileID: 723333265}
+  - component: {fileID: 723333266}
   m_Layer: 0
   m_Name: Beat Indicators
   m_TagString: Untagged
@@ -1786,7 +1787,7 @@ Transform:
   m_Children:
   - {fileID: 668213886}
   - {fileID: 695008894}
-  - {fileID: 1664299070}
+  - {fileID: 1283709299}
   m_Father: {fileID: 1632959958}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1801,6 +1802,21 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &723333266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723333263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8294e14ab1578ec4981c0d221e201f7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timekeeper: {fileID: 625595085}
+  populator: {fileID: 1664299071}
+  batchSize: 8
 --- !u!1 &742640115
 GameObject:
   m_ObjectHideFlags: 0
@@ -2768,6 +2784,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1283709298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1283709299}
+  - component: {fileID: 1283709300}
+  m_Layer: 0
+  m_Name: Beat Icons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1283709299
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283709298}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1664299070}
+  - {fileID: 1780181835}
+  m_Father: {fileID: 723333264}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &1283709300
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283709298}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
 --- !u!1 &1286834707
 GameObject:
   m_ObjectHideFlags: 0
@@ -3329,9 +3390,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1664299070}
   - component: {fileID: 1664299071}
-  - component: {fileID: 1664299072}
   m_Layer: 0
-  m_Name: Beat Icon Populator
+  m_Name: Icon Populator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3344,14 +3404,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664299069}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1780181835}
-  m_Father: {fileID: 723333264}
-  m_RootOrder: 2
+  m_Children: []
+  m_Father: {fileID: 1283709299}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1664299071
 MonoBehaviour:
@@ -3368,18 +3427,6 @@ MonoBehaviour:
   timekeeper: {fileID: 625595085}
   angleRange: {x: -47, y: 47}
   icon: {fileID: 8666601734840800240, guid: a8dd55152f8183e4e91588dc99167623, type: 3}
-  displaySize: 9
---- !u!210 &1664299072
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1664299069}
-  m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 3
 --- !u!1 &1711827056
 GameObject:
   m_ObjectHideFlags: 0
@@ -3489,13 +3536,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780181834}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1664299070}
-  m_RootOrder: 0
+  m_Father: {fileID: 1283709299}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!331 &1780181836
 SpriteMask:

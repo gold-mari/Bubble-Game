@@ -71,7 +71,6 @@ public class songObject : ScriptableObject
         {
             if ( !nonNullBeatsDict.ContainsKey(beat.number) ) {
                 nonNullBeatsDict.Add(beat.number, beat.type);
-                Debug.Log( $"Added ({beat.number}, {beat.type})" );
             }
         }
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeatIndicator : MonoBehaviour
+public class BeatFillIndicator : MonoBehaviour
 {
     [SerializeField]
     private TimekeeperManager timekeeper;
@@ -24,14 +24,14 @@ public class BeatIndicator : MonoBehaviour
         maskTransform = mask.transform;
         UpdateUI(0f);
 
-        timekeeper.markerUpdated += PassedMarker;
-        timekeeper.beatUpdated += HitBeat;
+        timekeeper.markerUpdated += OnMarkerUpdated;
+        timekeeper.beatUpdated += OnBeatUpdated;
     }
 
     void OnDestroy()
     {
-        timekeeper.markerUpdated -= PassedMarker;
-        timekeeper.beatUpdated -= HitBeat;
+        timekeeper.markerUpdated -= OnMarkerUpdated;
+        timekeeper.beatUpdated -= OnBeatUpdated;
     }
 
     IEnumerator LerpBetweenPoints(int currentBeat)
@@ -74,7 +74,7 @@ public class BeatIndicator : MonoBehaviour
         maskTransform.rotation = Quaternion.Euler(0,0,zRot);
     }
 
-    private void HitBeat()
+    private void OnBeatUpdated()
     {
         // Runs when the timekeeper notes we hit a beat.
         // ================
@@ -102,7 +102,7 @@ public class BeatIndicator : MonoBehaviour
         }
     }
 
-    private void PassedMarker()
+    private void OnMarkerUpdated()
     {
         // Updates shouldUpdate based on the lastMarker.
         // ================

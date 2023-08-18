@@ -112,25 +112,21 @@ public class BubbleSpawner : MonoBehaviour
         {
             case BeatType.NONE:
             {
-                print("NONE");
                 break;
             }
             case BeatType.SingleSpawn:
             {
-                print("Single");
                 CursorSpawnBubble(colors[0].value);
                 UpdateColors();
                 break;
             }
             case BeatType.MassSpawn:
             {
-                print("Mass");
                 MassSpawnBubble(massRoundSize);
                 break;
             }
             case BeatType.GravityFlip:
             {
-                print("Gravity");
                 flipGravity.Invoke();
                 flipGravityAction.Invoke();
                 break; 
