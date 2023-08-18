@@ -1816,7 +1816,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timekeeper: {fileID: 625595085}
   populator: {fileID: 1664299071}
-  batchSize: 8
+  batchSize: 5
 --- !u!1 &742640115
 GameObject:
   m_ObjectHideFlags: 0
@@ -3427,6 +3427,9 @@ MonoBehaviour:
   timekeeper: {fileID: 625595085}
   angleRange: {x: -47, y: 47}
   icon: {fileID: 8666601734840800240, guid: a8dd55152f8183e4e91588dc99167623, type: 3}
+  spawnSprite: {fileID: 1371286240, guid: f080cce6a2918d64ebab4e4e7780f3d5, type: 3}
+  massSpawnSprite: {fileID: -221942425, guid: f080cce6a2918d64ebab4e4e7780f3d5, type: 3}
+  flipSprite: {fileID: 353059646, guid: f080cce6a2918d64ebab4e4e7780f3d5, type: 3}
 --- !u!1 &1711827056
 GameObject:
   m_ObjectHideFlags: 0
