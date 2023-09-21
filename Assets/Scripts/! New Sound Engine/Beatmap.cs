@@ -28,8 +28,8 @@ public class Beatmap : ScriptableObject
         // returning NONE if it is not in our dictionary.
         // ================
 
-        Debug.Assert(number != 0, "Beatmap Error: GetBeatType() failed. Beatmaps use 1-indexing, meaning the first beat is beat 1, "
-                                + "not beat 0.");
+        Debug.Assert(number != 0, "Beatmap Error: GetBeatType() failed. Beatmaps use 1-indexing, meaning the first "
+                                + "beat is beat 1, not beat 0.");
 
         try 
         {
@@ -82,16 +82,16 @@ public class Beatmap : ScriptableObject
         // ================================================
         string[] nameValues = lines[0].Split(',');
         Debug.Assert(nameValues[0] == "name", "Beatmap Error: Populate() failed. First line must have key 'name'.");
-        Debug.Assert(nameValues.Length == 2, "Beatmap Error: Populate() failed. First line 'name' must have exactly 1 key and 1 "
-                                                  + "value.");
+        Debug.Assert(nameValues.Length == 2, "Beatmap Error: Populate() failed. First line 'name' must have exactly "
+                                           + "1 key and 1 value.");
         beatmapName = nameValues[1];
 
         // ================================================
         // LINE 2: Getting the loop length.
         // ================================================
         string[] loopLengthValues = lines[1].Split(',');
-        Debug.Assert(loopLengthValues[0] == "loopLength", "Beatmap Error: Populate() failed. Second line must have key "
-                                                        + "'loopLength'.");
+        Debug.Assert(loopLengthValues[0] == "loopLength", "Beatmap Error: Populate() failed. Second line must have "
+                                                        + "key 'loopLength'.");
         Debug.Assert(loopLengthValues.Length == 2, "Beatmap Error: Populate() failed. Second line 'loopLength' must "
                                                  + "have exactly 1 key and 1 value.");
         uint loopLength = System.Convert.ToUInt32(loopLengthValues[1]);
@@ -107,16 +107,26 @@ public class Beatmap : ScriptableObject
 
             foreach (string value in lineValues)
             {
-                if (value == lineValues[0])
+                // Trim whitespace.
+                string trimmed = value.Trim();
+
+                if (trimmed == lineValues[0])
                 {
                     type = TypeFromName(lineValues[0]);
-                    Debug.Assert(type != BeatType.NONE, $"Beatmap Error: Populate() failed. Invalid type on line {i+1}: "
-                                                      + $"{lineValues[0]}.");
+                    Debug.Assert(type != BeatType.NONE, $"Beatmap Error: Populate() failed. Invalid type on line " 
+                                                      + $"{i+1}: {lineValues[0]}.");
                 }
                 else
                 {
                     // Add the (value, type) pair to our dictionary.
-                    nonNullBeatsDict.Add(System.Convert.ToUInt32(value), type);
+                    uint beatNumber = System.Convert.ToUInt32(trimmed);
+                    Debug.Assert(beatNumber > 0 && beatNumber <= loopLength, $"Beatmap Error: Populate() failed. "
+                                                                           + $"Invalid beat number on line {i+1}: "
+                                                                           + $"{beatNumber}.");
+                    Debug.Assert(GetBeatType(beatNumber) == BeatType.NONE, $"Beatmap Error: Populate() failed. "
+                                                                         + $"Beat number {beatNumber} on line {i+1} was "
+                                                                         + $"already mapped.");
+                    nonNullBeatsDict.Add(beatNumber, type);                    
                 }
             }
         }
