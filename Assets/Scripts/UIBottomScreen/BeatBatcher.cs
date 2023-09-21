@@ -53,11 +53,11 @@ public class BeatBatcher : MonoBehaviour
         // the loop and the batch.
         // ================
 
-        if ( shouldUpdate ) {
+        if (shouldUpdate) {
             // Update currentLoopBeat.
 
             // Case 1: We reach the end of the loop. Set everything back to 1.
-            if ( currentLoopBeat >= timekeeper.song.loopLength ) {
+            if (currentLoopBeat >= timekeeper.song.loopLength) {
                 currentLoopBeat = 1;
                 currentBatchBeat = 1;
                 // Reset batch size.
@@ -70,14 +70,14 @@ public class BeatBatcher : MonoBehaviour
 
             // Case 2: We reach the end of a batch but not the loop. Increment our loop
             // counter but reset our batch counter.
-            else if ( currentBatchBeat >= currentBatchSize ) {
+            else if (currentBatchBeat >= currentBatchSize) {
                 currentLoopBeat++;
                 currentBatchBeat = 1;
                 
                 // If we have fewer beats in the loop left than the batch size, set our
                 // current batch size to the number of beats left.
                 uint beatsLeft = timekeeper.song.loopLength - currentLoopBeat + 1;
-                if ( beatsLeft < batchSize ) {
+                if (beatsLeft < batchSize) {
                     currentBatchSize = beatsLeft;
                 }
 
@@ -94,7 +94,7 @@ public class BeatBatcher : MonoBehaviour
                 currentBatchBeat++;
             }
 
-            print( $"loop: {currentLoopBeat}\nbatch: {currentBatchBeat} - bounds: {batchStartEndBeats} - size: {currentBatchSize}" );
+            print($"loop: {currentLoopBeat}\nbatch: {currentBatchBeat} - bounds: {batchStartEndBeats} - size: {currentBatchSize}");
         }
     }
 
@@ -103,10 +103,10 @@ public class BeatBatcher : MonoBehaviour
         // Updates shouldUpdate based on the lastMarker.
         // ================
 
-        if ( timekeeper.timelineInfo.lastMarker == "dontSpawn" ) {
+        if (timekeeper.timelineInfo.lastMarker == "dontSpawn") {
             shouldUpdate = false;
         }
-        if ( timekeeper.timelineInfo.lastMarker == "doSpawn" ) {
+        if (timekeeper.timelineInfo.lastMarker == "doSpawn") {
             // Update our beat counts to be the current beat in our first measure.
             // Go one behind, because markerUpdated is always called before beatUpdated.
             currentLoopBeat = (uint)timekeeper.timelineInfo.currentBeat - 1;

@@ -34,7 +34,7 @@ public class RadialGravity : MonoBehaviour
         // ================
 
         body = GetComponent<Rigidbody2D>();
-        Debug.Assert( body != null, "RadialGravity Error: Start() failed: gameObject must have a Rigidbody2D.", this );
+        Debug.Assert(body != null, "RadialGravity Error: Start() failed: gameObject must have a Rigidbody2D.", this);
     }
 
     void FixedUpdate()

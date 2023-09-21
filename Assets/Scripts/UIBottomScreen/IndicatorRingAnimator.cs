@@ -42,7 +42,7 @@ public class IndicatorRingAnimator : MonoBehaviour
         // lastGravityFlipped. If they differ, we update the animator.
         // ================
 
-        if ( lastGravityFlipped != gravityFlipped.value ) {
+        if (lastGravityFlipped != gravityFlipped.value) {
             lastGravityFlipped = gravityFlipped.value;
             animator.SetBool("gravityFlipped", gravityFlipped.value);
         }

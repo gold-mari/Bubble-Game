@@ -61,7 +61,7 @@ public class DangerTracker : MonoBehaviour
 
         // First, check to make sure this object has a Collider2D.
         Collider2D collider = GetComponent<Collider2D>();
-        Debug.Assert( collider != null, "DangerTracker Error: Start() failed: gameObject must have a Collider2D.", this );
+        Debug.Assert(collider != null, "DangerTracker Error: Start() failed: gameObject must have a Collider2D.", this);
         // Define the radius of our bubble using a bounding box. Again, because bubbles
         // are presumed to be circular, width is an acceptable substitute for diameter.
         // Divide by 2 to get radius instead of diameter.
@@ -108,7 +108,7 @@ public class DangerTracker : MonoBehaviour
         // Part 0: Short circuit
         // ================================
 
-        if ( !checkForDanger ) {
+        if (!checkForDanger) {
             return;
         }
 
@@ -126,13 +126,13 @@ public class DangerTracker : MonoBehaviour
         // If gravity isn't flipped, check if we're further than the outer radius. If so,
         // then note that we're past range. ALSO, add bubbleRadius to find the distance
         // to the furthest point on the bubble from the center.
-        if ( !gravityFlipped.value && (distance + bubbleRadius) > dangerRadii.y ) {    
+        if (!gravityFlipped.value && (distance + bubbleRadius) > dangerRadii.y) {    
             pastRange = true;
         }
         // Otherwise, check if we're further than the inner radius. If so, then note that
         // we're past range. ALSO, subtract bubbleRadius to find the distance to the
         // closest point on the bubble from the center.
-        else if ( gravityFlipped.value && (distance - bubbleRadius) < dangerRadii.x ) {
+        else if (gravityFlipped.value && (distance - bubbleRadius) < dangerRadii.x) {
             pastRange = true;
         }
         // Recall pastRange is initialized to false. If it isn't set to true by one of
@@ -145,21 +145,21 @@ public class DangerTracker : MonoBehaviour
         // If pastRange != inDanger, then pastRange just changed. Note the change, and
         // then update inDanger so it once again matches pastRange.
 
-        if ( dangerManager ) {
+        if (dangerManager) {
         // If we're pastRange but not inDanger, we just entered danger.
-            if ( pastRange && !inDanger ) {
+            if (pastRange && !inDanger) {
                 dangerManager.Increment();
                 inDanger = pastRange;
             }
             // If we're not pastRange but we're inDanger, we just exited danger.
-            if ( !pastRange && inDanger ) {
+            if (!pastRange && inDanger) {
                 dangerManager.Decrement();
                 inDanger = pastRange;
             }
         }
 
         // Finally, if the animator exists, update the animator.
-        if ( animator ) {
+        if (animator) {
             animator.SetBool("inDanger", inDanger);
         }
     }

@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
-public enum BeatType { NONE, SingleSpawn, MassSpawn, GravityFlip }
-
 [System.Serializable]
 public class Beat 
 {
@@ -12,7 +10,6 @@ public class Beat
     public BeatType type;
 }
 
-[CreateAssetMenu(fileName="New Song", menuName="Song")]
 public class songObject : ScriptableObject
 {
     // ================================================================
@@ -42,13 +39,13 @@ public class songObject : ScriptableObject
     // Data-accessor methods
     // ================================================================
 
-    public BeatType GetBeatType( uint number )
+    public BeatType GetBeatType(uint number)
     {
         // Accessor function used to return the beat type of a given beat, including
         // returning NONE if it is not in our dictionary.
         // ================
 
-        if ( nonNullBeatsDict.ContainsKey(number) ) {
+        if (nonNullBeatsDict.ContainsKey(number)) {
             return nonNullBeatsDict[number];
         }
         else {
@@ -67,9 +64,9 @@ public class songObject : ScriptableObject
         // ================
 
         nonNullBeatsDict.Clear();
-        foreach ( Beat beat in nonNullBeats )
+        foreach (Beat beat in nonNullBeats)
         {
-            if ( !nonNullBeatsDict.ContainsKey(beat.number) ) {
+            if (!nonNullBeatsDict.ContainsKey(beat.number)) {
                 nonNullBeatsDict.Add(beat.number, beat.type);
             }
         }

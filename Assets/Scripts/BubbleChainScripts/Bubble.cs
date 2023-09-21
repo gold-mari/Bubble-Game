@@ -55,7 +55,7 @@ public class Bubble : MonoBehaviour
 
         Bubble otherBubble = other.transform.parent.GetComponent<Bubble>();
         // If the otherBubble is not null...
-        if ( otherBubble ) {
+        if (otherBubble) {
             // Add them to our adjacency list.
             AddAdjacency(otherBubble);
         }
@@ -69,7 +69,7 @@ public class Bubble : MonoBehaviour
 
         Bubble otherBubble = other.transform.parent.GetComponent<Bubble>();
         // If the otherBubble is not null...
-        if ( otherBubble ) {
+        if (otherBubble) {
             // Remove them from our adjacency list.
             RemoveAdjacency(otherBubble);
         }
@@ -96,7 +96,7 @@ public class Bubble : MonoBehaviour
 
         adjacencies.Add(other);
         // If they are of the same color as us, AND we're the younger bubble...
-        if ( other.bubbleColor == bubbleColor && age > other.age ) {
+        if (other.bubbleColor == bubbleColor && age > other.age) {
             // Run the Consolidation algorithm on us, looking at them.
             Consolidate(other);
         }
@@ -112,9 +112,9 @@ public class Bubble : MonoBehaviour
         adjacencies.Remove(other);
         other.adjacencies.Remove(this);
         // If they are of the same color as us, AND we're the younger bubble...
-        if ( other.bubbleColor == bubbleColor && age > other.age ) {
+        if (other.bubbleColor == bubbleColor && age > other.age) {
             // AND we're in the same chain...
-            if ( chain == other.chain ) {
+            if (chain == other.chain) {
                 // Run the Distribution algorithm on our chain.
                 chain.Distribute();
             }
@@ -137,9 +137,9 @@ public class Bubble : MonoBehaviour
             bubble.adjacencies.Remove(this);
 
             // If they are of the same color as us, AND we're the younger bubble...
-            if ( bubble.bubbleColor == bubbleColor && age > bubble.age ) {
+            if (bubble.bubbleColor == bubbleColor && age > bubble.age) {
                 // AND we're in the same chain...
-                if ( chain == bubble.chain ) {
+                if (chain == bubble.chain) {
                     // Note that we'll need to distribute.
                     distribute = true;
                 }
@@ -147,7 +147,7 @@ public class Bubble : MonoBehaviour
         }
 
         // If by the end we need to distribute,
-        if ( distribute ) {
+        if (distribute) {
             // run the Distribution algorithm on our chain.
             chain.Distribute();
         }
@@ -161,8 +161,8 @@ public class Bubble : MonoBehaviour
         // Prerequisites: this.chain != null, other.chain != null
         // ====================
 
-        Debug.Assert( this.chain != null, "Bubble Error: Consolidate() failed: this's chain must not be null.", this );
-        Debug.Assert( other.chain != null, "Bubble Error: Consolidate() failed: other's chain must not be null.", other );
+        Debug.Assert(this.chain != null, "Bubble Error: Consolidate() failed: this's chain must not be null.", this);
+        Debug.Assert(other.chain != null, "Bubble Error: Consolidate() failed: other's chain must not be null.", other);
 
         // We must check if either bubble has a nil chain. If so, we must make it a chain
         // first. The nil chain, and ONLY the nil chain, has a length of 0. We can thus
@@ -206,7 +206,7 @@ public class Bubble : MonoBehaviour
         longer.Concatenate(shorter);
 
         // Finally, delete the old chain if it wasn't nil.
-        if ( shorter.length != 0 ) {
+        if (shorter.length != 0) {
             Destroy(shorter);
         }
     }

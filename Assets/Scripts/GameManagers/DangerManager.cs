@@ -65,7 +65,7 @@ public class DangerManager : MonoBehaviour
         // value of dangerAmount and dangerThreshold.
         // ================
 
-        if ( dangerAmount.value >= dangerThreshold ) {
+        if (dangerAmount.value >= dangerThreshold) {
             inDanger.value = true;
         }
         else {  // dangerAmount.value < dangerThreshold
@@ -110,7 +110,7 @@ public class DangerManager : MonoBehaviour
         // ================
 
         // If we're in danger, start the InDanger routine.
-        if ( BubblesInDanger > 0 ) {
+        if (BubblesInDanger > 0) {
             StopAllCoroutines();
             // This coroutine has a nasty habit of starting on scene transition and
             // raising errors. No clue why. Put a check in to fix it.
@@ -119,7 +119,7 @@ public class DangerManager : MonoBehaviour
             }
         }
         // If we're out of danger, start the OutOfDanger routine.
-        else if ( BubblesInDanger == 0 ) {
+        else if (BubblesInDanger == 0) {
             StopAllCoroutines();
             // This coroutine has a nasty habit of starting on scene transition and
             // raising errors. Put a check in to fix it.
@@ -140,7 +140,7 @@ public class DangerManager : MonoBehaviour
         // Lerp function in the while loop.
         float elapsed = dangerAmount.value * inDangerLerpTime;
         
-        while ( elapsed < inDangerLerpTime ) {
+        while (elapsed < inDangerLerpTime) {
             dangerAmount.value = Mathf.Lerp(0, 1, (elapsed/inDangerLerpTime));
             elapsed += Time.deltaTime;
             yield return null;
@@ -157,7 +157,7 @@ public class DangerManager : MonoBehaviour
         // A method to be run at the end of InDangerRoutine, when dangerAmount is 1.
         // ================
 
-        if ( endgameManager ) {
+        if (endgameManager) {
             endgameManager.TriggerLoss();
         }
     }
@@ -173,7 +173,7 @@ public class DangerManager : MonoBehaviour
         // Lerp function in the while loop.
         float elapsed = LerpKit.Flip(dangerAmount.value) * outOfDangerLerpTime;
         
-        while ( elapsed < outOfDangerLerpTime ) {
+        while (elapsed < outOfDangerLerpTime) {
             dangerAmount.value = Mathf.Lerp(1, 0, (elapsed/outOfDangerLerpTime));
             elapsed += Time.deltaTime;
             yield return null;

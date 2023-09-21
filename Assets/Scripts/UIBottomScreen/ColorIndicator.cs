@@ -29,7 +29,7 @@ public class ColorIndicator : MonoBehaviour
         // ================
 
         sprite = GetComponent<SpriteRenderer>();
-        Debug.Assert( sprite != null, "ColorIndicator Error: Start() failed: gameObject must have a SpriteRenderer.", this );
+        Debug.Assert(sprite != null, "ColorIndicator Error: Start() failed: gameObject must have a SpriteRenderer.", this);
     }
 
     void Update()

@@ -50,7 +50,7 @@ public class BubbleColorHelper : MonoBehaviour
     void Update()
     {
         // If brightness has changed, update brightness.
-        if ( brightness != lastBrightness ) {
+        if (brightness != lastBrightness) {
             UpdateBrightness();
             lastBrightness = brightness;
         }
@@ -67,13 +67,13 @@ public class BubbleColorHelper : MonoBehaviour
         // towards black.
         // ================
 
-        if ( brightness == 0 ) {
+        if (brightness == 0) {
             sprite.color = baseColor;
         }
-        else if ( brightness > 0 ) {
+        else if (brightness > 0) {
             sprite.color = Color.Lerp(baseColor, Color.white, brightness);
         }
-        else { // if ( Brightness < 0 )
+        else { // if (Brightness < 0)
             sprite.color = Color.Lerp(baseColor, Color.black, -brightness);
         }
     }

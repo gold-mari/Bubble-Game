@@ -44,7 +44,7 @@ public class VectorFollower : MonoBehaviour
         // ================
         
         Vector2 scaledVector = (pointVector.value * radiusScale);
-        if ( scaledVector.magnitude > maxRadius ) {
+        if (scaledVector.magnitude > maxRadius) {
             scaledVector = scaledVector.normalized * maxRadius;
         }
 

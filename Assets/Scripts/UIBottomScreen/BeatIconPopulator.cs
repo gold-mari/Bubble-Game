@@ -31,7 +31,7 @@ public class BeatIconPopulator : MonoBehaviour
         float spawnAngle = 0;
         uint batchLength = max-min+1;
 
-        for ( uint i = min; i <= max; i++ )
+        for (uint i = min; i <= max; i++)
         {
             uint i_normalized = i-min;
             lerpAmount = (float)i_normalized/batchLength;
@@ -39,7 +39,7 @@ public class BeatIconPopulator : MonoBehaviour
 
             BeatType type = timekeeper.song.GetBeatType(i);
             // If the type of this beat is not NONE,
-            if ( type != BeatType.NONE ) {
+            if (type != BeatType.NONE) {
                 // Spawn an object.
                 GameObject iconObj = Instantiate(icon, Vector3.zero, Quaternion.Euler(0,0,spawnAngle), transform);
                 // Set its sprite according to its type.
@@ -71,7 +71,7 @@ public class BeatIconPopulator : MonoBehaviour
         // Destroys all extant icons by destroying all children.
         // ================
 
-        foreach( Transform child in transform )
+        foreach(Transform child in transform)
         {
             Destroy(child.gameObject);
         }

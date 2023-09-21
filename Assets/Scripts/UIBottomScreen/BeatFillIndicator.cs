@@ -79,12 +79,12 @@ public class BeatFillIndicator : MonoBehaviour
         // Runs when the timekeeper notes we hit a beat.
         // ================
 
-        if ( shouldUpdate ) {
+        if (shouldUpdate) {
             StopAllCoroutines();
             StartCoroutine(LerpBetweenPoints((int)beatCount));
 
             // If we just hit the first beat, ping the ghost animator to fade down.
-            if ( canTriggerGhost && beatCount == 1 ) {
+            if (canTriggerGhost && beatCount == 1) {
                 ghost.SetTrigger("FadeDown");
                 // Note that we can't do this again until we organically reach the end.
                 canTriggerGhost = false;
@@ -92,7 +92,7 @@ public class BeatFillIndicator : MonoBehaviour
 
             // Update beatCount. If we organically reach the end, note that we can show
             // the ghost!
-            if ( beatCount >= timekeeper.song.loopLength ) {
+            if (beatCount >= timekeeper.song.loopLength) {
                 canTriggerGhost = true;
                 beatCount = 1;
             }
@@ -107,10 +107,10 @@ public class BeatFillIndicator : MonoBehaviour
         // Updates shouldUpdate based on the lastMarker.
         // ================
 
-        if ( timekeeper.timelineInfo.lastMarker == "dontSpawn" ) {
+        if (timekeeper.timelineInfo.lastMarker == "dontSpawn") {
             shouldUpdate = false;
         }
-        if ( timekeeper.timelineInfo.lastMarker == "doSpawn" ) {
+        if (timekeeper.timelineInfo.lastMarker == "doSpawn") {
             // Update beatCount to be the current beat in the measure.
             beatCount = (uint)timekeeper.timelineInfo.currentBeat;  
             shouldUpdate = true;

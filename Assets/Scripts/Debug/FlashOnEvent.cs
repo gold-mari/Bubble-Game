@@ -45,7 +45,7 @@ public class FlashOnEvent : MonoBehaviour
 
     void Update()
     {
-        if ( flash == true ) {
+        if (flash == true) {
             CycleColor();
             flash = false;
         }

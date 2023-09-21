@@ -66,8 +66,8 @@ public class CursorPointer : MonoBehaviour
         // If we want to take our center and radius, do so.
         if (takeCenterAndRadius) {
             BubbleSpawner spawner = transform.parent.GetComponent<BubbleSpawner>();
-            Debug.Assert( spawner != null, "CursorPointer Error: Start() failed: takeCenterAndRadius is true, "
-                                         + "yet this script's parent object has no BubbleSpawner.", this );
+            Debug.Assert(spawner != null, "CursorPointer Error: Start() failed: takeCenterAndRadius is true, "
+                                        + "yet this script's parent object has no BubbleSpawner.", this);
 
             radius = spawner.radius;
             center = spawner.center;
@@ -92,7 +92,7 @@ public class CursorPointer : MonoBehaviour
         // Apply this radius to our position.
         transform.position *= trueRadius;
 
-        if ( lastGravityFlipped != gravityFlipped.value ) {
+        if (lastGravityFlipped != gravityFlipped.value) {
             lastGravityFlipped = gravityFlipped.value;
             animator.SetBool("gravityFlipped", gravityFlipped.value);
         }

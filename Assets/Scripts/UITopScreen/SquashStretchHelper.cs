@@ -54,7 +54,7 @@ public class SquashStretchHelper : MonoBehaviour
         // ================
 
         // If squetch has changed, update squetch.
-        if ( squetch != lastSquetch ) {
+        if (squetch != lastSquetch) {
             UpdateSquetch();
             lastSquetch = squetch;
         }

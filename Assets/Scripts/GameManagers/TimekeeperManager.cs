@@ -122,7 +122,7 @@ public class TimekeeperManager : MonoBehaviour
         // A music event is defined if it has a nonzero path length. Check if the music
         // event is undefined.
         bool eventExists = (musicEvent.Path.Length > 0);
-        Debug.Assert( eventExists, "TimekeeperManager Error: Awake() failed: musicEvent must not be null.", this );
+        Debug.Assert(eventExists, "TimekeeperManager Error: Awake() failed: musicEvent must not be null.", this);
         */
 
         // Create the instance and get its description.
@@ -179,21 +179,21 @@ public class TimekeeperManager : MonoBehaviour
         // - Shout markerUpdated when timelineInfo.lastMarker changes
         // ================
 
-        if ( lastTempo != timelineInfo.currentTempo ) {
+        if (lastTempo != timelineInfo.currentTempo) {
             lastTempo = timelineInfo.currentTempo;
-            if ( tempoUpdated != null ) {
+            if (tempoUpdated != null) {
                 tempoUpdated.Invoke();
             }
         }
-        if ( lastLastMarker != timelineInfo.lastMarker ) {
+        if (lastLastMarker != timelineInfo.lastMarker) {
             lastLastMarker = timelineInfo.lastMarker;
-            if ( markerUpdated != null ) {
+            if (markerUpdated != null) {
                 markerUpdated.Invoke();
             }
         }
-        if ( lastBeat != timelineInfo.currentBeat ) {
+        if (lastBeat != timelineInfo.currentBeat) {
             lastBeat = timelineInfo.currentBeat;
-            if ( beatUpdated != null ) {
+            if (beatUpdated != null) {
                 beatUpdated.Invoke();
             }
 
@@ -270,9 +270,9 @@ public class TimekeeperManager : MonoBehaviour
         CalculateSubdivisionLengths();
 
         // Check if we should fire any of our subdivision events.
-        if ( fire8th ) {
+        if (fire8th) {
             // If we're to fire the 8th note event, do so.
-            if ( eighthNoteEvent != null ) {
+            if (eighthNoteEvent != null) {
                 eighthNoteEvent.Invoke();
             }
             // Reset this timer, and tell all our lower subdivisions to also fire, to
@@ -282,8 +282,8 @@ public class TimekeeperManager : MonoBehaviour
 
             fire16th = fire32nd = true;
         }
-        if ( fire16th ) {
-            if ( sixteenthNoteEvent != null ) {
+        if (fire16th) {
+            if (sixteenthNoteEvent != null) {
                 sixteenthNoteEvent.Invoke();
             }
             // Reset this timer, and tell all our lower subdivisions to also fire, to
@@ -293,8 +293,8 @@ public class TimekeeperManager : MonoBehaviour
 
             fire32nd = true;
         }
-        if ( fire32nd ) {
-            if ( thirtysecondNoteEvent != null ) {
+        if (fire32nd) {
+            if (thirtysecondNoteEvent != null) {
                 thirtysecondNoteEvent.Invoke();
             }
             // Reset this timer.
@@ -308,13 +308,13 @@ public class TimekeeperManager : MonoBehaviour
         timer32nd += DSPdeltaTime;
 
         // Finally, check if we should fire any events on the next update.
-        if ( timer8th >= length8th ) {
+        if (timer8th >= length8th) {
             fire8th = fire16th = fire32nd = true;
         }
-        else if ( timer16th >= length16th ) {
+        else if (timer16th >= length16th) {
             fire16th = fire32nd = true;
         }
-        else if ( timer32nd >= length32nd ) {
+        else if (timer32nd >= length32nd) {
             fire32nd = true;
         }
     }
@@ -355,16 +355,16 @@ public class TimekeeperManager : MonoBehaviour
         IntPtr timelineInfoPtr;
         FMOD.RESULT result = instance.getUserData(out timelineInfoPtr);
         // Report an error if result is unexpected.
-        Debug.Assert( result == FMOD.RESULT.OK, "TimekeeperManager Error: BeatEventCallback() failed: " + result);
+        Debug.Assert(result == FMOD.RESULT.OK, "TimekeeperManager Error: BeatEventCallback() failed: " + result);
         // If the timelineInfoPtr is not zero, then access data from it.
-        if ( timelineInfoPtr != IntPtr.Zero ) {
+        if (timelineInfoPtr != IntPtr.Zero) {
             // Define timelineHandle as a new GCHandle produced from our timelineInfoPtr,
             // and convert that handle into a TimelineInfo object.
             GCHandle timelineHandle = GCHandle.FromIntPtr(timelineInfoPtr);
             TimelineInfo timelineInfo = (TimelineInfo)timelineHandle.Target;
 
             // Do different behavior based on what type of callback this function was called with.
-            switch ( type ) {
+            switch (type) {
                 case FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT:
                     {
                         // Convert parameterPtr to parameter. We use marshalling because
@@ -400,7 +400,7 @@ public class TimekeeperManager : MonoBehaviour
     IEnumerator WaitWin()
     {
         yield return new WaitForSeconds(musicLength + winOffset);
-        if ( endgameManager ) {
+        if (endgameManager) {
             endgameManager.TriggerWin();
         }
     }

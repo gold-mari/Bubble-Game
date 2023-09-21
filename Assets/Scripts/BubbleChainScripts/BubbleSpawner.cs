@@ -100,7 +100,7 @@ public class BubbleSpawner : MonoBehaviour
         // mass bubbles as dictated by song. Updates colors after spawning a bubble.
         // ================
 
-        if ( !shouldSpawn ) {
+        if (!shouldSpawn) {
             return;
         }
 
@@ -108,7 +108,7 @@ public class BubbleSpawner : MonoBehaviour
         BeatType type = song.GetBeatType(beatCount);
 
         // If the upcoming beat is this beat,
-        switch ( type )
+        switch (type)
         {
             case BeatType.NONE:
             {
@@ -134,7 +134,7 @@ public class BubbleSpawner : MonoBehaviour
         }
 
         // Everything runs on a shared clock.
-        if ( beatCount >= song.loopLength ) {
+        if (beatCount >= song.loopLength) {
             beatCount = 1;
         }
         else {
@@ -172,7 +172,7 @@ public class BubbleSpawner : MonoBehaviour
             // regenerate it.
             do {
                 currentColor = Bubble_Color_Methods.random();
-            } while ( currentColor == lastColor || currentColor == colorBeforeThat );
+            } while (currentColor == lastColor || currentColor == colorBeforeThat);
 
             SpawnBubble(spawnPoint, currentColor);
 
@@ -270,10 +270,10 @@ public class BubbleSpawner : MonoBehaviour
         // Updates shouldSpawn based on the lastMarker.
         // ================
 
-        if ( timekeeperManager.timelineInfo.lastMarker == "dontSpawn" ) {
+        if (timekeeperManager.timelineInfo.lastMarker == "dontSpawn") {
             shouldSpawn = false;
         }
-        if ( timekeeperManager.timelineInfo.lastMarker == "doSpawn" ) {
+        if (timekeeperManager.timelineInfo.lastMarker == "doSpawn") {
             // Update beatCount to be the current beat in the measure.
             beatCount = (uint)timekeeperManager.timelineInfo.currentBeat;
             shouldSpawn = true;

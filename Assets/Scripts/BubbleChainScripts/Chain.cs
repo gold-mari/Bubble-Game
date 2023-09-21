@@ -55,7 +55,7 @@ public class Chain : ScriptableObject
         // the BubbleSpawner.
         ChainBreakHandler handler = members[0].transform.parent.GetComponent<ChainBreakHandler>();
         // Check that the handler exists. If not, raise an error.
-        Debug.Assert( handler != null, "Chain Error: BreakChain() failed: parent of member 0 must have a ChainBreakHandler.", members[0] );
+        Debug.Assert(handler != null, "Chain Error: BreakChain() failed: parent of member 0 must have a ChainBreakHandler.", members[0]);
         // Otherwise, shout the chain break.
         handler.ShoutChainBreak();
 
@@ -95,7 +95,7 @@ public class Chain : ScriptableObject
         // ================
 
         // If we have not decided a chainColor yet, set our chainColor to bubbleColor.
-        if ( chainColor == Bubble_Color.NONE ) {
+        if (chainColor == Bubble_Color.NONE) {
             chainColor = bubble.bubbleColor;
         }
 
@@ -118,7 +118,7 @@ public class Chain : ScriptableObject
         // ================
 
         // If we have not decided a chainColor yet, set our chainColor to theirs.
-        if ( chainColor == Bubble_Color.NONE ) {
+        if (chainColor == Bubble_Color.NONE) {
             chainColor = chain.chainColor;
         }
 
@@ -163,7 +163,7 @@ public class Chain : ScriptableObject
             // In the rare case a neighbor was removed and readded while we were
             // calculating, then it will already be in our dictionary. If it's not
             // present, add it as white.
-            if ( !dict.ContainsKey(bubble) ) {
+            if (!dict.ContainsKey(bubble)) {
                 dict.Add(bubble, DFS_Color.White);
             }
         }
@@ -199,7 +199,7 @@ public class Chain : ScriptableObject
         foreach (Bubble neighbor in adj) {
             // In the rare case a neighbor was added while we were calculating, then it
             // will not be in our dictionary. If it's not present, add it as white.
-            if ( !dict.ContainsKey(neighbor) ) {
+            if (!dict.ContainsKey(neighbor)) {
                 dict.Add(neighbor, DFS_Color.White);
             }
 
