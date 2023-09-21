@@ -45,7 +45,7 @@ public class Beatmap : ScriptableObject
     // Data-manipulator methods
     // ================================================================
 
-    public void Empty()
+    public void Clear()
     {
         // Clears a beatmap.
         // ================
@@ -65,7 +65,8 @@ public class Beatmap : ScriptableObject
         //
         // Such that each newline is its own field, and the first value on each line is the field
         // name. Fields 'name' and 'loopLength' are required, all others are optional. If an optional
-        // field is not present in the file, that means no beats of that type are present.
+        // field is not present in the file, that means no beats of that type are present. Whitespace
+        // between values is trimmed.
         //
         // Returns the loopLength.
         // ================
@@ -129,13 +130,6 @@ public class Beatmap : ScriptableObject
                     nonNullBeatsDict.Add(beatNumber, type);                    
                 }
             }
-        }
-
-        Debug.Log(beatmapName);
-        Debug.Log(loopLength);
-        for (int i = 1; i <= loopLength; i++)
-        {
-            Debug.Log($"Beat {i} is of type {GetBeatType((uint)i)}.");
         }
 
         return loopLength;

@@ -12,7 +12,7 @@ public class MusicManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentBeatmap.Empty();
-        currentBeatmap.Populate(mainSong.beatmapFile);
+        currentBeatmap.Clear();
+        uint loopLength = currentBeatmap.Populate(mainSong.beatmapFile);
     }
 }
