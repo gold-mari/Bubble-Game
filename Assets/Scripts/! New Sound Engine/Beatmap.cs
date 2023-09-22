@@ -15,7 +15,7 @@ public class Beatmap : ScriptableObject
     [ReadOnly]
     // The name of this beatmap, found in population. Used only for debug purposes.
     public string beatmapName;
-    // A dictionary object which is filled with the contents of nonNullBeats.
+    // A dictionary object which stores all beats with an associated type / event.
     private Dictionary<uint, BeatType> nonNullBeatsDict = new Dictionary<uint, BeatType>();
 
     // ================================================================
@@ -135,7 +135,11 @@ public class Beatmap : ScriptableObject
         return loopLength;
     }
 
-    private BeatType TypeFromName(string name)
+    // ================================================================
+    // Static methods
+    // ================================================================
+
+    private static BeatType TypeFromName(string name)
     {
         // Helper function for Populate. Returns a beat type, given that type's name.
         // ================
