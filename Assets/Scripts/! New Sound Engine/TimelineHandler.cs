@@ -33,7 +33,7 @@ public class TimelineHandler
         // The current position in the song, in milliseconds.
         public int currentPositionMS = 0;
         // The current position in the song, in seconds.
-        public float currentPositionS = 0;
+        public double currentPositionS = 0;
         // The current tempo in the song, in beats per minute.
         public float currentTempo = 0;
         // FMOD.StringWrapper is an FMOD string type. Look for the last timeline marker.
@@ -71,7 +71,7 @@ public class TimelineHandler
     // The current and previous DSP times, in seconds.
     private double rawLastTime = 0f, rawCurrentTime = 0f;
     // If our event instance is actively running.
-    bool instanceRunning = false;
+    bool accumulateDSPTime = false;
     // The difference between rawLastTime and rawCurrentTime at any point.
     [HideInInspector]
     public double DSPdeltaTime;
@@ -169,34 +169,31 @@ public class TimelineHandler
         // - Check subdivision events
         // ================
 
+        // Update our DSPTime.
+        UpdateDSPTime();
+
         if (lastTempo != timelineInfo.currentTempo) {
             lastTempo = timelineInfo.currentTempo;
-            if (tempoUpdated != null) {
-                tempoUpdated.Invoke();
-            }
+            tempoUpdated?.Invoke();
         }
         if (lastLastMarker != timelineInfo.lastMarker) {
             lastLastMarker = timelineInfo.lastMarker;
-            if (markerUpdated != null) {
-                markerUpdated.Invoke();
-            }
+            markerUpdated?.Invoke();
         }
         if (lastBeat != timelineInfo.currentBeat) {
             lastBeat = timelineInfo.currentBeat;
-            if (beatUpdated != null) {
-                beatUpdated.Invoke();
-            }
+            beatUpdated?.Invoke();
 
+            // Whenever we get a timeline beat callback, correct our DSP time as well.
+            CorrectDSPTime();
             // Also, note that we should fire all our subdivision events to avoid drift.
             fire8th = fire16th = fire32nd = true;
         }
 
-        // Also update our DSP time, and calculate subdivisions.
-        UpdateDSPTime();
+        // Also calculate subdivisions.
         ShoutSubdivisions();
     }
 
-#if UNITY_EDITOR
     public void OnGUI()
     {
         // Prints timelineInfo stats to an onscreen GUI box.
@@ -207,30 +204,39 @@ public class TimelineHandler
         GUILayout.Box(String.Format("Current time = {0:0.0000000000}", DSPTime));
         GUILayout.Box(String.Format("Song length = {0} seconds", musicLength));
     }
-#endif
 
     // ================================================================
-    // Data-manipulation methods
+    // DSP-Time methods
     // ================================================================
 
-    public void StartDSPClock()
+    public void StartDSPClock(bool instanceStarted)
     {
         // DSP time runs whether or not the FMOD event is playing. In order to ensure
         // rawCurrentTime produces an accurate output, we call StartDSPClock when 
-        // we start our event instance.
-        // ====
+        // we start our event instance, or when the game plays.
+        //
+        // Passes in if our instance has already started playing. If it hasn't, do not
+        // accumulate time, even if we're told to start the clock.
+        // ================
 
-        instanceRunning = true;
+        if (!instanceStarted)
+        {
+            return;
+        }
+
+        accumulateDSPTime = true;
+        masterChannelGroup.setPaused(false);
     }
 
     public void StopDSPClock()
     {
         // DSP time runs whether or not the FMOD event is playing. In order to ensure
         // rawCurrentTime produces an accurate output, we call StopDSPClock when 
-        // we stop our event instance.
-        // ====
+        // we stop our event instance, or when the game is paused.
+        // ================
 
-        instanceRunning = false;
+        accumulateDSPTime = false;
+        masterChannelGroup.setPaused(true);
     }
 
     public void ResetDSPClock()
@@ -259,12 +265,26 @@ public class TimelineHandler
         // Calculate the deltaTime between these values.
         DSPdeltaTime = rawCurrentTime - rawLastTime;
 
-        // If instance is running, accumulate DSPTime.
-        if (instanceRunning)
+        // If we should, accumulate DSPTime.
+        if (accumulateDSPTime)
         {
             DSPTime += DSPdeltaTime;
         }
     }
+
+    private void CorrectDSPTime()
+    {
+        // Latency builds up in DSPTime when the editor pauses and plays. To ensure that
+        // DSPTime is as accurate as possible, whenever we hit a beat event, set DSPTime
+        // to exactly the current timeline position.
+        // ================
+
+        DSPTime = timelineInfo.currentPositionS;
+    }
+
+    // ================================================================
+    // Subdivision methods
+    // ================================================================
 
     void CalculateSubdivisionLengths()
     {
@@ -293,9 +313,7 @@ public class TimelineHandler
         // Check if we should fire any of our subdivision events.
         if (fire8th) {
             // If we're to fire the 8th note event, do so.
-            if (eighthNoteEvent != null) {
-                eighthNoteEvent.Invoke();
-            }
+            eighthNoteEvent?.Invoke();
             // Reset this timer, and tell all our lower subdivisions to also fire, to
             // prevent drift.
             fire8th = false;
@@ -304,9 +322,7 @@ public class TimelineHandler
             fire16th = fire32nd = true;
         }
         if (fire16th) {
-            if (sixteenthNoteEvent != null) {
-                sixteenthNoteEvent.Invoke();
-            }
+            sixteenthNoteEvent?.Invoke();
             // Reset this timer, and tell all our lower subdivisions to also fire, to
             // prevent drift.
             fire16th = false;
@@ -315,9 +331,7 @@ public class TimelineHandler
             fire32nd = true;
         }
         if (fire32nd) {
-            if (thirtysecondNoteEvent != null) {
-                thirtysecondNoteEvent.Invoke();
-            }
+            thirtysecondNoteEvent?.Invoke();
             // Reset this timer.
             fire32nd = false;
             timer32nd = 0;
@@ -339,6 +353,10 @@ public class TimelineHandler
             fire32nd = true;
         }
     }
+
+    // ================================================================
+    // The Callback Method
+    // ================================================================
 
     // Use this tag to get data from unmanaged memory, which we neeed since we're working
     // with pointers.

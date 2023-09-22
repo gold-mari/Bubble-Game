@@ -7,7 +7,7 @@ public class FlashOnEvent : MonoBehaviour
     public FMODUnity.EventReference sfxEvent;
     public enum NoteType { Quarter, Eighth, Sixteenth, Thirtysecond }
     public NoteType noteType;
-    public TimekeeperManager timekeeper;
+    public MusicManager manager;
     private SpriteRenderer sprite;
     private List<Color> colors;
     private int index = 0;
@@ -19,19 +19,19 @@ public class FlashOnEvent : MonoBehaviour
 
         if (noteType == NoteType.Quarter) {
             print("configured to 1/4 notes!");
-            timekeeper.beatUpdated += onEvent;
+            manager.handler.beatUpdated += onEvent;
         }
         if (noteType == NoteType.Eighth) {
             print("configured to 1/8 notes!");
-            timekeeper.eighthNoteEvent += onEvent;
+            manager.handler.eighthNoteEvent += onEvent;
         }
         if (noteType == NoteType.Sixteenth) {
             print("configured to 1/16 notes!");
-            timekeeper.sixteenthNoteEvent += onEvent;
+            manager.handler.sixteenthNoteEvent += onEvent;
         }
         if (noteType == NoteType.Thirtysecond) {
             print("configured to 1/32 notes!");
-            timekeeper.thirtysecondNoteEvent += onEvent;
+            manager.handler.thirtysecondNoteEvent += onEvent;
         }
 
         colors = new List<Color>();
