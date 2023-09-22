@@ -18,8 +18,6 @@ public class TimelineHandler
     // Internal variables
     // ================================================================
 
-    // The musicEvent in song.
-    private FMODUnity.EventReference musicEvent;
     // A reference to the instance of musicEvent.
     private FMOD.Studio.EventInstance instance;
 
@@ -57,10 +55,8 @@ public class TimelineHandler
     // Actions shouted each beat, when the tempo updates, and at a new marker, respectively.
     public System.Action beatUpdated, tempoUpdated, markerUpdated;
 
-    // duration and subdivision: ======================================
+    // duration: ======================================================
 
-    // An event description for musicEvent.
-    private FMOD.Studio.EventDescription description;
     // The length of musicEvent in seconds.
     [HideInInspector]
     public float musicLength = 0f;
@@ -74,14 +70,17 @@ public class TimelineHandler
     private ulong DISCARD_parentDSP;
     // The current and previous DSP times, in seconds.
     private double rawLastTime = 0f, rawCurrentTime = 0f;
+    // If our event instance is actively running.
+    bool instanceRunning = false;
     // The difference between rawLastTime and rawCurrentTime at any point.
     [HideInInspector]
     public double DSPdeltaTime;
-    // If our event instance is actively running.
-    bool instanceRunning = false;
     // The accumulated total DSPdeltaTime while instanceRunning has been true.
     [HideInInspector]
     public double DSPTime;
+
+    // subdivision: ===================================================
+
     // Floats used to hold the length, in seconds, of different note values at the current tempo.
     [HideInInspector]
     public double length4th, length8th, length16th, length32nd;
