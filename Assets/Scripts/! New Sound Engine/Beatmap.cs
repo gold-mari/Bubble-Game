@@ -15,6 +15,9 @@ public class Beatmap : ScriptableObject
     [ReadOnly]
     // The name of this beatmap, found in population. Used only for debug purposes.
     public string beatmapName;
+    [ReadOnly]
+    // The number of beats in the loop.
+    public uint length = 0;
     // A dictionary object which stores all beats with an associated type / event.
     private Dictionary<uint, BeatType> nonNullBeatsDict = new Dictionary<uint, BeatType>();
 
@@ -53,7 +56,7 @@ public class Beatmap : ScriptableObject
         nonNullBeatsDict.Clear();
     }
 
-    public uint Populate(TextAsset file)
+    public void Populate(TextAsset file)
     {
         // Populates beatmap from an external file. Beatmap files follow the format:
 
@@ -67,8 +70,6 @@ public class Beatmap : ScriptableObject
         // name. Fields 'name' and 'loopLength' are required, all others are optional. If an optional
         // field is not present in the file, that means no beats of that type are present. Whitespace
         // between values is trimmed.
-        //
-        // Returns the loopLength.
         // ================
 
         nonNullBeatsDict.Clear();
@@ -95,7 +96,7 @@ public class Beatmap : ScriptableObject
                                                         + "key 'loopLength'.");
         Debug.Assert(loopLengthValues.Length == 2, "Beatmap Error: Populate() failed. Second line 'loopLength' must "
                                                  + "have exactly 1 key and 1 value.");
-        uint loopLength = System.Convert.ToUInt32(loopLengthValues[1]);
+        length = System.Convert.ToUInt32(loopLengthValues[1]);
 
         // ================================================
         // LINE 3: Parsing the beatmap.
@@ -121,9 +122,9 @@ public class Beatmap : ScriptableObject
                 {
                     // Add the (value, type) pair to our dictionary.
                     uint beatNumber = System.Convert.ToUInt32(trimmed);
-                    Debug.Assert(beatNumber > 0 && beatNumber <= loopLength, $"Beatmap Error: Populate() failed. "
-                                                                           + $"Invalid beat number on line {i+1}: "
-                                                                           + $"{beatNumber}.");
+                    Debug.Assert(beatNumber > 0 && beatNumber <= length, $"Beatmap Error: Populate() failed. "
+                                                                       + $"Invalid beat number on line {i+1}: "
+                                                                       + $"{beatNumber}.");
                     Debug.Assert(GetBeatType(beatNumber) == BeatType.NONE, $"Beatmap Error: Populate() failed. "
                                                                          + $"Beat number {beatNumber} on line {i+1} was "
                                                                          + $"already mapped.");
@@ -131,8 +132,6 @@ public class Beatmap : ScriptableObject
                 }
             }
         }
-
-        return loopLength;
     }
 
     // ================================================================

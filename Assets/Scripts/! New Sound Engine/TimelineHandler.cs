@@ -23,6 +23,10 @@ public class TimelineHandler
 
     // timeline callbacks: ============================================
 
+    // ================================== //
+    // PUBLIC FIELDS                      //
+    // ================================== //
+
     // Store a struct to the timeline info that we will reference. We want this struct to be 
     // sequential in memory, so add the following tag.
     [StructLayout(LayoutKind.Sequential)]
@@ -41,6 +45,12 @@ public class TimelineHandler
     }
     // An instance of our timelineInfo class which other scripts will refer to.
     public TimelineInfo timelineInfo;
+    // Actions shouted each beat, when the tempo updates, and at a new marker, respectively.
+    public System.Action beatUpdated, tempoUpdated;
+    public System.Action<string> markerUpdated;
+
+    // Internal fields
+
     // GCHandle is a tool used to help access managed memory in runtime. We're streaming data using
     // C here, and use this handle to prevent garbage collection while we're doing it.
     private GCHandle timelineHandle;
@@ -52,14 +62,26 @@ public class TimelineHandler
     private float lastTempo = 0f;
     // The same for lastMarker.
     private string lastLastMarker = "";
-    // Actions shouted each beat, when the tempo updates, and at a new marker, respectively.
-    public System.Action beatUpdated, tempoUpdated, markerUpdated;
 
     // duration: ======================================================
+
+    // ================================== //
+    // PUBLIC FIELDS                      //
+    // ================================== //
 
     // The length of musicEvent in seconds.
     [HideInInspector]
     public float musicLength = 0f;
+    // The difference between rawLastTime and rawCurrentTime at any point. Effectively, the precise
+    // amount of time that passes per frame.
+    [HideInInspector]
+    public double DSPdeltaTime;
+    // The accumulated total DSPdeltaTime while instanceRunning has been true.
+    [HideInInspector]
+    public double DSPTime;
+
+    // Internal fields
+
     // A ChannelGroup used to access the DSP clock, which runs at sample rate.
     private FMOD.ChannelGroup masterChannelGroup;
     // The sample rate of our master channel group.
@@ -72,27 +94,28 @@ public class TimelineHandler
     private double rawLastTime = 0f, rawCurrentTime = 0f;
     // If our event instance is actively running.
     bool accumulateDSPTime = false;
-    // The difference between rawLastTime and rawCurrentTime at any point.
-    [HideInInspector]
-    public double DSPdeltaTime;
-    // The accumulated total DSPdeltaTime while instanceRunning has been true.
-    [HideInInspector]
-    public double DSPTime;
 
     // subdivision: ===================================================
+
+    // ================================== //
+    // PUBLIC FIELDS                      //
+    // ================================== //
 
     // Floats used to hold the length, in seconds, of different note values at the current tempo.
     [HideInInspector]
     public double length4th, length8th, length16th, length32nd;
+    // Actions shouted each eighth note, each sixteenth note, and each thirtysecond note.
+    public System.Action eighthNoteEvent, sixteenthNoteEvent, thirtysecondNoteEvent;
+
+    // Internal fields
+
     // Timers used to help determine if we ought to fire the note events yet at a given time.
     private double timer8th = 0, timer16th = 0, timer32nd = 0;
     // Timers used to determine if we ought to fire the note events yet at a given time.
     private bool fire8th = false, fire16th = false, fire32nd = false;
-    // Actions shouted each eighth note, each sixteenth note, and each thirtysecond note.
-    public System.Action eighthNoteEvent, sixteenthNoteEvent, thirtysecondNoteEvent;
     
     // ================================================================
-    // Constructors
+    // Initializers and finalizers
     // ================================================================
 
     public TimelineHandler(FMOD.Studio.EventInstance eventInstance)
@@ -159,6 +182,10 @@ public class TimelineHandler
         timelineHandle.Free();
     }
 
+    // ================================================================
+    // Continuous methods
+    // ================================================================
+
     public void Update()
     {
         // Update is called once per frame from MusicManager. We use it to do the following:
@@ -178,7 +205,7 @@ public class TimelineHandler
         }
         if (lastLastMarker != timelineInfo.lastMarker) {
             lastLastMarker = timelineInfo.lastMarker;
-            markerUpdated?.Invoke();
+            markerUpdated?.Invoke(timelineInfo.lastMarker);
         }
         if (lastBeat != timelineInfo.currentBeat) {
             lastBeat = timelineInfo.currentBeat;

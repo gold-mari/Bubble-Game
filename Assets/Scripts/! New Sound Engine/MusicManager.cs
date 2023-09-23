@@ -38,11 +38,16 @@ public class MusicManager : MonoBehaviour
 
         // Define the beatmap.
         currentBeatmap.Clear();
-        uint loopLength = currentBeatmap.Populate(mainSong.beatmapFile);
+        currentBeatmap.Populate(mainSong.beatmapFile);
 
         // Create the timeline handler.
         instance = FMODUnity.RuntimeManager.CreateInstance(mainSong.musicEvent);
         handler = new TimelineHandler(instance);
+
+        // DEBUG: Create a loop tracker.
+        LoopTracker tracker = new LoopTracker(handler, currentBeatmap.length, 4);
+        tracker.loopStart += Bong;
+        tracker.batchStart += Bing;
 
 
 
@@ -52,6 +57,9 @@ public class MusicManager : MonoBehaviour
 #endif
 
     }
+
+    private void Bing() { print("Bing!"); }
+    private void Bong() { print("Bong!"); }
 
     private void Start()
     {
