@@ -5,15 +5,16 @@ public class LoopTracker
     // The timeline handler on our music manager. Supplied in our constuctor.
     private TimelineHandler handler;
     // The current beat in the loop.
-    public uint currentLoopBeat = 1;
+    public uint currentLoopBeat { get; private set; }
     // The number of beats in the batch. Optionally supplied in our constructor.
-    public uint maxBatchSize = 0;
+    public uint maxBatchSize { get; private set; }
     // The current batch size, in case we need to dip below our max to fit within our loop.
-    public uint currentBatchSize = 0;
+    public uint currentBatchSize { get; private set; }
     // The current beat in the batch.
-    public uint currentBatchBeat = 1;
+    public uint currentBatchBeat { get; private set; }
     // The beats that start and end the current batch.
-    public uint batchStartBeat, batchEndBeat;
+    public uint batchStartBeat { get; private set; }
+    public uint batchEndBeat { get; private set; }
     // Actions for when we hit the start of a batch and a loop.
     public System.Action loopStart, batchStart;
 

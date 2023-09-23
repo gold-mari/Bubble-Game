@@ -10,9 +10,11 @@ public class MusicManager : MonoBehaviour
     // ================================================================
 
     [SerializeField, Tooltip("The main gameplay song to play in this scene.")]
-    Song mainSong;
+    private Song mainSong;
     [SerializeField, Tooltip("The 'Current Beatmap' variable in the scene.")]
-    Beatmap currentBeatmap;
+    private Beatmap currentBeatmap;
+    // The timeline handler tied to this music manager.
+    public TimelineHandler handler { get; private set; }
     
     // ================================================================
     // Internal variables
@@ -20,10 +22,8 @@ public class MusicManager : MonoBehaviour
 
     // The instance of the currently-playing song.
     private FMOD.Studio.EventInstance instance;
-    // The timeline handler tied to this music manager.
-    public TimelineHandler handler;
     // Used to check if the instance is playing.
-    FMOD.Studio.PLAYBACK_STATE playbackState;
+    private FMOD.Studio.PLAYBACK_STATE playbackState;
 
     // ================================================================
     // Initializer and finalizer methods
@@ -44,12 +44,6 @@ public class MusicManager : MonoBehaviour
         instance = FMODUnity.RuntimeManager.CreateInstance(mainSong.musicEvent);
         handler = new TimelineHandler(instance);
 
-        // DEBUG: Create a loop tracker.
-        LoopTracker tracker = new LoopTracker(handler, currentBeatmap.length, 4);
-        tracker.loopStart += Bong;
-        tracker.batchStart += Bing;
-
-
 
 #if UNITY_EDITOR
         // If we're in the editor, subscribe to the editor-pausing event.
@@ -57,9 +51,6 @@ public class MusicManager : MonoBehaviour
 #endif
 
     }
-
-    private void Bing() { print("Bing!"); }
-    private void Bong() { print("Bong!"); }
 
     private void Start()
     {

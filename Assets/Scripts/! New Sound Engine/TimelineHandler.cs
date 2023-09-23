@@ -44,7 +44,7 @@ public class TimelineHandler
         public FMOD.StringWrapper lastMarker = new FMOD.StringWrapper();
     }
     // An instance of our timelineInfo class which other scripts will refer to.
-    public TimelineInfo timelineInfo;
+    public TimelineInfo timelineInfo { get; private set; }
     // Actions shouted each beat, when the tempo updates, and at a new marker, respectively.
     public System.Action beatUpdated, tempoUpdated;
     public System.Action<string> markerUpdated;
@@ -70,15 +70,12 @@ public class TimelineHandler
     // ================================== //
 
     // The length of musicEvent in seconds.
-    [HideInInspector]
-    public float musicLength = 0f;
+    public float musicLength { get; private set; }
     // The difference between rawLastTime and rawCurrentTime at any point. Effectively, the precise
     // amount of time that passes per frame.
-    [HideInInspector]
-    public double DSPdeltaTime;
+    public double DSPdeltaTime { get; private set; }
     // The accumulated total DSPdeltaTime while instanceRunning has been true.
-    [HideInInspector]
-    public double DSPTime;
+    public double DSPTime { get; private set; }
 
     // Internal fields
 
@@ -101,9 +98,11 @@ public class TimelineHandler
     // PUBLIC FIELDS                      //
     // ================================== //
 
-    // Floats used to hold the length, in seconds, of different note values at the current tempo.
-    [HideInInspector]
-    public double length4th, length8th, length16th, length32nd;
+    // Doubles used to hold the length, in seconds, of different note values at the current tempo.
+    public double length4th { get; private set; }
+    public double length8th { get; private set; }
+    public double length16th { get; private set; }
+    public double length32nd { get; private set; }
     // Actions shouted each eighth note, each sixteenth note, and each thirtysecond note.
     public System.Action eighthNoteEvent, sixteenthNoteEvent, thirtysecondNoteEvent;
 

@@ -12,12 +12,11 @@ public class Beatmap : ScriptableObject
     // Data
     // ================================================================
 
-    [ReadOnly]
     // The name of this beatmap, found in population. Used only for debug purposes.
-    public string beatmapName;
-    [ReadOnly]
+    public string beatmapName { get; private set; }
     // The number of beats in the loop.
-    public uint length = 0;
+    public uint length { get; private set; }
+    
     // A dictionary object which stores all beats with an associated type / event.
     private Dictionary<uint, BeatType> nonNullBeatsDict = new Dictionary<uint, BeatType>();
 
