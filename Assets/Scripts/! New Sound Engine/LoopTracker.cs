@@ -144,9 +144,19 @@ public class LoopTracker
         }
         if (lastMarker == "doSpawn") {
             // Update our beat counts to be the current beat in our first measure.
-            // Go one behind, because markerUpdated is always called before beatUpdated.
-            currentLoopBeat = (uint)handler.timelineInfo.currentBeat - 1;
-            currentBatchBeat = (uint)handler.timelineInfo.currentBeat - 1;
+            // If this is the not the first beat, go one behind, because markerUpdated is
+            // always called before beatUpdated.
+            if (handler.timelineInfo.currentBeat != 1)
+            {
+                currentBatchBeat = currentLoopBeat = (uint)handler.timelineInfo.currentBeat - 1;   
+            }
+            else
+            {
+                // Otherwise, set our current beat to be the last possible loop beat. This 
+                // forces Case 1 in OnBeatUpdated, which in turn fires off our batchStart
+                // and loopStart events as is proper.
+                currentLoopBeat = loopSize;
+            }
             shouldUpdate = true;
         }
     }
