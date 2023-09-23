@@ -13,7 +13,7 @@ public class MusicManager : MonoBehaviour
     private Song mainSong;
     [SerializeField, Tooltip("The 'Current Beatmap' variable in the scene.")]
     private Beatmap currentBeatmap;
-    
+
     // The timeline handler tied to this music manager.
     public TimelineHandler handler { get; private set; }
     
@@ -82,7 +82,7 @@ public class MusicManager : MonoBehaviour
         // Detects when the editor pauses or plays. Passes a call to OnApplicationPause().
         // ================
 
-        OnApplicationPause(state == PauseState.Paused);
+        PauseMusic(state == PauseState.Paused);
     }
 #endif
 
@@ -92,6 +92,11 @@ public class MusicManager : MonoBehaviour
         // handler from accumulating DSP Time.
         // ================
 
+        PauseMusic(pauseStatus);
+    }
+
+    public void PauseMusic(bool pauseStatus)
+    {
         if (pauseStatus)
         {
             instance.setPaused(true);
