@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class LoopTracker
 {
-    // The timeline handler on our music manager. Supplied in our constuctor.
-    private TimelineHandler handler;
+    // ================================================================
+    // Public properties
+    // ================================================================
+
     // The current beat in the loop.
     public uint currentLoopBeat { get; private set; }
     // The number of beats in the batch. Optionally supplied in our constructor.
@@ -17,7 +19,17 @@ public class LoopTracker
     public uint batchEndBeat { get; private set; }
     // Actions for when we hit the start of a batch and a loop.
     public System.Action loopStart, batchStart;
+    // An action for when we update our values, called at the end of OnBeatUpdate.
+    // Ensures that any script that needs us always gets accurate loop counts, as opposed to
+    // trying to sync with the TimelineHandler directly.
+    public System.Action update;
 
+    // ================================================================
+    // Internal variables
+    // ================================================================
+
+    // The timeline handler on our music manager. Supplied in our constuctor.
+    private TimelineHandler handler;
     // The number of beats in the loop. Supplied in our constructor.
     private uint loopSize = 0;
     // Whether or not we should track incoming beats and update counts.
@@ -91,8 +103,6 @@ public class LoopTracker
         // ================
 
         if (shouldUpdate) {
-            // Update currentLoopBeat.
-
             // Case 1: We reach the end of the loop. Set everything back to 1.
             if (currentLoopBeat >= loopSize) {
                 currentLoopBeat = 1;
@@ -132,6 +142,8 @@ public class LoopTracker
                 currentLoopBeat++;
                 currentBatchBeat++;
             }
+
+            update?.Invoke();
         }
     }
 

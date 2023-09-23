@@ -13,6 +13,7 @@ public class MusicManager : MonoBehaviour
     private Song mainSong;
     [SerializeField, Tooltip("The 'Current Beatmap' variable in the scene.")]
     private Beatmap currentBeatmap;
+    
     // The timeline handler tied to this music manager.
     public TimelineHandler handler { get; private set; }
     
