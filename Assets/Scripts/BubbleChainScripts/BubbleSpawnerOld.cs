@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using NaughtyAttributes;
 
-public class BubbleSpawner : MonoBehaviour
+public class BubbleSpawnerOld : MonoBehaviour
 {
     // ==============================================================
     // Parameters

@@ -330,9 +330,9 @@ MonoBehaviour:
   takeCenterAndRadius: 1
   center: {x: 0, y: 0}
   radius: {x: 1, y: 4.5}
-  radiusLerper: 1
   gravityFlipped: {fileID: 11400000, guid: 9c2171a126b23a74f98c7c6802930645, type: 2}
   cursorPointVector: {fileID: 11400000, guid: d897fa1b5632702439a181ff7e697313, type: 2}
+  radiusLerper: 1
 --- !u!114 &6572034767605892259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,7 +527,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8070634603405789326}
-  - component: {fileID: 8070634603405789327}
+  - component: {fileID: 1425966893}
   - component: {fileID: 4698578531416055623}
   m_Layer: 0
   m_Name: Bubble Spawner
@@ -553,7 +553,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8070634603405789327
+--- !u!114 &1425966893
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -562,7 +562,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8070634603405789312}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5821461c5a2c37949aead403b6d2e4ea, type: 3}
+  m_Script: {fileID: 11500000, guid: ed0092414a7a99442b2f355f836d469f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bubble: {fileID: 5062526010735810590, guid: 3fe8ed8d6eb320a469a0c3fb0462ef70, type: 3}
@@ -574,7 +574,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3793aff43c3a5984d838f6d4bb3123cc, type: 2}
   - {fileID: 11400000, guid: 74c035b834323d14299d7ca97da640b2, type: 2}
   - {fileID: 11400000, guid: 746bd05469be0324fbc5e53cda35952a, type: 2}
-  spawnDelay: 2
   center: {x: 0, y: 0}
   radius: {x: 1, y: 4.5}
   massRoundSize: 18
@@ -606,8 +605,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  spawnsBeforeFlip: 7
-  spawnsBeforeMass: 14
 --- !u!114 &4698578531416055623
 MonoBehaviour:
   m_ObjectHideFlags: 0
