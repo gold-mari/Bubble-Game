@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeatFillIndicator : MonoBehaviour
+public class BeatFillIndicatorOld : MonoBehaviour
 {
     [SerializeField]
     private TimekeeperManager timekeeper;
