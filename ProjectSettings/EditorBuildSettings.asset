@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/CircleTestScene.unity
     guid: c3efecc535a6ecd42aa3c805d264022b
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/TestLoseScene.unity
     guid: 6a59cfc443e5253429d5bcedc44dd777
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/TestWinScene.unity
     guid: 42b8de732f100cd4ab85cfd0ed59e248
   - enabled: 1

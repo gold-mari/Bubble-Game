@@ -9,6 +9,8 @@ public class GravityManager : MonoBehaviour
     // Parameters
     // ================================================================
 
+    [Tooltip("The beat reader object in the scene.")]
+    public BeatReader beatReader;
     [Tooltip("The MAGNITUDE strength of gravity, applied as a scalar to the strengthVar.\n\n"
            + "Default: 1\n\nIMPORTANT: gravityStrength should have a minimum value of 0.")]
     [MinValue(0.0f)]
@@ -23,7 +25,15 @@ public class GravityManager : MonoBehaviour
     // Default methods
     // ================================================================
 
-    void Start()
+    private void Awake()
+    {
+        // Awake is called before Start. We use it to subscribe to beatReader.
+        // ================
+
+        beatReader.flipGravity += FlipGravity;
+    }
+
+    private void Start()
     {
         // Start is called before the first frame update. We use it to initialize 
         // strengthVar to negative gravityStrength, and to set gravityFlipped to false.
@@ -33,11 +43,19 @@ public class GravityManager : MonoBehaviour
         gravityFlipped.value = false;
     }
 
+    private void OnDestroy()
+    {
+        // Called when this object is destroyed. We use it to unsubscribe from beatReader.
+        // ================
+
+        beatReader.flipGravity -= FlipGravity;
+    }
+
     // ================================================================
     // Data-manipulation methods
     // ================================================================
 
-    public void FlipGravity()
+    private void FlipGravity()
     {
         // A small helper function called elsewhere via events. Flips the direction of
         // gravity, and notes that we flipped it. Also plays a sound effect, for now.

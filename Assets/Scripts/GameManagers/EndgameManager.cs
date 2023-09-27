@@ -13,10 +13,10 @@ public class EndgameManager : MonoBehaviour
 
     [Tooltip("The scene we transition to on a loss- reaching max danger.")]
     [SerializeField] [Scene]
-    private int sceneOnLose;
+    private string sceneOnLose;
     [Tooltip("The scene we transition to on a win- reaching the end of the song.")]
     [SerializeField] [Scene]
-    private int sceneOnWin;
+    private string sceneOnWin;
     [Tooltip("A UnityEvent which communicates with CharacterAnimator that we have just won.")]
     [SerializeField]
     UnityEvent winTriggered;

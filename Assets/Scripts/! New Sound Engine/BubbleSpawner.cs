@@ -51,16 +51,16 @@ public class BubbleSpawner : MonoBehaviour
     // Default methods
     // ==============================================================
 
-    void Awake()
+    private void Awake()
     {
-        // Awake is called before Start. We use it to subscribe to beat reader.
+        // Awake is called before Start. We use it to subscribe to beatReader.
         // ================
 
         beatReader.singleSpawn += SingleSpawnBubble;
         beatReader.massSpawn += MassSpawnBubble;
     }
 
-    void Start()
+    private void Start()
     {
         // Start is called before the first frame update. We use it to initialize the
         // state of bubbles.
@@ -68,6 +68,15 @@ public class BubbleSpawner : MonoBehaviour
 
         RandomizeColors();
         MassSpawnBubble();
+    }
+
+    private void OnDestroy()
+    {
+        // Called when this object is destroyed. We use it to unsubscribe from beatReader.
+        // ================
+
+        beatReader.singleSpawn += SingleSpawnBubble;
+        beatReader.massSpawn += MassSpawnBubble;
     }
 
     // ==============================================================

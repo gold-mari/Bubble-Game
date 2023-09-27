@@ -125,7 +125,7 @@ public class BubbleSpawnerOld : MonoBehaviour
                 MassSpawnBubble(massRoundSize);
                 break;
             }
-            case BeatType.GravityFlip:
+            case BeatType.FlipGravity:
             {
                 flipGravity.Invoke();
                 flipGravityAction.Invoke();

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
-public enum BeatType { NONE, SingleSpawn, MassSpawn, GravityFlip }
+public enum BeatType { NONE, SingleSpawn, MassSpawn, FlipGravity }
 
 [CreateAssetMenu(fileName="New Beatmap", menuName="Beatmap")]
 public class Beatmap : ScriptableObject
@@ -144,7 +144,7 @@ public class Beatmap : ScriptableObject
 
         if (name == "singleSpawn") return BeatType.SingleSpawn;
         if (name == "massSpawn") return BeatType.MassSpawn;
-        if (name == "gravityFlip") return BeatType.GravityFlip;
+        if (name == "gravityFlip") return BeatType.FlipGravity;
         else return BeatType.NONE;
     }
 }

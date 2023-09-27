@@ -56,7 +56,7 @@ public class BeatIconPopulator : MonoBehaviour
                         renderer.sprite = massSpawnSprite;
                         break;
                     }
-                    case BeatType.GravityFlip:
+                    case BeatType.FlipGravity:
                     {
                         renderer.sprite = flipSprite;
                         break;
