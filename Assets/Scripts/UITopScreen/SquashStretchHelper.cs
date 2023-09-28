@@ -15,8 +15,8 @@ public class SquashStretchHelper : MonoBehaviour
     private Vector3 baseScale;
     [Tooltip("A float (-1 to 1) which is used to lerp the base scale towards squash, if squetch is "
            + "negative, or towards stretch, if squetch is positive.")]
-    [SerializeField] [Range(-1, 1)]
-    private float squetch = 0;
+    [Range(-1, 1)]
+    public float squetch = 0;
     [Tooltip("The magnitude of squash / stretch. When magnitude is 2, max stretch is 2x as tall "
            + "and 0.5x as wide as the rest state. When magnitude is 5, max stretch is 5x as tall "
            + "and 0.2x as wide as the rest state. Etc.\n\nDefault: 2")]
@@ -67,8 +67,8 @@ public class SquashStretchHelper : MonoBehaviour
         // squash.
         // ================
 
-        float width = baseScale.x * Mathf.Pow(magnitude, squetch);
-        float height = baseScale.y * Mathf.Pow(magnitude, -squetch);
+        float width = baseScale.x * Mathf.Pow(magnitude, -squetch);
+        float height = baseScale.y * Mathf.Pow(magnitude, squetch);
         transform.localScale = new Vector3(width, height, 0f);
     }
 }
