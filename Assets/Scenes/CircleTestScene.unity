@@ -1288,7 +1288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c70baf91acf8f84bb54947a05fc5959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainSong: {fileID: 11400000, guid: 2f0245e4803aba54ab8f365889168c02, type: 2}
+  mainSong: {fileID: 11400000, guid: 167ebe8eeb686344c982877d31590249, type: 2}
   currentBeatmap: {fileID: 11400000, guid: d655ab3fc26d86c4a98bfb5dd074e822, type: 2}
 --- !u!4 &621005206
 Transform:
@@ -1770,7 +1770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicManager: {fileID: 621005205}
   currentBeatmap: {fileID: 11400000, guid: d655ab3fc26d86c4a98bfb5dd074e822, type: 2}
-  batchSize: 7
+  batchSize: 16
 --- !u!1 &742640115
 GameObject:
   m_ObjectHideFlags: 0
