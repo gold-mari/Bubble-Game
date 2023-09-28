@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
+[RequireComponent(typeof(SquashStretchHandler))]
 public class BeatBouncer : MonoBehaviour
 {
     [SerializeField, Tooltip("The music manager present in this scene.")]
@@ -28,9 +29,8 @@ public class BeatBouncer : MonoBehaviour
 
     // The TimelineHandler on the MusicManager.
     private TimelineHandler handler;
-    // The SquashStretchHelper on this object.
-    [Required]
-    private SquashStretchHelper squashStretch;
+    // The SquashStretchHandler on this object.
+    private SquashStretchHandler squashStretch;
 
     private void Awake()
     {
@@ -46,7 +46,7 @@ public class BeatBouncer : MonoBehaviour
             leadInLength = beatBounceLength/sum;
         }
 
-        squashStretch = GetComponent<SquashStretchHelper>();
+        squashStretch = GetComponent<SquashStretchHandler>();
     }
 
     private void Start()

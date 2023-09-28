@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
-public class SquashStretchHelper : MonoBehaviour
+public class SquashStretchHandler : MonoBehaviour
 {
     // ==============================================================
     // Parameters
