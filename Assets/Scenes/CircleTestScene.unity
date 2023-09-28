@@ -1707,9 +1707,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443f65e88b54f24b98849fef6bc91d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicManager: {fileID: 621005205}
-  currentBeatmap: {fileID: 11400000, guid: d655ab3fc26d86c4a98bfb5dd074e822, type: 2}
-  batchSize: 8
   maskTransform: {fileID: 292383481}
   angleRange: {x: 41.7, y: 138.3}
 --- !u!1 &723333263
@@ -1722,6 +1719,7 @@ GameObject:
   m_Component:
   - component: {fileID: 723333264}
   - component: {fileID: 723333265}
+  - component: {fileID: 723333266}
   m_Layer: 0
   m_Name: Beat Indicators
   m_TagString: Untagged
@@ -1758,6 +1756,21 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &723333266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723333263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac66dcf3fc0d3b42b38d81abcabb2c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicManager: {fileID: 621005205}
+  currentBeatmap: {fileID: 11400000, guid: d655ab3fc26d86c4a98bfb5dd074e822, type: 2}
+  batchSize: 7
 --- !u!1 &742640115
 GameObject:
   m_ObjectHideFlags: 0
@@ -2775,7 +2788,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1283709299
 Transform:
   m_ObjectHideFlags: 0
@@ -2788,7 +2801,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1664299070}
+  - {fileID: 2029245089}
   - {fileID: 1780181835}
   m_Father: {fileID: 723333264}
   m_RootOrder: 2
@@ -3349,56 +3362,6 @@ MonoBehaviour:
   bubblesInDanger: 0
   inDangerLerpTime: 5
   outOfDangerLerpTime: 0.667
---- !u!1 &1664299069
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1664299070}
-  - component: {fileID: 1664299071}
-  m_Layer: 0
-  m_Name: Icon Populator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1664299070
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1664299069}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1283709299}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1664299071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1664299069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2792ce83a6670741a825e8334e108ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timekeeper: {fileID: 0}
-  angleRange: {x: -47, y: 47}
-  icon: {fileID: 8666601734840800240, guid: a8dd55152f8183e4e91588dc99167623, type: 3}
-  spawnSprite: {fileID: 1371286240, guid: f080cce6a2918d64ebab4e4e7780f3d5, type: 3}
-  massSpawnSprite: {fileID: -221942425, guid: f080cce6a2918d64ebab4e4e7780f3d5, type: 3}
-  flipSprite: {fileID: 353059646, guid: f080cce6a2918d64ebab4e4e7780f3d5, type: 3}
 --- !u!1 &1711827056
 GameObject:
   m_ObjectHideFlags: 0
@@ -3956,6 +3919,56 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2029245088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2029245089}
+  - component: {fileID: 2029245090}
+  m_Layer: 0
+  m_Name: Populator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2029245089
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029245088}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1283709299}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2029245090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029245088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5865f191c64479e47b32720ba82ff76b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatIndicator: {fileID: 723333266}
+  angleRange: {x: -47, y: 47}
+  icon: {fileID: 8666601734840800240, guid: a8dd55152f8183e4e91588dc99167623, type: 3}
+  spawnSprite: {fileID: 1371286240, guid: f080cce6a2918d64ebab4e4e7780f3d5, type: 3}
+  massSpawnSprite: {fileID: -221942425, guid: f080cce6a2918d64ebab4e4e7780f3d5, type: 3}
+  flipSprite: {fileID: 353059646, guid: f080cce6a2918d64ebab4e4e7780f3d5, type: 3}
 --- !u!1001 &2059667138
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,11 +12,16 @@ public class LoopTracker
     public uint maxBatchSize { get; private set; }
     // The current batch size, in case we need to dip below our max to fit within our loop.
     public uint currentBatchSize { get; private set; }
+    // The current batch size, in case we need to know it ahead of time.
+    public uint nextBatchSize { get; private set; }
     // The current beat in the batch.
     public uint currentBatchBeat { get; private set; }
     // The beats that start and end the current batch.
     public uint batchStartBeat { get; private set; }
     public uint batchEndBeat { get; private set; }
+    // The beats that start and end the NEXT batch.
+    public uint nextBatchStart { get; private set; }
+    public uint nextBatchEnd { get; private set; }
     // Actions for when we hit the start of a batch and a loop.
     public System.Action loopStart, batchStart;
     // An action for when we update our values, called at the end of OnBeatUpdate.
@@ -46,6 +51,7 @@ public class LoopTracker
 
         handler = timelineHandler;
         maxBatchSize = loopSize = loop;
+        // If batch size is bigger than loop size, just use loop size.
         if (batch <= loop)
         {
             maxBatchSize = batch;
@@ -93,6 +99,46 @@ public class LoopTracker
     }
 
     // ================================================================
+    // Helper methods
+    // ================================================================
+
+    private uint BeatsInNextBatch()
+    {
+        // Returns the number of beats in the next batch.
+        // ================
+
+        uint beatsLeft = loopSize - currentLoopBeat + 1;
+        uint nextSize = beatsLeft - currentBatchSize;
+        // If the calculated next size is 0, then we're at the last batch of the loop.
+        // Alternately, if there's MORE than the max size left, we've still got a ways to go.
+        // The next batch should be maximum size!
+        if (nextSize == 0 || nextSize > maxBatchSize)
+        {
+            return maxBatchSize;
+        }
+        // Otherwise, a partial batch is up next. Return that.
+        return nextSize;
+    }
+
+    private void SetNextBatchStartEnd()
+    {
+        // Sets the next start/end beats properties.
+        // ================
+
+        // If we are at the last batch, we should start from 1 next time.
+        if (batchEndBeat == loopSize)
+        {
+            nextBatchStart = 1;
+        }
+        else
+        {
+            nextBatchStart = batchEndBeat + 1;
+        }
+
+        nextBatchEnd = nextBatchStart + nextBatchSize - 1;
+    }
+
+    // ================================================================
     // Event-handling methods
     // ================================================================
 
@@ -111,6 +157,9 @@ public class LoopTracker
                 currentBatchSize = maxBatchSize;
                 batchStartBeat = 1;
                 batchEndBeat = currentBatchSize;
+                // Calculate the size of the next batch.
+                nextBatchSize = BeatsInNextBatch();
+                SetNextBatchStartEnd();
                 // Invoke actions!
                 batchStart?.Invoke();
                 loopStart?.Invoke();
@@ -132,6 +181,10 @@ public class LoopTracker
                 // Get the start and end of the new batch.
                 batchStartBeat = currentLoopBeat;
                 batchEndBeat = currentLoopBeat+currentBatchSize-1;
+
+                // Calculate the size of the next batch.
+                nextBatchSize = BeatsInNextBatch();
+                SetNextBatchStartEnd();
 
                 // Invoke actions!
                 batchStart?.Invoke();

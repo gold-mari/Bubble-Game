@@ -2,34 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeatFillIndicator : MonoBehaviour
+public class BeatFiller : MonoBehaviour
 {
-    [SerializeField, Tooltip("The music manager present in the scene.")]
-    private MusicManager musicManager;
-    [SerializeField, Tooltip("The current beatmap. Used to get loop length.")]
-    private Beatmap currentBeatmap;
-    [SerializeField, Tooltip("How many beats it takes to go from empty to full fill.\n\nDefault: 8")]
-    private uint batchSize = 8;
-    private LoopTracker tracker;
-
-    [SerializeField]
-    private Coroutine lerpRoutine = null;
-    [SerializeField]
+    [SerializeField, Tooltip("The transform of our sprite mask.")]
     private Transform maskTransform;
-    [SerializeField]
+    [SerializeField, Tooltip("The (min, max) range of angles of the sprite mask.")]
     private Vector2 angleRange;
+
+    // The BeatIndicator component on this object's parent.
+    private BeatIndicator beatIndicator;
+    // The MusicManager referenced in beatIndicator.
+    private MusicManager musicManager;
+    // A reference to our loop tracker.
+    private LoopTracker tracker;
+    // The currently lerping coroutine.
+    private Coroutine lerpRoutine = null;
     
-    private void Start()
+    private IEnumerator Start()
     {
-        // Start is called before the first frame update. We use it to initialize the UI
-        // position and creating the tracker.
+        // Start is called before the first frame update. We use it to get references and
+        // initialize our UI.
         // ================
 
-        // Initialize the tracker.
-        tracker = new LoopTracker(musicManager.handler, currentBeatmap.length, batchSize);
+        beatIndicator = transform.parent.GetComponent<BeatIndicator>();
+        musicManager = beatIndicator.musicManager;
+
+        // Subscribe to our tracker after a frame.
+        yield return null;
+        tracker = beatIndicator.tracker;
         tracker.update += OnUpdate;
 
-        UpdateUI(1f/tracker.currentBatchSize);
+        UpdateUI(1f/(tracker.currentBatchSize+1));
     }
 
     private void OnDestroy()
@@ -39,10 +42,9 @@ public class BeatFillIndicator : MonoBehaviour
 
     private void OnUpdate()
     {
-        // Called every time we get an update from our tracker. Does X Y Z ??????????????????????????
+        // Called every time we get an update from our tracker. Starts the coroutine based off of
+        // the current beat in our batch.
         // ================
-
-        print($"{tracker.currentBatchBeat}/{tracker.currentBatchSize}");
         
         if (lerpRoutine != null) 
         {
@@ -79,11 +81,11 @@ public class BeatFillIndicator : MonoBehaviour
         // Returns how far into the song batch we are, from 0 to 1.
         // ================
 
-        float lerpIndex = (float)beat/tracker.currentBatchSize;
-        // If we have been taken over our max, return 0.
-        if (lerpIndex > 1)
+        float lerpIndex = (float)beat/(tracker.currentBatchSize+1);
+        // If we have been taken to our max, return 0.
+        if (lerpIndex == 1)
         {
-            return 1f/tracker.currentBatchSize;
+            return 1f/(tracker.nextBatchSize+1);
         }
         // Otherwise, return the index.
         return lerpIndex;

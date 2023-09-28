@@ -8,7 +8,7 @@ public class BeatBatcher : MonoBehaviour
     public TimekeeperManager timekeeper;
     [Tooltip("The BeatIconPopulator object.")]
     [SerializeField]
-    private BeatIconPopulator populator;
+    private BeatIconPopulatorOld populator;
     [Tooltip("The maximum number of beats to display at once.")]
     [SerializeField]
     private uint batchSize;
