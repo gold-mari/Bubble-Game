@@ -108,7 +108,6 @@
 			<destination>{563f94bb-39a0-4507-9e69-a12070ce055a}</destination>
 			<destination>{bfe8339c-0cfd-4e59-bea7-f857b23aa3bb}</destination>
 			<destination>{fe1c8ad1-311e-40a6-b929-011c5b439762}</destination>
-			<destination>{6e9c9fea-0b3e-4e3b-bae3-98f761c34f21}</destination>
 			<destination>{47998cf2-155f-4374-a41b-00a45d4df770}</destination>
 			<destination>{be482a45-652f-40bb-a871-a6f89427c383}</destination>
 			<destination>{e921f37e-d498-4c40-bec8-90fad8484606}</destination>
@@ -387,21 +386,7 @@
 			<value>2.5000000000000004</value>
 		</property>
 		<property name="name">
-			<value>doSpawn</value>
-		</property>
-		<relationship name="timeline">
-			<destination>{a41b948c-9d3d-4b56-95f1-48ad0545ad58}</destination>
-		</relationship>
-		<relationship name="markerTrack">
-			<destination>{05412107-21d8-4ddb-8521-fd735c409ed1}</destination>
-		</relationship>
-	</object>
-	<object class="NamedMarker" id="{6e9c9fea-0b3e-4e3b-bae3-98f761c34f21}">
-		<property name="position">
-			<value>0</value>
-		</property>
-		<property name="name">
-			<value>dontSpawn</value>
+			<value>doTrack</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{a41b948c-9d3d-4b56-95f1-48ad0545ad58}</destination>
@@ -415,7 +400,7 @@
 			<value>4.5</value>
 		</property>
 		<property name="name">
-			<value>dontSpawn</value>
+			<value>dontTrack</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{a41b948c-9d3d-4b56-95f1-48ad0545ad58}</destination>
@@ -429,7 +414,7 @@
 			<value>6.5</value>
 		</property>
 		<property name="name">
-			<value>doSpawn</value>
+			<value>doTrack</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{a41b948c-9d3d-4b56-95f1-48ad0545ad58}</destination>
@@ -443,7 +428,7 @@
 			<value>17.269230769230774</value>
 		</property>
 		<property name="name">
-			<value>dontSpawn</value>
+			<value>dontTrack</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{a41b948c-9d3d-4b56-95f1-48ad0545ad58}</destination>
@@ -457,7 +442,7 @@
 			<value>18.192307692307693</value>
 		</property>
 		<property name="name">
-			<value>doSpawn</value>
+			<value>doTrack</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{a41b948c-9d3d-4b56-95f1-48ad0545ad58}</destination>

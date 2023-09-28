@@ -34,13 +34,17 @@ public class BeatIconPopulator : MonoBehaviour
         yield return null;
         tracker = beatIndicator.tracker;
         tracker.update += OnUpdate;
+        tracker.doTrack += OnDoTrack;
+        tracker.dontTrack += OnDontTrack;
 
         PlaceIcons(tracker.batchStartBeat, tracker.batchEndBeat);
     }
 
     private void OnDestroy()
     {
-        tracker.batchStart -= OnUpdate;
+        tracker.update -= OnUpdate;
+        tracker.doTrack -= OnDoTrack;
+        tracker.dontTrack -= OnDontTrack;
     }
 
     private void OnUpdate()
@@ -53,9 +57,25 @@ public class BeatIconPopulator : MonoBehaviour
         if (tracker.currentBatchBeat == tracker.currentBatchSize)
         {
             ClearIcons();
-            print($"{tracker.nextBatchStart}, {tracker.nextBatchEnd}");
             PlaceIcons(tracker.nextBatchStart, tracker.nextBatchEnd);
         }
+    }
+
+        private void OnDoTrack()
+    {
+        // Called when our tracker fires off the doTrack action. Force refreshes our icons.
+        // ================
+
+        ClearIcons();
+        PlaceIcons(tracker.nextBatchStart, tracker.nextBatchEnd);
+    }
+
+    private void OnDontTrack()
+    {
+        // Called when our tracker fires off the dontTrack action. Clears our icons.
+        // ================
+
+        ClearIcons();
     }
 
     public void PlaceIcons(uint min, uint max)

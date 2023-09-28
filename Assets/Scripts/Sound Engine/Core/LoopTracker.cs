@@ -28,6 +28,9 @@ public class LoopTracker
     // Ensures that any script that needs us always gets accurate loop counts, as opposed to
     // trying to sync with the TimelineHandler directly.
     public System.Action update;
+    // An action called when we encounter the "dontTrack" and "doTrack" labels.
+    // Used to force refresh the BeatIconPopulator.
+    public System.Action dontTrack, doTrack;
 
     // ================================================================
     // Internal variables
@@ -205,11 +208,11 @@ public class LoopTracker
         // Updates shouldUpdate based on the lastMarker.
         // ================
 
-        if (lastMarker == "dontSpawn") {
+        if (lastMarker == "dontTrack") {
             shouldUpdate = false;
+            dontTrack?.Invoke();
         }
-        if (lastMarker == "doSpawn") {
-            // Update our beat counts to be the current beat in our first measure.
+        if (lastMarker == "doTrack") {
             // If this is the not the first beat, go one behind, because markerUpdated is
             // always called before beatUpdated.
             if (handler.timelineInfo.currentBeat != 1)
@@ -222,8 +225,16 @@ public class LoopTracker
                 // forces Case 1 in OnBeatUpdated, which in turn fires off our batchStart
                 // and loopStart events as is proper.
                 currentLoopBeat = loopSize;
+                currentBatchBeat = currentBatchSize;
+                // Set us in the final batch.
+                batchEndBeat = currentLoopBeat;
+                batchStartBeat = batchEndBeat-currentBatchSize+1;
             }
             shouldUpdate = true;
+            // Find the stats of the next batch! Used in some functions subscribed to doTrack.
+            nextBatchSize = BeatsInNextBatch();
+            SetNextBatchStartEnd();
+            doTrack?.Invoke();
         }
     }
 }
