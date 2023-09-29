@@ -9,7 +9,7 @@ public class BeatIcon : MonoBehaviour
     // The LoopTracker running the beat UI.
     private LoopTracker tracker;
     // The sprite renderer on this object.
-    private SquashStretchHandler squashStretch;
+    private SpriteRenderer sprite;
 
     public void Initialize(uint beat, LoopTracker loopTracker)
     {
