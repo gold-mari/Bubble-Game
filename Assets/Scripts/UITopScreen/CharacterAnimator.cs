@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Affiliation { NONE, Player, Opponent }
+
 public class CharacterAnimator : MonoBehaviour
 {
     // ==============================================================
     // Parameters
     // ==============================================================
 
-    [Tooltip("The boolVar, corresponding to if dangerAmount is greater than or equal to "
-           + "dangerThreshold in DangerManager.")]
-    [SerializeField]
+    [SerializeField, Tooltip("The boolVar, corresponding to if dangerAmount is greater than or equal to "
+                           + "dangerThreshold in DangerManager.")]
     private boolVar inDanger;
 
     // ==============================================================
