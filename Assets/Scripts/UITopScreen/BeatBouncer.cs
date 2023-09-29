@@ -31,6 +31,8 @@ public class BeatBouncer : MonoBehaviour
     private TimelineHandler handler;
     // The SquashStretchHandler on this object.
     private SquashStretchHandler squashStretch;
+    // The currently evaluating coroutine.
+    
 
     private void Awake()
     {
@@ -68,12 +70,23 @@ public class BeatBouncer : MonoBehaviour
 
     private void OnBeatUpdated()
     {
-        double bounceTime = beatBounceLength * handler.length4th;
-        double leadTime = leadInLength * handler.length4th;
-        double timeBetweenCurves = handler.length4th - bounceTime - leadTime;
+        float bounceTime = (float)(beatBounceLength * handler.length4th);
+        float leadTime = (float)(leadInLength * handler.length4th);
+        float timeBetweenCurves = (float)handler.length4th - bounceTime - leadTime;
         
         StopAllCoroutines();
-        StartCoroutine(EvaluateCurve(beatBounceCurve, (float)bounceTime));
+        StartCoroutine(Bounce(bounceTime, timeBetweenCurves, leadTime));
+    }
+
+    private IEnumerator Bounce(float bounceTime, float timeBetweenCurves, float leadTime)
+    {
+        // Calls EvaluateCurve on the beatBounceCurve, waits, and then calls it on the
+        // leadInCurve.
+        // ================
+
+        yield return StartCoroutine(EvaluateCurve(beatBounceCurve, bounceTime));
+        yield return new WaitForSeconds(timeBetweenCurves);
+        yield return StartCoroutine(EvaluateCurve(leadInCurve, leadTime));
     }
 
     private IEnumerator EvaluateCurve(AnimationCurve curve, float duration)
