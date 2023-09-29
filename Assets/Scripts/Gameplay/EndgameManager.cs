@@ -24,6 +24,9 @@ public class EndgameManager : MonoBehaviour
     [SerializeField]
     UnityEvent lossTriggered;
 
+    // Bools if we've already lost or won.
+    bool alreadyWon, alreadyLost;
+
     // ================================================================
     // State-changing methods
     // ================================================================
@@ -31,7 +34,7 @@ public class EndgameManager : MonoBehaviour
     public void TriggerWin()
     {
         // IE don't run anything if we're inactive.
-        if (gameObject.activeInHierarchy) {
+        if (!alreadyWon && gameObject.activeInHierarchy) {
             StartCoroutine(WinRoutine());
         }
     }
@@ -39,22 +42,22 @@ public class EndgameManager : MonoBehaviour
     {
         print("You win!");
         winTriggered.Invoke();
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(6f);
         SceneManager.LoadScene(sceneOnWin);
     }
 
     public void TriggerLoss()
     {
         // IE don't run anything if we're inactive.
-        if (gameObject.activeInHierarchy) {
+        if (!alreadyLost && gameObject.activeInHierarchy) {
             StartCoroutine(LossRoutine());
         }
     }
     IEnumerator LossRoutine()
     {
-        print("You lose!");
+        print("You lost!");
         lossTriggered.Invoke();
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(6f);
         SceneManager.LoadScene(sceneOnLose);
     }
 }

@@ -20,6 +20,8 @@ public class TimelineHandler
 
     // A reference to the instance of musicEvent.
     private FMOD.Studio.EventInstance instance;
+    // Whether or not we should update.
+    private bool shouldUpdate = true;
 
     // timeline callbacks: ============================================
 
@@ -195,6 +197,11 @@ public class TimelineHandler
         // - Check subdivision events
         // ================
 
+        if (!shouldUpdate)
+        {
+            return;
+        }
+
         // Update our DSPTime.
         UpdateDSPTime();
 
@@ -218,6 +225,18 @@ public class TimelineHandler
 
         // Also calculate subdivisions.
         ShoutSubdivisions();
+    }
+
+    public void StopUpdating()
+    {
+        // Stops this timeline handler from updating. 
+        // 
+        // !!! IMPORTANT !!!
+        // This should ONLY be used when the instance we're handling is ABOUT TO END.
+        // !!! IMPORTANT !!!
+        // ================
+
+        shouldUpdate = false;
     }
 
     public void OnGUI()

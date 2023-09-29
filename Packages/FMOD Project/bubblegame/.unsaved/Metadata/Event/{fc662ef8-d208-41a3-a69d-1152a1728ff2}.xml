@@ -348,5 +348,8 @@
 		<property name="value">
 			<value>0</value>
 		</property>
+		<property name="curveShape">
+			<value>0.335759073</value>
+		</property>
 	</object>
 </objects>

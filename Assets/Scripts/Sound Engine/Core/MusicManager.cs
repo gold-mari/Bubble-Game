@@ -13,6 +13,8 @@ public class MusicManager : MonoBehaviour
     private Song mainSong;
     [SerializeField, Tooltip("The 'Current Beatmap' variable in the scene.")]
     private Beatmap currentBeatmap;
+    [SerializeField, Tooltip("How long, in seconds, it takes us to tape stop on a loss.\n\nDefault: 2")]
+    private float tapeStopDuration = 2;
 
     // The timeline handler tied to this music manager.
     public TimelineHandler handler { get; private set; }
@@ -73,7 +75,7 @@ public class MusicManager : MonoBehaviour
 #endif
 
     // ================================================================
-    // Pause / unpause methods
+    // Pause / unpause / stop methods
     // ================================================================
 
 #if UNITY_EDITOR
@@ -107,6 +109,37 @@ public class MusicManager : MonoBehaviour
             instance.setPaused(false);
             handler.StartDSPClock(IsInstancePlaying());
         }
+    }
+
+    public void TapeStop()
+    {
+        // Applies the tape stop effect and ends the music. Called by endgame manager.
+        // ================
+
+        StartCoroutine(TapeStopRoutine());
+    }
+    private IEnumerator TapeStopRoutine()
+    {
+        // Applies the tape stop effect to the currently playing event. Also ends the music after.
+        // ================
+
+        handler.StopUpdating();
+
+        float elapsed = 0;
+        while (elapsed < tapeStopDuration)
+        {
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("TapeStop", (elapsed/tapeStopDuration));
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        StopMusic();
+    }
+
+    private void StopMusic()
+    {
+        instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        handler.StopDSPClock();
     }
 
     // ================================================================

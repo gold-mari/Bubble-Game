@@ -1388,6 +1388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainSong: {fileID: 11400000, guid: 167ebe8eeb686344c982877d31590249, type: 2}
   currentBeatmap: {fileID: 11400000, guid: d655ab3fc26d86c4a98bfb5dd074e822, type: 2}
+  tapeStopDuration: 4
 --- !u!4 &621005206
 Transform:
   m_ObjectHideFlags: 0
@@ -2728,6 +2729,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2078172877}
         m_TargetAssemblyTypeName: CharacterAnimator, Assembly-CSharp
         m_MethodName: OnPlayerLoss
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 621005205}
+        m_TargetAssemblyTypeName: MusicManager, Assembly-CSharp
+        m_MethodName: TapeStop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
