@@ -31,6 +31,8 @@ public class DangerTracker : MonoBehaviour
     // Internal variables
     // ==============================================================
 
+    // The last-seen value of gravityFlipped.
+    bool lastGravityFlipped;
     // The radius of this bubble, used in distance calculation. Because bubbles are presumed to be
     // circular, taking either the width or the height of the bounding box will approximate
     // diameter well enough.
@@ -44,9 +46,6 @@ public class DangerTracker : MonoBehaviour
     private bool checkForDanger = false;
     // A cached reference to WaitForSeconds(initialDelay).
     private WaitForSeconds wait;
-    // The BubbleSpawner with System.Action that is shouted when gravity flips.
-    // IMPORTANT: THIS WILL BE OVERHAULED AND CONNECTED TO A TIMEKEEPER MANAGER.
-    private BubbleSpawner spawner;
     // The Animator on this bubble. Used to start the flashing animation when we're in danger.
     private Animator animator;
     
@@ -69,14 +68,11 @@ public class DangerTracker : MonoBehaviour
         // Divide by 2 to get radius instead of diameter.
         bubbleRadius = collider.bounds.size.x/2f;
 
+        // Find the current value of gravityFlipped.
+        lastGravityFlipped = gravityFlipped.value;
+
         wait = new WaitForSeconds(initialDelay);
         yield return wait;
-
-        // Define flipGravity and connect OnFlipGravity to it if possible.
-        spawner = transform.parent.GetComponent<BubbleSpawner>();
-        if (spawner) {
-            spawner.flipGravityAction += OnFlipGravity;
-        }
 
         // Define the animator.
         animator = GetComponent<Animator>();
@@ -91,10 +87,8 @@ public class DangerTracker : MonoBehaviour
         // if this bubble is inDanger, we decrement the number of bubbles in danger.
         // ================
 
-        if (spawner) {
-            spawner.flipGravityAction -= OnFlipGravity;
-        }
-        if (dangerManager && inDanger) {
+        if (dangerManager && inDanger) 
+        {
             dangerManager.Decrement();
         }
     }
@@ -103,14 +97,23 @@ public class DangerTracker : MonoBehaviour
     {
         // Update is called once per frame. We use it to check if we're past our danger
         // range, and update inDanger accordingly. We use edge detection to increment and
-        // decrement dangerManager.
+        // decrement dangerManager, and to determine if gravity flipped.
         // ================
+
+        // Before anything else, check if gravity flipped.
+        if (lastGravityFlipped != gravityFlipped.value)
+        {
+            OnFlipGravity();
+            lastGravityFlipped = gravityFlipped.value;
+            print("flip!");
+        }
 
         // ================================
         // Part 0: Short circuit
         // ================================
 
-        if (!checkForDanger) {
+        if (!checkForDanger) 
+        {
             return;
         }
 
@@ -128,13 +131,15 @@ public class DangerTracker : MonoBehaviour
         // If gravity isn't flipped, check if we're further than the outer radius. If so,
         // then note that we're past range. ALSO, add bubbleRadius to find the distance
         // to the furthest point on the bubble from the center.
-        if (!gravityFlipped.value && (distance + bubbleRadius) > dangerRadii.y) {    
+        if (!gravityFlipped.value && (distance + bubbleRadius) > dangerRadii.y) 
+        {    
             pastRange = true;
         }
         // Otherwise, check if we're further than the inner radius. If so, then note that
         // we're past range. ALSO, subtract bubbleRadius to find the distance to the
         // closest point on the bubble from the center.
-        else if (gravityFlipped.value && (distance - bubbleRadius) < dangerRadii.x) {
+        else if (gravityFlipped.value && (distance - bubbleRadius) < dangerRadii.x) 
+        {
             pastRange = true;
         }
         // Recall pastRange is initialized to false. If it isn't set to true by one of
@@ -147,21 +152,25 @@ public class DangerTracker : MonoBehaviour
         // If pastRange != inDanger, then pastRange just changed. Note the change, and
         // then update inDanger so it once again matches pastRange.
 
-        if (dangerManager) {
+        if (dangerManager) 
+        {
         // If we're pastRange but not inDanger, we just entered danger.
-            if (pastRange && !inDanger) {
+            if (pastRange && !inDanger) 
+            {
                 dangerManager.Increment();
                 inDanger = pastRange;
             }
             // If we're not pastRange but we're inDanger, we just exited danger.
-            if (!pastRange && inDanger) {
+            if (!pastRange && inDanger) 
+            {
                 dangerManager.Decrement();
                 inDanger = pastRange;
             }
         }
 
         // Finally, if the animator exists, update the animator.
-        if (animator) {
+        if (animator) 
+        {
             animator.SetBool("inDanger", inDanger);
         }
     }
@@ -185,8 +194,8 @@ public class DangerTracker : MonoBehaviour
         // ================
 
         inDanger = false;
-        animator.SetBool("inDanger", false);
         checkForDanger = false;
+        animator.SetBool("inDanger", false);
         // Reset DangerManager.
         yield return wait;
         checkForDanger = true;

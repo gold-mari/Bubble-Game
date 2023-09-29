@@ -33,11 +33,6 @@ public class BubbleSpawner : MonoBehaviour
     public uint massRoundSize = 20;
     [Tooltip("The boolVar which signals if gravity is flipped to point outwards instead of inwards.")]
     public boolVar gravityFlipped;
-    [Tooltip("A UnityEvent which communicates with GravityManager, telling it to flip gravity.\n\n"
-           + "IMPORTANT: THIS WILL BE OVERHAULED TO BE ON A TIMEKEEPER MANAGER.")]
-    public UnityEvent flipGravity;
-    // A System.Action version for use with instantiated bubbles.
-    public System.Action flipGravityAction;
 
     // ==============================================================
     // Internal variables
