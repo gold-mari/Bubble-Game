@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3df4df3d40d7db146a5a268eb336f123, type: 3}
   m_Name: gravityStrength
   m_EditorClassIdentifier: 
-  value: -1
+  value: 0

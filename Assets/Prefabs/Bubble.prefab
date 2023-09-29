@@ -47,7 +47,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.8
+  m_Radius: 1.9
 --- !u!1 &5062526010735810590
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,7 +79,7 @@ Transform:
   m_GameObject: {fileID: 5062526010735810590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 5, z: 0}
-  m_LocalScale: {x: 0.23, y: 0.23, z: 0.23}
+  m_LocalScale: {x: 0.335, y: 0.335, z: 0.335}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1734696834076364993}
@@ -168,9 +168,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityFlipped: {fileID: 11400000, guid: 9c2171a126b23a74f98c7c6802930645, type: 2}
   dangerManager: {fileID: 0}
-  dangerRadii: {x: 2, y: 3.7}
+  dangerRadii: {x: 1.8, y: 3.9}
   center: {x: 0, y: 0}
   initialDelay: 1
+  inDanger: 0
 --- !u!95 &2727096753672946227
 Animator:
   serializedVersion: 5

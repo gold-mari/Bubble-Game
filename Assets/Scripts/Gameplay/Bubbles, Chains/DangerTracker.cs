@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using NaughtyAttributes;
 
 public class DangerTracker : MonoBehaviour
 {
@@ -37,6 +38,7 @@ public class DangerTracker : MonoBehaviour
     // Used to determine if this bullet is in the danger range. We compare this in Update to the
     // boolean valuation of if we're in the danger radius- if at any point they differ, update
     // DangerManager and then update inDanger.
+    [SerializeField, ReadOnly]
     private bool inDanger = false;
     // Used to halt Update from running calculations until after initialDelay seconds.
     private bool checkForDanger = false;

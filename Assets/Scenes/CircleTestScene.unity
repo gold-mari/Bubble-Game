@@ -1763,7 +1763,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: c5fa78e0fa62fc24bbd47d1f96173a27, type: 3}
-  m_Color: {r: 1, g: 0.8571094, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.85882354, b: 0, a: 0.74509805}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -3542,7 +3542,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1649246006
 Transform:
   m_ObjectHideFlags: 0
@@ -4208,6 +4208,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1649246007}
     - target: {fileID: 1425966893, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: massRoundSize
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1425966893, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: flipGravity.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 391615238}
@@ -4215,6 +4219,12 @@ PrefabInstance:
       propertyPath: flipGravity.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1649246007}
+    - target: {fileID: 1407340541576017533, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: note
+      value: "\t\t        ====  Sprite | Mask \nDanger Ring                                      
+        |\n\tOuter Radius ==== 0.776 | 0.756\n               Inner Radius  ==== 0.398
+        | 0.378"
+      objectReference: {fileID: 0}
     - target: {fileID: 4698578531416055623, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
