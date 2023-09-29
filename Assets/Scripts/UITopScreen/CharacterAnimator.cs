@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Affiliation { NONE, Player, Opponent }
-
 public class CharacterAnimator : MonoBehaviour
 {
     // ==============================================================
@@ -13,6 +11,7 @@ public class CharacterAnimator : MonoBehaviour
     [SerializeField, Tooltip("The boolVar, corresponding to if dangerAmount is greater than or equal to "
                            + "dangerThreshold in DangerManager.")]
     private boolVar inDanger;
+
 
     // ==============================================================
     // Internal variables
@@ -39,7 +38,7 @@ public class CharacterAnimator : MonoBehaviour
         // the animator.
         // ================
 
-        animator.SetBool("inDanger", inDanger.value);
+        animator.SetBool("playerDanger", inDanger.value);
     }
 
     // ==============================================================
@@ -55,21 +54,21 @@ public class CharacterAnimator : MonoBehaviour
         animator.SetTrigger("chainBreak");
     }
 
-    public void OnTriggerWin()
+    public void OnPlayerWin()
     {
         // A public function called by TimekeeperManager via an event when we win.
         // Sets the triggerWin trigger in the animator.
         // ================
 
-        animator.SetTrigger("triggerWin");
+        animator.SetTrigger("playerWin");
     }
 
-    public void OnTriggerLoss()
+    public void OnPlayerLoss()
     {
         // A public function called by DangerManager via an event when we lose.
         // Sets the triggerLoss trigger in the animator.
         // ================
 
-        animator.SetTrigger("triggerLoss");
+        animator.SetTrigger("playerLoss");
     }
 }

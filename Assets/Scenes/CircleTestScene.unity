@@ -2658,9 +2658,21 @@ MonoBehaviour:
   winTriggered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1189538589}
         m_TargetAssemblyTypeName: CharacterAnimator, Assembly-CSharp
-        m_MethodName: OnTriggerWin
+        m_MethodName: OnPlayerWin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2078172877}
+        m_TargetAssemblyTypeName: CharacterAnimator, Assembly-CSharp
+        m_MethodName: OnPlayerWin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2673,9 +2685,21 @@ MonoBehaviour:
   lossTriggered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1189538589}
         m_TargetAssemblyTypeName: CharacterAnimator, Assembly-CSharp
-        m_MethodName: OnTriggerLoss
+        m_MethodName: OnPlayerLoss
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2078172877}
+        m_TargetAssemblyTypeName: CharacterAnimator, Assembly-CSharp
+        m_MethodName: OnPlayerLoss
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2866,7 +2890,7 @@ GameObject:
   - component: {fileID: 1189538589}
   - component: {fileID: 1189538588}
   m_Layer: 0
-  m_Name: Sprite
+  m_Name: Player Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4226,8 +4250,40 @@ PrefabInstance:
         | 0.378"
       objectReference: {fileID: 0}
     - target: {fileID: 4698578531416055623, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698578531416055623, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698578531416055623, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1189538589}
+    - target: {fileID: 4698578531416055623, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2078172877}
+    - target: {fileID: 4698578531416055623, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698578531416055623, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnChainBreak
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698578531416055623, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnChainBreak
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698578531416055623, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: CharacterAnimator, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698578531416055623, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6785756904629010242, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: m_LocalScale.x
@@ -4306,9 +4362,10 @@ GameObject:
   - component: {fileID: 2078172873}
   - component: {fileID: 2078172876}
   - component: {fileID: 2078172875}
+  - component: {fileID: 2078172877}
   - component: {fileID: 2078172874}
   m_Layer: 0
-  m_Name: Sprite
+  m_Name: Opponent Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4352,9 +4409,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2078172872}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 61b91ceecb4dea14d8366e4e60a3b681, type: 2}
+  m_Controller: {fileID: 9100000, guid: e34f4322a8c8a3a4cac8a3675a0fd912, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4406,7 +4463,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -4
   m_Sprite: {fileID: -608361779, guid: 6bf0b59766cfe7f46b6b51f815eefdb1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.645283, b: 0.645283, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4416,6 +4473,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2078172877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078172872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe29cc6fe8476fc44bcc70f0cb0e530d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inDanger: {fileID: 11400000, guid: 777dc729eac653f408c903a2f488b24a, type: 2}
 --- !u!1 &2095050683
 GameObject:
   m_ObjectHideFlags: 0
