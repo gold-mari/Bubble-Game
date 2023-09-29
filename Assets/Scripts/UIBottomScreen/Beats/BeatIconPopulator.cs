@@ -86,8 +86,8 @@ public class BeatIconPopulator : MonoBehaviour
 
         for (uint i = min; i <= max; i++)
         {
-            uint i_normalized = i-min+1;
-            lerpAmount = (float)i_normalized/(batchLength+1);
+            uint batch_i = i-min+1;
+            lerpAmount = (float)batch_i/(batchLength+1);
             spawnAngle = Mathf.Lerp(angleRange.x, angleRange.y, lerpAmount);
 
             BeatType type = currentBeatmap.GetBeatType(i);
@@ -95,6 +95,8 @@ public class BeatIconPopulator : MonoBehaviour
             if (type != BeatType.NONE) {
                 // Spawn an object.
                 GameObject iconObj = Instantiate(icon, Vector3.zero, Quaternion.Euler(0,0,spawnAngle), transform);
+                // Initialize its beatIcon.
+                iconObj.GetComponentInChildren<BeatIcon>().Initialize(batch_i, tracker);
                 // Set its sprite according to its type.
                 SpriteRenderer renderer = iconObj.GetComponentInChildren<SpriteRenderer>();
                 switch (type)

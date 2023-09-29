@@ -8,6 +8,14 @@ public class LoopTracker
 
     // The current beat in the loop.
     public uint currentLoopBeat { get; private set; }
+    // The next beat in the loop.
+    public uint nextLoopBeat 
+    { 
+        get
+        {
+            return (currentLoopBeat%loopSize)+1;
+        } 
+    }
     // The number of beats in the batch. Optionally supplied in our constructor.
     public uint maxBatchSize { get; private set; }
     // The current batch size, in case we need to dip below our max to fit within our loop.
@@ -16,6 +24,14 @@ public class LoopTracker
     public uint nextBatchSize { get; private set; }
     // The current beat in the batch.
     public uint currentBatchBeat { get; private set; }
+    // The next beat in the batch.
+    public uint nextBatchBeat 
+    { 
+        get
+        {
+            return (currentBatchBeat%currentBatchSize)+1;
+        } 
+    }
     // The beats that start and end the current batch.
     public uint batchStartBeat { get; private set; }
     public uint batchEndBeat { get; private set; }
