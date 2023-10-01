@@ -12,16 +12,18 @@ public class BubbleSpawner : MonoBehaviour
 
     [Tooltip("The beat reader object in the scene.")]
     public BeatReader beatReader;
-    [Tooltip("The bubble prefab to spawn.\n\nIMPORTANT: This bubble should be initialized with the "
-           + "NIL chain.")]
-    public GameObject bubble;
     [SerializeField, Tooltip("The DangerManager object present in the scene. This is passed off to the "
                            + "DangerTracker components in spawned bubbles.")]
     private DangerManager dangerManager;
-    [Expandable, Tooltip("The list of current and upcoming Bubble_Colors to spawn, represented by a list of "
-                       + "bubble_ColorVars. The 0th index is the current color, and each successive index is "
-                       + "the color after that.\n\nThis array may be ANY size.")]
-    public List<bubble_ColorVar> colors;
+    [SerializeField, Tooltip("The boolVar which signals if gravity is flipped to point outwards instead of inwards.")]
+    private boolVar gravityFlipped;
+    [SerializeField, Tooltip("The bubble prefab to spawn.\n\nIMPORTANT: This bubble should be initialized with the "
+           + "NIL chain.")]
+    private GameObject bubble;
+    [SerializeField, Expandable, Tooltip("The list of current and upcoming Bubble_Colors to spawn, represented "
+                                       + "by a list of bubble_ColorVars. The 0th index is the current color, and each "
+                                       + "successive index is the color after that.\n\nThis array may be ANY size.")]
+    private List<bubble_ColorVar> colors;
     [Tooltip("The center of the playable space.\n\nDefault: (0,0)")]
     public Vector2 center = new Vector2(0,0);
 
@@ -29,10 +31,10 @@ public class BubbleSpawner : MonoBehaviour
            + "inverted, the outer radius is used. When gravity IS inverted, the inner "
            + "radius is used.\n\nDefault: (1,4.4)")]
     public Vector2 radius = new Vector2(1f, 4.4f);
-    [Tooltip("The number of bubbles to spawn in mass rounds.\n\nDefault: 20")]
-    public uint massRoundSize = 20;
-    [Tooltip("The boolVar which signals if gravity is flipped to point outwards instead of inwards.")]
-    public boolVar gravityFlipped;
+    [SerializeField, Tooltip("The strength of the initial force applied to bubbles when they spawn.\n\nDefault: 500")]
+    private float initialForce = 500f;
+    [SerializeField, Tooltip("The number of bubbles to spawn in mass rounds.\n\nDefault: 20")]
+    private uint massRoundSize = 20;
 
     // ==============================================================
     // Internal variables
@@ -148,11 +150,13 @@ public class BubbleSpawner : MonoBehaviour
         // ================
 
         // If gravity isn't flipped, multiply by outer radius.
-        if (!gravityFlipped.value) {
+        if (!gravityFlipped.value) 
+        {
             spawnPoint *= radius.y;
         }
         // Otherwise, multiply by inner radius.
-        else {
+        else 
+        {
             spawnPoint *= radius.x;
         }
 
@@ -167,6 +171,15 @@ public class BubbleSpawner : MonoBehaviour
 
         // Intialize dangerManager reference in dangerTracker.
         obj.GetComponent<DangerTracker>().dangerManager = dangerManager;
+
+        // Apply an initial force to our bubble.
+        Vector2 direction = (center - spawnPoint).normalized;
+        if (gravityFlipped.value)
+        {
+            direction *= -1f;
+        }
+        
+        obj.GetComponent<Rigidbody2D>().AddForce((direction)*initialForce);
     }
 
     // ==============================================================
