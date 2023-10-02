@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: bafc925730b25b242af9c7857c4a2d41
+guid: ed0092414a7a99442b2f355f836d469f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - color: {instanceID: 0}
+  - beatReader: {instanceID: 0}
+  - dangerManager: {instanceID: 0}
+  - gravityFlipped: {instanceID: 0}
+  - bubble: {instanceID: 0}
   - binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}

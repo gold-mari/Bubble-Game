@@ -10,6 +10,8 @@ public class ColorIndicator : MonoBehaviour
 
     [Tooltip("The bubble_ColorVar that this script should monitor.")]
     public bubble_ColorVar color;
+    [SerializeField, Tooltip("A binder of bubble sprites, corresponding to the color of the bubble this indicator monitors.")]
+    private BubbleSpriteBinder binder;
 
     // ================================================================
     // Internal variables
@@ -38,6 +40,7 @@ public class ColorIndicator : MonoBehaviour
         // which corresponds to our Bubble_Color.
         // ================
 
-        sprite.color = Bubble_Color_Methods.getSpriteColor(color.value);
+        sprite.color = Bubble_Color_Methods.getColor(color.value);
+        //sprite.sprite = Bubble_Color_Methods.getSprite(color.value, binder);
     }
 }

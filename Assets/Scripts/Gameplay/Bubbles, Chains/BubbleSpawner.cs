@@ -20,6 +20,8 @@ public class BubbleSpawner : MonoBehaviour
     [SerializeField, Tooltip("The bubble prefab to spawn.\n\nIMPORTANT: This bubble should be initialized with the "
            + "NIL chain.")]
     private GameObject bubble;
+    [SerializeField, Tooltip("A binder of bubble sprites, assigned to spawned bubbles depending on their color.")]
+    private BubbleSpriteBinder binder;
     [SerializeField, Expandable, Tooltip("The list of current and upcoming Bubble_Colors to spawn, represented "
                                        + "by a list of bubble_ColorVars. The 0th index is the current color, and each "
                                        + "successive index is the color after that.\n\nThis array may be ANY size.")]
@@ -168,6 +170,9 @@ public class BubbleSpawner : MonoBehaviour
         objBubble.age = age;
         // Increment age after we spawn it.
         age++;
+
+        // Initialize sprite.
+        obj.GetComponentInChildren<SpriteRenderer>().sprite = Bubble_Color_Methods.getSprite(color, binder);
 
         // Intialize dangerManager reference in dangerTracker.
         obj.GetComponent<DangerTracker>().dangerManager = dangerManager;

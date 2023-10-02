@@ -300,6 +300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {fileID: 11400000, guid: f772af05bd226f34bb65321c9e08e1d1, type: 2}
+  binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
 --- !u!212 &234527487
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -711,7 +712,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &391615237
 Transform:
   m_ObjectHideFlags: 0
@@ -2297,6 +2298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {fileID: 11400000, guid: 74c035b834323d14299d7ca97da640b2, type: 2}
+  binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
 --- !u!212 &840650902
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2586,6 +2588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {fileID: 11400000, guid: 6b6ac6c0c19a62649b99ee046ce6dcae, type: 2}
+  binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
 --- !u!212 &900635916
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3143,6 +3146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {fileID: 11400000, guid: 3793aff43c3a5984d838f6d4bb3123cc, type: 2}
+  binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
 --- !u!212 &1286834710
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3241,6 +3245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {fileID: 11400000, guid: 746bd05469be0324fbc5e53cda35952a, type: 2}
+  binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
 --- !u!212 &1343432047
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3458,6 +3463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {fileID: 11400000, guid: f772af05bd226f34bb65321c9e08e1d1, type: 2}
+  binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
 --- !u!212 &1566166250
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4341,6 +4347,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 303625762}
     m_Modifications:
     - target: {fileID: 1425966893, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: binder
+      value: 
+      objectReference: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
+    - target: {fileID: 1425966893, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: radius.x
       value: 1.2
       objectReference: {fileID: 0}
@@ -4358,7 +4368,7 @@ PrefabInstance:
       objectReference: {fileID: 1649246007}
     - target: {fileID: 1425966893, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: massRoundSize
-      value: 14
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1425966893, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: flipGravity.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4410,6 +4420,10 @@ PrefabInstance:
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6572034767605892259, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
+      propertyPath: binder
+      value: 
+      objectReference: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
     - target: {fileID: 6785756904629010242, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -4657,6 +4671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {fileID: 11400000, guid: 4d67c757640e04d429a8159073a83a72, type: 2}
+  binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
 --- !u!212 &2095050686
 SpriteRenderer:
   m_ObjectHideFlags: 0
