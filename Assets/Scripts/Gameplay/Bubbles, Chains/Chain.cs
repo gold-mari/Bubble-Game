@@ -45,17 +45,12 @@ public class Chain : ScriptableObject
     // Instantiation/Destruction Methods
     // ================================================================
 
-    void BreakChain()
+    void BreakChain(ChainBreakHandler handler)
     {
         // Called when a chain breaks. Passes a call up to the ChainBreakHandler and then
         // destroys all members.
         // ================
 
-        // Attempt to get the handler from the parent of our first member. This should be
-        // the BubbleSpawner.
-        ChainBreakHandler handler = members[0].transform.parent.GetComponent<ChainBreakHandler>();
-        // Check that the handler exists. If not, raise an error.
-        Debug.Assert(handler != null, "Chain Error: BreakChain() failed: parent of member 0 must have a ChainBreakHandler.", members[0]);
         // Otherwise, shout the chain break.
         handler.ShoutChainBreak();
 
@@ -89,7 +84,7 @@ public class Chain : ScriptableObject
     // Data-manipulation methods
     // ==============================================================
 
-    public void AddBubble(Bubble bubble)
+    public void AddBubble(Bubble bubble, ChainBreakHandler handler)
     {
         // Adds a bubble to this Chain.
         // ================
@@ -105,14 +100,14 @@ public class Chain : ScriptableObject
 
         // If incrementing length takes us over our max, destroy this chain.
         if (length >= maxLength.value) {
-            BreakChain();
+            BreakChain(handler);
         }
 
         // Update their field.
         bubble.chain = this;
     }
 
-    public void Concatenate(Chain chain)
+    public void Concatenate(Chain chain, ChainBreakHandler handler)
     {
         // Adds the contents of another Chain to this Chain.
         // ================
@@ -128,7 +123,7 @@ public class Chain : ScriptableObject
 
         // If adding to length takes us over our max, destroy this chain.
         if (length >= maxLength.value) {
-            BreakChain();
+            BreakChain(handler);
         }
 
         foreach (Bubble bubble in chain.members) {
@@ -136,25 +131,27 @@ public class Chain : ScriptableObject
         }
     }
 
-    public void Distribute()
+    public void Distribute(ChainBreakHandler handler)
     {
         // Distributes a chain into connected components. Is built off a DFS algorithm to
         // determine connected components. Each connected component is added to a new chain.
+        // Takes a ChainBreakHandler as an argument so that it can be passed along to new chains.
         // ================
         
         // Run the DFS algorithm, visiting all bubbles to determine connected components.
-        DFS_Main();
+        DFS_Main(handler);
         
         // After running DFS, all bullets have been distributed into new chains.
         // We are good to destroy this chain.
         Destroy(this);
     }
 
-    private void DFS_Main()
+    private void DFS_Main(ChainBreakHandler handler)
     {
         // The main loop of the DFS algorithm. Each time a bubble is visited from
         // DFS_Main and not DFS_Visit, we can conclude it is a new connected component.
         // Thus, we create a new Chain and add it to there.
+        // Takes a ChainBreakHandler as an argument so that it can be passed along to new chains.
         // ================
 
         // Step 1: Create and white-out the DFS dictionary.
@@ -174,15 +171,15 @@ public class Chain : ScriptableObject
             if (dict[bubble] == DFS_Color.White) {
                 // Create a new chain, intializing it to the first bubble.
                 Chain newChain = ScriptableObject.CreateInstance<Chain>();
-                // Pass on the maxLength variable.
+                // Pass on the maxLength and handler variables.
                 newChain.maxLength = maxLength;
                 // Visit the bubble.
-                DFS_Visit(bubble, dict, newChain);
+                DFS_Visit(bubble, dict, newChain, handler);
             }
         }
     }
 
-    private void DFS_Visit(Bubble bubble, Dictionary<Bubble, DFS_Color> dict, Chain chain)
+    private void DFS_Visit(Bubble bubble, Dictionary<Bubble, DFS_Color> dict, Chain chain, ChainBreakHandler handler)
     {
         // The recursive portion of the DFS algorithm. Each time we visit a bubble, we
         // set its color to grey. Every bubble visited within a single recursive walk of
@@ -192,7 +189,7 @@ public class Chain : ScriptableObject
         // Mark the visited bubble as grey (partially explored).
         dict[bubble] = DFS_Color.Grey;
         // Add it to the new chain.
-        chain.AddBubble(bubble);
+        chain.AddBubble(bubble, handler);
 
         // Visit each of its unexplored children.
         List<Bubble> adj = new List<Bubble>(bubble.adjacencies);
@@ -207,7 +204,7 @@ public class Chain : ScriptableObject
             // have't visited it yet,
             if (neighbor.bubbleColor == chainColor && dict[neighbor] == DFS_Color.White) {
                 // Visit it and point it towards the new chain.
-                DFS_Visit(neighbor, dict, chain);
+                DFS_Visit(neighbor, dict, chain, handler);
             }
         }
     }

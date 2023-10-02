@@ -23,6 +23,6 @@ public class ChainBreakHandler : MonoBehaviour
         // inspector, we use it to update the character animator.
         // ================
 
-        chainBreak.Invoke();
+        chainBreak?.Invoke();
     }
 }

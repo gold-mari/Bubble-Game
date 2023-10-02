@@ -45,6 +45,8 @@ public class BubbleSpawner : MonoBehaviour
     // The internal age variable that is passed along to bubbles. When a bubble is
     // spawned, we increment the age here.
     private uint age = 1;
+    // The chain break handler on this object. Passed onto bubbles onto chains.
+    private ChainBreakHandler handler;
 
     // ==============================================================
     // Default methods
@@ -52,11 +54,14 @@ public class BubbleSpawner : MonoBehaviour
 
     private void Awake()
     {
-        // Awake is called before Start. We use it to subscribe to beatReader.
+        // Awake is called before Start. We use it to subscribe to beatReader, and to find our
+        // ChainBreakHandler.
         // ================
 
         beatReader.singleSpawn += SingleSpawnBubble;
         beatReader.massSpawn += MassSpawnBubble;
+
+        handler = GetComponent<ChainBreakHandler>();
     }
 
     private void Start()
@@ -168,6 +173,7 @@ public class BubbleSpawner : MonoBehaviour
         // Initialize color and age.
         objBubble.bubbleColor = color;
         objBubble.age = age;
+        objBubble.handler = handler;
         // Increment age after we spawn it.
         age++;
 

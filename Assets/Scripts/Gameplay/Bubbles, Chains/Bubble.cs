@@ -29,6 +29,14 @@ public class Bubble : MonoBehaviour
     public List<Bubble> adjacencies = new List<Bubble>();
 
     // ==============================================================
+    // Internal variables
+    // ==============================================================
+
+    // Assigned on spawn.
+    [HideInInspector]
+    public ChainBreakHandler handler;
+
+    // ==============================================================
     // Default methods
     // ==============================================================
     
@@ -116,7 +124,7 @@ public class Bubble : MonoBehaviour
             // AND we're in the same chain...
             if (chain == other.chain) {
                 // Run the Distribution algorithm on our chain.
-                chain.Distribute();
+                chain.Distribute(handler);
             }
         }
     }
@@ -149,7 +157,7 @@ public class Bubble : MonoBehaviour
         // If by the end we need to distribute,
         if (distribute) {
             // run the Distribution algorithm on our chain.
-            chain.Distribute();
+            chain.Distribute(handler);
         }
     }
 
@@ -173,7 +181,7 @@ public class Bubble : MonoBehaviour
             chain = ScriptableObject.CreateInstance<Chain>();
             chain.maxLength = maxLengthCache;
 
-            chain.AddBubble(this);
+            chain.AddBubble(this, handler);
         }
         if (other.chain.length == 0) {
             // Cache the maxLength uintVar, supplant the chain, and apply it back.
@@ -181,7 +189,7 @@ public class Bubble : MonoBehaviour
             other.chain = ScriptableObject.CreateInstance<Chain>();
             other.chain.maxLength = maxLengthCache;
 
-            other.chain.AddBubble(other);
+            other.chain.AddBubble(other, handler);
         }
 
         // After this, check to make sure we are not consolidating a chain to itself.
@@ -203,7 +211,7 @@ public class Bubble : MonoBehaviour
         }
 
         // Append the contents of shorter to the end of longer.
-        longer.Concatenate(shorter);
+        longer.Concatenate(shorter, handler);
 
         // Finally, delete the old chain if it wasn't nil.
         if (shorter.length != 0) {
