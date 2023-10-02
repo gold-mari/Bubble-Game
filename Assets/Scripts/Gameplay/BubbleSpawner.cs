@@ -99,7 +99,7 @@ public class BubbleSpawner : MonoBehaviour
         // The spawn point is the vector from the center to the mouse position, normalized and then multiplied by the radius.
         Vector2 spawnPoint = (mousePosition - center).normalized;
         
-        SpawnBubble(spawnPoint, colors[0].value);
+        SpawnBubble(spawnPoint, colors[0].value, true);
         UpdateColors();
     }
 
@@ -135,7 +135,7 @@ public class BubbleSpawner : MonoBehaviour
                 currentColor = Bubble_Color_Methods.random();
             } while (currentColor == lastColor || currentColor == colorBeforeThat);
 
-            SpawnBubble(spawnPoint, currentColor);
+            SpawnBubble(spawnPoint, currentColor, false);
 
             // After spawning, pass back the Colors we've seen.
             colorBeforeThat = lastColor;
@@ -143,10 +143,10 @@ public class BubbleSpawner : MonoBehaviour
         }
     }
 
-    private void SpawnBubble(Vector2 spawnPoint, Bubble_Color color)
+    private void SpawnBubble(Vector2 spawnPoint, Bubble_Color color, bool doForce)
     {
         // Spawns a Bubble at spawnPoint and initializes its Bubble_Color, age, and
-        // sprite color.
+        // sprite color. Applies initialForce if doForce is true.
         // ================
 
         // If gravity isn't flipped, multiply by outer radius.
@@ -172,14 +172,17 @@ public class BubbleSpawner : MonoBehaviour
         // Intialize dangerManager reference in dangerTracker.
         obj.GetComponent<DangerTracker>().dangerManager = dangerManager;
 
-        // Apply an initial force to our bubble.
-        Vector2 direction = (center - spawnPoint).normalized;
-        if (gravityFlipped.value)
+        if (doForce)
         {
-            direction *= -1f;
+            // Apply an initial force to our bubble.
+            Vector2 direction = (center - spawnPoint).normalized;
+            if (gravityFlipped.value)
+            {
+                direction *= -1f;
+            }
+            
+            obj.GetComponent<Rigidbody2D>().AddForce((direction)*initialForce);
         }
-        
-        obj.GetComponent<Rigidbody2D>().AddForce((direction)*initialForce);
     }
 
     // ==============================================================
