@@ -32,7 +32,7 @@ public class DangerTracker : MonoBehaviour
     // ==============================================================
 
     // The last-seen value of gravityFlipped.
-    bool lastGravityFlipped;
+    private bool lastGravityFlipped;
     // The radius of this bubble, used in distance calculation. Because bubbles are presumed to be
     // circular, taking either the width or the height of the bounding box will approximate
     // diameter well enough.
@@ -104,6 +104,7 @@ public class DangerTracker : MonoBehaviour
         if (lastGravityFlipped != gravityFlipped.value)
         {
             OnFlipGravity();
+            print("flip!");
             lastGravityFlipped = gravityFlipped.value;
         }
 
@@ -191,6 +192,11 @@ public class DangerTracker : MonoBehaviour
         // shouldn't checkForDanger, and counts to initialDelay seconds before we mark
         // checkForDanger as true again.
         // ================
+
+        if (inDanger) 
+        {
+            dangerManager.Decrement();
+        }
 
         inDanger = false;
         checkForDanger = false;
