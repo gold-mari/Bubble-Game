@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Bubble_Color {NONE, Red, Blue, Yellow, Green}
+public enum Bubble_Color {NONE, Red, Blue, Yellow, Green, Magenta}
 
 public class Bubble_Color_Methods : MonoBehaviour
 {
@@ -30,6 +30,7 @@ public class Bubble_Color_Methods : MonoBehaviour
     private static Color blue = new Color(0.2980392f,0.6712846f,1f);
     private static Color yellow = new Color(0.9963511f,1f,0.2980392f);
     private static Color green = new Color(0.2980392f,1f,0.5218196f);
+    private static Color magenta = new Color(0.6764706f,0.2372549f,0.9f);
 
     public static Color getSpriteColor(Bubble_Color color)
     {
@@ -48,6 +49,8 @@ public class Bubble_Color_Methods : MonoBehaviour
                 return yellow;
             case Bubble_Color.Green:
                 return green;
+            case Bubble_Color.Magenta:
+                return magenta;
         }
         // Default case.
         return Color.black;
