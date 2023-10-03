@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d8f676f8bf851a42ba3b05e8f4c9b1b, type: 3}
   m_Name: Bubble Sprite Binder
   m_EditorClassIdentifier: 
-  redSprite: {fileID: -392495489, guid: d1a0ae74e1501e44fb5236f174fe385b, type: 3}
-  yellowSprite: {fileID: -153256427, guid: d1a0ae74e1501e44fb5236f174fe385b, type: 3}
-  greenSprite: {fileID: 1243386627, guid: d1a0ae74e1501e44fb5236f174fe385b, type: 3}
-  blueSprite: {fileID: -767022342, guid: d1a0ae74e1501e44fb5236f174fe385b, type: 3}
-  magentaSprite: {fileID: -1107879812, guid: d1a0ae74e1501e44fb5236f174fe385b, type: 3}
+  sweetSprite: {fileID: -392495489, guid: d1a0ae74e1501e44fb5236f174fe385b, type: 3}
+  saltySprite: {fileID: -153256427, guid: d1a0ae74e1501e44fb5236f174fe385b, type: 3}
+  sourSprite: {fileID: 1243386627, guid: d1a0ae74e1501e44fb5236f174fe385b, type: 3}
+  bitterSprite: {fileID: -767022342, guid: d1a0ae74e1501e44fb5236f174fe385b, type: 3}
+  umamiSprite: {fileID: -1107879812, guid: d1a0ae74e1501e44fb5236f174fe385b, type: 3}
   noneSprite: {fileID: 365147387, guid: d1a0ae74e1501e44fb5236f174fe385b, type: 3}

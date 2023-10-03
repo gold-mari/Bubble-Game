@@ -142,8 +142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   note: "\t\t        ====  Sprite | Mask \nDanger Ring                                      
-    |\n\tOuter Radius ==== 0.776 | 0.756\n               Inner Radius  ==== 0.438
-    | 0.418"
+    |\n\tOuter Radius ==== 0.776 | 0.756\n               Inner Radius  ==== 0.398
+    | 0.378"
 --- !u!1 &2998683471878915368
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,8 +256,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3235331138037480211}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.5, z: 0}
-  m_LocalScale: {x: 0.45, y: 0.45, z: 0.45}
+  m_LocalPosition: {x: 0, y: 4.35, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8070634603405789326}
@@ -345,7 +345,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafc925730b25b242af9c7857c4a2d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {fileID: 11400000, guid: f772af05bd226f34bb65321c9e08e1d1, type: 2}
+  color: {fileID: 0}
+  binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
 --- !u!95 &6512167162871676599
 Animator:
   serializedVersion: 5
@@ -565,46 +566,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0092414a7a99442b2f355f836d469f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubble: {fileID: 5062526010735810590, guid: 3fe8ed8d6eb320a469a0c3fb0462ef70, type: 3}
+  beatReader: {fileID: 0}
   dangerManager: {fileID: 0}
+  gravityFlipped: {fileID: 11400000, guid: 9c2171a126b23a74f98c7c6802930645, type: 2}
+  bubble: {fileID: 5062526010735810590, guid: 3fe8ed8d6eb320a469a0c3fb0462ef70, type: 3}
+  binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
   colors:
   - {fileID: 11400000, guid: f772af05bd226f34bb65321c9e08e1d1, type: 2}
-  - {fileID: 11400000, guid: 6b6ac6c0c19a62649b99ee046ce6dcae, type: 2}
-  - {fileID: 11400000, guid: 4d67c757640e04d429a8159073a83a72, type: 2}
-  - {fileID: 11400000, guid: 3793aff43c3a5984d838f6d4bb3123cc, type: 2}
-  - {fileID: 11400000, guid: 74c035b834323d14299d7ca97da640b2, type: 2}
-  - {fileID: 11400000, guid: 746bd05469be0324fbc5e53cda35952a, type: 2}
+  - {fileID: 11400000, guid: e70d1f0ac0ff851418d0a5f5f9357ade, type: 2}
+  - {fileID: 11400000, guid: 58cf5912f72314644a717ade50213928, type: 2}
+  - {fileID: 11400000, guid: 0d086235dbbd8264aa6efc7dd579913d, type: 2}
+  - {fileID: 11400000, guid: 8e2ec9d136368524ba006f3391c75f92, type: 2}
+  - {fileID: 11400000, guid: 2b5b8b08bd508f54eb2f7057538ebabf, type: 2}
   center: {x: 0, y: 0}
-  radius: {x: 1, y: 4.5}
-  massRoundSize: 18
-  gravityFlipped: {fileID: 11400000, guid: 9c2171a126b23a74f98c7c6802930645, type: 2}
-  flipGravity:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GravityManager, Assembly-CSharp
-        m_MethodName: FlipGravity
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DangerManager, Assembly-CSharp
-        m_MethodName: ZeroOut
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  radius: {x: 1.2, y: 4.35}
+  initialForce: 500
+  massRoundSize: 12
 --- !u!114 &4698578531416055623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,6 +597,18 @@ MonoBehaviour:
   chainBreak:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CharacterAnimator, Assembly-CSharp
+        m_MethodName: OnChainBreak
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CharacterAnimator, Assembly-CSharp
         m_MethodName: OnChainBreak

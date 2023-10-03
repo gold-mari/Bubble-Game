@@ -8,8 +8,8 @@ public class ColorIndicator : MonoBehaviour
     // Parameters
     // ================================================================
 
-    [Tooltip("The bubble_ColorVar that this script should monitor.")]
-    public bubble_ColorVar color;
+    [Tooltip("The Bubble_FlavorVar that this script should monitor.")]
+    public Bubble_FlavorVar color;
     [SerializeField, Tooltip("A binder of bubble sprites, corresponding to the color of the bubble this indicator monitors.")]
     private BubbleSpriteBinder binder;
 
@@ -37,10 +37,10 @@ public class ColorIndicator : MonoBehaviour
     void Update()
     {
         // Update is called once per frame. Used to update the sprite Color to the Color
-        // which corresponds to our Bubble_Color.
+        // which corresponds to our Bubble_Flavor.
         // ================
 
-        sprite.color = Bubble_Color_Methods.getColor(color.value);
-        //sprite.sprite = Bubble_Color_Methods.getSprite(color.value, binder);
+        sprite.color = Bubble_Flavor_Methods.getColor(color.value);
+        //sprite.sprite = Bubble_Flavor_Methods.getSprite(color.value, binder);
     }
 }

@@ -2297,7 +2297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafc925730b25b242af9c7857c4a2d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {fileID: 11400000, guid: 74c035b834323d14299d7ca97da640b2, type: 2}
+  color: {fileID: 11400000, guid: 8e2ec9d136368524ba006f3391c75f92, type: 2}
   binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
 --- !u!212 &840650902
 SpriteRenderer:
@@ -2587,7 +2587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafc925730b25b242af9c7857c4a2d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {fileID: 11400000, guid: 6b6ac6c0c19a62649b99ee046ce6dcae, type: 2}
+  color: {fileID: 11400000, guid: e70d1f0ac0ff851418d0a5f5f9357ade, type: 2}
   binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
 --- !u!212 &900635916
 SpriteRenderer:
@@ -3145,7 +3145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafc925730b25b242af9c7857c4a2d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {fileID: 11400000, guid: 3793aff43c3a5984d838f6d4bb3123cc, type: 2}
+  color: {fileID: 11400000, guid: 0d086235dbbd8264aa6efc7dd579913d, type: 2}
   binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
 --- !u!212 &1286834710
 SpriteRenderer:
@@ -3244,7 +3244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafc925730b25b242af9c7857c4a2d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {fileID: 11400000, guid: 746bd05469be0324fbc5e53cda35952a, type: 2}
+  color: {fileID: 11400000, guid: 2b5b8b08bd508f54eb2f7057538ebabf, type: 2}
   binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
 --- !u!212 &1343432047
 SpriteRenderer:
@@ -4347,18 +4347,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 303625762}
     m_Modifications:
     - target: {fileID: 1425966893, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: binder
-      value: 
-      objectReference: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
-    - target: {fileID: 1425966893, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: radius.x
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1425966893, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: radius.y
-      value: 4.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 1425966893, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: beatReader
       value: 
       objectReference: {fileID: 50257520}
@@ -4366,32 +4354,6 @@ PrefabInstance:
       propertyPath: dangerManager
       value: 
       objectReference: {fileID: 1649246007}
-    - target: {fileID: 1425966893, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: massRoundSize
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 1425966893, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: flipGravity.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 391615238}
-    - target: {fileID: 1425966893, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: flipGravity.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1649246007}
-    - target: {fileID: 1407340541576017533, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: note
-      value: "\t\t        ====  Sprite | Mask \nDanger Ring                                      
-        |\n\tOuter Radius ==== 0.776 | 0.756\n               Inner Radius  ==== 0.398
-        | 0.378"
-      objectReference: {fileID: 0}
-    - target: {fileID: 4698578531416055623, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4698578531416055623, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4698578531416055623, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4400,46 +4362,10 @@ PrefabInstance:
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2078172877}
-    - target: {fileID: 4698578531416055623, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4698578531416055623, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnChainBreak
-      objectReference: {fileID: 0}
-    - target: {fileID: 4698578531416055623, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: OnChainBreak
-      objectReference: {fileID: 0}
-    - target: {fileID: 4698578531416055623, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: CharacterAnimator, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4698578531416055623, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 6572034767605892259, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: binder
+      propertyPath: color
       value: 
-      objectReference: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
-    - target: {fileID: 6785756904629010242, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6785756904629010242, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6785756904629010242, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6785756904629010242, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.35
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: f772af05bd226f34bb65321c9e08e1d1, type: 2}
     - target: {fileID: 8070634603405789312, guid: 29ec9a6bdff2c2a488661db2b99ffa06, type: 3}
       propertyPath: m_Name
       value: Bubble Manager
@@ -4670,7 +4596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafc925730b25b242af9c7857c4a2d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {fileID: 11400000, guid: 4d67c757640e04d429a8159073a83a72, type: 2}
+  color: {fileID: 11400000, guid: 58cf5912f72314644a717ade50213928, type: 2}
   binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
 --- !u!212 &2095050686
 SpriteRenderer:

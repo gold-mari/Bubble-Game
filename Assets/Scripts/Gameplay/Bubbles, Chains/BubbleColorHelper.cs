@@ -9,7 +9,7 @@ public class BubbleColorHelper : MonoBehaviour
     // Parameters
     // ==============================================================
 
-    [Tooltip("This object's base color. By default we get this from our Bubble_Color, but it can "
+    [Tooltip("This object's base color. By default we get this from our Bubble_Flavor, but it can "
            + "updated at runtime if you wish.")]
     [SerializeField]
     private Color baseColor;
@@ -41,7 +41,7 @@ public class BubbleColorHelper : MonoBehaviour
         brightness = lastBrightness = 0;
         
         // Get the color from our parent's Bubble component.
-        baseColor = Bubble_Color_Methods.getColor(transform.parent.GetComponent<Bubble>().bubbleColor);
+        baseColor = Bubble_Flavor_Methods.getColor(transform.parent.GetComponent<Bubble>().bubbleColor);
         // Define sprite and apply baseColor to it.
         sprite = GetComponent<SpriteRenderer>();
         sprite.color = baseColor;

@@ -10,8 +10,8 @@ public class Bubble : MonoBehaviour
     // ==============================================================
 
     // Bubbles of like colors are eligible to join in chains together.
-    [Tooltip("This bubble's color, represented as a Bubble_Color variable.")]
-    public Bubble_Color bubbleColor = Bubble_Color.Red;
+    [Tooltip("This bubble's color, represented as a Bubble_Flavor variable.")]
+    public Bubble_Flavor bubbleColor = Bubble_Flavor.Sweet;
     // When a collision occurs, to avoid doublecounting, the Bubble with the oldest/smallest age
     // runs the calculation.
     [Tooltip("This bubble's age, assigned normally by BubbleSpawner, and used to prevent double "

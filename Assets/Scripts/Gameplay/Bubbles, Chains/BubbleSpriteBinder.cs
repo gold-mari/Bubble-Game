@@ -5,6 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName="New Bubble Sprite Binder", menuName="Bubble Sprite Binder")]
 public class BubbleSpriteBinder : ScriptableObject
 {
-    public Sprite redSprite, yellowSprite, greenSprite, blueSprite, magentaSprite;
+    public Sprite sweetSprite, saltySprite, sourSprite, bitterSprite, umamiSprite;
     public Sprite noneSprite;
 }

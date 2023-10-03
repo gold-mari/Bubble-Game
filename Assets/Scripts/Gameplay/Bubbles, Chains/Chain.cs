@@ -15,9 +15,9 @@ public class Chain : ScriptableObject
     [Tooltip("The numerical ID of this chain, randomly generated on Awake.")]
     [ReadOnly]
     public int ID = 0;
-    [Tooltip("The Bubble_Color of the bubbles in this chain.")]
+    [Tooltip("The Bubble_Flavor of the bubbles in this chain.")]
     [ReadOnly]
-    public Bubble_Color chainColor = Bubble_Color.NONE;
+    public Bubble_Flavor chainColor = Bubble_Flavor.NONE;
     [Tooltip("The list of bubbles in this chain.")]
     [ReadOnly]
     public List<Bubble> members = new List<Bubble>();
@@ -90,7 +90,7 @@ public class Chain : ScriptableObject
         // ================
 
         // If we have not decided a chainColor yet, set our chainColor to bubbleColor.
-        if (chainColor == Bubble_Color.NONE) {
+        if (chainColor == Bubble_Flavor.NONE) {
             chainColor = bubble.bubbleColor;
         }
 
@@ -113,7 +113,7 @@ public class Chain : ScriptableObject
         // ================
 
         // If we have not decided a chainColor yet, set our chainColor to theirs.
-        if (chainColor == Bubble_Color.NONE) {
+        if (chainColor == Bubble_Flavor.NONE) {
             chainColor = chain.chainColor;
         }
 
