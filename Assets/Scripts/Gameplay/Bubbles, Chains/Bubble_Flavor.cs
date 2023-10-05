@@ -76,6 +76,7 @@ public class Bubble_Flavor_Methods
             case Bubble_Flavor.Umami:
                 return binder.umamiSprite;
         }
+
         // Default case.
         return binder.noneSprite;
     }

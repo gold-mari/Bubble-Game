@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class ColorIndicator : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class ColorIndicator : MonoBehaviour
 
     [Tooltip("The Bubble_FlavorVar that this script should monitor.")]
     public Bubble_FlavorVar color;
-    [SerializeField, Tooltip("A binder of bubble sprites, corresponding to the color of the bubble this indicator monitors.")]
+    [SerializeField, Tooltip("If we should change our sprite according to the monitored color.")]
+    private bool changeSprite = true;
+    [ShowIf("changeSprite"), SerializeField, Tooltip("A binder of bubble sprites, corresponding to the color of the bubble this indicator monitors.")]
     private BubbleSpriteBinder binder;
 
     // ================================================================
@@ -36,11 +39,14 @@ public class ColorIndicator : MonoBehaviour
 
     void Update()
     {
-        // Update is called once per frame. Used to update the sprite Color to the Color
-        // which corresponds to our Bubble_Flavor.
+        // Update is called once per frame. Used to update the sprite Color (and potentailly sprite) 
+        // to the Color which corresponds to our Bubble_Flavor.
         // ================
 
         sprite.color = Bubble_Flavor_Methods.getColor(color.value);
-        //sprite.sprite = Bubble_Flavor_Methods.getSprite(color.value, binder);
+        if (changeSprite)
+        {
+            sprite.sprite = Bubble_Flavor_Methods.getSprite(color.value, binder);
+        }
     }
 }
