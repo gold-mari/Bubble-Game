@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1977549117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1977549118}
+  m_Layer: 0
+  m_Name: Bubble Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1977549118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977549117}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8070634603405789326}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1651526081552875325
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,7 +376,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafc925730b25b242af9c7857c4a2d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {fileID: 0}
+  color: {fileID: 11400000, guid: f772af05bd226f34bb65321c9e08e1d1, type: 2}
+  changeSprite: 0
   binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
 --- !u!95 &6512167162871676599
 Animator:
@@ -551,6 +583,7 @@ Transform:
   m_Children:
   - {fileID: 6785756904629010242}
   - {fileID: 7451306890017297192}
+  - {fileID: 1977549118}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -569,6 +602,7 @@ MonoBehaviour:
   beatReader: {fileID: 0}
   dangerManager: {fileID: 0}
   gravityFlipped: {fileID: 11400000, guid: 9c2171a126b23a74f98c7c6802930645, type: 2}
+  bubbleParent: {fileID: 1977549118}
   bubble: {fileID: 5062526010735810590, guid: 3fe8ed8d6eb320a469a0c3fb0462ef70, type: 3}
   binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
   colors:

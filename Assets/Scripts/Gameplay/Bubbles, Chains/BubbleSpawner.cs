@@ -17,6 +17,8 @@ public class BubbleSpawner : MonoBehaviour
     private DangerManager dangerManager;
     [SerializeField, Tooltip("The boolVar which signals if gravity is flipped to point outwards instead of inwards.")]
     private boolVar gravityFlipped;
+    [Tooltip("The transform that all bubbles will be parented under.")]
+    public Transform bubbleParent;
     [SerializeField, Tooltip("The bubble prefab to spawn.\n\nIMPORTANT: This bubble should be initialized with the "
            + "NIL chain.")]
     private GameObject bubble;
@@ -150,7 +152,7 @@ public class BubbleSpawner : MonoBehaviour
         }
     }
 
-    private void SpawnBubble(Vector2 spawnPoint, Bubble_Flavor color, bool doForce)
+    public void SpawnBubble(Vector2 spawnPoint, Bubble_Flavor color, bool doForce)
     {
         // Spawns a Bubble at spawnPoint and initializes its Bubble_Flavor, age, and
         // sprite color. Applies initialForce if doForce is true.
@@ -167,7 +169,7 @@ public class BubbleSpawner : MonoBehaviour
             spawnPoint *= radius.x;
         }
 
-        GameObject obj = Instantiate(bubble, spawnPoint, Quaternion.identity, transform);
+        GameObject obj = Instantiate(bubble, spawnPoint, Quaternion.identity, bubbleParent);
         Bubble objBubble = obj.GetComponent<Bubble>();
 
         // Initialize color and age.

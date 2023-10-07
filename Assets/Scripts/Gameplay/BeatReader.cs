@@ -9,10 +9,10 @@ public class BeatReader : MonoBehaviour
 
     [SerializeField, Tooltip("The music manager present in the scene.")]
     private MusicManager musicManager;
-    [SerializeField, Tooltip("The music manager present in the scene.")]
+    [SerializeField, Tooltip("The beatmap we're reading.")]
     private Beatmap currentBeatmap;
     // Actions that are called depending on the current beat.
-    public System.Action singleSpawn, massSpawn, flipGravity;
+    public System.Action singleSpawn, massSpawn, flipGravity, makeFlavorBomb;
 
     // ================================================================
     // Internal variables
@@ -57,6 +57,10 @@ public class BeatReader : MonoBehaviour
         else if (type == BeatType.FlipGravity)
         {
             flipGravity?.Invoke();
+        }
+        else if (type == BeatType.MakeFlavorBomb)
+        {
+            makeFlavorBomb?.Invoke();
         }
     }
 }
