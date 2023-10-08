@@ -106,9 +106,16 @@ public class BubbleSpawner : MonoBehaviour
         // Get the mouse position on the screen.
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // The spawn point is the vector from the center to the mouse position, normalized and then multiplied by the radius.
-        Vector2 spawnPoint = (mousePosition - center).normalized;
+        Vector2 spawnPoint = (mousePosition - center).normalized * GetCurrentRadius();
         
-        SpawnBubble(spawnPoint, colors[0].value, true);
+        // Apply an initial force to our bubble.
+        Vector2 direction = (center - spawnPoint).normalized;
+        if (gravityFlipped.value)
+        {
+            direction *= -1f;
+        }
+
+        SpawnBubble(spawnPoint, colors[0].value, direction);
         UpdateColors();
     }
 
@@ -136,7 +143,7 @@ public class BubbleSpawner : MonoBehaviour
             // Each spawnPoint should be a unit vector, equally spaced out depending on
             // the size of i.
             Quaternion rotation = Quaternion.Euler(0,0,(360*i/massRoundSize));
-            Vector2 spawnPoint = rotation * Vector2.up;
+            Vector2 spawnPoint = rotation * Vector2.up * GetCurrentRadius();
 
             // If the Color we generated was one of the last two Colors we generated,
             // regenerate it.
@@ -144,7 +151,7 @@ public class BubbleSpawner : MonoBehaviour
                 currentColor = Bubble_Flavor_Methods.random();
             } while (currentColor == lastColor || currentColor == colorBeforeThat);
 
-            SpawnBubble(spawnPoint, currentColor, false);
+            SpawnBubble(spawnPoint, currentColor, Vector2.zero);
 
             // After spawning, pass back the Colors we've seen.
             colorBeforeThat = lastColor;
@@ -152,22 +159,11 @@ public class BubbleSpawner : MonoBehaviour
         }
     }
 
-    public void SpawnBubble(Vector2 spawnPoint, Bubble_Flavor color, bool doForce)
+    public void SpawnBubble(Vector2 spawnPoint, Bubble_Flavor color, Vector2 force)
     {
         // Spawns a Bubble at spawnPoint and initializes its Bubble_Flavor, age, and
-        // sprite color. Applies initialForce if doForce is true.
+        // sprite color. Applies initialForce if force is not the zero vector.
         // ================
-
-        // If gravity isn't flipped, multiply by outer radius.
-        if (!gravityFlipped.value) 
-        {
-            spawnPoint *= radius.y;
-        }
-        // Otherwise, multiply by inner radius.
-        else 
-        {
-            spawnPoint *= radius.x;
-        }
 
         GameObject obj = Instantiate(bubble, spawnPoint, Quaternion.identity, bubbleParent);
         Bubble objBubble = obj.GetComponent<Bubble>();
@@ -185,22 +181,32 @@ public class BubbleSpawner : MonoBehaviour
         // Intialize dangerManager reference in dangerTracker.
         obj.GetComponent<DangerTracker>().dangerManager = dangerManager;
 
-        if (doForce)
-        {
-            // Apply an initial force to our bubble.
-            Vector2 direction = (center - spawnPoint).normalized;
-            if (gravityFlipped.value)
-            {
-                direction *= -1f;
-            }
-            
-            obj.GetComponent<Rigidbody2D>().AddForce((direction)*initialForce);
+        if (force != Vector2.zero)
+        {            
+            obj.GetComponent<Rigidbody2D>().AddForce((force)*initialForce);
         }
     }
 
     // ==============================================================
     // Data-manipulation methods
     // ==============================================================
+
+    private float GetCurrentRadius()
+    {
+        // Returns the active radius, as determined by the value of gravityFlipped.
+        // ================
+
+        // If gravity isn't flipped, multiply by outer radius.
+        if (!gravityFlipped.value) 
+        {
+            return radius.y;
+        }
+        // Otherwise, multiply by inner radius.
+        else 
+        {
+            return radius.x;
+        }
+    }
 
     private void RandomizeColors()
     {
