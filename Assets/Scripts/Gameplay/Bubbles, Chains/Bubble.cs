@@ -27,6 +27,9 @@ public class Bubble : MonoBehaviour
     [Tooltip("The bubbles which are adjacent to this one. Exposed for debug use.")]
     [ReadOnly]
     public List<Bubble> adjacencies = new List<Bubble>();
+    [HideInInspector]
+    // Whether or not this bubble is a flavor bomb. Kinda hacky, but it's cheaper than searching every time.
+    public bool isBomb = false;
 
     // ==============================================================
     // Internal variables
@@ -35,6 +38,7 @@ public class Bubble : MonoBehaviour
     // Assigned on spawn.
     [HideInInspector]
     public ChainBreakHandler handler;
+    
 
     // ==============================================================
     // Default methods
