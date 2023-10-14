@@ -25,12 +25,12 @@ public class BubbleSpawner : MonoBehaviour
     [SerializeField, Tooltip("The HYPERBUBBLE prefab to spawn.\n\nIMPORTANT: This bubble should be initialized with the "
            + "NIL chain.")]
     private GameObject hyperbubble;
-    [SerializeField, Tooltip("A binder of bubble sprites, assigned to spawned bubbles depending on their color.")]
+    [SerializeField, Tooltip("A binder of bubble sprites, assigned to spawned bubbles depending on their flavor.")]
     private BubbleSpriteBinder binder;
     [SerializeField, Expandable, Tooltip("The list of current and upcoming Bubble_Flavors to spawn, represented "
-                                       + "by a list of Bubble_FlavorVars. The 0th index is the current color, and each "
-                                       + "successive index is the color after that.\n\nThis array may be ANY size.")]
-    private List<Bubble_FlavorVar> colors;
+                                       + "by a list of Bubble_FlavorVars. The 0th index is the current flavor, and each "
+                                       + "successive index is the flavor after that.\n\nThis array may be ANY size.")]
+    private List<Bubble_FlavorVar> flavors;
     [Tooltip("The center of the playable space.\n\nDefault: (0,0)")]
     public Vector2 center = new Vector2(0,0);
 
@@ -76,7 +76,7 @@ public class BubbleSpawner : MonoBehaviour
         // state of bubbles.
         // ================
 
-        RandomizeColors();
+        RandomizeFlavors();
         MassSpawnBubble();
     }
 
@@ -120,8 +120,8 @@ public class BubbleSpawner : MonoBehaviour
             direction *= -1f;
         }
 
-        SpawnBubble(spawnPoint, colors[0].value, direction);
-        UpdateColors();
+        SpawnBubble(spawnPoint, flavors[0].value, direction);
+        UpdateFlavors();
     }
 
     private void MassSpawnBubble()
@@ -140,9 +140,9 @@ public class BubbleSpawner : MonoBehaviour
         // DEBUG DEBUG DEBUG //
 
         // Used to generate Bubble_Flavors non-repetitiously.
-        Bubble_Flavor currentColor;
-        Bubble_Flavor lastColor = Bubble_Flavor.NONE;
-        Bubble_Flavor colorBeforeThat = Bubble_Flavor.NONE;
+        Bubble_Flavor currentFlavor;
+        Bubble_Flavor lastFlavor = Bubble_Flavor.NONE;
+        Bubble_Flavor flavorBeforeThat = Bubble_Flavor.NONE;
 
         for (int i = 0; i < massRoundSize; i++) {
             // Each spawnPoint should be a unit vector, equally spaced out depending on
@@ -150,17 +150,17 @@ public class BubbleSpawner : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(0,0,(360*i/massRoundSize));
             Vector2 spawnPoint = rotation * Vector2.up * GetCurrentRadius();
 
-            // If the Color we generated was one of the last two Colors we generated,
+            // If the Flavor we generated was one of the last two Flavors we generated,
             // regenerate it.
             do {
-                currentColor = Bubble_Flavor_Methods.random();
-            } while (currentColor == lastColor || currentColor == colorBeforeThat);
+                currentFlavor = Bubble_Flavor_Methods.random();
+            } while (currentFlavor == lastFlavor || currentFlavor == flavorBeforeThat);
 
-            SpawnBubble(spawnPoint, currentColor, Vector2.zero);
+            SpawnBubble(spawnPoint, currentFlavor, Vector2.zero);
 
-            // After spawning, pass back the Colors we've seen.
-            colorBeforeThat = lastColor;
-            lastColor = currentColor;
+            // After spawning, pass back the Flavors we've seen.
+            flavorBeforeThat = lastFlavor;
+            lastFlavor = currentFlavor;
         }
     }
 
@@ -190,11 +190,11 @@ public class BubbleSpawner : MonoBehaviour
             direction *= -1f;
         }
 
-        SpawnBubble(spawnPoint, colors[0].value, direction, true);
-        UpdateColors();
+        SpawnBubble(spawnPoint, flavors[0].value, direction, true);
+        UpdateFlavors();
     }
 
-    public void SpawnBubble(Vector2 spawnPoint, Bubble_Flavor color, Vector2 force, bool hyper=false)
+    public void SpawnBubble(Vector2 spawnPoint, Bubble_Flavor flavor, Vector2 force, bool hyper=false)
     {
         // Spawns a Bubble at spawnPoint and initializes its Bubble_Flavor, age, and
         // sprite color. Applies initialForce if force is not the zero vector.
@@ -211,14 +211,14 @@ public class BubbleSpawner : MonoBehaviour
         Bubble objBubble = obj.GetComponent<Bubble>();
 
         // Initialize color and age.
-        objBubble.bubbleColor = color;
+        objBubble.bubbleFlavor = flavor;
         objBubble.age = age;
         objBubble.handler = handler;
         // Increment age after we spawn it.
         age++;
 
         // Initialize sprite.
-        obj.GetComponentInChildren<SpriteRenderer>().sprite = Bubble_Flavor_Methods.getSprite(color, binder);
+        obj.GetComponentInChildren<SpriteRenderer>().sprite = Bubble_Flavor_Methods.getSprite(flavor, binder);
 
         // Intialize dangerManager reference in dangerTracker.
         obj.GetComponent<DangerTracker>().dangerManager = dangerManager;
@@ -250,32 +250,32 @@ public class BubbleSpawner : MonoBehaviour
         }
     }
 
-    private void RandomizeColors()
+    private void RandomizeFlavors()
     {
-        // Updates the Bubble_Flavors in the array colors. Each color is randomized.
+        // Updates the Bubble_Flavors in the array flavors. Each flavor is randomized.
         // ================
         
-        for (int i = 0; i < colors.Count; i++)
+        for (int i = 0; i < flavors.Count; i++)
         {
-            // Generate colors.
-            colors[i].value = Bubble_Flavor_Methods.random();
+            // Generate flavors.
+            flavors[i].value = Bubble_Flavor_Methods.random();
         }
     }
 
-    private void UpdateColors()
+    private void UpdateFlavors()
     {
-        // Updates the Bubble_Flavors in the array colors. For all i > 0, the Bubble_Flavor
-        // at colors[i] is passed to colors[i-1]. The color at colors[Count-1] is then
+        // Updates the Bubble_Flavors in the array flavors. For all i > 0, the Bubble_Flavor
+        // at flavors[i] is passed to flavors[i-1]. The flavor at flavors[Count-1] is then
         // randomly regenerated.
         // ================
         
-        for (int i = 1; i < colors.Count; i++)
+        for (int i = 1; i < flavors.Count; i++)
         {
-            // Pass the colors backwards.
-            colors[i-1].value = colors[i].value;
+            // Pass the flavors backwards.
+            flavors[i-1].value = flavors[i].value;
         }
 
-        // Regenerate the final color.
-        colors[colors.Count-1].value = Bubble_Flavor_Methods.random();  
+        // Regenerate the final flavor.
+        flavors[flavors.Count-1].value = Bubble_Flavor_Methods.random();  
     }
 }

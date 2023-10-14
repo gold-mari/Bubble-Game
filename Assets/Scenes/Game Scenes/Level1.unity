@@ -4046,7 +4046,7 @@ MonoBehaviour:
   dangerThreshold: 0.1
   inDanger: {fileID: 11400000, guid: 777dc729eac653f408c903a2f488b24a, type: 2}
   bubblesInDanger: 0
-  inDangerLerpTime: 5
+  inDangerLerpTime: 7
   outOfDangerLerpTime: 0.667
 --- !u!1 &1711827056
 GameObject:

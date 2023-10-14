@@ -17,7 +17,7 @@ public class Chain : ScriptableObject
     public int ID = 0;
     [Tooltip("The Bubble_Flavor of the bubbles in this chain.")]
     [ReadOnly]
-    public Bubble_Flavor chainColor = Bubble_Flavor.NONE;
+    public Bubble_Flavor chainFlavor = Bubble_Flavor.NONE;
     [Tooltip("The list of bubbles in this chain.")]
     [ReadOnly]
     public List<Bubble> members = new List<Bubble>();
@@ -89,9 +89,9 @@ public class Chain : ScriptableObject
         // Adds a bubble to this Chain.
         // ================
 
-        // If we have not decided a chainColor yet, set our chainColor to bubbleColor.
-        if (chainColor == Bubble_Flavor.NONE) {
-            chainColor = bubble.bubbleColor;
+        // If we have not decided a chainFlavor yet, set our chainFlavor to bubbleFlavor.
+        if (chainFlavor == Bubble_Flavor.NONE) {
+            chainFlavor = bubble.bubbleFlavor;
         }
 
         // Update our fields.
@@ -112,9 +112,9 @@ public class Chain : ScriptableObject
         // Adds the contents of another Chain to this Chain.
         // ================
 
-        // If we have not decided a chainColor yet, set our chainColor to theirs.
-        if (chainColor == Bubble_Flavor.NONE) {
-            chainColor = chain.chainColor;
+        // If we have not decided a chainFlavor yet, set our chainFlavor to theirs.
+        if (chainFlavor == Bubble_Flavor.NONE) {
+            chainFlavor = chain.chainFlavor;
         }
 
         // Update our fields.
@@ -202,7 +202,7 @@ public class Chain : ScriptableObject
 
             // If the bubble color matches our color AND the DFS_Color is white, aka we
             // have't visited it yet,
-            if (neighbor.bubbleColor == chainColor && dict[neighbor] == DFS_Color.White) {
+            if (neighbor.bubbleFlavor == chainFlavor && dict[neighbor] == DFS_Color.White) {
                 // Visit it and point it towards the new chain.
                 DFS_Visit(neighbor, dict, chain, handler);
             }

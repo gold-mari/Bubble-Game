@@ -9,9 +9,9 @@ public class Bubble : MonoBehaviour
     // Parameters
     // ==============================================================
 
-    // Bubbles of like colors are eligible to join in chains together.
-    [Tooltip("This bubble's color, represented as a Bubble_Flavor variable.")]
-    public Bubble_Flavor bubbleColor = Bubble_Flavor.Sweet;
+    // Bubbles of like flavors are eligible to join in chains together.
+    [Tooltip("This bubble's flavor, represented as a Bubble_Flavor variable.")]
+    public Bubble_Flavor bubbleFlavor = Bubble_Flavor.Sweet;
     // When a collision occurs, to avoid doublecounting, the Bubble with the oldest/smallest age
     // runs the calculation.
     [Tooltip("This bubble's age, assigned normally by BubbleSpawner, and used to prevent double "
@@ -103,28 +103,28 @@ public class Bubble : MonoBehaviour
     private void AddAdjacency(Bubble other)
     {
         // Adds Bubble other to this's adjacency list. If the bubbles are of the same
-        // color, also consolidates their chains.
+        // flavor, also consolidates their chains.
         // ================
 
         adjacencies.Add(other);
-        // If they are of the same color as us, AND we're the younger bubble...
-        if (other.bubbleColor == bubbleColor && age > other.age) {
+        // If they are of the same flavor as us, AND we're the younger bubble...
+        if (other.bubbleFlavor == bubbleFlavor && age > other.age) {
             // Run the Consolidation algorithm on us, looking at them.
             Consolidate(other);
         }
-        // If we're of different colors or we're the older bubble, do nothing.
+        // If we're of different flavors or we're the older bubble, do nothing.
     }
 
     public void RemoveAdjacency(Bubble other)
     {
         // Removes Bubble other to this's adjacency list. If the bubbles are of the same
-        // color and chain, also distributes their chain.
+        // flavor and chain, also distributes their chain.
         // ================
 
         adjacencies.Remove(other);
         other.adjacencies.Remove(this);
-        // If they are of the same color as us, AND we're the younger bubble...
-        if (other.bubbleColor == bubbleColor && age > other.age) {
+        // If they are of the same flavor as us, AND we're the younger bubble...
+        if (other.bubbleFlavor == bubbleFlavor && age > other.age) {
             // AND we're in the same chain...
             if (chain == other.chain) {
                 // Run the Distribution algorithm on our chain.
@@ -136,7 +136,7 @@ public class Bubble : MonoBehaviour
     public void RemoveAllAdjacencies()
     {
         // Removes all bubbles in this's adjacency list. If ANY bubble is of the same
-        // color, also distributes their chain.
+        // flavor, also distributes their chain.
         // ================
 
         // Make a copy of our adjacency list.
@@ -148,8 +148,8 @@ public class Bubble : MonoBehaviour
             adjacencies.Remove(bubble);
             bubble.adjacencies.Remove(this);
 
-            // If they are of the same color as us, AND we're the younger bubble...
-            if (bubble.bubbleColor == bubbleColor && age > bubble.age) {
+            // If they are of the same flavor as us, AND we're the younger bubble...
+            if (bubble.bubbleFlavor == bubbleFlavor && age > bubble.age) {
                 // AND we're in the same chain...
                 if (chain == bubble.chain) {
                     // Note that we'll need to distribute.
@@ -167,7 +167,7 @@ public class Bubble : MonoBehaviour
 
     private void Consolidate(Bubble other)
     {
-        // Consolidates two bubbles with like colors in a collision, this and other,
+        // Consolidates two bubbles with like flavors in a collision, this and other,
         // into a single chain. Due to how this function is called in AddAdjacency,
         // this will always be younger than other.
         // Prerequisites: this.chain != null, other.chain != null
