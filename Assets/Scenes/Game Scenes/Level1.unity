@@ -1389,7 +1389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c70baf91acf8f84bb54947a05fc5959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainSong: {fileID: 11400000, guid: 2f0245e4803aba54ab8f365889168c02, type: 2}
+  mainSong: {fileID: 11400000, guid: 167ebe8eeb686344c982877d31590249, type: 2}
   currentBeatmap: {fileID: 11400000, guid: d655ab3fc26d86c4a98bfb5dd074e822, type: 2}
   tapeStopDuration: 4
 --- !u!4 &621005206
@@ -2975,6 +2975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028d1e93babecee498ddbe6a76293dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beatReader: {fileID: 50257520}
   bubbleParent: {fileID: 633520187}
   flavorBomb: {fileID: 5062526010735810590, guid: 8ebdc7d469f403b41b8b521dda5ed75d, type: 3}
 --- !u!1 &1102332848

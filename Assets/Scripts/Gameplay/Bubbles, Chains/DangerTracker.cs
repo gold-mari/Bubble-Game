@@ -68,14 +68,14 @@ public class DangerTracker : MonoBehaviour
         // Divide by 2 to get radius instead of diameter.
         bubbleRadius = collider.bounds.size.x/2f;
 
+        // Define the animator.
+        animator = GetComponent<Animator>();
+
         // Find the current value of gravityFlipped.
         lastGravityFlipped = gravityFlipped.value;
 
         wait = new WaitForSeconds(initialDelay);
         yield return wait;
-
-        // Define the animator.
-        animator = GetComponent<Animator>();
 
         // Finally, note we can checkForDanger.
         checkForDanger = true;
@@ -198,10 +198,15 @@ public class DangerTracker : MonoBehaviour
             dangerManager.Decrement();
         }
 
+        // If the animator exists, update the animator.
+        if (animator)
+        {
+            animator.SetBool("inDanger", false);
+        }
+
         inDanger = false;
         checkForDanger = false;
-        animator.SetBool("inDanger", false);
-        // Reset DangerManager.
+
         yield return wait;
         checkForDanger = true;
     }
