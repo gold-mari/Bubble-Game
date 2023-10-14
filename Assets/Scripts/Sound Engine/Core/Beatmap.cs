@@ -6,7 +6,8 @@ using NaughtyAttributes;
 public enum BeatType { NONE, SingleSpawn, 
                        MassSpawn, 
                        FlipGravity,
-                       MakeFlavorBomb }
+                       MakeFlavorBomb,
+                       HyperSpawn }
 
 [CreateAssetMenu(fileName="New Beatmap", menuName="Beatmap")]
 public class Beatmap : ScriptableObject
@@ -149,6 +150,7 @@ public class Beatmap : ScriptableObject
         if (name == "massSpawn") return BeatType.MassSpawn;
         if (name == "gravityFlip") return BeatType.FlipGravity;
         if (name == "makeFlavorBomb") return BeatType.MakeFlavorBomb;
+        if (name == "hyperSpawn") return BeatType.HyperSpawn;
         else return BeatType.NONE;
     }
 }

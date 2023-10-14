@@ -22,6 +22,9 @@ public class BubbleSpawner : MonoBehaviour
     [SerializeField, Tooltip("The bubble prefab to spawn.\n\nIMPORTANT: This bubble should be initialized with the "
            + "NIL chain.")]
     private GameObject bubble;
+    [SerializeField, Tooltip("The HYPERBUBBLE prefab to spawn.\n\nIMPORTANT: This bubble should be initialized with the "
+           + "NIL chain.")]
+    private GameObject hyperbubble;
     [SerializeField, Tooltip("A binder of bubble sprites, assigned to spawned bubbles depending on their color.")]
     private BubbleSpriteBinder binder;
     [SerializeField, Expandable, Tooltip("The list of current and upcoming Bubble_Flavors to spawn, represented "
@@ -62,6 +65,7 @@ public class BubbleSpawner : MonoBehaviour
 
         beatReader.singleSpawn += SingleSpawnBubble;
         beatReader.massSpawn += MassSpawnBubble;
+        beatReader.hyperSpawn += SpawnHyperbubble;
 
         handler = GetComponent<ChainBreakHandler>();
     }
@@ -81,15 +85,16 @@ public class BubbleSpawner : MonoBehaviour
         // Called when this object is destroyed. We use it to unsubscribe from beatReader.
         // ================
 
-        beatReader.singleSpawn += SingleSpawnBubble;
-        beatReader.massSpawn += MassSpawnBubble;
+        beatReader.singleSpawn -= SingleSpawnBubble;
+        beatReader.massSpawn -= MassSpawnBubble;
+        beatReader.hyperSpawn -= SpawnHyperbubble;
     }
 
     // ==============================================================
     // Instantiation/Destruction Methods
     // ==============================================================
 
-    public void SingleSpawnBubble()
+    private void SingleSpawnBubble()
     {
         // Spawns a single bubble at the mouse orbital position. The radius at which to
         // spawn the bubble is determined in SpawnBubble depending if gravity is flipped.
@@ -119,7 +124,7 @@ public class BubbleSpawner : MonoBehaviour
         UpdateColors();
     }
 
-    public void MassSpawnBubble()
+    private void MassSpawnBubble()
     {
         // Spawns number Bubbles at an orbit around the screen at regular intervals, all
         // at once. The radius at which to spawn the bubble is determined in SpawnBubble
@@ -159,13 +164,50 @@ public class BubbleSpawner : MonoBehaviour
         }
     }
 
-    public void SpawnBubble(Vector2 spawnPoint, Bubble_Flavor color, Vector2 force)
+    private void SpawnHyperbubble()
+    {
+        // Spawns a single HYPERBUBBLE at the mouse orbital position. The radius at which to
+        // spawn the bubble is determined in SpawnBubble depending if gravity is flipped.
+        // ================
+
+        // DEBUG DEBUG DEBUG //
+        // DEBUG DEBUG DEBUG //
+        // DEBUG DEBUG DEBUG //
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/HyperbubbleSpawn");
+        // DEBUG DEBUG DEBUG //
+        // DEBUG DEBUG DEBUG //
+        // DEBUG DEBUG DEBUG //
+
+        // Get the mouse position on the screen.
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        // The spawn point is the vector from the center to the mouse position, normalized and then multiplied by the radius.
+        Vector2 spawnPoint = (mousePosition - center).normalized * GetCurrentRadius();
+        
+        // Apply an initial force to our bubble.
+        Vector2 direction = (center - spawnPoint).normalized;
+        if (gravityFlipped.value)
+        {
+            direction *= -1f;
+        }
+
+        SpawnBubble(spawnPoint, colors[0].value, direction, true);
+        UpdateColors();
+    }
+
+    public void SpawnBubble(Vector2 spawnPoint, Bubble_Flavor color, Vector2 force, bool hyper=false)
     {
         // Spawns a Bubble at spawnPoint and initializes its Bubble_Flavor, age, and
         // sprite color. Applies initialForce if force is not the zero vector.
+        // Spawns a HYPERBUBBLE if hyper is true. Otherwise, spawns a regular bubble.
         // ================
 
-        GameObject obj = Instantiate(bubble, spawnPoint, Quaternion.identity, bubbleParent);
+        GameObject toSpawn = bubble;
+        if (hyper)
+        {
+            toSpawn = hyperbubble;
+        }        
+
+        GameObject obj = Instantiate(toSpawn, spawnPoint, Quaternion.identity, bubbleParent);
         Bubble objBubble = obj.GetComponent<Bubble>();
 
         // Initialize color and age.

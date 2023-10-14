@@ -12,7 +12,7 @@ public class BeatReader : MonoBehaviour
     [SerializeField, Tooltip("The beatmap we're reading.")]
     private Beatmap currentBeatmap;
     // Actions that are called depending on the current beat.
-    public System.Action singleSpawn, massSpawn, flipGravity, makeFlavorBomb;
+    public System.Action singleSpawn, massSpawn, flipGravity, makeFlavorBomb, hyperSpawn;
 
     // ================================================================
     // Internal variables
@@ -61,6 +61,10 @@ public class BeatReader : MonoBehaviour
         else if (type == BeatType.MakeFlavorBomb)
         {
             makeFlavorBomb?.Invoke();
+        }
+        else if (type == BeatType.HyperSpawn)
+        {
+            hyperSpawn?.Invoke();
         }
     }
 }
