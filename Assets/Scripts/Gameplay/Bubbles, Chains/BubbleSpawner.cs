@@ -205,10 +205,15 @@ public class BubbleSpawner : MonoBehaviour
         if (hyper)
         {
             toSpawn = hyperbubble;
-        }        
+        }
 
         GameObject obj = Instantiate(toSpawn, spawnPoint, Quaternion.identity, bubbleParent);
         Bubble objBubble = obj.GetComponent<Bubble>();
+
+        if (hyper)
+        {
+            objBubble.isHyperbubble = true;
+        }
 
         // Initialize color and age.
         objBubble.bubbleFlavor = flavor;

@@ -58,7 +58,7 @@ public class FlavorBombManager : MonoBehaviour
             else
             {
                 GameObject bomb = Instantiate(flavorBomb, bubble.transform);
-                bomb.GetComponent<FlavorBomb>().Initialize(spawner);
+                bomb.GetComponent<FlavorBomb>().Initialize(spawner, bubble.isHyperbubble);
                 bubble.isBomb = true;
                 return;
             }

@@ -13,6 +13,8 @@ public class FlavorBomb : MonoBehaviour
     // The bubble spawner present in the scene. Provided in Initialize().
     private BubbleSpawner spawner;
     private SpriteRenderer sprite;
+    // A flavor bomb on a hyperbubble spawns other hyperbubbles.
+    private bool spawnHyperbubbles = false;
 
     // ==============================================================
     // Animation parameters
@@ -35,13 +37,14 @@ public class FlavorBomb : MonoBehaviour
     // Initialization / Finalization methods
     // ==============================================================
 
-    public void Initialize(BubbleSpawner bubbleSpawner)
+    public void Initialize(BubbleSpawner bubbleSpawner, bool isHyperbubble)
     {
         // Initializes fields we reference elsewhere.
         // ================
 
         spawner = bubbleSpawner;
         sprite = GetComponent<SpriteRenderer>();
+        spawnHyperbubbles = isHyperbubble;
     }
 
     private void OnDestroy()
@@ -60,7 +63,7 @@ public class FlavorBomb : MonoBehaviour
         for (int i = 1; i < Bubble_Flavor_Methods.length; i++)
         {
             Quaternion rot = Quaternion.Euler(0,0,360 * (i-1)/(Bubble_Flavor_Methods.length-1));
-            spawner.SpawnBubble(transform.position, (Bubble_Flavor)i, rot * Vector2.right);
+            spawner.SpawnBubble(transform.position, (Bubble_Flavor)i, rot * Vector2.right, spawnHyperbubbles);
         }
     }
 

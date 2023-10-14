@@ -30,6 +30,8 @@ public class Bubble : MonoBehaviour
     [HideInInspector]
     // Whether or not this bubble is a flavor bomb. Kinda hacky, but it's cheaper than searching every time.
     public bool isBomb = false;
+    // Whether or not this bubble is a HYPERBUBBLE.
+    public bool isHyperbubble = false;
 
     // ==============================================================
     // Internal variables
