@@ -25,6 +25,8 @@ public class BubbleSpawner : MonoBehaviour
     [SerializeField, Tooltip("The HYPERBUBBLE prefab to spawn.\n\nIMPORTANT: This bubble should be initialized with the "
            + "NIL chain.")]
     private GameObject hyperbubble;
+    [SerializeField, Tooltip("The flavor bomb prefab to spawn.")]
+    private GameObject flavorBomb;
     [SerializeField, Tooltip("A binder of bubble sprites, assigned to spawned bubbles depending on their flavor.")]
     private BubbleSpriteBinder binder;
     [SerializeField, Expandable, Tooltip("The list of current and upcoming Bubble_Flavors to spawn, represented "
@@ -66,6 +68,7 @@ public class BubbleSpawner : MonoBehaviour
         beatReader.singleSpawn += SingleSpawnBubble;
         beatReader.massSpawn += MassSpawnBubble;
         beatReader.hyperSpawn += SpawnHyperbubble;
+        beatReader.makeFlavorBomb += FlavorBombSpawnBubble;
 
         handler = GetComponent<ChainBreakHandler>();
     }
@@ -88,6 +91,7 @@ public class BubbleSpawner : MonoBehaviour
         beatReader.singleSpawn -= SingleSpawnBubble;
         beatReader.massSpawn -= MassSpawnBubble;
         beatReader.hyperSpawn -= SpawnHyperbubble;
+        beatReader.makeFlavorBomb -= FlavorBombSpawnBubble;
     }
 
     // ==============================================================
@@ -164,6 +168,43 @@ public class BubbleSpawner : MonoBehaviour
         }
     }
 
+    private void FlavorBombSpawnBubble()
+    {
+        // Spawns a single bubble at the mouse orbital position. The radius at which to
+        // spawn the bubble is determined in SpawnBubble depending if gravity is flipped.
+        // ================
+
+        // DEBUG DEBUG DEBUG //
+        // DEBUG DEBUG DEBUG //
+        // DEBUG DEBUG DEBUG //
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/BubbleSpawn");
+        // DEBUG DEBUG DEBUG //
+        // DEBUG DEBUG DEBUG //
+        // DEBUG DEBUG DEBUG //
+
+        // Get the mouse position on the screen.
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        // The spawn point is the vector from the center to the mouse position, normalized and then multiplied by the radius.
+        Vector2 spawnPoint = (mousePosition - center).normalized * GetCurrentRadius();
+        
+        // Apply an initial force to our bubble.
+        Vector2 direction = (center - spawnPoint).normalized;
+        if (gravityFlipped.value)
+        {
+            direction *= -1f;
+        }
+
+        // Spawn a bubble and attach a flavor bomb to it.
+        Bubble bubble = SpawnBubble(spawnPoint, flavors[0].value, direction);
+        GameObject bomb = Instantiate(flavorBomb, bubble.transform);
+        bomb.GetComponent<FlavorBomb>().Initialize(this, bubble.isHyperbubble);
+        bubble.isBomb = true;
+
+        // Update our flavors afterwards!
+        UpdateFlavors();
+    }
+
+
     private void SpawnHyperbubble()
     {
         // Spawns a single HYPERBUBBLE at the mouse orbital position. The radius at which to
@@ -194,7 +235,7 @@ public class BubbleSpawner : MonoBehaviour
         UpdateFlavors();
     }
 
-    public void SpawnBubble(Vector2 spawnPoint, Bubble_Flavor flavor, Vector2 force, bool hyper=false)
+    public Bubble SpawnBubble(Vector2 spawnPoint, Bubble_Flavor flavor, Vector2 force, bool hyper=false)
     {
         // Spawns a Bubble at spawnPoint and initializes its Bubble_Flavor, age, and
         // sprite color. Applies initialForce if force is not the zero vector.
@@ -232,6 +273,9 @@ public class BubbleSpawner : MonoBehaviour
         {            
             obj.GetComponent<Rigidbody2D>().AddForce((force)*initialForce);
         }
+
+        // Return the object we spawned.
+        return objBubble;
     }
 
     // ==============================================================

@@ -531,7 +531,7 @@ GameObject:
   - component: {fileID: 371661996}
   - component: {fileID: 371661998}
   m_Layer: 0
-  m_Name: DS Frame
+  m_Name: === DS Frame ===
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -767,7 +767,7 @@ GameObject:
   - component: {fileID: 512483413}
   - component: {fileID: 512483414}
   m_Layer: 0
-  m_Name: Top Screen
+  m_Name: === Top Screen ===
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3630,7 +3630,7 @@ GameObject:
   - component: {fileID: 1632959958}
   - component: {fileID: 1632959959}
   m_Layer: 0
-  m_Name: Bottom Screen
+  m_Name: === Bottom Screen ===
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4969,5 +4969,9 @@ PrefabInstance:
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2078172877}
+    - target: {fileID: 5750587619522467845, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}

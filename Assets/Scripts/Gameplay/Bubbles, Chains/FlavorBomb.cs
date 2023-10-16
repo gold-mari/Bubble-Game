@@ -47,10 +47,16 @@ public class FlavorBomb : MonoBehaviour
         spawnHyperbubbles = isHyperbubble;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
-        // Flavor bombs are destroyed when their chains are broken. Spawns bubbles.
+        // Flavor bombs are destroyed and disabled when their chains are broken. Spawns bubbles.
         // ================
+
+        // If this object is disabled because of scene termination, do no more.
+        if(!gameObject.scene.isLoaded) 
+        {
+            return;
+        }
 
         // DEBUG???
         // DEBUG!!!
