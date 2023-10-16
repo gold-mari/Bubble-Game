@@ -302,12 +302,22 @@ public class BubbleSpawner : MonoBehaviour
     private void RandomizeFlavors()
     {
         // Updates the Bubble_Flavors in the array flavors. Each flavor is randomized.
+        // Rerolls a color if it was seen in the last two generations.
         // ================
+
+        Bubble_Flavor lastFlavor = Bubble_Flavor.NONE;
+        Bubble_Flavor flavorBeforeThat = Bubble_Flavor.NONE;
         
         for (int i = 0; i < flavors.Count; i++)
         {
-            // Generate flavors.
-            flavors[i].value = Bubble_Flavor_Methods.random();
+            // Generate flavors nonrepetitively.
+            do {
+                flavors[i].value = Bubble_Flavor_Methods.random();
+            } while (flavors[i].value == lastFlavor || flavors[i].value == flavorBeforeThat);
+
+            // After selecting, pass back the Flavors we've seen.
+            flavorBeforeThat = lastFlavor;
+            lastFlavor = flavors[i].value;
         }
     }
 
@@ -318,13 +328,17 @@ public class BubbleSpawner : MonoBehaviour
         // randomly regenerated.
         // ================
         
-        for (int i = 1; i < flavors.Count; i++)
+        int count = flavors.Count;
+
+        for (int i = 1; i < count; i++)
         {
             // Pass the flavors backwards.
             flavors[i-1].value = flavors[i].value;
         }
 
-        // Regenerate the final flavor.
-        flavors[flavors.Count-1].value = Bubble_Flavor_Methods.random();  
+        // Regenerate the final flavor, ensuring it wasn't either of the last two flavors.
+        do {
+            flavors[count-1].value = Bubble_Flavor_Methods.random();  
+        } while (flavors[count-1].value == flavors[count-2].value || flavors[count-1].value == flavors[count-3].value);
     }
 }
