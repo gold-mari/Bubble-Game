@@ -11,8 +11,13 @@ public class BeatReader : MonoBehaviour
     private MusicManager musicManager;
     [SerializeField, Tooltip("The beatmap we're reading.")]
     private Beatmap currentBeatmap;
-    // Actions that are called depending on the current beat.
-    public System.Action singleSpawn, massSpawn, flipGravity, makeFlavorBomb, hyperSpawn;
+    // Actions that are called depending on the current beat in our tracker, and the current Beatmap.
+    // pre_Events are called one beat before the actual event.
+    public System.Action singleSpawn, 
+                         pre_massSpawn, massSpawn, 
+                         pre_flipGravity, flipGravity, 
+                         pre_makeFlavorBomb, makeFlavorBomb, 
+                         pre_hyperSpawn, hyperSpawn;
 
     // ================================================================
     // Internal variables
