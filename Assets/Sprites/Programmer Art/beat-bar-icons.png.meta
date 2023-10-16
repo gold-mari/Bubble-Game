@@ -111,9 +111,9 @@ TextureImporter:
         x: 0
         y: 0
         width: 214
-        height: 53
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -132,9 +132,9 @@ TextureImporter:
         x: 214
         y: 0
         width: 214
-        height: 53
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -153,9 +153,9 @@ TextureImporter:
         x: 428
         y: 0
         width: 214
-        height: 53
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -163,6 +163,48 @@ TextureImporter:
       bones: []
       spriteID: 7ff4108a095518e4a813c8fa63146bb5
       internalID: -221942425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beat-bar-icons_3
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 0
+        width: 214
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38fb6fbea1a3ef744a3f68c75a7be710
+      internalID: 841923644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beat-bar-icons_4
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 0
+        width: 214
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 847b72dbd8152924c929250870f91a91
+      internalID: 1995662686
       vertices: []
       indices: 
       edges: []
@@ -178,6 +220,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      beat-bar-icons_4: 1995662686
+      beat-bar-icons_3: 841923644
       beat-bar-icons_2: -221942425
       beat-bar-icons_1: 353059646
       beat-bar-icons_0: 1371286240

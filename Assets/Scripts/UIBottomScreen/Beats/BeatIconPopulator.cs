@@ -16,6 +16,10 @@ public class BeatIconPopulator : MonoBehaviour
     private Sprite massSpawnSprite;
     [SerializeField]
     private Sprite flipSprite;
+    [SerializeField]
+    private Sprite bombSprite;
+    [SerializeField]
+    private Sprite HYPERsprite;
     
     // The current beatmap!
     private Beatmap currentBeatmap;
@@ -114,6 +118,16 @@ public class BeatIconPopulator : MonoBehaviour
                     case BeatType.FlipGravity:
                     {
                         renderer.sprite = flipSprite;
+                        break;
+                    }
+                    case BeatType.MakeFlavorBomb:
+                    {
+                        renderer.sprite = bombSprite;
+                        break;
+                    }
+                    case BeatType.HyperSpawn:
+                    {
+                        renderer.sprite = HYPERsprite;
                         break;
                     }
                 }

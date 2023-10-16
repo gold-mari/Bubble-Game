@@ -2409,7 +2409,7 @@ GameObject:
   m_Component:
   - component: {fileID: 859156721}
   m_Layer: 0
-  m_Name: Environment
+  m_Name: -- Environment --
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2443,7 +2443,7 @@ GameObject:
   m_Component:
   - component: {fileID: 879912041}
   m_Layer: 0
-  m_Name: UI
+  m_Name: -- UI --
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4524,6 +4524,8 @@ MonoBehaviour:
   spawnSprite: {fileID: 1371286240, guid: f080cce6a2918d64ebab4e4e7780f3d5, type: 3}
   massSpawnSprite: {fileID: -221942425, guid: f080cce6a2918d64ebab4e4e7780f3d5, type: 3}
   flipSprite: {fileID: 353059646, guid: f080cce6a2918d64ebab4e4e7780f3d5, type: 3}
+  bombSprite: {fileID: 841923644, guid: f080cce6a2918d64ebab4e4e7780f3d5, type: 3}
+  HYPERsprite: {fileID: 1995662686, guid: f080cce6a2918d64ebab4e4e7780f3d5, type: 3}
 --- !u!1 &2078172872
 GameObject:
   m_ObjectHideFlags: 0
@@ -4899,7 +4901,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5750587618130120885, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: m_Name
-      value: Gameplay
+      value: -- Gameplay --
       objectReference: {fileID: 0}
     - target: {fileID: 5750587618130120886, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: m_RootOrder
