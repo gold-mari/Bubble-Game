@@ -197,7 +197,7 @@ public class BubbleSpawner : MonoBehaviour
         // Spawn a bubble and attach a flavor bomb to it.
         Bubble bubble = SpawnBubble(spawnPoint, flavors[0].value, direction);
         GameObject bomb = Instantiate(flavorBomb, bubble.transform);
-        bomb.GetComponent<FlavorBomb>().Initialize(this, bubble.isHyperbubble);
+        bomb.GetComponent<FlavorBomb>().Initialize(this, bubble.bubbleFlavor, bubble.isHyperbubble);
         bubble.isBomb = true;
 
         // Update our flavors afterwards!

@@ -13,6 +13,8 @@ public class FlavorBomb : MonoBehaviour
     // The bubble spawner present in the scene. Provided in Initialize().
     private BubbleSpawner spawner;
     private SpriteRenderer sprite;
+    // The flavor of the bubble we're attached to
+    private Bubble_Flavor ourFlavor = Bubble_Flavor.NONE;
     // A flavor bomb on a hyperbubble spawns other hyperbubbles.
     private bool spawnHyperbubbles = false;
 
@@ -37,14 +39,16 @@ public class FlavorBomb : MonoBehaviour
     // Initialization / Finalization methods
     // ==============================================================
 
-    public void Initialize(BubbleSpawner bubbleSpawner, bool isHyperbubble)
+    public void Initialize(BubbleSpawner bubbleSpawner, Bubble_Flavor flav, bool isHyperbubble)
     {
         // Initializes fields we reference elsewhere.
         // ================
 
         spawner = bubbleSpawner;
-        sprite = GetComponent<SpriteRenderer>();
+        ourFlavor = flav;
         spawnHyperbubbles = isHyperbubble;
+
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     private void OnDisable()
@@ -68,8 +72,16 @@ public class FlavorBomb : MonoBehaviour
 
         for (int i = 1; i < Bubble_Flavor_Methods.length; i++)
         {
+            // Don't spawn another bubble of the type that we were attached to.
+            if ((Bubble_Flavor)i == ourFlavor)
+            {
+                continue;
+            }
+
             Quaternion rot = Quaternion.Euler(0,0,360 * (i-1)/(Bubble_Flavor_Methods.length-1));
             spawner.SpawnBubble(transform.position, (Bubble_Flavor)i, rot * Vector2.right, spawnHyperbubbles);
+
+            print($"Spawned {(Bubble_Flavor)i}");
         }
     }
 
