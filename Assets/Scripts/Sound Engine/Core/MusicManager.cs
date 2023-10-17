@@ -27,6 +27,8 @@ public class MusicManager : MonoBehaviour
     private FMOD.Studio.EventInstance instance;
     // Used to check if the instance is playing.
     private FMOD.Studio.PLAYBACK_STATE playbackState;
+    // Used to save a restore the position for pausing, to counteract latency buildup.
+    private int timelinePosition;
 
     // ================================================================
     // Initializer and finalizer methods
@@ -81,7 +83,7 @@ public class MusicManager : MonoBehaviour
 #if UNITY_EDITOR
     private void OnEditorPause(PauseState state)
     {
-        // Detects when the editor pauses or plays. Passes a call to OnApplicationPause().
+        // Detects when the editor pauses or plays. Passes a call to PauseMusic().
         // ================
 
         PauseMusic(state == PauseState.Paused);
@@ -99,14 +101,23 @@ public class MusicManager : MonoBehaviour
 
     public void PauseMusic(bool pauseStatus)
     {
+        // Wrapper function for pausing and unpausing. Stops both our music and our DSP clock.
+        // 
+        // getTimelinePosition and setTimelinePosition are used to prevent latency buildup-
+        // this solution courtesy of user emretanirgan from the FMOD forums:
+        // https://qa.fmod.com/t/event-timeline-lags-behind-after-repeated-setpaused-calls/16694/3
+        // ================
+
         if (pauseStatus)
         {
             instance.setPaused(true);
+            instance.getTimelinePosition(out timelinePosition);
             handler.StopDSPClock();
         }
         else
         {
             instance.setPaused(false);
+            instance.setTimelinePosition(timelinePosition);
             handler.StartDSPClock(IsInstancePlaying());
         }
     }
@@ -154,7 +165,7 @@ public class MusicManager : MonoBehaviour
         handler.Update();
     }
 
-/*#if UNITY_EDITOR
+#if UNITY_EDITOR
     private void OnGUI()
     {
         // If we're in the editor, display the timeline handler's GUI readout.
@@ -162,7 +173,7 @@ public class MusicManager : MonoBehaviour
 
         handler.OnGUI();
     }
-#endif*/
+#endif
 
     // ================================================================
     // Helper methods

@@ -13,7 +13,7 @@ public class BeatReader : MonoBehaviour
     private Beatmap currentBeatmap;
     // Actions that are called depending on the current beat in our tracker, and the current Beatmap.
     // pre_Events are called one beat before the actual event.
-    public System.Action singleSpawn, 
+    public System.Action pre_singleSpawn, singleSpawn, 
                          pre_massSpawn, massSpawn, 
                          pre_flipGravity, flipGravity, 
                          pre_makeFlavorBomb, makeFlavorBomb, 
@@ -50,6 +50,30 @@ public class BeatReader : MonoBehaviour
         // beatmap at the tracker's currentLoopBeat.
         // ================
 
+        // Part 1: Parse the next beat.
+        BeatType nextType = currentBeatmap.GetBeatType(tracker.nextLoopBeat);
+        if (nextType == BeatType.SingleSpawn)
+        {
+            pre_singleSpawn?.Invoke();
+        }
+        else if (nextType == BeatType.MassSpawn)
+        {
+            pre_massSpawn?.Invoke();
+        }
+        else if (nextType == BeatType.FlipGravity)
+        {
+            pre_flipGravity?.Invoke();
+        }
+        else if (nextType == BeatType.MakeFlavorBomb)
+        {
+            pre_makeFlavorBomb?.Invoke();
+        }
+        else if (nextType == BeatType.HyperSpawn)
+        {
+            pre_hyperSpawn?.Invoke();
+        }
+
+        // Part 2: Parse the current beat.
         BeatType type = currentBeatmap.GetBeatType(tracker.currentLoopBeat);
         if (type == BeatType.SingleSpawn)
         {

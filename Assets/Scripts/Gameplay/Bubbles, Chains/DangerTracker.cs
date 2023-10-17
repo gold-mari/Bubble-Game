@@ -104,7 +104,6 @@ public class DangerTracker : MonoBehaviour
         if (lastGravityFlipped != gravityFlipped.value)
         {
             OnFlipGravity();
-            print("flip!");
             lastGravityFlipped = gravityFlipped.value;
         }
 

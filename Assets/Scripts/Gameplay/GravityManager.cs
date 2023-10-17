@@ -21,6 +21,17 @@ public class GravityManager : MonoBehaviour
     [Tooltip("The boolVar which signals if gravity is flipped to point outwards instead of inwards.")]
     public boolVar gravityFlipped;
 
+    [SerializeField, Tooltip("The SFX played on gravity flip.")]
+    FMODUnity.EventReference gravityFlipSFX;
+    [SerializeField, Tooltip("The SFX played the beat before gravity flip.")]
+    FMODUnity.EventReference pre_gravityFlipSFX;
+
+    // ================================================================
+    // Internal variables
+    // ================================================================
+
+    private FMOD.Studio.EventInstance flipSFXInstance, pre_flipSFXInstance;
+
     // ================================================================
     // Default methods
     // ================================================================
@@ -30,7 +41,8 @@ public class GravityManager : MonoBehaviour
         // Awake is called before Start. We use it to subscribe to beatReader.
         // ================
 
-        beatReader.flipGravity += FlipGravity;
+        beatReader.flipGravity += OnFlipGravity;
+        beatReader.pre_flipGravity += OnPre_FlipGravity;
     }
 
     private void Start()
@@ -41,6 +53,10 @@ public class GravityManager : MonoBehaviour
 
         strengthVar.value = -gravityStrength;
         gravityFlipped.value = false;
+
+        // Create our event isntances.
+        flipSFXInstance = FMODUnity.RuntimeManager.CreateInstance(gravityFlipSFX);
+        pre_flipSFXInstance = FMODUnity.RuntimeManager.CreateInstance(pre_gravityFlipSFX);
     }
 
     private void OnDestroy()
@@ -48,28 +64,34 @@ public class GravityManager : MonoBehaviour
         // Called when this object is destroyed. We use it to unsubscribe from beatReader.
         // ================
 
-        beatReader.flipGravity -= FlipGravity;
+        beatReader.flipGravity -= OnFlipGravity;
+        beatReader.pre_flipGravity -= OnPre_FlipGravity;
+
+        flipSFXInstance.release();
+        pre_flipSFXInstance.release();
     }
 
     // ================================================================
     // Data-manipulation methods
     // ================================================================
 
-    private void FlipGravity()
+    private void OnFlipGravity()
     {
         // A small helper function called elsewhere via events. Flips the direction of
         // gravity, and notes that we flipped it. Also plays a sound effect, for now.
         // ================
 
-        // DEBUG???
-        // DEBUG!!!
-        // i got a glock in my rari
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/GravityFlip");
-        // DEBUG???
-        // DEBUG!!!
-        // i got a glock in my rari
+        flipSFXInstance.start();
 
         strengthVar.value *= -1;
         gravityFlipped.value = !gravityFlipped.value;
     }
+    private void OnPre_FlipGravity()
+    {
+        // Plays a sound effect when we recieve the pre_FlipGravity event.
+        // ================
+
+        pre_flipSFXInstance.start();
+    }
+
 }

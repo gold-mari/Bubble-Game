@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{b0682817-083c-43d9-ac23-465a7e795b17}">
 		<property name="name">
-			<value>GravityFlip</value>
+			<value>main</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{8f35b446-6a13-415a-80cd-87fc4d6bc5c7}</destination>
+			<destination>{2c95888f-fdcc-4b25-b51f-5b44495532d5}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{9a52228e-0bc3-4868-8849-0a6cb78264b7}</destination>

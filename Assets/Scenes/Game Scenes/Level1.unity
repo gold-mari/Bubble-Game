@@ -4899,6 +4899,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1632959958}
     m_Modifications:
+    - target: {fileID: 5750587618075653522, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
+      propertyPath: gravityFlipSFX.Path
+      value: event:/SFX/GravityFlip/main
+      objectReference: {fileID: 0}
+    - target: {fileID: 5750587618075653522, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
+      propertyPath: pre_gravityFlipSFX.Path
+      value: event:/SFX/GravityFlip/pre
+      objectReference: {fileID: 0}
+    - target: {fileID: 5750587618075653522, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
+      propertyPath: gravityFlipSFX.Guid.Data1
+      value: -1335351273
+      objectReference: {fileID: 0}
+    - target: {fileID: 5750587618075653522, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
+      propertyPath: gravityFlipSFX.Guid.Data2
+      value: 1138296892
+      objectReference: {fileID: 0}
+    - target: {fileID: 5750587618075653522, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
+      propertyPath: gravityFlipSFX.Guid.Data3
+      value: 1514546092
+      objectReference: {fileID: 0}
+    - target: {fileID: 5750587618075653522, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
+      propertyPath: gravityFlipSFX.Guid.Data4
+      value: 391870846
+      objectReference: {fileID: 0}
+    - target: {fileID: 5750587618075653522, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
+      propertyPath: pre_gravityFlipSFX.Guid.Data1
+      value: 385374942
+      objectReference: {fileID: 0}
+    - target: {fileID: 5750587618075653522, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
+      propertyPath: pre_gravityFlipSFX.Guid.Data2
+      value: 1250581551
+      objectReference: {fileID: 0}
+    - target: {fileID: 5750587618075653522, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
+      propertyPath: pre_gravityFlipSFX.Guid.Data3
+      value: -754140792
+      objectReference: {fileID: 0}
+    - target: {fileID: 5750587618075653522, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
+      propertyPath: pre_gravityFlipSFX.Guid.Data4
+      value: -1967868378
+      objectReference: {fileID: 0}
     - target: {fileID: 5750587618130120885, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: m_Name
       value: -- Gameplay --
@@ -4963,6 +5003,10 @@ PrefabInstance:
       propertyPath: lossTriggered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2078172877}
+    - target: {fileID: 5750587618920034049, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
+      propertyPath: mainSong
+      value: 
+      objectReference: {fileID: 11400000, guid: 167ebe8eeb686344c982877d31590249, type: 2}
     - target: {fileID: 5750587619172000191, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
