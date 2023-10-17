@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{ada460d8-d48e-4175-9f19-73b6a85d4782}">
 		<property name="name">
-			<value>MassBubbleSpawn</value>
+			<value>spawn</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{8f35b446-6a13-415a-80cd-87fc4d6bc5c7}</destination>
+			<destination>{1599d024-d375-46c1-a61a-4b30f27c7ced}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{f624fdd5-33fd-4fd4-8a22-2e86bbdd1434}</destination>

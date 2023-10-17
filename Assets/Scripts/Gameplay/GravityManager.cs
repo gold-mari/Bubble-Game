@@ -24,13 +24,13 @@ public class GravityManager : MonoBehaviour
     [SerializeField, Tooltip("The SFX played on gravity flip.")]
     FMODUnity.EventReference gravityFlipSFX;
     [SerializeField, Tooltip("The SFX played the beat before gravity flip.")]
-    FMODUnity.EventReference pre_gravityFlipSFX;
+    FMODUnity.EventReference preGravityFlipSFX;
 
     // ================================================================
     // Internal variables
     // ================================================================
 
-    private FMOD.Studio.EventInstance flipSFXInstance, pre_flipSFXInstance;
+    private FMOD.Studio.EventInstance gravityFlipSFX_i, preGravityFlipSFX_i;
 
     // ================================================================
     // Default methods
@@ -55,8 +55,8 @@ public class GravityManager : MonoBehaviour
         gravityFlipped.value = false;
 
         // Create our event isntances.
-        flipSFXInstance = FMODUnity.RuntimeManager.CreateInstance(gravityFlipSFX);
-        pre_flipSFXInstance = FMODUnity.RuntimeManager.CreateInstance(pre_gravityFlipSFX);
+        gravityFlipSFX_i = FMODUnity.RuntimeManager.CreateInstance(gravityFlipSFX);
+        preGravityFlipSFX_i = FMODUnity.RuntimeManager.CreateInstance(preGravityFlipSFX);
     }
 
     private void OnDestroy()
@@ -67,8 +67,8 @@ public class GravityManager : MonoBehaviour
         beatReader.flipGravity -= OnFlipGravity;
         beatReader.pre_flipGravity -= OnPre_FlipGravity;
 
-        flipSFXInstance.release();
-        pre_flipSFXInstance.release();
+        gravityFlipSFX_i.release();
+        preGravityFlipSFX_i.release();
     }
 
     // ================================================================
@@ -81,7 +81,7 @@ public class GravityManager : MonoBehaviour
         // gravity, and notes that we flipped it. Also plays a sound effect, for now.
         // ================
 
-        flipSFXInstance.start();
+        gravityFlipSFX_i.start();
 
         strengthVar.value *= -1;
         gravityFlipped.value = !gravityFlipped.value;
@@ -91,7 +91,7 @@ public class GravityManager : MonoBehaviour
         // Plays a sound effect when we recieve the pre_FlipGravity event.
         // ================
 
-        pre_flipSFXInstance.start();
+        preGravityFlipSFX_i.start();
     }
 
 }

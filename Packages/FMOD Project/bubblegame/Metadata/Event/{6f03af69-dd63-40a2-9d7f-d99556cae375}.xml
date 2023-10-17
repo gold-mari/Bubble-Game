@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{6f03af69-dd63-40a2-9d7f-d99556cae375}">
 		<property name="name">
-			<value>HyperbubbleSpawn</value>
+			<value>spawn</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{8f35b446-6a13-415a-80cd-87fc4d6bc5c7}</destination>
+			<destination>{bfcb37ab-b0db-4dfd-853c-3842ba8adad7}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{02ad333e-bf24-4642-8666-13c2a42250f4}</destination>

@@ -45,6 +45,21 @@ public class BubbleSpawner : MonoBehaviour
     [SerializeField, Tooltip("The number of bubbles to spawn in mass rounds.\n\nDefault: 20")]
     private uint massRoundSize = 20;
 
+    [SerializeField, Tooltip("The SFX played on spawning a single bubble.")]
+    FMODUnity.EventReference singleBubbleSFX;
+    [SerializeField, Tooltip("The SFX played on spawning a mass round of bubbles.")]
+    FMODUnity.EventReference massBubbleSFX;
+    [SerializeField, Tooltip("The SFX played before spawning a mass round of bubbles.")]
+    FMODUnity.EventReference preMassBubbleSFX;
+    [SerializeField, Tooltip("The SFX played on spawning a flavor bombed-bubble.")]
+    FMODUnity.EventReference flavorBombSFX;
+    [SerializeField, Tooltip("The SFX played before spawning a flavor bombed-bubble.")]
+    FMODUnity.EventReference preFlavorBombSFX;
+    [SerializeField, Tooltip("The SFX played on spawning a HYPERBUBBLE.")]
+    FMODUnity.EventReference hyperbubbleSFX;
+    [SerializeField, Tooltip("The SFX played before spawning a HYPERBUBBLE.")]
+    FMODUnity.EventReference preHyperbubbleSFX;
+
     // ==============================================================
     // Internal variables
     // ==============================================================
@@ -54,6 +69,12 @@ public class BubbleSpawner : MonoBehaviour
     private uint age = 1;
     // The chain break handler on this object. Passed onto bubbles onto chains.
     private ChainBreakHandler handler;
+
+    // Sound effect hell!
+    private FMOD.Studio.EventInstance singleBubbleSFX_i,
+                                      massBubbleSFX_i, preMassBubbleSFX_i, 
+                                      flavorBombSFX_i, preFlavorBombSFX_i, 
+                                      hyperbubbleSFX_i, preHyperbubbleSFX_i;
 
     // ==============================================================
     // Default methods
@@ -67,8 +88,12 @@ public class BubbleSpawner : MonoBehaviour
 
         beatReader.singleSpawn += SingleSpawnBubble;
         beatReader.massSpawn += MassSpawnBubble;
-        beatReader.hyperSpawn += SpawnHyperbubble;
         beatReader.makeFlavorBomb += FlavorBombSpawnBubble;
+        beatReader.hyperSpawn += SpawnHyperbubble;
+
+        beatReader.pre_massSpawn += On_PreMassSpawnBubble;
+        beatReader.pre_makeFlavorBomb += On_PreFlavorBombSpawnBubble;
+        beatReader.pre_hyperSpawn += On_PreSpawnHyperbubble;
 
         handler = GetComponent<ChainBreakHandler>();
     }
@@ -78,6 +103,14 @@ public class BubbleSpawner : MonoBehaviour
         // Start is called before the first frame update. We use it to initialize the
         // state of bubbles.
         // ================
+
+        singleBubbleSFX_i  = FMODUnity.RuntimeManager.CreateInstance(singleBubbleSFX);
+        massBubbleSFX_i = FMODUnity.RuntimeManager.CreateInstance(massBubbleSFX);
+        preMassBubbleSFX_i = FMODUnity.RuntimeManager.CreateInstance(preMassBubbleSFX);
+        flavorBombSFX_i = FMODUnity.RuntimeManager.CreateInstance(flavorBombSFX);
+        preFlavorBombSFX_i = FMODUnity.RuntimeManager.CreateInstance(preFlavorBombSFX);
+        hyperbubbleSFX_i = FMODUnity.RuntimeManager.CreateInstance(hyperbubbleSFX);
+        preHyperbubbleSFX_i = FMODUnity.RuntimeManager.CreateInstance(preHyperbubbleSFX);
 
         RandomizeFlavors();
         MassSpawnBubble();
@@ -90,12 +123,20 @@ public class BubbleSpawner : MonoBehaviour
 
         beatReader.singleSpawn -= SingleSpawnBubble;
         beatReader.massSpawn -= MassSpawnBubble;
-        beatReader.hyperSpawn -= SpawnHyperbubble;
         beatReader.makeFlavorBomb -= FlavorBombSpawnBubble;
+        beatReader.hyperSpawn -= SpawnHyperbubble;
+
+        singleBubbleSFX_i.release();
+        massBubbleSFX_i.release();
+        preMassBubbleSFX_i.release();
+        flavorBombSFX_i.release();
+        preFlavorBombSFX_i.release();
+        hyperbubbleSFX_i.release();
+        preHyperbubbleSFX_i.release();
     }
 
     // ==============================================================
-    // Instantiation/Destruction Methods
+    // Bubble-making methods
     // ==============================================================
 
     private void SingleSpawnBubble()
@@ -104,13 +145,7 @@ public class BubbleSpawner : MonoBehaviour
         // spawn the bubble is determined in SpawnBubble depending if gravity is flipped.
         // ================
 
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/BubbleSpawn");
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
+        singleBubbleSFX_i.start();
 
         // Get the mouse position on the screen.
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -135,13 +170,7 @@ public class BubbleSpawner : MonoBehaviour
         // depending on if gravity is flipped.
         // ================
 
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/MassBubbleSpawn");
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
+        massBubbleSFX_i.start();
 
         // Used to generate Bubble_Flavors non-repetitiously.
         Bubble_Flavor currentFlavor;
@@ -174,13 +203,7 @@ public class BubbleSpawner : MonoBehaviour
         // spawn the bubble is determined in SpawnBubble depending if gravity is flipped.
         // ================
 
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/BubbleSpawn");
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
+        flavorBombSFX_i.start();
 
         // Get the mouse position on the screen.
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -211,13 +234,7 @@ public class BubbleSpawner : MonoBehaviour
         // spawn the bubble is determined in SpawnBubble depending if gravity is flipped.
         // ================
 
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/HyperbubbleSpawn");
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
+        hyperbubbleSFX_i.start();
 
         // Get the mouse position on the screen.
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -276,6 +293,25 @@ public class BubbleSpawner : MonoBehaviour
 
         // Return the object we spawned.
         return objBubble;
+    }
+
+    // ==============================================================
+    // Preemptive feedback methods
+    // ==============================================================
+
+    private void On_PreMassSpawnBubble()
+    {
+        preMassBubbleSFX_i.start();
+    }
+
+    private void On_PreFlavorBombSpawnBubble()
+    {
+        preFlavorBombSFX_i.start();
+    }
+
+    private void On_PreSpawnHyperbubble()
+    {
+        preHyperbubbleSFX_i.start();
     }
 
     // ==============================================================
