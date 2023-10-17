@@ -165,7 +165,7 @@ public class MusicManager : MonoBehaviour
         handler.Update();
     }
 
-#if UNITY_EDITOR
+/*#if UNITY_EDITOR
     private void OnGUI()
     {
         // If we're in the editor, display the timeline handler's GUI readout.
@@ -173,7 +173,7 @@ public class MusicManager : MonoBehaviour
 
         handler.OnGUI();
     }
-#endif
+#endif*/
 
     // ================================================================
     // Helper methods
