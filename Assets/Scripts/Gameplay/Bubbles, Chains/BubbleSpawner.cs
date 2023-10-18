@@ -25,6 +25,8 @@ public class BubbleSpawner : MonoBehaviour
     [SerializeField, Tooltip("The HYPERBUBBLE prefab to spawn.\n\nIMPORTANT: This bubble should be initialized with the "
            + "NIL chain.")]
     private GameObject hyperbubble;
+    [SerializeField, Tooltip("Whether or not mass bubble spawns are composed of HYPERBUBBLES.\n\nDefault: false")]
+    private bool HYPERmassBubbles = false;
     [SerializeField, Tooltip("The flavor bomb prefab to spawn.")]
     private GameObject flavorBomb;
     [SerializeField, Tooltip("A binder of bubble sprites, assigned to spawned bubbles depending on their flavor.")]
@@ -50,15 +52,15 @@ public class BubbleSpawner : MonoBehaviour
     [SerializeField, Tooltip("The SFX played on spawning a mass round of bubbles.")]
     FMODUnity.EventReference massBubbleSFX;
     [SerializeField, Tooltip("The SFX played before spawning a mass round of bubbles.")]
-    FMODUnity.EventReference preMassBubbleSFX;
+    FMODUnity.EventReference beforeMassBubbleSFX;
     [SerializeField, Tooltip("The SFX played on spawning a flavor bombed-bubble.")]
     FMODUnity.EventReference flavorBombSFX;
     [SerializeField, Tooltip("The SFX played before spawning a flavor bombed-bubble.")]
-    FMODUnity.EventReference preFlavorBombSFX;
+    FMODUnity.EventReference beforeFlavorBombSFX;
     [SerializeField, Tooltip("The SFX played on spawning a HYPERBUBBLE.")]
     FMODUnity.EventReference hyperbubbleSFX;
     [SerializeField, Tooltip("The SFX played before spawning a HYPERBUBBLE.")]
-    FMODUnity.EventReference preHyperbubbleSFX;
+    FMODUnity.EventReference beforeHyperbubbleSFX;
 
     // ==============================================================
     // Internal variables
@@ -72,9 +74,9 @@ public class BubbleSpawner : MonoBehaviour
 
     // Sound effect hell!
     private FMOD.Studio.EventInstance singleBubbleSFX_i,
-                                      massBubbleSFX_i, preMassBubbleSFX_i, 
-                                      flavorBombSFX_i, preFlavorBombSFX_i, 
-                                      hyperbubbleSFX_i, preHyperbubbleSFX_i;
+                                      massBubbleSFX_i, beforeMassBubbleSFX_i, 
+                                      flavorBombSFX_i, beforeFlavorBombSFX_i, 
+                                      hyperbubbleSFX_i, beforeHyperbubbleSFX_i;
 
     // ==============================================================
     // Default methods
@@ -91,9 +93,9 @@ public class BubbleSpawner : MonoBehaviour
         beatReader.makeFlavorBomb += FlavorBombSpawnBubble;
         beatReader.hyperSpawn += SpawnHyperbubble;
 
-        beatReader.pre_massSpawn += On_PreMassSpawnBubble;
-        beatReader.pre_makeFlavorBomb += On_PreFlavorBombSpawnBubble;
-        beatReader.pre_hyperSpawn += On_PreSpawnHyperbubble;
+        beatReader.beforeMassSpawn += OnBeforeMassSpawnBubble;
+        beatReader.beforeMakeFlavorBomb += OnBeforeFlavorBombSpawnBubble;
+        beatReader.beforeHyperSpawn += OnBeforeSpawnHyperbubble;
 
         handler = GetComponent<ChainBreakHandler>();
     }
@@ -106,11 +108,11 @@ public class BubbleSpawner : MonoBehaviour
 
         singleBubbleSFX_i  = FMODUnity.RuntimeManager.CreateInstance(singleBubbleSFX);
         massBubbleSFX_i = FMODUnity.RuntimeManager.CreateInstance(massBubbleSFX);
-        preMassBubbleSFX_i = FMODUnity.RuntimeManager.CreateInstance(preMassBubbleSFX);
+        beforeMassBubbleSFX_i = FMODUnity.RuntimeManager.CreateInstance(beforeMassBubbleSFX);
         flavorBombSFX_i = FMODUnity.RuntimeManager.CreateInstance(flavorBombSFX);
-        preFlavorBombSFX_i = FMODUnity.RuntimeManager.CreateInstance(preFlavorBombSFX);
+        beforeFlavorBombSFX_i = FMODUnity.RuntimeManager.CreateInstance(beforeFlavorBombSFX);
         hyperbubbleSFX_i = FMODUnity.RuntimeManager.CreateInstance(hyperbubbleSFX);
-        preHyperbubbleSFX_i = FMODUnity.RuntimeManager.CreateInstance(preHyperbubbleSFX);
+        beforeHyperbubbleSFX_i = FMODUnity.RuntimeManager.CreateInstance(beforeHyperbubbleSFX);
 
         RandomizeFlavors();
         MassSpawnBubble();
@@ -128,11 +130,11 @@ public class BubbleSpawner : MonoBehaviour
 
         singleBubbleSFX_i.release();
         massBubbleSFX_i.release();
-        preMassBubbleSFX_i.release();
+        beforeMassBubbleSFX_i.release();
         flavorBombSFX_i.release();
-        preFlavorBombSFX_i.release();
+        beforeFlavorBombSFX_i.release();
         hyperbubbleSFX_i.release();
-        preHyperbubbleSFX_i.release();
+        beforeHyperbubbleSFX_i.release();
     }
 
     // ==============================================================
@@ -189,7 +191,7 @@ public class BubbleSpawner : MonoBehaviour
                 currentFlavor = Bubble_Flavor_Methods.random();
             } while (currentFlavor == lastFlavor || currentFlavor == flavorBeforeThat);
 
-            SpawnBubble(spawnPoint, currentFlavor, Vector2.zero);
+            SpawnBubble(spawnPoint, currentFlavor, Vector2.zero, HYPERmassBubbles);
 
             // After spawning, pass back the Flavors we've seen.
             flavorBeforeThat = lastFlavor;
@@ -299,19 +301,19 @@ public class BubbleSpawner : MonoBehaviour
     // Preemptive feedback methods
     // ==============================================================
 
-    private void On_PreMassSpawnBubble()
+    private void OnBeforeMassSpawnBubble()
     {
-        preMassBubbleSFX_i.start();
+        beforeMassBubbleSFX_i.start();
     }
 
-    private void On_PreFlavorBombSpawnBubble()
+    private void OnBeforeFlavorBombSpawnBubble()
     {
-        preFlavorBombSFX_i.start();
+        beforeFlavorBombSFX_i.start();
     }
 
-    private void On_PreSpawnHyperbubble()
+    private void OnBeforeSpawnHyperbubble()
     {
-        preHyperbubbleSFX_i.start();
+        beforeHyperbubbleSFX_i.start();
     }
 
     // ==============================================================

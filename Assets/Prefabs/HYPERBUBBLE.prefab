@@ -79,7 +79,7 @@ Transform:
   m_GameObject: {fileID: 5062526010735810590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 5, z: 0}
-  m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1734696834076364993}
@@ -155,6 +155,7 @@ MonoBehaviour:
   chain: {fileID: 11400000, guid: 83523781210cefa4c9912d4153ddd914, type: 2}
   adjacencies: []
   isBomb: 0
+  isHyperbubble: 0
   handler: {fileID: 0}
 --- !u!114 &3540284537023933622
 MonoBehaviour:

@@ -48,6 +48,20 @@ MonoBehaviour:
   gravityStrength: 5
   strengthVar: {fileID: 11400000, guid: 1f488925cb89b6d468b3f5a8e5d480b1, type: 2}
   gravityFlipped: {fileID: 11400000, guid: 9c2171a126b23a74f98c7c6802930645, type: 2}
+  gravityFlipSFX:
+    Guid:
+      Data1: -1335351273
+      Data2: 1138296892
+      Data3: 1514546092
+      Data4: 391870846
+    Path: event:/SFX/GravityFlip/main
+  preGravityFlipSFX:
+    Guid:
+      Data1: 385374942
+      Data2: 1250581551
+      Data3: -754140792
+      Data4: -1967868378
+    Path: event:/SFX/GravityFlip/pre
 --- !u!1 &5750587618128595660
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,6 +583,55 @@ MonoBehaviour:
   radius: {x: 1.2, y: 4.35}
   initialForce: 500
   massRoundSize: 12
+  singleBubbleSFX:
+    Guid:
+      Data1: 1166091048
+      Data2: 1145747865
+      Data3: -2041252166
+      Data4: -407974511
+    Path: event:/SFX/BubbleSpawn
+  massBubbleSFX:
+    Guid:
+      Data1: -1381736232
+      Data2: 1098241166
+      Data3: -1233970785
+      Data4: -2109252184
+    Path: event:/SFX/MassSpawn/spawn
+  preMassBubbleSFX:
+    Guid:
+      Data1: 312315637
+      Data2: 1122689984
+      Data3: 850869423
+      Data4: -1003727263
+    Path: event:/SFX/MassSpawn/pre
+  flavorBombSFX:
+    Guid:
+      Data1: 1087976901
+      Data2: 1129819644
+      Data3: 968310433
+      Data4: -600370997
+    Path: event:/SFX/FlavorBomb/spawn
+  preFlavorBombSFX:
+    Guid:
+      Data1: -407746865
+      Data2: 1332773028
+      Data3: 1530177968
+      Data4: -1693733643
+    Path: event:/SFX/FlavorBomb/pre
+  hyperbubbleSFX:
+    Guid:
+      Data1: 1862512489
+      Data2: 1084415331
+      Data3: -1780908131
+      Data4: 1977862742
+    Path: event:/SFX/Hyperbubble/spawn
+  preHyperbubbleSFX:
+    Guid:
+      Data1: -1859419478
+      Data2: 1159937773
+      Data3: -649331026
+      Data4: 1949675514
+    Path: event:/SFX/Hyperbubble/pre
 --- !u!114 &5750587619172000191
 MonoBehaviour:
   m_ObjectHideFlags: 0

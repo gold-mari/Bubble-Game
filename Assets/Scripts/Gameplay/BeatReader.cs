@@ -13,11 +13,11 @@ public class BeatReader : MonoBehaviour
     private Beatmap currentBeatmap;
     // Actions that are called depending on the current beat in our tracker, and the current Beatmap.
     // pre_Events are called one beat before the actual event.
-    public System.Action pre_singleSpawn, singleSpawn, 
-                         pre_massSpawn, massSpawn, 
-                         pre_flipGravity, flipGravity, 
-                         pre_makeFlavorBomb, makeFlavorBomb, 
-                         pre_hyperSpawn, hyperSpawn;
+    public System.Action beforeSingleSpawn, singleSpawn, 
+                         beforeMassSpawn, massSpawn, 
+                         beforeFlipGravity, flipGravity, 
+                         beforeMakeFlavorBomb, makeFlavorBomb, 
+                         beforeHyperSpawn, hyperSpawn;
 
     // ================================================================
     // Internal variables
@@ -50,30 +50,56 @@ public class BeatReader : MonoBehaviour
         // beatmap at the tracker's currentLoopBeat.
         // ================
 
-        // Part 1: Parse the next beat.
-        BeatType nextType = currentBeatmap.GetBeatType(tracker.nextLoopBeat);
-        if (nextType == BeatType.SingleSpawn)
+        // Part 1: Parse two beats from now.
+        BeatType secondNextType = currentBeatmap.GetBeatType(tracker.secondNextLoopBeat);
+        if (secondNextType == BeatType.SingleSpawn)
         {
-            pre_singleSpawn?.Invoke();
+            beforeSingleSpawn?.Invoke();
         }
-        else if (nextType == BeatType.MassSpawn)
+        else if (secondNextType == BeatType.MassSpawn)
         {
-            pre_massSpawn?.Invoke();
+            beforeMassSpawn?.Invoke();
         }
-        else if (nextType == BeatType.FlipGravity)
+        else if (secondNextType == BeatType.FlipGravity)
         {
-            pre_flipGravity?.Invoke();
+            beforeFlipGravity?.Invoke();
         }
-        else if (nextType == BeatType.MakeFlavorBomb)
+        else if (secondNextType == BeatType.MakeFlavorBomb)
         {
-            pre_makeFlavorBomb?.Invoke();
+            beforeMakeFlavorBomb?.Invoke();
         }
-        else if (nextType == BeatType.HyperSpawn)
+        else if (secondNextType == BeatType.HyperSpawn)
         {
-            pre_hyperSpawn?.Invoke();
+            beforeHyperSpawn?.Invoke();
         }
 
-        // Part 2: Parse the current beat.
+        /*if (false) // code for one beat before
+        {
+            // Part 2: Parse the next beat.
+            BeatType nextType = currentBeatmap.GetBeatType(tracker.nextLoopBeat);
+            if (nextType == BeatType.SingleSpawn)
+            {
+                pre_singleSpawn?.Invoke();
+            }
+            else if (nextType == BeatType.MassSpawn)
+            {
+                pre_massSpawn?.Invoke();
+            }
+            else if (nextType == BeatType.FlipGravity)
+            {
+                pre_flipGravity?.Invoke();
+            }
+            else if (nextType == BeatType.MakeFlavorBomb)
+            {
+                pre_makeFlavorBomb?.Invoke();
+            }
+            else if (nextType == BeatType.HyperSpawn)
+            {
+                pre_hyperSpawn?.Invoke();
+            }
+        }*/
+
+        // Part 3: Parse the current beat.
         BeatType type = currentBeatmap.GetBeatType(tracker.currentLoopBeat);
         if (type == BeatType.SingleSpawn)
         {

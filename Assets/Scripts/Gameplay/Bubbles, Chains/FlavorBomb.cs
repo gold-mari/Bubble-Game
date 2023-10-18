@@ -80,8 +80,6 @@ public class FlavorBomb : MonoBehaviour
 
             Quaternion rot = Quaternion.Euler(0,0,360 * (i-1)/(Bubble_Flavor_Methods.length-1));
             spawner.SpawnBubble(transform.position, (Bubble_Flavor)i, rot * Vector2.right, spawnHyperbubbles);
-
-            print($"Spawned {(Bubble_Flavor)i}");
         }
     }
 

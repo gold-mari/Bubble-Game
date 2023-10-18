@@ -24,13 +24,13 @@ public class GravityManager : MonoBehaviour
     [SerializeField, Tooltip("The SFX played on gravity flip.")]
     FMODUnity.EventReference gravityFlipSFX;
     [SerializeField, Tooltip("The SFX played the beat before gravity flip.")]
-    FMODUnity.EventReference preGravityFlipSFX;
+    FMODUnity.EventReference beforeGravityFlipSFX;
 
     // ================================================================
     // Internal variables
     // ================================================================
 
-    private FMOD.Studio.EventInstance gravityFlipSFX_i, preGravityFlipSFX_i;
+    private FMOD.Studio.EventInstance gravityFlipSFX_i, beforeGravityFlipSFX_i;
 
     // ================================================================
     // Default methods
@@ -42,7 +42,7 @@ public class GravityManager : MonoBehaviour
         // ================
 
         beatReader.flipGravity += OnFlipGravity;
-        beatReader.pre_flipGravity += OnPre_FlipGravity;
+        beatReader.beforeFlipGravity += OnBeforeFlipGravity;
     }
 
     private void Start()
@@ -56,7 +56,7 @@ public class GravityManager : MonoBehaviour
 
         // Create our event isntances.
         gravityFlipSFX_i = FMODUnity.RuntimeManager.CreateInstance(gravityFlipSFX);
-        preGravityFlipSFX_i = FMODUnity.RuntimeManager.CreateInstance(preGravityFlipSFX);
+        beforeGravityFlipSFX_i = FMODUnity.RuntimeManager.CreateInstance(beforeGravityFlipSFX);
     }
 
     private void OnDestroy()
@@ -65,10 +65,10 @@ public class GravityManager : MonoBehaviour
         // ================
 
         beatReader.flipGravity -= OnFlipGravity;
-        beatReader.pre_flipGravity -= OnPre_FlipGravity;
+        beatReader.beforeFlipGravity -= OnBeforeFlipGravity;
 
         gravityFlipSFX_i.release();
-        preGravityFlipSFX_i.release();
+        beforeGravityFlipSFX_i.release();
     }
 
     // ================================================================
@@ -86,12 +86,12 @@ public class GravityManager : MonoBehaviour
         strengthVar.value *= -1;
         gravityFlipped.value = !gravityFlipped.value;
     }
-    private void OnPre_FlipGravity()
+    private void OnBeforeFlipGravity()
     {
         // Plays a sound effect when we recieve the pre_FlipGravity event.
         // ================
 
-        preGravityFlipSFX_i.start();
+        beforeGravityFlipSFX_i.start();
     }
 
 }
