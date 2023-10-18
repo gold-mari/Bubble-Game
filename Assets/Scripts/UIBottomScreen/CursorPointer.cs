@@ -48,6 +48,8 @@ public class CursorPointer : MonoBehaviour
     Animator animator;
     // This objects SpriteRenderer. We need a reference to flip the sprite when gravity changes.
     SpriteRenderer sprite;
+    // The number of hyperbubbles that have been queued up, used to grow/shrink our cursor.
+    private uint queuedHYPERBUBBLES = 0;
 
     // ================================================================
     // Default methods
@@ -128,7 +130,11 @@ public class CursorPointer : MonoBehaviour
         // Tells the animator to let it grow, let it grow, let the love inside you show!
         // ================
 
-        animator.SetBool("grow", true);
+        queuedHYPERBUBBLES++;
+        if (queuedHYPERBUBBLES > 0)
+        {
+            animator.SetBool("grow", true);
+        }
     }
 
     private void OnHyperSpawn()
@@ -136,6 +142,10 @@ public class CursorPointer : MonoBehaviour
         // Tells the animator to go back to normal size.
         // ================
 
-        animator.SetBool("grow", false);
+        queuedHYPERBUBBLES--;
+        if (queuedHYPERBUBBLES == 0)
+        {
+            animator.SetBool("grow", false);
+        }
     }
 }
