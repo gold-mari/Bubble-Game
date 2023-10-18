@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicEvent:
     Guid:
-      Data1: -60412168
-      Data2: 1101255176
-      Data3: 1376886182
-      Data4: -225480031
-    Path: event:/Music/DEBUG-Music
+      Data1: -150823746
+      Data2: 1123329234
+      Data3: -1899579223
+      Data4: 631335564
+    Path: event:/Music/Level3
   beatmapFile: {fileID: 4900000, guid: 3d3dd0d92df301741898c5ff8bace018, type: 3}

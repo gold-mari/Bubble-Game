@@ -1,5 +1,5 @@
 name,DEBUG_Music
 loopLength,64
-singleSpawn,4,8,12,   20,24,28,   36,40,44,   52,56,60  
+singleSpawn,4,8,12,   20,24,28,   36,40,44,48,52,56  
 massSpawn,                     32
-makeFlavorBomb,    16,                     48,         64
+makeFlavorBomb,    16,                              60,64
