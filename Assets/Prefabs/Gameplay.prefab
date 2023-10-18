@@ -579,7 +579,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 58cf5912f72314644a717ade50213928, type: 2}
   - {fileID: 11400000, guid: 0d086235dbbd8264aa6efc7dd579913d, type: 2}
   - {fileID: 11400000, guid: 8e2ec9d136368524ba006f3391c75f92, type: 2}
-  - {fileID: 11400000, guid: 2b5b8b08bd508f54eb2f7057538ebabf, type: 2}
   center: {x: 0, y: 0}
   radius: {x: 1.2, y: 4.35}
   initialForce: 500
