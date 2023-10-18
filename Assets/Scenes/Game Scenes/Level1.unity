@@ -663,17 +663,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b2a09c6eb4b6f4c983bc654c16042b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &383129834 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5750587618400270564, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-  m_PrefabInstance: {fileID: 5750587618433640084}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d11d1a6f750c65a4aa1eebafe41aec94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &458402877
 GameObject:
   m_ObjectHideFlags: 0
@@ -5026,21 +5015,5 @@ PrefabInstance:
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2078172877}
-    - target: {fileID: 5750587620042928292, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.335
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587620042928292, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.335
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587620042928292, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.335
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587620042928295, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: reader
-      value: 
-      objectReference: {fileID: 383129834}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
