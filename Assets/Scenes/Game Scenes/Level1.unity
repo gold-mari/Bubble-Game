@@ -4943,26 +4943,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1632959958}
     m_Modifications:
-    - target: {fileID: 5750587618075653522, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: beforeGravityFlipSFX.Path
-      value: event:/SFX/GravityFlip/pre
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587618075653522, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: beforeGravityFlipSFX.Guid.Data1
-      value: 385374942
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587618075653522, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: beforeGravityFlipSFX.Guid.Data2
-      value: 1250581551
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587618075653522, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: beforeGravityFlipSFX.Guid.Data3
-      value: -754140792
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587618075653522, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: beforeGravityFlipSFX.Guid.Data4
-      value: -1967868378
-      objectReference: {fileID: 0}
     - target: {fileID: 5750587618130120885, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: m_Name
       value: -- Gameplay --
@@ -5027,70 +5007,6 @@ PrefabInstance:
       propertyPath: lossTriggered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2078172877}
-    - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: massRoundSize
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: beforeFlavorBombSFX.Path
-      value: event:/SFX/FlavorBomb/pre
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: beforeMassBubbleSFX.Path
-      value: event:/SFX/MassSpawn/pre
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: beforeHyperbubbleSFX.Path
-      value: event:/SFX/Hyperbubble/pre
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: beforeFlavorBombSFX.Guid.Data1
-      value: -407746865
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: beforeFlavorBombSFX.Guid.Data2
-      value: 1332773028
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: beforeFlavorBombSFX.Guid.Data3
-      value: 1530177968
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: beforeFlavorBombSFX.Guid.Data4
-      value: -1693733643
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: beforeMassBubbleSFX.Guid.Data1
-      value: 312315637
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: beforeMassBubbleSFX.Guid.Data2
-      value: 1122689984
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: beforeMassBubbleSFX.Guid.Data3
-      value: 850869423
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: beforeMassBubbleSFX.Guid.Data4
-      value: -1003727263
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: beforeHyperbubbleSFX.Guid.Data1
-      value: -1859419478
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: beforeHyperbubbleSFX.Guid.Data2
-      value: 1159937773
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: beforeHyperbubbleSFX.Guid.Data3
-      value: -649331026
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: beforeHyperbubbleSFX.Guid.Data4
-      value: 1949675514
-      objectReference: {fileID: 0}
     - target: {fileID: 5750587619172000191, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

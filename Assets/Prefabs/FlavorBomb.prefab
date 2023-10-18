@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5062526010735810578}
   - component: {fileID: 5454343073403853118}
+  - component: {fileID: -4107263945470092929}
   - component: {fileID: -2897325825451052766}
   m_Layer: 0
   m_Name: FlavorBomb
@@ -43,6 +44,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09c3de15035496849b0bf12054254f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4107263945470092929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5062526010735810590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6557a45b2fe693f4cb0153d1499d3003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &-2897325825451052766
