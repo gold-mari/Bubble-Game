@@ -10,6 +10,8 @@ public class CursorPointer : MonoBehaviour
     // Parameters
     // ================================================================
 
+    [Tooltip("The BeatReader in this scene.")]
+    public BeatReader reader;
     [Tooltip("Whether this script should inherit its parent's BubbleSpawner script. Turn "
            + "this off if you need to fine-tune things.\n\nDefault: true")]
     public bool takeCenterAndRadius = true;
@@ -51,7 +53,7 @@ public class CursorPointer : MonoBehaviour
     // Default methods
     // ================================================================
 
-    void Start()
+    private void Start()
     {
         // Start is called before the first frame update. We use it to define sprite and
         // animator, to initialize lastGravityFlipped, and to inherit radius and center
@@ -60,6 +62,9 @@ public class CursorPointer : MonoBehaviour
         
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+
+        reader.beforeHyperSpawn += OnBeforeHyperSpawn;
+        reader.hyperSpawn += OnHyperSpawn;
 
         lastGravityFlipped = gravityFlipped.value;
 
@@ -74,7 +79,16 @@ public class CursorPointer : MonoBehaviour
         }
     }
 
-    void Update()
+    private void OnDestroy()
+    {
+        // Unsubscribes from events.
+        // ================
+
+        reader.beforeHyperSpawn -= OnBeforeHyperSpawn;
+        reader.hyperSpawn -= OnHyperSpawn;
+    }
+
+    private void Update()
     {
         // Update is called once per frame. Used to update cursor position and rotation.
         // ================
@@ -103,5 +117,25 @@ public class CursorPointer : MonoBehaviour
         // When radiusLerper is 0, we want to flip 180 degrees. When 1, flip 0 degrees.
         float xAmount = (radiusLerper * 180f);
         transform.rotation *= Quaternion.Euler(xAmount, 0, 0);
+    }
+
+    // ================================================================
+    // Event-handling methods
+    // ================================================================
+
+    private void OnBeforeHyperSpawn()
+    {
+        // Tells the animator to let it grow, let it grow, let the love inside you show!
+        // ================
+
+        animator.SetBool("grow", true);
+    }
+
+    private void OnHyperSpawn()
+    {
+        // Tells the animator to go back to normal size.
+        // ================
+
+        animator.SetBool("grow", false);
     }
 }
