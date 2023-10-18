@@ -26,7 +26,7 @@ public class BubbleSpawner : MonoBehaviour
            + "NIL chain.")]
     private GameObject hyperbubble;
     [SerializeField, Tooltip("Whether or not mass bubble spawns are composed of HYPERBUBBLES.\n\nDefault: false")]
-    private bool HYPERmassBubbles = false;
+    private bool HYPERMassBubbles = false;
     [SerializeField, Tooltip("The flavor bomb prefab to spawn.")]
     private GameObject flavorBomb;
     [SerializeField, Tooltip("A binder of bubble sprites, assigned to spawned bubbles depending on their flavor.")]
@@ -191,7 +191,7 @@ public class BubbleSpawner : MonoBehaviour
                 currentFlavor = Bubble_Flavor_Methods.random();
             } while (currentFlavor == lastFlavor || currentFlavor == flavorBeforeThat);
 
-            SpawnBubble(spawnPoint, currentFlavor, Vector2.zero, HYPERmassBubbles);
+            SpawnBubble(spawnPoint, currentFlavor, Vector2.zero, HYPERMassBubbles);
 
             // After spawning, pass back the Flavors we've seen.
             flavorBeforeThat = lastFlavor;

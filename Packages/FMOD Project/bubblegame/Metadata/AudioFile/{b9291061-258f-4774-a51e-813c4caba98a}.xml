@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{b9291061-258f-4774-a51e-813c4caba98a}">
+		<property name="assetPath">
+			<value>Music/operator-chartready.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>146.23206250000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{85811cff-6596-4fd6-9d7f-e8e5091e2fec}</destination>
+		</relationship>
+	</object>
+</objects>

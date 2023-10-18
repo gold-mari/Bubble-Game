@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cdcce0fc639a87448c0374e75ad9b2d, type: 3}
+  m_Name: Level4
+  m_EditorClassIdentifier: 
+  musicEvent:
+    Guid:
+      Data1: 151550282
+      Data2: 1224661381
+      Data3: 122858376
+      Data4: 2087371963
+    Path: event:/Music/Level4
+  beatmapFile: {fileID: 4900000, guid: f10c6d27bc216af40910cf62f08a7316, type: 3}
