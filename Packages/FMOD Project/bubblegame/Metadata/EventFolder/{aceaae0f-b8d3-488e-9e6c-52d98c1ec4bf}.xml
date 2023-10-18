@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="EventFolder" id="{1599d024-d375-46c1-a61a-4b30f27c7ced}">
+	<object class="EventFolder" id="{aceaae0f-b8d3-488e-9e6c-52d98c1ec4bf}">
 		<property name="name">
-			<value>MassSpawn</value>
+			<value>FlavorBomb</value>
 		</property>
 		<relationship name="folder">
 			<destination>{8f35b446-6a13-415a-80cd-87fc4d6bc5c7}</destination>

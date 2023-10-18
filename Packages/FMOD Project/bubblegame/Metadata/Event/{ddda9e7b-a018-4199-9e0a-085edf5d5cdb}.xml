@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{ddda9e7b-a018-4199-9e0a-085edf5d5cdb}">
 		<property name="name">
-			<value>FlavorBombExplode</value>
+			<value>explode</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{8f35b446-6a13-415a-80cd-87fc4d6bc5c7}</destination>
+			<destination>{aceaae0f-b8d3-488e-9e6c-52d98c1ec4bf}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{e538c98c-a347-45d4-a709-b2d37dd93ea6}</destination>

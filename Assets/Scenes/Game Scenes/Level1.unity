@@ -5029,11 +5029,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 167ebe8eeb686344c982877d31590249, type: 2}
     - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: flavorBombSFX.Path
-      value: event:/SFX/FlavorBombExplode
+      value: event:/SFX/FlavorBomb/spawn
       objectReference: {fileID: 0}
     - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: massBubbleSFX.Path
-      value: event:/MassSpawn/spawn
+      value: event:/SFX/MassSpawn/spawn
       objectReference: {fileID: 0}
     - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: hyperbubbleSFX.Path
@@ -5045,11 +5045,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: preFlavorBombSFX.Path
-      value: event:/SFX/FlavorBombExplode
+      value: event:/SFX/FlavorBomb/pre
       objectReference: {fileID: 0}
     - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: preMassBubbleSFX.Path
-      value: event:/MassSpawn/pre
+      value: event:/SFX/MassSpawn/pre
       objectReference: {fileID: 0}
     - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: preHyperbubbleSFX.Path
@@ -5057,19 +5057,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: flavorBombSFX.Guid.Data1
-      value: -572875141
+      value: 1087976901
       objectReference: {fileID: 0}
     - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: flavorBombSFX.Guid.Data2
-      value: 1100587032
+      value: 1129819644
       objectReference: {fileID: 0}
     - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: flavorBombSFX.Guid.Data3
-      value: 1577585310
+      value: 968310433
       objectReference: {fileID: 0}
     - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: flavorBombSFX.Guid.Data4
-      value: -614703649
+      value: -600370997
       objectReference: {fileID: 0}
     - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: massBubbleSFX.Guid.Data1
@@ -5121,19 +5121,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: preFlavorBombSFX.Guid.Data1
-      value: -572875141
+      value: -407746865
       objectReference: {fileID: 0}
     - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: preFlavorBombSFX.Guid.Data2
-      value: 1100587032
+      value: 1332773028
       objectReference: {fileID: 0}
     - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: preFlavorBombSFX.Guid.Data3
-      value: 1577585310
+      value: 1530177968
       objectReference: {fileID: 0}
     - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: preFlavorBombSFX.Guid.Data4
-      value: -614703649
+      value: -1693733643
       objectReference: {fileID: 0}
     - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: preMassBubbleSFX.Guid.Data1
