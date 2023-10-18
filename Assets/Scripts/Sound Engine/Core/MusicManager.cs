@@ -62,6 +62,7 @@ public class MusicManager : MonoBehaviour
         // Starts our instance and our clock.
         // ================
 
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("TapeStop", 0);
         instance.start();
         handler.StartDSPClock(true);
     }
