@@ -15,6 +15,8 @@ public class MusicManager : MonoBehaviour
     private Beatmap currentBeatmap;
     [SerializeField, Tooltip("How long, in seconds, it takes us to tape stop on a loss.\n\nDefault: 2")]
     private float tapeStopDuration = 2;
+    [SerializeField, Tooltip("The endgame manager present in this scene.")]
+    private EndgameManager endgameManager;
 
     // The timeline handler tied to this music manager.
     public TimelineHandler handler { get; private set; }
@@ -29,6 +31,8 @@ public class MusicManager : MonoBehaviour
     private FMOD.Studio.PLAYBACK_STATE playbackState;
     // Used to save a restore the position for pausing, to counteract latency buildup.
     private int timelinePosition;
+    // Used to ensure we can only win once.
+    private bool songEnded = false;
 
     // ================================================================
     // Initializer and finalizer methods
@@ -49,6 +53,8 @@ public class MusicManager : MonoBehaviour
         instance = FMODUnity.RuntimeManager.CreateInstance(mainSong.musicEvent);
         handler = new TimelineHandler(instance);
 
+        // Subscribe to the markerUpdated function. Used to know when the song ends.
+        handler.markerUpdated += OnMarkerUpdated;
 
 #if UNITY_EDITOR
         // If we're in the editor, subscribe to the editor-pausing event.
@@ -67,15 +73,21 @@ public class MusicManager : MonoBehaviour
         handler.StartDSPClock(true);
     }
 
-#if UNITY_EDITOR
     private void OnDestroy()
     {
-        // If we're in the editor, unsubscribe to the editor-pausing event.
+        // Stop the music when we're destroyed. Also, if we're in the editor, unsubscribe
+        // to the editor-pausing event.
         // ================
-        
+
+        instance.release();
+        instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+
+#if UNITY_EDITOR        
         EditorApplication.pauseStateChanged -= OnEditorPause;
-    }
 #endif
+
+    }
+
 
     // ================================================================
     // Pause / unpause / stop methods
@@ -189,4 +201,14 @@ public class MusicManager : MonoBehaviour
         return playbackState != FMOD.Studio.PLAYBACK_STATE.STOPPED;
     }
 
+    // ================================================================
+    // Initializer and finalizer methods
+    // ================================================================
+
+    private void OnMarkerUpdated(string lastMarker)
+    {
+        if (lastMarker == "end") {
+            endgameManager.TriggerWin();
+        }
+    }
 }

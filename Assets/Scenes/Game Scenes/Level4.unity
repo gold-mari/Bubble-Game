@@ -1418,6 +1418,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1209299816 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+  m_PrefabInstance: {fileID: 8830513069248788194}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e490f87045ea7e54ba3d5eadc4d81653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1583674357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1851,6 +1862,10 @@ PrefabInstance:
       propertyPath: mainSong
       value: 
       objectReference: {fileID: 11400000, guid: 3f9f54315f04db445a05b8be9109234c, type: 2}
+    - target: {fileID: 8830513068628213623, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: endgameManager
+      value: 
+      objectReference: {fileID: 1209299816}
     - target: {fileID: 8830513069773835060, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1909,11 +1924,11 @@ PrefabInstance:
       objectReference: {fileID: 2078172877}
     - target: {fileID: 8830513070003073486, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: massRoundSize
-      value: 5
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8830513070003073486, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: HYPERMassBubbles
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}

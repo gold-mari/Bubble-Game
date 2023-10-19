@@ -211,7 +211,13 @@ public class TimelineHandler
         }
         if (lastLastMarker != timelineInfo.lastMarker) {
             lastLastMarker = timelineInfo.lastMarker;
-            markerUpdated?.Invoke(timelineInfo.lastMarker);
+            
+            // Markers may be packed with multiple tags. Parse them out and update for each one.
+            string[] submarkers = ((string)timelineInfo.lastMarker).Split(',');
+            foreach (string submarker in submarkers)
+            {
+                markerUpdated?.Invoke(submarker);
+            }
         }
         if (lastBeat != timelineInfo.currentBeat) {
             lastBeat = timelineInfo.currentBeat;

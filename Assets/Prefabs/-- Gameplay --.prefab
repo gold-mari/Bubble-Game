@@ -516,6 +516,7 @@ MonoBehaviour:
   mainSong: {fileID: 11400000, guid: 167ebe8eeb686344c982877d31590249, type: 2}
   currentBeatmap: {fileID: 11400000, guid: d655ab3fc26d86c4a98bfb5dd074e822, type: 2}
   tapeStopDuration: 4
+  endgameManager: {fileID: 5750587618818772880}
 --- !u!1 &5750587618922182494
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,7 +571,7 @@ MonoBehaviour:
   bubbleParent: {fileID: 5750587618924291759}
   bubble: {fileID: 5062526010735810590, guid: 3fe8ed8d6eb320a469a0c3fb0462ef70, type: 3}
   hyperbubble: {fileID: 5062526010735810590, guid: dd7beb4ab72f8204e82b48f00c64fa49, type: 3}
-  HYPERmassBubbles: 0
+  HYPERMassBubbles: 0
   flavorBomb: {fileID: 5062526010735810590, guid: 8ebdc7d469f403b41b8b521dda5ed75d, type: 3}
   binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
   flavors:

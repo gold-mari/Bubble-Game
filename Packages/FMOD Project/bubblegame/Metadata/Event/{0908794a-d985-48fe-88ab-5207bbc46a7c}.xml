@@ -144,7 +144,7 @@
 			<value>1.7391304347826086</value>
 		</property>
 		<property name="length">
-			<value>146.23206250000001</value>
+			<value>146.08695652173915</value>
 		</property>
 		<relationship name="automators">
 			<destination>{9dae82f7-59f3-4b6c-a300-cbcc8c955203}</destination>
@@ -293,7 +293,7 @@
 			<value>140.8626835533405</value>
 		</property>
 		<property name="name">
-			<value>dontTrack</value>
+			<value>dontTrack,end</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{2d23b3cc-4b1d-4454-b22e-e7b052dca3c3}</destination>
