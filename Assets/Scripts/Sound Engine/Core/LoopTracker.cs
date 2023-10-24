@@ -260,5 +260,13 @@ public class LoopTracker
             SetNextBatchStartEnd();
             doTrack?.Invoke();
         }
+        else
+        {
+            if (lastMarker.Contains("switchMap"))
+            {
+                // If we're switching maps, reset.
+                OnMarkerUpdated("doTrack");
+            }
+        }
     }
 }

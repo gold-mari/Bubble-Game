@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using NaughtyAttributes;
+using UnityEngine.Assertions;
 
 public class MusicManager : MonoBehaviour
 {
@@ -9,7 +11,7 @@ public class MusicManager : MonoBehaviour
     // Parameters
     // ================================================================
 
-    [SerializeField, Tooltip("The main gameplay song to play in this scene.")]
+    [Expandable, SerializeField, Tooltip("The main gameplay song to play in this scene.")]
     private Song mainSong;
     [SerializeField, Tooltip("The 'Current Beatmap' variable in the scene.")]
     private Beatmap currentBeatmap;
@@ -47,7 +49,14 @@ public class MusicManager : MonoBehaviour
 
         // Define the beatmap.
         currentBeatmap.Clear();
-        currentBeatmap.Populate(mainSong.beatmapFile);
+        if (!mainSong.isMedley)
+        {
+            currentBeatmap.Populate(mainSong.beatmapFile);
+        }
+        else // if (mainSong.isMedley)
+        {
+            currentBeatmap.Populate(mainSong.beatmapFiles[0].beatmapFile);
+        }
 
         // Create the timeline handler.
         instance = FMODUnity.RuntimeManager.CreateInstance(mainSong.musicEvent);
@@ -202,13 +211,32 @@ public class MusicManager : MonoBehaviour
     }
 
     // ================================================================
-    // Initializer and finalizer methods
+    // Event handling methods
     // ================================================================
 
     private void OnMarkerUpdated(string lastMarker)
     {
-        if (lastMarker == "end") {
+        if (lastMarker == "end" && !songEnded) {
+            songEnded = true;
             endgameManager.TriggerWin();
+        }
+        else if (mainSong.isMedley)
+        {
+            string[] medleyStrings = lastMarker.Split('-');
+            if (medleyStrings[0] == "switchMap")
+            {
+                Debug.Assert(medleyStrings.Length == 2, $"MusicManager error: OnMarkerUpdated failed. "
+                                                      + $"Unable to parse switchMap marker: {lastMarker}");
+                foreach (MedleyBeatmap map in mainSong.beatmapFiles)
+                {
+                    if (map.beatmapName == medleyStrings[1])
+                    {
+                        currentBeatmap.Clear();
+                        currentBeatmap.Populate(map.beatmapFile);
+                        return;
+                    }
+                }
+            }
         }
     }
 }
