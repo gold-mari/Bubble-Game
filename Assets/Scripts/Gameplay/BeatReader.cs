@@ -18,6 +18,10 @@ public class BeatReader : MonoBehaviour
                          beforeFlipGravity, flipGravity, 
                          beforeMakeFlavorBomb, makeFlavorBomb, 
                          beforeHyperSpawn, hyperSpawn;
+    // The value of our loopTracker's nextLoopBeat for the previous beat.
+    // IMPORTANT: This is NOT necessarily the same as the beat type of the current beat-
+    // this persists between beatmap changes.
+    private BeatType lastNextType;
 
     // ================================================================
     // Internal variables
@@ -32,6 +36,7 @@ public class BeatReader : MonoBehaviour
     private void Start()
     {
         tracker = new LoopTracker(musicManager.handler, currentBeatmap.length);
+        tracker.switchMap += OnSwitchMap;
         tracker.update += OnTrackerUpdate;
     }
 
@@ -43,6 +48,35 @@ public class BeatReader : MonoBehaviour
     // ================================================================
     // Event-handling methods
     // ================================================================
+
+    private void OnSwitchMap()
+    {
+        // Called when we switch maps. When switching on the same beat as a scheduled
+        // beat event, the actual spawning of the even is overwritten by the mapchange.
+        // By storing the lastNextType, we can invoke the event that went missing.
+        // ================
+
+        if (lastNextType == BeatType.SingleSpawn)
+        {
+            singleSpawn?.Invoke();
+        }
+        else if (lastNextType == BeatType.MassSpawn)
+        {
+            massSpawn?.Invoke();
+        }
+        else if (lastNextType == BeatType.FlipGravity)
+        {
+            flipGravity?.Invoke();
+        }
+        else if (lastNextType == BeatType.MakeFlavorBomb)
+        {
+            makeFlavorBomb?.Invoke();
+        }
+        else if (lastNextType == BeatType.HyperSpawn)
+        {
+            hyperSpawn?.Invoke();
+        }
+    }
 
     private void OnTrackerUpdate()
     {
@@ -73,33 +107,7 @@ public class BeatReader : MonoBehaviour
             beforeHyperSpawn?.Invoke();
         }
 
-        /*if (false) // code for one beat before
-        {
-            // Part 2: Parse the next beat.
-            BeatType nextType = currentBeatmap.GetBeatType(tracker.nextLoopBeat);
-            if (nextType == BeatType.SingleSpawn)
-            {
-                pre_singleSpawn?.Invoke();
-            }
-            else if (nextType == BeatType.MassSpawn)
-            {
-                pre_massSpawn?.Invoke();
-            }
-            else if (nextType == BeatType.FlipGravity)
-            {
-                pre_flipGravity?.Invoke();
-            }
-            else if (nextType == BeatType.MakeFlavorBomb)
-            {
-                pre_makeFlavorBomb?.Invoke();
-            }
-            else if (nextType == BeatType.HyperSpawn)
-            {
-                pre_hyperSpawn?.Invoke();
-            }
-        }*/
-
-        // Part 3: Parse the current beat.
+        // Part 2: Parse the current beat.
         BeatType type = currentBeatmap.GetBeatType(tracker.currentLoopBeat);
         if (type == BeatType.SingleSpawn)
         {
@@ -121,5 +129,8 @@ public class BeatReader : MonoBehaviour
         {
             hyperSpawn?.Invoke();
         }
+
+        // Part 3: Get the last next beat.
+        lastNextType = currentBeatmap.GetBeatType(tracker.nextLoopBeat);
     }
 }

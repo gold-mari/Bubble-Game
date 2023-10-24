@@ -65,7 +65,7 @@ public class BeatIconPopulator : MonoBehaviour
         }
     }
 
-        private void OnDoTrack()
+    private void OnDoTrack()
     {
         // Called when our tracker fires off the doTrack action. Force refreshes our icons.
         // ================

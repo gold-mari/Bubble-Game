@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class LoopTracker
@@ -55,6 +56,9 @@ public class LoopTracker
     // An action called when we encounter the "dontTrack" and "doTrack" labels.
     // Used to force refresh the BeatIconPopulator.
     public System.Action dontTrack, doTrack;
+    // An action called when we switch maps. Primarily used to have the beat reader call any
+    // actions that were shouted over by a map switch.
+    public System.Action switchMap;
 
     // ================================================================
     // Internal variables
@@ -264,8 +268,7 @@ public class LoopTracker
         {
             if (lastMarker.Contains("switchMap"))
             {
-                // If we're switching maps, reset.
-                OnMarkerUpdated("doTrack");
+                switchMap?.Invoke();
             }
         }
     }
