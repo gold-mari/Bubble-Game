@@ -1,0 +1,4 @@
+name,DEBUG_Music
+loopLength,32
+singleSpawn,   4,  12, 20, 28  
+makeFlavorBomb,  8,  16, 24, 32

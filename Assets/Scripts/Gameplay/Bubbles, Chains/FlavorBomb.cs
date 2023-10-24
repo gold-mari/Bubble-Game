@@ -44,7 +44,7 @@ public class FlavorBomb : MonoBehaviour
         // DEBUG???
         // DEBUG!!!
         // i got a glock in my rari
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/FlavorBombExplode");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/FlavorBomb/explode");
         // DEBUG???
         // DEBUG!!!
         // i got a glock in my rari

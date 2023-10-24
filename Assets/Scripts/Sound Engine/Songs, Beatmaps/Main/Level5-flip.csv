@@ -1,0 +1,4 @@
+name,DEBUG_Music
+loopLength,32
+singleSpawn,4,8,12,   20,24,28
+gravityFlip,       16,        32
