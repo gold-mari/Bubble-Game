@@ -986,6 +986,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1078382752}
   - component: {fileID: 1078382753}
+  - component: {fileID: 1078382754}
   m_Layer: 0
   m_Name: DS Backing
   m_TagString: Untagged
@@ -1060,6 +1061,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1078382754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078382751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae9517898ad6714b9849c17bbbf744e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicManager: {fileID: 621005205}
+  backgroundFrames:
+  - mapName: base
+    color: {r: 0.56078434, g: 0.7176471, b: 1, a: 1}
+  - mapName: flip
+    color: {r: 0.8509804, g: 0.003921569, b: 0.50980395, a: 1}
+  - mapName: bomb
+    color: {r: 0.8784314, g: 0.8745098, b: 0.77254903, a: 1}
+  - mapName: hyper
+    color: {r: 0.99215686, g: 0.47843137, b: 0, a: 1}
 --- !u!1 &1099883270
 GameObject:
   m_ObjectHideFlags: 0

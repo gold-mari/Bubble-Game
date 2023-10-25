@@ -33,7 +33,7 @@ public class VectorFollower : MonoBehaviour
         // the origin point of this object.
         // ================
 
-        center = transform.position;
+        center = transform.localPosition;
     }
 
     void Update()
@@ -48,6 +48,6 @@ public class VectorFollower : MonoBehaviour
             scaledVector = scaledVector.normalized * maxRadius;
         }
 
-        transform.position = (Vector3)(center + scaledVector);
+        transform.localPosition = (Vector3)(center + scaledVector);
     }
 }
