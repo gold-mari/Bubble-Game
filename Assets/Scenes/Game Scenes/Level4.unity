@@ -1836,7 +1836,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: sceneOnWin
-      value: Level5
+      value: TestWinScene
       objectReference: {fileID: 0}
     - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: sceneOnLose
@@ -1866,10 +1866,6 @@ PrefabInstance:
       propertyPath: endgameManager
       value: 
       objectReference: {fileID: 1209299816}
-    - target: {fileID: 8830513068864276080, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: batchSize
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 8830513069773835060, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_RootOrder
       value: 4
