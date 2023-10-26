@@ -15,6 +15,8 @@ public class BubbleSpawner : MonoBehaviour
     [SerializeField, Tooltip("The DangerManager object present in the scene. This is passed off to the "
                            + "DangerTracker components in spawned bubbles.")]
     private DangerManager dangerManager;
+    [SerializeField, Tooltip("The vector2Var equalling the vector from the cursor position to the center.")]
+    private vector2Var cursorPointVector;
     [SerializeField, Tooltip("The boolVar which signals if gravity is flipped to point outwards instead of inwards.")]
     private boolVar gravityFlipped;
     [Tooltip("The transform that all bubbles will be parented under.")]
@@ -149,10 +151,8 @@ public class BubbleSpawner : MonoBehaviour
 
         singleBubbleSFX_i.start();
 
-        // Get the mouse position on the screen.
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        // The spawn point is the vector from the center to the mouse position, normalized and then multiplied by the radius.
-        Vector2 spawnPoint = (mousePosition - center).normalized * GetCurrentRadius();
+        // The spawn point is the cursor point vector, normalized and then multiplied by the radius.
+        Vector2 spawnPoint = cursorPointVector.value.normalized * GetCurrentRadius();
         
         // Apply an initial force to our bubble.
         Vector2 direction = (center - spawnPoint).normalized;
@@ -207,10 +207,8 @@ public class BubbleSpawner : MonoBehaviour
 
         flavorBombSFX_i.start();
 
-        // Get the mouse position on the screen.
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        // The spawn point is the vector from the center to the mouse position, normalized and then multiplied by the radius.
-        Vector2 spawnPoint = (mousePosition - center).normalized * GetCurrentRadius();
+        // The spawn point is the cursor point vector, normalized and then multiplied by the radius.
+        Vector2 spawnPoint = cursorPointVector.value.normalized * GetCurrentRadius();
         
         // Apply an initial force to our bubble.
         Vector2 direction = (center - spawnPoint).normalized;
@@ -238,10 +236,8 @@ public class BubbleSpawner : MonoBehaviour
 
         hyperbubbleSFX_i.start();
 
-        // Get the mouse position on the screen.
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        // The spawn point is the vector from the center to the mouse position, normalized and then multiplied by the radius.
-        Vector2 spawnPoint = (mousePosition - center).normalized * GetCurrentRadius();
+        // The spawn point is the cursor point vector, normalized and then multiplied by the radius.
+        Vector2 spawnPoint = cursorPointVector.value.normalized * GetCurrentRadius();
         
         // Apply an initial force to our bubble.
         Vector2 direction = (center - spawnPoint).normalized;

@@ -14,10 +14,7 @@ public class CursorPointer : MonoBehaviour
     public BeatReader reader;
     [Tooltip("Whether this script should inherit its parent's BubbleSpawner script. Turn "
            + "this off if you need to fine-tune things.\n\nDefault: true")]
-    public bool takeCenterAndRadius = true;
-    [Tooltip("The center of the playable space.\n\nDefault: (0,0)")]
-    [HideIf("takeCenterAndRadius")]
-    public Vector2 center = new Vector2(0,0);
+    public bool takeRadius = true;
     [Tooltip("The radii (inner, outer) at which the cursor should orbit. When gravity isn't "
            + "inverted, the outer radius is used. When gravity IS inverted, the inner radius is "
            + "used.\n\nDefault: (1,4.4)")]
@@ -71,13 +68,12 @@ public class CursorPointer : MonoBehaviour
         lastGravityFlipped = gravityFlipped.value;
 
         // If we want to take our center and radius, do so.
-        if (takeCenterAndRadius) {
+        if (takeRadius) {
             BubbleSpawner spawner = transform.parent.GetComponent<BubbleSpawner>();
             Debug.Assert(spawner != null, "CursorPointer Error: Start() failed: takeCenterAndRadius is true, "
                                         + "yet this script's parent object has no BubbleSpawner.", this);
 
             radius = spawner.radius;
-            center = spawner.center;
         }
     }
 
@@ -95,12 +91,8 @@ public class CursorPointer : MonoBehaviour
         // Update is called once per frame. Used to update cursor position and rotation.
         // ================
 
-        // Get the mouse position on the screen.
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        // Define the cursorPointVector
-        cursorPointVector.value = (mousePosition - center);
         // The spawn point is the vector from the center to the mouse position, normalized and then multiplied by the radius.
-        transform.position = (Vector3)((mousePosition - center).normalized);
+        transform.position = (Vector3)cursorPointVector.value.normalized;
 
         // Calculate our lerped radius.
         trueRadius = Mathf.Lerp(radius.y, radius.x, radiusLerper);

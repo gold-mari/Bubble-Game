@@ -567,6 +567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beatReader: {fileID: 5750587618400270564}
   dangerManager: {fileID: 5750587620005665187}
+  cursorPointVector: {fileID: 11400000, guid: d897fa1b5632702439a181ff7e697313, type: 2}
   gravityFlipped: {fileID: 11400000, guid: 9c2171a126b23a74f98c7c6802930645, type: 2}
   bubbleParent: {fileID: 5750587618924291759}
   bubble: {fileID: 5062526010735810590, guid: 3fe8ed8d6eb320a469a0c3fb0462ef70, type: 3}
@@ -1085,8 +1086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reader: {fileID: 5750587618400270564}
-  takeCenterAndRadius: 1
-  center: {x: 0, y: 0}
+  takeRadius: 1
   radius: {x: 1, y: 4.5}
   gravityFlipped: {fileID: 11400000, guid: 9c2171a126b23a74f98c7c6802930645, type: 2}
   cursorPointVector: {fileID: 11400000, guid: d897fa1b5632702439a181ff7e697313, type: 2}
