@@ -41,6 +41,14 @@ public class LoopTracker
             return (currentBatchBeat%currentBatchSize)+1;
         } 
     }
+    // The next NEXT beat in the loop.
+    public uint secondNextBatchBeat 
+    { 
+        get
+        {
+            return ((currentBatchBeat+1)%currentBatchSize)+1;
+        } 
+    }
     // The beats that start and end the current batch.
     public uint batchStartBeat { get; private set; }
     public uint batchEndBeat { get; private set; }

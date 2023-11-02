@@ -1247,6 +1247,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1130401788310709551, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: iconColor.b
+      value: 0.27301493
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130401788310709551, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: iconColor.g
+      value: 0.5283019
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130401788310709551, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: iconColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973094834159673966, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6838307
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973094834159673966, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8773585
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973094834159673966, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6406372
+      objectReference: {fileID: 0}
     - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: sceneOnWin
       value: Level4
@@ -1331,5 +1355,29 @@ PrefabInstance:
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2078172877}
+    - target: {fileID: 8963620650543128781, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: defaultColor.b
+      value: 0.68235296
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963620650543128781, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: defaultColor.g
+      value: 0.87843144
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963620650543128781, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: defaultColor.r
+      value: 0.6392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963620650543128781, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: highlightColor.b
+      value: 0.17755428
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963620650543128781, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: highlightColor.g
+      value: 0.8962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963620650543128781, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: highlightColor.r
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}

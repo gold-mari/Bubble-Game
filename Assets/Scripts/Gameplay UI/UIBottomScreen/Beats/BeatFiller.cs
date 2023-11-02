@@ -5,15 +5,24 @@ using UnityEngine;
 
 public class BeatFiller : MonoBehaviour
 {
+    [SerializeField, Tooltip("The BeatIndicator component above this object.")]
+    private BeatIndicator beatIndicator;
     [SerializeField, Tooltip("The transform of our sprite mask.")]
     private Transform maskTransform;
     [SerializeField, Tooltip("The (min, max) range of angles of the sprite mask.")]
     private Vector2 angleRange;
+    [SerializeField, Tooltip("The default color of the fill.")]
+    private Color defaultColor;
+    [SerializeField, Tooltip("The color of the fill on highlight.")]
+    private Color highlightColor;
 
-    [SerializeField, Tooltip("The BeatIndicator component above this object.")]
-    private BeatIndicator beatIndicator;
+    
     // The MusicManager referenced in beatIndicator.
     private MusicManager musicManager;
+    // The Beatmap referenced in beatIndicator.
+    private Beatmap map;
+    // The SpriteRenderer on this object.
+    private SpriteRenderer sprite;
     // A reference to our loop tracker.
     private LoopTracker tracker = null;
     // The currently lerping coroutine.
@@ -26,6 +35,8 @@ public class BeatFiller : MonoBehaviour
         // ================
 
         musicManager = beatIndicator.musicManager;
+        map = beatIndicator.currentBeatmap;
+        sprite = GetComponent<SpriteRenderer>();
 
         // Wait a frame, then access the loop tracker.
         yield return null;
@@ -52,6 +63,21 @@ public class BeatFiller : MonoBehaviour
         }
 
         lerpRoutine = StartCoroutine(LerpBetweenPoints(tracker.currentBatchBeat));
+
+        // Change colors depending on the status of the next beats.
+        BeatType secondNextType = map.GetBeatType(tracker.secondNextLoopBeat);
+        if (secondNextType != BeatType.NONE && secondNextType != BeatType.SingleSpawn)
+        {  
+            sprite.color = highlightColor;
+        }
+        else if (map.GetBeatType(tracker.nextLoopBeat) != BeatType.NONE)
+        {  
+            sprite.color = highlightColor;
+        }
+        else
+        {
+            sprite.color = defaultColor;
+        }
     }
 
     private IEnumerator LerpBetweenPoints(uint currentBeat)

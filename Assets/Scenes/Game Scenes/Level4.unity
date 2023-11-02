@@ -1258,6 +1258,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 767874232575045537, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: batchSize
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130401788310709551, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: iconColor.b
+      value: 0.14129584
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130401788310709551, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: iconColor.g
+      value: 0.1449734
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130401788310709551, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: iconColor.r
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973094834159673966, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_Color.b
+      value: 0.48627448
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973094834159673966, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_Color.g
+      value: 0.78502214
+      objectReference: {fileID: 0}
     - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: sceneOnWin
       value: Level5
@@ -1353,6 +1377,22 @@ PrefabInstance:
     - target: {fileID: 8830513070003073486, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: HYPERMassBubbles
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963620650543128781, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: defaultColor.b
+      value: 0.48627454
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963620650543128781, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: defaultColor.g
+      value: 0.7843138
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963620650543128781, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: highlightColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963620650543128781, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: highlightColor.g
+      value: 0.23025054
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}

@@ -10,8 +10,10 @@ public class BeatIcon : MonoBehaviour
     private LoopTracker tracker;
     // The sprite renderer on this object.
     private SpriteRenderer sprite;
+    // Whether or not this icon represents a single spawn.
+    bool single;
 
-    public void Initialize(uint beat, LoopTracker loopTracker)
+    public void Initialize(uint beat, LoopTracker loopTracker, bool isSingle)
     {
         // Supplies our batchBeat ID and the loopTracker reference.
         // ================
@@ -20,6 +22,8 @@ public class BeatIcon : MonoBehaviour
 
         tracker = loopTracker;
         tracker.update += OnUpdate;
+
+        single = isSingle;
 
         sprite = GetComponentInChildren<SpriteRenderer>();
     }
@@ -41,7 +45,8 @@ public class BeatIcon : MonoBehaviour
         // ================
 
         // If we're up next, flash white.
-        if (batchBeat == tracker.nextBatchBeat)
+        if ((single && batchBeat == tracker.nextBatchBeat) ||
+            (!single && batchBeat == tracker.secondNextBatchBeat))
         {
             StartCoroutine(Flicker());
         }
@@ -50,7 +55,7 @@ public class BeatIcon : MonoBehaviour
         {
             StopAllCoroutines();
             Color grey = Color.Lerp(Color.white, Color.black, 0.5f);
-            grey = Color.Lerp(grey, Color.clear, 0.8f);
+            //grey = Color.Lerp(grey, Color.clear, 0.8f);
             sprite.color = grey;
         }
     }

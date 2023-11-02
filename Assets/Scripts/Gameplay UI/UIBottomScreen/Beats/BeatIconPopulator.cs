@@ -13,6 +13,8 @@ public class BeatIconPopulator : MonoBehaviour
     [SerializeField]
     private GameObject icon;
     [SerializeField]
+    private Color iconColor;
+    [SerializeField]
     private Sprite spawnSprite;
     [SerializeField]
     private Sprite massSpawnSprite;
@@ -102,36 +104,39 @@ public class BeatIconPopulator : MonoBehaviour
                 // Spawn an object.
                 GameObject iconObj = Instantiate(icon, (Vector3)center, Quaternion.Euler(0,0,spawnAngle), transform);
                 // Initialize its beatIcon.
-                iconObj.GetComponentInChildren<BeatIcon>().Initialize(batch_i, tracker);
-                // Set its sprite according to its type.
-                SpriteRenderer renderer = iconObj.GetComponentInChildren<SpriteRenderer>();
+                iconObj.GetComponentInChildren<BeatIcon>().Initialize(batch_i, tracker, type == BeatType.SingleSpawn);
+                // Set its color.
+                iconObj.GetComponentInChildren<SpriteRenderer>().color = iconColor;
+
+                // Set its sprite according to its type. Default to the spawnSprite.
+                Sprite s = spawnSprite;
                 switch (type)
                 {
-                    case BeatType.SingleSpawn:
-                    {
-                        renderer.sprite = spawnSprite;
-                        break;
-                    }  
                     case BeatType.MassSpawn:
                     {
-                        renderer.sprite = massSpawnSprite;
+                        s = massSpawnSprite;
                         break;
                     }
                     case BeatType.FlipGravity:
                     {
-                        renderer.sprite = flipSprite;
+                        s = flipSprite;
                         break;
                     }
                     case BeatType.MakeFlavorBomb:
                     {
-                        renderer.sprite = bombSprite;
+                        s = bombSprite;
                         break;
                     }
                     case BeatType.HyperSpawn:
                     {
-                        renderer.sprite = HYPERsprite;
+                        s = HYPERsprite;
                         break;
                     }
+                }
+
+                foreach (SpriteRenderer renderer in iconObj.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    renderer.sprite = s;
                 }
             }
         }

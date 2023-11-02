@@ -1270,21 +1270,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8830513068594716640, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: m_Icon
-      value: 
+    - target: {fileID: 1130401788310709551, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: iconColor.b
+      value: 0.30993932
       objectReference: {fileID: 0}
-    - target: {fileID: 8830513068594716640, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 1130401788310709551, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: iconColor.g
+      value: 0.28782487
       objectReference: {fileID: 0}
-    - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: sceneOnWin
-      value: TestWinScene
+    - target: {fileID: 1130401788310709551, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: iconColor.r
+      value: 0.3301887
       objectReference: {fileID: 0}
-    - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: sceneOnLose
-      value: Level5
+    - target: {fileID: 1973094834159673966, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7264151
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973094834159673966, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7264151
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973094834159673966, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7264151
       objectReference: {fileID: 0}
     - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: winTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1302,10 +1310,6 @@ PrefabInstance:
       propertyPath: lossTriggered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2078172877}
-    - target: {fileID: 8830513068628213623, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: mainSong
-      value: 
-      objectReference: {fileID: 11400000, guid: 1b3bf3dd50fd7ef49a7dce597212699f, type: 2}
     - target: {fileID: 8830513069773835060, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1362,9 +1366,29 @@ PrefabInstance:
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2078172877}
-    - target: {fileID: 8830513070003073486, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: massRoundSize
-      value: 13
+    - target: {fileID: 8963620650543128781, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: defaultColor.b
+      value: 0.7254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963620650543128781, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: defaultColor.g
+      value: 0.7254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963620650543128781, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: defaultColor.r
+      value: 0.7254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963620650543128781, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: highlightColor.b
+      value: 0.04150939
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963620650543128781, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: highlightColor.g
+      value: 0.8953525
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963620650543128781, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: highlightColor.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}

@@ -395,7 +395,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5264208117703897848}
   - {fileID: 5750587618920034050}
@@ -641,8 +641,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e490f87045ea7e54ba3d5eadc4d81653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneOnLose: 
-  sceneOnWin: 
+  sceneOnLose: Level1
+  sceneOnWin: Level2
   winTriggered:
     m_PersistentCalls:
       m_Calls:
@@ -753,7 +753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c70baf91acf8f84bb54947a05fc5959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainSong: {fileID: 11400000, guid: 167ebe8eeb686344c982877d31590249, type: 2}
+  mainSong: {fileID: 11400000, guid: e3e72b33ebfda6746af99d30f7555f24, type: 2}
   currentBeatmap: {fileID: 11400000, guid: d655ab3fc26d86c4a98bfb5dd074e822, type: 2}
   tapeStopDuration: 4
   endgameManager: {fileID: 5750587618818772880}
@@ -821,8 +821,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 58cf5912f72314644a717ade50213928, type: 2}
   - {fileID: 11400000, guid: 0d086235dbbd8264aa6efc7dd579913d, type: 2}
   - {fileID: 11400000, guid: 8e2ec9d136368524ba006f3391c75f92, type: 2}
-  center: {x: 0, y: 0}
-  radius: {x: 1.2, y: 4.35}
+  center: {x: -1, y: 0}
+  radius: {x: 1.2, y: 4.6}
   initialForce: 500
   massRoundSize: 11
   singleBubbleSFX:
@@ -1326,8 +1326,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reader: {fileID: 5750587618400270564}
-  takeRadius: 1
+  takeCenterAndRadius: 1
   radius: {x: 1, y: 4.5}
+  center: {x: 0, y: 0}
   gravityFlipped: {fileID: 11400000, guid: 9c2171a126b23a74f98c7c6802930645, type: 2}
   cursorPointVector: {fileID: 11400000, guid: d897fa1b5632702439a181ff7e697313, type: 2}
   radiusLerper: 1
@@ -1524,7 +1525,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5655f0fb79a12654084649629b629188, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
