@@ -152,7 +152,7 @@ public class BubbleSpawner : MonoBehaviour
         singleBubbleSFX_i.start();
 
         // The spawn point is the cursor point vector, normalized and then multiplied by the radius.
-        Vector2 spawnPoint = cursorPointVector.value.normalized * GetCurrentRadius();
+        Vector2 spawnPoint = cursorPointVector.value.normalized * GetCurrentRadius() + center;
         
         // Apply an initial force to our bubble.
         Vector2 direction = (center - spawnPoint).normalized;
@@ -183,7 +183,7 @@ public class BubbleSpawner : MonoBehaviour
             // Each spawnPoint should be a unit vector, equally spaced out depending on
             // the size of i.
             Quaternion rotation = Quaternion.Euler(0,0,(360*i/massRoundSize));
-            Vector2 spawnPoint = rotation * Vector2.up * GetCurrentRadius();
+            Vector2 spawnPoint = rotation * Vector2.up * GetCurrentRadius() + (Vector3)center;
 
             // If the Flavor we generated was one of the last two Flavors we generated,
             // regenerate it.
@@ -208,7 +208,7 @@ public class BubbleSpawner : MonoBehaviour
         flavorBombSFX_i.start();
 
         // The spawn point is the cursor point vector, normalized and then multiplied by the radius.
-        Vector2 spawnPoint = cursorPointVector.value.normalized * GetCurrentRadius();
+        Vector2 spawnPoint = cursorPointVector.value.normalized * GetCurrentRadius() + center;
         
         // Apply an initial force to our bubble.
         Vector2 direction = (center - spawnPoint).normalized;
@@ -237,7 +237,7 @@ public class BubbleSpawner : MonoBehaviour
         hyperbubbleSFX_i.start();
 
         // The spawn point is the cursor point vector, normalized and then multiplied by the radius.
-        Vector2 spawnPoint = cursorPointVector.value.normalized * GetCurrentRadius();
+        Vector2 spawnPoint = cursorPointVector.value.normalized * GetCurrentRadius()  + center;
         
         // Apply an initial force to our bubble.
         Vector2 direction = (center - spawnPoint).normalized;

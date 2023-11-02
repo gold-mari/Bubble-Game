@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strength: {fileID: 11400000, guid: 1f488925cb89b6d468b3f5a8e5d480b1, type: 2}
-  center: {x: 0, y: 0}
+  center: {x: -1.5, y: 0}
 --- !u!114 &5062526010735810576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,10 +150,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b8e19d87cf48d4fae7eea6251387e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubbleColor: 0
+  bubbleFlavor: 1
   age: 0
   chain: {fileID: 11400000, guid: 83523781210cefa4c9912d4153ddd914, type: 2}
   adjacencies: []
+  isBomb: 0
+  isHyperbubble: 0
+  handler: {fileID: 0}
 --- !u!114 &3540284537023933622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +172,7 @@ MonoBehaviour:
   gravityFlipped: {fileID: 11400000, guid: 9c2171a126b23a74f98c7c6802930645, type: 2}
   dangerManager: {fileID: 0}
   dangerRadii: {x: 1.8, y: 3.9}
-  center: {x: 0, y: 0}
+  center: {x: -1.5, y: 0}
   initialDelay: 1
   inDanger: 0
 --- !u!95 &2727096753672946227

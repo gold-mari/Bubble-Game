@@ -12,14 +12,16 @@ public class CursorPointer : MonoBehaviour
 
     [Tooltip("The BeatReader in this scene.")]
     public BeatReader reader;
-    [Tooltip("Whether this script should inherit its parent's BubbleSpawner script. Turn "
-           + "this off if you need to fine-tune things.\n\nDefault: true")]
-    public bool takeRadius = true;
+    [Tooltip("Whether this script should inherit its center and radius from its parent's "
+           + "BubbleSpawner script. Turn this off if you need to fine-tune things.\n\nDefault: true")]
+    public bool takeCenterAndRadius = true;
     [Tooltip("The radii (inner, outer) at which the cursor should orbit. When gravity isn't "
            + "inverted, the outer radius is used. When gravity IS inverted, the inner radius is "
            + "used.\n\nDefault: (1,4.4)")]
     [HideIf("takeCenterAndRadius")]
     public Vector2 radius = new Vector2(1f, 4.4f);
+    [HideIf("takeCenterAndRadius")]
+    public Vector2 center = new Vector2(0f, 0f);
     [Tooltip("The boolVar which signals if gravity is flipped to point outwards instead of inwards.")]
     [SerializeField]
     private boolVar gravityFlipped;
@@ -68,12 +70,13 @@ public class CursorPointer : MonoBehaviour
         lastGravityFlipped = gravityFlipped.value;
 
         // If we want to take our center and radius, do so.
-        if (takeRadius) {
+        if (takeCenterAndRadius) {
             BubbleSpawner spawner = transform.parent.GetComponent<BubbleSpawner>();
             Debug.Assert(spawner != null, "CursorPointer Error: Start() failed: takeCenterAndRadius is true, "
                                         + "yet this script's parent object has no BubbleSpawner.", this);
 
             radius = spawner.radius;
+            center = spawner.center;
         }
     }
 
@@ -100,13 +103,16 @@ public class CursorPointer : MonoBehaviour
         // Apply this radius to our position.
         transform.position *= trueRadius;
 
+        // Make sure we're centered right.
+        transform.position += (Vector3)center;
+
         if (lastGravityFlipped != gravityFlipped.value) {
             lastGravityFlipped = gravityFlipped.value;
             animator.SetBool("gravityFlipped", gravityFlipped.value);
         }
 
         // Point towards the center.
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, transform.position);
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, transform.position-(Vector3)center);
         // Multiply this by a custom rotation which flips the cursor during animations.
         // When radiusLerper is 0, we want to flip 180 degrees. When 1, flip 0 degrees.
         float xAmount = (radiusLerper * 180f);
