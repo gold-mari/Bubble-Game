@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,12 +10,12 @@ public class BeatFiller : MonoBehaviour
     [SerializeField, Tooltip("The (min, max) range of angles of the sprite mask.")]
     private Vector2 angleRange;
 
-    // The BeatIndicator component on this object's parent.
+    [SerializeField, Tooltip("The BeatIndicator component above this object.")]
     private BeatIndicator beatIndicator;
     // The MusicManager referenced in beatIndicator.
     private MusicManager musicManager;
     // A reference to our loop tracker.
-    private LoopTracker tracker;
+    private LoopTracker tracker = null;
     // The currently lerping coroutine.
     private Coroutine lerpRoutine = null;
     
@@ -24,14 +25,13 @@ public class BeatFiller : MonoBehaviour
         // initialize our UI.
         // ================
 
-        beatIndicator = transform.parent.GetComponent<BeatIndicator>();
         musicManager = beatIndicator.musicManager;
 
-        // Subscribe to our tracker after a frame.
+        // Wait a frame, then access the loop tracker.
         yield return null;
+
         tracker = beatIndicator.tracker;
         tracker.update += OnUpdate;
-
         UpdateUI(1f/(tracker.currentBatchSize+1));
     }
 

@@ -6,6 +6,8 @@ public class BeatIconPopulator : MonoBehaviour
 {
     [SerializeField, Tooltip("The BeatIndicator component above this object.")]
     private BeatIndicator beatIndicator;
+    [SerializeField, Tooltip("Where the BeatIndicator 'Offset' object is centered, in worldspace units.")]
+    private Vector2 center;
     [SerializeField]
     private Vector2 angleRange;
     [SerializeField]
@@ -98,7 +100,7 @@ public class BeatIconPopulator : MonoBehaviour
             // If the type of this beat is not NONE,
             if (type != BeatType.NONE) {
                 // Spawn an object.
-                GameObject iconObj = Instantiate(icon, Vector3.zero, Quaternion.Euler(0,0,spawnAngle), transform);
+                GameObject iconObj = Instantiate(icon, (Vector3)center, Quaternion.Euler(0,0,spawnAngle), transform);
                 // Initialize its beatIcon.
                 iconObj.GetComponentInChildren<BeatIcon>().Initialize(batch_i, tracker);
                 // Set its sprite according to its type.
