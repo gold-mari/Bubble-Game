@@ -82,7 +82,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8119000623734593784
 GameObject:
@@ -179,6 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8666601734840800243}
   - component: {fileID: 1479860454781469071}
+  - component: {fileID: 1794123156436012684}
   m_Layer: 0
   m_Name: Indicator Icon
   m_TagString: Untagged
@@ -214,3 +215,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1928f462f963a43479b5e2a611fddc27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loopBeat: 0
+  flashDelay: 0.1
+  overrideBaseScale: 0
+  baseScale: {x: 0, y: 0, z: 0}
+  bigFactor: {x: 1.66, y: 1.66, z: 1.66}
+  scaleIndex: 0
+  overrideBaseColor: 0
+  baseColor: {r: 0, g: 0, b: 0, a: 0}
+  highlightColor: {r: 1, g: 1, b: 1, a: 1}
+  colorIndex: 0
+  greyness: 0
+--- !u!95 &1794123156436012684
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8666601734840800240}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14cde1a668f2573439c5404a77c89526, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
