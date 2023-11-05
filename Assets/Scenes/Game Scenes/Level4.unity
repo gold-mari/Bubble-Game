@@ -1362,6 +1362,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: === Bottom Screen ===
       objectReference: {fileID: 0}
+    - target: {fileID: 8830513069823740375, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8830513070003073481, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1388,11 +1392,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8963620650543128781, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: highlightColor.b
-      value: 0
+      value: 0.14346743
       objectReference: {fileID: 0}
     - target: {fileID: 8963620650543128781, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: highlightColor.g
-      value: 0.23025054
+      value: 0.4719634
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963620650543128781, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: highlightColor.r
+      value: 0.9811321
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}

@@ -78,12 +78,14 @@ public class LoopTracker
     private uint loopSize = 0;
     // Whether or not we should track incoming beats and update counts.
     private bool shouldUpdate = false;
+    // If we should print debug messages.
+    private bool DEBUG_verbose;
 
     // ================================================================
     // Initializers and finalizers
     // ================================================================
 
-    public LoopTracker(TimelineHandler timelineHandler, uint loop, uint batch)
+    public LoopTracker(TimelineHandler timelineHandler, uint loop, uint batch, bool verbose=false)
     {
         // Constructor with the optional batch parameter.
         // ================    
@@ -95,6 +97,8 @@ public class LoopTracker
         {
             maxBatchSize = batch;
         }
+
+        DEBUG_verbose = verbose;
 
         Initialize(timelineHandler);
     }
@@ -237,6 +241,13 @@ public class LoopTracker
 
             update?.Invoke();
         }
+
+        /*if (DEBUG_verbose)
+        {
+            Debug.Log($"Current batchbeat: {currentBatchBeat}. " +
+                      $"Next batchbeat: {nextBatchBeat}. " +
+                      $"Next next batchbeat: {secondNextBatchBeat}");
+        }*/
     }
 
     private void OnMarkerUpdated(string lastMarker)

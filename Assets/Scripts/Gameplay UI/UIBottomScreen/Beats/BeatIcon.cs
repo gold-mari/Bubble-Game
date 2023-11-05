@@ -1,24 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class BeatIcon : MonoBehaviour
 {
-    // The beat number in the batch this icon corresponds to.
-    private uint batchBeat;
+    [SerializeField, Tooltip("The interval between 'flash' and 'unflash' states in the flicker animation.\n\nDefault: 0.1f")]
+    float flashDelay = 0.1f;
+    [SerializeField, ReadOnly, Tooltip("The beat number in the loop this icon corresponds to. Exposed for reference.")]
+    private uint loopBeat;
     // The LoopTracker running the beat UI.
     private LoopTracker tracker;
-    // The sprite renderer on this object.
-    private SpriteRenderer sprite;
     // Whether or not this icon represents a single spawn.
     bool single;
+    // The sprite renderer on this object.
+    private SpriteRenderer sprite;
+    // The base scale of this icon's sprite.
+    private Vector3 baseScale;
+    // The currently running flicker routine. Used to check if one is running.
+    Coroutine flickerRoutine = null;
 
     public void Initialize(uint beat, LoopTracker loopTracker, bool isSingle)
     {
-        // Supplies our batchBeat ID and the loopTracker reference.
+        // Supplies our loopBeat ID and the loopTracker reference.
         // ================
 
-        batchBeat = beat;
+        loopBeat = beat;
 
         tracker = loopTracker;
         tracker.update += OnUpdate;
@@ -26,6 +33,12 @@ public class BeatIcon : MonoBehaviour
         single = isSingle;
 
         sprite = GetComponentInChildren<SpriteRenderer>();
+
+        baseScale = sprite.transform.localScale;
+
+        // Force OnUpdate immediately after initialization. Without this, icons on the 1st or 2nd
+        // batch beat will not appear correctly.
+        OnUpdate();
     }
 
     private void OnDestroy()
@@ -45,15 +58,29 @@ public class BeatIcon : MonoBehaviour
         // ================
 
         // If we're up next, flash white.
-        if ((single && batchBeat == tracker.nextBatchBeat) ||
-            (!single && batchBeat == tracker.secondNextBatchBeat))
+        // For single spawns, we are considered 'up next' 1 beat before our turn.
+        // For other events, we are considered 'up next' 1-2 beats before our turn.
+        if ((loopBeat == tracker.nextLoopBeat) ||
+            (!single && loopBeat == tracker.secondNextLoopBeat))
         {
-            StartCoroutine(Flicker());
+            if (flickerRoutine == null)
+            {
+                flickerRoutine = StartCoroutine(Flicker());
+            }
+            
+            sprite.transform.localScale = 1.5f * baseScale;
         }
-        // If it's our turn, ...
-        else if (batchBeat == tracker.currentBatchBeat)
+        // If it's our turn, go back to normal scale and turn grey, to signal we're spent.
+        else if (loopBeat == tracker.currentLoopBeat)
         {
-            StopAllCoroutines();
+            if (flickerRoutine != null)
+            {
+                StopCoroutine(flickerRoutine);
+                flickerRoutine = null;
+            }
+
+            sprite.transform.localScale = baseScale;
+
             Color grey = Color.Lerp(Color.white, Color.black, 0.5f);
             //grey = Color.Lerp(grey, Color.clear, 0.8f);
             sprite.color = grey;
@@ -62,22 +89,19 @@ public class BeatIcon : MonoBehaviour
 
     private IEnumerator Flicker()
     {
-        // DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG 
-        // DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG 
-        // DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG 
-        // DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG 
-
-        // Todo: do a squash stretch animation instead?
+        // Programmatic animation which flickers the color from the original to white over
+        // flashDelay seconds.
         // ================
 
         Color original = sprite.color;
+        WaitForSeconds wait = new WaitForSeconds(flashDelay);
 
         while (true)
         {
             sprite.color = Color.white;
-            yield return null;
+            yield return wait;
             sprite.color = original;
-            yield return null;
+            yield return wait;
         }
     }
 }

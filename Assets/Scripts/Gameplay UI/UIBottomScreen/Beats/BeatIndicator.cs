@@ -20,6 +20,6 @@ public class BeatIndicator : MonoBehaviour
         // ================
 
         // Initialize the tracker.
-        tracker = new LoopTracker(musicManager.handler, currentBeatmap.length, batchSize);
+        tracker = new LoopTracker(musicManager.handler, currentBeatmap.length, batchSize, true);
     }
 }

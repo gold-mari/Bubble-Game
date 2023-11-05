@@ -104,7 +104,7 @@ public class BeatIconPopulator : MonoBehaviour
                 // Spawn an object.
                 GameObject iconObj = Instantiate(icon, (Vector3)center, Quaternion.Euler(0,0,spawnAngle), transform);
                 // Initialize its beatIcon.
-                iconObj.GetComponentInChildren<BeatIcon>().Initialize(batch_i, tracker, type == BeatType.SingleSpawn);
+                iconObj.GetComponentInChildren<BeatIcon>().Initialize(i, tracker, type == BeatType.SingleSpawn);
                 // Set its color.
                 iconObj.GetComponentInChildren<SpriteRenderer>().color = iconColor;
 
