@@ -26,11 +26,11 @@ public class Bubble_Flavor_Methods
     }
     
     // Color references used with getSpriteColor.
-    private static Color red = new Color(1f,0.2962264f,0.2962264f);
-    private static Color blue = new Color(0.2980392f,0.6712846f,1f);
-    private static Color yellow = new Color(0.9963511f,1f,0.2980392f);
-    private static Color green = new Color(0.2980392f,1f,0.5218196f);
-    private static Color purple = new Color(0.781f,0.27f,0.9f);
+    private static Color red = new Color(1f,0.2962264f,0.2962264f);     // FF4C4C
+    private static Color blue = new Color(0.2980392f,0.6712846f,1f);    // 4CABFF
+    private static Color yellow = new Color(0.9963511f,1f,0.2980392f);  // FEFF4C
+    private static Color green = new Color(0.2980392f,1f,0.5218196f);   // 4CFF85
+    private static Color purple = new Color(0.781f,0.27f,0.9f);         // C745E6
 
     public static Color getColor(Bubble_Flavor flavor)
     {
