@@ -67,7 +67,7 @@ public class EndgameManager : MonoBehaviour
     // Debug methods
     // ================================================================
 
-    private void OnGUI()
+    /*private void OnGUI()
     {
         if (GUI.Button(new Rect(10, 10, 50, 50), "Win!"))
         {
@@ -77,5 +77,5 @@ public class EndgameManager : MonoBehaviour
         {
             TriggerLoss();
         }
-    }
+    }*/
 }
