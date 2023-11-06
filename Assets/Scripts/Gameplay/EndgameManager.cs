@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
-using NaughtyAttributes;
 
 public class EndgameManager : MonoBehaviour
 {
@@ -11,11 +9,9 @@ public class EndgameManager : MonoBehaviour
     // Parameters
     // ================================================================
 
-    [Tooltip("The scene we transition to on a loss- reaching max danger.")]
-    [SerializeField] [Scene]
-    private string sceneOnLose;
-    [Tooltip("The scene we transition to on a win- reaching the end of the song.")]
-    [SerializeField] [Scene]
+    [SerializeField, Tooltip("The level loader present in the scene.")]
+    private LevelLoader loader;
+    [SerializeField, Tooltip("The name of the scene we transition to on a loss- reaching the end of the song.")]
     private string sceneOnWin;
     [Tooltip("A UnityEvent which communicates with CharacterAnimator that we have just won.")]
     [SerializeField]
@@ -23,6 +19,10 @@ public class EndgameManager : MonoBehaviour
     [Tooltip("A UnityEvent which communicates with CharacterAnimator that we have just lost.")]
     [SerializeField]
     UnityEvent lossTriggered;
+
+    // ================================================================
+    // Internal variables
+    // ================================================================
 
     // Bools if we've already lost or won.
     bool alreadyWon, alreadyLost;
@@ -35,6 +35,7 @@ public class EndgameManager : MonoBehaviour
     {
         // IE don't run anything if we're inactive.
         if (!alreadyWon && gameObject.activeInHierarchy) {
+            alreadyWon = true;
             StartCoroutine(WinRoutine());
         }
     }
@@ -42,14 +43,15 @@ public class EndgameManager : MonoBehaviour
     {
         print("You win!");
         winTriggered.Invoke();
-        yield return new WaitForSeconds(6f);
-        SceneManager.LoadScene(sceneOnWin);
+        yield return new WaitForSeconds(2.5f);
+        loader.LoadLevel(sceneOnWin);
     }
 
     public void TriggerLoss()
     {
         // IE don't run anything if we're inactive.
         if (!alreadyLost && gameObject.activeInHierarchy) {
+            alreadyLost = true;
             StartCoroutine(LossRoutine());
         }
     }
@@ -57,7 +59,23 @@ public class EndgameManager : MonoBehaviour
     {
         print("You lost!");
         lossTriggered.Invoke();
-        yield return new WaitForSeconds(6f);
-        SceneManager.LoadScene(sceneOnLose);
+        yield return new WaitForSeconds(5f);
+        loader.ReloadLevel();
+    }
+
+    // ================================================================
+    // Debug methods
+    // ================================================================
+
+    private void OnGUI()
+    {
+        if (GUI.Button(new Rect(10, 10, 50, 50), "Win!"))
+        {
+            TriggerWin();
+        }
+        if (GUI.Button(new Rect(10, 70, 50, 50), "Lose!"))
+        {
+            TriggerLoss();
+        }
     }
 }
