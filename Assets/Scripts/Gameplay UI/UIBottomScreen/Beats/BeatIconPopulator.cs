@@ -44,8 +44,6 @@ public class BeatIconPopulator : MonoBehaviour
         tracker.update += OnUpdate;
         tracker.doTrack += OnDoTrack;
         tracker.dontTrack += OnDontTrack;
-
-        PlaceIcons(tracker.batchStartBeat, tracker.batchEndBeat);
     }
 
     private void OnDestroy()
