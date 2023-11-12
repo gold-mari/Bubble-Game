@@ -6,8 +6,8 @@ using NaughtyAttributes;
 [RequireComponent(typeof(SquashStretchHandler))]
 public class BeatBouncer : MonoBehaviour
 {
-    [SerializeField, Tooltip("The music manager present in this scene.")]
-    private MusicManager musicManager;
+    [SerializeField, Tooltip("The music player present in this scene.")]
+    private MusicPlayer musicPlayer;
     [SerializeField, Tooltip("The curve we evaluate when animating the bounce on the beat. "
                            + "The duration of the curve is determined by beatBounceLength.\n\n"
                            + "Recall negative is squash and positive is stretch.")]
@@ -56,7 +56,7 @@ public class BeatBouncer : MonoBehaviour
         // Start is called before the first frame update. We use it to subscribe to beat updates.
         // ================
 
-        handler = musicManager.handler;
+        handler = musicPlayer.handler;
         handler.beatUpdated += OnBeatUpdated;
     }
 
@@ -70,6 +70,11 @@ public class BeatBouncer : MonoBehaviour
 
     private void OnBeatUpdated()
     {
+        if (!gameObject.activeInHierarchy)
+        {
+            return;
+        }
+
         float bounceTime = (float)(beatBounceLength * handler.length4th);
         float leadTime = (float)(leadInLength * handler.length4th);
         float timeBetweenCurves = (float)handler.length4th - bounceTime - leadTime;

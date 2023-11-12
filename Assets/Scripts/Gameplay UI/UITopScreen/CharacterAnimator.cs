@@ -38,7 +38,10 @@ public class CharacterAnimator : MonoBehaviour
         // the animator.
         // ================
 
-        animator.SetBool("playerDanger", inDanger.value);
+        if (animator)
+        {
+            animator.SetBool("playerDanger", inDanger.value);
+        }
     }
 
     // ==============================================================
@@ -51,7 +54,10 @@ public class CharacterAnimator : MonoBehaviour
         // Sets the chainBreak trigger in the animator.
         // ================
 
-        animator.SetTrigger("chainBreak");
+        if (animator)
+        {
+            animator.SetTrigger("chainBreak");
+        }
     }
 
     public void OnPlayerWin()
@@ -60,7 +66,10 @@ public class CharacterAnimator : MonoBehaviour
         // Sets the triggerWin trigger in the animator.
         // ================
 
-        animator.SetTrigger("playerWin");
+        if (animator)
+        {
+            animator.SetTrigger("playerWin");
+        }
     }
 
     public void OnPlayerLoss()
@@ -69,6 +78,9 @@ public class CharacterAnimator : MonoBehaviour
         // Sets the triggerLoss trigger in the animator.
         // ================
 
-        animator.SetTrigger("playerLoss");
+        if (animator)
+        {
+            animator.SetTrigger("playerLoss");
+        }
     }
 }

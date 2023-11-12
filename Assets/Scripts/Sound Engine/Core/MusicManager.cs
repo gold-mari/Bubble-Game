@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using NaughtyAttributes;
-using UnityEngine.Assertions;
 
-public class MusicManager : MonoBehaviour
+public class MusicManager : MusicPlayer
 {
     // ================================================================
     // Parameters
@@ -20,27 +19,11 @@ public class MusicManager : MonoBehaviour
     [SerializeField, Tooltip("The endgame manager present in this scene.")]
     private EndgameManager endgameManager;
 
-    // The timeline handler tied to this music manager.
-    public TimelineHandler handler { get; private set; }
-    
-    // ================================================================
-    // Internal variables
-    // ================================================================
-
-    // The instance of the currently-playing song.
-    private FMOD.Studio.EventInstance instance;
-    // Used to check if the instance is playing.
-    private FMOD.Studio.PLAYBACK_STATE playbackState;
-    // Used to save a restore the position for pausing, to counteract latency buildup.
-    private int timelinePosition;
-    // Used to ensure we can only win once.
-    private bool songEnded = false;
-
     // ================================================================
     // Initializer and finalizer methods
     // ================================================================
 
-    private void Awake()
+    protected override void Awake()
     {
         // Set things up!
         // ================
@@ -58,91 +41,27 @@ public class MusicManager : MonoBehaviour
             currentBeatmap.Populate(mainSong.beatmapFiles[0].beatmapFile);
         }
 
-        // Create the timeline handler.
-        instance = FMODUnity.RuntimeManager.CreateInstance(mainSong.musicEvent);
-        handler = new TimelineHandler(instance);
+        eventRef = mainSong.musicEvent;
+
+        // Call our base awake function, which includes creating our timeline handler.
+        base.Awake();
 
         // Subscribe to the markerUpdated function. Used to know when the song ends.
         handler.markerUpdated += OnMarkerUpdated;
-
-#if UNITY_EDITOR
-        // If we're in the editor, subscribe to the editor-pausing event.
-        EditorApplication.pauseStateChanged += OnEditorPause;
-#endif
-
     }
 
-    private void Start()
+    protected override void Start()
     {
         // Starts our instance and our clock.
         // ================
 
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("TapeStop", 0);
-        instance.start();
-        handler.StartDSPClock(true);
+        base.Start();
     }
-
-    private void OnDestroy()
-    {
-        // Stop the music when we're destroyed. Also, if we're in the editor, unsubscribe
-        // to the editor-pausing event.
-        // ================
-
-        instance.release();
-        instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-
-#if UNITY_EDITOR        
-        EditorApplication.pauseStateChanged -= OnEditorPause;
-#endif
-
-    }
-
 
     // ================================================================
     // Pause / unpause / stop methods
     // ================================================================
-
-#if UNITY_EDITOR
-    private void OnEditorPause(PauseState state)
-    {
-        // Detects when the editor pauses or plays. Passes a call to PauseMusic().
-        // ================
-
-        PauseMusic(state == PauseState.Paused);
-    }
-#endif
-
-    private void OnApplicationPause(bool pauseStatus)
-    {
-        // Detects when the application pauses or plays. If we're paused, stop the timeline
-        // handler from accumulating DSP Time.
-        // ================
-
-        PauseMusic(pauseStatus);
-    }
-
-    public void PauseMusic(bool pauseStatus)
-    {
-        // Wrapper function for pausing and unpausing. Stops both our music and our DSP clock.
-        // 
-        // getTimelinePosition and setTimelinePosition are used to prevent latency buildup-
-        // this solution courtesy of user emretanirgan from the FMOD forums:
-        // https://qa.fmod.com/t/event-timeline-lags-behind-after-repeated-setpaused-calls/16694/3
-        // ================
-
-        if (pauseStatus)
-        {
-            instance.setPaused(true);
-            instance.getTimelinePosition(out timelinePosition);
-            handler.StopDSPClock();
-        }
-        else
-        {
-            instance.setPaused(false);
-            instance.setTimelinePosition(timelinePosition);
-            handler.StartDSPClock(IsInstancePlaying());
-        }
-    }
 
     public void TapeStop()
     {
@@ -161,53 +80,12 @@ public class MusicManager : MonoBehaviour
         float elapsed = 0;
         while (elapsed < tapeStopDuration)
         {
-            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("TapeStop", (elapsed/tapeStopDuration));
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("TapeStop", elapsed/tapeStopDuration);
             elapsed += Time.deltaTime;
             yield return null;
         }
 
         StopMusic();
-    }
-
-    private void StopMusic()
-    {
-        instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-        handler.StopDSPClock();
-    }
-
-    // ================================================================
-    // Ongoing methods
-    // ================================================================
-
-    private void Update()
-    {
-        // Update the handler.
-        // ================
-
-        handler.Update();
-    }
-
-/*#if UNITY_EDITOR
-    private void OnGUI()
-    {
-        // If we're in the editor, display the timeline handler's GUI readout.
-        // ================
-
-        handler.OnGUI();
-    }
-#endif*/
-
-    // ================================================================
-    // Helper methods
-    // ================================================================
-
-    private bool IsInstancePlaying()
-    {
-        // Returns if an FMOD instance is currently playing.
-        // ================
-
-        instance.getPlaybackState(out playbackState);
-        return playbackState != FMOD.Studio.PLAYBACK_STATE.STOPPED;
     }
 
     // ================================================================
