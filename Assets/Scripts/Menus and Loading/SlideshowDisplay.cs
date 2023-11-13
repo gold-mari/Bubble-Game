@@ -37,6 +37,7 @@ public class SlideshowDisplay : MonoBehaviour
         // ================
 
         currentIndex = 0;
+        advanceButton.interactable = true;
         backButton.interactable = false;
 
         currentSlide = slides[currentIndex];
