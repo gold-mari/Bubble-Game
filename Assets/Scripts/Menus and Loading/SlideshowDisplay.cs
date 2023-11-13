@@ -27,7 +27,7 @@ public class SlideshowDisplay : MonoBehaviour
     private GameObject currentSlide;
 
     // ==============================================================
-    // Initialization methods
+    // Initialization / finalizations methods
     // ==============================================================
 
     private void OnEnable()
@@ -52,6 +52,17 @@ public class SlideshowDisplay : MonoBehaviour
                 slide.SetActive(false);
             }
         }
+    }
+
+    private void OnDisable()
+    {
+        // OnDisable is called when this object is enabled. We use it to intialize our slideshow
+        // state.
+        // ================
+
+        currentIndex = 0;
+        advanceButton.interactable = true;
+        backButton.interactable = false;
     }
 
     // ==============================================================
