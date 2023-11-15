@@ -1,0 +1,20 @@
+{
+    "lines":
+    [
+        {
+            "actor":"Joe",
+            "actions":"Joe.wave",
+            "text":"Hi everyone! My name is Joe!"
+        },
+        {
+            "actor":"Steven",
+            "actions":"Steven.quizzical,Joe.anticipation",
+            "text":"Who's Joe?"
+        },
+        {
+            "actor":"Joe",
+            "actions":"Joe.guffaw",
+            "text":"<b>JOE MAMA!</b>"
+        }
+    ]
+}
