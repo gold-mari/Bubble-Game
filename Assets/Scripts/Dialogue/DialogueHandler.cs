@@ -167,13 +167,13 @@ public class DialogueHandler : MonoBehaviour
             string[] actions = lineDict[line].actions.Split(',');
             foreach (string action in actions)
             {
-                // Split each action into 2 tokens: the actor, and the trigger.
-                string[] tokens = action.Split('.');
+                // Split each action into 2 tokens: the actor, and the trigger. We use Trim to trim whitespace.
+                string[] tokens = action.Trim().Split('.');
                 Debug.Assert(tokens.Length == 2, $"DialogueHandler error: UpdateText failed. Token count of action '{action}' " +
                                                 $"on line {line} was not 2: {tokens.Length}");
                 Debug.Assert(actorDict.ContainsKey(tokens[0]), $"DialogueHandler error: UpdateText failed. First token of " +
                                                             $"action '{action}' on line {line} was not a valid actor: {tokens[0]}");
-                actorDict[tokens[0]].Trigger(tokens[1]);
+                actorDict[tokens[0].Trim()].Trigger(tokens[1]);
             }
         }
     }
