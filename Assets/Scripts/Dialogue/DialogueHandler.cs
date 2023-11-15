@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 [System.Serializable]
 public class Dialogue
@@ -12,33 +13,35 @@ public class Dialogue
 [System.Serializable]
 public class DialogueLine
 {
-    public DialogueLine() {}
-    public DialogueLine(string ourActor, string ourActions, string ourText)
-    {
-        actor = ourActor;
-        actions = ourActions;
-        text = ourText;
-    }
-
     public string actor;
     public string actions;
     public string text;
 }
 
+[System.Serializable]
+public class Actor
+{
+    public string actorName;
+    public DialogueActor actorObject;
+}
+
 public class DialogueHandler : MonoBehaviour
 {
     public TextAsset dialogueFile;
+    public Actor[] actors;
     public TMP_Text textbox;
     public TMP_Text speaker;
 
     int index;
     Dictionary<int, DialogueLine> lineDict = new();
+    Dictionary<string, DialogueActor> actorDict = new();
 
     // Start is called before the first frame update
     void Start()
     {
+        PopulateActorDict();
         PopulateLineDict();
-        UpdateText();
+        UpdateText(index);
     }
 
     // Update is called once per frame
@@ -55,7 +58,15 @@ public class DialogueHandler : MonoBehaviour
                 index = 0;
             }
 
-            UpdateText();
+            UpdateText(index);
+        }
+    }
+
+    private void PopulateActorDict()
+    {
+        foreach (Actor actor in actors)
+        {
+            actorDict.Add(actor.actorName, actor.actorObject);
         }
     }
 
@@ -65,17 +76,25 @@ public class DialogueHandler : MonoBehaviour
 
         for (int i = 0; i < dialogue.lines.Count; i++)
         {
-            print(i);
-            // Create a new ScriptLine object, and then populate it.
             lineDict.Add(i, dialogue.lines[i]);
         }
-
-        textbox.text = lineDict[index].text;
     }
 
-    void UpdateText()
+    void UpdateText(int line)
     {
-        textbox.text = lineDict[index].text;
-        speaker.text = lineDict[index].actor;
+        textbox.text = lineDict[line].text;
+        speaker.text = lineDict[line].actor;
+
+        string[] actions = lineDict[line].actions.Split(',');
+        foreach (string action in actions)
+        {
+            // Split each action into 2 tokens: the actor, and the trigger.
+            string[] tokens = action.Split('.');
+            Debug.Assert(tokens.Length == 2, $"DialogueHandler error: UpdateText failed. Token count of action '{action}' " +
+                                             $"on line {line} was not 2: {tokens.Length}");
+            Debug.Assert(actorDict.ContainsKey(tokens[0]), $"DialogueHandler error: UpdateText failed. First token of " +
+                                                           $"action '{action}' on line {line} was not a valid actor: {tokens[0]}");
+            actorDict[tokens[0]].Trigger(tokens[1]);
+        }
     }
 }

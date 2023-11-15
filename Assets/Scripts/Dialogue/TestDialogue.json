@@ -3,17 +3,17 @@
     [
         {
             "actor":"Joe",
-            "actions":"Joe.wave",
+            "actions":"Joe.playerWin,Steven.playerWin",
             "text":"Hi everyone! My name is Joe!"
         },
         {
             "actor":"Steven",
-            "actions":"Steven.quizzical,Joe.anticipation",
+            "actions":"Steven.playerLoss,Joe.playerLoss",
             "text":"Who's Joe?"
         },
         {
             "actor":"Joe",
-            "actions":"Joe.guffaw",
+            "actions":"Joe.playerWin,Steven.playerWin",
             "text":"<b>JOE MAMA!</b>"
         }
     ]
