@@ -18,12 +18,12 @@
         },
         {
             "actor":"Steven",
-            "actions":"Joe.playerWin, Steven.playerLoss",
+            "actions":"Steven.playerLoss",
             "text":"I hope you know how much of an enormous dork you are."
         },
         {
             "actor":"Joe",
-            "actions":"Joe.playerWin, Steven.playerLoss",
+            "actions":"Joe.playerWin",
             "text":"Guilty as charged."
         }
     ]
