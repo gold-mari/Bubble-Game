@@ -999,6 +999,8 @@ MonoBehaviour:
     actorObject: {fileID: 801359216}
   textbox: {fileID: 1694607377}
   speaker: {fileID: 1875600448}
+  typewriterDelay: 0.025
+  advanceDelay: 0.1
 --- !u!1 &1641824284
 GameObject:
   m_ObjectHideFlags: 0

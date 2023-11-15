@@ -3,18 +3,28 @@
     [
         {
             "actor":"Joe",
-            "actions":"Joe.playerWin,Steven.playerWin",
-            "text":"Hi everyone! My name is Joe!"
+            "actions":"",
+            "text":"After a long trek through the Largosae hills, you arrive at the gates of the Highclaw Plains <b>BEAST DUNGEON</b>."
         },
         {
             "actor":"Steven",
-            "actions":"Steven.playerLoss,Joe.playerLoss",
-            "text":"Who's Joe?"
+            "actions":"",
+            "text":"Do you have to do that voice whenever you say 'Beast Dungeon'?"
         },
         {
             "actor":"Joe",
-            "actions":"Joe.playerWin,Steven.playerWin",
-            "text":"<b>JOE MAMA!</b>"
+            "actions":"",
+            "text":"Yep!"
+        },
+        {
+            "actor":"Steven",
+            "actions":"",
+            "text":"I hope you know how much of an enormous dork you are."
+        },
+        {
+            "actor":"Joe",
+            "actions":"",
+            "text":"Guilty as charged."
         }
     ]
 }
