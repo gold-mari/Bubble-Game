@@ -40,6 +40,11 @@ public class BeatCenter : MonoBehaviour
         tracker.update += OnUpdate;
     }
 
+    private void OnDestroy()
+    {
+        tracker.update -= OnUpdate;
+    }
+
     private void OnUpdate()
     {
         // Called every time the loop tracker updates. Triggers animations depending on what beat

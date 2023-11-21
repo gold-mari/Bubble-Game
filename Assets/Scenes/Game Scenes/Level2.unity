@@ -1449,6 +1449,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1577241616658965461, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_Color.b
+      value: 0.27450982
+      objectReference: {fileID: 0}
+    - target: {fileID: 1577241616658965461, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1577241616658965461, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_Color.r
+      value: 0.4627451
+      objectReference: {fileID: 0}
     - target: {fileID: 7066895335403285412, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_SortingOrder
       value: 10
@@ -1545,5 +1557,6 @@ PrefabInstance:
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2078172877}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2277640446206077593, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}

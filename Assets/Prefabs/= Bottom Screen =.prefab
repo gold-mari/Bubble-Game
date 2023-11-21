@@ -197,8 +197,16 @@ PrefabInstance:
       propertyPath: musicPlayer
       value: 
       objectReference: {fileID: 8830513068628213623}
+    - target: {fileID: 5685500411595845353, guid: 308336b743964ea4d849df56024047cb, type: 3}
+      propertyPath: musicManager
+      value: 
+      objectReference: {fileID: 8830513068628213623}
     - target: {fileID: 6617248968695000017, guid: 308336b743964ea4d849df56024047cb, type: 3}
       propertyPath: musicManager
+      value: 
+      objectReference: {fileID: 8830513068628213623}
+    - target: {fileID: 6791125190835537985, guid: 308336b743964ea4d849df56024047cb, type: 3}
+      propertyPath: musicPlayer
       value: 
       objectReference: {fileID: 8830513068628213623}
     m_RemovedComponents: []
