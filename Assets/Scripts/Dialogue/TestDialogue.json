@@ -2,28 +2,28 @@
     "lines":
     [
         {
-            "actor":"Joe",
+            "actor":"Sammy",
             "actions":"",
             "text":"After a long trek through the Largosae hills, you arrive at the gates of the Highclaw Plains <b>BEAST DUNGEON</b>."
         },
         {
-            "actor":"Steven",
+            "actor":"Hannah",
             "actions":"",
             "text":"Do you have to do that voice whenever you say 'Beast Dungeon'?"
         },
         {
-            "actor":"Joe",
-            "actions":"Joe.playerWin",
+            "actor":"Sammy",
+            "actions":"Sammy.playerWin",
             "text":"Yep!"
         },
         {
-            "actor":"Steven",
-            "actions":"Steven.playerLoss",
+            "actor":"Hannah",
+            "actions":"Hannah.playerLoss",
             "text":"I hope you know how much of an enormous dork you are."
         },
         {
-            "actor":"Joe",
-            "actions":"Joe.playerWin",
+            "actor":"Sammy",
+            "actions":"Sammy.playerWin",
             "text":"Guilty as charged."
         }
     ]

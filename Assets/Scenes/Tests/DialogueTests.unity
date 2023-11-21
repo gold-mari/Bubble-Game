@@ -993,9 +993,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueFile: {fileID: 4900000, guid: 4291673b27bb5894cb640245217a2d05, type: 3}
   actors:
-  - actorName: Joe
+  - actorName: Sammy
     actorObject: {fileID: 1504144811}
-  - actorName: Steven
+  - actorName: Hannah
     actorObject: {fileID: 801359216}
   textbox: {fileID: 1694607377}
   speaker: {fileID: 1875600448}
