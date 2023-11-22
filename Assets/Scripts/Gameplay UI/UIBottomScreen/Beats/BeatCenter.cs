@@ -23,6 +23,8 @@ public class BeatCenter : MonoBehaviour
     private LoopTracker tracker;
     // The sprite renderer on this object.
     private SpriteRenderer spriteRenderer;
+    // The animator on this object.
+    private Animator animator;
 
     private IEnumerator Start()
     {
@@ -31,7 +33,7 @@ public class BeatCenter : MonoBehaviour
         // ================
 
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.enabled = false;
+        animator = GetComponent<Animator>();
         currentBeatmap = beatIndicator.currentBeatmap;
         
         // Wait a frame before subscribing. Messy, but it's what we've gotta do.
@@ -54,18 +56,13 @@ public class BeatCenter : MonoBehaviour
         if (currentBeatmap.GetBeatType(tracker.nextLoopBeat) == BeatType.SingleSpawn)
         {
             spriteRenderer.sprite = SpriteFromType(BeatType.SingleSpawn);
-            spriteRenderer.enabled = true;
+            animator.SetTrigger("Flash");
         }
         else if (currentBeatmap.GetBeatType(tracker.secondNextLoopBeat) != BeatType.NONE
               && currentBeatmap.GetBeatType(tracker.secondNextLoopBeat) != BeatType.SingleSpawn)
         {
             spriteRenderer.sprite = SpriteFromType(currentBeatmap.GetBeatType(tracker.secondNextLoopBeat));
-            spriteRenderer.enabled = true;
-        }
-        else if (currentBeatmap.GetBeatType(tracker.nextLoopBeat) == BeatType.NONE
-              && currentBeatmap.GetBeatType(tracker.secondNextLoopBeat) == BeatType.NONE)
-        {
-            spriteRenderer.enabled = false;
+            animator.SetTrigger("Flash");
         }
     }
 

@@ -145,6 +145,22 @@ PrefabInstance:
       propertyPath: musicPlayer
       value: 
       objectReference: {fileID: 8830513068628213623}
+    - target: {fileID: 1039426847445380244, guid: 308336b743964ea4d849df56024047cb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039426847445380244, guid: 308336b743964ea4d849df56024047cb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039426847445380244, guid: 308336b743964ea4d849df56024047cb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039426847445380244, guid: 308336b743964ea4d849df56024047cb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3166437025706137338, guid: 308336b743964ea4d849df56024047cb, type: 3}
       propertyPath: m_Name
       value: -- UI --

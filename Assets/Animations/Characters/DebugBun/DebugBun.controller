@@ -49,7 +49,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 0ff94076930b7ca41a9aacb2f0f19f65, type: 2}
+  m_Motion: {fileID: 7400000, guid: 66eacf21e585c8e4e8dfba29e0e15b35, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -127,7 +127,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a0b8990d202fab84f9b107b15009e5f0, type: 2}
+  m_Motion: {fileID: 7400000, guid: 457b3b6db4626dc4f8492f6b59ebee61, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -243,7 +243,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 93d571b2c8effa943a5a0c8dd9d01ba1, type: 2}
+  m_Motion: {fileID: 7400000, guid: e9a2ee99593b8bf4aae7b7dc5c1a2a5b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -327,7 +327,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Opponent
+  m_Name: DebugBun
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: chainBreak
@@ -567,7 +567,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b912a7708a3dab04385a628fdbff89df, type: 2}
+  m_Motion: {fileID: 7400000, guid: 507031ac3b267224aad551c043eae389, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -616,7 +616,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8064d907f1080ec449f44c5f27edf6c4, type: 2}
+  m_Motion: {fileID: 7400000, guid: 911f7fe14b4a7c04bbdc6ae844e93e20, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

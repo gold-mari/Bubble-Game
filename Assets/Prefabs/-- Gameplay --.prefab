@@ -553,7 +553,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5750587618763051982
 Transform:
   m_ObjectHideFlags: 0
@@ -641,7 +641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e490f87045ea7e54ba3d5eadc4d81653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneOnLose: Level1
+  loader: {fileID: 0}
   sceneOnWin: Level2
   winTriggered:
     m_PersistentCalls:
