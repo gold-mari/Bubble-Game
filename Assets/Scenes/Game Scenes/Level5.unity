@@ -1604,6 +1604,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8830513070003073486, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: massRoundSize
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8963620650543128781, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: defaultColor.b
       value: 0.7254902

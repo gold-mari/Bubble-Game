@@ -1569,6 +1569,10 @@ PrefabInstance:
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2078172877}
+    - target: {fileID: 8830513070003073486, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: massRoundSize
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2277640446206077593, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
