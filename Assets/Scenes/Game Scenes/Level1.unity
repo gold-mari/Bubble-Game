@@ -1588,6 +1588,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beat Icon
       objectReference: {fileID: 0}
+    - target: {fileID: 8634881949700311681, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: loader
       value: 
@@ -1676,6 +1680,10 @@ PrefabInstance:
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2078172877}
+    - target: {fileID: 8830513070003073486, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: massRoundSize
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 8963620650543128781, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: defaultColor.b
       value: 1
