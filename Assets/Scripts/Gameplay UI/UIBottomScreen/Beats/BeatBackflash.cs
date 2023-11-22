@@ -10,8 +10,6 @@ public class BeatBackflash : MonoBehaviour
 
     [SerializeField, Tooltip("The BeatIndicator component above this object.")]
     private BeatIndicator beatIndicator;
-    [SerializeField, Tooltip("The color this object turns on a major flash.")]
-    private Color majorColor;
 
     // ================================================================
     // Internal variables
@@ -66,7 +64,6 @@ public class BeatBackflash : MonoBehaviour
             if (currentBeatmap.GetBeatType(tracker.nextLoopBeat) == BeatType.SingleSpawn)
             {
                 spriteRenderer.flipY = false;
-                spriteRenderer.color = Color.white;
                 animator.SetTrigger("MinorFlash");
             }
             else if ((currentBeatmap.GetBeatType(tracker.secondNextLoopBeat) != BeatType.NONE
@@ -75,7 +72,6 @@ public class BeatBackflash : MonoBehaviour
                    && currentBeatmap.GetBeatType(tracker.secondNextLoopBeat) != BeatType.SingleSpawn))
             {
                 spriteRenderer.flipY = true;
-                spriteRenderer.color = majorColor;
                 animator.SetTrigger("MajorFlash");
             }
         }
