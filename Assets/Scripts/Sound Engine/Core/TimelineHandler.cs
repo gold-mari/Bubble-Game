@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Runtime.InteropServices;
-using NaughtyAttributes;
 
 // Beat detection logic written with the help of ColinVAudio:
 // https://www.youtube.com/watch?v=hNQX1fsQL4Q

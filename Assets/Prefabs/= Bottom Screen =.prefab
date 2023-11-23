@@ -112,6 +112,10 @@ PrefabInstance:
       propertyPath: mainSong
       value: 
       objectReference: {fileID: 11400000, guid: 1b3bf3dd50fd7ef49a7dce597212699f, type: 2}
+    - target: {fileID: 5750587618920034049, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
+      propertyPath: songCompletion
+      value: 
+      objectReference: {fileID: 11400000, guid: 72fe7a4437dc6904aba3d760043dfdc3, type: 2}
     - target: {fileID: 5750587619172000184, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: massRoundSize
       value: 13

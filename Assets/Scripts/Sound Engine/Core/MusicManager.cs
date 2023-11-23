@@ -14,6 +14,8 @@ public class MusicManager : MusicPlayer
     private Song mainSong;
     [SerializeField, Tooltip("The 'Current Beatmap' variable in the scene.")]
     private Beatmap currentBeatmap;
+    [SerializeField, Tooltip("The floatVar representing how far we are into the song.")]
+    private floatVar songCompletion;
     [SerializeField, Tooltip("How long, in seconds, it takes us to tape stop on a loss.\n\nDefault: 2")]
     private float tapeStopDuration = 2;
     [SerializeField, Tooltip("The endgame manager present in this scene.")]
@@ -56,7 +58,21 @@ public class MusicManager : MusicPlayer
         // ================
 
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("TapeStop", 0);
+        //songCompletion.value = 0;
         base.Start();
+    }
+
+    // ================================================================
+    // Update methods
+    // ================================================================
+
+    protected override void Update()
+    {
+        // Update is called once per frame. We use it to update our songCompletion floatVar.
+        // ================
+
+        base.Update();
+        songCompletion.value = (float)handler.DSPTime/handler.musicLength;
     }
 
     // ================================================================
