@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 
 public class DialogueHandler : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class DialogueHandler : MonoBehaviour
     float typewriterDelay = 0.025f;
     [SerializeField, Tooltip("The delay, in seconds, after a textbox finishes animating before we can advance.\n\nDefault: 0.1")]
     float advanceDelay = 0.1f;
+
+    [SerializeField, Tooltip("An action invoked when advancing from the final line.")]
+    public UnityEvent ActionOnEnd;
 
     // ==============================================================
     // Internal variables
@@ -104,7 +108,8 @@ public class DialogueHandler : MonoBehaviour
                 }
                 else
                 {
-                    index = 0;
+                    ActionOnEnd?.Invoke();
+                    return;
                 }
 
                 ChangeText(index);
