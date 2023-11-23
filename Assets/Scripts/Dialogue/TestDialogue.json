@@ -3,27 +3,27 @@
     [
         {
             "actor":"Sammy",
-            "actions":"",
+            "actions":"Sammy.sqBounce,Hannah.sqIdle",
             "text":"After a long trek through the Largosae hills, you arrive at the gates of the Highclaw Plains <b>BEAST DUNGEON</b>."
         },
         {
             "actor":"Hannah",
-            "actions":"",
+            "actions":"Hannah.sqBounce,Sammy.sqIdle",
             "text":"Do you have to do that voice whenever you say 'Beast Dungeon'?"
         },
         {
             "actor":"Sammy",
-            "actions":"Sammy.playerWin",
+            "actions":"Sammy.sqBounce,Hannah.sqIdle,    Hannah.Neutral,Sammy.MinorGood",
             "text":"Yep!"
         },
         {
             "actor":"Hannah",
-            "actions":"Hannah.playerLoss",
+            "actions":"Hannah.sqBounce,Sammy.sqIdle,    Hannah.MinorGood",
             "text":"I hope you know how much of an enormous dork you are."
         },
         {
             "actor":"Sammy",
-            "actions":"Sammy.playerWin",
+            "actions":"Sammy.sqBounce,Hannah.sqIdle,    Sammy.MajorGood",
             "text":"Guilty as charged."
         }
     ]

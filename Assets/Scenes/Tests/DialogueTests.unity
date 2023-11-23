@@ -473,7 +473,7 @@ GameObject:
   - component: {fileID: 801359212}
   - component: {fileID: 801359216}
   m_Layer: 0
-  m_Name: Opponent Sprite
+  m_Name: Sammy Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -519,7 +519,7 @@ Animator:
   m_GameObject: {fileID: 801359210}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e34f4322a8c8a3a4cac8a3675a0fd912, type: 2}
+  m_Controller: {fileID: 9100000, guid: d8afd75bf2654354aacbd2631a9ac7ec, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -570,9 +570,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -4
-  m_Sprite: {fileID: -608361779, guid: 6bf0b59766cfe7f46b6b51f815eefdb1, type: 3}
+  m_Sprite: {fileID: 463398730, guid: 3853041d3815d424481575387f0e006f, type: 3}
   m_Color: {r: 1, g: 0.645283, b: 0.645283, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.56, y: 5.12}
@@ -603,7 +603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 809235381}
   m_Layer: 0
-  m_Name: Opponent
+  m_Name: Sammy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -617,12 +617,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 809235380}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.2, y: -1.7, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: 3.2, y: -2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 801359211}
-  m_Father: {fileID: 1500259818}
+  m_Father: {fileID: 1580428553}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1133606473
@@ -819,8 +819,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1641824285}
-  - {fileID: 809235381}
+  - {fileID: 1580428553}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -838,7 +837,7 @@ GameObject:
   - component: {fileID: 1504144807}
   - component: {fileID: 1504144811}
   m_Layer: 0
-  m_Name: Player Sprite
+  m_Name: Hannah Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -884,7 +883,7 @@ Animator:
   m_GameObject: {fileID: 1504144805}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 61b91ceecb4dea14d8366e4e60a3b681, type: 2}
+  m_Controller: {fileID: 9100000, guid: b9a005746f4ecd1468e084248bb83110, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -935,7 +934,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -4
-  m_Sprite: {fileID: -608361779, guid: 6bf0b59766cfe7f46b6b51f815eefdb1, type: 3}
+  m_Sprite: {fileID: -1843797040, guid: 4046236651670f044b5455725fba173d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1005,9 +1004,9 @@ MonoBehaviour:
   dialogueFile: {fileID: 4900000, guid: 4291673b27bb5894cb640245217a2d05, type: 3}
   actors:
   - actorName: Sammy
-    actorObject: {fileID: 1504144811}
-  - actorName: Hannah
     actorObject: {fileID: 801359216}
+  - actorName: Hannah
+    actorObject: {fileID: 1504144811}
   textbox: {fileID: 1694607377}
   speaker: {fileID: 1875600448}
   typewriterDelay: 0.025
@@ -1027,6 +1026,39 @@ MonoBehaviour:
           m_StringArgument: MainMenu
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1580428552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1580428553}
+  m_Layer: 0
+  m_Name: Characters
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1580428553
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580428552}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1641824285}
+  - {fileID: 809235381}
+  m_Father: {fileID: 1500259818}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1641824284
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,7 +1069,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1641824285}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Hannah
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1051,12 +1083,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1641824284}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.2, y: -1.7, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: -3.2, y: -2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1504144806}
-  m_Father: {fileID: 1500259818}
+  m_Father: {fileID: 1580428553}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1694607375
