@@ -157,6 +157,17 @@ public class DialogueHandler : MonoBehaviour
     // Data-handling methods
     // ==============================================================
 
+    public void NextLine()
+    {
+        index++;
+
+        ChangeText(index);
+        lineFinished = false;
+        canAdvance = false;
+        typewriterTimer = 0;
+        advanceTimer = 0;
+    }
+
     void ChangeText(int line)
     {
         // Changes the line of text to be displayed, along with associated actions and actor names.

@@ -41,7 +41,7 @@ public class DialogueActor : MonoBehaviour
     // Misc methods
     // ==============================================================
 
-    public void Trigger(string action)
+    public virtual void Trigger(string action)
     {
         // Called from the DialogueHandler.
         // ================
