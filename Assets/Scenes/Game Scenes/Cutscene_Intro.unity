@@ -1877,7 +1877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388b4e11b6fb9384d91ecc924b9aa67d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 60
+  speed: 70
   invokeAction: 1
   heightKeyframes: ee0200007c050000ab080000920b0000
   actionOnReachKeyframe:
