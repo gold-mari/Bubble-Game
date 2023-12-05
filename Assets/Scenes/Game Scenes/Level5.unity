@@ -1360,9 +1360,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundness: 0
   frontPosition: {x: 0, y: 0, z: 0}
-  frontColor: {r: 1, g: 1, b: 1, a: 1}
+  frontColor: {r: 1, g: 0.8627451, b: 0.64705884, a: 1}
   backPosition: {x: 2, y: 0, z: 0}
-  backColor: {r: 1, g: 1, b: 1, a: 0.18431373}
+  backColor: {r: 1, g: 0.8627451, b: 0.64705884, a: 0.18431373}
 --- !u!114 &1530969518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1453,7 +1453,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -4
   m_Sprite: {fileID: 1077244301, guid: 6922376b1e1ae904e88770866bb34ff3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.8627451, b: 0.64705884, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0

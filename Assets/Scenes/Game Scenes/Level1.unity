@@ -837,10 +837,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4568130228720782260, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
+      propertyPath: m_Name
+      value: Knight
+      objectReference: {fileID: 0}
     - target: {fileID: 4568130228720782262, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
       propertyPath: musicPlayer
       value: 
       objectReference: {fileID: 621005205}
+    - target: {fileID: 4568130228801438689, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1584516462, guid: 19052b3e53e7c0e4a83b761728782454, type: 3}
+    - target: {fileID: 4568130228801438689, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4568130228801438689, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4568130228801438689, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4568130228801438693, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
+      propertyPath: m_Name
+      value: Knight Sprite (Spright)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4568130228801438694, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: dc58dbfcb3db8004bb3918151b585c61, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
 --- !u!1001 &5965403197239750187
