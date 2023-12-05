@@ -1354,7 +1354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8830513070003073486, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: massRoundSize
-      value: 9
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8830513070003073486, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: HYPERMassBubbles
