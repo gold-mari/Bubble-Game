@@ -23,7 +23,6 @@ public class RecedeOnMarker : ActionOnSwitchMap
 
     protected override void OnSwitchMap(string mapName)
     {
-        print($"====== SWITCHED TO {mapName} ======");
         if (mapName == targetMap)
         {
             animator.ResetTrigger("goBack");
