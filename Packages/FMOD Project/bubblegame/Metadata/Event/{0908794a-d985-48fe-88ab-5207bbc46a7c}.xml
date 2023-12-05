@@ -159,7 +159,7 @@
 	</object>
 	<object class="NamedMarker" id="{3ffc1279-0e56-49c1-b215-71e43c7ca18b}">
 		<property name="position">
-			<value>1.7142857142857142</value>
+			<value>1.7075892857142856</value>
 		</property>
 		<property name="name">
 			<value>doTrack</value>
