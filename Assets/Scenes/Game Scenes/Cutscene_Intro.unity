@@ -1748,7 +1748,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049914753}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1951.8074}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1757,7 +1757,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 750}
+  m_AnchoredPosition: {x: 0, y: 710}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2049914755
@@ -1790,8 +1790,8 @@ MonoBehaviour:
     than a lovingly-crafted TTRPG one-shot which took a good week of work to put
     together.\n\n\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0539ba517723d6d43bf03748c8281f6b, type: 2}
-  m_sharedMaterial: {fileID: 880974728737460417, guid: 0539ba517723d6d43bf03748c8281f6b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7a14dc0d1411e89469fd205d1102fc4d, type: 2}
+  m_sharedMaterial: {fileID: 1794753055204526632, guid: 7a14dc0d1411e89469fd205d1102fc4d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1827,7 +1827,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -7
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -1851,7 +1851,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -155.93712, y: 0, z: -149.93959, w: -485.80426}
+  m_margin: {x: -155.93712, y: 0, z: -149.93959, w: -1961.4941}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1879,7 +1879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 70
   invokeAction: 1
-  heightKeyframes: ee0200007c050000ab080000920b0000
+  heightKeyframes: ee0200006105000016080000370a0000
   actionOnReachKeyframe:
     m_PersistentCalls:
       m_Calls:

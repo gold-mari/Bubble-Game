@@ -4,7 +4,7 @@
         {
             "actor":"NULL",
             "actions":"Sammy.sqIdle,Hannah.sqIdle,      Hannah.Neutral,Sammy.Neutral",
-            "text":"You shouldn't be seeing this!"
+            "text":"CRAWL GOES HERE."
         },
 
 
@@ -38,7 +38,7 @@
         {
             "actor":"NULL",
             "actions":"Director.Show,Director.ScanToKeyframe/1,       Sammy.sqIdle,Hannah.sqIdle,      Hannah.Neutral,Sammy.Neutral",
-            "text":"You shouldn't be seeing this!"
+            "text":"CRAWL GOES HERE."
         },
 
 
@@ -102,7 +102,7 @@
         {
             "actor":"NULL",
             "actions":"Director.Show,Director.ScanToKeyframe/2,       Sammy.sqIdle,Hannah.sqIdle,      Hannah.Neutral,Sammy.Neutral",
-            "text":"You shouldn't be seeing this!"
+            "text":"CRAWL GOES HERE."
         },
 
 

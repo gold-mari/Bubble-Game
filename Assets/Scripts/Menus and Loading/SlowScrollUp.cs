@@ -34,7 +34,6 @@ public class SlowScrollUp : MonoBehaviour
         if (invokeAction && nextFrameIndex < heightKeyframes.Length && transform.localPosition.y > heightKeyframes[nextFrameIndex])
         {
             actionOnReachKeyframe?.Invoke();
-            nextFrameIndex++;
         }
     }
 
@@ -51,6 +50,7 @@ public class SlowScrollUp : MonoBehaviour
         // ...
         // ================
         
+        nextFrameIndex++;
         gameObject.SetActive(false);
     }
 
@@ -67,6 +67,7 @@ public class SlowScrollUp : MonoBehaviour
         // ...
         // ================
         
+        print($"Scanned to index {keyframe}, height {heightKeyframes[keyframe]}!");
         transform.localPosition = heightKeyframes[keyframe] * Vector3.up;
     }
 }

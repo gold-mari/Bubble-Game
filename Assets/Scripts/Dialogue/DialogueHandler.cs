@@ -21,7 +21,7 @@ public class DialogueHandler : MonoBehaviour
     [SerializeField, Tooltip("The base delay, in seconds, between letters appearing in our typewriter effect.\n\nDefault: 0.025")]
     float typewriterDelay = 0.025f;
     [SerializeField, Tooltip("The delay, in seconds, after a textbox finishes animating before we can advance.\n\nDefault: 0.1")]
-    float advanceDelay = 0.1f;
+    float advanceDelay = 0.5f;
 
     [SerializeField, Tooltip("An action invoked when advancing from the final line.")]
     public UnityEvent ActionOnEnd;
@@ -99,8 +99,8 @@ public class DialogueHandler : MonoBehaviour
         // On input...
         if (Input.GetButtonDown("Fire1"))
         {
-            // If the line is finished, then advance to the next one, and reset all our timers.
-            if (lineFinished && canAdvance)
+            // If we can, advance to the next line, and reset all our timers.
+            if (canAdvance)
             {
                 if (index < lineDict.Count-1)
                 {
@@ -112,14 +112,14 @@ public class DialogueHandler : MonoBehaviour
                     return;
                 }
 
-                ChangeText(index);
                 lineFinished = false;
                 canAdvance = false;
                 typewriterTimer = 0;
                 advanceTimer = 0;
+                ChangeText(index);
             }
             // If the line is not finished, finish it.
-            else
+            else if (!lineFinished)
             {
                 UpdateTextFill(index, impatient:true);
             }
@@ -141,8 +141,9 @@ public class DialogueHandler : MonoBehaviour
         // If it is, start ticking down our advance timer.
         else
         {
-            if (advanceTimer > advanceDelay)
+            if (!canAdvance && advanceTimer > advanceDelay)
             {
+                //print("Can advance!");
                 advanceTimer = 0;
                 canAdvance = true;
             }
@@ -161,11 +162,11 @@ public class DialogueHandler : MonoBehaviour
     {
         index++;
 
-        ChangeText(index);
         lineFinished = false;
         canAdvance = false;
         typewriterTimer = 0;
         advanceTimer = 0;
+        ChangeText(index);
     }
 
     void ChangeText(int line)
@@ -175,6 +176,7 @@ public class DialogueHandler : MonoBehaviour
 
         textbox.maxVisibleCharacters = 0;
         textbox.text = lineDict[line].text;
+        //print($"New line: {textbox.text}");
         
         speaker.text = lineDict[line].actor;
 
@@ -212,6 +214,7 @@ public class DialogueHandler : MonoBehaviour
         }
         else // if the line is full...
         {
+            //print("Line finished!");
             lineFinished = true;
         }
     }
