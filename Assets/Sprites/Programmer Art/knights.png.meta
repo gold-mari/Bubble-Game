@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f080cce6a2918d64ebab4e4e7780f3d5
+guid: 19052b3e53e7c0e4a83b761728782454
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -45,8 +45,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -117,106 +117,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: beat-bar-icons_0
+      name: knights_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 214
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 600
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfabe58c664d6334ab1660dd3d23f59f
-      internalID: 1371286240
+      spriteID: cef16c99a13d55e47b3518a2ba3016b1
+      internalID: 1584516462
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: beat-bar-icons_1
+      name: knights_1
       rect:
         serializedVersion: 2
-        x: 214
+        x: 600
         y: 0
-        width: 214
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 600
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28c59feb48095744d97502dd1e22e754
-      internalID: 353059646
+      spriteID: 0c3064c056d89b848858b25486876537
+      internalID: -1819556931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: beat-bar-icons_2
+      name: knights_2
       rect:
         serializedVersion: 2
-        x: 428
+        x: 1200
         y: 0
-        width: 214
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 600
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ff4108a095518e4a813c8fa63146bb5
-      internalID: -221942425
+      spriteID: a26fa701035ca364e8387093cb47d70b
+      internalID: 1183344040
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: beat-bar-icons_3
+      name: knights_3
       rect:
         serializedVersion: 2
-        x: 642
+        x: 1800
         y: 0
-        width: 214
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 600
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38fb6fbea1a3ef744a3f68c75a7be710
-      internalID: 841923644
+      spriteID: 9708961aafa8cf841a50194a4f517754
+      internalID: 678108606
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: beat-bar-icons_4
+      name: knights_4
       rect:
         serializedVersion: 2
-        x: 856
+        x: 2400
         y: 0
-        width: 214
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 600
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 847b72dbd8152924c929250870f91a91
-      internalID: 1995662686
+      spriteID: d99c7f3b5db3a0e43936c826ea0fa5d0
+      internalID: 2003612237
       vertices: []
       indices: 
       edges: []
@@ -232,11 +232,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      beat-bar-icons_4: 1995662686
-      beat-bar-icons_3: 841923644
-      beat-bar-icons_2: -221942425
-      beat-bar-icons_1: 353059646
-      beat-bar-icons_0: 1371286240
+      knights_2: 1183344040
+      knights_3: 678108606
+      knights_1: -1819556931
+      knights_4: 2003612237
+      knights_0: 1584516462
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

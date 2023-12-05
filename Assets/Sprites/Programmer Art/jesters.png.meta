@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f080cce6a2918d64ebab4e4e7780f3d5
+guid: f532c5dd56891074c8bcb83df30d1eff
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,106 +117,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: beat-bar-icons_0
+      name: jesters_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 214
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 600
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfabe58c664d6334ab1660dd3d23f59f
-      internalID: 1371286240
+      spriteID: 33ffd6351d6b847478866269d50cb24c
+      internalID: 1112213288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: beat-bar-icons_1
+      name: jesters_1
       rect:
         serializedVersion: 2
-        x: 214
+        x: 600
         y: 0
-        width: 214
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 600
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28c59feb48095744d97502dd1e22e754
-      internalID: 353059646
+      spriteID: b17a6f91ecc87bf4f87eb14144bbcc8c
+      internalID: 742260206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: beat-bar-icons_2
+      name: jesters_2
       rect:
         serializedVersion: 2
-        x: 428
+        x: 1200
         y: 0
-        width: 214
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 600
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ff4108a095518e4a813c8fa63146bb5
-      internalID: -221942425
+      spriteID: 4479db0200e8cf44fb37bd91995e9642
+      internalID: 1589341830
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: beat-bar-icons_3
+      name: jesters_3
       rect:
         serializedVersion: 2
-        x: 642
+        x: 1800
         y: 0
-        width: 214
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 600
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38fb6fbea1a3ef744a3f68c75a7be710
-      internalID: 841923644
+      spriteID: decac901c130f0e4ea1fff7b1c5838fe
+      internalID: -1175573518
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: beat-bar-icons_4
+      name: jesters_4
       rect:
         serializedVersion: 2
-        x: 856
+        x: 2400
         y: 0
-        width: 214
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 600
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 847b72dbd8152924c929250870f91a91
-      internalID: 1995662686
+      spriteID: 17a58b956e3ac4e4e8e27116188159b5
+      internalID: -1912260132
       vertices: []
       indices: 
       edges: []
@@ -232,11 +232,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      beat-bar-icons_4: 1995662686
-      beat-bar-icons_3: 841923644
-      beat-bar-icons_2: -221942425
-      beat-bar-icons_1: 353059646
-      beat-bar-icons_0: 1371286240
+      jesters_2: 1589341830
+      jesters_4: -1912260132
+      jesters_1: 742260206
+      jesters_0: 1112213288
+      jesters_3: -1175573518
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

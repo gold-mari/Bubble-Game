@@ -26,13 +26,11 @@ public class RecedeOnMarker : ActionOnSwitchMap
         print($"====== SWITCHED TO {mapName} ======");
         if (mapName == targetMap)
         {
-            print("gone front");
             animator.ResetTrigger("goBack");
             animator.SetTrigger("goFront");
         }
         else
         {
-            print("gone back");
             animator.ResetTrigger("goFront");
             animator.SetTrigger("goBack");
         }
