@@ -642,7 +642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loader: {fileID: 0}
-  sceneOnWin: Level2
+  sceneOnWin: Next
   winTriggered:
     m_PersistentCalls:
       m_Calls:
@@ -755,6 +755,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainSong: {fileID: 11400000, guid: e3e72b33ebfda6746af99d30f7555f24, type: 2}
   currentBeatmap: {fileID: 11400000, guid: d655ab3fc26d86c4a98bfb5dd074e822, type: 2}
+  songCompletion: {fileID: 0}
   tapeStopDuration: 4
   endgameManager: {fileID: 5750587618818772880}
 --- !u!1 &5750587618922182494

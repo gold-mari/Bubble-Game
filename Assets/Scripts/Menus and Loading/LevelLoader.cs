@@ -39,7 +39,7 @@ public class LevelLoader : MonoBehaviour
         Debug.Assert(sceneDict.ContainsKey(levelName), $"LevelLoader error: LoadLevel failed. {levelName} was not found " +
                                                         "as a name in the scenes array.", this);
 
-        SceneManager.LoadScene(levelName);
+        SceneManager.LoadScene(sceneDict[levelName]);
     }
 
     public void ReloadLevel()

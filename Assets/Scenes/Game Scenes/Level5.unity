@@ -1082,14 +1082,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
       propertyPath: scenes.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
       propertyPath: scenes.Array.data[0].name
       value: MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[1].name
+      value: Next
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
       propertyPath: scenes.Array.data[0].scene
+      value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[1].scene
       value: MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 8624468519417057040, guid: e843d287467b5194da21beefc77e2b3b, type: 3}

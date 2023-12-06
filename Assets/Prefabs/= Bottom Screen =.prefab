@@ -101,10 +101,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: sceneOnWin
-      value: MainMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: sceneOnLose
       value: Level5
       objectReference: {fileID: 0}

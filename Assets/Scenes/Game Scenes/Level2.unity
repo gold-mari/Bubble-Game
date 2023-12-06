@@ -1004,15 +1004,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
       propertyPath: scenes.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
       propertyPath: scenes.Array.data[0].name
       value: MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[1].name
+      value: Next
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
       propertyPath: scenes.Array.data[0].scene
       value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[1].scene
+      value: Level3
       objectReference: {fileID: 0}
     - target: {fileID: 8624468519417057040, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
       propertyPath: m_Camera
@@ -1173,10 +1181,6 @@ PrefabInstance:
       propertyPath: loader
       value: 
       objectReference: {fileID: 1703767368}
-    - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: sceneOnWin
-      value: MainMenu
-      objectReference: {fileID: 0}
     - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: sceneOnLose
       value: Level2
