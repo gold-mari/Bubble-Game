@@ -1,0 +1,100 @@
+{
+	"lines":
+	[
+		{
+			"actor":"Ghost",
+			"actions":"Ghost.sqBounce,Jester.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"no no no no no!!!! come on!!!! (T^T) i swear if i get written up for this,, >_<"
+		},
+		{
+			"actor":"Ha'na",
+			"actions":"Ha'na.sqBounce,Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle",
+			"text":"consider yourself... busted..."
+		},
+		{
+			"actor":"Ghost",
+			"actions":"Ghost.sqBounce,Jester.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"that wasn't even a good line!........"
+		},
+		{
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Jester.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"Bursting into tears, the poltergeist floats back up through the ceiling. A line of candles illuminates the way down with a FWOOSH."
+		},
+		{
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Ha'na.sqIdle",
+			"text":"ok, i head downstairs. also fwoosh haha"
+		},
+		{
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Jester.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"You can't mock all of my onomatopoeias! They're all I have. :'<"
+		},
+		{
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Ha'na.sqIdle",
+			"text":"no that's not true, you also have the world record for being the shortest-"
+		},
+		{
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Jester.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"ANYWAY AS YOU ENTER FLOOR two, you find yourself in a room of white walls illuminated by colored spotlights."
+		},
+		{
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Jester.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"A small disco-ball spins in the center of the room; underneath sits what appears to be a clown wearing a polka-dotted wizard hat."
+		},
+		{
+			"actor":"Jester",
+			"actions":"Jester.sqBounce,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"Fwa-ha! So you defeated our precious poltergeist on floor one; but you'll see STARS when I'm done~!"
+		},
+		{
+			"actor":"Ha'na",
+			"actions":"Ha'na.sqBounce,Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle",
+			"text":"and who are you?"
+		},
+		{
+			"actor":"Jester",
+			"actions":"Jester.sqBounce,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"The wizard-class-clown of the Highclaw crew! Also, pit boss Beast on floor number two~!"
+		},
+		{
+			"actor":"Ha'na",
+			"actions":"Ha'na.sqBounce,Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle",
+			"text":"do you rehearse these???"
+		},
+		{
+			"actor":"Jester",
+			"actions":"Jester.sqBounce,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"My magic demands me to rhyme all the time. I've practiced! I'll still blow your ass sky high!!"
+		},
+		{
+			"actor":"Ha'na",
+			"actions":"Ha'na.sqBounce,Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle",
+			"text":"that was a stretch."
+		},
+		{
+			"actor":"Jester",
+			"actions":"Jester.sqBounce,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"Oh no, bunny, that's wrong, I fear! The REAL stretch is that HAT over your ears! Fwo-ho-ho~!! >:3"
+		},
+		{
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Ha'na.sqIdle",
+			"text":"i shed a single solitary tear and pull out my sword."
+		},
+		{
+			"actor":"Ha'na",
+			"actions":"Ha'na.sqBounce,Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle",
+			"text":"you'll pay for that one... i swear it..."
+		},
+		{
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Jester.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"The jester laughs a "FWA-HA" and readies a magic bomb, rainbow energy gathering between their palms. Lemme load up Preset 3..."
+		}
+	]
+}

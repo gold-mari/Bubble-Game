@@ -1,0 +1,115 @@
+{
+	"lines":
+	[
+		{
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Ha'na.sqIdle,Hannah.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"text":"Exhausted and with his armor bent out of shape, Balthazar the Brassèd staggers back, leaning on his sword like a cane."
+		},
+		{
+			"actor":"Knight",
+			"actions":"Knight.sqBounce,Ha'na.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ghost.sqIdle",
+			"text":"You are. Stronger. Then I thought."
+		},
+		{
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Ha'na.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"text":"i don't give him the satisfaction of a response."
+		},
+		{
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Ha'na.sqIdle,Hannah.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"text":"Ice cold, Hannah! Alright, so you leave Balthazar behind and walk into the DUNGEON."
+		},
+		{
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Ha'na.sqIdle,Hannah.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"text":"As the gate THUDs behind you, you find yourself in a room lit by thousands of flickering blue candles."
+		},
+		{
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Ha'na.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"text":"blue..."
+		},
+		{
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Ha'na.sqIdle,Hannah.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"text":"Suddenly, a poltergeist in [OUTFIT] descends through the ceiling. It gently lifts you off the ground."
+		},
+		{
+			"actor":"Ghost",
+			"actions":"Ghost.sqBounce,Ha'na.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"text":"waAAAAaaAAAaaaaa!!! oh hey you're new"
+		},
+		{
+			"actor":"Ghost",
+			"actions":"Ghost.sqBounce,Ha'na.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"text":"are- *sniff* are you an adventurer too :((("
+		},
+		{
+			"actor":"Ha'na",
+			"actions":"Ha'na.sqBounce,Sammy.sqIdle,Hannah.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"text":"... i'm here to fix the plumbing."
+		},
+		{
+			"actor":"Ghost",
+			"actions":"Ghost.sqBounce,Ha'na.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"text":"you don't have any tools ... also Beasts don't need to use the toilets ..."
+		},
+		{
+			"actor":"Ha'na",
+			"actions":"Ha'na.sqBounce,Sammy.sqIdle,Hannah.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"text":"shit."
+		},
+		{
+			"actor":"Ghost",
+			"actions":"Ghost.sqBounce,Ha'na.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"text":"no we don't do that"
+		},
+		{
+			"actor":"Ghost",
+			"actions":"Ghost.sqBounce,Ha'na.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"text":"anyway it's very mean to lie ::>_<:: adventurers make me so sad!!! *sniff* they always lie to me and it just makes it a really hostile work environment,,,"
+		},
+		{
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Ha'na.sqIdle,Hannah.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"text":"WHUNK! The poltergeist slams you against the ceiling using its ghosty gravity magic."
+		},
+		{
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Ha'na.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"text":"whunk"
+		},
+		{
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Ha'na.sqIdle,Hannah.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"text":"Oh, fuck off."
+		},
+		{
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Ha'na.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"text":"whunk off"
+		},
+		{
+			"actor":"Ghost",
+			"actions":"Ghost.sqBounce,Ha'na.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"text":"anyway i have to kill you now, boss's orders sorryyy /_ \ don't worry it'll be quick"
+		},
+		{
+			"actor":"Ha'na",
+			"actions":"Ha'na.sqBounce,Sammy.sqIdle,Hannah.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"text":"not so fast!"
+		},
+		{
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Ha'na.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"text":"and then i pull out my poltergeist sword for slaying poltergeists."
+		},
+		{
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Ha'na.sqIdle,Hannah.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"text":"Schwink! Alright, roll for tempo and let's start Preset 2!"
+		}
+	]
+}

@@ -1,0 +1,145 @@
+{
+	"lines":
+	[
+		{
+			"actor":"Brute",
+			"actions":"Brute.sqBounce,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"NOOOO!!! MY BRAWN!!!"
+		},
+		{
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"The Brute exhaustedly collapses into a puddle of sweat. No chance for a one-liner this time. u_u"
+		},
+		{
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Ha'na.sqIdle",
+			"text":"ouch, i feel seen. alright, i make my way back down the exit staircase."
+		},
+		{
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"You arrive in a vast torchlit room full of piles of gold and treasure. It's the motherlode!"
+		},
+		{
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Ha'na.sqIdle",
+			"text":"GOLD!"
+		},
+		{
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"As you step into the room, the gate behind you closes. You notice a familiar knight standing before you, and approach tentatively."
+		},
+		{
+			"actor":"Knight",
+			"actions":"Knight.sqBounce,Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"Hasty hare of Hemiquaver! So you have made it past the other Beasts. Perhaps I underestimated you."
+		},
+		{
+			"actor":"Ha'na",
+			"actions":"Ha'na.sqBounce,Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle",
+			"text":"balthazar? how did you get down here so fast?"
+		},
+		{
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"He draws his sword with a SCHWINK."
+		},
+		{
+			"actor":"Ha'na",
+			"actions":"Ha'na.sqBounce,Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle",
+			"text":"hey, now. i won our duel fair and square."
+		},
+		{
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"Without warning, you hear the gate behind you SLAM open. Quickly you turn, and see the three Beasts from above enter the room."
+		},
+		{
+			"actor":"Ghost",
+			"actions":"Ghost.sqBounce,Brute.sqIdle,Jester.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"hi again jerkwad,,,, *sniff* >_<"
+		},
+		{
+			"actor":"Jester",
+			"actions":"Jester.sqBounce,Brute.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"Fwa-ha~ We're back and ready to attack!"
+		},
+		{
+			"actor":"Brute",
+			"actions":"Brute.sqBounce,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"HELLO."
+		},
+		{
+			"actor":"Ha'na",
+			"actions":"Ha'na.sqBounce,Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle",
+			"text":"big guy, didn't i just beat you??"
+		},
+		{
+			"actor":"Brute",
+			"actions":"Brute.sqBounce,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"POWER NAP."
+		},
+		{
+			"actor":"Ha'na",
+			"actions":"Ha'na.sqBounce,Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle",
+			"text":"h-hey, balthazar, let's team up and split the treasure! two-on-three isn't great, but we'll have a chance!"
+		},
+		{
+			"actor":"Jester",
+			"actions":"Jester.sqBounce,Brute.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"Fwo-ho-ho-hoo~!! Two-on-three? Oh naur naur naur~! The fight you're in is one-on-four!!"
+		},
+		{
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Ha'na.sqIdle",
+			"text":"???"
+		},
+		{
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Ha'na.sqIdle",
+			"text":"i turn to look at balthazar ???"
+		},
+		{
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"Pointing his golden sword at your head, he flips up his visor, revealing two glowing red eyes in an inky blackness."
+		},
+		{
+			"actor":"Ha'na",
+			"actions":"Ha'na.sqBounce,Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle",
+			"text":"you're the fourth Beast??"
+		},
+		{
+			"actor":"Ghost",
+			"actions":"Ghost.sqBounce,Brute.sqIdle,Jester.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"yeah, dummy, take that!!! >w<"
+		},
+		{
+			"actor":"Knight",
+			"actions":"Knight.sqBounce,Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"I am the Lord of the Highclaw Plains Beast Dungeon. And as I told you: no one will rob me of my rightful spoils."
+		},
+		{
+			"actor":"Knight",
+			"actions":"Knight.sqBounce,Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"You have fought honorably, hare! It is now time for you to die honorably."
+		},
+		{
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Ha'na.sqIdle",
+			"text":"i draw my sword. with a SCHWINK."
+		},
+		{
+			"actor":"Ha'na",
+			"actions":"Ha'na.sqBounce,Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle",
+			"text":"i've beat you all before. i can do it. ... again."
+		},
+		{
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"Okay, here we go. Roll with disadvantage, and we'll get into... Preset... 5..."
+		}
+	]
+}
