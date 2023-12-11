@@ -94,7 +94,7 @@
 		{
 			"actor":"Ghost",
 			"actions":"Ghost.sqBounce,Ha'na.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Knight.sqIdle",
-			"text":"anyway i have to kill you now, boss's orders sorryyy /_ \ don't worry it'll be quick"
+			"text":"anyway i have to kill you now, boss's orders sorryyy /_ \\ don't worry it'll be quick"
 		},
 		{
 			"actor":"Ha'na",
