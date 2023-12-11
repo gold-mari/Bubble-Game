@@ -69,7 +69,7 @@
 		{
 			"actor":"Knight",
 			"actions":"Knight.goFront,Knight.sqBounce,Sammy.goBack,          Hannah.sqIdle,Ha'na.sqIdle,Sammy.sqIdle",
-			"text":"Then you are here as competition? To rob the great and powerful knight Balthazar the Brassèd of his rightful spoils?"
+			"text":"Then you are competition? Here to rob the great knight Balthazar the Brassèd of his rightful spoils?"
 		},
 		{
 			"actor":"Ha'na",
@@ -94,7 +94,12 @@
 		{
 			"actor":"Knight",
 			"actions":"Knight.sqBounce,          Hannah.sqIdle,Ha'na.sqIdle,Sammy.sqIdle",
-			"text":"Ha! You waver, hare of Hemiquaver. Surely you have heard enough stories of me to know you will lose this fight."
+			"text":"Ha! You waver, hare of Hemiquaver!"
+		},
+		{
+			"actor":"Knight",
+			"actions":"Knight.sqBounce,          Hannah.sqIdle,Ha'na.sqIdle,Sammy.sqIdle",
+			"text":"Surely you have heard enough stories of me to know you will lose this fight!"
 		},
 		{
 			"actor":"Ha'na",
