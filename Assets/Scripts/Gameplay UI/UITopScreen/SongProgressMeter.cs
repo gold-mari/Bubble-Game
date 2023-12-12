@@ -18,15 +18,28 @@ public class SongProgressMeter : MonoBehaviour
 
     private Image image;
 
-    // Start is called before the first frame update
+    // ================================================================
+    // Initializer methods
+    // ================================================================
+
     void Start()
     {
-        image = GetComponent<Image>();   
+        // Awake is called before Start.
+        // ================
+        
+        image = GetComponent<Image>();  
+        image.fillAmount = 0; 
     }
 
-    // Update is called once per frame
+    // ================================================================
+    // Update methods
+    // ================================================================
+
     void Update()
     {
+        // Update is called once per frame.
+        // ================
+
         image.fillAmount = songCompletion.value;
     }
 }

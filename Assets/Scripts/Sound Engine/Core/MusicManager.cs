@@ -45,6 +45,8 @@ public class MusicManager : MusicPlayer
 
         eventRef = mainSong.musicEvent;
 
+        songCompletion.value = 0;
+
         // Call our base awake function, which includes creating our timeline handler.
         base.Awake();
 
@@ -58,7 +60,6 @@ public class MusicManager : MusicPlayer
         // ================
 
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("TapeStop", 0);
-        //songCompletion.value = 0;
         base.Start();
     }
 
