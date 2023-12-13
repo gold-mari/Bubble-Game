@@ -19,6 +19,18 @@ public class LevelLoader : MonoBehaviour
     private SceneData[] scenes;
 
     private Dictionary<string, string> sceneDict = new();
+    private Animator transitionAnimator;
+    private string queuedLevel = "NULL";
+
+    void Awake()
+    {
+        transitionAnimator = GetComponentInChildren<Animator>(true);
+        if (transitionAnimator)
+        {
+            transitionAnimator.gameObject.SetActive(true);
+            transitionAnimator.SetTrigger("out");
+        }
+    }
 
     void Start()
     {
@@ -39,7 +51,16 @@ public class LevelLoader : MonoBehaviour
         Debug.Assert(sceneDict.ContainsKey(levelName), $"LevelLoader error: LoadLevel failed. {levelName} was not found " +
                                                         "as a name in the scenes array.", this);
 
-        SceneManager.LoadScene(sceneDict[levelName]);
+        if (!transitionAnimator)
+        {
+            SceneManager.LoadScene(sceneDict[levelName]);
+        }
+        else
+        {
+            queuedLevel = levelName;
+            transitionAnimator.gameObject.SetActive(true);
+            transitionAnimator.SetTrigger("in");
+        }
     }
 
     public void ReloadLevel()
@@ -48,5 +69,16 @@ public class LevelLoader : MonoBehaviour
         // ================
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void LoadQueuedLevel()
+    {
+        // Loads a level that was queued up elsewhere.
+        // ================
+
+        Debug.Assert(sceneDict.ContainsKey(queuedLevel), $"LevelLoader error: LoadLevel failed. Queued level {queuedLevel} was not " +
+                                                        "found as a name in the scenes array.", this);
+
+        SceneManager.LoadScene(sceneDict[queuedLevel]);
     }
 }
