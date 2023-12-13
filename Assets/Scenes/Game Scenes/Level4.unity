@@ -560,6 +560,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: = DS Frame Canvas =
       objectReference: {fileID: 0}
+    - target: {fileID: 8624468520073491730, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8624468521204566171, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
 --- !u!114 &330087790 stripped
@@ -1082,6 +1090,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 512483413}
     m_Modifications:
+    - target: {fileID: 6686941092444551178, guid: 16ac93cecab1c024898ec5a4cd6788c8, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 6686941092444551179, guid: 16ac93cecab1c024898ec5a4cd6788c8, type: 3}
       propertyPath: m_Pivot.x
       value: 0
