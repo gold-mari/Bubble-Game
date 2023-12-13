@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using NaughtyAttributes;
 
 public class ColorIndicator : MonoBehaviour
@@ -22,6 +23,8 @@ public class ColorIndicator : MonoBehaviour
 
     // The sprite renderer on this gameObject.
     private SpriteRenderer sprite;
+    // The image renderer on this gameObject.
+    private Image image;
 
     // ================================================================
     // Default methods
@@ -34,7 +37,8 @@ public class ColorIndicator : MonoBehaviour
         // ================
 
         sprite = GetComponent<SpriteRenderer>();
-        Debug.Assert(sprite != null, "ColorIndicator Error: Start() failed: gameObject must have a SpriteRenderer.", this);
+        image = GetComponent<Image>();
+        Debug.Assert(sprite != null || image != null, "ColorIndicator Error: Start() failed: gameObject must have a SpriteRenderer or Image.", this);
     }
 
     void Update()
@@ -43,10 +47,22 @@ public class ColorIndicator : MonoBehaviour
         // to the Color which corresponds to our Bubble_Flavor.
         // ================
 
-        sprite.color = Bubble_Flavor_Methods.getColor(color.value);
-        if (changeSprite)
+        Color c = Bubble_Flavor_Methods.getColor(color.value);
+        if (sprite)
         {
-            sprite.sprite = Bubble_Flavor_Methods.getSprite(color.value, binder);
+            sprite.color = c;
+            if (changeSprite)
+            {
+                sprite.sprite = Bubble_Flavor_Methods.getSprite(color.value, binder);
+            }
+        }
+        if (image)
+        {
+            image.color = c;
+            if (changeSprite)
+            {
+                image.sprite = Bubble_Flavor_Methods.getSprite(color.value, binder);
+            }
         }
     }
 }

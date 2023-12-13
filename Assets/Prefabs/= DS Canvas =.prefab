@@ -99,7 +99,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8976465908018339442}
   - component: {fileID: 3796648828563402568}
-  - component: {fileID: 1266949253748220460}
   m_Layer: 5
   m_Name: Bubble
   m_TagString: Untagged
@@ -137,36 +136,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505891654515340669}
   m_CullTransparentMesh: 1
---- !u!114 &1266949253748220460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 505891654515340669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.19245279, b: 0.19245279, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: -392495489, guid: d1a0ae74e1501e44fb5236f174fe385b, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &639848231380302111
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,6 +524,7 @@ GameObject:
   - component: {fileID: 8004499789234775529}
   - component: {fileID: 7848815373485758309}
   - component: {fileID: 1619144424953416717}
+  - component: {fileID: 3289154181274365619}
   m_Layer: 5
   m_Name: Sprite
   m_TagString: Untagged
@@ -603,14 +573,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.29803923, b: 0.29803923, a: 1}
+  m_Color: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -392495489, guid: d1a0ae74e1501e44fb5236f174fe385b, type: 3}
+  m_Sprite: {fileID: 365147387, guid: d1a0ae74e1501e44fb5236f174fe385b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -620,6 +590,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3289154181274365619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3808596592317380528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafc925730b25b242af9c7857c4a2d41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {fileID: 11400000, guid: f6aa858b6b3d7124f81b15e740dc4804, type: 2}
+  changeSprite: 1
+  binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
 --- !u!1 &4154535105134416034
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,6 +960,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4835179489316013646}
   - component: {fileID: 3883997713851276182}
+  - component: {fileID: 287574405878620592}
   m_Layer: 5
   m_Name: LevelLoader
   m_TagString: Untagged
@@ -1018,6 +1004,19 @@ MonoBehaviour:
   scenes:
   - name: MainMenu
     scene: MainMenu
+--- !u!114 &287574405878620592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5915848774446401514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 839ba9583036cf647b0069ce2aaf224b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionAnimFlavorVar: {fileID: 11400000, guid: f6aa858b6b3d7124f81b15e740dc4804, type: 2}
 --- !u!1 &6148340179002152228
 GameObject:
   m_ObjectHideFlags: 0
