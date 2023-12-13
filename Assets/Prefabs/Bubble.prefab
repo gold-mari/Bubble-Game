@@ -138,6 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strength: {fileID: 11400000, guid: 1f488925cb89b6d468b3f5a8e5d480b1, type: 2}
   center: {x: -1, y: 0}
+  dragRadius: 4.2
 --- !u!114 &5062526010735810576
 MonoBehaviour:
   m_ObjectHideFlags: 0

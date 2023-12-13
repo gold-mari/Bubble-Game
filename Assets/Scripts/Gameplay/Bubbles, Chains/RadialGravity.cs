@@ -16,6 +16,11 @@ public class RadialGravity : MonoBehaviour
     public floatVar strength;
     [Tooltip("The center of gravity.\n\nDefault: (0,0)")]
     public Vector2 center = new Vector2(0,0);
+    [Tooltip("The radius from our center past which a nonzero drag is applied to our velocity. Used to prevent bubble orbits."
+            +"\n\nDefault: 4.2f")]
+    public float dragRadius = 4.2f;
+    [Tooltip("The amount of drag applied past our dragRadius.\n\nDefault: 2f")]
+    public float dragAmount = 2f;
 
     // ==============================================================
     // Internal variables
@@ -34,7 +39,7 @@ public class RadialGravity : MonoBehaviour
         // ================
 
         body = GetComponent<Rigidbody2D>();
-        Debug.Assert(body != null, "RadialGravity Error: Start() failed: gameObject must have a Rigidbody2D.", this);
+        Debug.Assert(body != null, "RadialGravity Error: Start() failed: gameObject must have a Rigidbody2D.", this);   
     }
 
     void FixedUpdate()
@@ -45,5 +50,7 @@ public class RadialGravity : MonoBehaviour
         Vector2 vector = ((Vector2)transform.position - center).normalized;
         vector *= strength.value;
         body.AddForce(vector);
+
+        body.drag = (((Vector2)transform.position - center).magnitude > dragRadius) ? dragAmount : 0;
     }
 }
