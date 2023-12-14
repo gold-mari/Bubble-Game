@@ -74,7 +74,7 @@ public class Chain : ScriptableObject
         foreach (Bubble bubble in members) {
             // We check for bubble just in case it leaves our list while we're looping.
             if (bubble) {
-                Destroy(bubble.gameObject);
+                bubble.DestroyBubble();
             }
         }
         Destroy(this);

@@ -11,12 +11,10 @@ public class BubbleColorHelper : MonoBehaviour
 
     [Tooltip("This object's base color. By default we get this from our Bubble_Flavor, but it can "
            + "updated at runtime if you wish.")]
-    [SerializeField]
-    private Color baseColor;
+    public Color baseColor;
     [Tooltip("A float (-1 to 1) which is used to lerp the base color towards white, if Brightness "
            + "is positive, or towards black, if Brightness is negative.")]
-    [SerializeField]
-    private float brightness = 0;
+    public float brightness = 0;
 
     // ==============================================================
     // Internal variables
@@ -71,10 +69,12 @@ public class BubbleColorHelper : MonoBehaviour
             sprite.color = baseColor;
         }
         else if (brightness > 0) {
-            sprite.color = Color.Lerp(baseColor, Color.white, brightness);
+            Color white = new Color(1,1,1,baseColor.a);
+            sprite.color = Color.Lerp(baseColor, white, brightness);
         }
         else { // if (Brightness < 0)
-            sprite.color = Color.Lerp(baseColor, Color.black, -brightness);
+            Color black = new Color(0,0,0,baseColor.a);
+            sprite.color = Color.Lerp(baseColor, black, -brightness);
         }
     }
 

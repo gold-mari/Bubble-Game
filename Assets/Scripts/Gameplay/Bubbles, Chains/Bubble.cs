@@ -38,6 +38,37 @@ public class Bubble : MonoBehaviour
     public ChainBreakHandler handler;
 
     // ==============================================================
+    // Finalization methods
+    // ==============================================================
+
+    public void DestroyBubble()
+    {
+        Destroy(GetComponent<Bubble>());
+        Destroy(GetComponent<CircleCollider2D>());
+        Destroy(GetComponent<DangerTracker>());
+        Destroy(GetComponent<RadialGravity>());
+        
+        Rigidbody2D body = GetComponent<Rigidbody2D>();
+        if (body)
+        {
+            // Cancel out most of our existing velocity, apply gravity, and give us a random horizontal force.
+            body.velocity *= 0.1f;
+            body.gravityScale = 2f;
+            body.AddForce(new Vector2(Random.Range(-1,1)*100, 0f));
+        }
+
+        BubbleColorHelper helper = GetComponentInChildren<BubbleColorHelper>();
+        if (helper)
+        {
+            helper.baseColor = new Color(helper.baseColor.r, helper.baseColor.g, helper.baseColor.b, 0.667f);
+        }
+        
+        GetComponent<Animator>().SetTrigger("destroyed");
+        RemoveAllAdjacencies();
+        Destroy(gameObject, 2);
+    }
+
+    // ==============================================================
     // Default methods
     // ==============================================================
     
@@ -82,15 +113,6 @@ public class Bubble : MonoBehaviour
             // Remove them from our adjacency list.
             RemoveAdjacency(otherBubble);
         }
-    }
-
-    private void OnDestroy()
-    {
-        // Runs when this object is destroyed. Used to update remove our adjacency from
-        // ALL of the bubbles in our adjacency list.
-        // ================
-
-        RemoveAllAdjacencies();
     }
 
     // ==============================================================
