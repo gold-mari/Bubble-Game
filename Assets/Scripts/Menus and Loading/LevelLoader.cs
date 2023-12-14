@@ -20,7 +20,6 @@ public class LevelLoader : MonoBehaviour
 
     private Dictionary<string, string> sceneDict = new();
     private Animator transitionAnimator;
-    private TransitionFlavorRandomizer flavorRandomizer;
     private string queuedLevel = "NULL";
 
     void Awake()
@@ -60,7 +59,7 @@ public class LevelLoader : MonoBehaviour
         {
             queuedLevel = levelName;
             
-            flavorRandomizer = GetComponent<TransitionFlavorRandomizer>();
+            TransitionFlavorRandomizer flavorRandomizer = GetComponent<TransitionFlavorRandomizer>();
             if (flavorRandomizer)
             {
                 flavorRandomizer.Randomize();
