@@ -5,12 +5,25 @@ using UnityEngine.Lumin;
 
 public class NaiveScreenshake : MonoBehaviour
 {
-    [SerializeField]
-    private float baseShakeMagnitude = 0.2f;
-    [SerializeField]
-    private float baseShakeDuration = 1f;
+    // ==============================================================
+    // Parameters
+    // ==============================================================
+
+    [SerializeField, Tooltip("The magnitude of the base screenshake, defined in maximum worldspace units from the base position."
+                            +"\n\nDefault: 0.05")]
+    private float baseShakeMagnitude = 0.05f;
+    [SerializeField, Tooltip("The duration of the base screenshake, in seconds.n\nDefault: 0.5")]
+    private float baseShakeDuration = 0.5f;
+
+    // ==============================================================
+    // Internal variables
+    // ==============================================================
 
     private Vector3 basePosition;
+
+    // ==============================================================
+    // Initializer methods
+    // ==============================================================
 
     void Awake()
     {
@@ -20,15 +33,16 @@ public class NaiveScreenshake : MonoBehaviour
         basePosition = transform.position;
     }
 
-    void OnGUI()
+    // ==============================================================
+    // Shake methods
+    // ==============================================================
+
+    public void BaseShake()
     {
-        if (GUI.Button(new Rect(10, 10, 80, 80), "Shake!"))
-        {
-            StartCoroutine(Shake(baseShakeMagnitude, baseShakeDuration));
-        }
+        StartCoroutine(Shake(baseShakeMagnitude, baseShakeDuration));
     }
 
-    IEnumerator Shake(float magnitude, float duration)
+    private IEnumerator Shake(float magnitude, float duration)
     {
         // Applies the shake transformation to our camera.
         // ================
