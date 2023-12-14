@@ -71,12 +71,31 @@ public class Chain : ScriptableObject
         // DEBUG DEBUG DEBUG //
         // DEBUG DEBUG DEBUG //
 
+        bool bombChain = false;
         foreach (Bubble bubble in members) {
-            // We check for bubble just in case it leaves our list while we're looping.
-            if (bubble) {
-                bubble.DestroyBubble();
+            if (bubble && bubble.isBomb)
+            {
+                bombChain = true;
+
+                // ..... ..... ..... .....
+                // ..... ..... ..... .....
+                // CURRENT TASK: CONFIRM THAT THE ANIMATION DOESN'T PLAY ON CHAINS WITH MULTIPLE BOMBS
+                // ..... ..... ..... .....
+                // ..... ..... ..... .....
+
+                break;
             }
         }
+
+        foreach (Bubble bubble in members) {
+            // We check for bubble just in case it leaves our list while we're looping.
+            if (bubble) 
+            {
+                bubble.DestroyBubble(bombChain);
+            }
+        }
+        if (bombChain) Debug.Log("The chain we're destroying has a bomb.");
+        else Debug.Log("The chain we're destroying IS INERT.");
         Destroy(this);
     }
 

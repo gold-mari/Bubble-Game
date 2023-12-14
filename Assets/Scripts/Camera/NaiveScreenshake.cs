@@ -20,6 +20,7 @@ public class NaiveScreenshake : MonoBehaviour
     // ==============================================================
 
     private Vector3 basePosition;
+    private Coroutine shakeRoutine;
 
     // ==============================================================
     // Initializer methods
@@ -39,7 +40,11 @@ public class NaiveScreenshake : MonoBehaviour
 
     public void BaseShake()
     {
-        StartCoroutine(Shake(baseShakeMagnitude, baseShakeDuration));
+        if (shakeRoutine != null) 
+        {
+            StopCoroutine(shakeRoutine);
+        }
+        shakeRoutine = StartCoroutine(Shake(baseShakeMagnitude, baseShakeDuration));
     }
 
     private IEnumerator Shake(float magnitude, float duration)

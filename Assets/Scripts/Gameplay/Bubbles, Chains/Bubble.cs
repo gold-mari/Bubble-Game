@@ -41,31 +41,56 @@ public class Bubble : MonoBehaviour
     // Finalization methods
     // ==============================================================
 
-    public void DestroyBubble()
+    public void DestroyBubble(bool isBombChain)
     {
-        Destroy(GetComponent<Bubble>());
-        Destroy(GetComponent<CircleCollider2D>());
-        Destroy(GetComponent<DangerTracker>());
-        Destroy(GetComponent<RadialGravity>());
-        
-        Rigidbody2D body = GetComponent<Rigidbody2D>();
-        if (body)
+        // We only want to do our fancy animations if this bubble is not a bomb.
+        // If it is, the bomb animations + the fancy break animations is too much
+        // visual noise.
+        FlavorBomb bomb = GetComponentInChildren<FlavorBomb>();
+        if (bomb)
         {
-            // Cancel out most of our existing velocity, apply gravity, and give us a random horizontal force.
-            body.velocity *= 0.1f;
-            body.gravityScale = 2f;
-            body.AddForce(new Vector2(Random.Range(-1,1)*100, 0f));
+            bomb.StoreSpawnPosition(transform.position);
+            RemoveAllAdjacencies();
+            Destroy(gameObject);
         }
+        // Likewise, don't animate if any bubble in this chain is a bomb.
+        else if (isBombChain)
+        {
+            RemoveAllAdjacencies();
+            Destroy(gameObject);
+        }
+        else
+        {
+            Destroy(GetComponent<Bubble>());
+            Destroy(GetComponent<CircleCollider2D>());
+            Destroy(GetComponent<DangerTracker>());
+            Destroy(GetComponent<RadialGravity>());
 
-        BubbleColorHelper helper = GetComponentInChildren<BubbleColorHelper>();
-        if (helper)
-        {
-            helper.baseColor = new Color(helper.baseColor.r, helper.baseColor.g, helper.baseColor.b, 0.667f);
+            Rigidbody2D body = GetComponent<Rigidbody2D>();
+            if (body)
+            {
+                // Cancel out most of our existing velocity, apply gravity, and give us a random horizontal force.
+                body.velocity *= 0.1f;
+                body.gravityScale = 2f;
+                body.AddForce(new Vector2(Random.Range(-1,1)*100, 0f));
+            }
+
+            BubbleColorHelper helper = GetComponentInChildren<BubbleColorHelper>();
+            if (helper)
+            {
+                helper.baseColor = new Color(helper.baseColor.r, helper.baseColor.g, helper.baseColor.b, 0.667f);
+            }
+
+            SpriteRenderer sprite = GetComponentInChildren<SpriteRenderer>();
+            if (sprite)
+            {
+                sprite.sortingOrder = 5;
+            }
+            
+            GetComponent<Animator>().SetTrigger("destroyed");
+            RemoveAllAdjacencies();
+            Destroy(gameObject, 2);
         }
-        
-        GetComponent<Animator>().SetTrigger("destroyed");
-        RemoveAllAdjacencies();
-        Destroy(gameObject, 2);
     }
 
     // ==============================================================
