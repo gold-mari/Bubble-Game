@@ -53,7 +53,7 @@ public class Bubble : MonoBehaviour
             RemoveAllAdjacencies();
             Destroy(gameObject);
         }
-        // Likewise, don't animate if any bubble in this chain is a bomb.
+        // Likewise, don't animate if ANY bubble in this chain is a bomb.
         else if (isBombChain)
         {
             RemoveAllAdjacencies();
@@ -66,6 +66,8 @@ public class Bubble : MonoBehaviour
             Destroy(GetComponent<DangerTracker>());
             Destroy(GetComponent<RadialGravity>());
 
+            transform.localScale *= 0.75f;
+
             Rigidbody2D body = GetComponent<Rigidbody2D>();
             if (body)
             {
@@ -75,12 +77,14 @@ public class Bubble : MonoBehaviour
                 body.AddForce(new Vector2(Random.Range(-1,1)*100, 0f));
             }
 
+            // Set transparency to 50% through the BubbleColorHelper.
             BubbleColorHelper helper = GetComponentInChildren<BubbleColorHelper>();
             if (helper)
             {
-                helper.baseColor = new Color(helper.baseColor.r, helper.baseColor.g, helper.baseColor.b, 0.667f);
+                helper.baseColor = new Color(helper.baseColor.r, helper.baseColor.g, helper.baseColor.b, 0.5f);
             }
 
+            // Bubbles are normally at sortingOrder 10- put destroyed bubbles in the back.
             SpriteRenderer sprite = GetComponentInChildren<SpriteRenderer>();
             if (sprite)
             {
