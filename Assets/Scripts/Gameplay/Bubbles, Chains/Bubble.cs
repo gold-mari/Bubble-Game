@@ -66,7 +66,7 @@ public class Bubble : MonoBehaviour
             Destroy(GetComponent<DangerTracker>());
             Destroy(GetComponent<RadialGravity>());
 
-            transform.localScale *= 0.75f;
+            transform.localScale *= 0.85f;
 
             Rigidbody2D body = GetComponent<Rigidbody2D>();
             if (body)
@@ -81,7 +81,7 @@ public class Bubble : MonoBehaviour
             BubbleColorHelper helper = GetComponentInChildren<BubbleColorHelper>();
             if (helper)
             {
-                helper.baseColor = new Color(helper.baseColor.r, helper.baseColor.g, helper.baseColor.b, 0.5f);
+                helper.baseColor = new Color(helper.baseColor.r, helper.baseColor.g, helper.baseColor.b, 0.25f);
             }
 
             // Bubbles are normally at sortingOrder 10- put destroyed bubbles in the back.
