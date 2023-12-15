@@ -1207,6 +1207,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: = DS Frame Canvas =
       objectReference: {fileID: 0}
+    - target: {fileID: 8624468519417057045, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
 --- !u!114 &1117492334 stripped
@@ -2194,6 +2198,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4751819187092467717, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 5863626387934219294, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2303,14 +2311,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8830513070003073481, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8830513070003073481, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8830513070003073481, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 358513554}
@@ -2322,30 +2322,6 @@ PrefabInstance:
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 519420034}
-    - target: {fileID: 8830513070003073481, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8830513070003073481, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnChainBreak
-      objectReference: {fileID: 0}
-    - target: {fileID: 8830513070003073481, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: OnChainBreak
-      objectReference: {fileID: 0}
-    - target: {fileID: 8830513070003073481, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: BaseShake
-      objectReference: {fileID: 0}
-    - target: {fileID: 8830513070003073481, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: NaiveScreenshake, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8830513070003073481, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 8830513070003073486, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_Enabled
       value: 1

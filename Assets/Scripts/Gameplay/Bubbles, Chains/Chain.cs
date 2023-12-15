@@ -52,7 +52,7 @@ public class Chain : ScriptableObject
         // ================
 
         // Otherwise, shout the chain break.
-        handler.ShoutChainBreak();
+        handler.ShoutChainBreak(this);
 
         DestroyAllMembers();
     }

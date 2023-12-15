@@ -3,26 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[System.Serializable]
+public class ChainEvent : UnityEvent<Chain>
+{
+}
+
 public class ChainBreakHandler : MonoBehaviour
 {
     // ==============================================================
     // Parameters
     // ==============================================================
 
-    [Tooltip("A UnityEvent which communicates with ..., noting that a chain has just broken.")]
-    [SerializeField]
-    UnityEvent chainBreak;
+    [SerializeField, Tooltip("A UnityEvent which communicates with other scripts, noting that a chain has just broken.")]
+    private ChainEvent chainBreak;
 
     // ==============================================================
     // Event-handling methods
     // ==============================================================
 
-    public void ShoutChainBreak()
+    public void ShoutChainBreak(Chain chain)
     {
         // ShoutChainBreak is called from Chain.cs whenever a chain breaks. In the
         // inspector, we use it to update the character animator.
         // ================
 
-        chainBreak?.Invoke();
+        chainBreak?.Invoke(chain);
     }
 }
