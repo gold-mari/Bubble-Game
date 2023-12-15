@@ -94,8 +94,6 @@ public class Chain : ScriptableObject
                 bubble.DestroyBubble(bombChain);
             }
         }
-        if (bombChain) Debug.Log("The chain we're destroying has a bomb.");
-        else Debug.Log("The chain we're destroying IS INERT.");
         Destroy(this);
     }
 
