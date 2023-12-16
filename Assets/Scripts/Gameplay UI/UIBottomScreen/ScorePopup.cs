@@ -19,7 +19,7 @@ public class ScorePopup : MonoBehaviour
     // ==============================================================
 
     private TMP_Text text;
-    static string[] texts = {"Cool!", "Rad!", "Gnarly!", "WOW!", "Great!"};
+    static string[] texts = {"Cool", "Good!", "Great!!", "WOW!!", "!!!~DIGI BEAT BLAST~!!!"};
 
     // ==============================================================
     // Initialization methods
