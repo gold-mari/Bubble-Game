@@ -29,6 +29,13 @@ public class Chain : ScriptableObject
     public uintVar maxLength;
 
     // ==============================================================
+    // Internal variables
+    // ==============================================================
+    
+    // To prevent double-counting chain breaks.
+    bool broken = false;
+
+    // ==============================================================
     // Default methods
     // ==============================================================
 
@@ -115,13 +122,14 @@ public class Chain : ScriptableObject
         members.Add(bubble);
         length++;
 
-        // If incrementing length takes us over our max, destroy this chain.
-        if (length >= maxLength.value) {
-            BreakChain(handler);
-        }
-
         // Update their field.
         bubble.chain = this;
+
+        // If incrementing length takes us over our max, destroy this chain.
+        if (!broken && length >= maxLength.value) {
+            broken = true;
+            BreakChain(handler);
+        }
     }
 
     public void Concatenate(Chain chain, ChainBreakHandler handler)
@@ -138,13 +146,14 @@ public class Chain : ScriptableObject
         members.AddRange(chain.members);
         length += chain.length;
 
-        // If adding to length takes us over our max, destroy this chain.
-        if (length >= maxLength.value) {
-            BreakChain(handler);
-        }
-
         foreach (Bubble bubble in chain.members) {
             bubble.chain = this;
+        }
+
+        // If adding to length takes us over our max, destroy this chain.
+        if (!broken && length >= maxLength.value) {
+            broken = true;
+            BreakChain(handler);
         }
     }
 
