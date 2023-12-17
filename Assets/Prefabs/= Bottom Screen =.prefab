@@ -218,6 +218,7 @@ MonoBehaviour:
   relativeDecayFactor: 0.8
   cooldownMeter: {fileID: 5740525859579963035}
   currentCombo: {fileID: 11400000, guid: 968a11a7a9011d448bee73fff971cee1, type: 2}
+  scoreVar: {fileID: 11400000, guid: 469cd48f67736334697981d9c30f97ef, type: 2}
   maxChainLength: {fileID: 11400000, guid: f8135a0e4c086004b969a200daef9671, type: 2}
 --- !u!114 &7318956119765026642
 MonoBehaviour:

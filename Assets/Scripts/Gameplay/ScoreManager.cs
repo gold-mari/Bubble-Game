@@ -23,13 +23,19 @@ public class ScoreManager : MonoBehaviour
     Image cooldownMeter;
     [SerializeField, Tooltip("The uintVar storing our current combo.")]
     uintVar currentCombo;
+    [SerializeField, Tooltip("The uintVar storing our total score.")]
+    uintVar scoreVar;
     [SerializeField, Tooltip("The uintVar storing the max chain length. Used to calculate the overpop bonus.")]
     uintVar maxChainLength;
 
     private TimelineHandler handler;
     private Coroutine cooldown = null;
     private int comboLevel = 0;
-    private uint totalScore = 0;
+
+    private void Awake()
+    {
+        scoreVar.value = 0;
+    }
 
     private void Update()
     {
@@ -64,10 +70,10 @@ public class ScoreManager : MonoBehaviour
 
         uint multiplier = chain.length-maxChainLength.value + 1;
         uint score = (uint)(multiplier*comboLevel*baseScore);
-        totalScore += score;
+        scoreVar.value += score;
 
-        if ( chain.length > maxChainLength.value ) print($"OVERPOP! scored {score} POINTS!! (X{multiplier} multiplier) --- TOTAL: {totalScore}");
-        else print($"scored {score} POINTS!! --- TOTAL: {totalScore}");
+        if ( chain.length > maxChainLength.value ) print($"OVERPOP! scored {score} POINTS!! (X{multiplier} multiplier)");
+        else print($"scored {score} POINTS!!");
     }
 
     private IEnumerator ComboRoutineCooldown()
