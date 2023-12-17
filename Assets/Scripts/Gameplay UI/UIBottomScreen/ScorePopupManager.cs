@@ -14,7 +14,11 @@ public class ScorePopupManager : MonoBehaviour
         Vector3 centroid = Vector2.zero;
         foreach (Bubble member in members)
         {
-            centroid += (Vector3)member.transform.position;
+            // In case a bubble is destroyed before we can loop to it.
+            if (member != null)
+            {
+                centroid += (Vector3)member.transform.position;
+            }
         }
         centroid /= members.Length;
 

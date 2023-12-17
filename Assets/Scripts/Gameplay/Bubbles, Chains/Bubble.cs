@@ -61,7 +61,6 @@ public class Bubble : MonoBehaviour
         }
         else
         {
-            Destroy(GetComponent<Bubble>());
             Destroy(GetComponent<CircleCollider2D>());
             Destroy(GetComponent<DangerTracker>());
             Destroy(GetComponent<RadialGravity>());
