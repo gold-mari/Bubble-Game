@@ -2251,6 +2251,10 @@ PrefabInstance:
       value: OnPlayerLoss
       objectReference: {fileID: 0}
     - target: {fileID: 8830513068628213623, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: mainSong
+      value: 
+      objectReference: {fileID: 11400000, guid: 1b3bf3dd50fd7ef49a7dce597212699f, type: 2}
+    - target: {fileID: 8830513068628213623, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}

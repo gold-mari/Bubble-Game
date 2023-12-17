@@ -28,6 +28,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField, Tooltip("The uintVar storing the max chain length. Used to calculate the overpop bonus.")]
     uintVar maxChainLength;
 
+    private ScorePopupManager popupManager;
     private TimelineHandler handler;
     private Coroutine cooldown = null;
     private int comboLevel = 0;
@@ -35,6 +36,7 @@ public class ScoreManager : MonoBehaviour
     private void Awake()
     {
         scoreVar.value = 0;
+        popupManager = GetComponent<ScorePopupManager>();
     }
 
     private void Update()
@@ -66,7 +68,7 @@ public class ScoreManager : MonoBehaviour
             cooldown = StartCoroutine(ComboRoutineCooldown());        
         }
 
-        uint baseScore = 1000;
+        uint baseScore = 100;
 
         uint multiplier = chain.length-maxChainLength.value + 1;
         uint score = (uint)(multiplier*comboLevel*baseScore);
@@ -74,6 +76,8 @@ public class ScoreManager : MonoBehaviour
 
         if ( chain.length > maxChainLength.value ) print($"OVERPOP! scored {score} POINTS!! (X{multiplier} multiplier)");
         else print($"scored {score} POINTS!!");
+
+        popupManager.OnChainBreak(chain, score, (uint)comboLevel, multiplier);
     }
 
     private IEnumerator ComboRoutineCooldown()
