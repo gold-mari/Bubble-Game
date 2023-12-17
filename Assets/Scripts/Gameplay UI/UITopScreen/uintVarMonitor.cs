@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class FloatVarMonitor : MonoBehaviour
+public class uintVarMonitor : MonoBehaviour
 {
     // ================================================================
     // Parameters
     // ================================================================
 
     [SerializeField, Tooltip("The floatVar we're monitoring.")]
-    private floatVar floatVar;
+    private uintVar UIntVar;
     [SerializeField, Tooltip("The amount to scale our floatVar by.\n\nDefault: 100.")]
     private float scale = 100;
-    [SerializeField, Tooltip("The number of decimal places to display of the floatVar\n\nDefault: 1.")]
-    private uint decimalPlaces = 1;
     [SerializeField, Tooltip("A prefix added to the start of our printed string.")]
     private string prefix;
     [SerializeField, Tooltip("A suffix added to the end of our printed string.")]
@@ -25,7 +23,6 @@ public class FloatVarMonitor : MonoBehaviour
     // ================================================================
 
     private TMP_Text textObject;
-    private string formatString = "0.";
 
     // ================================================================
     // Update methods
@@ -37,7 +34,6 @@ public class FloatVarMonitor : MonoBehaviour
         // ================
 
         textObject = GetComponent<TMP_Text>();
-        formatString += new string('0', (int)decimalPlaces);
     }
 
     private void Update()
@@ -45,6 +41,6 @@ public class FloatVarMonitor : MonoBehaviour
         // Update is called once per frame. We use it to update our text.
         // ================
 
-        textObject.text = prefix + (floatVar.value * scale).ToString(formatString) + suffix;
+        textObject.text = prefix + (UIntVar.value * scale) + suffix;
     }
 }
