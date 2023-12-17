@@ -1205,6 +1205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2000293063}
   - component: {fileID: 2000293064}
+  - component: {fileID: 2000293065}
   m_Layer: 0
   m_Name: Score Manager
   m_TagString: Untagged
@@ -1252,6 +1253,19 @@ MonoBehaviour:
   relativeDecayFactor: 0.8
   cooldownMeter: {fileID: 1590791578}
   currentCombo: {fileID: 11400000, guid: 968a11a7a9011d448bee73fff971cee1, type: 2}
+--- !u!114 &2000293065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000293062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10428bb0b5379f0449f30f7ed3b10c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popup: {fileID: 700670980116155768, guid: 6b46aaf29e0cecb4a977720d8159134a, type: 3}
 --- !u!114 &2078172877 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4568130228801438688, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
@@ -2013,7 +2027,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8830513070003073481, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8830513070003073481, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2030,7 +2044,7 @@ PrefabInstance:
     - target: {fileID: 8830513070003073481, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 8830513069248788195}
+      objectReference: {fileID: 2000293065}
     - target: {fileID: 8830513070003073481, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
@@ -2109,18 +2123,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2277640446206077593, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+    - {fileID: 763083047292961458, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
---- !u!114 &8830513069248788195 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 763083047292961458, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-  m_PrefabInstance: {fileID: 8830513069248788194}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10428bb0b5379f0449f30f7ed3b10c65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &8830513069248788196 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3211825175049601444, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
