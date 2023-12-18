@@ -40,11 +40,26 @@ public class NaiveScreenshake : MonoBehaviour
 
     public void BaseShake()
     {
+        // Calls a basic version of our shakeRoutine.
+        // ================
+
         if (shakeRoutine != null) 
         {
             StopCoroutine(shakeRoutine);
         }
         shakeRoutine = StartCoroutine(Shake(baseShakeMagnitude, baseShakeDuration));
+    }
+
+    public void ScaledShake(float scale)
+    {
+        // Calls a version of our shakeRoutine with a magnitude scaled by our float parameter.
+        // ================
+
+        if (shakeRoutine != null) 
+        {
+            StopCoroutine(shakeRoutine);
+        }
+        shakeRoutine = StartCoroutine(Shake(scale * baseShakeMagnitude, baseShakeDuration));
     }
 
     private IEnumerator Shake(float magnitude, float duration)

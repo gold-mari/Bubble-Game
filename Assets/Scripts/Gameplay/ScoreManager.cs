@@ -16,6 +16,8 @@ public class ScoreManager : MonoBehaviour
     uint exceptionalCombo = 5;
     [SerializeField, Tooltip("The music manager present in the scene.")]
     private MusicManager manager;
+    [SerializeField, Tooltip("The screenshaker present in the scene.")]
+    private NaiveScreenshake screenshake;
     [SerializeField, Tooltip("The amount of time, in quarter notes, after a chain break before our combo goes down a rank.\n\nDefault: 4")]
     private uint quarterDuration = 4;
 
@@ -76,11 +78,12 @@ public class ScoreManager : MonoBehaviour
             cooldown = StartCoroutine(ComboRoutineCooldown());        
         }
 
-        uint multiplier = chain.length-maxChainLength.value + 1;
-        uint score = (uint)(multiplier*comboLevel*baseScoreAmount);
+        uint overpopMultiplier = chain.length-maxChainLength.value + 1;
+        uint score = (uint)(overpopMultiplier*comboLevel*baseScoreAmount);
         scoreVar.value += score;
 
-        popupManager.OnChainBreak(chain, score, (uint)comboLevel, exceptionalCombo, multiplier);
+        popupManager.OnChainBreak(chain, score, (uint)comboLevel, exceptionalCombo, overpopMultiplier);
+        screenshake.ScaledShake(comboLevel);
     }
 
     // ================================================================
