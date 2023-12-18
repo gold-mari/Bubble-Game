@@ -8,7 +8,7 @@ public class ScorePopupManager : MonoBehaviour
     [SerializeField]
     private GameObject popup;
 
-    public void OnChainBreak(Chain chain, uint score, uint combo, uint overpop)
+    public void OnChainBreak(Chain chain, uint score, uint combo, uint exceptionalCombo, uint overpop)
     {
         Bubble[] members = chain.members.ToArray();
         Vector3 centroid = Vector2.zero;
@@ -23,6 +23,6 @@ public class ScorePopupManager : MonoBehaviour
         centroid /= members.Length;
 
         ScorePopup scorePopup = Instantiate(popup, centroid, Quaternion.identity, transform).GetComponent<ScorePopup>();
-        scorePopup.Initialize(score, combo, overpop, Bubble_Flavor_Methods.getColor(chain.chainFlavor));
+        scorePopup.Initialize(score, combo, exceptionalCombo, overpop, Bubble_Flavor_Methods.getColor(chain.chainFlavor));
     }
 }

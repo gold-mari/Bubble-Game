@@ -36,6 +36,8 @@ public class Bubble : MonoBehaviour
     // Assigned on spawn.
     [HideInInspector]
     public ChainBreakHandler handler;
+    [HideInInspector]
+    public bool isDestroying = false;
 
     // ==============================================================
     // Finalization methods
@@ -43,6 +45,8 @@ public class Bubble : MonoBehaviour
 
     public void DestroyBubble(bool isBombChain)
     {
+        isDestroying = true;
+
         // We only want to do our fancy animations if this bubble is not a bomb.
         // If it is, the bomb animations + the fancy break animations is too much
         // visual noise.
@@ -121,9 +125,12 @@ public class Bubble : MonoBehaviour
         // update adjacencies and to consolidate bubbles into chains, if needed.
         // ================
 
+        if (isDestroying) return;
+
         Bubble otherBubble = other.transform.parent.GetComponent<Bubble>();
         // If the otherBubble is not null...
         if (otherBubble) {
+            if (otherBubble.isDestroying) return;
             // Add them to our adjacency list.
             AddAdjacency(otherBubble);
         }
@@ -135,9 +142,12 @@ public class Bubble : MonoBehaviour
         // update adjacencies and to distribute chains, if needed.
         // ================
 
+        if (isDestroying) return;
+
         Bubble otherBubble = other.transform.parent.GetComponent<Bubble>();
         // If the otherBubble is not null...
         if (otherBubble) {
+            if (otherBubble.isDestroying) return;
             // Remove them from our adjacency list.
             RemoveAdjacency(otherBubble);
         }
@@ -153,6 +163,8 @@ public class Bubble : MonoBehaviour
         // flavor, also consolidates their chains.
         // ================
 
+        if (isDestroying) return;
+
         adjacencies.Add(other);
         // If they are of the same flavor as us, AND we're the younger bubble...
         if (other.bubbleFlavor == bubbleFlavor && age > other.age) {
@@ -167,6 +179,8 @@ public class Bubble : MonoBehaviour
         // Removes Bubble other to this's adjacency list. If the bubbles are of the same
         // flavor and chain, also distributes their chain.
         // ================
+
+        if (isDestroying) return;
 
         adjacencies.Remove(other);
         other.adjacencies.Remove(this);
@@ -206,7 +220,7 @@ public class Bubble : MonoBehaviour
         }
 
         // If by the end we need to distribute,
-        if (distribute) {
+        if (!isDestroying && distribute) {
             // run the Distribution algorithm on our chain.
             chain.Distribute(handler);
         }
@@ -219,6 +233,8 @@ public class Bubble : MonoBehaviour
         // this will always be younger than other.
         // Prerequisites: this.chain != null, other.chain != null
         // ====================
+
+        if (isDestroying) return;
 
         Debug.Assert(this.chain != null, "Bubble Error: Consolidate() failed: this's chain must not be null.", this);
         Debug.Assert(other.chain != null, "Bubble Error: Consolidate() failed: other's chain must not be null.", other);

@@ -49,7 +49,7 @@ public class ScorePopup : MonoBehaviour
         StartCoroutine(Decay());
     }
 
-    public void Initialize(uint score, uint combo, uint overpop, Color color)
+    public void Initialize(uint score, uint combo, uint exceptionalCombo, uint overpop, Color color)
     {
         text.text = score.ToString() + "!";
         ourFontSize = baseFontSize + ((combo-1)*sizePerComboRank);
@@ -61,7 +61,7 @@ public class ScorePopup : MonoBehaviour
         }
 
         text.outlineColor = text.color = baseColor = color;
-        if (combo >= 5)
+        if (combo >= exceptionalCombo)
         {
             StartCoroutine(LoopColor());
         }

@@ -58,7 +58,10 @@ public class Chain : ScriptableObject
         // destroys all members.
         // ================
 
+        if (broken) return;
+
         // Otherwise, shout the chain break.
+        broken = true;
         handler.ShoutChainBreak(this);
 
         DestroyAllMembers();
@@ -83,13 +86,6 @@ public class Chain : ScriptableObject
             if (bubble && bubble.isBomb)
             {
                 bombChain = true;
-
-                // ..... ..... ..... .....
-                // ..... ..... ..... .....
-                // CURRENT TASK: CONFIRM THAT THE ANIMATION DOESN'T PLAY ON CHAINS WITH MULTIPLE BOMBS
-                // ..... ..... ..... .....
-                // ..... ..... ..... .....
-
                 break;
             }
         }
@@ -126,8 +122,7 @@ public class Chain : ScriptableObject
         bubble.chain = this;
 
         // If incrementing length takes us over our max, destroy this chain.
-        if (!broken && length >= maxLength.value) {
-            broken = true;
+        if (length >= maxLength.value) {
             BreakChain(handler);
         }
     }
@@ -151,8 +146,7 @@ public class Chain : ScriptableObject
         }
 
         // If adding to length takes us over our max, destroy this chain.
-        if (!broken && length >= maxLength.value) {
-            broken = true;
+        if (length >= maxLength.value) {
             BreakChain(handler);
         }
     }
