@@ -2173,6 +2173,10 @@ PrefabInstance:
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2078172877}
+    - target: {fileID: 8830513070110243336, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -962922975, guid: 430f2c542d4092c489e786797ef721d8, type: 3}
     - target: {fileID: 8830513070110243338, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.675
@@ -2189,6 +2193,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8830513070110243339, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: binder
+      value: 
+      objectReference: {fileID: 11400000, guid: 159621d7bd26ba24ea7c8b8066383352, type: 2}
     - target: {fileID: 8830513070110243339, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: flavor
       value: 
@@ -2233,6 +2241,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8830513070449331982, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -962922975, guid: 430f2c542d4092c489e786797ef721d8, type: 3}
     - target: {fileID: 8956605525292495999, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_IsActive
       value: 0
