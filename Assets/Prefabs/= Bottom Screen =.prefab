@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseScoreAmount: 100
-  exceptionalCombo: 5
+  exceptionalCombo: {fileID: 11400000, guid: d0a25fdaf5e37f74981be28b0a3c7da1, type: 2}
   manager: {fileID: 8830513068628213623}
   screenshake: {fileID: 0}
   quarterDuration: 4

@@ -779,6 +779,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &849361147 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2403513121028345091, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+  m_PrefabInstance: {fileID: 8830513069248788194}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &849361152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849361147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f517c81cc5d96042bde6177c697fbc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exceptionalCombo: {fileID: 11400000, guid: d0a25fdaf5e37f74981be28b0a3c7da1, type: 2}
+  currentCombo: {fileID: 11400000, guid: 968a11a7a9011d448bee73fff971cee1, type: 2}
 --- !u!1 &1482844978
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,6 +1198,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2708931529567253766, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: musicPlayer
+      value: 
+      objectReference: {fileID: 621005205}
+    - target: {fileID: 3173503358639533512, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: flavor
+      value: 
+      objectReference: {fileID: 11400000, guid: f772af05bd226f34bb65321c9e08e1d1, type: 2}
     - target: {fileID: 4751819187092467717, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_Camera
       value: 
@@ -1255,6 +1282,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: === Bottom Screen ===
       objectReference: {fileID: 0}
+    - target: {fileID: 8830513069786489040, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: flavor
+      value: 
+      objectReference: {fileID: 11400000, guid: f772af05bd226f34bb65321c9e08e1d1, type: 2}
     - target: {fileID: 8830513070003073481, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.size
       value: 3
@@ -1287,5 +1318,9 @@ PrefabInstance:
       propertyPath: massRoundSize
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8830513070110243339, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: flavor
+      value: 
+      objectReference: {fileID: 11400000, guid: f772af05bd226f34bb65321c9e08e1d1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}

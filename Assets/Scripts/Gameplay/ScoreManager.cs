@@ -12,8 +12,8 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField, Tooltip("How many points a standard chain break gets us.\n\nDefault: 100")]
     uint baseScoreAmount = 100;
-    [SerializeField, Tooltip("What size of a combo is considered 'exceptional'. Combos at or past exceptional get extra UI effects.\n\nDefault: 5")]
-    uint exceptionalCombo = 5;
+    [SerializeField, Tooltip("The uintVar storing what size of a combo is considered 'exceptional'. Combos at or past exceptional get extra UI effects.\n\nDefault: 5")]
+    uintVar exceptionalCombo;
     [SerializeField, Tooltip("The music manager present in the scene.")]
     private MusicManager manager;
     [SerializeField, Tooltip("The screenshaker present in the scene.")]
@@ -82,7 +82,7 @@ public class ScoreManager : MonoBehaviour
         uint score = (uint)(overpopMultiplier*comboLevel*baseScoreAmount);
         scoreVar.value += score;
 
-        popupManager.OnChainBreak(chain, score, (uint)comboLevel, exceptionalCombo, overpopMultiplier);
+        popupManager.OnChainBreak(chain, score, (uint)comboLevel, exceptionalCombo.value, overpopMultiplier);
         screenshake.ScaledShake(comboLevel * overpopMultiplier);
     }
 
