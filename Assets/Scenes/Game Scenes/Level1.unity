@@ -1941,6 +1941,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4467073247369414971, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: magnitude
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4545768087665350271, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_text
       value: x2
@@ -2158,9 +2162,17 @@ PrefabInstance:
       value: === Bottom Screen ===
       objectReference: {fileID: 0}
     - target: {fileID: 8830513069786489040, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: binder
+      value: 
+      objectReference: {fileID: 11400000, guid: b5cee5214b9643246b5ec822174b96c2, type: 2}
+    - target: {fileID: 8830513069786489040, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: flavor
       value: 
       objectReference: {fileID: 11400000, guid: f772af05bd226f34bb65321c9e08e1d1, type: 2}
+    - target: {fileID: 8830513069786489046, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1269369363, guid: 4d4c8c50c674dee4a8e9be4ad29b559c, type: 3}
     - target: {fileID: 8830513070000436688, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_SortingOrder
       value: -2
@@ -2173,6 +2185,10 @@ PrefabInstance:
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2078172877}
+    - target: {fileID: 8830513070003073486, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: binder
+      value: 
+      objectReference: {fileID: 11400000, guid: b5cee5214b9643246b5ec822174b96c2, type: 2}
     - target: {fileID: 8830513070110243336, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_Sprite
       value: 
