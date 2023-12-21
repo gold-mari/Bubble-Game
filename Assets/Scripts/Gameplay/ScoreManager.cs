@@ -83,7 +83,7 @@ public class ScoreManager : MonoBehaviour
         scoreVar.value += score;
 
         popupManager.OnChainBreak(chain, score, (uint)comboLevel, exceptionalCombo, overpopMultiplier);
-        screenshake.ScaledShake(comboLevel);
+        screenshake.ScaledShake(comboLevel * overpopMultiplier);
     }
 
     // ================================================================
