@@ -694,7 +694,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafc925730b25b242af9c7857c4a2d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {fileID: 11400000, guid: f6aa858b6b3d7124f81b15e740dc4804, type: 2}
+  flavor: {fileID: 11400000, guid: f6aa858b6b3d7124f81b15e740dc4804, type: 2}
+  changeColor: 1
   changeSprite: 1
   binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
 --- !u!1 &4154535105134416034

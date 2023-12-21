@@ -11,8 +11,10 @@ public class ColorIndicator : MonoBehaviour
     // ================================================================
 
     [Tooltip("The Bubble_FlavorVar that this script should monitor.")]
-    public Bubble_FlavorVar color;
-    [SerializeField, Tooltip("If we should change our sprite according to the monitored color.")]
+    public Bubble_FlavorVar flavor;
+    [SerializeField, Tooltip("If we should change our color according to the monitored flavor.")]
+    private bool changeColor = true;
+    [SerializeField, Tooltip("If we should change our sprite according to the monitored flavor.")]
     private bool changeSprite = true;
     [ShowIf("changeSprite"), SerializeField, Tooltip("A binder of bubble sprites, corresponding to the color of the bubble this indicator monitors.")]
     private BubbleSpriteBinder binder;
@@ -47,21 +49,27 @@ public class ColorIndicator : MonoBehaviour
         // to the Color which corresponds to our Bubble_Flavor.
         // ================
 
-        Color c = Bubble_Flavor_Methods.getColor(color.value);
+        Color c = Bubble_Flavor_Methods.getColor(flavor.value);
         if (sprite)
         {
-            sprite.color = c;
+            if (changeColor)
+            {
+                sprite.color = c;
+            }
             if (changeSprite)
             {
-                sprite.sprite = Bubble_Flavor_Methods.getSprite(color.value, binder);
+                sprite.sprite = Bubble_Flavor_Methods.getSprite(flavor.value, binder);
             }
         }
         if (image)
         {
-            image.color = c;
+            if (changeColor)
+            {
+                image.color = c;
+            }
             if (changeSprite)
             {
-                image.sprite = Bubble_Flavor_Methods.getSprite(color.value, binder);
+                image.sprite = Bubble_Flavor_Methods.getSprite(flavor.value, binder);
             }
         }
     }

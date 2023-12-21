@@ -80,7 +80,7 @@ public class Bubble : MonoBehaviour
                 body.AddForce(new Vector2(Random.Range(-1,1)*100, 0f));
             }
 
-            // Set transparency to 50% through the BubbleColorHelper.
+            // Set transparency to 25% through the BubbleColorHelper.
             BubbleColorHelper helper = GetComponentInChildren<BubbleColorHelper>();
             if (helper)
             {
