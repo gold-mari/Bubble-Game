@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class BeatBackflash : MonoBehaviour
@@ -10,6 +11,12 @@ public class BeatBackflash : MonoBehaviour
 
     [SerializeField, Tooltip("The BeatIndicator component above this object.")]
     private BeatIndicator beatIndicator;
+    [SerializeField, Tooltip("Whether we should flip our sprite on a major flash.")]
+    private bool doFlip;
+    [SerializeField, Tooltip("The sprite to display on a minor flash.")]
+    private Sprite minorSprite;
+    [SerializeField, Tooltip("The sprite to display on a major flash.")]
+    private Sprite majorSprite;
 
     // ================================================================
     // Internal variables
@@ -66,8 +73,8 @@ public class BeatBackflash : MonoBehaviour
             // If the next beat is a single spawn, do a minor flash.
             if (currentBeatmap.GetBeatType(tracker.nextLoopBeat) == BeatType.SingleSpawn)
             {
-                spriteRenderer.flipY = false;
-                print("minor flash");
+                if (doFlip) spriteRenderer.flipY = false;
+                spriteRenderer.sprite = minorSprite;
                 animator.SetTrigger("MinorFlash");
             }
             // If the second next beat OR the next beat is a higher-order beat (not single, not null), do a major flash.
@@ -76,8 +83,8 @@ public class BeatBackflash : MonoBehaviour
                      (currentBeatmap.GetBeatType(tracker.nextLoopBeat) != BeatType.NONE
                    && currentBeatmap.GetBeatType(tracker.secondNextLoopBeat) != BeatType.SingleSpawn))
             {
-                spriteRenderer.flipY = true;
-                print("MAJOR FLASH");
+                if (doFlip) spriteRenderer.flipY = true;
+                spriteRenderer.sprite = majorSprite;
                 animator.SetTrigger("MajorFlash");
             }
         }
