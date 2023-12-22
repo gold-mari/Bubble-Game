@@ -2194,6 +2194,10 @@ PrefabInstance:
       propertyPath: backgroundFrames.Array.data[1].color.r
       value: 0.09803922
       objectReference: {fileID: 0}
+    - target: {fileID: 2708931529567253766, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: musicPlayer
+      value: 
+      objectReference: {fileID: 621005205}
     - target: {fileID: 4183038994577475913, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_IsActive
       value: 0

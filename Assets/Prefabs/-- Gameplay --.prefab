@@ -815,7 +815,7 @@ MonoBehaviour:
   hyperbubble: {fileID: 5062526010735810590, guid: dd7beb4ab72f8204e82b48f00c64fa49, type: 3}
   HYPERMassBubbles: 0
   flavorBomb: {fileID: 5062526010735810590, guid: 8ebdc7d469f403b41b8b521dda5ed75d, type: 3}
-  binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
+  binder: {fileID: 11400000, guid: b5cee5214b9643246b5ec822174b96c2, type: 2}
   flavors:
   - {fileID: 11400000, guid: f772af05bd226f34bb65321c9e08e1d1, type: 2}
   - {fileID: 11400000, guid: e70d1f0ac0ff851418d0a5f5f9357ade, type: 2}
@@ -1369,7 +1369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafc925730b25b242af9c7857c4a2d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {fileID: 11400000, guid: f772af05bd226f34bb65321c9e08e1d1, type: 2}
+  flavor: {fileID: 11400000, guid: f772af05bd226f34bb65321c9e08e1d1, type: 2}
+  changeColor: 1
   changeSprite: 1
   binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
 --- !u!95 &5750587620042928293
@@ -1672,6 +1673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafc925730b25b242af9c7857c4a2d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {fileID: 11400000, guid: f772af05bd226f34bb65321c9e08e1d1, type: 2}
+  flavor: {fileID: 11400000, guid: f772af05bd226f34bb65321c9e08e1d1, type: 2}
+  changeColor: 1
   changeSprite: 0
   binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}

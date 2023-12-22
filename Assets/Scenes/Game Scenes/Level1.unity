@@ -2201,6 +2201,14 @@ PrefabInstance:
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 8830513070003073481, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830513070003073481, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830513070003073481, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1189538589}
@@ -2208,10 +2216,18 @@ PrefabInstance:
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2078172877}
-    - target: {fileID: 8830513070003073486, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: binder
+    - target: {fileID: 8830513070003073481, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 11400000, guid: b5cee5214b9643246b5ec822174b96c2, type: 2}
+      objectReference: {fileID: 8830513069248788196}
+    - target: {fileID: 8830513070003073481, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: LogChainBreak
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830513070003073481, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: ScoreManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 8830513070110243336, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2297,3 +2313,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8830513069136681692, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
   m_PrefabInstance: {fileID: 8830513069248788194}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8830513069248788196 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5955104156231506439, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+  m_PrefabInstance: {fileID: 8830513069248788194}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eceba533a05f0f84195ef5cc618f46cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

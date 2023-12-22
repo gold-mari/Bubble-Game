@@ -451,7 +451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ccf3a64c1e48f3409f60690ae786fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicPlayer: {fileID: 0}
+  musicPlayer: {fileID: 8830513068628213623}
   beatBounceCurve:
     serializedVersion: 2
     m_Curve:
