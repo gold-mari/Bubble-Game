@@ -53,6 +53,9 @@ public class BeatCenter : MonoBehaviour
         // the loop tracker is in.
         // ================
 
+        animator.ResetTrigger("Flash");
+        animator.ResetTrigger("Fade");
+
         if (currentBeatmap.GetBeatType(tracker.nextLoopBeat) == BeatType.SingleSpawn)
         {
             spriteRenderer.sprite = SpriteFromType(BeatType.SingleSpawn);
@@ -63,6 +66,10 @@ public class BeatCenter : MonoBehaviour
         {
             spriteRenderer.sprite = SpriteFromType(currentBeatmap.GetBeatType(tracker.secondNextLoopBeat));
             animator.SetTrigger("Flash");
+        }
+        else if (currentBeatmap.GetBeatType(tracker.nextLoopBeat) == BeatType.NONE)
+        {
+            animator.SetTrigger("Fade");
         }
     }
 
