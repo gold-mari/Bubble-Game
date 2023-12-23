@@ -21,8 +21,8 @@ public class BeatCenter : MonoBehaviour
     private Beatmap currentBeatmap;
     // A reference to our loop tracker.
     private LoopTracker tracker;
-    // The sprite renderer on this object.
-    private SpriteRenderer spriteRenderer;
+    // The sprite renderer under this object.
+    private SpriteRenderer[] spriteRenderers;
     // The animator on this object.
     private Animator animator;
 
@@ -32,7 +32,7 @@ public class BeatCenter : MonoBehaviour
         // initialize our UI.
         // ================
 
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         animator = GetComponent<Animator>();
         currentBeatmap = beatIndicator.currentBeatmap;
         
@@ -58,13 +58,21 @@ public class BeatCenter : MonoBehaviour
 
         if (currentBeatmap.GetBeatType(tracker.nextLoopBeat) == BeatType.SingleSpawn)
         {
-            spriteRenderer.sprite = SpriteFromType(BeatType.SingleSpawn);
+            Sprite ourSprite = SpriteFromType(BeatType.SingleSpawn);
+            foreach (SpriteRenderer renderer in spriteRenderers)
+            {
+                renderer.sprite = ourSprite;
+            }
             animator.SetTrigger("Flash");
         }
         else if (currentBeatmap.GetBeatType(tracker.secondNextLoopBeat) != BeatType.NONE
               && currentBeatmap.GetBeatType(tracker.secondNextLoopBeat) != BeatType.SingleSpawn)
         {
-            spriteRenderer.sprite = SpriteFromType(currentBeatmap.GetBeatType(tracker.secondNextLoopBeat));
+            Sprite ourSprite = SpriteFromType(currentBeatmap.GetBeatType(tracker.secondNextLoopBeat));
+            foreach (SpriteRenderer renderer in spriteRenderers)
+            {
+                renderer.sprite = ourSprite;
+            }
             animator.SetTrigger("Flash");
         }
         else if (currentBeatmap.GetBeatType(tracker.nextLoopBeat) == BeatType.NONE)

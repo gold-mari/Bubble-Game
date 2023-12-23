@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4568130227753916989, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4568130227753916989, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -423,8 +423,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 957652917}
   - {fileID: 31727473}
+  - {fileID: 957652917}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -785,6 +785,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 512483413}
     m_Modifications:
+    - target: {fileID: 142718611787022199, guid: 16ac93cecab1c024898ec5a4cd6788c8, type: 3}
+      propertyPath: m_text
+      value: level 2 - VS the Poltergeist
+      objectReference: {fileID: 0}
     - target: {fileID: 6686941092444551178, guid: 16ac93cecab1c024898ec5a4cd6788c8, type: 3}
       propertyPath: m_Camera
       value: 
@@ -799,7 +803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6686941092444551179, guid: 16ac93cecab1c024898ec5a4cd6788c8, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6686941092444551179, guid: 16ac93cecab1c024898ec5a4cd6788c8, type: 3}
       propertyPath: m_AnchorMax.x
