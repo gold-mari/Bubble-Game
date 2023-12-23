@@ -31,8 +31,8 @@ public class EchoRing : MonoBehaviour
     {
         if (elapsed < fadeDuration)
         {
-            transform.localScale = Vector3.Lerp(baseScale, finalScaleVector, elapsed/fadeDuration);
-            sprite.color = Color.Lerp(baseColor, endColor, elapsed/fadeDuration);
+            transform.localScale = Vector3.Lerp(baseScale, finalScaleVector, LerpKit.EaseOut(elapsed/fadeDuration, 3));
+            sprite.color = Color.Lerp(baseColor, endColor, LerpKit.EaseOut(elapsed/fadeDuration, 3));
             elapsed += Time.deltaTime;
         }   
         else
