@@ -383,6 +383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIntVar: {fileID: 11400000, guid: 968a11a7a9011d448bee73fff971cee1, type: 2}
   scale: 1
+  formatString: '{0}'
   prefix: x
   suffix: 
 --- !u!114 &5804995932366378279
@@ -937,6 +938,10 @@ PrefabInstance:
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5750587620042928288, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1269369363, guid: 4d4c8c50c674dee4a8e9be4ad29b559c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
 --- !u!114 &8830513068628213623 stripped

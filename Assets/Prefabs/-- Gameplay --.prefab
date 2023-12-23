@@ -1372,7 +1372,7 @@ MonoBehaviour:
   flavor: {fileID: 11400000, guid: f772af05bd226f34bb65321c9e08e1d1, type: 2}
   changeColor: 1
   changeSprite: 1
-  binder: {fileID: 11400000, guid: f24fb2c139b095e47a768806c6f12f85, type: 2}
+  binder: {fileID: 11400000, guid: b5cee5214b9643246b5ec822174b96c2, type: 2}
 --- !u!95 &5750587620042928293
 Animator:
   serializedVersion: 5
