@@ -2150,18 +2150,6 @@ PrefabInstance:
       propertyPath: iconColor.r
       value: 0.3301887
       objectReference: {fileID: 0}
-    - target: {fileID: 1577241616658965461, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1577241616658965461, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: m_Color.g
-      value: 0.3647059
-      objectReference: {fileID: 0}
-    - target: {fileID: 1577241616658965461, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: m_Color.r
-      value: 0.58431375
-      objectReference: {fileID: 0}
     - target: {fileID: 1973094834159673966, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_Color.b
       value: 0.7264151
