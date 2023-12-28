@@ -50,7 +50,12 @@ public class RadialGravity : MonoBehaviour
         Vector2 vector = ((Vector2)transform.position - center).normalized;
         vector *= strength.value;
         body.AddForce(vector);
-
-        body.drag = (((Vector2)transform.position - center).magnitude > dragRadius) ? dragAmount : 0;
+        
+        body.drag = 0;
+         // gravity points in and we're outside our radius...
+        if (strength.value < 0 && ((Vector2)transform.position - center).magnitude > dragRadius)
+        {
+            body.drag = dragAmount;
+        }
     }
 }
