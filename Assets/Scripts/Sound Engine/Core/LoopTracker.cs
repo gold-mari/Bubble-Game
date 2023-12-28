@@ -120,8 +120,11 @@ public class LoopTracker
         // Common intialization functions for both constructors.
         // ================
 
-        handler.beatUpdated += OnBeatUpdated;
-        handler.markerUpdated += OnMarkerUpdated;
+        if (handler != null)
+        {
+            handler.beatUpdated += OnBeatUpdated;
+            handler.markerUpdated += OnMarkerUpdated;
+        }
 
         currentBatchSize = maxBatchSize;
         batchStartBeat = 1;
@@ -137,8 +140,11 @@ public class LoopTracker
         // Used to unsubscribe from events.
         // ================
 
-        handler.beatUpdated -= OnBeatUpdated;
-        handler.markerUpdated -= OnMarkerUpdated;
+        if (handler != null)
+        {
+            handler.beatUpdated -= OnBeatUpdated;
+            handler.markerUpdated -= OnMarkerUpdated;
+        }
     }
 
     // ================================================================

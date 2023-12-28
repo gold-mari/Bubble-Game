@@ -56,8 +56,14 @@ public class BeatBouncer : MonoBehaviour
         // Start is called before the first frame update. We use it to subscribe to beat updates.
         // ================
 
-        handler = musicPlayer.handler;
-        handler.beatUpdated += OnBeatUpdated;
+        if (musicPlayer)
+        {
+            handler = musicPlayer.handler;
+        }
+        if (handler != null) 
+        {
+            handler.beatUpdated += OnBeatUpdated;
+        }
     }
 
     private void OnDestroy()
@@ -65,7 +71,10 @@ public class BeatBouncer : MonoBehaviour
         // Unsubscribe to beat updates.
         // ================
 
-        handler.beatUpdated -= OnBeatUpdated;
+        if (handler != null)
+        {
+            handler.beatUpdated -= OnBeatUpdated;
+        }
     }
 
     private void OnBeatUpdated()

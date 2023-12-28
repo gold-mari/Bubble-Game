@@ -35,12 +35,19 @@ public class BeatWarning : MonoBehaviour
         // Wait a frame before subscribing. Messy, but it's what we've gotta do.
         yield return null;
         tracker = beatIndicator.tracker;
-        tracker.update += OnUpdate;
+
+        if (tracker != null)
+        {
+            tracker.update += OnUpdate;
+        }
     }
 
     private void OnDestroy()
     {
-        tracker.update -= OnUpdate;
+        if (tracker != null)
+        {
+            tracker.update -= OnUpdate;
+        }
     }
 
     // ================================================================
