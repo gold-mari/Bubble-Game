@@ -70,14 +70,6 @@ public class LevelLoader : MonoBehaviour
         }
     }
 
-    public void ReloadLevel()
-    {
-        // Loads once more the level we are currently in.
-        // ================
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
     public void LoadQueuedLevel()
     {
         // Loads a level that was queued up elsewhere.

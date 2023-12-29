@@ -24,11 +24,10 @@ public class LosePinholeShrink : MonoBehaviour
     // Internal variables
     // ================================================================
 
-    // Callback action for when we're done shrinking.
-    public System.Action DoneShrinking;
     private Image image;
     private bool doShrinking;
     private float elapsed = 0;
+    private EndgameManager endgameManager = null;
 
     // ================================================================
     // Intializer methods
@@ -65,13 +64,13 @@ public class LosePinholeShrink : MonoBehaviour
             }
             else
             {
-                DoneShrinking?.Invoke();
+                if (endgameManager != null) endgameManager.EndgameEventCallback();
                 doShrinking = false;
             }
         }
     }
     
-    public void BeginShrinking()
+    public void BeginShrinking(EndgameManager manager)
     {
         // Called from elsewhere, primarily the endgame manager. Starts animating our shrinking.
         // ================
@@ -83,6 +82,11 @@ public class LosePinholeShrink : MonoBehaviour
         
         transform.localPosition = maxPosition;
         transform.localScale = maxSize;
+
+        if (endgameManager == null && manager != null) 
+        {
+            endgameManager = manager;
+        }
 
         doShrinking = true;
     }
