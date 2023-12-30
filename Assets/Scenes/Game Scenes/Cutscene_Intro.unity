@@ -362,6 +362,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1182003685828591735, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: canPauseOnEnter
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182003685828591735, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
       propertyPath: onPause.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2052537115}

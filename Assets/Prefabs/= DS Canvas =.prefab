@@ -597,7 +597,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d20faf30f8481844b03ec378daf4deb, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -1235,7 +1235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17b9362fdbedd2d4aa3cf59169784b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseKey: 27
+  pauseKeys: 440100001b000000
   onPause:
     m_PersistentCalls:
       m_Calls:

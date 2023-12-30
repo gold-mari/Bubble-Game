@@ -1,32 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class PauseManager : MonoBehaviour
 {
     [SerializeField, Tooltip("The key which, when pressed, pauses the game.")]
-    private KeyCode pauseKey = KeyCode.Escape;
+    private KeyCode[] pauseKeys;
     [SerializeField, Tooltip("Called when the pause state changes to true.")]
     public UnityEvent onPause;
     [SerializeField, Tooltip("Called when the pause state changes to false.")]
     public UnityEvent onUnpause;
-
+    [SerializeField, Tooltip("Whether or not we can pause when entering this scene.\n\nDefault: true")]
+    public bool canPauseOnEnter = true;
+    
     // Whether or not the game is actively paused.
     private bool paused;
+    [SerializeField, ReadOnly, Tooltip("Whether or not the game is actively paused.")]
+    private bool canPause;
+
+    private void Awake()
+    {
+        // Awake is called before start.
+        // ================
+
+        canPause = canPauseOnEnter;
+    }
 
     private void Update()
     {
         // Update is called once per frame. We use it to detect a pause key input.
         // ================
 
-        if (!paused && Input.GetKeyDown(pauseKey))
+        if (canPause)
         {
-            Pause(true);
-        }
-        else if (paused && Input.GetKeyDown(pauseKey))
-        {
-            Pause(false);
+            foreach (KeyCode key in pauseKeys)
+            {
+                if (Input.GetKeyDown(key))
+                {
+                    Pause(!paused);
+                    return;
+                }
+            }
         }
     }
 
@@ -58,4 +74,10 @@ public class PauseManager : MonoBehaviour
             onUnpause.Invoke();
         }
     }
+
+    /*public void CanPause(bool status)
+    {
+        // 
+        // ================
+    }*/
 }
