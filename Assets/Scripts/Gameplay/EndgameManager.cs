@@ -47,7 +47,7 @@ public class EndgameManager : MonoBehaviour
     public void TriggerWin()
     {
         // IE don't run anything if we're inactive.
-        if (!alreadyWon && gameObject.activeInHierarchy) {
+        if (!alreadyWon && !alreadyLost && gameObject.activeInHierarchy) {
             alreadyWon = true;
             StartCoroutine(WinRoutine());
         }
@@ -63,7 +63,7 @@ public class EndgameManager : MonoBehaviour
     public void TriggerLoss()
     {
         // IE don't run anything if we're inactive.
-        if (!alreadyLost && gameObject.activeInHierarchy) {
+        if (!alreadyLost && !alreadyWon && gameObject.activeInHierarchy) {
             alreadyLost = true;
             //StartCoroutine(LossRoutine());
 
