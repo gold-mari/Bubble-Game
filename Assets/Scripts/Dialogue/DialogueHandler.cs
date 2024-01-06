@@ -22,6 +22,8 @@ public class DialogueHandler : MonoBehaviour
     float typewriterDelay = 0.025f;
     [SerializeField, Tooltip("The delay, in seconds, after a textbox finishes animating before we can advance.\n\nDefault: 0.1")]
     float advanceDelay = 0.5f;
+    [SerializeField, Tooltip("Whether this text object should begin displaying text on Start()\n\nDefault: true")]
+    bool beginInStart = true;
 
     [SerializeField, Tooltip("An action invoked when advancing from the final line.")]
     public UnityEvent ActionOnEnd;
@@ -42,6 +44,8 @@ public class DialogueHandler : MonoBehaviour
     // We do this to provide a buffer for short textboxes, so that they aren't accidentally skipped if the
     // player is impatient and is bypassing the typewriter effect.
     float advanceTimer;
+    // Whether we have started displaying text.
+    bool started = false;
     // Whether a line has finished animating.
     bool lineFinished = false;
     // Whether we can advance to the next textbox.
@@ -59,7 +63,7 @@ public class DialogueHandler : MonoBehaviour
 
         PopulateActorDict();
         PopulateLineDict();
-        ChangeText(index);
+        if (beginInStart) Begin();
     }
 
     private void PopulateActorDict()
@@ -86,6 +90,12 @@ public class DialogueHandler : MonoBehaviour
         }
     }
 
+    public void Begin()
+    {
+        started = true;
+        ChangeText(0);
+    }
+
     // ==============================================================
     // Continuous methods
     // ==============================================================
@@ -95,6 +105,8 @@ public class DialogueHandler : MonoBehaviour
         // Update is called once per frame. We use it to detect input and direct both changing text,
         // and updating text fill.
         // ================
+
+        if (!started) return;
 
         // On input...
         if (Input.GetButtonDown("Fire1"))

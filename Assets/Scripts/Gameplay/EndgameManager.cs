@@ -38,7 +38,7 @@ public class EndgameManager : MonoBehaviour
         // endgame events.
         // ================
 
-        if (alreadyLost)
+        if (alreadyLost && bankIndex < lossEventBank.Length)
         {
             lossEventBank[bankIndex].Update();
         }
@@ -79,6 +79,18 @@ public class EndgameManager : MonoBehaviour
         }
     }
 
+    private void OnGUI()
+    {
+        if (GUI.Button(new Rect(10, 10, 50, 50), "Win!"))
+        {
+            TriggerWin();
+        }
+        if (GUI.Button(new Rect(10, 70, 50, 50), "Lose!"))
+        {
+            TriggerLoss();
+        }
+    }
+
     // ================================================================
     // Callback methods
     // ================================================================
@@ -91,7 +103,10 @@ public class EndgameManager : MonoBehaviour
         if (alreadyLost || alreadyWon)
         {
             bankIndex++;
-            lossEventBank[bankIndex].Run();
+            if (bankIndex < lossEventBank.Length) 
+            {
+                lossEventBank[bankIndex].Run();
+            }
         }
         else
         {
@@ -110,6 +125,8 @@ public class EndgameEvent : UnityEvent<EndgameManager> {}
 [Serializable]
 public class DelayedEndgameEvent
 {
+    [SerializeField]
+    private string label;
     [Tooltip("The amount of time after Invoke() is called before the event is invoked.")]
     public float delay;
     [Tooltip("The event to invoke.")]
@@ -153,29 +170,26 @@ public class DelayedEndgameEvent
 [Serializable]
 public class EndgameEventBank
 {
-    [SerializeField, Tooltip("The event which handles our callback within this bank.")]
-    DelayedEndgameEvent callbackEvent;
-    [SerializeField, Tooltip("Any other events called alongside our callbackEvent.")]
-    DelayedEndgameEvent[] auxilliaryEvents;
+    [SerializeField, Tooltip("Events called within this bank. If this is not the last bank, at least one of these " +
+                             "events should call EndgameEventCallback.")]
+    DelayedEndgameEvent[] events;
 
     public void Run()
     {
         // Runs all the events in our bank.
         // ================
 
-        callbackEvent.Invoke();
-        foreach (DelayedEndgameEvent aux in auxilliaryEvents)
+        foreach (DelayedEndgameEvent e in events)
         {
-            aux.Invoke();
+            e.Invoke();
         }   
     }
 
     public void Update()
     {
-        callbackEvent.Update();
-        foreach (DelayedEndgameEvent aux in auxilliaryEvents)
+        foreach (DelayedEndgameEvent e in events)
         {
-            aux.Update();
+            e.Update();
         }
     }
 }

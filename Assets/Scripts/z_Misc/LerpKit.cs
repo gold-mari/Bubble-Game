@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 // This file contains functions used to extend lerping to include different eases.
 // Code adapted from: https://www.febucci.com/2018/08/easing-functions/.
-public class LerpKit : MonoBehaviour
+public class LerpKit
 {
     // ==============================================================
     // Static methods
