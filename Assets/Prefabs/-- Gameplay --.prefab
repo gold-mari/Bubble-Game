@@ -643,6 +643,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loader: {fileID: 0}
   sceneOnWin: Next
+  lossSFX:
+    Guid:
+      Data1: 1677826198
+      Data2: 1288703572
+      Data3: 1637714079
+      Data4: -982233951
+    Path: event:/SFX/Lose
   winTriggered:
     m_PersistentCalls:
       m_Calls:
@@ -827,6 +834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c70baf91acf8f84bb54947a05fc5959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicBusPath: bus:/Music
   mainSong: {fileID: 11400000, guid: e3e72b33ebfda6746af99d30f7555f24, type: 2}
   currentBeatmap: {fileID: 11400000, guid: d655ab3fc26d86c4a98bfb5dd074e822, type: 2}
   songCompletion: {fileID: 0}

@@ -12,6 +12,9 @@ public class MusicPlayer : MonoBehaviour
 
     // The timeline handler tied to this music manager.
     public TimelineHandler handler { get; protected set; }
+    [SerializeField, Tooltip("The path of the FMOD music bus. Find it in the mixer by right clicking the Music group " +
+                             "and selecting Copy Path.")]
+    protected string musicBusPath = "bus:/Music";
     
     // ================================================================
     // Internal variables
@@ -42,7 +45,7 @@ public class MusicPlayer : MonoBehaviour
 
         Debug.Assert(instance.isValid(), "MusicPlayer Error, Awake() failed. instance was not valid.", this);
 
-        handler = new TimelineHandler(instance);
+        handler = new TimelineHandler(instance, musicBusPath);
 
 #if UNITY_EDITOR
         // If we're in the editor, subscribe to the editor-pausing event.

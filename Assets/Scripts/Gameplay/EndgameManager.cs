@@ -9,11 +9,15 @@ public class EndgameManager : MonoBehaviour
     // ================================================================
     // Parameters
     // ================================================================
-
+    
     [SerializeField, Tooltip("The level loader present in the scene.")]
     private LevelLoader loader;
     [SerializeField, Tooltip("The name of the scene we transition to on a loss- reaching the end of the song.")]
     private string sceneOnWin;
+    [Header("SFX")]
+    [SerializeField, Tooltip("The sound to play on loss.")]
+    public FMODUnity.EventReference lossSFX;
+    [Header("Events")]
     [SerializeField, Tooltip("A UnityEvent which communicates with CharacterAnimator that we have just won.")]
     UnityEvent winTriggered;
     [SerializeField, Tooltip("The event banks run on a loss. Each bank is played after the previous one, via callbacks.")]
@@ -27,6 +31,8 @@ public class EndgameManager : MonoBehaviour
     bool alreadyWon, alreadyLost;
     // Our current index in the current endgame event bank.
     int bankIndex = 0;
+    // Instances of our SFX.
+    private FMOD.Studio.EventInstance lossSFX_i;
 
     // ================================================================
     // Update methods
@@ -64,16 +70,12 @@ public class EndgameManager : MonoBehaviour
     {
         // IE don't run anything if we're inactive.
         if (!alreadyLost && !alreadyWon && gameObject.activeInHierarchy) {
+            lossSFX_i = FMODUnity.RuntimeManager.CreateInstance(lossSFX);
             alreadyLost = true;
             //StartCoroutine(LossRoutine());
 
-            // DEBUG DEBUG DEBUG //
-            // DEBUG DEBUG DEBUG //
-            // DEBUG DEBUG DEBUG //
-            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Lose");
-            // DEBUG DEBUG DEBUG //
-            // DEBUG DEBUG DEBUG //
-            // DEBUG DEBUG DEBUG //
+            lossSFX_i.start();
+            //lossSFX_i.release();
 
             lossEventBank[bankIndex].Run();
         }
@@ -89,6 +91,12 @@ public class EndgameManager : MonoBehaviour
         {
             TriggerLoss();
         }
+    }
+
+    bool IsPlaying(FMOD.Studio.EventInstance instance) {
+	    FMOD.Studio.PLAYBACK_STATE state;   
+    	instance.getPlaybackState(out state);
+    	return state != FMOD.Studio.PLAYBACK_STATE.STOPPED;
     }
 
     // ================================================================

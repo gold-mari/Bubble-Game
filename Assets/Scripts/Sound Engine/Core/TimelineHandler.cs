@@ -81,7 +81,7 @@ public class TimelineHandler
     // Internal fields
 
     // A ChannelGroup used to access the DSP clock, which runs at sample rate.
-    private FMOD.ChannelGroup masterChannelGroup;
+    private FMOD.ChannelGroup musicChannelGroup;
     // The sample rate of our master channel group.
     private int sampleRate;
     // An unsigned long which tracks our current number of samples.
@@ -118,7 +118,7 @@ public class TimelineHandler
     // Initializers and finalizers
     // ================================================================
 
-    public TimelineHandler(FMOD.Studio.EventInstance eventInstance)
+    public TimelineHandler(FMOD.Studio.EventInstance eventInstance, string busPath)
     {
         // Constructor.
         // ================
@@ -154,8 +154,9 @@ public class TimelineHandler
         instance.setCallback(beatCallback, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT | 
                                            FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
 
-        // Create our master channel group for monitoring subdivisions.
-        FMODUnity.RuntimeManager.CoreSystem.getMasterChannelGroup(out masterChannelGroup);
+        // Create our music channel group for monitoring subdivisions.
+        FMOD.Studio.Bus bus = FMODUnity.RuntimeManager.GetBus(busPath);
+        bus.getChannelGroup(out musicChannelGroup);
         // Define our sample rate. Discard the outs for the speaker mode and the number of speakers.
         FMODUnity.RuntimeManager.CoreSystem.getSoftwareFormat(out sampleRate,
                                                               out FMOD.SPEAKERMODE DISCARD_mode,
@@ -275,7 +276,7 @@ public class TimelineHandler
         }
 
         accumulateDSPTime = true;
-        masterChannelGroup.setPaused(false);
+        musicChannelGroup.setPaused(false);
     }
 
     public void StopDSPClock()
@@ -286,7 +287,7 @@ public class TimelineHandler
         // ================
 
         accumulateDSPTime = false;
-        masterChannelGroup.setPaused(true);
+        musicChannelGroup.setPaused(true);
     }
 
     public void ResetDSPClock()
@@ -307,7 +308,7 @@ public class TimelineHandler
         // ================
 
         // Write into dspClock.
-        masterChannelGroup.getDSPClock(out dspClock, out DISCARD_parentDSP);
+        musicChannelGroup.getDSPClock(out dspClock, out DISCARD_parentDSP);
         // Cache the rawCurrentTime as rawLastTime, and update rawCurrentTime.
         rawLastTime = rawCurrentTime;
 
