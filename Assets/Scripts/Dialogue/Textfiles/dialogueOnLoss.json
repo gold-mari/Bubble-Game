@@ -3,7 +3,7 @@
 	[
 		{
 			"actor":"Sammy",
-			"actions":"",
+			"actions":"Sammy.sqBounce",
 			"text":"Sample loss dialogue."
 		}
 	]
