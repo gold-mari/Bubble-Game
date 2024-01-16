@@ -287,11 +287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe29cc6fe8476fc44bcc70f0cb0e530d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &410641114 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6227690054995599778, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-  m_PrefabInstance: {fileID: 8830513069248788194}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &512483412
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,132 +592,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c70baf91acf8f84bb54947a05fc5959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &647750653
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 647750654}
-  - component: {fileID: 647750660}
-  - component: {fileID: 647750659}
-  - component: {fileID: 647750658}
-  - component: {fileID: 647750656}
-  - component: {fileID: 647750655}
-  m_Layer: 0
-  m_Name: Sammy Sprite
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &647750654
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 647750653}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1902529317}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 6.0014653, y: 12}
-  m_Pivot: {x: 0.5, y: -0}
---- !u!114 &647750655
+--- !u!114 &647750658 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 9101164051883707293, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+  m_PrefabInstance: {fileID: 8830513069248788194}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 647750653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.64705884, b: 0.64705884, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 463398730, guid: 3853041d3815d424481575387f0e006f, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &647750656
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 647750653}
-  m_CullTransparentMesh: 1
---- !u!114 &647750658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 647750653}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87fbf0d65ec223642a54a210791dcbba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &647750659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 647750653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a550b593f025e0468e7d9c5c480657e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseScale: {x: 1.5, y: 1.5, z: 1.5}
-  squetch: 0
-  magnitude: 1.1
---- !u!95 &647750660
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 647750653}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7314300fcd6cd734993a98bf4ce7d08a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &753665206
 GameObject:
   m_ObjectHideFlags: 0
@@ -1960,38 +1840,6 @@ MonoBehaviour:
   baseScale: {x: 1.5, y: 1.5, z: 1.5}
   squetch: 0
   magnitude: 1.25
---- !u!1 &1902529316
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1902529317}
-  m_Layer: 0
-  m_Name: Sammy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1902529317
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1902529316}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 164.99998, y: -25.629848, z: -3548.7407}
-  m_LocalScale: {x: 39.430447, y: 39.430447, z: 39.430447}
-  m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 647750654}
-  m_Father: {fileID: 410641114}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1919434132
 GameObject:
   m_ObjectHideFlags: 0
