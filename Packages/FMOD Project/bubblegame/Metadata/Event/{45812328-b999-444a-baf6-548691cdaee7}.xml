@@ -60,7 +60,7 @@
 	<object class="MarkerTrack" id="{9384fa4b-7506-46da-a675-12c35805eaac}" />
 	<object class="GroupTrack" id="{ca5ed52f-41d4-49d1-8ae6-5e92db87c75e}">
 		<relationship name="modules">
-			<destination>{02825405-6346-4e75-b430-d117baadfc21}</destination>
+			<destination>{fdc8b4ed-b28b-45e3-8d5b-a7a279de18f3}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{92eb1211-227a-4623-83ee-e038e464f9d6}</destination>
@@ -68,7 +68,7 @@
 	</object>
 	<object class="Timeline" id="{0ff9732a-43d0-448a-9f0c-18d7fc52a239}">
 		<relationship name="modules">
-			<destination>{02825405-6346-4e75-b430-d117baadfc21}</destination>
+			<destination>{fdc8b4ed-b28b-45e3-8d5b-a7a279de18f3}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{2a9e7e7c-29d9-4c7c-bde9-10842559ebbe}">
@@ -91,12 +91,18 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{d889794b-2b7c-4c6b-8d52-6a0cf9e0654e}" />
-	<object class="SingleSound" id="{02825405-6346-4e75-b430-d117baadfc21}">
+	<object class="SingleSound" id="{fdc8b4ed-b28b-45e3-8d5b-a7a279de18f3}">
 		<property name="length">
-			<value>0.83900226757369611</value>
+			<value>0.7857142857142857</value>
 		</property>
+		<property name="volume">
+			<value>4.5</value>
+		</property>
+		<relationship name="modulators">
+			<destination>{ed1d2fff-870e-48d6-a63c-0aa408604f23}</destination>
+		</relationship>
 		<relationship name="audioFile">
-			<destination>{917cc359-a08b-4033-9494-20b2770c96e8}</destination>
+			<destination>{6e4ae38f-75ef-4f07-b222-e9c415118b10}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{92eb1211-227a-4623-83ee-e038e464f9d6}">
@@ -120,6 +126,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{22d6b0d6-3e9b-4ffd-8392-3ef1dcce15e9}" />
 	<object class="MixerBusFader" id="{09212695-5bce-4be1-8ff5-13dafbdd6ac1}" />
+	<object class="RandomizerModulator" id="{ed1d2fff-870e-48d6-a63c-0aa408604f23}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>8.5</value>
+		</property>
+	</object>
 	<object class="MixerBusEffectChain" id="{603bb95c-c07f-4fcb-b067-ce5f8ad79554}">
 		<relationship name="effects">
 			<destination>{6e9f1a54-d0e5-452d-ab22-ef8ca601d356}</destination>
