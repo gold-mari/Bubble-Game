@@ -149,6 +149,7 @@ public class BubbleSpawner : MonoBehaviour
         // spawn the bubble is determined in SpawnBubble depending if gravity is flipped.
         // ================
 
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Flavor", (int)flavors[0].value-1);
         singleBubbleSFX_i.start();
 
         // The spawn point is the cursor point vector, normalized and then multiplied by the radius.
