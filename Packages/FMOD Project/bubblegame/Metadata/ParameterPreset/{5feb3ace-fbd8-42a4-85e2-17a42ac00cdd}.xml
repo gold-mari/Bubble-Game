@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{5feb3ace-fbd8-42a4-85e2-17a42ac00cdd}">
+		<property name="name">
+			<value>PitchOffset</value>
+		</property>
+		<relationship name="folder">
+			<destination>{ebfc8c2e-adde-4c6b-973d-041308e607bd}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{b6a23483-de66-4a16-8881-db3d035ae682}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{b6a23483-de66-4a16-8881-db3d035ae682}">
+		<property name="maximum">
+			<value>5</value>
+		</property>
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="seekSpeed">
+			<value>1.3500000238418579</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>
