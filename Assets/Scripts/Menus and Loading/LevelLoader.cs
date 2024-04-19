@@ -17,6 +17,8 @@ public class LevelLoader : MonoBehaviour
 {
     [SerializeField, Tooltip("The scenes we can transition to from this level.")]
     private SceneData[] scenes;
+    [SerializeField, Tooltip("Whether or not we should do the intro animation.\n\nDefault: true")]
+    private bool doIntroAnim = true;
 
     private Dictionary<string, string> sceneDict = new();
     private Animator transitionAnimator;
@@ -25,7 +27,7 @@ public class LevelLoader : MonoBehaviour
     void Awake()
     {
         transitionAnimator = GetComponentInChildren<Animator>(true);
-        if (transitionAnimator)
+        if (transitionAnimator && doIntroAnim)
         {
             transitionAnimator.gameObject.SetActive(true);
             transitionAnimator.SetTrigger("out");

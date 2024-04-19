@@ -221,6 +221,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: buns_5
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 0
+        width: 600
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d7ac2e6b8e4ec74c99018ea02a52e68
+      internalID: -281769933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -232,6 +253,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      buns_5: -281769933
       buns_4: 1038311350
       buns_3: 870441172
       buns_2: 1670747498

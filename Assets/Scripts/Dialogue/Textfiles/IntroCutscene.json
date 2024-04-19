@@ -6,8 +6,6 @@
             "actions":"Sammy.sqIdle,Hannah.sqIdle,      Hannah.Neutral,Sammy.Neutral",
             "text":"CRAWL GOES HERE."
         },
-
-
         {
             "actor":"Hannah",
             "actions":"Director.Hide,       Hannah.sqBounce,Sammy.sqIdle",
@@ -33,15 +31,11 @@
             "actions":"Sammy.sqBounce,Hannah.sqIdle,    Sammy.MajorGood",
             "text":"As I was saying..."
         },
-
-
         {
             "actor":"NULL",
             "actions":"Director.Show,Director.ScanToKeyframe/1,       Sammy.sqIdle,Hannah.sqIdle,      Hannah.Neutral,Sammy.Neutral",
             "text":"CRAWL GOES HERE."
         },
-
-
         {
             "actor":"Sammy",
             "actions":"Director.Hide,       Sammy.sqBounce,Hannah.sqIdle",
@@ -97,15 +91,11 @@
             "actions":"Sammy.sqBounce,Hannah.sqIdle",
             "text":"okayi'llkeepgoing:"
         },
-
-
         {
             "actor":"NULL",
             "actions":"Director.Show,Director.ScanToKeyframe/2,       Sammy.sqIdle,Hannah.sqIdle,      Hannah.Neutral,Sammy.Neutral",
             "text":"CRAWL GOES HERE."
         },
-
-
         {
             "actor":"Hannah",
             "actions":"Director.Hide,       Hannah.sqBounce,Sammy.sqIdle",
