@@ -16,6 +16,6 @@ public class CursorVectorMonitor : MonoBehaviour
         // Get the mouse position on the screen.
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // Define the cursorPointVector
-        cursorPointVector.value = (mousePosition - center);
+        cursorPointVector.value = mousePosition - center;
     }
 }

@@ -45,8 +45,6 @@ public class CursorPointer : MonoBehaviour
     private bool lastGravityFlipped;
     // The animator on this object.
     Animator animator;
-    // This objects SpriteRenderer. We need a reference to flip the sprite when gravity changes.
-    SpriteRenderer sprite;
     // The number of hyperbubbles that have been queued up, used to grow/shrink our cursor.
     private uint queuedHYPERBUBBLES = 0;
 
@@ -60,8 +58,7 @@ public class CursorPointer : MonoBehaviour
         // animator, to initialize lastGravityFlipped, and to inherit radius and center
         // if necessary.
         // ================
-        
-        sprite = GetComponent<SpriteRenderer>();
+
         animator = GetComponent<Animator>();
 
         reader.beforeHyperSpawn += OnBeforeHyperSpawn;
@@ -93,6 +90,8 @@ public class CursorPointer : MonoBehaviour
     {
         // Update is called once per frame. Used to update cursor position and rotation.
         // ================
+
+        if (Time.timeScale == 0) return;
 
         // The spawn point is the vector from the center to the mouse position, normalized and then multiplied by the radius.
         transform.position = (Vector3)cursorPointVector.value.normalized;
