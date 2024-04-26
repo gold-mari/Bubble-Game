@@ -20,6 +20,12 @@ public class PauseManager : MonoBehaviour
     [SerializeField, ReadOnly, Tooltip("Whether or not the game is actively paused.")]
     private bool canPause;
 
+    // Stores whether the application has first focused. When we
+    // recieve a focus call in OnApplicationFocused, if this is false,
+    // we toggle it to true and do nothing else. This prevents the pause 
+    // menu from displaying on startup.
+    private static bool firstFocused = false;
+
     private void Awake()
     {
         // Awake is called before start.
@@ -80,4 +86,18 @@ public class PauseManager : MonoBehaviour
         // 
         // ================
     }*/
+
+    protected void OnApplicationFocus()
+    {
+        // Detects when the application pauses or plays. If it changes at
+        // any point, set to paused. No funny business.
+        // ================
+
+        if (!firstFocused) {
+            firstFocused = true;
+            return;
+        }
+        
+        Pause(true);
+    }
 }

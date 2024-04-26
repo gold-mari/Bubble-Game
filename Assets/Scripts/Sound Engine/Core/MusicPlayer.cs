@@ -46,11 +46,6 @@ public class MusicPlayer : MonoBehaviour
         Debug.Assert(instance.isValid(), "MusicPlayer Error, Awake() failed. instance was not valid.", this);
 
         handler = new TimelineHandler(instance, musicBusPath);
-
-#if UNITY_EDITOR
-        // If we're in the editor, subscribe to the editor-pausing event.
-        EditorApplication.pauseStateChanged += OnEditorPause;
-#endif
     }
 
     protected virtual void Start()
@@ -70,35 +65,11 @@ public class MusicPlayer : MonoBehaviour
 
         instance.release();
         instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-
-#if UNITY_EDITOR        
-        EditorApplication.pauseStateChanged -= OnEditorPause;
-#endif
-
     }
 
     // ================================================================
     // Pause / unpause / stop methods
     // ================================================================
-
-#if UNITY_EDITOR
-    protected void OnEditorPause(PauseState state)
-    {
-        // Detects when the editor pauses or plays. Passes a call to PauseMusic().
-        // ================
-
-        PauseMusic(state == PauseState.Paused);
-    }
-#endif
-
-    protected void OnApplicationPause(bool pauseStatus)
-    {
-        // Detects when the application pauses or plays. If we're paused, stop the timeline
-        // handler from accumulating DSP Time.
-        // ================
-
-        PauseMusic(pauseStatus);
-    }
 
     public void PauseMusic(bool pauseStatus)
     {
