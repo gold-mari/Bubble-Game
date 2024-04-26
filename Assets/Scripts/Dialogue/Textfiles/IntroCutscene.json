@@ -1,180 +1,180 @@
-{
-    "lines":
-    [
-        {
-            "actor":"NULL",
-            "actions":"Sammy.sqIdle,Hannah.sqIdle,      Hannah.Neutral,Sammy.Neutral",
-            "text":"CRAWL GOES HERE."
-        },
-        {
-            "actor":"Hannah",
-            "actions":"Director.Hide,       Hannah.sqBounce,Sammy.sqIdle",
-            "text":"Do we have to do the intro every time?"
-        },
-        {
-            "actor":"Sammy",
-            "actions":"Sammy.sqBounce,Hannah.sqIdle,    Hannah.Neutral,Sammy.MinorGood",
-            "text":"If you ask me to run a Beast Dungeon session for you, I'm going to run the entire session!!"
-        },
-        {
-            "actor":"Hannah",
-            "actions":"Hannah.sqBounce,Sammy.sqIdle,    Hannah.MinorGood",
-            "text":"This 'mighty hero' wants to fight some goblins."
-        },
-        {
-            "actor":"Sammy",
-            "actions":"Sammy.sqBounce,Hannah.sqIdle,    Sammy.MajorGood",
-            "text":"I'll put three hundred of them on the second floor, just for you. :3"
-        },
-        {
-            "actor":"Sammy",
-            "actions":"Sammy.sqBounce,Hannah.sqIdle,    Sammy.MajorGood",
-            "text":"As I was saying..."
-        },
-        {
-            "actor":"NULL",
-            "actions":"Director.Show,Director.ScanToKeyframe/1,       Sammy.sqIdle,Hannah.sqIdle,      Hannah.Neutral,Sammy.Neutral",
-            "text":"CRAWL GOES HERE."
-        },
-        {
-            "actor":"Sammy",
-            "actions":"Director.Hide,       Sammy.sqBounce,Hannah.sqIdle",
-            "text":"..."
-        },
-        {
-            "actor":"Sammy",
-            "actions":"Sammy.sqBounce,Hannah.sqIdle",
-            "text":"Hannah?"
-        },
-        {
-            "actor":"Hannah",
-            "actions":"Hannah.sqBounce,Sammy.sqIdle",
-            "text":"Yep."
-        },
-        {
-            "actor":"Sammy",
-            "actions":"Sammy.sqBounce,Hannah.sqIdle",
-            "text":"Are you playing a game right now?"
-        },
-        {
-            "actor":"Hannah",
-            "actions":"Hannah.sqBounce,Sammy.sqIdle",
-            "text":"Yep."
-        },
-        {
-            "actor":"Sammy",
-            "actions":"Sammy.sqBounce,Hannah.sqIdle",
-            "text":"Instead of listening to my monologue??"
-        },
-        {
-            "actor":"Hannah",
-            "actions":"Hannah.sqBounce,Sammy.sqIdle",
-            "text":"Nope. I can listen to both."
-        },
-        {
-            "actor":"Hannah",
-            "actions":"Hannah.sqBounce,Sammy.sqIdle",
-            "text":"I hear you purrfectly."
-        },
-        {
-            "actor":"Sammy",
-            "actions":"Sammy.sqBounce,Hannah.sqIdle",
-            "text":"Hmph. Kids these days. ù_ú"
-        },
-        {
-            "actor":"Hannah",
-            "actions":"Hannah.sqBounce,Sammy.sqIdle",
-            "text":"You can keep g-"
-        },
-        {
-            "actor":"Sammy",
-            "actions":"Sammy.sqBounce,Hannah.sqIdle",
-            "text":"okayi'llkeepgoing:"
-        },
-        {
-            "actor":"NULL",
-            "actions":"Director.Show,Director.ScanToKeyframe/2,       Sammy.sqIdle,Hannah.sqIdle,      Hannah.Neutral,Sammy.Neutral",
-            "text":"CRAWL GOES HERE."
-        },
-        {
-            "actor":"Hannah",
-            "actions":"Director.Hide,       Hannah.sqBounce,Sammy.sqIdle",
-            "text":"Hey now, that's too far. You know I wouldn't dare play online."
-        },
-        {
-            "actor":"Sammy",
-            "actions":"Sammy.sqBounce,Hannah.sqIdle",
-            "text":"She IS listening! :O"
-        },
-        {
-            "actor":"Hannah",
-            "actions":"Hannah.sqBounce,Sammy.sqIdle",
-            "text":"And besides, it's DigiBubble Beat DX."
-        },
-        {
-            "actor":"Sammy",
-            "actions":"Sammy.sqBounce,Hannah.sqIdle",
-            "text":"Oh shit, wait, the musical bubble one?"
-        },
-        {
-            "actor":"Hannah",
-            "actions":"Hannah.sqBounce,Sammy.sqIdle",
-            "text":"Yar."
-        },
-        {
-            "actor":"Sammy",
-            "actions":"Sammy.sqBounce,Hannah.sqIdle",
-            "text":"... Does it have free-play?"
-        },
-        {
-            "actor":"Hannah",
-            "actions":"Hannah.sqBounce,Sammy.sqIdle",
-            "text":"Yes? Uh oh, you're planning something."
-        },
-        {
-            "actor":"Sammy",
-            "actions":"Sammy.sqBounce,Hannah.sqIdle",
-            "text":"Okay, hear me out- we do this one shot, we can still run Highclaw Plains, but we ditch the combat system."
-        },
-        {
-            "actor":"Sammy",
-            "actions":"Sammy.sqBounce,Hannah.sqIdle",
-            "text":"Instead, we could run every fight as a DigiBubble match? I can set up the levels."
-        },
-        {
-            "actor":"Hannah",
-            "actions":"Hannah.sqBounce,Sammy.sqIdle",
-            "text":"Woah. Okay. You think you're up to it?"
-        },
-        {
-            "actor":"Sammy",
-            "actions":"Sammy.sqBounce,Hannah.sqIdle",
-            "text":"Oh yeah, this'll be a lovely change of pace for moi."
-        },
-        {
-            "actor":"Sammy",
-            "actions":"Sammy.sqBounce,Hannah.sqIdle",
-            "text":"I'm thinking we title it… uhm… <i>BEAST DUNGEON RELOADED: Beat Bubble Deluxe!</i>"
-        },
-        {
-            "actor":"Hannah",
-            "actions":"Hannah.sqBounce,Sammy.sqIdle",
-            "text":"Wordy."
-        },
-        {
-            "actor":"Sammy",
-            "actions":"Sammy.sqBounce,Hannah.sqIdle",
-            "text":"<i>My Musical Monsters.</i>"
-        },
-        {
-            "actor":"Hannah",
-            "actions":"Hannah.sqBounce,Sammy.sqIdle",
-            "text":"Trademark infringing."
-        },
-        {
-            "actor":"Sammy",
-            "actions":"Sammy.sqBounce,Hannah.sqIdle",
-            "text":"Hm... How about:"
-        }
-    ]
+{			
+	"lines":		
+	[		
+		{	
+			"actor":"NULL",
+			"actions":"Sammy.sqIdle,Hannah.sqIdle,      Hannah.Neutral,Sammy.Neutral",
+			"text":"CRAWL GOES HERE."
+		},	
+		{	
+			"actor":"Hannah",
+			"actions":"Director.Hide,       Hannah.sqBounce,Sammy.sqIdle",
+			"text":"Do we have to do the intro every time?"
+		},	
+		{	
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Hannah.sqIdle,    Hannah.Neutral,Sammy.MinorGood",
+			"text":"If you ask me to run a Beast Dungeon session for you, I'm going to run the entire session!!"
+		},	
+		{	
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Sammy.sqIdle,    Hannah.MinorGood",
+			"text":"This 'mighty hero' wants to fight some goblins."
+		},	
+		{	
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Hannah.sqIdle,    Sammy.MajorGood",
+			"text":"I'll put three hundred of them on the second floor, just for you. :3"
+		},	
+		{	
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Hannah.sqIdle,    Sammy.MajorGood",
+			"text":"As I was saying..."
+		},	
+		{	
+			"actor":"NULL",
+			"actions":"Director.Show,Director.ScanToKeyframe/1,       Sammy.sqIdle,Hannah.sqIdle,      Hannah.Neutral,Sammy.Neutral",
+			"text":"CRAWL GOES HERE."
+		},	
+		{	
+			"actor":"Sammy",
+			"actions":"Director.Hide,       Sammy.sqBounce,Hannah.sqIdle",
+			"text":"..."
+		},	
+		{	
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Hannah.sqIdle",
+			"text":"Hannah?"
+		},	
+		{	
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Sammy.sqIdle",
+			"text":"Yep."
+		},	
+		{	
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Hannah.sqIdle",
+			"text":"Are you playing a game right now?"
+		},	
+		{	
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Sammy.sqIdle",
+			"text":"Yep."
+		},	
+		{	
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Hannah.sqIdle",
+			"text":"Instead of listening to my monologue??"
+		},	
+		{	
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Sammy.sqIdle",
+			"text":"Nope. I can listen to both."
+		},	
+		{	
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Sammy.sqIdle",
+			"text":"I hear you purrfectly."
+		},	
+		{	
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Hannah.sqIdle",
+			"text":"Hmph. Kids these days. ù_ú"
+		},	
+		{	
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Sammy.sqIdle",
+			"text":"You can keep g-"
+		},	
+		{	
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Hannah.sqIdle",
+			"text":"okayi'llkeepgoing:"
+		},	
+		{	
+			"actor":"NULL",
+			"actions":"Director.Show,Director.ScanToKeyframe/2,       Sammy.sqIdle,Hannah.sqIdle,      Hannah.Neutral,Sammy.Neutral",
+			"text":"CRAWL GOES HERE."
+		},	
+		{	
+			"actor":"Hannah",
+			"actions":"Director.Hide,       Hannah.sqBounce,Sammy.sqIdle",
+			"text":"Hey now, that's too far. You know I wouldn't dare play online."
+		},	
+		{	
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Hannah.sqIdle",
+			"text":"She IS listening! :O"
+		},	
+		{	
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Sammy.sqIdle",
+			"text":"And besides, it's DigiBubble Beat DX."
+		},	
+		{	
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Hannah.sqIdle",
+			"text":"Oh shit, wait, the musical bubble one?"
+		},	
+		{	
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Sammy.sqIdle",
+			"text":"Yar."
+		},	
+		{	
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Hannah.sqIdle",
+			"text":"... Does it have free-play?"
+		},	
+		{	
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Sammy.sqIdle",
+			"text":"Yes? Uh oh, you're planning something."
+		},	
+		{	
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Hannah.sqIdle",
+			"text":"Okay, hear me out- we do this one shot, we can still run Highclaw Plains, but we ditch the combat system."
+		},	
+		{	
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Hannah.sqIdle",
+			"text":"Instead, we could run every fight as a DigiBubble match? I can set up the levels."
+		},	
+		{	
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Sammy.sqIdle",
+			"text":"Woah. Okay. You think you're up to it?"
+		},	
+		{	
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Hannah.sqIdle",
+			"text":"Oh yeah, this'll be a lovely change of pace for moi."
+		},	
+		{	
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Hannah.sqIdle",
+			"text":"I'm thinking we title it… uhm… <i>BEAST DUNGEON RELOADED: Beat Bubble Deluxe!</i>"
+		},	
+		{	
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Sammy.sqIdle",
+			"text":"Wordy."
+		},	
+		{	
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Hannah.sqIdle",
+			"text":"<i>My Musical Monsters.</i>"
+		},	
+		{	
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Sammy.sqIdle",
+			"text":"Trademark infringing."
+		},	
+		{	
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,Hannah.sqIdle",
+			"text":"Hm... How about:"
+		}	
+	]		
 }
