@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicEvent:
     Guid:
-      Data1: 241329566
-      Data2: 1207789409
-      Data3: -1044911685
-      Data4: 1820531057
+      Data1: 269007364
+      Data2: 1284607831
+      Data3: 501168267
+      Data4: 768091792
     Path: event:/Music/Level5
   isMedley: 1
   beatmapFile: {fileID: 0}

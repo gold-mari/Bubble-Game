@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{1008ba04-8f57-4c91-8b38-df1d9026c82d}">
 		<property name="name">
-			<value>COPY-Level5</value>
+			<value>Level5</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
