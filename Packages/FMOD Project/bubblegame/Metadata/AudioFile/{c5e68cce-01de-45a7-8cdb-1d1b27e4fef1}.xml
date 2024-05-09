@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{c5e68cce-01de-45a7-8cdb-1d1b27e4fef1}">
 		<property name="assetPath">
-			<value>burst.wav</value>
+			<value>SFX/burst.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{c00dd13e-61f6-4443-894c-81daaec24351}">
 		<property name="assetPath">
-			<value>salty.wav</value>
+			<value>SFX/salty.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
