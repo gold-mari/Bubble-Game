@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{d8470cfa-b05b-40b5-bffb-44f136a364e2}">
 		<property name="assetPath">
-			<value>flipVoice.wav</value>
+			<value>SFX/flipVoice.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
