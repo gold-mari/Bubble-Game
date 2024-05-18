@@ -105,6 +105,8 @@
 			<destination>{fae6d14d-43b7-4005-967c-28fc15cddcd6}</destination>
 			<destination>{a38090b7-4581-4479-a3cf-cf963ec8b63b}</destination>
 			<destination>{b4b68f1d-88b4-49c4-bda5-39d409867825}</destination>
+			<destination>{c78771d2-3193-46d8-8865-2eaa167ee21b}</destination>
+			<destination>{2dc58817-cd7e-4a13-9fda-e104abacf98a}</destination>
 		</relationship>
 	</object>
 	<object class="ParameterProxy" id="{c5af963f-c079-4cb3-9924-b32188edef4b}">
@@ -139,7 +141,7 @@
 	<object class="MixerBusPanner" id="{51bc3ba1-74ee-49d2-a6a1-1c666c9d479b}" />
 	<object class="SingleSound" id="{e12b0f7a-a215-4173-835d-603db9b6039b}">
 		<property name="length">
-			<value>90.034467120181404</value>
+			<value>168.69509161815193</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{67f666ab-7fb9-4ebf-bf24-03840b9965b0}</destination>
@@ -262,7 +264,7 @@
 	</object>
 	<object class="NamedMarker" id="{62c9145c-750e-4294-aade-1aa7774887ba}">
 		<property name="position">
-			<value>90.034467120181404</value>
+			<value>164.69509161815193</value>
 		</property>
 		<property name="name">
 			<value>dontTrack,end</value>
@@ -271,7 +273,7 @@
 			<destination>{1d0bf0f0-542a-4308-8725-91a8206fed57}</destination>
 		</relationship>
 		<relationship name="markerTrack">
-			<destination>{2b4539e3-0e04-410e-9f28-84824d740643}</destination>
+			<destination>{0ecdcc29-8f76-4893-9231-c111e62880f5}</destination>
 		</relationship>
 	</object>
 	<object class="TempoMarker" id="{fa8becef-6d29-490d-bb0a-d668ab8abd23}">
@@ -487,6 +489,34 @@
 	<object class="NamedMarker" id="{b4b68f1d-88b4-49c4-bda5-39d409867825}">
 		<property name="position">
 			<value>79.361758284818606</value>
+		</property>
+		<property name="name">
+			<value>doTrack</value>
+		</property>
+		<relationship name="timeline">
+			<destination>{1d0bf0f0-542a-4308-8725-91a8206fed57}</destination>
+		</relationship>
+		<relationship name="markerTrack">
+			<destination>{2b4539e3-0e04-410e-9f28-84824d740643}</destination>
+		</relationship>
+	</object>
+	<object class="NamedMarker" id="{c78771d2-3193-46d8-8865-2eaa167ee21b}">
+		<property name="position">
+			<value>89.701133786848075</value>
+		</property>
+		<property name="name">
+			<value>dontTrack,switchMap-base</value>
+		</property>
+		<relationship name="timeline">
+			<destination>{1d0bf0f0-542a-4308-8725-91a8206fed57}</destination>
+		</relationship>
+		<relationship name="markerTrack">
+			<destination>{aecbc9c6-14e0-4b8d-bd33-55eca91a6b75}</destination>
+		</relationship>
+	</object>
+	<object class="NamedMarker" id="{2dc58817-cd7e-4a13-9fda-e104abacf98a}">
+		<property name="position">
+			<value>90.034467120181404</value>
 		</property>
 		<property name="name">
 			<value>doTrack</value>
