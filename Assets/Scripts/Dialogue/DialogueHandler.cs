@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+using NaughtyAttributes;
 
 public class DialogueHandler : MonoBehaviour
 {
@@ -10,8 +11,15 @@ public class DialogueHandler : MonoBehaviour
     // Parameters
     // ==============================================================
 
-    [SerializeField, Tooltip("The JSON file holding our script as a serialized Dialogue object.")]
+    [SerializeField, Tooltip("Whether or not we choose between multiple dialogue files on start-up.\n\nDefault: false")]
+    private bool shuffleFiles = false;
+    [SerializeField, HideIf("shuffleFiles"), Tooltip("The JSON file holding our script as a serialized Dialogue object.")]
     private TextAsset dialogueFile;
+    [SerializeField, ShowIf("shuffleFiles"), Tooltip("The JSON file holding our script as a serialized Dialogue object.")]
+    private TextAsset[] dialogueFiles = new TextAsset[]{};
+    [SerializeField, ShowIf("shuffleFiles"), Tooltip("An unsigned uintVar used to make sure that the same Dialogue index " +
+                                                     "can't be generated twice in a row.")]
+    private uintVar shuffleTracker;
     [SerializeField, Tooltip("A list of all actors involved in Dialogues used on this component.")]
     private Actor[] actors;
     [SerializeField, Tooltip("The text object which displays our main text.")]
@@ -82,7 +90,19 @@ public class DialogueHandler : MonoBehaviour
         // Parses our JSON file and adds our DialogueLines to our dictionary, so they can be accessed quickly.
         // ================
 
-        Dialogue dialogue = JsonUtility.FromJson<Dialogue>(dialogueFile.text);
+        TextAsset file = dialogueFile;
+        if (shuffleFiles) {
+            uint index;
+            do {
+                index = (uint)Random.Range(0, dialogueFiles.Length);
+                print(index);
+            } while (dialogueFiles.Length > 1 && index == shuffleTracker.value);
+
+            shuffleTracker.value = index;
+            file = dialogueFiles[index];
+        }
+        
+        Dialogue dialogue = JsonUtility.FromJson<Dialogue>(file.text);
 
         for (int i = 0; i < dialogue.lines.Count; i++)
         {

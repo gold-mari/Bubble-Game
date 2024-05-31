@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using NaughtyAttributes;
 
 public class RecedeHandler : MonoBehaviour
@@ -23,6 +24,7 @@ public class RecedeHandler : MonoBehaviour
     
 
     private SpriteRenderer sprite;
+    private Image image;
 
     void Start()
     {
@@ -30,6 +32,7 @@ public class RecedeHandler : MonoBehaviour
         // ================
 
         sprite = GetComponent<SpriteRenderer>();
+        image = GetComponent<Image>();
     }
 
     void Update()
@@ -38,6 +41,7 @@ public class RecedeHandler : MonoBehaviour
         // ================
 
         transform.localPosition = Vector3.Lerp(frontPosition, backPosition, backgroundness);
-        sprite.color = Color.Lerp(frontColor, backColor, backgroundness);
+        if (sprite) sprite.color = Color.Lerp(frontColor, backColor, backgroundness);
+        if (image) image.color = Color.Lerp(frontColor, backColor, backgroundness);
     }
 }

@@ -1,0 +1,10 @@
+{
+	"lines":
+	[
+		{
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,  Sammy.startBack",
+			"text":"... Could I try again?"
+		}
+	]
+}
