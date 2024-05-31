@@ -143,6 +143,9 @@
 		<property name="length">
 			<value>168.69509161815193</value>
 		</property>
+		<relationship name="automators">
+			<destination>{43c1711b-4e40-4d64-baa5-23bd833d4189}</destination>
+		</relationship>
 		<relationship name="audioFile">
 			<destination>{67f666ab-7fb9-4ebf-bf24-03840b9965b0}</destination>
 		</relationship>
@@ -543,6 +546,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{e2bcd245-a165-4036-8f88-391f45efce6b}" />
 	<object class="MixerBusFader" id="{e1677015-9345-41b1-9957-45934cb25031}" />
+	<object class="Automator" id="{43c1711b-4e40-4d64-baa5-23bd833d4189}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>pitch</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{dea3e5b3-3bc4-4569-b9bf-edb98a4b1f5f}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{0764ee0f-4786-40f4-b820-a0bd27bd25e9}">
 		<relationship name="effects">
 			<destination>{c80616a3-a6db-4c5d-9d2b-75c6537008c9}</destination>
@@ -560,6 +571,15 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{83c03b48-21ce-41fd-8409-ebf0c077722f}" />
+	<object class="AutomationCurve" id="{dea3e5b3-3bc4-4569-b9bf-edb98a4b1f5f}">
+		<relationship name="parameter">
+			<destination>{6391ad62-600e-4799-a656-1b014c93fabc}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{62decc79-7377-4871-a5ae-be76bda01d5f}</destination>
+			<destination>{981e0d9b-4e0f-4c43-906d-89e1bbec93f2}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{c80616a3-a6db-4c5d-9d2b-75c6537008c9}" />
 	<object class="AutomationPoint" id="{af38bc2d-3b58-418c-aa74-c7fb497d6ff6}">
 		<property name="position">
@@ -589,6 +609,25 @@
 		</property>
 		<property name="curveShape">
 			<value>0.359460145</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{62decc79-7377-4871-a5ae-be76bda01d5f}">
+		<property name="position">
+			<value>1</value>
+		</property>
+		<property name="value">
+			<value>-24</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{981e0d9b-4e0f-4c43-906d-89e1bbec93f2}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+		<property name="curveShape">
+			<value>0.335759073</value>
 		</property>
 	</object>
 </objects>
