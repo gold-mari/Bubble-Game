@@ -19,6 +19,8 @@ public class Song : ScriptableObject
 
     [Tooltip("The music event associated with this song.")]
     public FMODUnity.EventReference musicEvent;
+    [Tooltip("The timepoint, in seconds, of the final \"end\" FMOD marker.")]
+    public double endTime;
     [Tooltip("Whether or not this music event represents a medley of beatmaps.")]
     public bool isMedley = false;
     [HideIf("isMedley"), Tooltip("The text asset beatmap file associated with this song.")]

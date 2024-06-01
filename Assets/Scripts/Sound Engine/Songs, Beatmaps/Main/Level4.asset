@@ -19,4 +19,7 @@ MonoBehaviour:
       Data3: 122858376
       Data4: 2087371963
     Path: event:/Music/Level4
+  endTime: 152.143
+  isMedley: 0
   beatmapFile: {fileID: 4900000, guid: f10c6d27bc216af40910cf62f08a7316, type: 3}
+  beatmapFiles: []

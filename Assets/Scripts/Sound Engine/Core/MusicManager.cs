@@ -73,7 +73,7 @@ public class MusicManager : MusicPlayer
         // ================
 
         base.Update();
-        songCompletion.value = (float)handler.DSPTime/handler.musicLength;
+        songCompletion.value = Mathf.Clamp((float)(handler.DSPTime/mainSong.endTime), 0, 1);
     }
 
     // ================================================================
