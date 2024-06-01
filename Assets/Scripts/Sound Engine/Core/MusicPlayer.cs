@@ -123,9 +123,12 @@ public class MusicPlayer : MonoBehaviour
         }
     }
 
-    protected void StopMusic()
+    protected void StopMusic(bool immediate=true)
     {
-        instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        FMOD.Studio.STOP_MODE stopMode = immediate ? 
+                                         FMOD.Studio.STOP_MODE.IMMEDIATE : 
+                                         FMOD.Studio.STOP_MODE.ALLOWFADEOUT;
+        instance.stop(stopMode);
         handler.StopDSPClock();
     }
 

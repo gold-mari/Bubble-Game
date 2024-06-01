@@ -105,6 +105,11 @@ public class MusicManager : MusicPlayer
         StopMusic();
     }
 
+    public void FadeStop()
+    {
+        StopMusic(false);
+    }
+
     // ================================================================
     // Event handling methods
     // ================================================================
