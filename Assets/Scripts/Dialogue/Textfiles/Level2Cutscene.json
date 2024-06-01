@@ -9,7 +9,7 @@
 		{
 			"actor":"Knight",
 			"actions":"Knight.goFront,Knight.sqBounce,Sammy.goBack,          Ha'na.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ghost.sqIdle",
-			"text":"You are. Stronger. Then I thought."
+			"text":"You are. Stronger. Than I thought."
 		},
 		{
 			"actor":"Hannah",
