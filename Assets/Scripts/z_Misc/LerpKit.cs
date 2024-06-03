@@ -39,8 +39,16 @@ public class LerpKit
     {
         // EaseIn starts slow, speeds up, and slows down, like a cubic curve. power
         // controls how dramatically slope changes.
+
+        // Instead of lerping between EaseIn() and EaseOut(), switches between
+        // them using a ternary. Lerping flattens the curve at high power.
+
+        // LERP CURVE (Do Not Use)
+        // return Mathf.Lerp(EaseIn(t,power), EaseOut(t,power), t);
         // ================
 
-        return Mathf.Lerp(EaseIn(t,power), EaseOut(t,power), t);
+        // At t == 0.5, these functions both evaluate to 0.5.
+        return (t <= 0.5) ? EaseIn(2*t, power)/2
+                          : (EaseOut(2*t - 1, power) + 1)/2;
     }
 }

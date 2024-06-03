@@ -11,7 +11,7 @@ public class uintVarMonitor : MonoBehaviour
     // ================================================================
 
     [SerializeField, Tooltip("The floatVar we're monitoring.")]
-    private uintVar UIntVar;
+    protected uintVar UIntVar;
     [SerializeField, Tooltip("The amount to scale our uintVar by.\n\nDefault: 1.")]
     private uint scale = 1;
     [SerializeField, Tooltip("Used to format our scaled UIntVar for printing.")]
@@ -28,10 +28,10 @@ public class uintVarMonitor : MonoBehaviour
     private TMP_Text textObject;
 
     // ================================================================
-    // Update methods
+    // Default methods
     // ================================================================
 
-    private void Start()
+    protected void Start()
     {
         // Start is called before the first frame update. We use it to define our text object.
         // ================
@@ -44,6 +44,19 @@ public class uintVarMonitor : MonoBehaviour
         // Update is called once per frame. We use it to update our text.
         // ================
 
-        textObject.text = prefix + String.Format(formatString, UIntVar.value * scale) + suffix;
+        textObject.text = prefix + string.Format(formatString, GetUInt() * scale) + suffix;
+    }
+
+    // ================================================================
+    // Text-getting methods
+    // ================================================================
+
+    protected virtual uint GetUInt()
+    {
+        // Returns the value of our UIntVar, used in Update().
+        // Overridden in child classes.
+        // ================
+
+        return UIntVar.value;
     }
 }
