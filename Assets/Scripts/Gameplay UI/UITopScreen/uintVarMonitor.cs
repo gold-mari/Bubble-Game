@@ -25,13 +25,13 @@ public class uintVarMonitor : MonoBehaviour
     // Internal variables
     // ================================================================
 
-    private TMP_Text textObject;
+    protected TMP_Text textObject;
 
     // ================================================================
     // Default methods
     // ================================================================
 
-    protected void Start()
+    protected void Awake()
     {
         // Start is called before the first frame update. We use it to define our text object.
         // ================

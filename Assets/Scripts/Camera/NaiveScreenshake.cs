@@ -12,8 +12,8 @@ public class NaiveScreenshake : MonoBehaviour
     [SerializeField, Tooltip("The magnitude of the base screenshake, defined in maximum worldspace units from the base position."
                             +"\n\nDefault: 0.05")]
     private float baseShakeMagnitude = 0.05f;
-    [SerializeField, Tooltip("The duration of the base screenshake, in seconds.n\nDefault: 0.5")]
-    private float baseShakeDuration = 0.5f;
+    [Tooltip("The duration of the base screenshake, in seconds.n\nDefault: 0.5")]
+    public float BaseShakeDuration { get; private set; } = 0.5f;
 
     // ==============================================================
     // Internal variables
@@ -47,7 +47,7 @@ public class NaiveScreenshake : MonoBehaviour
         {
             StopCoroutine(shakeRoutine);
         }
-        shakeRoutine = StartCoroutine(Shake(baseShakeMagnitude, baseShakeDuration));
+        shakeRoutine = StartCoroutine(Shake(baseShakeMagnitude, BaseShakeDuration));
     }
 
     public void ScaledShake(float scale)
@@ -59,7 +59,7 @@ public class NaiveScreenshake : MonoBehaviour
         {
             StopCoroutine(shakeRoutine);
         }
-        shakeRoutine = StartCoroutine(Shake(scale * baseShakeMagnitude, baseShakeDuration));
+        shakeRoutine = StartCoroutine(Shake(scale * baseShakeMagnitude, BaseShakeDuration));
     }
 
     private IEnumerator Shake(float magnitude, float duration)

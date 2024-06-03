@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 401837913}
   - component: {fileID: 401837912}
   - component: {fileID: 401837914}
+  - component: {fileID: 401837915}
   m_Layer: 5
   m_Name: ScoreText A
   m_TagString: Untagged
@@ -276,8 +277,25 @@ MonoBehaviour:
   formatString: '{0:00000}'
   prefix: 
   suffix: 
-  tickTime: 4
-  lerpPower: 5
+  tickTime: 2
+  lerpPower: 3
+  baseCharSpacing: 0
+  maxCharSpacing: 35
+  fontSizeDelta: 10
+  inactiveAlpha: 0.2
+--- !u!114 &401837915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401837909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50125d4c0fd96ab4c807cbe96d32a2a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseShakeMagnitude: 5
 --- !u!1 &663936129
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,6 +308,7 @@ GameObject:
   - component: {fileID: 663936133}
   - component: {fileID: 663936132}
   - component: {fileID: 663936131}
+  - component: {fileID: 663936134}
   m_Layer: 5
   m_Name: ScoreText B
   m_TagString: Untagged
@@ -330,12 +349,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIntVar: {fileID: 11400000, guid: 469cd48f67736334697981d9c30f97ef, type: 2}
-  scale: 2
+  scale: 1
   formatString: '{0:00000}'
   prefix: 
   suffix: 
-  tickTime: 6
-  lerpPower: 10
+  tickTime: 2
+  lerpPower: 3
+  baseCharSpacing: 0
+  maxCharSpacing: 35
+  fontSizeDelta: 10
+  inactiveAlpha: 0.2
 --- !u!114 &663936132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,6 +456,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 663936129}
   m_CullTransparentMesh: 1
+--- !u!114 &663936134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663936129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50125d4c0fd96ab4c807cbe96d32a2a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseShakeMagnitude: 5
 --- !u!1 &756640014
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,6 +481,7 @@ GameObject:
   - component: {fileID: 756640018}
   - component: {fileID: 756640017}
   - component: {fileID: 756640016}
+  - component: {fileID: 756640019}
   m_Layer: 5
   m_Name: ScoreText C
   m_TagString: Untagged
@@ -490,7 +527,11 @@ MonoBehaviour:
   prefix: 
   suffix: 
   tickTime: 2
-  lerpPower: 1
+  lerpPower: 3
+  baseCharSpacing: 0
+  maxCharSpacing: 35
+  fontSizeDelta: 10
+  inactiveAlpha: 0.2
 --- !u!114 &756640017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,6 +629,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 756640014}
   m_CullTransparentMesh: 1
+--- !u!114 &756640019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756640014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50125d4c0fd96ab4c807cbe96d32a2a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseShakeMagnitude: 5
 --- !u!1 &1036732615
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,6 +736,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1078901839}
   - component: {fileID: 1078901840}
+  - component: {fileID: 1078901841}
   m_Layer: 5
   m_Name: Victory Display
   m_TagString: Untagged
@@ -724,14 +779,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0af9e1b7f98946e46b32ecb1a9eebcce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statDisplays:
-  - {fileID: 401837914}
-  - {fileID: 663936131}
-  - {fileID: 756640016}
   onDismiss:
     m_PersistentCalls:
       m_Calls: []
-  startVisible: 0
+  startVisible: 1
+--- !u!225 &1078901841
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078901838}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1719986236
 GameObject:
   m_ObjectHideFlags: 0

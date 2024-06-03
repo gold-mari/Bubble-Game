@@ -51,6 +51,9 @@ public class VictoryScreen : MonoBehaviour
 
     private IEnumerator TickAllDisplays()
     {
+        // To allow all colors in the displays to initialize.
+        yield return null;
+
         foreach (VictoryStatDisplay display in statDisplays) {
             display.StartTicking();
             yield return new WaitUntil(display.IsDone);
