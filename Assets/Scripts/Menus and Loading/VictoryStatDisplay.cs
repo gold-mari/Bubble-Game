@@ -13,6 +13,8 @@ public class VictoryStatDisplay : uintVarMonitor
     private float lerpPower = 2;
     [SerializeField, Tooltip("The maximum character spacing.\n\nDefault: 0")]
     private float baseCharSpacing = 0;
+    [SerializeField, Tooltip("The amount of time, in seconds, from the base char spacing to the max.\n\nDefault: 0.2")]
+    private float growTime = 0.2f;
     [SerializeField, Tooltip("The maximum character spacing.\n\nDefault: 25")]
     private float maxCharSpacing = 25;
     [SerializeField, Tooltip("The amount, in points, we increase our font size by when reaching the end of our tick anim.\n\nDefault: 10")]
@@ -80,6 +82,13 @@ public class VictoryStatDisplay : uintVarMonitor
         lerpAmount = 0;
         textObject.color = inactiveFontColor;
 
+        while (elapsed < growTime) {
+            textObject.characterSpacing = Mathf.Lerp(baseCharSpacing, maxCharSpacing, LerpKit.EaseOut(elapsed/growTime));
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        elapsed = 0;
         while (elapsed < tickTime) {
             lerpAmount = LerpKit.EaseInOut(elapsed/tickTime, lerpPower);
             textObject.characterSpacing = Mathf.Lerp(maxCharSpacing, baseCharSpacing, LerpKit.EaseOut(elapsed/tickTime));

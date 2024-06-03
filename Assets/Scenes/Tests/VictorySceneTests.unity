@@ -504,6 +504,7 @@ MonoBehaviour:
   tickTime: 2
   lerpPower: 3
   baseCharSpacing: 0
+  growTime: 0.1
   maxCharSpacing: 35
   fontSizeDelta: 10
   inactiveAlpha: 0.2
@@ -761,6 +762,7 @@ MonoBehaviour:
   tickTime: 2
   lerpPower: 3
   baseCharSpacing: 0
+  growTime: 0.1
   maxCharSpacing: 35
   fontSizeDelta: 10
   inactiveAlpha: 0.2
@@ -1003,6 +1005,7 @@ MonoBehaviour:
   tickTime: 2
   lerpPower: 3
   baseCharSpacing: 0
+  growTime: 0.1
   maxCharSpacing: 35
   fontSizeDelta: 10
   inactiveAlpha: 0.2
