@@ -25,6 +25,8 @@ public class ScoreManager : MonoBehaviour
     Image cooldownMeter;
     [SerializeField, Tooltip("The uintVar storing our current combo.")]
     uintVar currentCombo;
+    [SerializeField, Tooltip("The uintVar storing our max combo this stage.")]
+    uintVar maxCombo;
     [SerializeField, Tooltip("The uintVar storing our total score.")]
     uintVar scoreVar;
     [SerializeField, Tooltip("The uintVar storing the max chain length. Used to calculate the overpop bonus.")]
@@ -48,7 +50,7 @@ public class ScoreManager : MonoBehaviour
         // Awake is called before Start.
         // ================
 
-        scoreVar.value = 0;
+        maxCombo.value = currentCombo.value = scoreVar.value = 0;
         popupManager = GetComponent<ScorePopupManager>();
     }
 
@@ -97,9 +99,11 @@ public class ScoreManager : MonoBehaviour
 
         currentCombo.value = (uint)comboLevel;
 
-        if (comboLevel == 0)
-        {
+        if (comboLevel == 0) {
             cooldownMeter.fillAmount = 0;
+        }
+        if (comboLevel > maxCombo.value) {
+            maxCombo.value = (uint)comboLevel;
         }
     }
 
