@@ -1346,6 +1346,10 @@ PrefabInstance:
       propertyPath: m_HorizontalAlignment
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5906789682424049197, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_Name
+      value: Bubbles Popped
+      objectReference: {fileID: 0}
     - target: {fileID: 5955104156231506439, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: screenshake
       value: 
@@ -1361,10 +1365,6 @@ PrefabInstance:
     - target: {fileID: 6813889405428004239, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8329636719340956557, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: loader

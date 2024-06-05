@@ -337,6 +337,7 @@ MonoBehaviour:
   currentCombo: {fileID: 11400000, guid: 968a11a7a9011d448bee73fff971cee1, type: 2}
   maxCombo: {fileID: 11400000, guid: 8ee12194ce8989e4dadecc02f27a09e3, type: 2}
   scoreVar: {fileID: 11400000, guid: 469cd48f67736334697981d9c30f97ef, type: 2}
+  bubblesPopped: {fileID: 11400000, guid: dcdf45039d79bed4b97d1902105babe9, type: 2}
   maxChainLength: {fileID: 11400000, guid: f8135a0e4c086004b969a200daef9671, type: 2}
 --- !u!114 &7318956119765026642
 MonoBehaviour:
@@ -1107,7 +1108,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 99000
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: be4c6b941bd1fed49a3b308328c9ccb0, type: 2}
   m_sharedMaterial: {fileID: -6908427891558946073, guid: be4c6b941bd1fed49a3b308328c9ccb0, type: 2}
@@ -1141,7 +1142,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1188,9 +1189,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b347b18716c1b60408b2a50b58846808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIntVar: {fileID: 11400000, guid: 469cd48f67736334697981d9c30f97ef, type: 2}
+  UIntVar: {fileID: 11400000, guid: dcdf45039d79bed4b97d1902105babe9, type: 2}
   scale: 1
-  formatString: '{0:00000}'
+  formatString: '{0:0}'
   prefix: 
   suffix: 
   tickTime: 2

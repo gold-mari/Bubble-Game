@@ -29,6 +29,8 @@ public class ScoreManager : MonoBehaviour
     uintVar maxCombo;
     [SerializeField, Tooltip("The uintVar storing our total score.")]
     uintVar scoreVar;
+    [SerializeField, Tooltip("The uintVar storing our total number of bubbles popped.")]
+    uintVar bubblesPopped;
     [SerializeField, Tooltip("The uintVar storing the max chain length. Used to calculate the overpop bonus.")]
     uintVar maxChainLength;
 
@@ -50,7 +52,9 @@ public class ScoreManager : MonoBehaviour
         // Awake is called before Start.
         // ================
 
-        maxCombo.value = currentCombo.value = scoreVar.value = 0;
+        scoreVar.value = 0;
+        maxCombo.value = currentCombo.value = 0;
+        bubblesPopped.value = 0;
         popupManager = GetComponent<ScorePopupManager>();
     }
 
@@ -79,6 +83,8 @@ public class ScoreManager : MonoBehaviour
             StopCoroutine(cooldown);
             cooldown = StartCoroutine(ComboRoutineCooldown());        
         }
+
+        bubblesPopped.value += chain.length;
 
         uint overpopMultiplier = chain.length-maxChainLength.value + 1;
         uint score = (uint)(overpopMultiplier*comboLevel*baseScoreAmount);
