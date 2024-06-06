@@ -5,7 +5,7 @@
 			<value>MassSpawn</value>
 		</property>
 		<relationship name="folder">
-			<destination>{8f35b446-6a13-415a-80cd-87fc4d6bc5c7}</destination>
+			<destination>{92e910b9-258f-4738-8f9b-83ff3269748c}</destination>
 		</relationship>
 	</object>
 </objects>
