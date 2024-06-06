@@ -17,12 +17,18 @@ public class ScorePopupManager : MonoBehaviour
             // In case a bubble is destroyed before we can loop to it.
             if (member != null)
             {
-                centroid += (Vector3)member.transform.position;
+                centroid += member.transform.position;
             }
         }
         centroid /= members.Length;
 
         ScorePopup scorePopup = Instantiate(popup, centroid, Quaternion.identity, transform).GetComponent<ScorePopup>();
         scorePopup.Initialize(score, combo, exceptionalCombo, overpop, Bubble_Flavor_Methods.getColor(chain.chainFlavor));
+    }
+
+    public void OnEndPop(Bubble bubble, uint score)
+    {
+        ScorePopup scorePopup = Instantiate(popup, bubble.transform.position, Quaternion.identity, transform).GetComponent<ScorePopup>();
+        scorePopup.Initialize(score, Bubble_Flavor_Methods.getColor(bubble.bubbleFlavor));
     }
 }

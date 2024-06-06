@@ -49,8 +49,19 @@ public class ScorePopup : MonoBehaviour
         StartCoroutine(Decay());
     }
 
+    public void Initialize(uint score, Color color)
+    {
+        // Lightweight call. Used for end bubble pops.
+        // ================
+
+        Initialize(score, 1, 2, 0, color);
+    }
+
     public void Initialize(uint score, uint combo, uint exceptionalCombo, uint overpop, Color color)
     {
+        // The whole shebang. Used for chain breaks.
+        // ================
+
         text.text = score.ToString() + "!";
         ourFontSize = baseFontSize + ((combo-1)*sizePerComboRank);
         text.fontSize = ourFontSize;

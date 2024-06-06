@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 using UnityEngine.UI;
+using System;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField, Tooltip("How many points a standard chain break gets us.\n\nDefault: 100")]
     uint baseScoreAmount = 100;
+    [SerializeField, Tooltip("The number of points a base end pop gets us.\n\nDefault: 5")]
+    uint baseEndPopAmount = 5;
     [SerializeField, Tooltip("The uintVar storing what size of a combo is considered 'exceptional'. Combos at or past exceptional get extra UI effects.\n\nDefault: 5")]
     uintVar exceptionalCombo;
     [SerializeField, Tooltip("The music manager present in the scene.")]
@@ -29,6 +32,8 @@ public class ScoreManager : MonoBehaviour
     uintVar maxCombo;
     [SerializeField, Tooltip("The uintVar storing our total score.")]
     uintVar scoreVar;
+    [SerializeField, Tooltip("The uintVar storing our total number of points from popped straggler bubbles.")]
+    uintVar stragglerBonus;
     [SerializeField, Tooltip("The uintVar storing our total number of bubbles popped.")]
     uintVar bubblesPopped;
     [SerializeField, Tooltip("The uintVar storing the max chain length. Used to calculate the overpop bonus.")]
@@ -55,6 +60,7 @@ public class ScoreManager : MonoBehaviour
         scoreVar.value = 0;
         maxCombo.value = currentCombo.value = 0;
         bubblesPopped.value = 0;
+        stragglerBonus.value = 0;
         popupManager = GetComponent<ScorePopupManager>();
     }
 
@@ -64,8 +70,11 @@ public class ScoreManager : MonoBehaviour
 
     public void LogChainBreak(Chain chain)
     {
-        // Called from the ChainBreakHandler. Notes that a chain has broken, and 
+        // Called from the ChainBreakHandler. Notes that a chain has broken, updates score,
+        // updates combo, and calls screenshake.
         // ================
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/ChainDestroy");
 
         // Lazily initialize handler. If null, then assign it.
         handler ??= manager.handler;
@@ -92,6 +101,26 @@ public class ScoreManager : MonoBehaviour
 
         popupManager.OnChainBreak(chain, score, (uint)comboLevel, exceptionalCombo.value, overpopMultiplier);
         screenshake.ScaledShake(comboLevel * overpopMultiplier);
+    }
+
+    public void LogEndPop(Bubble bubble, int index)
+    {
+        // Called from the EndBubbleClearer. Notes that a bubble has popped, and calls
+        // the appropriate UI code.
+        // ================
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/ChainDestroy");
+
+        // Lazily initialize handler. If null, then assign it.
+        handler ??= manager.handler;
+
+        bubblesPopped.value++;
+        uint score = (uint)(baseEndPopAmount * index);
+        stragglerBonus.value += score;
+        scoreVar.value += score;
+
+        popupManager.OnEndPop(bubble, score);
+        screenshake.ScaledShake(index * 0.25f);
     }
 
     // ================================================================
