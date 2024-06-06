@@ -1269,6 +1269,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4563153436459329213, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: scoreSFX.Path
+      value: event:/SFX/Menus/Score
+      objectReference: {fileID: 0}
+    - target: {fileID: 4563153436459329213, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: scoreSFX.Guid.Data1
+      value: -1275529750
+      objectReference: {fileID: 0}
+    - target: {fileID: 4563153436459329213, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: scoreSFX.Guid.Data2
+      value: 1198557342
+      objectReference: {fileID: 0}
+    - target: {fileID: 4563153436459329213, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: scoreSFX.Guid.Data3
+      value: -1310849867
+      objectReference: {fileID: 0}
+    - target: {fileID: 4563153436459329213, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: scoreSFX.Guid.Data4
+      value: -136556418
+      objectReference: {fileID: 0}
+    - target: {fileID: 4563153436459329213, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: scoreClickerSFX.Path
+      value: event:/SFX/Menus/ScoreClicker
+      objectReference: {fileID: 0}
+    - target: {fileID: 4563153436459329213, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: scoreClickerSFX.Guid.Data1
+      value: -472058272
+      objectReference: {fileID: 0}
+    - target: {fileID: 4563153436459329213, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: scoreClickerSFX.Guid.Data2
+      value: 1233922767
+      objectReference: {fileID: 0}
+    - target: {fileID: 4563153436459329213, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: scoreClickerSFX.Guid.Data3
+      value: -465141343
+      objectReference: {fileID: 0}
+    - target: {fileID: 4563153436459329213, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: scoreClickerSFX.Guid.Data4
+      value: 1644884259
+      objectReference: {fileID: 0}
     - target: {fileID: 4751819187092467717, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_Camera
       value: 

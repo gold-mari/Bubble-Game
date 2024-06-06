@@ -15,6 +15,13 @@ public class VictoryScreen : MonoBehaviour
     private CanvasGroup group;
     private bool isVisible = false;
 
+    [SerializeField, Tooltip("The SFX played on score counter incrementing.")]
+    public FMODUnity.EventReference scoreClickerSFX;
+
+    [SerializeField, Tooltip("The SFX played on score display.")]
+    public FMODUnity.EventReference scoreSFX;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +62,7 @@ public class VictoryScreen : MonoBehaviour
         yield return null;
 
         foreach (VictoryStatDisplay display in statDisplays) {
+            display.setSFXRefs(scoreClickerSFX, scoreSFX);
             display.StartTicking();
             yield return new WaitUntil(display.IsDone);
         }

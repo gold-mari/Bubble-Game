@@ -22,6 +22,12 @@ public class VictoryStatDisplay : uintVarMonitor
     [SerializeField, Tooltip("The alpha value of this text when inactive (not yet ticked).\n\nDefault: 0.2")]
     private float inactiveAlpha = 0.2f;
 
+    [SerializeField, Tooltip("The SFX played on score counter incrementing.")]
+    private FMODUnity.EventReference scoreClickerSFX;
+
+    [SerializeField, Tooltip("The SFX played on score display.")]
+    private FMODUnity.EventReference scoreSFX;
+
     // The lerp amount used with GetUIInt.
     private float lerpAmount;
     // The screenshake component on this component.
@@ -72,6 +78,12 @@ public class VictoryStatDisplay : uintVarMonitor
         StartCoroutine(DisplayTickUpRoutine());
     }
 
+    public void setSFXRefs(FMODUnity.EventReference scoreClickerSFXRef, FMODUnity.EventReference scoreSFXRef)
+    {
+        scoreClickerSFX = scoreClickerSFXRef;
+        scoreSFX = scoreSFXRef;
+    }
+
     // ================================================================
     // Animation methods
     // ================================================================
@@ -94,6 +106,10 @@ public class VictoryStatDisplay : uintVarMonitor
             textObject.characterSpacing = Mathf.Lerp(maxCharSpacing, baseCharSpacing, LerpKit.EaseOut(elapsed/tickTime));
             textObject.color = Color.Lerp(inactiveFontColor, baseFontColor, LerpKit.EaseOut(elapsed/tickTime));
 
+            FMOD.Studio.EventInstance scoreClickerInstance = FMODUnity.RuntimeManager.CreateInstance(scoreClickerSFX);
+            scoreClickerInstance.start();
+            scoreClickerInstance.release(); 
+            
             elapsed += Time.deltaTime;
             yield return null;
         }
@@ -103,6 +119,11 @@ public class VictoryStatDisplay : uintVarMonitor
         textObject.color = baseFontColor;
         
         if (shaker) shaker.BaseShake();
+
+        FMOD.Studio.EventInstance scoreInstance = FMODUnity.RuntimeManager.CreateInstance(scoreSFX);
+        scoreInstance.start();
+        scoreInstance.release(); 
+
         StartCoroutine(ShrinkRoutine());
     }
 
@@ -122,4 +143,5 @@ public class VictoryStatDisplay : uintVarMonitor
 
         textObject.fontSize = baseFontSize;
     }
+
 }
