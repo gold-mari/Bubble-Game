@@ -4,7 +4,7 @@
 		{
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,Ha'na.startBack,Knight.startBack,           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle",
-			"text":"After a long trek through the Largosae hills, you arrive at the gates of the Highclaw Plains <font=\"caslon-antique-regular\"><b>BEAST DUNGEON</b></font>."
+			"text":"After a long trek through the Largosan hills, you arrive at the gates of the Highclaw Plains <font=\"caslon-antique-regular\"><b>BEAST DUNGEON</b></font>."
 		},
 		{
 			"actor":"Hannah",

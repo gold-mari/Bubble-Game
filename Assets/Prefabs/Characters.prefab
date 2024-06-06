@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4568130227389289637}
   - component: {fileID: 4568130227389289636}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Ha'na
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 4568130228044926512}
   - component: {fileID: 4568130228044926513}
   m_Layer: 0
-  m_Name: Player Sprite
+  m_Name: Ha'na Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -252,7 +252,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -4
   m_Sprite: {fileID: -1843797040, guid: 4046236651670f044b5455725fba173d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.8745098, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

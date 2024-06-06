@@ -28,6 +28,8 @@ public class RadialGravity : MonoBehaviour
 
     // The Rigidbody2D on this object.
     Rigidbody2D body;
+    // Whether or not this gravity should be frozen.
+    bool frozen = false;
 
     // ================================================================
     // Default methods
@@ -47,6 +49,8 @@ public class RadialGravity : MonoBehaviour
         // Update is called once per frame. Used to apply the force of gravity onto body.
         // ================
 
+        if (frozen) return;
+
         Vector2 vector = ((Vector2)transform.position - center).normalized;
         vector *= strength.value;
         body.AddForce(vector);
@@ -57,5 +61,15 @@ public class RadialGravity : MonoBehaviour
         {
             body.drag = dragAmount;
         }
+    }
+
+    // ================================================================
+    // Accessor methods
+    // ================================================================
+
+    public void PseudoFreeze(bool value)
+    {
+        frozen = value;
+        if (value) body.velocity = Vector2.zero;
     }
 }

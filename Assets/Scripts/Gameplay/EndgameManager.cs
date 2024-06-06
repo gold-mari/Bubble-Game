@@ -18,8 +18,8 @@ public class EndgameManager : MonoBehaviour
     [SerializeField, Tooltip("The sound to play on loss.")]
     public FMODUnity.EventReference lossSFX;
     [Header("Events")]
-    [SerializeField, Tooltip("A UnityEvent which communicates with CharacterAnimator that we have just won.")]
-    UnityEvent winTriggered;
+    [SerializeField, Tooltip("The event banks run on a loss. Each bank is played after the previous one, via callbacks.")]
+    private EndgameEventBank[] winEventBank;
     [SerializeField, Tooltip("The event banks run on a loss. Each bank is played after the previous one, via callbacks.")]
     private EndgameEventBank[] lossEventBank;
 
@@ -44,26 +44,27 @@ public class EndgameManager : MonoBehaviour
         // endgame events.
         // ================
 
-        if (alreadyLost && bankIndex < lossEventBank.Length)
-        {
+        if (alreadyLost && bankIndex < lossEventBank.Length) {
             lossEventBank[bankIndex].Update();
+        }
+        if (alreadyWon && bankIndex < winEventBank.Length) {
+            winEventBank[bankIndex].Update();
         }
     }
 
     public void TriggerWin()
     {
         // IE don't run anything if we're inactive.
-        if (!alreadyWon && !alreadyLost && gameObject.activeInHierarchy) {
+        if (!alreadyLost && !alreadyWon && gameObject.activeInHierarchy) {
+            lossSFX_i = FMODUnity.RuntimeManager.CreateInstance(lossSFX);
             alreadyWon = true;
-            StartCoroutine(WinRoutine());
+            //StartCoroutine(LossRoutine());
+
+            // lossSFX_i.start();
+            //lossSFX_i.release();
+
+            winEventBank[bankIndex].Run();
         }
-    }
-    IEnumerator WinRoutine()
-    {
-        print("You win!");
-        winTriggered.Invoke();
-        yield return new WaitForSeconds(2.5f);
-        loader.LoadLevel(sceneOnWin);
     }
 
     public void TriggerLoss()
@@ -75,7 +76,7 @@ public class EndgameManager : MonoBehaviour
             //StartCoroutine(LossRoutine());
 
             lossSFX_i.start();
-            //lossSFX_i.release();
+            lossSFX_i.release();
 
             lossEventBank[bankIndex].Run();
         }
@@ -83,20 +84,19 @@ public class EndgameManager : MonoBehaviour
 
     private void OnGUI()
     {
-        if (GUI.Button(new Rect(10, 10, 50, 50), "Win!"))
-        {
-            TriggerWin();
-        }
-        if (GUI.Button(new Rect(10, 70, 50, 50), "Lose!"))
-        {
-            TriggerLoss();
-        }
+        // if (GUI.Button(new Rect(10, 10, 50, 50), "Win!"))
+        // {
+        //     TriggerWin();
+        // }
+        // if (GUI.Button(new Rect(10, 70, 50, 50), "Lose!"))
+        // {
+        //     TriggerLoss();
+        // }
     }
 
     bool IsPlaying(FMOD.Studio.EventInstance instance) {
-	    FMOD.Studio.PLAYBACK_STATE state;   
-    	instance.getPlaybackState(out state);
-    	return state != FMOD.Studio.PLAYBACK_STATE.STOPPED;
+        instance.getPlaybackState(out FMOD.Studio.PLAYBACK_STATE state);
+        return state != FMOD.Studio.PLAYBACK_STATE.STOPPED;
     }
 
     // ================================================================
@@ -111,9 +111,11 @@ public class EndgameManager : MonoBehaviour
         if (alreadyLost || alreadyWon)
         {
             bankIndex++;
-            if (bankIndex < lossEventBank.Length) 
-            {
+            if (alreadyLost && bankIndex < lossEventBank.Length) {
                 lossEventBank[bankIndex].Run();
+            }
+            if (alreadyWon && bankIndex < lossEventBank.Length) {
+                winEventBank[bankIndex].Run();
             }
         }
         else

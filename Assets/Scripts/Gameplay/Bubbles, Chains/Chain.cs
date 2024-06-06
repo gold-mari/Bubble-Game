@@ -73,14 +73,6 @@ public class Chain : ScriptableObject
         // maximum length.
         // ================
 
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/ChainDestroy");
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
-        // DEBUG DEBUG DEBUG //
-
         bool bombChain = false;
         foreach (Bubble bubble in members) {
             if (bubble && bubble.isBomb)

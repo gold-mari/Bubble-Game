@@ -1,0 +1,10 @@
+{
+	"lines":
+	[
+		{
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,  Hannah.startBack",
+			"text":"But you won't yield yet!"
+		}
+	]
+}

@@ -293,14 +293,14 @@ MonoBehaviour:
       Data2: 1138296892
       Data3: 1514546092
       Data4: 391870846
-    Path: event:/SFX/Gameplay/GravityFlip/main
+    Path: event:/SFX/GravityFlip/main
   beforeGravityFlipSFX:
     Guid:
       Data1: 385374942
       Data2: 1250581551
       Data3: -754140792
       Data4: -1967868378
-    Path: event:/SFX/Gameplay/GravityFlip/pre
+    Path: event:/SFX/GravityFlip/pre
 --- !u!1 &5750587618128595660
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,34 +649,108 @@ MonoBehaviour:
       Data2: 1288703572
       Data3: 1637714079
       Data4: -982233951
-    Path: event:/SFX/Gameplay/Lose
-  winTriggered:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CharacterAnimator, Assembly-CSharp
-        m_MethodName: OnPlayerWin
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CharacterAnimator, Assembly-CSharp
-        m_MethodName: OnPlayerWin
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+    Path: event:/SFX/Lose
+  winEventBank:
+  - events:
+    - label: character animators
+      delay: 0
+      ourEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: CharacterAnimator, Assembly-CSharp
+            m_MethodName: OnPlayerWin
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: CharacterAnimator, Assembly-CSharp
+            m_MethodName: OnPlayerWin
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    - label: fade stop
+      delay: 0.25
+      ourEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: MusicManager, Assembly-CSharp
+            m_MethodName: FadeStop
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    - label: end bubble clear (callback)
+      delay: 0.5
+      ourEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: EndBubbleClearer, Assembly-CSharp
+            m_MethodName: Clear
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 1
+            m_CallState: 2
+  - events:
+    - label: display victory (callback)
+      delay: 2
+      ourEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: VictoryScreen, Assembly-CSharp
+            m_MethodName: SetVisibility
+            m_Mode: 6
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Next
+              m_BoolArgument: 1
+            m_CallState: 2
+  - events:
+    - label: load next
+      delay: 0
+      ourEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
+            m_MethodName: LoadLevel
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Next
+              m_BoolArgument: 0
+            m_CallState: 2
   lossEventBank:
   - events:
     - label: character animators
@@ -914,49 +988,49 @@ MonoBehaviour:
       Data2: 1145747865
       Data3: -2041252166
       Data4: -407974511
-    Path: event:/SFX/Gameplay/BubbleSpawn
+    Path: event:/SFX/BubbleSpawn
   massBubbleSFX:
     Guid:
       Data1: -1381736232
       Data2: 1098241166
       Data3: -1233970785
       Data4: -2109252184
-    Path: event:/SFX/Gameplay/MassSpawn/spawn
+    Path: event:/SFX/MassSpawn/spawn
   beforeMassBubbleSFX:
     Guid:
       Data1: 312315637
       Data2: 1122689984
       Data3: 850869423
       Data4: -1003727263
-    Path: event:/SFX/Gameplay/MassSpawn/pre
+    Path: event:/SFX/MassSpawn/pre
   flavorBombSFX:
     Guid:
       Data1: 1087976901
       Data2: 1129819644
       Data3: 968310433
       Data4: -600370997
-    Path: event:/SFX/Gameplay/FlavorBomb/spawn
+    Path: event:/SFX/FlavorBomb/spawn
   beforeFlavorBombSFX:
     Guid:
       Data1: -407746865
       Data2: 1332773028
       Data3: 1530177968
       Data4: -1693733643
-    Path: event:/SFX/Gameplay/FlavorBomb/pre
+    Path: event:/SFX/FlavorBomb/pre
   hyperbubbleSFX:
     Guid:
       Data1: 1862512489
       Data2: 1084415331
       Data3: -1780908131
       Data4: 1977862742
-    Path: event:/SFX/Gameplay/Hyperbubble/spawn
+    Path: event:/SFX/Hyperbubble/spawn
   beforeHyperbubbleSFX:
     Guid:
       Data1: -1859419478
       Data2: 1159937773
       Data3: -649331026
       Data4: 1949675514
-    Path: event:/SFX/Gameplay/Hyperbubble/pre
+    Path: event:/SFX/Hyperbubble/pre
 --- !u!114 &5750587619172000191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1174,6 +1248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5750587618924291759}
+  - component: {fileID: 8032434259739596747}
   m_Layer: 0
   m_Name: Bubble Parent
   m_TagString: Untagged
@@ -1196,6 +1271,35 @@ Transform:
   m_Father: {fileID: 5750587619172000190}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8032434259739596747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5750587619558534114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fea042fcc24041b4daf52c36346ec46b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreManager: {fileID: 0}
+  popDelay: 0.2
+  OnAllPopped:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5750587618818772880}
+        m_TargetAssemblyTypeName: EndgameManager, Assembly-CSharp
+        m_MethodName: EndgameEventCallback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5750587619651748904
 GameObject:
   m_ObjectHideFlags: 0

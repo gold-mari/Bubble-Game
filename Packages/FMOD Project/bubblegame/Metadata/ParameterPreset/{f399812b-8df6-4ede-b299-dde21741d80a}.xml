@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{f399812b-8df6-4ede-b299-dde21741d80a}">
+		<property name="name">
+			<value>AQ-Genre</value>
+		</property>
+		<relationship name="folder">
+			<destination>{ebfc8c2e-adde-4c6b-973d-041308e607bd}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{5ba7149d-b0b0-4dee-b023-533611bfdb72}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{5ba7149d-b0b0-4dee-b023-533611bfdb72}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Fantasy</value>
+			<value>Pop</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
