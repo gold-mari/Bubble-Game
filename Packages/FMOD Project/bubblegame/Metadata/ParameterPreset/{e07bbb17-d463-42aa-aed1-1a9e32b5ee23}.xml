@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{e07bbb17-d463-42aa-aed1-1a9e32b5ee23}">
+		<property name="name">
+			<value>ClickerPitch</value>
+		</property>
+		<relationship name="folder">
+			<destination>{ebfc8c2e-adde-4c6b-973d-041308e607bd}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{7bf13711-e78f-4112-bc72-f76e0287d249}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{7bf13711-e78f-4112-bc72-f76e0287d249}">
+		<property name="maximum">
+			<value>25</value>
+		</property>
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>
