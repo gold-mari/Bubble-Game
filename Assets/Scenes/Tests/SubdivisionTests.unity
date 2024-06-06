@@ -159,9 +159,9 @@ MonoBehaviour:
       Data2: 1207871340
       Data3: -981990733
       Data4: 1852760878
-    Path: event:/SFX/Test-Ticks/16th
+    Path: event:/SFX/Gameplay/Test-Ticks/16th
   noteType: 2
-  timekeeper: {fileID: 1559363193}
+  manager: {fileID: 0}
 --- !u!212 &254944727
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -383,9 +383,9 @@ MonoBehaviour:
       Data2: 1147246218
       Data3: 1453829800
       Data4: 1056612185
-    Path: event:/SFX/Test-Ticks/32nd
+    Path: event:/SFX/Gameplay/Test-Ticks/32nd
   noteType: 3
-  timekeeper: {fileID: 1559363193}
+  manager: {fileID: 0}
 --- !u!212 &1054906381
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -557,9 +557,9 @@ MonoBehaviour:
       Data2: 1215291488
       Data3: -689953376
       Data4: -1045925633
-    Path: event:/SFX/Test-Ticks/8th
+    Path: event:/SFX/Gameplay/Test-Ticks/8th
   noteType: 1
-  timekeeper: {fileID: 1559363193}
+  manager: {fileID: 0}
 --- !u!212 &1668397551
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -663,9 +663,9 @@ MonoBehaviour:
       Data2: 1301414042
       Data3: -277758289
       Data4: 331164861
-    Path: event:/SFX/Test-Ticks/4th
+    Path: event:/SFX/Gameplay/Test-Ticks/4th
   noteType: 0
-  timekeeper: {fileID: 1559363193}
+  manager: {fileID: 0}
 --- !u!212 &2057604521
 SpriteRenderer:
   m_ObjectHideFlags: 0

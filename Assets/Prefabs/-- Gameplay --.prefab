@@ -293,14 +293,14 @@ MonoBehaviour:
       Data2: 1138296892
       Data3: 1514546092
       Data4: 391870846
-    Path: event:/SFX/GravityFlip/main
+    Path: event:/SFX/Gameplay/GravityFlip/main
   beforeGravityFlipSFX:
     Guid:
       Data1: 385374942
       Data2: 1250581551
       Data3: -754140792
       Data4: -1967868378
-    Path: event:/SFX/GravityFlip/pre
+    Path: event:/SFX/Gameplay/GravityFlip/pre
 --- !u!1 &5750587618128595660
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,7 +649,7 @@ MonoBehaviour:
       Data2: 1288703572
       Data3: 1637714079
       Data4: -982233951
-    Path: event:/SFX/Lose
+    Path: event:/SFX/Gameplay/Lose
   winTriggered:
     m_PersistentCalls:
       m_Calls:
@@ -914,49 +914,49 @@ MonoBehaviour:
       Data2: 1145747865
       Data3: -2041252166
       Data4: -407974511
-    Path: event:/SFX/BubbleSpawn
+    Path: event:/SFX/Gameplay/BubbleSpawn
   massBubbleSFX:
     Guid:
       Data1: -1381736232
       Data2: 1098241166
       Data3: -1233970785
       Data4: -2109252184
-    Path: event:/SFX/MassSpawn/spawn
+    Path: event:/SFX/Gameplay/MassSpawn/spawn
   beforeMassBubbleSFX:
     Guid:
       Data1: 312315637
       Data2: 1122689984
       Data3: 850869423
       Data4: -1003727263
-    Path: event:/SFX/MassSpawn/pre
+    Path: event:/SFX/Gameplay/MassSpawn/pre
   flavorBombSFX:
     Guid:
       Data1: 1087976901
       Data2: 1129819644
       Data3: 968310433
       Data4: -600370997
-    Path: event:/SFX/FlavorBomb/spawn
+    Path: event:/SFX/Gameplay/FlavorBomb/spawn
   beforeFlavorBombSFX:
     Guid:
       Data1: -407746865
       Data2: 1332773028
       Data3: 1530177968
       Data4: -1693733643
-    Path: event:/SFX/FlavorBomb/pre
+    Path: event:/SFX/Gameplay/FlavorBomb/pre
   hyperbubbleSFX:
     Guid:
       Data1: 1862512489
       Data2: 1084415331
       Data3: -1780908131
       Data4: 1977862742
-    Path: event:/SFX/Hyperbubble/spawn
+    Path: event:/SFX/Gameplay/Hyperbubble/spawn
   beforeHyperbubbleSFX:
     Guid:
       Data1: -1859419478
       Data2: 1159937773
       Data3: -649331026
       Data4: 1949675514
-    Path: event:/SFX/Hyperbubble/pre
+    Path: event:/SFX/Gameplay/Hyperbubble/pre
 --- !u!114 &5750587619172000191
 MonoBehaviour:
   m_ObjectHideFlags: 0
