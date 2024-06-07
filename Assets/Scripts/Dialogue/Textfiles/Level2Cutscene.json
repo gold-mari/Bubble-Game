@@ -34,7 +34,12 @@
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,           Ha'na.sqIdle,Hannah.sqIdle,Ghost.sqIdle,Knight.sqIdle",
-			"text":"Suddenly, a poltergeist in [OUTFIT] descends through the ceiling. It gently lifts you off the ground."
+			"text":"Suddenly, a poltergeist in gay little armwarmers descends through the ceiling."
+		},	
+		{	
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,           Ha'na.sqIdle,Hannah.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"text":"It gently lifts you off the ground."
 		},	
 		{	
 			"actor":"Ghost",
