@@ -1365,10 +1365,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 5859720573235177145, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: m_Alpha
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5955104156231506439, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: screenshake
       value: 
