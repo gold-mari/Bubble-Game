@@ -347,18 +347,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1935704196}
-        m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-        m_MethodName: playMenuClickSFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &66389232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,7 +402,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1935704196}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
           m_MethodName: playMenuHoverSFX
           m_Mode: 1
@@ -705,7 +693,6 @@ GameObject:
   - component: {fileID: 238281298}
   - component: {fileID: 238281297}
   - component: {fileID: 238281296}
-  - component: {fileID: 238281299}
   m_Layer: 5
   m_Name: Level 5
   m_TagString: Untagged
@@ -790,18 +777,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1935704196}
-        m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-        m_MethodName: playMenuClickSFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &238281297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -840,35 +815,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238281294}
   m_CullTransparentMesh: 1
---- !u!114 &238281299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 238281294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1935704196}
-          m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-          m_MethodName: playMenuHoverSFX
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &264413796
 GameObject:
   m_ObjectHideFlags: 0
@@ -3388,7 +3334,6 @@ GameObject:
   - component: {fileID: 692466904}
   - component: {fileID: 692466903}
   - component: {fileID: 692466902}
-  - component: {fileID: 692466905}
   m_Layer: 5
   m_Name: Level 1
   m_TagString: Untagged
@@ -3473,18 +3418,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1935704196}
-        m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-        m_MethodName: playMenuClickSFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &692466903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3523,35 +3456,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692466900}
   m_CullTransparentMesh: 1
---- !u!114 &692466905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 692466900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1935704196}
-          m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-          m_MethodName: playMenuHoverSFX
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &733157727
 GameObject:
   m_ObjectHideFlags: 0
@@ -3661,18 +3565,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1935704196}
-        m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-        m_MethodName: playMenuClickSFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &733157730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3728,7 +3620,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1935704196}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
           m_MethodName: playMenuHoverSFX
           m_Mode: 1
@@ -5024,7 +4916,6 @@ GameObject:
   - component: {fileID: 936591060}
   - component: {fileID: 936591059}
   - component: {fileID: 936591058}
-  - component: {fileID: 936591061}
   m_Layer: 5
   m_Name: Level 4
   m_TagString: Untagged
@@ -5109,18 +5000,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1935704196}
-        m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-        m_MethodName: playMenuClickSFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &936591059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5159,35 +5038,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 936591056}
   m_CullTransparentMesh: 1
---- !u!114 &936591061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 936591056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1935704196}
-          m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-          m_MethodName: playMenuHoverSFX
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &947187576
 GameObject:
   m_ObjectHideFlags: 0
@@ -5475,7 +5325,6 @@ GameObject:
   - component: {fileID: 960870806}
   - component: {fileID: 960870805}
   - component: {fileID: 960870804}
-  - component: {fileID: 960870807}
   m_Layer: 5
   m_Name: <<<
   m_TagString: Untagged
@@ -5560,18 +5409,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1935704196}
-        m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-        m_MethodName: playMenuClickSFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &960870805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5610,35 +5447,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 960870802}
   m_CullTransparentMesh: 1
---- !u!114 &960870807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 960870802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1935704196}
-          m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-          m_MethodName: playMenuHoverSFX
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &981289063
 GameObject:
   m_ObjectHideFlags: 0
@@ -5802,7 +5610,6 @@ GameObject:
   - component: {fileID: 1027491869}
   - component: {fileID: 1027491868}
   - component: {fileID: 1027491867}
-  - component: {fileID: 1027491870}
   m_Layer: 5
   m_Name: Level 2
   m_TagString: Untagged
@@ -5887,18 +5694,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1935704196}
-        m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-        m_MethodName: playMenuClickSFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1027491868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5937,35 +5732,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027491865}
   m_CullTransparentMesh: 1
---- !u!114 &1027491870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1027491865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1935704196}
-          m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-          m_MethodName: playMenuHoverSFX
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &1027722536
 GameObject:
   m_ObjectHideFlags: 0
@@ -6674,7 +6440,6 @@ GameObject:
   - component: {fileID: 1200007424}
   - component: {fileID: 1200007423}
   - component: {fileID: 1200007422}
-  - component: {fileID: 1200007425}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -6759,18 +6524,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1935704196}
-        m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-        m_MethodName: playMenuClickSFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1207027456}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -6821,35 +6574,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200007420}
   m_CullTransparentMesh: 1
---- !u!114 &1200007425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1200007420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1935704196}
-          m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-          m_MethodName: playMenuHoverSFX
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &1207027456
 GameObject:
   m_ObjectHideFlags: 0
@@ -7512,7 +7236,6 @@ GameObject:
   - component: {fileID: 1407924943}
   - component: {fileID: 1407924942}
   - component: {fileID: 1407924941}
-  - component: {fileID: 1407924944}
   m_Layer: 5
   m_Name: Level 3
   m_TagString: Untagged
@@ -7597,18 +7320,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1935704196}
-        m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-        m_MethodName: playMenuClickSFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1407924942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7647,35 +7358,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407924939}
   m_CullTransparentMesh: 1
---- !u!114 &1407924944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1407924939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1935704196}
-          m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-          m_MethodName: playMenuHoverSFX
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &1411630864
 GameObject:
   m_ObjectHideFlags: 0
@@ -8357,7 +8039,6 @@ GameObject:
   - component: {fileID: 1511011033}
   - component: {fileID: 1511011032}
   - component: {fileID: 1511011031}
-  - component: {fileID: 1511011034}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -8454,18 +8135,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1935704196}
-        m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-        m_MethodName: playMenuClickSFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &1511011032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8504,35 +8173,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511011029}
   m_CullTransparentMesh: 1
---- !u!114 &1511011034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1511011029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1935704196}
-          m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-          m_MethodName: playMenuHoverSFX
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &1511798803
 GameObject:
   m_ObjectHideFlags: 0
@@ -8611,7 +8251,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1533113785}
   - component: {fileID: 1533113786}
-  - component: {fileID: 1533113787}
   m_Layer: 5
   m_Name: Debug Toggle
   m_TagString: Untagged
@@ -8687,49 +8326,8 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1935704196}
-        m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-        m_MethodName: playMenuClickSFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_IsOn: 1
---- !u!114 &1533113787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1533113784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1935704196}
-          m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-          m_MethodName: playMenuHoverSFX
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &1534572853
 GameObject:
   m_ObjectHideFlags: 0
@@ -9333,7 +8931,6 @@ GameObject:
   - component: {fileID: 1806608025}
   - component: {fileID: 1806608024}
   - component: {fileID: 1806608023}
-  - component: {fileID: 1806608026}
   m_Layer: 5
   m_Name: (debug) level select
   m_TagString: Untagged
@@ -9430,18 +9027,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1935704196}
-        m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-        m_MethodName: playMenuClickSFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &1806608024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9480,35 +9065,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1806608021}
   m_CullTransparentMesh: 1
---- !u!114 &1806608026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1806608021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1935704196}
-          m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-          m_MethodName: playMenuHoverSFX
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &1817372057
 GameObject:
   m_ObjectHideFlags: 0
@@ -9521,7 +9077,6 @@ GameObject:
   - component: {fileID: 1817372061}
   - component: {fileID: 1817372060}
   - component: {fileID: 1817372059}
-  - component: {fileID: 1817372062}
   m_Layer: 5
   m_Name: New Game
   m_TagString: Untagged
@@ -9606,18 +9161,6 @@ MonoBehaviour:
           m_StringArgument: New Game
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1935704196}
-        m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-        m_MethodName: playMenuClickSFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1817372060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9656,35 +9199,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817372057}
   m_CullTransparentMesh: 1
---- !u!114 &1817372062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1817372057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1935704196}
-          m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-          m_MethodName: playMenuHoverSFX
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &1826822780
 GameObject:
   m_ObjectHideFlags: 0
@@ -9736,7 +9250,6 @@ GameObject:
   - component: {fileID: 1841114896}
   - component: {fileID: 1841114895}
   - component: {fileID: 1841114894}
-  - component: {fileID: 1841114897}
   m_Layer: 5
   m_Name: '>>>'
   m_TagString: Untagged
@@ -9821,18 +9334,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1935704196}
-        m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-        m_MethodName: playMenuClickSFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1841114895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9871,35 +9372,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841114892}
   m_CullTransparentMesh: 1
---- !u!114 &1841114897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1841114892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1935704196}
-          m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-          m_MethodName: playMenuHoverSFX
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &1871359854
 GameObject:
   m_ObjectHideFlags: 0
@@ -9912,7 +9384,6 @@ GameObject:
   - component: {fileID: 1871359858}
   - component: {fileID: 1871359857}
   - component: {fileID: 1871359856}
-  - component: {fileID: 1871359859}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -9997,18 +9468,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1935704196}
-        m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-        m_MethodName: playMenuClickSFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 425653781}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -10071,35 +9530,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871359854}
   m_CullTransparentMesh: 1
---- !u!114 &1871359859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1871359854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1935704196}
-          m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-          m_MethodName: playMenuHoverSFX
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &1879078240
 GameObject:
   m_ObjectHideFlags: 0
@@ -10261,7 +9691,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1935704195}
-  - component: {fileID: 1935704196}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -10293,32 +9722,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -265}
   m_SizeDelta: {x: 480, y: 244}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1935704196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1935704194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a60bc90c6da1044eb0072cddba0a794, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuHoverSFX:
-    Guid:
-      Data1: -1882038602
-      Data2: 1078659519
-      Data3: -1505517946
-      Data4: -1408092550
-    Path: event:/SFX/Menus/MenuButtonHover
-  menuClickSFX:
-    Guid:
-      Data1: -467110212
-      Data2: 1129253245
-      Data3: -1163619680
-      Data4: 130900427
-    Path: event:/SFX/Menus/MenuButtonClick
 --- !u!1 &1939347614
 GameObject:
   m_ObjectHideFlags: 0
@@ -10703,18 +10106,6 @@ MonoBehaviour:
           m_StringArgument: Cutscene Intro
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1935704196}
-        m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-        m_MethodName: playMenuClickSFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1947204779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10770,7 +10161,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1935704196}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
           m_MethodName: playMenuHoverSFX
           m_Mode: 1
@@ -10791,6 +10182,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1964592856}
+  - component: {fileID: 1964592857}
   m_Layer: 5
   m_Name: Menus
   m_TagString: Untagged
@@ -10825,6 +10217,32 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1080, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1964592857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964592855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a60bc90c6da1044eb0072cddba0a794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuHoverSFX:
+    Guid:
+      Data1: -1882038602
+      Data2: 1078659519
+      Data3: -1505517946
+      Data4: -1408092550
+    Path: event:/SFX/Menus/MenuButtonHover
+  menuClickSFX:
+    Guid:
+      Data1: -467110212
+      Data2: 1129253245
+      Data3: -1163619680
+      Data4: 130900427
+    Path: event:/SFX/Menus/MenuButtonClick
 --- !u!1 &1988133877
 GameObject:
   m_ObjectHideFlags: 0
@@ -10837,7 +10255,6 @@ GameObject:
   - component: {fileID: 1988133881}
   - component: {fileID: 1988133880}
   - component: {fileID: 1988133879}
-  - component: {fileID: 1988133882}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -10934,18 +10351,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1935704196}
-        m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-        m_MethodName: playMenuClickSFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &1988133880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10984,35 +10389,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1988133877}
   m_CullTransparentMesh: 1
---- !u!114 &1988133882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988133877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1935704196}
-          m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-          m_MethodName: playMenuHoverSFX
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &1991954938
 GameObject:
   m_ObjectHideFlags: 0
@@ -11122,18 +10498,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1935704196}
-        m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-        m_MethodName: playMenuClickSFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &1991954941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11189,7 +10553,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1935704196}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
           m_MethodName: playMenuHoverSFX
           m_Mode: 1
@@ -11253,7 +10617,6 @@ GameObject:
   - component: {fileID: 2025491318}
   - component: {fileID: 2025491317}
   - component: {fileID: 2025491316}
-  - component: {fileID: 2025491319}
   m_Layer: 5
   m_Name: Tutorial
   m_TagString: Untagged
@@ -11362,18 +10725,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1935704196}
-        m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-        m_MethodName: playMenuClickSFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &2025491317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11412,35 +10763,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2025491314}
   m_CullTransparentMesh: 1
---- !u!114 &2025491319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2025491314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1935704196}
-          m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
-          m_MethodName: playMenuHoverSFX
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &2028626971
 GameObject:
   m_ObjectHideFlags: 0
