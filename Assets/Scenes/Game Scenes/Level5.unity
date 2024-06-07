@@ -844,7 +844,7 @@ MonoBehaviour:
   frontPosition: {x: 0, y: 0, z: 0}
   frontColor: {r: 0.92156863, g: 0.972549, b: 1, a: 1}
   backPosition: {x: 2, y: 0, z: 0}
-  backColor: {r: 0.79607844, g: 0.92156863, b: 1, a: 0.18431373}
+  backColor: {r: 1, g: 1, b: 1, a: 0.050980393}
 --- !u!114 &839535133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1426,7 +1426,7 @@ MonoBehaviour:
   frontPosition: {x: 0, y: 0, z: 0}
   frontColor: {r: 1, g: 0.8627451, b: 0.64705884, a: 1}
   backPosition: {x: 2, y: 0, z: 0}
-  backColor: {r: 1, g: 0.8627451, b: 0.64705884, a: 0.18431373}
+  backColor: {r: 1, g: 1, b: 1, a: 0.050980393}
 --- !u!114 &1530969518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1891,7 +1891,7 @@ MonoBehaviour:
   frontPosition: {x: 0, y: 0, z: 0}
   frontColor: {r: 1, g: 1, b: 1, a: 1}
   backPosition: {x: 2, y: 0, z: 0}
-  backColor: {r: 1, g: 1, b: 1, a: 0.18431373}
+  backColor: {r: 1, g: 1, b: 1, a: 0.050980393}
 --- !u!114 &1919434135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2159,7 +2159,7 @@ MonoBehaviour:
   frontPosition: {x: 0, y: 0, z: 0}
   frontColor: {r: 1, g: 1, b: 1, a: 1}
   backPosition: {x: 2, y: 0, z: 0}
-  backColor: {r: 1, g: 1, b: 1, a: 0.101960786}
+  backColor: {r: 1, g: 1, b: 1, a: 0.050980393}
 --- !u!1001 &8830513069248788194
 PrefabInstance:
   m_ObjectHideFlags: 0

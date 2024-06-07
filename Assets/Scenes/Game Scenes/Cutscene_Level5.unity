@@ -175,7 +175,7 @@ MonoBehaviour:
   frontPosition: {x: 0, y: 0, z: 0}
   frontColor: {r: 1, g: 1, b: 1, a: 1}
   backPosition: {x: 2, y: 0, z: 0}
-  backColor: {r: 1, g: 1, b: 1, a: 0.101960786}
+  backColor: {r: 1, g: 1, b: 1, a: 0.050980393}
 --- !u!114 &104420699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,7 +327,7 @@ MonoBehaviour:
   frontPosition: {x: 0, y: 0, z: 0}
   frontColor: {r: 1, g: 1, b: 1, a: 1}
   backPosition: {x: 2, y: 0, z: 0}
-  backColor: {r: 1, g: 1, b: 1, a: 0.101960786}
+  backColor: {r: 1, g: 1, b: 1, a: 0.050980393}
 --- !u!114 &425548605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -958,7 +958,7 @@ MonoBehaviour:
   frontPosition: {x: 0, y: 0, z: 0}
   frontColor: {r: 1, g: 1, b: 1, a: 1}
   backPosition: {x: 2, y: 0, z: 0}
-  backColor: {r: 1, g: 1, b: 1, a: 0.101960786}
+  backColor: {r: 1, g: 1, b: 1, a: 0.050980393}
 --- !u!1 &809235380
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,7 +1043,7 @@ MonoBehaviour:
   frontPosition: {x: 0, y: 0, z: 0}
   frontColor: {r: 1, g: 1, b: 1, a: 1}
   backPosition: {x: -2, y: 0, z: 0}
-  backColor: {r: 1, g: 1, b: 1, a: 0.101960786}
+  backColor: {r: 1, g: 1, b: 1, a: 0.050980393}
 --- !u!114 &866020605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1195,7 +1195,7 @@ MonoBehaviour:
   frontPosition: {x: 0, y: 0, z: 0}
   frontColor: {r: 1, g: 1, b: 1, a: 1}
   backPosition: {x: 2, y: 0, z: 0}
-  backColor: {r: 1, g: 1, b: 1, a: 0.101960786}
+  backColor: {r: 1, g: 1, b: 1, a: 0.050980393}
 --- !u!114 &994863172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1708,7 +1708,7 @@ MonoBehaviour:
   frontPosition: {x: 0, y: 0, z: 0}
   frontColor: {r: 1, g: 1, b: 1, a: 1}
   backPosition: {x: -2, y: 0, z: 0}
-  backColor: {r: 1, g: 1, b: 1, a: 0.101960786}
+  backColor: {r: 1, g: 1, b: 1, a: 0.050980393}
 --- !u!1 &1520292723
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,7 +1761,7 @@ MonoBehaviour:
   frontPosition: {x: 0, y: 0, z: 0}
   frontColor: {r: 1, g: 0.85882354, b: 0.64705884, a: 1}
   backPosition: {x: 2, y: 0, z: 0}
-  backColor: {r: 1, g: 0.85882354, b: 0.64705884, a: 0.101960786}
+  backColor: {r: 1, g: 1, b: 1, a: 0.050980393}
 --- !u!114 &1520292726
 MonoBehaviour:
   m_ObjectHideFlags: 0
