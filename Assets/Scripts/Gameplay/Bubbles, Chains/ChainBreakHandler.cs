@@ -14,6 +14,8 @@ public class ChainBreakHandler : MonoBehaviour
     // Parameters
     // ==============================================================
 
+    [Tooltip("The SFX for chain breaks.")]
+    public FMODUnity.EventReference chainBreakSFX;
     [SerializeField, Tooltip("A UnityEvent which communicates with other scripts, noting that a chain has just broken.")]
     private ChainEvent chainBreak;
 
@@ -27,6 +29,7 @@ public class ChainBreakHandler : MonoBehaviour
         // inspector, we use it to update the character animator.
         // ================
 
+        FMODUnity.RuntimeManager.PlayOneShot(chainBreakSFX);
         chainBreak?.Invoke(chain);
     }
 }

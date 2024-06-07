@@ -1043,6 +1043,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261617c9eedadc14ca74ad0929756353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chainBreakSFX:
+    Guid:
+      Data1: -163261750
+      Data2: 1086216785
+      Data3: -349186401
+      Data4: 1434504750
+    Path: event:/SFX/Gameplay/ChainDestroy
   chainBreak:
     m_PersistentCalls:
       m_Calls:
