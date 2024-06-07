@@ -1317,6 +1317,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1271052958611568557, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4563153436459329213, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: scoreSFX.Path
       value: event:/SFX/Menus/Score
