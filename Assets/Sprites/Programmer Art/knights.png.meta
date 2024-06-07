@@ -123,7 +123,7 @@ TextureImporter:
         x: 0
         y: 0
         width: 600
-        height: 1200
+        height: 1030
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,7 +144,7 @@ TextureImporter:
         x: 600
         y: 0
         width: 600
-        height: 1200
+        height: 1030
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,7 +165,7 @@ TextureImporter:
         x: 1200
         y: 0
         width: 600
-        height: 1200
+        height: 1030
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,10 +183,10 @@ TextureImporter:
       name: knights_3
       rect:
         serializedVersion: 2
-        x: 1800
+        x: 1802
         y: 0
         width: 600
-        height: 1200
+        height: 1030
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,7 +207,7 @@ TextureImporter:
         x: 2400
         y: 0
         width: 600
-        height: 1200
+        height: 1030
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

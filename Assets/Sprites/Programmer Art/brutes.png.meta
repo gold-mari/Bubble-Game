@@ -122,8 +122,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 600
-        height: 1200
+        width: 599.6
+        height: 1069
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,10 +141,10 @@ TextureImporter:
       name: brutes_1
       rect:
         serializedVersion: 2
-        x: 600
+        x: 599
         y: 0
-        width: 600
-        height: 1200
+        width: 599.6
+        height: 1069
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +162,10 @@ TextureImporter:
       name: brutes_2
       rect:
         serializedVersion: 2
-        x: 1200
+        x: 1198
         y: 0
-        width: 600
-        height: 1200
+        width: 599.6
+        height: 1069
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,10 +183,10 @@ TextureImporter:
       name: brutes_3
       rect:
         serializedVersion: 2
-        x: 1800
+        x: 1797
         y: 0
-        width: 600
-        height: 1200
+        width: 599.6
+        height: 1069
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,10 +204,10 @@ TextureImporter:
       name: brutes_4
       rect:
         serializedVersion: 2
-        x: 2400
+        x: 2396
         y: 0
-        width: 600
-        height: 1200
+        width: 599.6
+        height: 1069
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
