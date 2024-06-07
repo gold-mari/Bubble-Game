@@ -2908,6 +2908,26 @@ PrefabInstance:
       propertyPath: scoreManager
       value: 
       objectReference: {fileID: 5955104156231506439}
+    - target: {fileID: 8032434259739596747, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
+      propertyPath: burstMiniSFX.Path
+      value: event:/SFX/Gameplay/ChainDestroy Mini
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032434259739596747, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
+      propertyPath: burstMiniSFX.Guid.Data1
+      value: -919185346
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032434259739596747, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
+      propertyPath: burstMiniSFX.Guid.Data2
+      value: 1300065060
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032434259739596747, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
+      propertyPath: burstMiniSFX.Guid.Data3
+      value: -381900901
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032434259739596747, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
+      propertyPath: burstMiniSFX.Guid.Data4
+      value: -908767565
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
 --- !u!114 &6501658854580766653 stripped

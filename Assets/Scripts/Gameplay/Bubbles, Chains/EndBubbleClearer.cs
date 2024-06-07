@@ -10,7 +10,9 @@ public class EndBubbleClearer : MonoBehaviour
     [SerializeField, Tooltip("The amount of seconds we wait in between each bubble being cleared.\n\nDefault: 0.2")]
     private float popDelay = 0.2f;
     [SerializeField, Tooltip("A unity event called when all bubbles have been popped.")]
-    private UnityEvent OnAllPopped;    
+    public FMODUnity.EventReference burstMiniSFX;
+    [SerializeField, Tooltip("The SFX played on remaining buubbles popping.")]
+    private UnityEvent OnAllPopped;
 
     public void Clear()
     {
@@ -35,6 +37,11 @@ public class EndBubbleClearer : MonoBehaviour
                 Bubble bubble = freeBubbles[0];
                 scoreManager.LogEndPop(bubble, index);
                 bubble.DestroyBubble(bubble.isBomb);
+
+                FMOD.Studio.EventInstance burstMiniSFX_i = FMODUnity.RuntimeManager.CreateInstance(burstMiniSFX);
+                FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Flavor", (int)bubble.bubbleFlavor-1);
+                burstMiniSFX_i.start();
+                burstMiniSFX_i.release();
             }
 
             index++;

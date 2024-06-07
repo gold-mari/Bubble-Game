@@ -1292,6 +1292,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 0}
   popDelay: 0.2
+  burstMiniSFX:
+    Guid:
+      Data1: 1166091048
+      Data2: 1145747865
+      Data3: -2041252166
+      Data4: -407974511
+    Path: event:/SFX/Gameplay/BubbleSpawn
   OnAllPopped:
     m_PersistentCalls:
       m_Calls:

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{0831818d-322d-4bf0-8183-a298fa57104c}">
+		<property name="assetPath">
+			<value>burstMini_v3.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.8035827664399093</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{85811cff-6596-4fd6-9d7f-e8e5091e2fec}</destination>
+		</relationship>
+	</object>
+</objects>
