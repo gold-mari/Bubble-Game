@@ -2331,6 +2331,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  advanceSFX:
+    Guid:
+      Data1: -467110212
+      Data2: 1129253245
+      Data3: -1163619680
+      Data4: 130900427
+    Path: event:/SFX/Menus/MenuButtonClick
 --- !u!1 &7164314686387567215
 GameObject:
   m_ObjectHideFlags: 0

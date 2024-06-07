@@ -32,9 +32,12 @@ public class DialogueHandler : MonoBehaviour
     float advanceDelay = 0.5f;
     [SerializeField, Tooltip("Whether this text object should begin displaying text on Start()\n\nDefault: true")]
     bool beginInStart = true;
-
     [SerializeField, Tooltip("An action invoked when advancing from the final line.")]
     public UnityEvent ActionOnEnd;
+
+    [Header("SFX")]
+    [SerializeField, Tooltip("The SFX played when advancing from a line.")]
+    FMODUnity.EventReference advanceSFX;
 
     // ==============================================================
     // Internal variables
@@ -134,6 +137,8 @@ public class DialogueHandler : MonoBehaviour
             // If we can, advance to the next line, and reset all our timers.
             if (canAdvance)
             {
+                FMODUnity.RuntimeManager.PlayOneShot(advanceSFX);
+                
                 if (index < lineDict.Count-1)
                 {
                     index++;
