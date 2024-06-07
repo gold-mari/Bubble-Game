@@ -1369,6 +1369,10 @@ PrefabInstance:
       propertyPath: winEventBank.Array.data[1].events.Array.data[0].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: EndBubbleClearer, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 8830513068628213623, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: mainSong
+      value: 
+      objectReference: {fileID: 11400000, guid: 976fd071e3a9d3c42a0531fa38b92d65, type: 2}
     - target: {fileID: 8830513069773835060, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_RootOrder
       value: 4
