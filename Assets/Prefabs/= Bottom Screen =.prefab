@@ -1203,6 +1203,20 @@ MonoBehaviour:
   maxCharSpacing: 20
   fontSizeDelta: 5
   inactiveAlpha: 0.2
+  scoreClickerSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  scoreSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!114 &3663257437447767727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2060,6 +2074,20 @@ MonoBehaviour:
   maxCharSpacing: 0
   fontSizeDelta: 5
   inactiveAlpha: 0.2
+  scoreClickerSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  scoreSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!114 &3165885131969902210
 MonoBehaviour:
   m_ObjectHideFlags: 0
