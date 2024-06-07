@@ -34,7 +34,12 @@
 		{	
 			"actor":"Knight",
 			"actions":"Knight.goFront,Knight.sqBounce,Sammy.goBack,          Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
-			"text":"Cadgeful cat of Hemiquaver! So you have made it past the other Beasts. Perhaps I underestimated you."
+			"text":"Cadgeful cat of Hemiquaver! So you have made it past the other Beasts."
+		},	
+		{	
+			"actor":"Knight",
+			"actions":"Knight.sqBounce,          Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"text":"Perhaps I underestimated you."
 		},	
 		{	
 			"actor":"Ha'na",
