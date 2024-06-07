@@ -6,6 +6,13 @@ using NaughtyAttributes;
 public class FlavorBomb : MonoBehaviour
 {
     // ==============================================================
+    // Parameters
+    // ==============================================================
+    
+    [SerializeField, Tooltip("The SFX event played when we explode.")]
+    FMODUnity.EventReference explodeSFX;
+
+    // ==============================================================
     // Internal variables
     // ==============================================================
 
@@ -57,13 +64,7 @@ public class FlavorBomb : MonoBehaviour
         Debug.Assert(finalPosition != Vector3.negativeInfinity, "FlavorBomb Error: OnDisable failed. "
                                                                +"StoreSpawnPosition was not called before OnDisable.");
 
-        // DEBUG???
-        // DEBUG!!!
-        // i got a glock in my rari
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/FlavorBomb/explode");
-        // DEBUG???
-        // DEBUG!!!
-        // i got a glock in my rari
+        FMODUnity.RuntimeManager.PlayOneShot(explodeSFX);
 
         for (int i = 1; i < Bubble_Flavor_Methods.length; i++)
         {

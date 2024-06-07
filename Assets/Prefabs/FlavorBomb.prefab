@@ -46,6 +46,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c3de15035496849b0bf12054254f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explodeSFX:
+    Guid:
+      Data1: -572875141
+      Data2: 1100587032
+      Data3: 1577585310
+      Data4: -614703649
+    Path: event:/SFX/Gameplay/FlavorBomb/explode
 --- !u!114 &-4107263945470092929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,6 +65,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6557a45b2fe693f4cb0153d1499d3003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showOnBeat: 0
+  reader: {fileID: 0}
+  pulseRange: {x: 1.5, y: 2}
 --- !u!212 &-2897325825451052766
 SpriteRenderer:
   m_ObjectHideFlags: 0

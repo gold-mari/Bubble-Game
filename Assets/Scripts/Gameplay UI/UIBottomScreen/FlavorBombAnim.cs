@@ -10,7 +10,8 @@ public class FlavorBombAnim : MonoBehaviour
     // ==============================================================
 
     [SerializeField, Tooltip("If true, listens to the Beat Reader present in the scene to "
-                           + "hide and reveal this object.\n\nDefault: false")]
+                           + "hide and reveal this object. This is FALSE for functional flavor bombs, "
+                           + "and is TRUE for the bomb indicator around the cursor.\n\nDefault: false")]
     private bool showOnBeat = false;
     [SerializeField, ShowIf("showOnBeat")]
     private BeatReader reader;
