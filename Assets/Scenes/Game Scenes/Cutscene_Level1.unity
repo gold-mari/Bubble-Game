@@ -1455,6 +1455,8 @@ MonoBehaviour:
     actorObject: {fileID: 1246480003}
   - actorName: Knight
     actorObject: {fileID: 104420699}
+  - actorName: Narrator
+    actorObject: {fileID: 0}
   textbox: {fileID: 1694607377}
   speaker: {fileID: 1875600448}
   typewriterDelay: 0.025
@@ -1638,9 +1640,9 @@ MonoBehaviour:
   m_fontSize: 31.5
   m_fontSizeBase: 31.5
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 31.65
-  m_fontSizeMax: 50
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 0
+  m_fontSizeMax: 31.5
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 4096

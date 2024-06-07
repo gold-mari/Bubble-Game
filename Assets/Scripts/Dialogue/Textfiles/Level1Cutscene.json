@@ -2,8 +2,28 @@
 	"lines":		
 	[		
 		{	
+			"actor":"Narrator",
+			"actions":"Sammy.startBack,Hannah.startBack,Ha'na.startBack,Knight.startBack,           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle",
+			"text":"Friends Sammy and Hannah are winding down a long day by playing their favorite tabletop role-playing-game, <i>Beast Dungeon</i>."
+		},	
+		{	
+			"actor":"Narrator",
+			"actions":"           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle",
+			"text":"During a drawn-out introduction by gamemaster Sammy, Hannah distractedly pulls out a handheld video game console and starts a game of <i>DIGIBUBBLE BEAT DX.</i>"
+		},	
+		{	
+			"actor":"Narrator",
+			"actions":"           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle",
+			"text":"Offended but inspired, Sammy devises a fucked up and twisted fusion of games... BubbleBeast DigiDungeon..."
+		},	
+		{	
+			"actor":"Narrator",
+			"actions":"           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle",
+			"text":"As we enter our scene, this insane crazy fucking game has only just begun......"
+		},	
+		{	
 			"actor":"Sammy",
-			"actions":"Sammy.sqBounce,Ha'na.startBack,Knight.startBack,           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle",
+			"actions":"Hannah.goFront,Sammy.goFront,Sammy.sqBounce,           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle",
 			"text":"After a long trek through the Largosan hills, you arrive at the gates of the Highclaw Plains <font=\"caslon-antique-regular\"><b>BEAST DUNGEON</b></font>."
 		},	
 		{	
@@ -127,4 +147,4 @@
 			"text":"Roll initiative for the tempo and pull up... BBDD Preset 1!"
 		}	
 	]		
-}			
+}		
