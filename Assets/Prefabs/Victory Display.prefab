@@ -161,6 +161,20 @@ MonoBehaviour:
   maxCharSpacing: 20
   fontSizeDelta: 5
   inactiveAlpha: 0.2
+  scoreClickerSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  scoreSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!114 &5352403076892073524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,6 +508,20 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   startVisible: 0
+  scoreClickerSFX:
+    Guid:
+      Data1: -472058272
+      Data2: 1233922767
+      Data3: -465141343
+      Data4: 1644884259
+    Path: event:/SFX/Menus/ScoreClicker
+  scoreSFX:
+    Guid:
+      Data1: -1275529750
+      Data2: 1198557342
+      Data3: -1310849867
+      Data4: -136556418
+    Path: event:/SFX/Menus/Score
 --- !u!225 &5803532432083480368
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -802,6 +830,20 @@ MonoBehaviour:
   maxCharSpacing: 35
   fontSizeDelta: 10
   inactiveAlpha: 0.2
+  scoreClickerSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  scoreSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!114 &5803532433537522746
 MonoBehaviour:
   m_ObjectHideFlags: 0

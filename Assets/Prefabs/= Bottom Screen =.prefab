@@ -3154,6 +3154,46 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5803532432083480369, guid: 5302bd7eede6a8242960e4e5e2d53631, type: 3}
+      propertyPath: scoreSFX.Path
+      value: event:/SFX/Menus/Score
+      objectReference: {fileID: 0}
+    - target: {fileID: 5803532432083480369, guid: 5302bd7eede6a8242960e4e5e2d53631, type: 3}
+      propertyPath: scoreSFX.Guid.Data1
+      value: -1275529750
+      objectReference: {fileID: 0}
+    - target: {fileID: 5803532432083480369, guid: 5302bd7eede6a8242960e4e5e2d53631, type: 3}
+      propertyPath: scoreSFX.Guid.Data2
+      value: 1198557342
+      objectReference: {fileID: 0}
+    - target: {fileID: 5803532432083480369, guid: 5302bd7eede6a8242960e4e5e2d53631, type: 3}
+      propertyPath: scoreSFX.Guid.Data3
+      value: -1310849867
+      objectReference: {fileID: 0}
+    - target: {fileID: 5803532432083480369, guid: 5302bd7eede6a8242960e4e5e2d53631, type: 3}
+      propertyPath: scoreSFX.Guid.Data4
+      value: -136556418
+      objectReference: {fileID: 0}
+    - target: {fileID: 5803532432083480369, guid: 5302bd7eede6a8242960e4e5e2d53631, type: 3}
+      propertyPath: scoreClickerSFX.Path
+      value: event:/SFX/Menus/ScoreClicker
+      objectReference: {fileID: 0}
+    - target: {fileID: 5803532432083480369, guid: 5302bd7eede6a8242960e4e5e2d53631, type: 3}
+      propertyPath: scoreClickerSFX.Guid.Data1
+      value: -472058272
+      objectReference: {fileID: 0}
+    - target: {fileID: 5803532432083480369, guid: 5302bd7eede6a8242960e4e5e2d53631, type: 3}
+      propertyPath: scoreClickerSFX.Guid.Data2
+      value: 1233922767
+      objectReference: {fileID: 0}
+    - target: {fileID: 5803532432083480369, guid: 5302bd7eede6a8242960e4e5e2d53631, type: 3}
+      propertyPath: scoreClickerSFX.Guid.Data3
+      value: -465141343
+      objectReference: {fileID: 0}
+    - target: {fileID: 5803532432083480369, guid: 5302bd7eede6a8242960e4e5e2d53631, type: 3}
+      propertyPath: scoreClickerSFX.Guid.Data4
+      value: 1644884259
+      objectReference: {fileID: 0}
+    - target: {fileID: 5803532432083480369, guid: 5302bd7eede6a8242960e4e5e2d53631, type: 3}
       propertyPath: onDismiss.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
