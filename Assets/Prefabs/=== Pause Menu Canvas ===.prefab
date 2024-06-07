@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4755260825791961377}
   - component: {fileID: 4755260825791961378}
+  - component: {fileID: 2511632352127180710}
   m_Layer: 5
   m_Name: Pause Menu
   m_TagString: Untagged
@@ -53,6 +54,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultChild: {fileID: 1253086905210587093}
+--- !u!114 &2511632352127180710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120389243683122203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a60bc90c6da1044eb0072cddba0a794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuHoverSFX:
+    Guid:
+      Data1: -1882038602
+      Data2: 1078659519
+      Data3: -1505517946
+      Data4: -1408092550
+    Path: event:/SFX/Menus/MenuButtonHover
+  menuClickSFX:
+    Guid:
+      Data1: -467110212
+      Data2: 1129253245
+      Data3: -1163619680
+      Data4: 130900427
+    Path: event:/SFX/Menus/MenuButtonClick
 --- !u!1 &321384199197560892
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +284,7 @@ MonoBehaviour:
   m_text: PAUSED
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0539ba517723d6d43bf03748c8281f6b, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 880974728737460417, guid: 0539ba517723d6d43bf03748c8281f6b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -320,7 +347,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &949730936549411139
@@ -1956,7 +1983,7 @@ MonoBehaviour:
   m_text: SETTINGS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0539ba517723d6d43bf03748c8281f6b, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 880974728737460417, guid: 0539ba517723d6d43bf03748c8281f6b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2019,7 +2046,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &4484274517896015074
@@ -2378,7 +2405,7 @@ MonoBehaviour:
   m_text: RESUME
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0539ba517723d6d43bf03748c8281f6b, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 880974728737460417, guid: 0539ba517723d6d43bf03748c8281f6b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2441,7 +2468,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &7196966572916398542
@@ -2863,7 +2890,7 @@ MonoBehaviour:
   m_text: QUIT TO MENU
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0539ba517723d6d43bf03748c8281f6b, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 880974728737460417, guid: 0539ba517723d6d43bf03748c8281f6b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2926,7 +2953,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &9189736749878583790
