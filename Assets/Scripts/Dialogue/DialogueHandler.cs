@@ -96,7 +96,6 @@ public class DialogueHandler : MonoBehaviour
             uint index;
             do {
                 index = (uint)Random.Range(0, dialogueFiles.Length);
-                print(index);
             } while (dialogueFiles.Length > 1 && index == shuffleTracker.value);
 
             shuffleTracker.value = index;
