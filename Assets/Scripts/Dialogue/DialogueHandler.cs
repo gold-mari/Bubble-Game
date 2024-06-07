@@ -63,7 +63,7 @@ public class DialogueHandler : MonoBehaviour
     // Initialization methods
     // ==============================================================
 
-    void Start()
+    IEnumerator Start()
     {
         // Start is called before the first frame update. We use it to initialize dictionaries and
         // change to our initial text.
@@ -71,6 +71,7 @@ public class DialogueHandler : MonoBehaviour
 
         PopulateActorDict();
         PopulateLineDict();
+        yield return null; // Give animators time to populate
         if (beginInStart) Begin();
     }
 
