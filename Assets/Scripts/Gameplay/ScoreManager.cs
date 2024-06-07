@@ -74,8 +74,6 @@ public class ScoreManager : MonoBehaviour
         // updates combo, and calls screenshake.
         // ================
 
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/ChainDestroy");
-
         // Lazily initialize handler. If null, then assign it.
         handler ??= manager.handler;
 
@@ -108,8 +106,6 @@ public class ScoreManager : MonoBehaviour
         // Called from the EndBubbleClearer. Notes that a bubble has popped, and calls
         // the appropriate UI code.
         // ================
-
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/ChainDestroy");
 
         // Lazily initialize handler. If null, then assign it.
         handler ??= manager.handler;
