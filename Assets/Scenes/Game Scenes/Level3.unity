@@ -966,14 +966,26 @@ PrefabInstance:
       propertyPath: musicPlayer
       value: 
       objectReference: {fileID: 621005205}
+    - target: {fileID: 4568130228720782263, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4568130228801438689, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4568130228801438689, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
+      propertyPath: m_Size.x
+      value: 8.0023155
+      objectReference: {fileID: 0}
+    - target: {fileID: 4568130228801438689, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
+      propertyPath: m_Size.y
+      value: 10.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4568130228801438689, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d172a2df82a5b9f428639153cd5ec16c, type: 3}
+      objectReference: {fileID: -1390458661, guid: 377941da58bcbbe4ea398bea7164b509, type: 3}
     - target: {fileID: 4568130228801438689, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -984,6 +996,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4568130228801438689, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
       propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4568130228801438689, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4568130228801438692, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
@@ -1000,7 +1016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4568130228801438692, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.37
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4568130228801438692, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
       propertyPath: m_LocalRotation.w
