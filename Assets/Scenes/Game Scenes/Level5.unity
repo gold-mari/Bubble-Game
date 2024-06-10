@@ -147,8 +147,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 117623026}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -135, y: 20, z: -3548.7407}
-  m_LocalScale: {x: 39.430447, y: 39.430447, z: 39.430447}
+  m_LocalPosition: {x: -135, y: 20, z: 0}
+  m_LocalScale: {x: 36, y: 36, z: 36}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1121182538}
@@ -628,8 +628,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 595673102}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 135, y: 20, z: -3548.7407}
-  m_LocalScale: {x: 39.430447, y: 39.430447, z: 39.430447}
+  m_LocalPosition: {x: 135, y: 20, z: 0}
+  m_LocalScale: {x: 36, y: 36, z: 36}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 876077475}
@@ -1169,8 +1169,8 @@ MonoBehaviour:
   backgroundness: 0
   frontPosition: {x: 0, y: 0, z: 0}
   frontColor: {r: 1, g: 1, b: 1, a: 1}
-  backPosition: {x: 0, y: 0, z: 0}
-  backColor: {r: 1, g: 1, b: 1, a: 0}
+  backPosition: {x: 2, y: 0, z: 0}
+  backColor: {r: 1, g: 1, b: 1, a: 0.101960786}
 --- !u!114 &876077477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1846,8 +1846,8 @@ MonoBehaviour:
   backgroundness: 0
   frontPosition: {x: 0, y: 0, z: 0}
   frontColor: {r: 1, g: 1, b: 1, a: 1}
-  backPosition: {x: 0, y: 0, z: 0}
-  backColor: {r: 1, g: 1, b: 1, a: 0}
+  backPosition: {x: -2, y: 0, z: 0}
+  backColor: {r: 1, g: 1, b: 1, a: 0.101960786}
 --- !u!114 &1121182540
 MonoBehaviour:
   m_ObjectHideFlags: 0
