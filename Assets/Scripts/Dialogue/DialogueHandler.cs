@@ -146,6 +146,7 @@ public class DialogueHandler : MonoBehaviour
                 else
                 {
                     ActionOnEnd?.Invoke();
+                    print("DialogueHandler: ActionOnEnd invoked");
                     return;
                 }
 

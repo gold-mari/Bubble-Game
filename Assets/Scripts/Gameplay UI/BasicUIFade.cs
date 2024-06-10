@@ -36,6 +36,7 @@ public class BasicUIFade : MonoBehaviour
     public void FadeOut()
     {
         StopCoroutine(activeRoutine);
+        print("Starting the fade out");
         activeRoutine = StartCoroutine(LerpVisibility(0, fadeOutTime));
     }
 
@@ -52,6 +53,7 @@ public class BasicUIFade : MonoBehaviour
             group.alpha = Mathf.Lerp(start, target, elapsed/duration);
             elapsed += Time.deltaTime;
             yield return null;
+            print("Fading");
         }
 
         // After lerping, set to exactly the correct amount to account for floating point errors.
