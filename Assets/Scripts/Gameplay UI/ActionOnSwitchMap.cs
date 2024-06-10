@@ -6,9 +6,9 @@ using NaughtyAttributes;
 public class ActionOnSwitchMap : MonoBehaviour
 {
     [SerializeField, Tooltip("The music manager present in this scene.")]
-    private MusicManager musicManager;
+    protected MusicManager musicManager;
 
-    private void Start()
+    protected void Start()
     {
         musicManager.handler.markerUpdated += OnMarkerUpdated;
     }

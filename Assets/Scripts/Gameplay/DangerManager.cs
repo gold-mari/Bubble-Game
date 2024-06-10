@@ -47,6 +47,12 @@ public class DangerManager : MonoBehaviour
     private float outOfDangerLerpTime = 0.667f;
 
     // ================================================================
+    // Internal variables
+    // ================================================================
+
+    private bool safetyLock = false;
+
+    // ================================================================
     // Default methods
     // ================================================================
 
@@ -141,7 +147,10 @@ public class DangerManager : MonoBehaviour
         float elapsed = dangerAmount.value * inDangerLerpTime;
         
         while (elapsed < inDangerLerpTime) {
-            dangerAmount.value = Mathf.Lerp(0, 1, (elapsed/inDangerLerpTime));
+            // If the safety is locked, don't allow for danger to change.
+            if (safetyLock) yield return null;
+
+            dangerAmount.value = Mathf.Lerp(0, 1, elapsed/inDangerLerpTime);
             elapsed += Time.deltaTime;
             yield return null;
         }
@@ -174,7 +183,10 @@ public class DangerManager : MonoBehaviour
         float elapsed = LerpKit.Flip(dangerAmount.value) * outOfDangerLerpTime;
         
         while (elapsed < outOfDangerLerpTime) {
-            dangerAmount.value = Mathf.Lerp(1, 0, (elapsed/outOfDangerLerpTime));
+            // If the safety is locked, don't allow for danger to change.
+            if (safetyLock) yield return null;
+
+            dangerAmount.value = Mathf.Lerp(1, 0, elapsed/outOfDangerLerpTime);
             elapsed += Time.deltaTime;
             yield return null;
         }
@@ -182,5 +194,13 @@ public class DangerManager : MonoBehaviour
         // Finally, set dangerAmount to 0 to smooth over floating point inconsistencies.
         dangerAmount.value = 0;
         StopAllCoroutines();
+    }
+
+    public void SetSafetyLock(bool value)
+    {
+        // Public accessor for the safetyLock variable.
+        // ================
+        
+        safetyLock = value;
     }
 }

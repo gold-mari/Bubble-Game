@@ -155,8 +155,16 @@ public class MusicPlayer : MonoBehaviour
 #endif*/
 
     // ================================================================
-    // Helper methods
+    // Misc methods
     // ================================================================
+
+    public void SetParameter(string name, float value)
+    {
+        // Sets a parameter on our instance.
+        // ================
+
+        instance.setParameterByName(name, value);
+    }
 
     private bool IsInstancePlaying()
     {

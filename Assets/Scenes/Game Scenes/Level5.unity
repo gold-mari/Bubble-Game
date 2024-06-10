@@ -956,6 +956,83 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83c07a74650abd742b1dd5aa3f035b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1077556493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1077556494}
+  - component: {fileID: 1077556495}
+  m_Layer: 0
+  m_Name: Timeout Handler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1077556494
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077556493}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1982775236}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1077556495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077556493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b20fd7e89f528842994c0cb20378ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicManager: {fileID: 621005205}
+  timeoutTag: timeout
+  endTimeoutParameter: endTimeout
+  OnStartTimeout:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1274474331}
+        m_TargetAssemblyTypeName: DangerManager, Assembly-CSharp
+        m_MethodName: SetSafetyLock
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  OnEndTimeout:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1274474331}
+        m_TargetAssemblyTypeName: DangerManager, Assembly-CSharp
+        m_MethodName: SetSafetyLock
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1078382751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,6 +1141,8 @@ MonoBehaviour:
     color: {r: 0.6431373, g: 0.63529414, b: 0.49803922, a: 1}
   - mapName: hyper
     color: {r: 0.99215686, g: 0.47843137, b: 0, a: 1}
+  - mapName: timeout
+    color: {r: 0.23529413, g: 0.20000002, b: 0.26666668, a: 1}
 --- !u!114 &1078382755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1374,6 +1453,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6686941092444551179, guid: 16ac93cecab1c024898ec5a4cd6788c8, type: 3}
   m_PrefabInstance: {fileID: 1213262692}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1274474331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8830513069823740373, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+  m_PrefabInstance: {fileID: 8830513069248788194}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a8abe4c9caec9241adea0b67fb3369b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1530969515
 GameObject:
   m_ObjectHideFlags: 0
@@ -1992,6 +2082,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1982775236 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8830513069015449792, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+  m_PrefabInstance: {fileID: 8830513069248788194}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2109525335
 GameObject:
   m_ObjectHideFlags: 0
@@ -2255,7 +2350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4563153436459329212, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_Alpha
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4751819187092467717, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_Camera
