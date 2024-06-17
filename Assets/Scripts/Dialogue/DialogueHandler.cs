@@ -32,6 +32,8 @@ public class DialogueHandler : MonoBehaviour
     float advanceDelay = 0.5f;
     [SerializeField, Tooltip("Whether this text object should begin displaying text on Start()\n\nDefault: true")]
     bool beginInStart = true;
+    [SerializeField, Tooltip("An action code that ends the dialogue early.\n\nDefault: \"EndDialogueEarly\"")]
+    string prematureEndActionCode = "EndDialogueEarly";
     [SerializeField, Tooltip("An action invoked when advancing from the final line.")]
     public UnityEvent ActionOnEnd;
 
@@ -57,6 +59,8 @@ public class DialogueHandler : MonoBehaviour
     float advanceTimer;
     // Whether we have started displaying text.
     bool started = false;
+    // Whether we have finished displaying text.
+    bool done = false;
     // Whether a line has finished animating.
     bool lineFinished = false;
     // Whether we can advance to the next textbox.
@@ -132,7 +136,7 @@ public class DialogueHandler : MonoBehaviour
         if (!started) return;
 
         // On input...
-        if (Input.GetButtonDown("Fire1"))
+        if (!done && Input.GetButtonDown("Fire1"))
         {
             // If we can, advance to the next line, and reset all our timers.
             if (canAdvance)
@@ -145,7 +149,7 @@ public class DialogueHandler : MonoBehaviour
                 }
                 else
                 {
-                    ActionOnEnd?.Invoke();
+                    FinishDialogue();
                     print("DialogueHandler: ActionOnEnd invoked");
                     return;
                 }
@@ -192,6 +196,12 @@ public class DialogueHandler : MonoBehaviour
         }
     }
 
+    public void FinishDialogue()
+    {
+        done = true;
+        ActionOnEnd?.Invoke();
+    }
+
     // ==============================================================
     // Data-handling methods
     // ==============================================================
@@ -223,6 +233,11 @@ public class DialogueHandler : MonoBehaviour
             string[] actions = lineDict[line].actions.Split(',');
             foreach (string action in actions)
             {
+                if (action == prematureEndActionCode) {
+                    FinishDialogue();
+                    continue;
+                }
+
                 // Split each action into 2 tokens: the actor, and the trigger. We use Trim to trim whitespace.
                 string[] tokens = action.Trim().Split('.');
                 Debug.Assert(tokens.Length == 2, $"DialogueHandler error: UpdateText failed. Token count of action '{action}' " +

@@ -53,10 +53,21 @@ public class BasicUIFade : MonoBehaviour
             group.alpha = Mathf.Lerp(start, target, elapsed/duration);
             elapsed += Time.deltaTime;
             yield return null;
-            print("Fading");
         }
 
         // After lerping, set to exactly the correct amount to account for floating point errors.
         group.alpha = target;
+    }
+
+    public void SetFade(float value)
+    {
+        // Immediately sets the fade amount and stops all coroutines.
+        // ================
+
+        if (activeRoutine != null) {
+            StopCoroutine(activeRoutine);
+        }
+
+        group.alpha = value;
     }
 }

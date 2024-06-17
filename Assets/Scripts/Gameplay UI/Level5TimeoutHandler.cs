@@ -8,12 +8,15 @@ public class Level5TimeoutHandler : ActionOnSwitchMap
 {
     [SerializeField, Tooltip("The timeout tag we look for.\n\nDefault: \"timeout\"")]
     private string timeoutTag = "timeout";
-    [SerializeField, Tooltip("The timeout tag we look for.\n\nDefault: \"timeout\"")]
+    [SerializeField, Tooltip("The timeout-ending FMOD parameter we change.\n\nDefault: \"endTimeout\"")]
     private string endTimeoutParameter = "endTimeout";
     [SerializeField, Tooltip("The event bank run on starting the timeout.")]
     private TimeoutEventBank OnStartTimeout;
-    [SerializeField, Tooltip("The event bank run on ending the timeout.")]
-    private TimeoutEventBank OnEndTimeout;
+    [SerializeField, Tooltip("The event bank run on continuing the gameplay.")]
+    private TimeoutEventBank OnContinueGameplay;
+
+    // Whether or not we are currently in timeout.
+    bool inTimeout = false;
 
     protected new void Start()
     {
@@ -28,7 +31,7 @@ public class Level5TimeoutHandler : ActionOnSwitchMap
         // ================
 
         OnStartTimeout.Update();
-        OnEndTimeout.Update();
+        OnContinueGameplay.Update();
     }
 
     protected override void OnSwitchMap(string mapName)
@@ -36,13 +39,16 @@ public class Level5TimeoutHandler : ActionOnSwitchMap
         if (mapName == timeoutTag) {
             print($"Level5TimeoutHandler: Encountered timeout tag (\"{timeoutTag}\")");
             OnStartTimeout.Run();
+            inTimeout = true;
+        } else if (inTimeout) {
+            inTimeout = false;
+            OnContinueGameplay.Run();
         }
     }
 
-    public void EndTimeout()
+    public void WeAreNotDone()
     {
         musicManager.SetParameter(endTimeoutParameter, 1);
-        OnEndTimeout.Run();
     }
 }
 

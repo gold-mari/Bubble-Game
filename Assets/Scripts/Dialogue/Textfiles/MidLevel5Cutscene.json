@@ -78,8 +78,8 @@
 		},	
 		{	
 			"actor":"Knight",
-			"actions":"Knight.goFront,Knight.sqBounce,Sammy.goBack,     Ha'na.sqIdle,Brute.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Jester.sqIdle",
-			"text":"WE ARE NOT DONE."
+			"actions":"EndDialogueEarly,Knight.goFront,Knight.sqBounce,Sammy.goBack,     Ha'na.sqIdle,Brute.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Jester.sqIdle",
+			"text":"<size=50>WE ARE NOT DONE.</size>"
 		}	
 	]		
 }			
