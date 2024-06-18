@@ -3183,6 +3183,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1685119567}
   m_CullTransparentMesh: 1
+--- !u!114 &1712134299 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8830513070003073486, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+  m_PrefabInstance: {fileID: 8830513069248788194}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed0092414a7a99442b2f355f836d469f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1718428231
 GameObject:
   m_ObjectHideFlags: 0
@@ -3562,6 +3573,8 @@ MonoBehaviour:
   chainLengthValues: {x: 4, y: 3}
   scoreManager: {fileID: 8830513069248788195}
   comboTimeScale: 2
+  bubbleSpawner: {fileID: 1712134299}
+  bubbleScale: 0.7
 --- !u!1 &1866544372
 GameObject:
   m_ObjectHideFlags: 0

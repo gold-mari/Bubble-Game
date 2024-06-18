@@ -79,6 +79,10 @@ public class BubbleSpawner : MonoBehaviour
                                       massBubbleSFX_i, beforeMassBubbleSFX_i, 
                                       flavorBombSFX_i, beforeFlavorBombSFX_i, 
                                       hyperbubbleSFX_i, beforeHyperbubbleSFX_i;
+    // A factor we scale all spawned bubbles by. Usually 1, may change at key moments.     
+    private float bubbleScaleFactor = 1;
+    // The localScale of our bubble and hyperbubble prefabs when we enter the level.
+    private Vector3 baseBubbleScale, baseHyperbubbleScale;
 
     // ==============================================================
     // Default methods
@@ -100,6 +104,9 @@ public class BubbleSpawner : MonoBehaviour
         beatReader.beforeHyperSpawn += OnBeforeSpawnHyperbubble;
 
         handler = GetComponent<ChainBreakHandler>();
+
+        baseBubbleScale = bubble.transform.localScale;
+        baseHyperbubbleScale = hyperbubble.transform.localScale;
     }
 
     private void Start()
@@ -258,19 +265,14 @@ public class BubbleSpawner : MonoBehaviour
         // Spawns a HYPERBUBBLE if hyper is true. Otherwise, spawns a regular bubble.
         // ================
 
-        GameObject toSpawn = bubble;
-        if (hyper)
-        {
-            toSpawn = hyperbubble;
-        }
+        GameObject toSpawn = hyper ? hyperbubble : bubble;
 
         GameObject obj = Instantiate(toSpawn, spawnPoint, Quaternion.identity, bubbleParent);
         Bubble objBubble = obj.GetComponent<Bubble>();
+        // Scale the bubble size! Usually only does anything in the finale.
+        objBubble.transform.localScale *= bubbleScaleFactor;
 
-        if (hyper)
-        {
-            objBubble.isHyperbubble = true;
-        }
+        objBubble.isHyperbubble = hyper;
 
         // Initialize color and age.
         objBubble.bubbleFlavor = flavor;
@@ -285,9 +287,8 @@ public class BubbleSpawner : MonoBehaviour
         // Intialize dangerManager reference in dangerTracker.
         obj.GetComponent<DangerTracker>().dangerManager = dangerManager;
 
-        if (force != Vector2.zero)
-        {            
-            obj.GetComponent<Rigidbody2D>().AddForce((force)*initialForce);
+        if (force != Vector2.zero) {            
+            obj.GetComponent<Rigidbody2D>().AddForce(force*initialForce);
         }
 
         // Return the object we spawned.
@@ -322,14 +323,11 @@ public class BubbleSpawner : MonoBehaviour
         // Returns the active radius, as determined by the value of gravityFlipped.
         // ================
 
-        // If gravity isn't flipped, multiply by outer radius.
-        if (!gravityFlipped.value) 
-        {
+        if (!gravityFlipped.value) {
+            // If gravity isn't flipped, multiply by outer radius.
             return radius.y;
-        }
-        // Otherwise, multiply by inner radius.
-        else 
-        {
+        } else {
+            // Otherwise, multiply by inner radius.
             return radius.x;
         }
     }
@@ -375,5 +373,23 @@ public class BubbleSpawner : MonoBehaviour
         do {
             flavors[count-1].value = Bubble_Flavor_Methods.random();  
         } while (flavors[count-1].value == flavors[count-2].value || flavors[count-1].value == flavors[count-3].value);
+    }
+
+    public void SetBubbleScale(float value)
+    {
+        // Sets our bubble scale variable, and then loops through every
+        // extant bubble and changes their scale to match.
+        // ================
+
+        bubbleScaleFactor = value;
+
+        Bubble[] bubbles = bubbleParent.GetComponentsInChildren<Bubble>();
+        foreach (Bubble bubble in bubbles) {
+            if (bubble.isHyperbubble) {
+                bubble.transform.localScale = baseHyperbubbleScale * bubbleScaleFactor;
+            } else {
+                bubble.transform.localScale = baseBubbleScale * bubbleScaleFactor;
+            }
+        }
     }
 }

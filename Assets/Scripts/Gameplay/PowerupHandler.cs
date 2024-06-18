@@ -12,6 +12,10 @@ public class PowerupHandler : MonoBehaviour
     private ScoreManager scoreManager;
     [SerializeField, Tooltip("The amount we scale combo time by.\n\nDefault: 2")]
     private float comboTimeScale = 2;
+    [SerializeField, Tooltip("The BubbleSpawner in this scene (to access bubble size).")]
+    private BubbleSpawner bubbleSpawner;
+    [SerializeField, Tooltip("The amount we scale bubble size by. 1 is no change in size.\n\nDefault: 0.8")]
+    private float bubbleScale = 0.8f;
 
 
     void Awake()
@@ -31,5 +35,7 @@ public class PowerupHandler : MonoBehaviour
 
         uint newComboDuration = (uint)(scoreManager.GetCooldownQuarterDuration() * comboTimeScale);
         scoreManager.SetCooldownQuarterDuration(newComboDuration);
+
+        bubbleSpawner.SetBubbleScale(bubbleScale);
     }    
 }
