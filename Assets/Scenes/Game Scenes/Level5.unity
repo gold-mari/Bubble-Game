@@ -687,6 +687,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe29cc6fe8476fc44bcc70f0cb0e530d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &358513555 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4568130227389289646, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
+  m_PrefabInstance: {fileID: 358513551}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &358513556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358513555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edca11ce94cd8e6489577156f3e61118, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicManager: {fileID: 621005205}
+  targetMap: timeout
+  invertLogic: 1
+  visibleByDefault: 1
 --- !u!1 &447623454
 GameObject:
   m_ObjectHideFlags: 0

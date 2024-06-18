@@ -9,6 +9,8 @@ public class LoopTracker
 
     // The current beat in the loop.
     public uint currentLoopBeat { get; private set; }
+    // The number of beats in the loop. Supplied in our constructor.
+    public uint loopSize { get; private set; }
     // The next beat in the loop.
     public uint nextLoopBeat 
     { 
@@ -74,8 +76,6 @@ public class LoopTracker
 
     // The timeline handler on our music manager. Supplied in our constuctor.
     private TimelineHandler handler;
-    // The number of beats in the loop. Supplied in our constructor.
-    private uint loopSize = 0;
     // Whether or not we should track incoming beats and update counts.
     private bool shouldUpdate = false;
     // If we should print debug messages.
@@ -120,6 +120,8 @@ public class LoopTracker
         // Common intialization functions for both constructors.
         // ================
 
+        Debug.Log("LoopTracker: initializing");
+
         if (handler != null)
         {
             handler.beatUpdated += OnBeatUpdated;
@@ -148,43 +150,12 @@ public class LoopTracker
     }
 
     // ================================================================
-    // Helper methods
+    // Interfaces
     // ================================================================
 
-    private uint BeatsInNextBatch()
+    public void UpdateLoopLength(uint length)
     {
-        // Returns the number of beats in the next batch.
-        // ================
-
-        uint beatsLeft = loopSize - currentLoopBeat + 1;
-        uint nextSize = beatsLeft - currentBatchSize;
-        // If the calculated next size is 0, then we're at the last batch of the loop.
-        // Alternately, if there's MORE than the max size left, we've still got a ways to go.
-        // The next batch should be maximum size!
-        if (nextSize == 0 || nextSize > maxBatchSize)
-        {
-            return maxBatchSize;
-        }
-        // Otherwise, a partial batch is up next. Return that.
-        return nextSize;
-    }
-
-    private void SetNextBatchStartEnd()
-    {
-        // Sets the next start/end beats properties.
-        // ================
-
-        // If we are at the last batch, we should start from 1 next time.
-        if (batchEndBeat == loopSize)
-        {
-            nextBatchStart = 1;
-        }
-        else
-        {
-            nextBatchStart = batchEndBeat + 1;
-        }
-
-        nextBatchEnd = nextBatchStart + nextBatchSize - 1;
+        loopSize = length;
     }
 
     // ================================================================
@@ -196,6 +167,8 @@ public class LoopTracker
         // Called via the beatUpdated event from timekeeper. Increments our position in
         // the loop and the batch.
         // ================
+
+        Debug.Log("LoopTracker: beat updated");
 
         if (shouldUpdate) {
             // Case 1: We reach the end of the loop. Set everything back to 1.
@@ -261,40 +234,88 @@ public class LoopTracker
         // Updates shouldUpdate based on the lastMarker.
         // ================
 
+        if (lastMarker.Contains("switchMap"))
+        {
+            switchMap?.Invoke();
+            ResetLoop();
+        }
+
         if (lastMarker == "dontTrack") {
             shouldUpdate = false;
             dontTrack?.Invoke();
         }
-        if (lastMarker == "doTrack") {
-            // If this is the not the first beat, go one behind, because markerUpdated is
-            // always called before beatUpdated.
-            if (handler.timelineInfo.currentBeat != 1)
-            {
-                currentBatchBeat = currentLoopBeat = (uint)handler.timelineInfo.currentBeat - 1;   
-            }
-            else
-            {
-                // Otherwise, set our current beat to be the last possible loop beat. This 
-                // forces Case 1 in OnBeatUpdated, which in turn fires off our batchStart
-                // and loopStart events as is proper.
-                currentLoopBeat = loopSize;
-                currentBatchBeat = currentBatchSize;
-                // Set us in the final batch.
-                batchEndBeat = currentLoopBeat;
-                batchStartBeat = batchEndBeat-currentBatchSize+1;
-            }
-            shouldUpdate = true;
-            // Find the stats of the next batch! Used in some functions subscribed to doTrack.
-            nextBatchSize = BeatsInNextBatch();
-            SetNextBatchStartEnd();
-            doTrack?.Invoke();
+        if (lastMarker == "doTrack")
+        {
+            ResetLoop();
+        }
+    }
+
+    private void ResetLoop()
+    {
+        // Resets the loop to be just before the first position.
+        // ================
+
+        // If this is the not the first beat, go one behind, because markerUpdated is
+        // always called before beatUpdated.
+        if (handler.timelineInfo.currentBeat != 1)
+        {
+            currentBatchBeat = currentLoopBeat = (uint)handler.timelineInfo.currentBeat - 1;
         }
         else
         {
-            if (lastMarker.Contains("switchMap"))
-            {
-                switchMap?.Invoke();
-            }
+            // Otherwise, set our current beat to be the last possible loop beat. This 
+            // forces Case 1 in OnBeatUpdated, which in turn fires off our batchStart
+            // and loopStart events as is proper.
+            currentLoopBeat = loopSize;
+            currentBatchBeat = currentBatchSize;
+            // Set us in the final batch.
+            batchEndBeat = currentLoopBeat;
+            batchStartBeat = batchEndBeat - currentBatchSize + 1;
         }
+        shouldUpdate = true;
+        // Find the stats of the next batch! Used in some functions subscribed to doTrack.
+        nextBatchSize = BeatsInNextBatch();
+        SetNextBatchStartEnd();
+        doTrack?.Invoke();
+    }
+
+    // ================================================================
+    // Helper methods
+    // ================================================================
+
+    private uint BeatsInNextBatch()
+    {
+        // Returns the number of beats in the next batch.
+        // ================
+
+        uint beatsLeft = loopSize - currentLoopBeat + 1;
+        uint nextSize = beatsLeft - currentBatchSize;
+        // If the calculated next size is 0, then we're at the last batch of the loop.
+        // Alternately, if there's MORE than the max size left, we've still got a ways to go.
+        // The next batch should be maximum size!
+        if (nextSize == 0 || nextSize > maxBatchSize)
+        {
+            return maxBatchSize;
+        }
+        // Otherwise, a partial batch is up next. Return that.
+        return nextSize;
+    }
+
+    private void SetNextBatchStartEnd()
+    {
+        // Sets the next start/end beats properties.
+        // ================
+
+        // If we are at the last batch, we should start from 1 next time.
+        if (batchEndBeat == loopSize)
+        {
+            nextBatchStart = 1;
+        }
+        else
+        {
+            nextBatchStart = batchEndBeat + 1;
+        }
+
+        nextBatchEnd = nextBatchStart + nextBatchSize - 1;
     }
 }

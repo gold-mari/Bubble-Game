@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4568130227389289640}
   - component: {fileID: 4568130227389289637}
   - component: {fileID: 4568130227389289636}
-  - component: {fileID: 7232908407277721184}
   m_Layer: 0
   m_Name: Ha'na
   m_TagString: Untagged
@@ -131,22 +130,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   leadInLength: 0.4
---- !u!114 &7232908407277721184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4568130227389289646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edca11ce94cd8e6489577156f3e61118, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicManager: {fileID: 0}
-  targetMap: timeout
-  invertLogic: 1
-  visibleByDefault: 1
 --- !u!1 &4568130227753916962
 GameObject:
   m_ObjectHideFlags: 0

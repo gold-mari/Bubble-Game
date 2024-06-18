@@ -56,6 +56,8 @@ public class BeatReader : MonoBehaviour
         // By storing the lastNextType, we can invoke the event that went missing.
         // ================
 
+        tracker.UpdateLoopLength(currentBeatmap.length);
+
         if (lastNextType == BeatType.SingleSpawn)
         {
             singleSpawn?.Invoke();

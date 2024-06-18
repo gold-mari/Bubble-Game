@@ -24,6 +24,9 @@ public class Beatmap : ScriptableObject
     // A dictionary object which stores all beats with an associated type / event.
     private Dictionary<uint, BeatType> nonNullBeatsDict = new Dictionary<uint, BeatType>();
 
+    // Called when Populate() is called.
+    public System.Action OnPopulate;
+
     // ================================================================
     // Data-accessor methods
     // ================================================================
@@ -137,6 +140,8 @@ public class Beatmap : ScriptableObject
                 }
             }
         }
+
+        OnPopulate?.Invoke();
     }
 
     // ================================================================
