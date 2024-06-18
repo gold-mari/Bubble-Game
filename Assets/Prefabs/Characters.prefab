@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4568130227389289640}
   - component: {fileID: 4568130227389289637}
   - component: {fileID: 4568130227389289636}
+  - component: {fileID: 7232908407277721184}
   m_Layer: 0
   m_Name: Ha'na
   m_TagString: Untagged
@@ -130,6 +131,22 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   leadInLength: 0.4
+--- !u!114 &7232908407277721184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4568130227389289646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edca11ce94cd8e6489577156f3e61118, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicManager: {fileID: 0}
+  targetMap: timeout
+  invertLogic: 1
+  visibleByDefault: 1
 --- !u!1 &4568130227753916962
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,6 +205,7 @@ GameObject:
   - component: {fileID: 4568130228044926515}
   - component: {fileID: 4568130228044926512}
   - component: {fileID: 4568130228044926513}
+  - component: {fileID: 7440938609135818322}
   m_Layer: 0
   m_Name: Ha'na Sprite
   m_TagString: Untagged
@@ -310,6 +328,23 @@ MonoBehaviour:
   baseScale: {x: 1.5, y: 1.5, z: 1.5}
   squetch: 0
   magnitude: 1.1
+--- !u!114 &7440938609135818322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4568130228044926516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ef2c0366657734390a5c27984917ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundness: 0
+  frontPosition: {x: 0, y: 0, z: 0}
+  frontColor: {r: 1, g: 1, b: 1, a: 1}
+  backPosition: {x: -2, y: 0, z: 0}
+  backColor: {r: 1, g: 1, b: 1, a: 0.050980393}
 --- !u!1 &4568130228720782260
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,7 +559,7 @@ SpriteRenderer:
   m_Size: {x: 2.56, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &4568130228801438694

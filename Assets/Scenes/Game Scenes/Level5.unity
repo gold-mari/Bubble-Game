@@ -619,6 +619,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 621005205}
     - target: {fileID: 4568130228801438689, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
+      propertyPath: m_Size.x
+      value: 6.001252
+      objectReference: {fileID: 0}
+    - target: {fileID: 4568130228801438689, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
+      propertyPath: m_Size.y
+      value: 10.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4568130228801438689, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1584516462, guid: 19052b3e53e7c0e4a83b761728782454, type: 3}
@@ -634,6 +642,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4568130228801438689, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4568130228801438693, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
       propertyPath: m_Name
       value: Knight Sprite (Spright)
@@ -642,6 +654,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: dc58dbfcb3db8004bb3918151b585c61, type: 2}
+    - target: {fileID: 7232908407277721184, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
+      propertyPath: musicManager
+      value: 
+      objectReference: {fileID: 621005205}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
 --- !u!4 &358513552 stripped
@@ -3013,6 +3029,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicManager: {fileID: 621005205}
   targetMap: base
+  invertLogic: 0
   visibleByDefault: 1
 --- !u!1 &1685119567
 GameObject:
@@ -3198,6 +3215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicManager: {fileID: 621005205}
   targetMap: hyper
+  invertLogic: 0
   visibleByDefault: 0
 --- !u!114 &1718428234
 MonoBehaviour:
@@ -3381,6 +3399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicManager: {fileID: 621005205}
   targetMap: bomb
+  invertLogic: 0
   visibleByDefault: 0
 --- !u!114 &1786199585
 MonoBehaviour:
@@ -3857,6 +3876,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicManager: {fileID: 621005205}
   targetMap: flip
+  invertLogic: 0
   visibleByDefault: 0
 --- !u!114 &2109525338
 MonoBehaviour:
