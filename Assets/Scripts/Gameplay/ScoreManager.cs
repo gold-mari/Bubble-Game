@@ -140,10 +140,10 @@ public class ScoreManager : MonoBehaviour
 
     private IEnumerator ComboRoutineCooldown()
     {
-        float duration = (float)(handler.length4th * quarterDuration);
-
         while (comboLevel > 0)
         {
+            float duration = (float)(handler.length4th * quarterDuration);
+
             cooldownMeter.fillAmount = 1;
             float elapsed = 0;
             while (elapsed < duration)
@@ -158,5 +158,25 @@ public class ScoreManager : MonoBehaviour
         }
 
         cooldown = null;
+    }
+
+    // ================================================================
+    // Misc methods
+    // ================================================================
+
+    public uint GetCooldownQuarterDuration()
+    {
+        // Scales the cooldown time by scale.
+        // ================
+
+        return quarterDuration;
+    }
+
+    public void SetCooldownQuarterDuration(uint duration)
+    {
+        // Sets the cooldown time to scale.
+        // ================
+
+        quarterDuration = duration;
     }
 }
