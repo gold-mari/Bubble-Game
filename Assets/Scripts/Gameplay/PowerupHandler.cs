@@ -37,5 +37,14 @@ public class PowerupHandler : MonoBehaviour
         scoreManager.SetCooldownQuarterDuration(newComboDuration);
 
         bubbleSpawner.SetBubbleScale(bubbleScale);
-    }    
+    } 
+
+    void OnDestroy()
+    {
+        // OnDestroy is called when this component is destroyed, including on scene end. 
+        // We use it to RESET to our initial values.
+        // ================
+
+        maxChainLength.value = (uint)chainLengthValues.x;
+    }
 }
