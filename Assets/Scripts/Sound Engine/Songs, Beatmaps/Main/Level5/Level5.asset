@@ -30,4 +30,6 @@ MonoBehaviour:
   - beatmapName: bomb
     beatmapFile: {fileID: 4900000, guid: af6b5e9cdbbf16c4687f91c1a86208cf, type: 3}
   - beatmapName: hyper
+    beatmapFile: {fileID: 4900000, guid: a4a639006d6245646867f43563d434c4, type: 3}
+  - beatmapName: timeout
     beatmapFile: {fileID: 4900000, guid: a563fd6ec4d57744c9985262d1507e1b, type: 3}
