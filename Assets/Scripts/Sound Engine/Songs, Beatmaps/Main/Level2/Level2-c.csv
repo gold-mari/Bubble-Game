@@ -1,0 +1,4 @@
+name,Level2-c
+loopLength,64
+singleSpawn,6,8,14,16,22,24,30,32,38,40,46,48,54,56,61,62,63
+gravityFlip,                                                64
