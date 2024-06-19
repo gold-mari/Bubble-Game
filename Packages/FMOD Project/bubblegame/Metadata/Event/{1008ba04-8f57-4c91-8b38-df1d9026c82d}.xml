@@ -526,7 +526,7 @@
 			<value>111.36175828481861</value>
 		</property>
 		<property name="name">
-			<value>doTrack,switchMap-base</value>
+			<value>doTrack,switchMap-finale</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{1d0bf0f0-542a-4308-8725-91a8206fed57}</destination>
