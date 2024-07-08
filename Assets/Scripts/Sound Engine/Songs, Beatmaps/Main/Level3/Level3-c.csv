@@ -1,0 +1,4 @@
+name,Level3-c
+loopLength,32
+singleSpawn, 6,  12,   20,   25,   28
+makeFlavorBomb,7,   13,   21,   27,   29
