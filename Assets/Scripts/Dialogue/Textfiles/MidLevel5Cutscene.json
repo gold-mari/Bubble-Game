@@ -65,15 +65,15 @@
 			"actor":"Sammy",
 			"actions":"Sammy.goFront,Sammy.sqBounce,Knight.goBack,Ha'na.goFront,Jester.goBack,      Ha'na.sqIdle,Brute.sqIdle,Ghost.sqIdle,Knight.sqIdle,Jester.sqIdle",
 			"text":"The Beasts gather behind you and start lending you their power!"
-		},	
-		{	
-			"actor":"System",
-			"actions":"Sammy.goBack,Ha'na.goBack,      Ha'na.sqIdle,Brute.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Jester.sqIdle",
-			"text":"Combos now last TWICE as long!\nOnly THREE bubbles are now needed to pop chains!\nALL bubbles are smaller!"
-		},	
+		},
+        {	
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,      Ha'na.sqIdle,Brute.sqIdle,Ghost.sqIdle,Knight.sqIdle,Jester.sqIdle",
+			"text":"(i made it easier to pop bubbles now)"
+		},
 		{	
 			"actor":"Sammy",
-			"actions":"Sammy.goFront,Sammy.sqBounce,Ha'na.goFront,      Ha'na.sqIdle,Brute.sqIdle,Ghost.sqIdle,Knight.sqIdle,Jester.sqIdle",
+			"actions":"Sammy.sqBounce,      Ha'na.sqIdle,Brute.sqIdle,Ghost.sqIdle,Knight.sqIdle,Jester.sqIdle",
 			"text":"Balthazar eyes burn with white-hot rage."
 		},	
 		{	
