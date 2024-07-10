@@ -21,7 +21,7 @@ public class MapColorChanger : ActionOnSwitchMap
     {
         foreach (ColorFrame frame in backgroundFrames)
         {
-            if (frame.mapName == mapName)
+            if (frame.mapName.Contains(mapName))
             {
                 GetComponent<SpriteRenderer>().color = frame.color;
                 return;

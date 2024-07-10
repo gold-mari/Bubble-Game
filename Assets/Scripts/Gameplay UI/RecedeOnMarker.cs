@@ -26,7 +26,7 @@ public class RecedeOnMarker : ActionOnSwitchMap
 
     protected override void OnSwitchMap(string mapName)
     {
-        bool isTarget = mapName == targetMap;
+        bool isTarget = targetMap.Contains(mapName);
 
         // We should go front if:
         //    1. Logic isn't inverted and we're on our target map

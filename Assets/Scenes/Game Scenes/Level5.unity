@@ -1740,7 +1740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicManager: {fileID: 621005205}
-  targetMap: finale
+  targetMap: 5a,5b,5c
   invertLogic: 0
   visibleByDefault: 1
 --- !u!114 &908316008
@@ -2314,16 +2314,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicManager: {fileID: 621005205}
   backgroundFrames:
-  - mapName: base
+  - mapName: 1a,timeout,5a,5b,5c
     color: {r: 0.23529412, g: 0.2, b: 0.26666668, a: 1}
-  - mapName: flip
+  - mapName: 2a,2b
     color: {r: 0.003921569, g: 0.69411767, b: 0.8509804, a: 1}
-  - mapName: bomb
+  - mapName: 3a,3b
     color: {r: 0.6431373, g: 0.63529414, b: 0.49803922, a: 1}
-  - mapName: hyper
+  - mapName: 4a,4b
     color: {r: 0.99215686, g: 0.47843137, b: 0, a: 1}
-  - mapName: timeout
-    color: {r: 0.23529413, g: 0.20000002, b: 0.26666668, a: 1}
 --- !u!114 &1078382755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3366,7 +3364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicManager: {fileID: 621005205}
-  targetMap: base
+  targetMap: 1a
   invertLogic: 0
   visibleByDefault: 1
 --- !u!1 &1685119567
@@ -3563,7 +3561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicManager: {fileID: 621005205}
-  targetMap: hyper
+  targetMap: 4a,4b
   invertLogic: 0
   visibleByDefault: 0
 --- !u!114 &1718428234
@@ -3747,7 +3745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicManager: {fileID: 621005205}
-  targetMap: bomb
+  targetMap: 3a,3b
   invertLogic: 0
   visibleByDefault: 0
 --- !u!114 &1786199585
@@ -4274,7 +4272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicManager: {fileID: 621005205}
-  targetMap: flip
+  targetMap: 2a,2b
   invertLogic: 0
   visibleByDefault: 0
 --- !u!114 &2109525338

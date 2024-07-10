@@ -19,19 +19,29 @@ MonoBehaviour:
       Data3: 501168267
       Data4: 768091792
     Path: event:/Music/Level5
-  endTime: 186.028
+  endTime: 186.361
   isMedley: 1
   beatmapFile: {fileID: 0}
   beatmapFiles:
-  - beatmapName: base
-    beatmapFile: {fileID: 4900000, guid: 0f15c82e30752ba4d863fbf964990fbc, type: 3}
-  - beatmapName: flip
-    beatmapFile: {fileID: 4900000, guid: b68721073a3a8524d860a3d1deacf0e7, type: 3}
-  - beatmapName: bomb
-    beatmapFile: {fileID: 4900000, guid: af6b5e9cdbbf16c4687f91c1a86208cf, type: 3}
-  - beatmapName: hyper
-    beatmapFile: {fileID: 4900000, guid: a4a639006d6245646867f43563d434c4, type: 3}
+  - beatmapName: 1a
+    beatmapFile: {fileID: 4900000, guid: 567e3b38e56cf314eb03ad3c717f9093, type: 3}
+  - beatmapName: 2a
+    beatmapFile: {fileID: 4900000, guid: 6a9dec759ccb68a4ba7efd57f24aa8d3, type: 3}
+  - beatmapName: 3a
+    beatmapFile: {fileID: 4900000, guid: fd7bdef4f8729a34985291c405d7e8d6, type: 3}
+  - beatmapName: 4a
+    beatmapFile: {fileID: 4900000, guid: 4b8e5708a3c6b744ca59f7c9744fd64e, type: 3}
+  - beatmapName: 2b
+    beatmapFile: {fileID: 4900000, guid: f891cab3b75adf94c85d80e52a004b53, type: 3}
+  - beatmapName: 3b
+    beatmapFile: {fileID: 4900000, guid: 15d59522dfc39ad448665c8d3bedd1a2, type: 3}
+  - beatmapName: 4b
+    beatmapFile: {fileID: 4900000, guid: b8054cc445222e14196d692657f8cdfb, type: 3}
   - beatmapName: timeout
     beatmapFile: {fileID: 4900000, guid: a563fd6ec4d57744c9985262d1507e1b, type: 3}
-  - beatmapName: finale
-    beatmapFile: {fileID: 4900000, guid: 0f15c82e30752ba4d863fbf964990fbc, type: 3}
+  - beatmapName: 5a
+    beatmapFile: {fileID: 4900000, guid: 7fcf28431fa5f82429d506503315516b, type: 3}
+  - beatmapName: 5b
+    beatmapFile: {fileID: 4900000, guid: be3c6b1866623ee4cadb3ea0b7b53a80, type: 3}
+  - beatmapName: 5c
+    beatmapFile: {fileID: 4900000, guid: 14f7a96acb31d4b4981061f17b2e002c, type: 3}
