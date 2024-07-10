@@ -1268,14 +1268,58 @@ PrefabInstance:
       propertyPath: flavor
       value: 
       objectReference: {fileID: 11400000, guid: f772af05bd226f34bb65321c9e08e1d1, type: 2}
+    - target: {fileID: 3211825175049601444, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211825175049601444, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211825175049601444, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211825175049601444, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211825175049601444, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.023055555
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211825175049601444, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.023055555
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211825175049601444, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.023055555
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211825175049601444, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 81.818184
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211825175049601444, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 5.5909095
+      objectReference: {fileID: 0}
     - target: {fileID: 4751819187092467717, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 4751819187092467717, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_RenderMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5955104156231506439, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: screenshake
       value: 
       objectReference: {fileID: 519420034}
+    - target: {fileID: 7110154599041538623, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: loader
       value: 

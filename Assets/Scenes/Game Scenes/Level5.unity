@@ -4661,6 +4661,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Loss Dialogue Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 7110154599041538623, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7708379139549547309, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -5371,7 +5375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8830513070003073486, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: massRoundSize
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8963620650543128781, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: defaultColor.b
