@@ -98,7 +98,8 @@ public class ScoreManager : MonoBehaviour
         scoreVar.value += score;
 
         popupManager.OnChainBreak(chain, score, (uint)comboLevel, exceptionalCombo.value, overpopMultiplier);
-        screenshake.ScaledShake(comboLevel * overpopMultiplier);
+        float shakeAmount = 5 * Mathf.Log(10, (comboLevel*overpopMultiplier)+1); // Magic formula, dampens out high combos.
+        screenshake.ScaledShake(shakeAmount);
     }
 
     public void LogEndPop(Bubble bubble, int index)

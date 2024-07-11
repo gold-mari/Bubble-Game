@@ -33,8 +33,7 @@ public class ComboTextColor : MonoBehaviour
         // Do nothing if our combo is not exceptional.
         if (currentCombo.value < exceptionalCombo.value)
         {
-            if (text.color != baseColor)
-            {
+            if (text.color != baseColor) {
                 text.color = baseColor;
             }
             return;
