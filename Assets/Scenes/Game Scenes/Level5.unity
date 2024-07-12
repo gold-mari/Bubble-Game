@@ -3973,7 +3973,7 @@ MonoBehaviour:
   scoreManager: {fileID: 8830513069248788195}
   comboTimeScale: 2
   bubbleSpawner: {fileID: 1712134299}
-  bubbleScale: 0.9
+  bubbleScale: 0.85
 --- !u!1 &1866544372
 GameObject:
   m_ObjectHideFlags: 0
