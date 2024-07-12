@@ -63,7 +63,7 @@ public class ScorePopup : MonoBehaviour
         // ================
 
         text.text = score.ToString() + "!";
-        float extraFontSize = 5 * Mathf.Log(10, ((combo-1)*sizePerComboRank)+1); // Magic formula, dampens out high combos.
+        float extraFontSize = 9 * Mathf.Log(((combo-1)*sizePerComboRank)+1, 10); // Magic formula, dampens out high combos.
         ourFontSize = baseFontSize + extraFontSize;
         text.fontSize = ourFontSize;
 
