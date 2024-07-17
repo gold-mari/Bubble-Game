@@ -486,7 +486,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1052302960, guid: a76a8d064876fd34987fc2623c207c24, type: 3}
+  m_Sprite: {fileID: 956489366, guid: a76a8d064876fd34987fc2623c207c24, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -768,7 +768,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 447623454}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1551,12 +1551,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -4
-  m_Sprite: {fileID: -1052302960, guid: a76a8d064876fd34987fc2623c207c24, type: 3}
+  m_Sprite: {fileID: 956489366, guid: a76a8d064876fd34987fc2623c207c24, type: 3}
   m_Color: {r: 0.92156863, g: 0.972549, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8.0023155, y: 10.8}
+  m_Size: {x: 8, y: 10.8046875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -4615,6 +4615,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 684793796817074677, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1130401788310709551, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: iconColor.b
       value: 0.30993932
@@ -5404,6 +5408,10 @@ PrefabInstance:
     - target: {fileID: 8830513069773835063, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_Name
       value: === Bottom Screen ===
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830513069773835063, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8830513069823740375, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_IsActive
