@@ -332,7 +332,6 @@ public class BubbleSpawner : MonoBehaviour
         // Returns the initial force, as determined by the value of gravityFlipped.
         // ================
 
-        print((!gravityFlipped.value) ? initialForce.x : initialForce.y);
         return (!gravityFlipped.value) ? initialForce.x : initialForce.y;
     }
 
