@@ -148,10 +148,10 @@ public class DangerManager : MonoBehaviour
         
         while (elapsed < inDangerLerpTime) {
             // If the safety is locked, don't allow for danger to change.
-            if (safetyLock) yield return null;
-
-            dangerAmount.value = Mathf.Lerp(0, 1, elapsed/inDangerLerpTime);
-            elapsed += Time.deltaTime;
+            if (!safetyLock) {
+                dangerAmount.value = Mathf.Lerp(0, 1, elapsed/inDangerLerpTime);
+                elapsed += Time.deltaTime;
+            }
             yield return null;
         }
 
@@ -184,10 +184,10 @@ public class DangerManager : MonoBehaviour
         
         while (elapsed < outOfDangerLerpTime) {
             // If the safety is locked, don't allow for danger to change.
-            if (safetyLock) yield return null;
-
-            dangerAmount.value = Mathf.Lerp(1, 0, elapsed/outOfDangerLerpTime);
-            elapsed += Time.deltaTime;
+            if (!safetyLock) {
+                dangerAmount.value = Mathf.Lerp(1, 0, elapsed/outOfDangerLerpTime);
+                elapsed += Time.deltaTime;
+            }
             yield return null;
         }
 
