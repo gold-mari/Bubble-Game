@@ -168,8 +168,6 @@ public class LoopTracker
         // the loop and the batch.
         // ================
 
-        Debug.Log("LoopTracker: beat updated");
-
         if (shouldUpdate) {
             // Case 1: We reach the end of the loop. Set everything back to 1.
             if (currentLoopBeat >= loopSize) {
