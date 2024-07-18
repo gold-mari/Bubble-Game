@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{e6c6ddfb-f813-4f57-af5d-fa15bc20a726}">
+		<property name="name">
+			<value>beepSpeechChordState3</value>
+		</property>
+		<relationship name="folder">
+			<destination>{ebfc8c2e-adde-4c6b-973d-041308e607bd}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{1e480ce7-02b3-4bff-b6fb-d552fcd6084f}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{1e480ce7-02b3-4bff-b6fb-d552fcd6084f}">
+		<property name="maximum">
+			<value>11</value>
+		</property>
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>

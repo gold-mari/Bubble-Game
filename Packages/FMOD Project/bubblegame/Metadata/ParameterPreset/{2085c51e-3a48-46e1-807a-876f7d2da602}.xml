@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{2085c51e-3a48-46e1-807a-876f7d2da602}">
+		<property name="name">
+			<value>BeepspeechPitchChooser</value>
+		</property>
+		<relationship name="folder">
+			<destination>{ebfc8c2e-adde-4c6b-973d-041308e607bd}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{7ee23f60-339d-4803-aa89-47833d6d08cf}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{7ee23f60-339d-4803-aa89-47833d6d08cf}">
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>
