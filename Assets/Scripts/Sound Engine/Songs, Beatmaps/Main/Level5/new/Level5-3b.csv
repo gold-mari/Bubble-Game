@@ -1,4 +1,4 @@
 name,Level5-3b
 loopLength,32
-singleSpawn, 6,  12,   20,   25,   28
-makeFlavorBomb,7,   13,   21,   27,   29
+singleSpawn, 5,  11,   19,   25
+makeFlavorBomb,7,   13,   21,   27,29

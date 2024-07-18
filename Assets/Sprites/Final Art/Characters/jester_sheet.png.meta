@@ -179,27 +179,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: jester_attack
-      rect:
-        serializedVersion: 2
-        x: 2400
-        y: 0
-        width: 800
-        height: 1080
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8fc5970965939df479fa2c066735ec26
-      internalID: -380167013
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     physicsShape: []
     bones: []

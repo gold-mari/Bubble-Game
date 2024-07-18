@@ -38,14 +38,15 @@ public class BubbleSpawner : MonoBehaviour
                                        + "successive index is the flavor after that.\n\nThis array may be ANY size.")]
     private List<Bubble_FlavorVar> flavors;
     [Tooltip("The center of the playable space.\n\nDefault: (0,0)")]
-    public Vector2 center = new Vector2(0,0);
+    public Vector2 center = new(0,0);
 
     [Tooltip("The radii (inner, outer) at which to spawn bubbles. When gravity isn't "
            + "inverted, the outer radius is used. When gravity IS inverted, the inner "
            + "radius is used.\n\nDefault: (1,4.4)")]
-    public Vector2 radius = new Vector2(1f, 4.4f);
-    [SerializeField, Tooltip("The strength of the initial force applied to bubbles when they spawn.\n\nDefault: 500")]
-    private float initialForce = 500f;
+    public Vector2 radius = new(1f, 4.4f);
+    [SerializeField, Tooltip("The strength of the initial force (inner gravity, outer gravity) applied to " +
+                             "bubbles when they spawn.\n\nDefault: (500,1000)")]
+    private Vector2 initialForce = new(500f,1000f);
     [SerializeField, Tooltip("The number of bubbles to spawn in mass rounds.\n\nDefault: 20")]
     private uint massRoundSize = 20;
 
@@ -258,10 +259,10 @@ public class BubbleSpawner : MonoBehaviour
         UpdateFlavors();
     }
 
-    public Bubble SpawnBubble(Vector2 spawnPoint, Bubble_Flavor flavor, Vector2 force, bool hyper=false)
+    public Bubble SpawnBubble(Vector2 spawnPoint, Bubble_Flavor flavor, Vector2 direction, bool hyper=false)
     {
         // Spawns a Bubble at spawnPoint and initializes its Bubble_Flavor, age, and
-        // sprite color. Applies initialForce if force is not the zero vector.
+        // sprite color. Applies initialForce if direction is not the zero vector.
         // Spawns a HYPERBUBBLE if hyper is true. Otherwise, spawns a regular bubble.
         // ================
 
@@ -287,8 +288,8 @@ public class BubbleSpawner : MonoBehaviour
         // Intialize dangerManager reference in dangerTracker.
         obj.GetComponent<DangerTracker>().dangerManager = dangerManager;
 
-        if (force != Vector2.zero) {            
-            obj.GetComponent<Rigidbody2D>().AddForce(force*initialForce);
+        if (direction != Vector2.zero) {            
+            obj.GetComponent<Rigidbody2D>().AddForce(direction*GetCurrentSpawnForce());
         }
 
         // Return the object we spawned.
@@ -323,13 +324,16 @@ public class BubbleSpawner : MonoBehaviour
         // Returns the active radius, as determined by the value of gravityFlipped.
         // ================
 
-        if (!gravityFlipped.value) {
-            // If gravity isn't flipped, multiply by outer radius.
-            return radius.y;
-        } else {
-            // Otherwise, multiply by inner radius.
-            return radius.x;
-        }
+        return (!gravityFlipped.value) ? radius.y : radius.x;
+    }
+
+    private float GetCurrentSpawnForce()
+    {
+        // Returns the initial force, as determined by the value of gravityFlipped.
+        // ================
+
+        print((!gravityFlipped.value) ? initialForce.x : initialForce.y);
+        return (!gravityFlipped.value) ? initialForce.x : initialForce.y;
     }
 
     private void RandomizeFlavors()
