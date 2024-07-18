@@ -21,4 +21,5 @@ MonoBehaviour:
     variable: {fileID: 11400000, guid: dcdf45039d79bed4b97d1902105babe9, type: 2}
   - ID: score
     variable: {fileID: 11400000, guid: 469cd48f67736334697981d9c30f97ef, type: 2}
+  id: 9D0E
   log: 

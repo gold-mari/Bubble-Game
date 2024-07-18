@@ -48,7 +48,6 @@ public class EndBubbleClearer : MonoBehaviour
             yield return wait;
         }
 
-        print("All done!");
         OnAllPopped?.Invoke();
     }
 }

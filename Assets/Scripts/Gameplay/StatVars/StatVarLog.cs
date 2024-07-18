@@ -10,19 +10,22 @@ public class StatVarLog : ScriptableObject
     [SerializeField]
     private StatVarLogStat[] stats = new StatVarLogStat[4];
 
+    [SerializeField, ReadOnly]
+    private string id = "";
     [SerializeField, ReadOnly, TextArea(8,20)]
     private string log = "";
 
     public void ClearLog()
     {
         log = "";
+        id = $"{Random.Range(0,65536):X4}"; // Set id to a random 4-digit hex string
     }
 
     public void LogStats(string levelName)
     {
         if (log != "") log += "\n";
 
-        string levelLog = $"{levelName},";
+        string levelLog = $"{id},{levelName},";
         foreach (StatVarLogStat stat in stats) {
             levelLog += $"{stat.variable.value},";
         }
