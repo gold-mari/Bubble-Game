@@ -11,9 +11,9 @@ public class StatVarLog : ScriptableObject
     private StatVarLogStat[] stats = new StatVarLogStat[4];
 
     [SerializeField, ReadOnly]
-    private string id = "";
+    public string id = "";
     [SerializeField, ReadOnly, TextArea(8,20)]
-    private string log = "";
+    public string log = "";
 
     public void ClearLog()
     {
@@ -39,7 +39,7 @@ public class StatVarLog : ScriptableObject
     public void CopyLogToClipboard()
     {
         // Copys the log to the system clipboard.
-        GUIUtility.systemCopyBuffer = "TEST_TEST_TEST\n" + log;
+        GUIUtility.systemCopyBuffer = log;
     }
 }
 
