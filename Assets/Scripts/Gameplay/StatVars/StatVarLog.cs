@@ -39,7 +39,7 @@ public class StatVarLog : ScriptableObject
     public void CopyLogToClipboard()
     {
         // Copys the log to the system clipboard.
-        GUIUtility.systemCopyBuffer = log;
+        GUIUtility.systemCopyBuffer = "TEST_TEST_TEST\n" + log;
     }
 }
 
