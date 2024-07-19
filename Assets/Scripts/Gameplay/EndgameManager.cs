@@ -86,14 +86,14 @@ public class EndgameManager : MonoBehaviour
 
     private void OnGUI()
     {
-        if (GUI.Button(new Rect(10, 10, 50, 50), "Win!"))
-        {
-            TriggerWin();
-        }
-        if (GUI.Button(new Rect(10, 70, 50, 50), "Lose!"))
-        {
-            TriggerLoss();
-        }
+        // if (GUI.Button(new Rect(10, 10, 50, 50), "Win!"))
+        // {
+        //     TriggerWin();
+        // }
+        // if (GUI.Button(new Rect(10, 70, 50, 50), "Lose!"))
+        // {
+        //     TriggerLoss();
+        // }
     }
 
     bool IsPlaying(FMOD.Studio.EventInstance instance) {
