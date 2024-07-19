@@ -50,25 +50,25 @@ public class StatVarLogStat
     public uintVar variable;
 }
 
-[CustomEditor(typeof(StatVarLog))]
-public class StatVarLogEditor : Editor
-{
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
+// [CustomEditor(typeof(StatVarLog))]
+// public class StatVarLogEditor : Editor
+// {
+//     public override void OnInspectorGUI()
+//     {
+//         base.OnInspectorGUI();
 
-        var statVarLog = target as StatVarLog;
+//         var statVarLog = target as StatVarLog;
         
-        if(GUILayout.Button("Clear Log")) {
-            statVarLog.ClearLog();
-        }
+//         if(GUILayout.Button("Clear Log")) {
+//             statVarLog.ClearLog();
+//         }
 
-        if(GUILayout.Button("Log Current Values")) {
-            statVarLog.LogStats("editor");
-        }
+//         if(GUILayout.Button("Log Current Values")) {
+//             statVarLog.LogStats("editor");
+//         }
 
-        if(GUILayout.Button("Copy Log To Clipboard")) {
-            statVarLog.CopyLogToClipboard();
-        }
-    }
-}
+//         if(GUILayout.Button("Copy Log To Clipboard")) {
+//             statVarLog.CopyLogToClipboard();
+//         }
+//     }
+// }
