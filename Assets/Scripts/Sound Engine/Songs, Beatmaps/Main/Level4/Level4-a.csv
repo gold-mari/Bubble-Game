@@ -1,5 +1,5 @@
 name,Level4-a
 loopLength,64
-singleSpawn,1,6,  14,   22,   28,      33,38,   46,   54,   60
-hyperSpawn,     8,     16,      24,      30,32,      40,      48,      56,      62
-massSpawn,                                                                         64
+singleSpawn,6,  14,   22,   28,      38,   46,   54,   60
+hyperSpawn,   8,   16,   24,   30,32,   40,   48,   56,  62
+massSpawn,                                                 64

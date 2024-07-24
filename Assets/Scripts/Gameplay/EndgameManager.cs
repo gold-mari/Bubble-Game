@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class EndgameManager : MonoBehaviour
 {
@@ -108,8 +110,7 @@ public class EndgameManager : MonoBehaviour
         //
         // ================
 
-        if (alreadyLost || alreadyWon)
-        {
+        if (alreadyLost || alreadyWon) {
             bankIndex++;
             if (alreadyLost && bankIndex < lossEventBank.Length) {
                 lossEventBank[bankIndex].Run();
@@ -117,9 +118,7 @@ public class EndgameManager : MonoBehaviour
             if (alreadyWon && bankIndex < lossEventBank.Length) {
                 winEventBank[bankIndex].Run();
             }
-        }
-        else
-        {
+        } else {
             Debug.LogError("EndgameManager error: EndgameEventCallback failed. No endgame is currently active.");
         }
     }
