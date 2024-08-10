@@ -2322,7 +2322,7 @@ Transform:
   m_GameObject: {fileID: 1078382751}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 6.15, z: 0}
-  m_LocalScale: {x: 3.2500002, y: 3.2500002, z: 3.2500002}
+  m_LocalScale: {x: 25, y: 25, z: 25}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -2348,7 +2348,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: edd4c318c0772274e95091de0a7038e7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2369,8 +2369,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -5
-  m_Sprite: {fileID: 21300000, guid: 46cd5cf01177c774690c8971e58bc74b, type: 3}
-  m_Color: {r: 0.23529412, g: 0.2, b: 0.26666668, a: 1}
+  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2395,13 +2395,17 @@ MonoBehaviour:
   musicManager: {fileID: 621005205}
   backgroundFrames:
   - mapName: 1a,timeout,5a,5b,5c
-    color: {r: 0.23529412, g: 0.2, b: 0.26666668, a: 1}
+    baseColor: {r: 0.08627451, g: 0.10196079, b: 0.098039225, a: 1}
+    orbColor: {r: 0.07450981, g: 0.40392157, b: 0.13333334, a: 1}
   - mapName: 2a,2b
-    color: {r: 0.003921569, g: 0.69411767, b: 0.8509804, a: 1}
+    baseColor: {r: 0.14509805, g: 0.67058825, b: 0.9450981, a: 1}
+    orbColor: {r: 0.24705884, g: 0.33333334, b: 0.86666673, a: 1}
   - mapName: 3a,3b
-    color: {r: 0.6431373, g: 0.63529414, b: 0.49803922, a: 1}
+    baseColor: {r: 0.8196079, g: 0.4431373, b: 0.18039216, a: 1}
+    orbColor: {r: 0.9607844, g: 0.7137255, b: 0.26666668, a: 1}
   - mapName: 4a,4b
-    color: {r: 0.99215686, g: 0.47843137, b: 0, a: 1}
+    baseColor: {r: 0.65882355, g: 0.24705884, b: 0.29411766, a: 1}
+    orbColor: {r: 0.92549026, g: 0.39607847, b: 0.5411765, a: 1}
 --- !u!114 &1078382755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2411,10 +2415,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1078382751}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fe0f683a8d68e245884884ceaf0cec7, type: 3}
+  m_Script: {fileID: 11500000, guid: ef3eb8a97d27a694cae89227362c2b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.5
+  baseColor: {r: 0.08556426, g: 0.103773594, b: 0.0966482, a: 1}
+  orbColor: {r: 0.07450981, g: 0.40392157, b: 0.13333334, a: 1}
 --- !u!1001 &1117492333
 PrefabInstance:
   m_ObjectHideFlags: 0
