@@ -1,0 +1,8 @@
+Main Menu
+    Quit Confirmation
+    Play
+    Settings
+        Sound Settings
+        Graphics Settings
+        Controls Settings
+        Accessibility Settings

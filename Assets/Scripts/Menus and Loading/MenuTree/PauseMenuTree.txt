@@ -1,0 +1,8 @@
+Pause Menu
+    Quit Confirmation
+    Resume
+    Settings
+        Sound Settings
+        Graphics Settings  
+        Controls Settings
+        Accessibility Settings

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Menu : MonoBehaviour
@@ -14,7 +13,7 @@ public class Menu : MonoBehaviour
         // ================
 
         Debug.Assert(defaultChild.transform.IsChildOf(transform), "Menu Error: Awake() failed. defaultChild is not a child of the " +
-                                                                   "Menu GameObject.", this);
+                                                                  "Menu GameObject.", this);
     }
 
     private void OnEnable()
