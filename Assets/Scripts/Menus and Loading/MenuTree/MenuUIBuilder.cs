@@ -28,7 +28,7 @@ public class MenuUIBuilder : MonoBehaviour
         // Awake is called before Start.
         // ================
 
-        buttonPool = new ObjectPool(buttonPrefab, dynamicUIParent, 3);
+        buttonPool = new ObjectPool(buttonPrefab, dynamicUIParent, 5);
         menuTree.CurrentNodeUpdated += OnCurrentNodeUpdated;
     }
 

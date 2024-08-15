@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3608077492403256107}
   - component: {fileID: 3608077492403256104}
   - component: {fileID: 3608077492403256105}
-  - component: {fileID: 3608077492403256106}
+  - component: {fileID: -2306629731323004741}
   - component: {fileID: 3868141724027523857}
   m_Layer: 5
   m_Name: Menu Button
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 052c47e9cfc481c48b289a5f34f393dc, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: 4ca82bf457276a245a4169f9521f8afb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3608077492403256106
+--- !u!114 &-2306629731323004741
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 0.92110234, b: 0.27735847, a: 1}
+    m_HighlightedColor: {r: 0.9339623, g: 0.8218995, b: 0.27666426, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
