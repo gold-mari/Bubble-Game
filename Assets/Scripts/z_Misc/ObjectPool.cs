@@ -6,7 +6,7 @@ public class ObjectPool
     // The prefab spawned when we need to add another object.
     private GameObject prefab;
     // The list storing our pool of objects.
-    private List<GameObject> pool = new();
+    public readonly List<GameObject> pool = new();
     // The transform that we spawn all objects under.
     private Transform spawnParent;
 
