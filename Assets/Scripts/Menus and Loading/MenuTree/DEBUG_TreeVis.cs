@@ -16,9 +16,10 @@ public class DEBUG_TreeVis : MonoBehaviour
 
     private Vector2 dimensions;
     public Dictionary<MenuTreeNode, GameObject> nodeToVisNode = new();
+    private bool nodesDrawn = false;
 
     private void Awake()
-    {
+    {       
         menuTree.CurrentNodeUpdated += (MenuTreeNode oldNode, MenuTreeNode newNode) => {
             string o = (oldNode == null) ? "nothing" : oldNode.id;
             string n = (newNode == null) ? "nothing" : newNode.id;
@@ -28,12 +29,45 @@ public class DEBUG_TreeVis : MonoBehaviour
     }
 
     private void Start()
+    {   
+        visNodePrefab.SetActive(false);
+        buttonPrefab.SetActive(false);
+    }
+
+    private void Update()
     {
+        foreach (MenuTreeNode node in nodeToVisNode.Keys) {
+            GameObject visNode = nodeToVisNode[node];
+            
+            // Draw lines from child to parent.
+            if (node.parent != null) {
+                Debug.DrawLine(
+                    visNode.transform.position, 
+                    nodeToVisNode[node.parent].transform.position,
+                    Color.green
+                );
+            }
+
+            // Draw lines from parent to child.
+            foreach (MenuTreeNode child in node.children) {
+                Debug.DrawLine(
+                    visNode.transform.position, 
+                    nodeToVisNode[child].transform.position + Vector3.one*3f,
+                    Color.red
+                );
+            }
+        }
+    }
+
+    private void ConstructVisTree(MenuTreeNode root)
+    {
+        if (nodesDrawn) return;
+
         if (menuTree.root != null) {
             // Execute a DFS traversal from the root.
             HashSet<MenuTreeNode> visited = new();
             Stack<MenuTreeNode> searchStack = new();
-            searchStack.Push(menuTree.root);
+            searchStack.Push(root);
 
             Rect visNodeRect = visNodePrefab.GetComponent<RectTransform>().rect;
             dimensions = new(visNodeRect.width, visNodeRect.height);
@@ -65,46 +99,29 @@ public class DEBUG_TreeVis : MonoBehaviour
                 }
             }
         }
-        
-        visNodePrefab.SetActive(false);
-        buttonPrefab.SetActive(false);
-    }
 
-    private void Update()
-    {
-        foreach (MenuTreeNode node in nodeToVisNode.Keys) {
-            GameObject visNode = nodeToVisNode[node];
-            
-            // Draw lines from child to parent.
-            if (node.parent != null) {
-                Debug.DrawLine(
-                    visNode.transform.position, 
-                    nodeToVisNode[node.parent].transform.position,
-                    Color.green
-                );
-            }
-
-            // Draw lines from parent to child.
-            foreach (MenuTreeNode child in node.children) {
-                Debug.DrawLine(
-                    visNode.transform.position, 
-                    nodeToVisNode[child].transform.position + Vector3.one*3f,
-                    Color.red
-                );
-            }
-        }
+        nodesDrawn = true;
     }
 
     private void OnCurrentNodeUpdated(MenuTreeNode oldNode, MenuTreeNode newNode) 
     {
+        // If the nodes have not already been drawn, draw them now.
+        if (!nodesDrawn) {
+            ConstructVisTree(newNode);
+        }
+
         if (oldNode != null) {
             // Dehighlight the old node.
-            nodeToVisNode[oldNode].GetComponent<Image>().color = Color.white;
+            // if (nodeToVisNode.ContainsKey(oldNode)) {
+                nodeToVisNode[oldNode].GetComponent<Image>().color = Color.white;
+            // }
         }
         
         if (newNode != null) {
             // Highlight the new node.
-            nodeToVisNode[newNode].GetComponent<Image>().color = Color.yellow;
+            // if (nodeToVisNode.ContainsKey(newNode)) {
+                nodeToVisNode[newNode].GetComponent<Image>().color = Color.yellow;
+            // }
 
             // Make the navigation buttons!
             foreach (Button button in buttons) {

@@ -1,8 +1,8 @@
-Main Menu
-    Quit Confirmation
+Root
+    Quit
     Play
     Settings
-        Sound Settings
-        Graphics Settings
-        Controls Settings
-        Accessibility Settings
+        Sound
+        Graphics
+        Controls
+        Accessibility

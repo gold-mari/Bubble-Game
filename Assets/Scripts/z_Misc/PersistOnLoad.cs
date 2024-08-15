@@ -15,6 +15,6 @@ public class PersistOnLoad : MonoBehaviour
         // DontDestroyOnLoad on this object.
         // ================
 
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 }

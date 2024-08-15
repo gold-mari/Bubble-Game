@@ -1,8 +1,8 @@
-Pause Menu
-    Quit Confirmation
+Pause
+    Quit
     Resume
     Settings
-        Sound Settings
-        Graphics Settings  
-        Controls Settings
-        Accessibility Settings
+        Sound
+        Graphics  
+        Controls
+        Accessibility

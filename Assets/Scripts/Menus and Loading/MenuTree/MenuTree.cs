@@ -49,8 +49,6 @@ public class MenuTree : MonoBehaviour
         // ================
 
         root = ConstructTree();
-        print("=============");
-        print(root.id);
     }
 
     private void Start()
