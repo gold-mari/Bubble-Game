@@ -17,7 +17,11 @@ public class LeapfrogTextTicker : MonoBehaviour
     [SerializeField, Tooltip("The text prefab that we spawn.")]
     private GameObject prefab;
     [SerializeField, Tooltip("The speed, in units per second, at which our text scrolls.\n\nDefault: 15")]
-    private float scrollSpeed;
+    private float baseScrollSpeed = 15;
+    [SerializeField, Tooltip("The factor by which our speed multiplicatively increases when speeding up.\n\nDefault: 5")]
+    private float speedUpFactor = 5;
+    [SerializeField, Tooltip("The duration, in seconds, that the speedup takes when switching menu nodes.\n\nDefault: 0.5")]
+    private float speedUpDuration = 0.5f;
     [SerializeField, Tooltip("The width of text objects, relative to its preferredWidth.\n\nDefault: 1.1")]
     private float paddingWidth = 1.1f;
     [SerializeField, Tooltip("The RectTransform that bounds this text.")]
@@ -30,11 +34,15 @@ public class LeapfrogTextTicker : MonoBehaviour
     private Dictionary<GameObject, RectTransform> rectDict = new();
     private Dictionary<GameObject, TMP_Text> textDict = new();
     private bool initialized = false;
+    private float scrollSpeed;
+    private Coroutine speedCoroutine = null;
 
     private void Awake()
     {
         // Awake is called before Start. We use it to set up our initializers.
         // ================
+
+        scrollSpeed = baseScrollSpeed;
 
         // When the tree updates...
         menuTree.CurrentNodeUpdated += (MenuTreeNode oldNode, MenuTreeNode newNode) => {
@@ -43,8 +51,13 @@ public class LeapfrogTextTicker : MonoBehaviour
                 Initialize();
             }
 
-            // And always update the text content.
+            // And always update the text content and animate the speedup.
             UpdateTextContent(newNode.id);
+
+            if (speedCoroutine != null) {
+                StopCoroutine(speedCoroutine);
+            }
+            speedCoroutine = StartCoroutine(SpeedUpRoutine());
         };
     }
 
@@ -247,6 +260,27 @@ public class LeapfrogTextTicker : MonoBehaviour
         }
 
         textContent = processedString;
+    }
+
+    private IEnumerator SpeedUpRoutine()
+    {
+        float elapsed = 0;
+        float startSpeed = baseScrollSpeed;
+        float hiSpeed = baseScrollSpeed * speedUpFactor;
+
+        while (elapsed<speedUpDuration) {
+            scrollSpeed = Mathf.Lerp(
+                startSpeed, // Value A
+                hiSpeed,    // Value B... and lerp index vvv
+                LerpKit.CenteredSpike(elapsed/speedUpDuration, 6f, 0.15f)
+            );
+
+            yield return null;
+            elapsed += Time.deltaTime;
+        }
+
+        scrollSpeed = baseScrollSpeed;
+        speedCoroutine = null;
     }
 
     private float GetXPosition(RectTransform rect) { return rect.anchoredPosition.x; }

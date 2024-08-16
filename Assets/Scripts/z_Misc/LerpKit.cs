@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 // This file contains functions used to extend lerping to include different eases.
@@ -47,8 +48,27 @@ public class LerpKit
         // return Mathf.Lerp(EaseIn(t,power), EaseOut(t,power), t);
         // ================
 
-        // At t == 0.5, these functions both evaluate to 0.5.
+        // At t == 0.5, these functions both evaluate to 1.
         return (t <= 0.5) ? EaseIn(2*t, power)/2
                           : (EaseOut(2*t - 1, power) + 1)/2;
+    }
+
+    public static float CenteredSpike(float t, float power=2, float center=0.5f)
+    {
+        // Centered spike is a lerp function that goes from 0 to 1 to 0, with the peak of
+        // one located when t==center. A piecewise function, CenteredSpike is subject
+        // to discontinuity of velocity at its beak. But that's okay! :D
+
+        // ================
+
+        return (t <= center) ? Mathf.Pow(Mathf.Sin(Mathf.PI*t/(2*center)), power)
+                             : Mathf.Pow((Mathf.Sin(Mathf.PI*(t-(((3*center)-1)/2f)))+1)/2, power);
+
+        // Woof! Doozy.
+    }
+
+    internal static float CenteredSpike(object value, float v1, float v2)
+    {
+        throw new NotImplementedException();
     }
 }
