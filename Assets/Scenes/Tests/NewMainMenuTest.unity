@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -196, y: -50}
+  m_AnchoredPosition: {x: -227.99998, y: -50}
   m_SizeDelta: {x: 186.65901, y: 26.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &53802786
@@ -293,7 +293,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -196, y: -487.2}
+  m_AnchoredPosition: {x: -228, y: -487.2}
   m_SizeDelta: {x: 186.65901, y: 26.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &214411898
@@ -428,7 +428,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -196, y: -69}
+  m_AnchoredPosition: {x: -250, y: -69}
   m_SizeDelta: {x: 141.207, y: 16.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &325631864
@@ -451,7 +451,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: displaying menu <b>ROOT</b>.
+  m_text: displaying <b>root</b> menu.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a0e3c82283684a45a83cb6d803ee3c1, type: 2}
   m_sharedMaterial: {fileID: -6908427891558946073, guid: 9a0e3c82283684a45a83cb6d803ee3c1, type: 2}
@@ -1346,11 +1346,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d83e3715543a6e4988277b2ce96a4bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textFormula: == <b>_{ID}</b> menu ==
   textContent: == <b>ROOT</b> menu ==
   prefab: {fileID: 214411896}
   scrollSpeed: -20
   paddingWidth: 1
   boundingRect: {fileID: 1663756175}
+  menuTree: {fileID: 1964592858}
 --- !u!1 &1262772402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,7 +1388,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -196, y: -468.3}
+  m_AnchoredPosition: {x: -250, y: -468.3}
   m_SizeDelta: {x: 141.207, y: 16.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1262772404
@@ -1409,7 +1411,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: displaying menu <b>ROOT</b>.
+  m_text: displaying <b>root</b> menu.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a0e3c82283684a45a83cb6d803ee3c1, type: 2}
   m_sharedMaterial: {fileID: -6908427891558946073, guid: 9a0e3c82283684a45a83cb6d803ee3c1, type: 2}
@@ -1859,11 +1861,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d83e3715543a6e4988277b2ce96a4bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textFormula: == <b>_{ID}</b> menu ==
   textContent: == <b>ROOT</b> menu ==
   prefab: {fileID: 53802784}
   scrollSpeed: 20
   paddingWidth: 1
   boundingRect: {fileID: 1663756175}
+  menuTree: {fileID: 1964592858}
 --- !u!1 &1633213032
 GameObject:
   m_ObjectHideFlags: 0
@@ -2227,11 +2231,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d83e3715543a6e4988277b2ce96a4bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textContent: displaying menu <b>ROOT</b>.
+  textFormula: displaying <b>_{id}</b> menu.
+  textContent: displaying <b>root</b> menu.
   prefab: {fileID: 325631862}
   scrollSpeed: -5
   paddingWidth: 1.1
   boundingRect: {fileID: 1663756175}
+  menuTree: {fileID: 1964592858}
 --- !u!1 &2041371217
 GameObject:
   m_ObjectHideFlags: 0
@@ -2282,11 +2288,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d83e3715543a6e4988277b2ce96a4bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textContent: displaying menu <b>ROOT</b>.
+  textFormula: displaying <b>_{id}</b> menu.
+  textContent: displaying <b>root</b> menu.
   prefab: {fileID: 1262772402}
   scrollSpeed: 5
   paddingWidth: 1.1
   boundingRect: {fileID: 1663756175}
+  menuTree: {fileID: 1964592858}
 --- !u!1 &2081143330
 GameObject:
   m_ObjectHideFlags: 0

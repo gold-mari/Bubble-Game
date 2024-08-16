@@ -27,7 +27,7 @@ public class MenuTree : MonoBehaviour
     private MenuTreeNode current = null;
     public MenuTreeNode Current {
         get { return current; }
-        set {
+        private set {
             // Invoke the update action with params (old, new).
             CurrentNodeUpdated?.Invoke(current, value);
             SetNodeVisible(current, false);

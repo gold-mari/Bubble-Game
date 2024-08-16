@@ -11,6 +11,8 @@ using UnityEditor.PackageManager.Requests;
 public class LeapfrogTextTicker : MonoBehaviour
 {
     [SerializeField, Tooltip("The text applied to our text objects.")]
+    private string textFormula;
+    [SerializeField, Tooltip("The text applied to our text objects.")]
     private string textContent;
     [SerializeField, Tooltip("The text prefab that we spawn.")]
     private GameObject prefab;
@@ -20,21 +22,40 @@ public class LeapfrogTextTicker : MonoBehaviour
     private float paddingWidth = 1.1f;
     [SerializeField, Tooltip("The RectTransform that bounds this text.")]
     private RectTransform boundingRect;
+    [SerializeField, Tooltip("The MenuTree we're reading from to update our text.")]
+    private MenuTree menuTree;
+
     private ObjectPool pool;
     private GameObject trailingObject = null;
     private Dictionary<GameObject, RectTransform> rectDict = new();
     private Dictionary<GameObject, TMP_Text> textDict = new();
+    private bool initialized = false;
 
-    private void Start()
+    private void Awake()
     {
-        // Start is called before the first frame update. We use it to:
+        // Awake is called before Start. We use it to set up our initializers.
+        // ================
+
+        // When the tree updates...
+        menuTree.CurrentNodeUpdated += (MenuTreeNode oldNode, MenuTreeNode newNode) => {
+            // If it's the first update, initialize our texts.
+            if (!initialized) {
+                Initialize();
+            }
+
+            // And always update the text content.
+            UpdateTextContent(newNode.id);
+        };
+    }
+
+    private void Initialize()
+    {
+        // Initialize is called once the menu tree has built. We use it to:
         //  * Define our bounding rect.
         //  * Initialize our prefab, and add it to our dictionaries.
         //  * Build our pool from our initialized prefab.
         //  * Fill in the bounding rect with objects from our pool.
         // ================
-
-        // boundingRect = GetComponent<RectTransform>();
 
         // Init our prefab in the rect and text dictionaries.
         rectDict[prefab] = prefab.GetComponent<RectTransform>();
@@ -82,6 +103,8 @@ public class LeapfrogTextTicker : MonoBehaviour
                 trailingObject = obj;
             }
         }
+
+        initialized = true;
     }
 
     private void Update()
@@ -175,9 +198,10 @@ public class LeapfrogTextTicker : MonoBehaviour
         }
 
         // Update the prefab values.
+        textDict[prefab].text = textContent;
+
         Vector2 prefabSize = prefab.GetComponent<TMP_Text>().GetPreferredValues();
         rectDict[prefab].sizeDelta = new(paddingWidth*prefabSize.x, prefabSize.y);
-        textDict[prefab].text = textContent;
 
         // Assign the prefab values to our requested object.
         rectDict[obj].sizeDelta = rectDict[prefab].sizeDelta;
@@ -200,13 +224,31 @@ public class LeapfrogTextTicker : MonoBehaviour
         obj.transform.localPosition = spawnPosition;
     }
 
-    private float GetXPosition(RectTransform rect)
+    private void UpdateTextContent(string id)
     {
-        return rect.anchoredPosition.x;
+        string tagOpen = "_{";
+        string tagClose = "}";
+
+        string processedString = textFormula;
+
+        // Loop ends when from == -1: when there are no more opening tags.
+        for (int from = textFormula.IndexOf(tagOpen); from > -1; from = textFormula.IndexOf(tagOpen, from+tagOpen.Length))
+        {
+            int to = textFormula.IndexOf(tagClose, from);
+            string formulaID = textFormula[(from+tagOpen.Length)..to];
+
+            string trueID = formulaID switch {
+                "id" => id.ToLower(),
+                "ID" => id.ToUpper(),
+                _ => id,
+            };
+
+            processedString = processedString.Replace(tagOpen+formulaID+tagClose, trueID);
+        }
+
+        textContent = processedString;
     }
 
-    private float GetWidth(RectTransform rect)
-    {
-        return rect.rect.width;
-    }
+    private float GetXPosition(RectTransform rect) { return rect.anchoredPosition.x; }
+    private float GetWidth(RectTransform rect) { return rect.rect.width; }
 }
