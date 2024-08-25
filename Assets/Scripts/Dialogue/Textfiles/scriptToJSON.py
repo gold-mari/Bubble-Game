@@ -43,8 +43,24 @@ def convert(infilePath, outfilePath):
             break;
         
         actors.add(tokens[0]);
+    
+    leftActors = set();
+    rightActors = set();
+    for a in actors:
+        validAnswer = False
+        while (not validAnswer):
+            sideString = input(f"Which side of the screen is the actor named '{a}'? L or R - ")
+            if (sideString == 'L'):
+                validAnswer = True
+                leftActors.add(a)
+            if (sideString == 'R'):
+                validAnswer = True
+                rightActors.add(a)
 
     # Pass 2: Writing to JSON.
+    currentLeft = ""
+    currentRight = ""
+
     for i in range(len(inLines)):
         line = inLines[i]
         tokens = line.split(": ", 1)
@@ -53,8 +69,43 @@ def convert(infilePath, outfilePath):
 
         block =  '\t\t{\n'
         block += '\t\t\t"actor":"' + name + '",\n'              # actor
-        block += '\t\t\t"actions":"' + name + '.sqBounce'       # speaker action
-        for actor in actors:                                    # non-speaker actions
+        block += '\t\t\t"actions":"'                            # prepping for actions
+        
+        if (i == 0):
+            firstLeft = ""
+            firstRight = ""
+
+            for j in range(len(inLines)):               # determine the first-front characters
+                line = inLines[j]
+                tokens = line.split(": ", 1)
+                name = tokens[0]
+
+                # if both were found, stop looking.
+                if (firstLeft != "" and firstRight != ""):
+                    break
+
+                if (firstLeft == "" and name in leftActors):
+                    firstLeft = name
+                if (firstRight == "" and name in rightActors):
+                    firstRight = name
+            
+            for actor in actors:                                # start back
+                if actor == firstLeft: continue
+                if actor == firstRight: continue
+                block += actor + '.startBack,'
+
+        else:
+            if (name in leftActors and name != currentLeft):    # go back / go front
+                block += currentLeft + '.goBack,'
+                block += name + '.goFront,'
+                currentLeft = name
+            if (name in rightActors and name != currentRight):
+                block += currentRight + '.goBack,'
+                block += name + '.goFront,'
+                currentRight = name
+
+        block += name + '.sqBounce'                             # speaker squetch action
+        for actor in actors:                                    # non-speaker squetch actions
             if actor == name: continue
             block += ',' + actor + '.sqIdle'
         block += '",\n'
