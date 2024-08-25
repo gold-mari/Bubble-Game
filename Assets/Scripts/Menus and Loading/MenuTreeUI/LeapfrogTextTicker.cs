@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
-using UnityEditor.PackageManager.Requests;
+using NaughtyAttributes;
 
 // Inspired by (with some code from) Board to Bits Games, on YouTube.
 // https://www.youtube.com/watch?v=mptVj9-I0gQ
 
 public class LeapfrogTextTicker : MonoBehaviour
 {
-    [SerializeField, Tooltip("The text applied to our text objects.")]
+    [SerializeField, Tooltip("The text formula used to fill out textContent.")]
     private string textFormula;
-    [SerializeField, Tooltip("The text applied to our text objects.")]
+    [SerializeField, ReadOnly, Tooltip("The actual text currently applied to our text objects.")]
     private string textContent;
     [SerializeField, Tooltip("The text prefab that we spawn.")]
     private GameObject prefab;

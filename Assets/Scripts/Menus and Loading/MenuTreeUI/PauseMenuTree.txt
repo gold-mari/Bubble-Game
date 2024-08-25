@@ -1,8 +1,8 @@
-Pause
-    Quit
-    Resume
-    Settings
-        Sound
-        Graphics  
-        Controls
-        Accessibility
+Pause\Stop the music and take a moment.
+    Quit\Return to the main menu.
+    Resume\Continue playing the game.
+    Settings\Change the game's settings.
+        Sound\Change audio-related settings.
+        Graphics\Change video-related settings.
+        Controls\Change input/output-related settings.
+        Accessibility\Change accessibility-related settings.

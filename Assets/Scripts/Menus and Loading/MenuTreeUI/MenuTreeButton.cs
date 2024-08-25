@@ -7,6 +7,7 @@ public class MenuTreeButton : MonoBehaviour
 {
     public enum Style { Main, Back }
 
+    public MenuTreeNode node;
     private TMP_Text labelText;
     private Vector3 baseScale;
 
@@ -17,9 +18,17 @@ public class MenuTreeButton : MonoBehaviour
         baseScale = transform.localScale;
     }
 
-    public void ChangeText(string newText)
+    public void Initialize(MenuTreeNode _node)
     {
-        labelText.text = newText;
+        node = _node;
+
+        // If the node is null, treat this as a Back button.
+        // Hacky, but it'll work for our purposes.
+        if (_node == null) {
+            labelText.text = "Back";
+        } else {
+            labelText.text = node.id;
+        }
     }
 
     public void SetStyle(Style style)

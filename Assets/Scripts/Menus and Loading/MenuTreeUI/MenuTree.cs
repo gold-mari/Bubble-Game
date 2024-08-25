@@ -10,6 +10,8 @@ public class MenuTree : MonoBehaviour
 
     [SerializeField, Tooltip("The text asset describing this menu's tree structure.")]
     private TextAsset treeSource;
+    [Tooltip("Something to be displayed if a menu node has node other content.")]
+    public BaseMenuContent baseContent;
     [SerializeField, Tooltip("A list of string-GameObject, ID-Content pairs.")]
     private List<ContentIDPair> contentIDPairs;
 
@@ -96,8 +98,8 @@ public class MenuTree : MonoBehaviour
                                    "More than one root node was found in treeSource.", this);
                     return null;
                 } else {
-                    string currentID = line.Trim();
-                    rootNode = currentNode = new(currentID, null, GetContent(currentID));
+                    string[] terms = line.Trim().Split('\\'); // 0th term is the ID, 1st term is the description.
+                    rootNode = currentNode = new(terms[0], terms[1], null, GetContent(terms[0]));
                 }
             }
 
@@ -123,8 +125,8 @@ public class MenuTree : MonoBehaviour
                               $"More than one node named '{line.Trim()}' was found in treeSource.", this);
                     return null;
                 } else {
-                    string currentID = line.Trim();
-                    currentNode = new(currentID, parent, GetContent(currentID));
+                    string[] terms = line.Trim().Split('\\'); // 0th term is the ID, 1st term is the description.
+                    currentNode = new(terms[0], terms[1], parent, GetContent(terms[0]));
                 }
             }
 
@@ -156,7 +158,7 @@ public class MenuTree : MonoBehaviour
             } else if (pairs.Count == 1) {
                 return pairs[0].content;
             } else { // pairs.Count == 0
-                return null;
+                return baseContent.gameObject;
             }
         }
     }
@@ -214,7 +216,13 @@ public class MenuTree : MonoBehaviour
     {
         if (node != null && node.content != null) {
             node.content.SetActive(visible);
+
+            if (node.content == baseContent.gameObject) {
+                baseContent.UpdateCurrentNode(node);
+                baseContent.ChangeText(node);
+            }
         }
+        
     }
 }
 
@@ -226,6 +234,8 @@ public class MenuTreeNode
 {
     // The display name of the menu
     public string id;
+    // The description of the menu
+    public string description;
     // The to this node.
     public GameObject content = null;
     // The parent to this node.
@@ -238,12 +248,13 @@ public class MenuTreeNode
     public readonly int generation;
     public readonly int siblingIndex;
 
-    public MenuTreeNode(string _id, MenuTreeNode _parent, GameObject _content=null)
+    public MenuTreeNode(string _id, string _description, MenuTreeNode _parent, GameObject _content=null)
     {
         // Constructor.
         // ================
 
         id = _id;
+        description = _description;
         parent = _parent;
         content = _content;
         children = new List<MenuTreeNode>();

@@ -22,24 +22,32 @@ public class ButtonSoundPlayer : MonoBehaviour
 
     private void Start()
     {
+        SupplySFX();
+    }
+
+    public void SupplySFX()
+    {
         // Looks through all buttons underneath us, and applies the button 
         // sounds to each of them.
         // ================
 
-        Button[] buttons = GetComponentsInChildren<Button>(includeInactive:true);
+        Button[] buttons = GetComponentsInChildren<Button>(includeInactive: true);
 
         // Define our pointerEnterEvent to play the menu hover SFX.
-        EventTrigger.Entry pointerEnterEvent = new(){ eventID = EventTriggerType.PointerEnter };
-        pointerEnterEvent.callback.AddListener((eventData) => { 
+        EventTrigger.Entry pointerEnterEvent = new() { eventID = EventTriggerType.PointerEnter };
+        pointerEnterEvent.callback.AddListener((eventData) =>
+        {
             PlayMenuHoverSFX();
         });
 
         // Look through each button.
-        foreach (Button button in buttons) {
+        foreach (Button button in buttons)
+        {
             button.onClick.AddListener(PlayMenuClickSFX);
 
             // Find the EventTrigger on this object, or make one if one doesn't exist.
-            if (!button.TryGetComponent<EventTrigger>(out var trigger)) {
+            if (!button.TryGetComponent<EventTrigger>(out var trigger))
+            {
                 trigger = button.gameObject.AddComponent(typeof(EventTrigger)) as EventTrigger;
             }
 

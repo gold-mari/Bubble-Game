@@ -1,8 +1,8 @@
-Root
-    Quit
-    Play
-    Settings
-        Sound
-        Graphics
-        Controls
-        Accessibility
+Root\Welcome to BubbleBeast DigiDungeon!
+    Quit\Exit the game.
+    Play\Begin the game.
+    Settings\Change the game's settings.
+        Sound\Change audio-related settings.
+        Graphics\Change video-related settings.
+        Controls\Change input/output-related settings.
+        Accessibility\Change accessibility-related settings.
