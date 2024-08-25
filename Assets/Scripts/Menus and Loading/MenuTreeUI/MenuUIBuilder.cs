@@ -116,6 +116,8 @@ public class MenuUIBuilder : MonoBehaviour
         // that updates the text for our menuTree's baseContent.
         // ================
 
+        Debug.Log("base menu content events added for button", button);
+
         // Find the EventTrigger on this object, or make one if one doesn't exist.
         if (!button.TryGetComponent<EventTrigger>(out var trigger)) {
             trigger = button.gameObject.AddComponent(typeof(EventTrigger)) as EventTrigger;
@@ -127,7 +129,10 @@ public class MenuUIBuilder : MonoBehaviour
         if (currentNode.content != null) {
             // If the current node has content already, we don't need to update
             // our BaseMenuContent.
+            print("was not null");
             return;
+        } else {
+            print("was null");
         }
 
         // Define our pointerEnterEvent to play the menu hover SFX.
@@ -135,12 +140,14 @@ public class MenuUIBuilder : MonoBehaviour
         pointerEnterEvent.callback.AddListener((eventData) => { 
             // When we hover over the button, display the text for the menu we're
             // about to traverse into.
+            print("test-enter");
             menuTree.baseContent.ChangeText(childNode);
         });
         EventTrigger.Entry pointerExitEvent = new(){ eventID = EventTriggerType.PointerExit };
         pointerExitEvent.callback.AddListener((eventData) => { 
             // When we stop hovering over a button, display the text for the menu
             // we're already inside of.
+            print("test-exit");
             menuTree.baseContent.ChangeText(currentNode);
         });
 

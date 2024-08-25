@@ -158,7 +158,7 @@ public class MenuTree : MonoBehaviour
             } else if (pairs.Count == 1) {
                 return pairs[0].content;
             } else { // pairs.Count == 0
-                return baseContent.gameObject;
+                return null;
             }
         }
     }
@@ -214,12 +214,15 @@ public class MenuTree : MonoBehaviour
 
     private void SetNodeVisible(MenuTreeNode node, bool visible)
     {
-        if (node != null && node.content != null) {
-            node.content.SetActive(visible);
+        if (node != null) { 
+            if (node.content != null) {
+                node.content.SetActive(visible);
+            }
 
-            if (node.content == baseContent.gameObject) {
+            else { // Node content is null, display base content.
                 baseContent.UpdateCurrentNode(node);
                 baseContent.ChangeText(node);
+                baseContent.gameObject.SetActive(visible);
             }
         }
         
