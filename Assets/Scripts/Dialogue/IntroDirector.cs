@@ -9,10 +9,7 @@ public class IntroDirector : DialogueActor
     [SerializeField]
     private SlowScrollUp textScroll;
 
-    private void Start()
-    {
-        
-    }
+
 
     public override void Trigger(string action)
     {

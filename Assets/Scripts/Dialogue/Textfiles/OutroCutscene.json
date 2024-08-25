@@ -3,167 +3,177 @@
 	[
 		{
 			"actor":"Knight",
-			"actions":"Ha'na.startBack,Jester.startBack,Crawl.startBack,Brute.startBack,Sammy.startBack,Ghost.startBack,Sammy.sqBounce,              Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"actions":"Hannah.startBack,Jester.startBack,Brute.startBack,Sammy.startBack,Ghost.startBack,Sammy.sqBounce,              Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
 			"text":"YOU FOOLS! YOU HAVE NO IDEA WHAT YOU'VE DONE!"
 		},
 		{
 			"actor":"Knight",
-			"actions":".goBack,Knight.goFront,Knight.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle",
-			"text":"ONLY DARK LORDS CAN SEE OPPORTUNITIES OTHERS CANNOT!"
+			"actions":"Knight.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle",
+			"text":"DARK LORDS ARE PIVOTAL TO THE DUNGEON HIERARCHY!"
 		},
 		{
 			"actor":"Knight",
-			"actions":"Knight.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle",
-			"text":"ONLY THEY WILL MAKE THE HARD DECISIONS OTHERS WILL NOT!"
+			"actions":"Knight.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle",
+			"text":"THEY CAN SEE OPPORTUNITIES AND MAKE THE HARD DECISIONS OTHERS CANNOT!"
 		},
 		{
 			"actor":"Knight",
-			"actions":"Knight.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle",
+			"actions":"Knight.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle",
 			"text":"HARVARD... BUSINESS REVIEW... SAID SO..."
 		},
 		{
 			"actor":"Sammy",
-			"actions":"Knight.goBack,Sammy.goFront,Sammy.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"actions":"Knight.goBack,Sammy.goFront,Sammy.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
 			"text":"Without another sound, Balthazar dissolves into a bitter-smelling green fog."
 		},
 		{
 			"actor":"Hannah",
-			"actions":".goBack,Hannah.goFront,Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
-			"text":"awww could it be with a sound please? i tease but i <i>do</i> like your sammy sounds..."
+			"actions":"Ha'na.goBack,Hannah.goFront,Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"text":"awww, without another sound? :'3"
 		},
 		{
 			"actor":"Sammy",
-			"actions":"Sammy.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
-			"text":"Aw, dork. Alright, he dissolves with a SCHWINK. <3"
+			"actions":"Sammy.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"text":"Dork. Alright, he dissolves with a SCHWINK. <3"
 		},
 		{
 			"actor":"Hannah",
-			"actions":"Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"actions":"Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
 			"text":"that kinda feels incongruent but yay!!!!!"
 		},
 		{
 			"actor":"Ha'na",
-			"actions":"Hannah.goBack,Ha'na.goFront,Ha'na.sqBounce,       Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"actions":"Hannah.goBack,Ha'na.goFront,Ha'na.sqBounce,       Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
 			"text":"we did it gang!"
 		},
 		{
 			"actor":"Ghost",
-			"actions":"Sammy.goBack,Ghost.goFront,Ghost.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"actions":"Sammy.goBack,Ghost.goFront,Ghost.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Knight.sqIdle",
 			"text":"yeahhhhhhh eat it loser!!! ::>w<::"
 		},
 		{
 			"actor":"Jester",
-			"actions":"Ghost.goBack,Jester.goFront,Jester.sqBounce,       Ha'na.sqIdle,Crawl.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"actions":"Ghost.goBack,Jester.goFront,Jester.sqBounce,       Ha'na.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
 			"text":"FWA HA~! We held fast and didn't waver! The lesson: never bet against labor!"
 		},
 		{
 			"actor":"Brute",
-			"actions":"Jester.goBack,Brute.goFront,Brute.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"actions":"Jester.goBack,Brute.goFront,Brute.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
 			"text":"BOOM."
 		},
 		{
 			"actor":"Ha'na",
-			"actions":"Ha'na.sqBounce,       Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"actions":"Ha'na.sqBounce,       Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
 			"text":"so are y'all like. unionized or something now?"
 		},
 		{
 			"actor":"Brute",
-			"actions":"Brute.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"actions":"Brute.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
 			"text":"YEAH, I'D BE DOWN."
 		},
 		{
 			"actor":"Ghost",
-			"actions":"Brute.goBack,Ghost.goFront,Ghost.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"actions":"Brute.goBack,Ghost.goFront,Ghost.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Knight.sqIdle",
 			"text":"uhhhhhhhhhhhhhhhhhh tbh i'm kinda over this whole dungeon thing :PPP"
 		},
 		{
 			"actor":"Jester",
-			"actions":"Ghost.goBack,Jester.goFront,Jester.sqBounce,       Ha'na.sqIdle,Crawl.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"actions":"Ghost.goBack,Jester.goFront,Jester.sqBounce,       Ha'na.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
 			"text":"Fwo-ho-ho~! He kept me trapped here and now he's gone! I'll take my share and I'll move on~!"
 		},
 		{
 			"actor":"Brute",
-			"actions":"Jester.goBack,Brute.goFront,Brute.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"actions":"Jester.goBack,Brute.goFront,Brute.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
 			"text":"OH. OK."
 		},
 		{
 			"actor":"Hannah",
-			"actions":"Ha'na.goBack,Hannah.goFront,Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"actions":"Ha'na.goBack,Hannah.goFront,Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
 			"text":"i nod solemnly and split the money with the Beasts."
 		},
 		{
 			"actor":"Sammy",
-			"actions":"Brute.goBack,Sammy.goFront,Sammy.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"actions":"Brute.goBack,Sammy.goFront,Sammy.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
 			"text":"Alright, then the Jester and the Ghost take their leave up the stairs, waving goodbye!"
 		},
 		{
 			"actor":"Ha'na",
-			"actions":"Hannah.goBack,Ha'na.goFront,Ha'na.sqBounce,       Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"actions":"Hannah.goBack,Ha'na.goFront,Ha'na.sqBounce,       Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
 			"text":"fly free, beautiful besties. <3"
 		},
 		{
 			"actor":"Sammy",
-			"actions":"Sammy.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"actions":"Sammy.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
 			"text":"In the silence of the treasury, the Brute shuffles around on his feet."
 		},
 		{
 			"actor":"Brute",
-			"actions":"Sammy.goBack,Brute.goFront,Brute.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"actions":"Sammy.goBack,Brute.goFront,Brute.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
 			"text":"DO YOU WANNA."
 		},
 		{
 			"actor":"Brute",
-			"actions":"Brute.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"actions":"Brute.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
 			"text":"WORK OUT OR SOMETHING."
 		},
 		{
 			"actor":"Ha'na",
-			"actions":"Ha'na.sqBounce,       Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"actions":"Ha'na.sqBounce,       Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
 			"text":"..."
 		},
 		{
 			"actor":"Ha'na",
-			"actions":"Ha'na.sqBounce,       Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"actions":"Ha'na.sqBounce,       Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
 			"text":"hell yeah man"
 		},
 		{
 			"actor":"NULL",
-			"actions":"Director.Show,Director.ScanToKeyframe/1,         Brute.goBack,Crawl.goFront,Crawl.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"actions":"Director.Show,Director.ScanToKeyframe/0,         Brute.goBack,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
 			"text":"CRAWL GOES HERE."
 		},
 		{
 			"actor":"Hannah",
-			"actions":"Director.Hide,Ha'na.goBack,Hannah.goFront,Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"actions":"Director.Hide,Ha'na.goBack,Hannah.goFront,Sammy.goFront,Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
 			"text":"oh wait is that like the whole monologue?"
 		},
 		{
 			"actor":"Sammy",
-			"actions":"Crawl.goBack,Sammy.goFront,Sammy.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"actions":"Sammy.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
 			"text":"Yeah, I think my brain's hitting a caffeine crash LMAO."
 		},
 		{
 			"actor":"Hannah",
-			"actions":"Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"actions":"Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
 			"text":"valid also holy shit that was so fun. king shit for all the work you do, sammy."
 		},
 		{
 			"actor":"Sammy",
-			"actions":"Sammy.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"actions":"Sammy.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
 			"text":"Aww, hey, I'm just happy you enjoyed. <3 I love you!!"
 		},
 		{
 			"actor":"Hannah",
-			"actions":"Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"actions":"Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
 			"text":"i love you!"
 		},
 		{
 			"actor":"Sammy",
-			"actions":"Sammy.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"actions":"Sammy.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
 			"text":"I LOVE YOU!!!"
+		},
+        {
+			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"text":"i love you!!!!!!"
+		},
+        {
+			"actor":"Sammy",
+			"actions":"Sammy.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"text":"I LOVE YOU!!!!!!!!!!!!!!!!!"
 		},
 		{
 			"actor":"Hannah",
-			"actions":"Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Crawl.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"actions":"Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
 			"text":"also we should leave, i think the café closed 10 minutes ago."
 		}
 	]

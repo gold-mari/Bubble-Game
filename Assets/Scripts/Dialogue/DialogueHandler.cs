@@ -225,7 +225,7 @@ public class DialogueHandler : MonoBehaviour
         textbox.maxVisibleCharacters = 0;
         textbox.text = lineDict[line].text;
         //print($"New line: {textbox.text}");
-        
+
         speaker.text = lineDict[line].actor;
 
         if (lineDict[line].actions != "")

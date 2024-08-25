@@ -11,7 +11,7 @@ public class SlowScrollUp : MonoBehaviour
     private bool invokeAction = false;
     [SerializeField]
     private int[] heightKeyframes;
-    private int nextFrameIndex = 1;
+    private int currentFrameIndex = 0;
     public UnityEvent actionOnReachKeyframe;
 
     private Vector3 basePosition;
@@ -29,11 +29,16 @@ public class SlowScrollUp : MonoBehaviour
         // Update is called once per frame. We use it to go up!
         // ================
 
+        if (!gameObject.activeInHierarchy) return;
+
         transform.localPosition += speed * Time.deltaTime * Vector3.up;
 
-        if (invokeAction && nextFrameIndex < heightKeyframes.Length && transform.localPosition.y > heightKeyframes[nextFrameIndex])
-        {
-            actionOnReachKeyframe?.Invoke();
+        if (invokeAction) {
+            if (currentFrameIndex+1 < heightKeyframes.Length) {
+                if (transform.localPosition.y > heightKeyframes[currentFrameIndex+1]) {
+                    actionOnReachKeyframe?.Invoke();
+                }
+            }
         }
     }
 
@@ -50,7 +55,7 @@ public class SlowScrollUp : MonoBehaviour
         // ...
         // ================
         
-        nextFrameIndex++;
+        print("hiding");
         gameObject.SetActive(false);
     }
 
@@ -67,6 +72,7 @@ public class SlowScrollUp : MonoBehaviour
         // ...
         // ================
         
+        currentFrameIndex = keyframe;
         print($"Scanned to index {keyframe}, height {heightKeyframes[keyframe]}!");
         transform.localPosition = heightKeyframes[keyframe] * Vector3.up;
     }

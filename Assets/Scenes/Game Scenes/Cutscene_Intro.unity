@@ -1205,6 +1205,7 @@ MonoBehaviour:
   typewriterDelay: 0.025
   advanceDelay: 0.1
   beginInStart: 1
+  prematureEndActionCode: EndDialogueEarly
   ActionOnEnd:
     m_PersistentCalls:
       m_Calls:
