@@ -2405,6 +2405,7 @@ MonoBehaviour:
   anchorLeft: {fileID: 1911053158}
   anchorCenter: {fileID: 1196653949}
   anchorRight: {fileID: 975009322}
+  iconSprites: {fileID: 11400000, guid: d92f8b45d038cff47b8cd337b4140ed3, type: 2}
   buttonPrefab: {fileID: 3608077492403256100, guid: e266169f06b51fa45a75266d2ba8a1a4, type: 3}
 --- !u!1 &2028626971
 GameObject:

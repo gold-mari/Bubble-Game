@@ -43,8 +43,6 @@ public class BaseMenuContent : MonoBehaviour
         // Updates our currentMenuText based on the current node.
         // ================
 
-        print("ChangeText called");
-
         if (node == null) { // For MenuTreeButtons, null is "Back".
             if (currentNode.parent == null) {
                 Debug.LogError("BaseMenuContent Error: node was null, implying we're hovering " +

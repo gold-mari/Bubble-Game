@@ -20,6 +20,8 @@ public class MenuUIBuilder : MonoBehaviour
     [SerializeField, Tooltip("The transform representing the right anchor of our button arc.")]
     private Transform anchorRight;
     [Header("Prefab References")]
+    [SerializeField, Tooltip("The UISpriteBinder used for our buttons.")]
+    private UISpriteBinder iconSprites;
     [SerializeField, Tooltip("The prefab for our buttons.")]
     private GameObject buttonPrefab;
 
@@ -31,7 +33,9 @@ public class MenuUIBuilder : MonoBehaviour
         // Awake is called before Start.
         // ================
 
-        buttonPool = new ObjectPool(buttonPrefab, dynamicUIParent, 5);
+        iconSprites.Initialize();
+
+        buttonPool = new ObjectPool(buttonPrefab, dynamicUIParent);
         menuTree.CurrentNodeUpdated += OnCurrentNodeUpdated;
 
         buttonSoundPlayer = GetComponent<ButtonSoundPlayer>();
@@ -58,6 +62,9 @@ public class MenuUIBuilder : MonoBehaviour
                 GameObject buttonObj = buttonPool.Request();
                 Button button = buttonObj.GetComponent<Button>();
                 if (button) {
+                    button.interactable = false;
+                    button.interactable = true;
+
                     button.onClick.RemoveAllListeners();
                     button.onClick.AddListener(() => {
                         menuTree.DescendByIndex(index);
@@ -75,6 +82,9 @@ public class MenuUIBuilder : MonoBehaviour
                 MenuTreeButton menuTreeButton = buttonObj.GetComponent<MenuTreeButton>();
                 menuTreeButton.Initialize(newNode.children[i]);
                 menuTreeButton.SetStyle(MenuTreeButton.Style.Main);
+
+                // Also, for debug purposes, name the button.
+                buttonObj.name = $"Button ({newNode.children[i].id})";
             }
 
             // If this isn't the root, create a back button.
@@ -83,6 +93,9 @@ public class MenuUIBuilder : MonoBehaviour
                 GameObject buttonObj = buttonPool.Request();
                 Button button = buttonObj.GetComponent<Button>();
                 if (button) {
+                    button.interactable = false;
+                    button.interactable = true;
+                    
                     button.onClick.RemoveAllListeners();
                     button.onClick.AddListener(() => {
                         menuTree.Ascend();
@@ -100,6 +113,9 @@ public class MenuUIBuilder : MonoBehaviour
                 MenuTreeButton menuTreeButton = buttonObj.GetComponent<MenuTreeButton>();
                 menuTreeButton.Initialize(null); // For MenuTreeButtons, null is "Back".
                 menuTreeButton.SetStyle(MenuTreeButton.Style.Back);
+
+                // Also, for debug purposes, name the button.
+                buttonObj.name = $"Button (Back)";
             }
 
             // Ough this is awful, I truly hate this solution.
@@ -129,10 +145,7 @@ public class MenuUIBuilder : MonoBehaviour
         if (currentNode.content != null) {
             // If the current node has content already, we don't need to update
             // our BaseMenuContent.
-            print("was not null");
             return;
-        } else {
-            print("was null");
         }
 
         // Define our pointerEnterEvent to play the menu hover SFX.
@@ -140,14 +153,12 @@ public class MenuUIBuilder : MonoBehaviour
         pointerEnterEvent.callback.AddListener((eventData) => { 
             // When we hover over the button, display the text for the menu we're
             // about to traverse into.
-            print("test-enter");
             menuTree.baseContent.ChangeText(childNode);
         });
         EventTrigger.Entry pointerExitEvent = new(){ eventID = EventTriggerType.PointerExit };
         pointerExitEvent.callback.AddListener((eventData) => { 
             // When we stop hovering over a button, display the text for the menu
             // we're already inside of.
-            print("test-exit");
             menuTree.baseContent.ChangeText(currentNode);
         });
 

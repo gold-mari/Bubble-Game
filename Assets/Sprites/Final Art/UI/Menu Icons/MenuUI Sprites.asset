@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc0833f2d579994c8cb5591f7c31912, type: 3}
+  m_Name: MenuUI Sprites
+  m_EditorClassIdentifier: 
+  defaultSprite: {fileID: 21300000, guid: 4fd0c94524e3d0f428d2a90a0f97f555, type: 3}
+  pairList:
+  - id: Quit
+    sprite: {fileID: 21300000, guid: 7046b6196bacca74ab05d7bdefc11b50, type: 3}
+  - id: Play
+    sprite: {fileID: 21300000, guid: c439d28e6ddb52445ba2c294250babf1, type: 3}
+  - id: Resume
+    sprite: {fileID: 21300000, guid: c439d28e6ddb52445ba2c294250babf1, type: 3}
+  - id: Settings
+    sprite: {fileID: 21300000, guid: 8ddcf77b47c418a4b81aa72b49bb2914, type: 3}
+  - id: Sound
+    sprite: {fileID: 21300000, guid: b4cb7133e94ccd349970f4f93abdc476, type: 3}
+  - id: Graphics
+    sprite: {fileID: 21300000, guid: e626fd387769be14cb95ccf0e3c0571a, type: 3}
+  - id: Controls
+    sprite: {fileID: 21300000, guid: c4f4977a60b5f1a48b861ea880f7f755, type: 3}
+  - id: Accessibility
+    sprite: {fileID: 21300000, guid: 0817b44d966b9e34c96f1369c215822b, type: 3}

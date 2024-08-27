@@ -2,19 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class MenuTreeButton : MonoBehaviour
 {
     public enum Style { Main, Back }
 
     public MenuTreeNode node;
-    private TMP_Text labelText;
+    public UISpriteBinder iconSprites;
+    public Image icon;
     private Vector3 baseScale;
 
     // Start is called before the first frame update
     void Awake()
     {
-        labelText = GetComponentInChildren<TMP_Text>();
         baseScale = transform.localScale;
     }
 
@@ -25,9 +26,9 @@ public class MenuTreeButton : MonoBehaviour
         // If the node is null, treat this as a Back button.
         // Hacky, but it'll work for our purposes.
         if (_node == null) {
-            labelText.text = "Back";
+            icon.sprite = iconSprites.GetDefault();
         } else {
-            labelText.text = node.id;
+            icon.sprite = iconSprites.Query(node.id);
         }
     }
 
