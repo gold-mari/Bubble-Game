@@ -71,7 +71,7 @@ public class MenuUIBuilder : MonoBehaviour
                     });
                 }
                 // Add events for the BaseMenuContent object.
-                AddBaseMenuContentEvents(button, newNode, newNode.children[i]);
+                AddHoverEvents(button, newNode, newNode.children[i]);
 
                 PointsOnCircle.GetArcPosition(anchorLeft.localPosition, anchorCenter.localPosition, anchorRight.localPosition,
                                               i/(float)(childCount-1), Mathf.Min(1, (childCount-1)*0.333f),
@@ -89,8 +89,23 @@ public class MenuUIBuilder : MonoBehaviour
 
             // If this isn't the root, create a back button.
             if (newNode != menuTree.root) {
-                // Request a new button and set up the listener.
+                // Request a new button.
                 GameObject buttonObj = buttonPool.Request();
+                // Place it.
+                PointsOnCircle.GetArcPosition(
+                    anchorLeft.localPosition, anchorCenter.localPosition, anchorRight.localPosition,
+                    1.25f, 1,
+                    out Vector3 position, out var _
+                );
+
+                buttonObj.transform.localPosition = position;
+
+                // Initialize the menuTreeButton.
+                MenuTreeButton menuTreeButton = buttonObj.GetComponent<MenuTreeButton>();
+                menuTreeButton.Initialize(null); // For MenuTreeButtons, null is "Back".
+                menuTreeButton.SetStyle(MenuTreeButton.Style.Back);
+
+                // Initialize the button events.
                 Button button = buttonObj.GetComponent<Button>();
                 if (button) {
                     button.interactable = false;
@@ -102,17 +117,9 @@ public class MenuUIBuilder : MonoBehaviour
                     });
                 }
                 // Add events for the BaseMenuContent object.
-                AddBaseMenuContentEvents(button, newNode, null);
+                AddHoverEvents(button, newNode, null);
 
-                PointsOnCircle.GetArcPosition(anchorLeft.localPosition, anchorCenter.localPosition, anchorRight.localPosition,
-                                              1.25f, 1,
-                                              out Vector3 position, out Quaternion _);
-
-                buttonObj.transform.localPosition = position;
-
-                MenuTreeButton menuTreeButton = buttonObj.GetComponent<MenuTreeButton>();
-                menuTreeButton.Initialize(null); // For MenuTreeButtons, null is "Back".
-                menuTreeButton.SetStyle(MenuTreeButton.Style.Back);
+                
 
                 // Also, for debug purposes, name the button.
                 buttonObj.name = $"Button (Back)";
@@ -126,13 +133,18 @@ public class MenuUIBuilder : MonoBehaviour
         }
     }
 
-    private void AddBaseMenuContentEvents(Button button, MenuTreeNode currentNode, MenuTreeNode childNode)
+    private void AddHoverEvents(Button button, MenuTreeNode currentNode, MenuTreeNode childNode)
     {
-        // Given a button, adds a PointerEnter event and a PointerExit event
-        // that updates the text for our menuTree's baseContent.
+        // Given a button, wipes all of its hover events, and adds a
+        // PointerEnter event and a PointerExit event which:
+        //  * Spin the button's icon
+        //  * Can update the sprite for our menuTree's baseContent
+        //
+        // AGAIN, IMPORTANT: THIS METHOD WIPES ALL OF THE BUTTON'S TRIGGERS.
+        // YOU MUST RE-ADD LOST TRIGGERS ELSEWHERE.
         // ================
 
-        Debug.Log("base menu content events added for button", button);
+        Debug.Log("hover events added for button", button);
 
         // Find the EventTrigger on this object, or make one if one doesn't exist.
         if (!button.TryGetComponent<EventTrigger>(out var trigger)) {
@@ -140,30 +152,35 @@ public class MenuUIBuilder : MonoBehaviour
         } else {
             trigger.triggers.Clear();
         }
-        // At this point, triggers will contain no 
 
-        if (currentNode.content != null) {
-            // If the current node has content already, we don't need to update
-            // our BaseMenuContent.
-            return;
-        }
-
-        // Define our pointerEnterEvent to play the menu hover SFX.
         EventTrigger.Entry pointerEnterEvent = new(){ eventID = EventTriggerType.PointerEnter };
-        pointerEnterEvent.callback.AddListener((eventData) => { 
-            // When we hover over the button, display the text for the menu we're
-            // about to traverse into.
-            menuTree.baseContent.ChangeText(childNode);
-        });
-        EventTrigger.Entry pointerExitEvent = new(){ eventID = EventTriggerType.PointerExit };
-        pointerExitEvent.callback.AddListener((eventData) => { 
-            // When we stop hovering over a button, display the text for the menu
-            // we're already inside of.
-            menuTree.baseContent.ChangeText(currentNode);
-        });
 
-        // Add our pointerEnterEvent from earlier.
-        trigger.triggers.Add(pointerEnterEvent);
-        trigger.triggers.Add(pointerExitEvent);
+        MenuTreeButton treeButton = button.GetComponent<MenuTreeButton>();
+
+        pointerEnterEvent.callback.AddListener((eventData) => { 
+            // When we hover over the button, spin our lil icon :3
+            treeButton.SpinIcon();
+        });
+    
+        if (currentNode.content == null) {
+            // If this node corresponds to a node which uses the base content,
+            // change the baseContent's text.
+
+            pointerEnterEvent.callback.AddListener((eventData) => { 
+                // When we hover over the button, display the text for the menu we're
+                // about to traverse into.
+                menuTree.baseContent.ChangeText(childNode);
+            });
+            EventTrigger.Entry pointerExitEvent = new(){ eventID = EventTriggerType.PointerExit };
+            pointerExitEvent.callback.AddListener((eventData) => { 
+                // When we stop hovering over a button, display the text for the menu
+                // we're already inside of.
+                menuTree.baseContent.ChangeText(currentNode);
+            });
+
+            // Add our pointerEnterEvent from earlier.
+            trigger.triggers.Add(pointerEnterEvent);
+            trigger.triggers.Add(pointerExitEvent);
+        } 
     }
 }
