@@ -13,6 +13,9 @@ public class CursorVectorMonitor : MonoBehaviour
         // Update is called once per frame. Used to update cursor position and rotation.
         // ================
 
+        // If time scale is 0
+        if (Mathf.Abs(Time.timeScale) < float.Epsilon) return;
+
         // Get the mouse position on the screen.
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // Define the cursorPointVector
