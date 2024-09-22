@@ -75,6 +75,11 @@ public class BeatWarning : MonoBehaviour
         {
             OnMajorFlash();
         }
+        // Otherwise, no flash.
+        else 
+        {
+            OnNoFlash();
+        }
     }
 
     protected virtual void OnMinorFlash()
@@ -83,6 +88,11 @@ public class BeatWarning : MonoBehaviour
     }
 
     protected virtual void OnMajorFlash()
+    {
+        return;
+    }
+
+    protected virtual void OnNoFlash()
     {
         return;
     }
