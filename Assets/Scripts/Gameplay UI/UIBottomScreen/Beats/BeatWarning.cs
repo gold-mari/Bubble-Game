@@ -66,7 +66,6 @@ public class BeatWarning : MonoBehaviour
         if (currentBeatmap.GetBeatType(tracker.nextLoopBeat) == BeatType.SingleSpawn)
         {
             OnMinorFlash();
-            print("minor flash");
         }
         // If the second next beat OR the next beat is a higher-order beat (not single, not null), do a major flash.
         else if ((currentBeatmap.GetBeatType(tracker.secondNextLoopBeat) != BeatType.NONE
