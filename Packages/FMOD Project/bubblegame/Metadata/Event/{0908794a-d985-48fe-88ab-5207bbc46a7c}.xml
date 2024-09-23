@@ -92,7 +92,6 @@
 			<destination>{83ccb58f-6e2d-4c2e-8bb8-f4818c8f1582}</destination>
 			<destination>{f780532c-7dcd-4c41-9fde-74ceaecfa018}</destination>
 			<destination>{5177496f-f510-4f65-8c00-2841f165725a}</destination>
-			<destination>{e39c45fc-04ea-4d2c-86ce-fc4bbd7174af}</destination>
 		</relationship>
 	</object>
 	<object class="ParameterProxy" id="{fea73b67-7dfb-4f3b-acb6-0d342bee3d71}">
@@ -308,20 +307,6 @@
 		</relationship>
 		<relationship name="markerTrack">
 			<destination>{574e3515-b30c-4de5-9ec9-2e8aae2aa5c8}</destination>
-		</relationship>
-	</object>
-	<object class="TransitionMarker" id="{e39c45fc-04ea-4d2c-86ce-fc4bbd7174af}">
-		<property name="position">
-			<value>3.4285714285714284</value>
-		</property>
-		<relationship name="timeline">
-			<destination>{2d23b3cc-4b1d-4454-b22e-e7b052dca3c3}</destination>
-		</relationship>
-		<relationship name="markerTrack">
-			<destination>{2e4ba276-2a4e-4903-88c2-ee0a999cbc10}</destination>
-		</relationship>
-		<relationship name="destination">
-			<destination>{41116947-abdb-4192-a5eb-06f8dfa3e5c5}</destination>
 		</relationship>
 	</object>
 	<object class="Automator" id="{4e5e9279-eca9-4bad-9240-476c8e4298c4}">
