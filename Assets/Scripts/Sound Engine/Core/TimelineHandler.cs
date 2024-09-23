@@ -21,6 +21,8 @@ public class TimelineHandler
     private FMOD.Studio.EventInstance instance;
     // Whether or not we should update.
     private bool shouldUpdate = true;
+    // Debug id.
+    public readonly string id = "new TimelineHandler";
 
     // timeline callbacks: ============================================
 
@@ -118,12 +120,13 @@ public class TimelineHandler
     // Initializers and finalizers
     // ================================================================
 
-    public TimelineHandler(FMOD.Studio.EventInstance eventInstance, string busPath)
+    public TimelineHandler(FMOD.Studio.EventInstance eventInstance, string busPath, string ID)
     {
         // Constructor.
         // ================
 
         instance = eventInstance;
+        id = ID;
 
         // ================================
         // Part 1: Get duration!

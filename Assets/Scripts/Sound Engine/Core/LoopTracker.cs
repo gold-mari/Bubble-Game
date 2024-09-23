@@ -120,7 +120,7 @@ public class LoopTracker
         // Common intialization functions for both constructors.
         // ================
 
-        Debug.Log("LoopTracker: initializing");
+        Debug.Log($"LoopTracker ({timelineHandler.id}): initializing");
 
         if (handler != null)
         {
