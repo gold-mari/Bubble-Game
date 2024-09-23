@@ -46,6 +46,20 @@ public class BeatReader : MonoBehaviour
     }
 
     // ================================================================
+    // Public accessors
+    // ================================================================
+
+    public Beatmap GetBeatmap()
+    {
+        return currentBeatmap;
+    }
+
+    public LoopTracker GetLoopTracker()
+    {
+        return tracker;
+    }
+
+    // ================================================================
     // Event-handling methods
     // ================================================================
 

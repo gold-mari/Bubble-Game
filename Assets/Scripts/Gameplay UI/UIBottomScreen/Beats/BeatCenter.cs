@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BeatCenter : MonoBehaviour
 {
-    [SerializeField, Tooltip("The BeatIndicator component above this object.")]
-    private BeatIndicator beatIndicator;
+    [SerializeField, Tooltip("The BeatReader component present in the scene.")]
+    private BeatReader beatReader;
     [SerializeField]
     private Sprite spawnSprite;
     [SerializeField]
@@ -34,11 +34,11 @@ public class BeatCenter : MonoBehaviour
 
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        currentBeatmap = beatIndicator.currentBeatmap;
+        currentBeatmap = beatReader.GetBeatmap();
         
         // Wait a frame before subscribing. Messy, but it's what we've gotta do.
         yield return null;
-        tracker = beatIndicator.tracker;
+        tracker = beatReader.GetLoopTracker();
         tracker.update += OnUpdate;
     }
 

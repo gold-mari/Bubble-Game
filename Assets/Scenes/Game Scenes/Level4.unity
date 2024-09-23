@@ -1255,6 +1255,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8059869883956108860, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: beatReader
+      value: 
+      objectReference: {fileID: 8830513069248788198}
     - target: {fileID: 8634881949700311681, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1605,5 +1609,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0af9e1b7f98946e46b32ecb1a9eebcce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8830513069248788198 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8830513069298444434, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+  m_PrefabInstance: {fileID: 8830513069248788194}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d11d1a6f750c65a4aa1eebafe41aec94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

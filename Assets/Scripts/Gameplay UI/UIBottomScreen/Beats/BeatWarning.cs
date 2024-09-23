@@ -8,8 +8,8 @@ public class BeatWarning : MonoBehaviour
     // Parameters
     // ================================================================
 
-    [SerializeField, Tooltip("The BeatIndicator component present in the scene.")]
-    private BeatIndicator beatIndicator;
+    [SerializeField, Tooltip("The BeatReader component present in the scene.")]
+    private BeatReader beatReader;
 
     // ================================================================
     // Internal variables
@@ -30,11 +30,11 @@ public class BeatWarning : MonoBehaviour
         // initialize our UI.
         // ================
 
-        currentBeatmap = beatIndicator.currentBeatmap;
+        currentBeatmap = beatReader.GetBeatmap();
         
         // Wait a frame before subscribing. Messy, but it's what we've gotta do.
         yield return null;
-        tracker = beatIndicator.tracker;
+        tracker = beatReader.GetLoopTracker();
 
         if (tracker != null)
         {

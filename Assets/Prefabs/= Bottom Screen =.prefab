@@ -1622,7 +1622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873cef94c1a26254bb20693b1d2c83bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatIndicator: {fileID: 767874232575045537}
+  beatReader: {fileID: 8830513069298444434}
   restSize: 7.5
   warningSize: 30
 --- !u!1 &5550783837632388834
@@ -2796,9 +2796,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 8830513069773835060}
     m_Modifications:
     - target: {fileID: 3472459601981619294, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
+      propertyPath: beatReader
+      value: 
+      objectReference: {fileID: 8830513069298444434}
+    - target: {fileID: 3472459601981619294, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: beatIndicator
       value: 
-      objectReference: {fileID: 767874232575045537}
+      objectReference: {fileID: 0}
     - target: {fileID: 5750587618130120885, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: m_Name
       value: -- Gameplay --
@@ -3206,6 +3210,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5750587618130120886, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
   m_PrefabInstance: {fileID: 3837761916197638262}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8830513069298444434 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5750587618400270564, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
+  m_PrefabInstance: {fileID: 3837761916197638262}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d11d1a6f750c65a4aa1eebafe41aec94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5871912622121354352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3213,6 +3228,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8830513069773835060}
     m_Modifications:
+    - target: {fileID: 2992870794977212057, guid: 308336b743964ea4d849df56024047cb, type: 3}
+      propertyPath: beatReader
+      value: 
+      objectReference: {fileID: 8830513069298444434}
     - target: {fileID: 3166437025706137338, guid: 308336b743964ea4d849df56024047cb, type: 3}
       propertyPath: m_Name
       value: -- UI --
@@ -3265,6 +3284,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4514666897232337484, guid: 308336b743964ea4d849df56024047cb, type: 3}
+      propertyPath: beatReader
+      value: 
+      objectReference: {fileID: 8830513069298444434}
     - target: {fileID: 4779454874535570246, guid: 308336b743964ea4d849df56024047cb, type: 3}
       propertyPath: musicPlayer
       value: 
@@ -3277,19 +3300,12 @@ PrefabInstance:
       propertyPath: musicPlayer
       value: 
       objectReference: {fileID: 8830513068628213623}
+    - target: {fileID: 8296524739305890862, guid: 308336b743964ea4d849df56024047cb, type: 3}
+      propertyPath: beatReader
+      value: 
+      objectReference: {fileID: 8830513069298444434}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 308336b743964ea4d849df56024047cb, type: 3}
---- !u!114 &767874232575045537 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6617248968695000017, guid: 308336b743964ea4d849df56024047cb, type: 3}
-  m_PrefabInstance: {fileID: 5871912622121354352}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eac66dcf3fc0d3b42b38d81abcabb2c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &8830513068383851147 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3166437025706137339, guid: 308336b743964ea4d849df56024047cb, type: 3}

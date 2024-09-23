@@ -711,7 +711,7 @@ Transform:
   m_Children:
   - {fileID: 3166437025163047330}
   - {fileID: 3166437026228281004}
-  - {fileID: 5177105877196113214}
+  - {fileID: 3127473382090513721}
   - {fileID: 8168870779642677984}
   - {fileID: 8047810305842956377}
   m_Father: {fileID: 0}
@@ -892,7 +892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d685592c84b6244848c8b32f7a5965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatIndicator: {fileID: 6617248968695000017}
+  beatReader: {fileID: 0}
   echoRing: {fileID: 7018748468990621227, guid: 97ce346abf087ec4baddd3f45bdc774e, type: 3}
 --- !u!210 &179006389912295626
 SortingGroup:
@@ -967,14 +967,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4288431581657138240}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.268, y: 3.471, z: 0}
+  m_LocalPosition: {x: -5.268001, y: 3.4710002, z: 0}
   m_LocalScale: {x: 2.413506, y: 2.413506, z: 2.413506}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3156161448801515922}
   - {fileID: 3306047110449891942}
-  m_Father: {fileID: 5177105877196113214}
-  m_RootOrder: 0
+  m_Father: {fileID: 3166437025706137339}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &7198798447938967780
 SortingGroup:
@@ -1095,7 +1095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9c1b7d6167bbda428c8ddaa4d1bdc64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatIndicator: {fileID: 6617248968695000017}
+  beatReader: {fileID: 0}
   spawnSprite: {fileID: 1043953582, guid: 1a4e05ba926dd7341bdd9dd3811a9e6c, type: 3}
   massSpawnSprite: {fileID: 1082548958, guid: 1a4e05ba926dd7341bdd9dd3811a9e6c, type: 3}
   flipSprite: {fileID: -910226420, guid: 1a4e05ba926dd7341bdd9dd3811a9e6c, type: 3}
@@ -1236,54 +1236,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
---- !u!1 &6803102828912107344
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5177105877196113214}
-  - component: {fileID: 6617248968695000017}
-  m_Layer: 0
-  m_Name: Beat Indicators
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5177105877196113214
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6803102828912107344}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 3127473382090513721}
-  m_Father: {fileID: 3166437025706137339}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6617248968695000017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6803102828912107344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eac66dcf3fc0d3b42b38d81abcabb2c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicManager: {fileID: 0}
-  currentBeatmap: {fileID: 11400000, guid: d655ab3fc26d86c4a98bfb5dd074e822, type: 2}
-  batchSize: 16
 --- !u!1 &8160782844362850483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,7 +1533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc500417319b40c4b8bdd54b4aa48ebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatIndicator: {fileID: 6617248968695000017}
+  beatReader: {fileID: 0}
   doFlip: 0
   minorSprite: {fileID: 21300000, guid: 089204be42771b34bb9cdc3f027d0ea3, type: 3}
   majorSprite: {fileID: 21300000, guid: 5bb6fd85ac2b5384798500b7f42dbb64, type: 3}
