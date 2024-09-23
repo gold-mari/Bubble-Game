@@ -42,7 +42,6 @@ public class RecedeOnMarker : ActionOnSwitchMap
         {
             animator.ResetTrigger("goFront");
             animator.SetTrigger("goBack");
-            Debug.Log($"{name} is going back");
         }
     }
 }
