@@ -40,6 +40,8 @@ public class DialogueHandler : MonoBehaviour
     [Header("SFX")]
     [SerializeField, Tooltip("The SFX played when advancing from a line.")]
     FMODUnity.EventReference advanceSFX;
+    [SerializeField, Tooltip("The number of characters between beeps. A 0 means every character beeps.\n\nDefault: 1")]
+    public uint beepDelay = 1;
 
     // ==============================================================
     // Internal variables
@@ -51,6 +53,8 @@ public class DialogueHandler : MonoBehaviour
     Dictionary<int, DialogueLine> lineDict = new();
     // The dictionary of actors, accessed by name.
     Dictionary<string, DialogueActor> actorDict = new();
+    // The dictionary of actor beepspeech SFX, accessed by name.
+    Dictionary<string, FMODUnity.EventReference> beepDict = new();
     // A timer we use to countdown when we can display a new character in our text, as per a typewriter effect.
     float typewriterTimer;
     // A timer we use that begins counting once a textbox is fully displayed. Once it's up, we can advance.
@@ -65,6 +69,10 @@ public class DialogueHandler : MonoBehaviour
     bool lineFinished = false;
     // Whether we can advance to the next textbox.
     bool canAdvance = false;
+    // The current SFX used for beepspeech.
+    FMODUnity.EventReference currentBeep;
+    // The number of characters until we beep again.
+    int untilBeep = 0;
 
     // ==============================================================
     // Initialization methods
@@ -90,6 +98,7 @@ public class DialogueHandler : MonoBehaviour
         foreach (Actor actor in actors)
         {
             actorDict.Add(actor.actorName, actor.actorObject);
+            beepDict.Add(actor.actorName, actor.beep);
         }
     }
 
@@ -174,6 +183,13 @@ public class DialogueHandler : MonoBehaviour
             {
                 typewriterTimer = 0;
                 UpdateTextFill(index);
+
+                if (untilBeep == 0) {
+                    FMODUnity.RuntimeManager.PlayOneShot(currentBeep);
+                    untilBeep = (int)beepDelay;
+                } else {
+                    untilBeep--;
+                }
             }
             else
             {
@@ -227,6 +243,9 @@ public class DialogueHandler : MonoBehaviour
         //print($"New line: {textbox.text}");
 
         speaker.text = lineDict[line].actor;
+
+        currentBeep = beepDict[lineDict[line].actor];        
+        untilBeep = 0;
 
         if (lineDict[line].actions != "")
         {
@@ -303,4 +322,6 @@ public class Actor
     public string actorName;
     [Tooltip("The DialogueActor associated with this actor. This component will recieve triggers for this actor.")]
     public DialogueActor actorObject;
+    [Tooltip("The beepspeech SFX event associated with this actor. Plays when dialogue advances.")]
+    public FMODUnity.EventReference beep;
 }

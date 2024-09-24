@@ -128,12 +128,12 @@
 		},
 		{
 			"actor":"NULL",
-			"actions":"Director.Show,Director.ScanToKeyframe/0,         Brute.goBack,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"actions":"Director.Show,Director.ScanToKeyframe/0,         Brute.goBack,Ha'na.goBack,Hannah.goFront,Sammy.goFront,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
 			"text":"CRAWL GOES HERE."
 		},
 		{
 			"actor":"Hannah",
-			"actions":"Director.Hide,Ha'na.goBack,Hannah.goFront,Sammy.goFront,Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
+			"actions":"Director.Hide,Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
 			"text":"oh wait is that like the whole monologue?"
 		},
 		{

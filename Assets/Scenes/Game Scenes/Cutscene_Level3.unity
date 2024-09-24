@@ -1633,14 +1633,49 @@ MonoBehaviour:
   actors:
   - actorName: Sammy
     actorObject: {fileID: 801359216}
+    beep:
+      Guid:
+        Data1: 683043245
+        Data2: 1254730578
+        Data3: -150344565
+        Data4: -1766800746
+      Path: event:/SFX/BeepSpeech/Sammy
   - actorName: Hannah
     actorObject: {fileID: 1504144811}
+    beep:
+      Guid:
+        Data1: -796575966
+        Data2: 1291939600
+        Data3: -435618671
+        Data4: 81864777
+      Path: event:/SFX/BeepSpeech/Hannah
   - actorName: Ha'na
     actorObject: {fileID: 672273786}
+    beep:
+      Guid:
+        Data1: 683043245
+        Data2: 1254730578
+        Data3: -150344565
+        Data4: -1766800746
+      Path: event:/SFX/BeepSpeech/Sammy
   - actorName: Ghost
     actorObject: {fileID: 1520292726}
+    beep:
+      Guid:
+        Data1: 1082464226
+        Data2: 1322403846
+        Data3: 1223060396
+        Data4: -119497056
+      Path: event:/SFX/BeepSpeech/Ghost
   - actorName: Jester
     actorObject: {fileID: 104420699}
+    beep:
+      Guid:
+        Data1: 110084870
+        Data2: 1235158236
+        Data3: 445059
+        Data4: 944135515
+      Path: event:/SFX/BeepSpeech/Jester
   textbox: {fileID: 1694607377}
   speaker: {fileID: 1875600448}
   typewriterDelay: 0.025
@@ -1669,6 +1704,7 @@ MonoBehaviour:
       Data3: -1163619680
       Data4: 130900427
     Path: event:/SFX/Menus/MenuButtonClick
+  beepDelay: 1
 --- !u!1 &1580428552
 GameObject:
   m_ObjectHideFlags: 0
