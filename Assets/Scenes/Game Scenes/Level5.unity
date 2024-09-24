@@ -4269,18 +4269,58 @@ MonoBehaviour:
   actors:
   - actorName: Sammy
     actorObject: {fileID: 876077479}
-  - actorName: Hannah
-    actorObject: {fileID: 0}
+    beep:
+      Guid:
+        Data1: 683043245
+        Data2: 1254730578
+        Data3: -150344565
+        Data4: -1766800746
+      Path: event:/SFX/BeepSpeech/Sammy
   - actorName: Ha'na
     actorObject: {fileID: 1235332712}
+    beep:
+      Guid:
+        Data1: -796575966
+        Data2: 1291939600
+        Data3: -435618671
+        Data4: 81864777
+      Path: event:/SFX/BeepSpeech/Hannah
   - actorName: Knight
     actorObject: {fileID: 300275520}
+    beep:
+      Guid:
+        Data1: 683043245
+        Data2: 1254730578
+        Data3: -150344565
+        Data4: -1766800746
+      Path: event:/SFX/BeepSpeech/Sammy
   - actorName: Ghost
     actorObject: {fileID: 332919684}
+    beep:
+      Guid:
+        Data1: 1082464226
+        Data2: 1322403846
+        Data3: 1223060396
+        Data4: -119497056
+      Path: event:/SFX/BeepSpeech/Ghost
   - actorName: Jester
     actorObject: {fileID: 981808223}
+    beep:
+      Guid:
+        Data1: 110084870
+        Data2: 1235158236
+        Data3: 445059
+        Data4: 944135515
+      Path: event:/SFX/BeepSpeech/Jester
   - actorName: Brute
     actorObject: {fileID: 1494763755}
+    beep:
+      Guid:
+        Data1: -1917882627
+        Data2: 1124096486
+        Data3: -234778956
+        Data4: -624691206
+      Path: event:/SFX/BeepSpeech/Brute
   textbox: {fileID: 1685119569}
   speaker: {fileID: 2115319454}
   typewriterDelay: 0.025
@@ -4309,6 +4349,7 @@ MonoBehaviour:
       Data3: -1163619680
       Data4: 130900427
     Path: event:/SFX/Menus/MenuButtonClick
+  beepDelay: 1
 --- !u!1 &2109525335
 GameObject:
   m_ObjectHideFlags: 0
@@ -4709,6 +4750,10 @@ PrefabInstance:
     - target: {fileID: 4183038994577475913, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4563153436459329186, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4563153436459329212, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_Alpha
