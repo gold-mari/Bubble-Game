@@ -2402,8 +2402,22 @@ MonoBehaviour:
   actors:
   - actorName: Sammy
     actorObject: {fileID: 9101164051883707293}
+    beep:
+      Guid:
+        Data1: 683043245
+        Data2: 1254730578
+        Data3: -150344565
+        Data4: -1766800746
+      Path: event:/SFX/BeepSpeech/Sammy
   - actorName: Hannah
     actorObject: {fileID: 7389759874234636202}
+    beep:
+      Guid:
+        Data1: -796575966
+        Data2: 1291939600
+        Data3: -435618671
+        Data4: 81864777
+      Path: event:/SFX/BeepSpeech/Hannah
   textbox: {fileID: 974850343955927016}
   speaker: {fileID: 2087622945159152348}
   typewriterDelay: 0.025
@@ -2432,6 +2446,7 @@ MonoBehaviour:
       Data3: -1163619680
       Data4: 130900427
     Path: event:/SFX/Menus/MenuButtonClick
+  beepDelay: 1
 --- !u!1 &7164314686387567215
 GameObject:
   m_ObjectHideFlags: 0
