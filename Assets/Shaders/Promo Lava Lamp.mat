@@ -43,10 +43,10 @@ Material:
     - _HalftoneSoftness: 0.1
     - _MainAnimSpeed: 0.5
     - _MeltAnimSpeed: 0.1
-    - _MeltStrength: 0.795
+    - _MeltStrength: 0.561
     - _NoiseAnimSpeed: 0.25
-    - _OrbDensity: 3
-    - _OrbSize: 2
+    - _OrbDensity: 3.6
+    - _OrbSize: 2.54
     - _QueueControl: 0
     - _QueueOffset: 0
     - _StartTime: 2
