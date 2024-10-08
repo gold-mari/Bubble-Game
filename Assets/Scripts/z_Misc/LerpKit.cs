@@ -57,7 +57,7 @@ public class LerpKit
     {
         // Centered spike is a lerp function that goes from 0 to 1 to 0, with the peak of
         // one located when t==center. A piecewise function, CenteredSpike is subject
-        // to discontinuity of velocity at its beak. But that's okay! :D
+        // to discontinuity of velocity at its peak. But that's okay! :D
 
         // ================
 
@@ -65,10 +65,5 @@ public class LerpKit
                              : Mathf.Pow((Mathf.Sin(Mathf.PI*(t-(((3*center)-1)/2f)))+1)/2, power);
 
         // Woof! Doozy.
-    }
-
-    internal static float CenteredSpike(object value, float v1, float v2)
-    {
-        throw new NotImplementedException();
     }
 }
