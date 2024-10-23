@@ -34,12 +34,12 @@
 		{
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
-			"text":"Dork. Alright, he dissolves with a SCHWINK. <3"
+			"text":"Fine, he dissolves with a SCHWINK. <3"
 		},
 		{
 			"actor":"Hannah",
 			"actions":"Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
-			"text":"that kinda feels incongruent but yay!!!!!"
+			"text":"LET'S FUCKING GO"
 		},
 		{
 			"actor":"Ha'na",
@@ -89,17 +89,17 @@
 		{
 			"actor":"Hannah",
 			"actions":"Ha'na.goBack,Hannah.goFront,Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
-			"text":"i nod solemnly and split the money with the Beasts."
+			"text":"i nod solemnly and split the hoard with the Beasts."
 		},
 		{
 			"actor":"Sammy",
 			"actions":"Brute.goBack,Sammy.goFront,Sammy.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
-			"text":"Alright, then the Jester and the Ghost take their leave up the stairs, waving goodbye!"
+			"text":"Alright, then the Jester and the Poltergeist leave up the stairs, waving goodbye!"
 		},
 		{
 			"actor":"Ha'na",
 			"actions":"Hannah.goBack,Ha'na.goFront,Ha'na.sqBounce,       Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
-			"text":"fly free, beautiful besties. <3"
+			"text":"fly free, beautiful besties..."
 		},
 		{
 			"actor":"Sammy",
@@ -119,12 +119,7 @@
 		{
 			"actor":"Ha'na",
 			"actions":"Ha'na.sqBounce,       Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
-			"text":"..."
-		},
-		{
-			"actor":"Ha'na",
-			"actions":"Ha'na.sqBounce,       Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
-			"text":"hell yeah man"
+			"text":"... hell yeah, brother."
 		},
 		{
 			"actor":"NULL",
@@ -134,47 +129,32 @@
 		{
 			"actor":"Hannah",
 			"actions":"Director.Hide,Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
-			"text":"oh wait is that like the whole monologue?"
+			"text":"fuck yeah, that was awesome."
 		},
 		{
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
-			"text":"Yeah, I think my brain's hitting a caffeine crash LMAO."
-		},
-		{
-			"actor":"Hannah",
-			"actions":"Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
-			"text":"valid also holy shit that was so fun. king shit for all the work you do, sammy."
-		},
-		{
-			"actor":"Sammy",
-			"actions":"Sammy.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
-			"text":"Aww, hey, I'm just happy you enjoyed. <3 I love you!!"
-		},
-		{
-			"actor":"Hannah",
-			"actions":"Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
-			"text":"i love you!"
-		},
-		{
-			"actor":"Sammy",
-			"actions":"Sammy.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
-			"text":"I LOVE YOU!!!"
+			"text":"Aww, hey, I'm just happy you enjoyed. <3"
 		},
         {
 			"actor":"Hannah",
 			"actions":"Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
-			"text":"i love you!!!!!!"
+			"text":"... do you wanna get lunch or something?"
 		},
         {
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
-			"text":"I LOVE YOU!!!!!!!!!!!!!!!!!"
+			"text":"Sure! Pizza? I'd love to do a playtest report, I think there's potential here..."
 		},
 		{
 			"actor":"Hannah",
 			"actions":"Hannah.sqBounce,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle",
-			"text":"also we should leave, i think the café closed 10 minutes ago."
+			"text":"down hard."
+		},
+        {
+			"actor":"NULL",
+			"actions":"Director.Show,Director.ScanToKeyframe/2,         Brute.goBack,Ha'na.goBack,Hannah.goFront,Sammy.goFront,       Ha'na.sqIdle,Jester.sqIdle,Brute.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Knight.sqIdle",
+			"text":"CRAWL GOES HERE."
 		}
 	]
 }

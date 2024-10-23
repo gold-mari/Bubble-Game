@@ -151,23 +151,7 @@ public class DialogueHandler : MonoBehaviour
             if (canAdvance)
             {
                 FMODUnity.RuntimeManager.PlayOneShot(advanceSFX);
-                
-                if (index < lineDict.Count-1)
-                {
-                    index++;
-                }
-                else
-                {
-                    FinishDialogue();
-                    print("DialogueHandler: ActionOnEnd invoked");
-                    return;
-                }
-
-                lineFinished = false;
-                canAdvance = false;
-                typewriterTimer = 0;
-                advanceTimer = 0;
-                ChangeText(index);
+                NextLine();
             }
             // If the line is not finished, finish it.
             else if (!lineFinished)
@@ -214,8 +198,10 @@ public class DialogueHandler : MonoBehaviour
 
     public void FinishDialogue()
     {
-        done = true;
-        ActionOnEnd?.Invoke();
+        if (!done) {
+            done = true;
+            ActionOnEnd?.Invoke();
+        }
     }
 
     // ==============================================================
@@ -226,11 +212,16 @@ public class DialogueHandler : MonoBehaviour
     {
         index++;
 
-        lineFinished = false;
-        canAdvance = false;
-        typewriterTimer = 0;
-        advanceTimer = 0;
-        ChangeText(index);
+        if (index >= lineDict.Count) { // Advancing from final line- end dialogue.
+            FinishDialogue();
+            print("DialogueHandler: ActionOnEnd invoked");
+        } else { // Advancing from any other line- behave normally.
+            lineFinished = false;
+            canAdvance = false;
+            typewriterTimer = 0;
+            advanceTimer = 0;
+            ChangeText(index);
+        }
     }
 
     void ChangeText(int line)
