@@ -87,7 +87,7 @@
 				
 		{	
 			"actor":"Ha'na",
-			"actions":"Ha'na.sqBounce,           Hannah.sqIdle,Knight.sqIdle,Sammy.sqIdle,  Ha'na.Bad,Knight.Bad",
+			"actions":"Ha'na.sqBounce,           Hannah.sqIdle,Knight.sqIdle,Sammy.sqIdle,  Ha'na.Neutral,Knight.Bad",
 			"text":"what?? no............?"
 		},
 				
@@ -96,28 +96,28 @@
 			"actions":"Hannah.goFront,Hannah.sqBounce,Ha'na.goBack,          Ha'na.sqIdle,Knight.sqIdle,Sammy.sqIdle,   Hannah.Good,Knight.Bad",
 			"text":"and as i say this i start shuffling towards the entrance. super inconspicuous."
 		},
-				
+		
 		{	
 			"actor":"Knight",
-			"actions":"Knight.sqBounce,          Hannah.sqIdle,Ha'na.sqIdle,Sammy.sqIdle,   Hannah.Bad,Knight.Bad",
+			"actions":"Knight.sqBounce,          Hannah.sqIdle,Ha'na.sqIdle,Sammy.sqIdle,   Hannah.Good,Knight.Bad",
 			"text":"Your feet betray your honor, cur! Draw your sword and duel for the right to delve first!!"
 		},
 				
 		{	
 			"actor":"Ha'na",
-			"actions":"Ha'na.goFront,Ha'na.sqBounce,Hannah.goBack,           Hannah.sqIdle,Knight.sqIdle,Sammy.sqIdle,  Ha'na.Good,Knight.Bad",
+			"actions":"Ha'na.goFront,Ha'na.sqBounce,Hannah.goBack,           Hannah.sqIdle,Knight.sqIdle,Sammy.sqIdle,  Ha'na.Neutral,Knight.Bad",
 			"text":"or we could just team up?"
 		},
 				
 		{	
 			"actor":"Knight",
-			"actions":"Knight.sqBounce,          Hannah.sqIdle,Ha'na.sqIdle,Sammy.sqIdle,   Ha'na.Bad,Knight.Good",
+			"actions":"Knight.sqBounce,          Hannah.sqIdle,Ha'na.sqIdle,Sammy.sqIdle,   Ha'na.Neutral,Knight.Good",
 			"text":"Ha! You waver, cat of Hemiquaver!"
 		},
 				
 		{	
 			"actor":"Knight",
-			"actions":"Knight.sqBounce,          Hannah.sqIdle,Ha'na.sqIdle,Sammy.sqIdle,   Ha'na.Bad,Knight.Bad",
+			"actions":"Knight.sqBounce,          Hannah.sqIdle,Ha'na.sqIdle,Sammy.sqIdle,   Ha'na.Neutral,Knight.Bad",
 			"text":"Surely you have heard enough stories of me to know you will lose this fight!"
 		},
 				
