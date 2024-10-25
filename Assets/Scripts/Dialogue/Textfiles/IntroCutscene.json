@@ -5,122 +5,122 @@
 			"actor":"NULL",
 			"actions":"Sammy.sqIdle,Hannah.sqIdle",
 			"text":"CRAWL GOES HERE."
-		},		
+		},	
 		{	
 			"actor":"Hannah",
 			"actions":"Director.Hide,       Hannah.sqBounce,Sammy.sqIdle,   Hannah.Neutral,Sammy.Neutral",
 			"text":"do we have to do the intro every time?"
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,Hannah.sqIdle,    Hannah.Neutral,Sammy.Good",
 			"text":"If you ask me to run a Beast Dungeon session for you, I'll run the entire session!"
-		},		
+		},	
 		{	
 			"actor":"Hannah",
 			"actions":"Hannah.sqBounce,Sammy.sqIdle,    Hannah.Good,Sammy.Neutral",
 			"text":"this 'mighty hero' wants to fight some ghosts."
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,Hannah.sqIdle,    Hannah.Good,Sammy.Good",
 			"text":"I'll put a really wet and pathetic one on the ground floor, just for you. <3"
-		},		
+		},	
 		{	
 			"actor":"NULL",
 			"actions":"Director.Show,Director.ScanToKeyframe/1,       Sammy.sqIdle,Hannah.sqIdle",
 			"text":"CRAWL GOES HERE."
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Director.Hide,       Sammy.sqBounce,Hannah.sqIdle,   Hannah.Neutral,Sammy.Bad",
 			"text":"..."
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,Hannah.sqIdle,    Hannah.Neutral,Sammy.Bad",
 			"text":"Hannah?"
-		},		
+		},	
 		{	
 			"actor":"Hannah",
 			"actions":"Hannah.sqBounce,Sammy.sqIdle,    Hannah.Neutral,Sammy.Bad",
 			"text":"yep."
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,Hannah.sqIdle,    Hannah.Neutral,Sammy.Bad",
 			"text":"Am I hearing video game sounds right now?"
-		},		
+		},	
 		{	
 			"actor":"Hannah",
 			"actions":"Hannah.sqBounce,Sammy.sqIdle,    Hannah.Good,Sammy.Bad",
 			"text":"yep. playing DigiBubble Beat DX while you exposit."
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,Hannah.sqIdle,    Hannah.Neutral,Sammy.Bad",
 			"text":"The nerve!! Here, let me pull up a <i>Household Man Funny Moments</i> vid to keep your attention. >:P"
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,Hannah.sqIdle,    Hannah.Neutral,Sammy.Neutral",
 			"text":"... Actually, wait. That's the musical bubble one, right?"
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,Hannah.sqIdle,    Hannah.Neutral,Sammy.Neutral",
 			"text":"... Does it have free-play? :3c"
-		},		
+		},	
 		{	
 			"actor":"Hannah",
 			"actions":"Hannah.sqBounce,Sammy.sqIdle,    Hannah.Neutral,Sammy.Neutral",
 			"text":"yea? uh oh, you're planning something."
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,Hannah.sqIdle,    Hannah.Neutral,Sammy.Bad",
 			"text":"Okay, hear me out: we can still run the Highclaw Plains one shot, but we ditch the combat system..."
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,Hannah.sqIdle,    Hannah.Neutral,Sammy.Good",
 			"text":"...and instead, we run every fight as a DigiBubble match? I can set up the levels."
-		},		
+		},	
 		{	
 			"actor":"Hannah",
 			"actions":"Hannah.sqBounce,Sammy.sqIdle,    Hannah.Neutral,Sammy.Neutral",
 			"text":"woah. okay. you think you're up to it?"
 			
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,Hannah.sqIdle,    Hannah.Neutral,Sammy.Good",
 			"text":"Oh yeah, this'll be a lovely change of pace for moi."
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,Hannah.sqIdle,    Hannah.Neutral,Sammy.Bad",
 			"text":"I'm thinking we title it...... <i>BEAST DUNGEON RELOADED: Beat Bubble Deluxe!</i>"
-		},		
+		},	
 		{	
 			"actor":"Hannah",
 			"actions":"Hannah.sqBounce,Sammy.sqIdle,    Hannah.Neutral,Sammy.Neutral",
 			"text":"wordy."
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,Hannah.sqIdle,    Hannah.Neutral,Sammy.Bad",
 			"text":"<i>Musical Monsters of Mine.</i>"
-		},		
+		},	
 		{	
 			"actor":"Hannah",
 			"actions":"Hannah.sqBounce,Sammy.sqIdle,    Hannah.Neutral,Sammy.Neutral",
 			"text":"trademark infringing."
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,Hannah.sqIdle,    Hannah.Neutral,Sammy.Bad",
 			"text":"Hm... How about:"
 		}	
 	]		
-}
+}			

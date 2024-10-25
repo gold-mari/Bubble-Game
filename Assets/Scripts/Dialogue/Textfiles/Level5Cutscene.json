@@ -5,156 +5,156 @@
 			"actor":"Brute",
 			"actions":"Brute.sqBounce,Jester.startBack,Ghost.startBack,Knight.startBack,Sammy.startBack,Ha'na.startBack,           Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Hannah.Good,Brute.Bad",
 			"text":"NOOOO!!! MY BRAWN!!!"
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.goFront,Sammy.sqBounce,Brute.goBack,           Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Hannah.Good,Sammy.Good",
 			"text":"The Brute exhaustedly collapses into a puddle of sweat. No chance for a one-liner this time. u_u"
-		},		
+		},	
 		{	
 			"actor":"Hannah",
 			"actions":"Hannah.sqBounce,          Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Ha'na.sqIdle,        Hannah.Neutral,Sammy.Neutral",
 			"text":"ouch, i feel seen. alright, i make my way back down the exit staircase."
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,           Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Hannah.Neutral,Sammy.Neutral",
 			"text":"You arrive in a vast torchlit room full of piles of gold and treasure. It's the motherlode!"
-		},		
+		},	
 		{	
 			"actor":"Hannah",
 			"actions":"Hannah.sqBounce,          Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Ha'na.sqIdle,        Hannah.Good,Sammy.Neutral",
 			"text":"<font=\"caslon-antique-regular\">GOLD!</font>"
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,           Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Hannah.Good,Sammy.Bad",
 			"text":"As you enter, the gate behind you closes. A familiar knight stands before you. You approach tentatively."
-		},		
+		},	
 		{	
 			"actor":"Knight",
 			"actions":"Knight.goFront,Knight.sqBounce,Sammy.goBack,          Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Hannah.Neutral,Knight.Good",
 			"text":"Cadgeful cat of Hemiquaver! So you have made it past the other Beasts."
-		},		
+		},	
 		{	
 			"actor":"Knight",
 			"actions":"Knight.sqBounce,          Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Hannah.Neutral,Knight.Neutral",
 			"text":"Perhaps I underestimated you."
-		},		
+		},	
 		{	
 			"actor":"Ha'na",
 			"actions":"Ha'na.goFront,Ha'na.sqBounce,Hannah.goBack,           Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle,        Hannah.Neutral,Knight.Neutral",
 			"text":"balthazar? how did you get down here so fast?"
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.goFront,Sammy.sqBounce,Knight.goBack,           Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Hannah.Neutral,Sammy.Neutral",
 			"text":"He draws his sword with a SCHWINK."
-		},		
+		},	
 		{	
 			"actor":"Ha'na",
 			"actions":"Ha'na.sqBounce,           Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle,        Ha'na.Neutral,Sammy.Neutral",
 			"text":"hey, now. i won our duel fair and square."
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,           Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Ha'na.Neutral,Sammy.Neutral",
 			"text":"Without warning, you hear the gate behind you SLAM open. Quickly you turn, just in time to see..."
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,           Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Ha'na.Neutral,Sammy.Good",
 			"text":"...the three Beasts from earlier enter the room, rejuvenated and eager to strike!"
-		},		
+		},	
 		{	
 			"actor":"Ghost",
 			"actions":"Ghost.goFront,Ghost.sqBounce,Sammy.goBack,           Brute.sqIdle,Jester.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Ha'na.Bad,Ghost.Good",
 			"text":"hi again jerkwad,,,, *sniff* >_<"
-		},		
+		},	
 		{	
 			"actor":"Jester",
 			"actions":"Jester.goFront,Jester.sqBounce,Ghost.goBack,          Brute.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Ha'na.Bad,Jester.Good",
 			"text":"Fwa-ha~ We're back and ready to attack!"
-		},		
+		},	
 		{	
 			"actor":"Brute",
 			"actions":"Brute.goFront,Brute.sqBounce,Jester.goBack,           Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Ha'na.Bad,Brute.Neutral",
 			"text":"HELLO."
-		},		
+		},	
 		{	
 			"actor":"Ha'na",
 			"actions":"Ha'na.sqBounce,           Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle,        Ha'na.Bad,Brute.Neutral",
 			"text":"big guy, didn't i just beat you??"
-		},		
+		},	
 		{	
 			"actor":"Brute",
 			"actions":"Brute.sqBounce,           Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Ha'na.Bad,Brute.Neutral",
 			"text":"POWER NAP."
-		},		
+		},	
 		{	
 			"actor":"Ha'na",
 			"actions":"Ha'na.sqBounce,           Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle,        Ha'na.Bad,Brute.Neutral",
 			"text":"h-hey, balthazar, let's team up and split the treasure! two-on-three isn't great, but we'll have a chance!"
-		},		
+		},	
 		{	
 			"actor":"Jester",
 			"actions":"Jester.goFront,Jester.sqBounce,Brute.goBack,          Brute.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Ha'na.Bad,Jester.Good",
 			"text":"Fwo-ho-ho-hoo~!!\nTwo-on-three? Oh naur naur naur~! The fight you're in is one-on-four!!"
-		},		
+		},	
 		{	
 			"actor":"Hannah",
 			"actions":"Hannah.goFront,Hannah.sqBounce,Ha'na.goBack,          Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Ha'na.sqIdle,        Hannah.Neutral,Jester.Good",
 			"text":"???"
-		},		
+		},	
 		{	
 			"actor":"Hannah",
 			"actions":"Hannah.sqBounce,          Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Ha'na.sqIdle,        Hannah.Neutral,Jester.Good",
 			"text":"i turn to look at balthazar ???"
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.goFront,Sammy.sqBounce,Jester.goBack,           Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Hannah.Neutral,Jester.Good",
 			"text":"Pointing his sword at your head, an inky black aura musters behind him."
-		},		
+		},	
 		{	
 			"actor":"Ha'na",
 			"actions":"Ha'na.goFront,Ha'na.sqBounce,Hannah.goBack,           Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle,        Ha'na.Bad,Jester.Good",
 			"text":"you're the fourth Beast??"
-		},		
+		},	
 		{	
 			"actor":"Knight",
 			"actions":"Knight.goFront,Knight.sqBounce,Sammy.goBack,          Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Ha'na.Bad,Knight.Bad",
 			"text":"I am Balthazar the Beryline- the Lord of the Highclaw Plains Beast Dungeon."
-		},		
+		},	
 		{	
 			"actor":"Ghost",
 			"actions":"Ghost.goFront,Ghost.sqBounce,Knight.goBack,           Brute.sqIdle,Jester.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Ha'na.Bad,Ghost.Good",
 			"text":"take that, dummy!!! >w<"
-		},		
+		},	
 		{	
 			"actor":"Knight",
 			"actions":"Knight.goFront,Knight.sqBounce,Ghost.goBack,          Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Ha'na.Bad,Knight.Bad",
 			"text":"I will say again what I told you when you first came to my gate: no one will rob me of my rightful spoils."
-		},		
+		},	
 		{	
 			"actor":"Knight",
 			"actions":"Knight.sqBounce,          Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Ha'na.Bad,Knight.Good",
 			"text":"You have fought honorably, cat! It is now time for you to die honorably."
-		},		
+		},	
 		{	
 			"actor":"Hannah",
 			"actions":"Hannah.goFront,Hannah.sqBounce,Ha'na.goBack,          Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Ha'na.sqIdle,        Hannah.Neutral,Knight.Good",
 			"text":"... i draw my sword. with a SCHWINK."
-		},		
+		},	
 		{	
 			"actor":"Ha'na",
 			"actions":"Ha'na.goFront,Ha'na.sqBounce,Hannah.goBack,           Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Hannah.sqIdle,        Ha'na.Good,Knight.Good",
 			"text":"i've beat you all before! i can do it! ... another time again!"
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.goFront,Sammy.sqBounce,Knight.goBack,           Brute.sqIdle,Jester.sqIdle,Ghost.sqIdle,Knight.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Ha'na.Good,Sammy.Good",
 			"text":"Okay, here we go. Roll with disadvantage, and we'll get into... Preset... 5!!!"
 		}	
 	]		
-}
+}			

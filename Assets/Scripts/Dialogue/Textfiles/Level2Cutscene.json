@@ -5,121 +5,121 @@
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,Ha'na.startBack,Knight.startBack,Ghost.startBack,            Ha'na.sqIdle,Hannah.sqIdle,Ghost.sqIdle,Knight.sqIdle,        Hannah.Neutral,Sammy.Neutral",
 			"text":"Exhausted, Balthazar the Beryline staggers back, leaning on his sword like a cane."
-		},		
+		},	
 		{	
 			"actor":"Knight",
 			"actions":"Knight.goFront,Knight.sqBounce,Sammy.goBack,          Ha'na.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ghost.sqIdle,        Hannah.Neutral,Knight.Bad",
 			"text":"You are. Stronger. Than I thought."
-		},		
+		},	
 		{	
 			"actor":"Hannah",
 			"actions":"Hannah.sqBounce,          Ha'na.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle,        Hannah.Good,Knight.Bad",
 			"text":"i don't give him the satisfaction of a response."
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.goFront,Sammy.sqBounce,Knight.goBack,           Ha'na.sqIdle,Hannah.sqIdle,Ghost.sqIdle,Knight.sqIdle,        Hannah.Good,Sammy.Good",
 			"text":"Ice cold, Hannah! Alright, so you leave him behind and walk into the <font=\"caslon-antique-regular\">DUNGEON</font>."
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,           Ha'na.sqIdle,Hannah.sqIdle,Ghost.sqIdle,Knight.sqIdle,        Hannah.Neutral,Sammy.Neutral",
 			"text":"As the gate THUDs behind you, you find yourself in a room lit by thousands of flickering blue candles."
-		},		
+		},	
 		{	
 			"actor":"Hannah",
 			"actions":"Hannah.sqBounce,          Ha'na.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle,        Hannah.Neutral,Sammy.Neutral",
 			"text":"blue..."
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,           Ha'na.sqIdle,Hannah.sqIdle,Ghost.sqIdle,Knight.sqIdle,        Hannah.Neutral,Sammy.Good",
 			"text":"Suddenly, a poltergeist in gay little armwarmers descends through the ceiling."
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,           Ha'na.sqIdle,Hannah.sqIdle,Ghost.sqIdle,Knight.sqIdle,        Hannah.Neutral,Sammy.Neutral",
 			"text":"It gently lifts you off the ground."
-		},		
+		},	
 		{	
 			"actor":"Ghost",
 			"actions":"Ghost.goFront,Ghost.sqBounce,Sammy.goBack,           Ha'na.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Knight.sqIdle,        Hannah.Neutral,Ghost.Good",
 			"text":"waAAAAaaAAAaaaaa!!! oh hey you're new"
-		},		
+		},	
 		{	
 			"actor":"Ghost",
 			"actions":"Ghost.sqBounce,           Ha'na.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Knight.sqIdle,        Hannah.Neutral,Ghost.Neutral",
 			"text":"are- *sniff* are you an adventurer too :((("
-		},		
+		},	
 		{	
 			"actor":"Ha'na",
 			"actions":"Ha'na.goFront,Ha'na.sqBounce,Hannah.goBack,           Sammy.sqIdle,Hannah.sqIdle,Ghost.sqIdle,Knight.sqIdle,        Ha'na.Good,Ghost.Neutral",
 			"text":"... i'm here to fix the plumbing."
-		},		
+		},	
 		{	
 			"actor":"Ghost",
 			"actions":"Ghost.sqBounce,           Ha'na.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Knight.sqIdle,        Ha'na.Good,Ghost.Neutral",
 			"text":"you don't have any tools ... also Beasts don't need to use the toilets ..."
-		},		
+		},	
 		{	
 			"actor":"Ha'na",
 			"actions":"Ha'na.sqBounce,           Sammy.sqIdle,Hannah.sqIdle,Ghost.sqIdle,Knight.sqIdle,        Ha'na.Bad,Ghost.Neutral",
 			"text":"shit."
-		},		
+		},	
 		{	
 			"actor":"Ghost",
 			"actions":"Ghost.sqBounce,           Ha'na.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Knight.sqIdle,        Ha'na.Bad,Ghost.Neutral",
 			"text":"no we don't do that"
-		},		
+		},	
 		{	
 			"actor":"Ghost",
 			"actions":"Ghost.sqBounce,           Ha'na.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Knight.sqIdle,        Ha'na.Bad,Ghost.Bad",
 			"text":"anyway it's very mean to lie ::>_<:: adventurers make me so sad!!!"
-		},		
+		},	
 		{	
 			"actor":"Ghost",
 			"actions":"Ghost.sqBounce,           Ha'na.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Knight.sqIdle,        Ha'na.Bad,Ghost.Neutral",
 			"text":"*sniff* they always lie to me and it just makes it a really hostile work environment,,,"
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.goFront,Sammy.sqBounce,Ghost.goBack,           Ha'na.sqIdle,Hannah.sqIdle,Ghost.sqIdle,Knight.sqIdle,        Ha'na.Bad,Sammy.Neutral",
 			"text":"WHUNK! The poltergeist slams you against the ceiling using its ghosty gravity magic."
-		},		
+		},	
 		{	
 			"actor":"Hannah",
 			"actions":"Hannah.goFront,Hannah.sqBounce,Ha'na.goBack,          Ha'na.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle,        Hannah.Neutral,Sammy.Neutral",
 			"text":"whunk"
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,           Ha'na.sqIdle,Hannah.sqIdle,Ghost.sqIdle,Knight.sqIdle,        Hannah.Neutral,Sammy.Bad",
 			"text":"Oh, fuck off."
-		},		
+		},	
 		{	
 			"actor":"Hannah",
 			"actions":"Hannah.sqBounce,          Ha'na.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle,        Hannah.Good,Sammy.Bad",
 			"text":"whunk off"
-		},		
+		},	
 		{	
 			"actor":"Ghost",
 			"actions":"Ghost.goFront,Ghost.sqBounce,Sammy.goBack,           Ha'na.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Knight.sqIdle,        Hannah.Good,Ghost.Good",
 			"text":"anywayyy i have to kill you now, boss's orders sowwy\n/_ \\ don't worry it'll be quick,,"
-		},		
+		},	
 		{	
 			"actor":"Ha'na",
 			"actions":"Ha'na.sqBounce,Ha'na.goFront,Hannah.goBack,           Sammy.sqIdle,Hannah.sqIdle,Ghost.sqIdle,Knight.sqIdle,        Ha'na.Neutral,Ghost.Good",
 			"text":"not so fast!"
-		},		
+		},	
 		{	
 			"actor":"Hannah",
 			"actions":"Hannah.goFront,Hannah.sqBounce,Ha'na.goBack,          Ha'na.sqIdle,Sammy.sqIdle,Ghost.sqIdle,Knight.sqIdle,        Hannah.Good,Ghost.Good",
 			"text":"and then i pull out my poltergeist sword for slaying poltergeists."
-		},		
+		},	
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.goFront,Sammy.sqBounce,Ghost.goBack,           Ha'na.sqIdle,Hannah.sqIdle,Ghost.sqIdle,Knight.sqIdle,        Hannah.Good,Sammy.Good",
 			"text":"Schwink! Alright, roll for tempo and then let's get Preset 2 started!"
 		}	
 	]		
-}
+}			
