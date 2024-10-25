@@ -5,74 +5,62 @@
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,Brute.startBack,Jester.startBack,Ghost.startBack,Knight.startBack,      Ha'na.sqIdle,Brute.sqIdle,Ghost.sqIdle,Knight.sqIdle,Jester.sqIdle,        Ha'na.Neutral,Sammy.Neutral",
 			"text":"Balthazar looks on with fury from the back. The Beasts seem weary!"
-		},
-				
+		},		
 		{	
 			"actor":"Knight",
 			"actions":"Knight.goFront,Knight.sqBounce,Sammy.goBack,     Ha'na.sqIdle,Brute.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Jester.sqIdle,        Ha'na.Neutral,Knight.Bad",
 			"text":"Insolent, impotent, INCOMPETENT!"
-		},
-				
+		},		
 		{	
 			"actor":"Knight",
 			"actions":"Knight.sqBounce,     Ha'na.sqIdle,Brute.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Jester.sqIdle,        Ha'na.Neutral,Knight.Bad",
 			"text":"What use are you Beasts if you can't fight off a single sickly cat!?"
-		},
-				
+		},		
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.goFront,Sammy.sqBounce,Knight.goBack,      Ha'na.sqIdle,Brute.sqIdle,Ghost.sqIdle,Knight.sqIdle,Jester.sqIdle,        Ha'na.Neutral,Sammy.Neutral",
 			"text":"The Beasts look at each other hesitantly."
-		},
-				
+		},		
 		{	
 			"actor":"Knight",
 			"actions":"Knight.goFront,Knight.sqBounce,Sammy.goBack,     Ha'na.sqIdle,Brute.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Jester.sqIdle,        Ha'na.Neutral,Knight.Bad",
 			"text":"What are you waiting for? End this or- or I'll take the loss out of your annual bonuses! I'll... I'll-!"
-		},
-				
+		},		
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.goFront,Sammy.sqBounce,Knight.goBack,      Ha'na.sqIdle,Brute.sqIdle,Ghost.sqIdle,Knight.sqIdle,Jester.sqIdle,        Ha'na.Neutral,Sammy.Good",
 			"text":"Suddenly, the Beasts drop their arms! Balthazar is stunned into silence."
-		},
-				
+		},		
 		{	
 			"actor":"Knight",
 			"actions":"Knight.goFront,Knight.sqBounce,Sammy.goBack,     Ha'na.sqIdle,Brute.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Jester.sqIdle,        Ha'na.Neutral,Knight.Bad",
 			"text":"… What is this."
-		},
-				
+		},		
 		{	
 			"actor":"Brute",
 			"actions":"Brute.goFront,Brute.sqBounce,Ha'na.goBack,      Ha'na.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,Jester.sqIdle,        Brute.Good,Knight.Bad",
 			"text":"LABOR STOPPAGE."
-		},
-				
+		},		
 		{	
 			"actor":"Jester",
 			"actions":"Jester.goFront,Jester.sqBounce,Brute.goBack,     Ha'na.sqIdle,Brute.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,        Jester.Neutral,Knight.Bad",
 			"text":"For too long, you've taken our work for granted! Without it, let's see you panic~!"
-		},
-				
+		},		
 		{	
 			"actor":"Ghost",
 			"actions":"Ghost.goFront,Ghost.sqBounce,Jester.goBack,      Ha'na.sqIdle,Brute.sqIdle,Knight.sqIdle,Sammy.sqIdle,Jester.sqIdle,        Ghost.Bad,Knight.Bad",
 			"text":"the kitty tried to lie to me,,, but they were never mean to us like uve been !!! >3<"
-		},
-				
+		},		
 		{	
 			"actor":"Knight",
 			"actions":"Knight.sqBounce,     Ha'na.sqIdle,Brute.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Jester.sqIdle,        Ghost.Bad,Knight.Bad",
 			"text":"This… this is unsanctioned labor activity, you curs, it's a wildcat strike! I'll sue!"
-		},
-				
+		},		
 		{	
 			"actor":"Jester",
 			"actions":"Jester.goFront,Jester.sqBounce,Ghost.goBack,     Ha'na.sqIdle,Brute.sqIdle,Ghost.sqIdle,Knight.sqIdle,Sammy.sqIdle,        Jester.Good,Knight.Bad",
 			"text":"FWA HA HA~ So it's come to that? Let's give you a TRUE wildcat!"
-		},
-				
+		},		
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.goFront,Sammy.sqBounce,Knight.goBack,Ha'na.goFront,Jester.goBack,      Ha'na.sqIdle,Brute.sqIdle,Ghost.sqIdle,Knight.sqIdle,Jester.sqIdle,        Ha'na.Good,Sammy.Good",
@@ -89,8 +77,7 @@
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,      Ha'na.sqIdle,Brute.sqIdle,Ghost.sqIdle,Knight.sqIdle,Jester.sqIdle,        Ha'na.Good,Sammy.Good",
 			"text":"Balthazar eyes burn with white-hot rage."
-		},
-				
+		},		
 		{	
 			"actor":"Knight",
 			"actions":"EndDialogueEarly,Knight.goFront,Knight.sqBounce,Sammy.goBack,     Ha'na.sqIdle,Brute.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Jester.sqIdle,        Ha'na.Good,Knight.Bad",

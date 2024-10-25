@@ -5,92 +5,77 @@
 			"actor":"Sammy",
 			"actions":"Ha'na.startBack,Knight.startBack,Sammy.sqBounce,           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle, Hannah.Neutral,Sammy.Neutral",
 			"text":"After a long trek through the Largosan hills, you arrive at the gates of the Highclaw Plains <font=\"caslon-antique-regular\"><b>BEAST DUNGEON</b></font>."
-		},
-				
+		},		
 		{	
 			"actor":"Hannah",
 			"actions":"Hannah.sqBounce,          Ha'na.sqIdle,Knight.sqIdle,Sammy.sqIdle,   Hannah.Neutral,Sammy.Neutral",
 			"text":"do you have to do that voice whenever you say <font=\"caslon-antique-regular\"><i>'BEAST DUNGEON'</i></font>?"
-		},
-				
+		},		
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle,  Hannah.Neutral,Sammy.Good",
 			"text":"<font=\"caslon-antique-regular\"><b>YES.</b></font>"
-		},
-				
+		},		
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle,  Hannah.Neutral,Sammy.Neutral",
 			"text":"At the gates, you notice a knight laying down by a campfire."
-		},
-				
+		},		
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle,  Hannah.Neutral,Sammy.Bad",
 			"text":"You have to shield your eyes from the light bouncing off their comically-well-polished armor."
-		},
-				
+		},		
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle,  Hannah.Neutral,Sammy.Neutral",
 			"text":"As you approach, they stir and jolt up. *ahem cough cough ahem*"
-		},
-				
+		},		
 		{	
 			"actor":"Knight",
 			"actions":"Knight.goFront,Knight.sqBounce,Sammy.goBack,          Hannah.sqIdle,Ha'na.sqIdle,Sammy.sqIdle,   Hannah.Neutral,Knight.Neutral",
 			"text":"HALT TRAVELER. WHO GOES THERE?"
-		},
-				
+		},		
 		{	
 			"actor":"Hannah",
 			"actions":"Hannah.sqBounce,          Ha'na.sqIdle,Knight.sqIdle,Sammy.sqIdle,   Hannah.Neutral,Knight.Neutral",
 			"text":"i explain to the knight that-"
-		},
-				
+		},		
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.goFront,Sammy.sqBounce,Knight.goBack,           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle,  Hannah.Neutral,Sammy.Bad",
 			"text":"A-ba-bap. You lost the bet, this session is IN character!"
-		},
-				
+		},		
 		{	
 			"actor":"Hannah",
 			"actions":"Hannah.sqBounce,          Ha'na.sqIdle,Knight.sqIdle,Sammy.sqIdle,   Hannah.Bad,Sammy.Bad",
 			"text":"shit, right. last time i bet on Quizzil with you. okay:"
-		},
-				
+		},		
 		{	
 			"actor":"Ha'na",
 			"actions":"Ha'na.goFront,Ha'na.sqBounce,Hannah.goBack,           Hannah.sqIdle,Knight.sqIdle,Sammy.sqIdle,  Ha'na.Neutral,Sammy.Good",
 			"text":"fellow traveler, i am an adventurer! from the town of Hemiquaver."
-		},
-				
+		},		
 		{	
 			"actor":"Ha'na",
 			"actions":"Ha'na.sqBounce,           Hannah.sqIdle,Knight.sqIdle,Sammy.sqIdle,  Ha'na.Neutral,Sammy.Good",
 			"text":"here to explore and brave this *ahem* <font=\"caslon-antique-regular\"><i>BEAST DUNGEON</i></font>. for <font=\"caslon-antique-regular\"><i>GOLD</i></font>."
-		},
-				
+		},		
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle,  Ha'na.Neutral,Sammy.Good",
 			"text":"That's the spirit! The figure stands up and lays a hand on the emerald hilt of their sword."
-		},
-				
+		},		
 		{	
 			"actor":"Knight",
 			"actions":"Knight.goFront,Knight.sqBounce,Sammy.goBack,          Hannah.sqIdle,Ha'na.sqIdle,Sammy.sqIdle,   Ha'na.Neutral,Knight.Bad",
 			"text":"Then you are competition? Here to rob the great knight Balthazar the Beryline of his rightful spoils?"
-		},
-				
+		},		
 		{	
 			"actor":"Ha'na",
 			"actions":"Ha'na.sqBounce,           Hannah.sqIdle,Knight.sqIdle,Sammy.sqIdle,  Ha'na.Neutral,Knight.Bad",
 			"text":"what?? no............?"
-		},
-				
+		},		
 		{	
 			"actor":"Hannah",
 			"actions":"Hannah.goFront,Hannah.sqBounce,Ha'na.goBack,          Ha'na.sqIdle,Knight.sqIdle,Sammy.sqIdle,   Hannah.Good,Knight.Bad",
@@ -101,50 +86,42 @@
 			"actor":"Knight",
 			"actions":"Knight.sqBounce,          Hannah.sqIdle,Ha'na.sqIdle,Sammy.sqIdle,   Hannah.Good,Knight.Bad",
 			"text":"Your feet betray your honor, cur! Draw your sword and duel for the right to delve first!!"
-		},
-				
+		},		
 		{	
 			"actor":"Ha'na",
 			"actions":"Ha'na.goFront,Ha'na.sqBounce,Hannah.goBack,           Hannah.sqIdle,Knight.sqIdle,Sammy.sqIdle,  Ha'na.Neutral,Knight.Bad",
 			"text":"or we could just team up?"
-		},
-				
+		},		
 		{	
 			"actor":"Knight",
 			"actions":"Knight.sqBounce,          Hannah.sqIdle,Ha'na.sqIdle,Sammy.sqIdle,   Ha'na.Neutral,Knight.Good",
 			"text":"Ha! You waver, cat of Hemiquaver!"
-		},
-				
+		},		
 		{	
 			"actor":"Knight",
 			"actions":"Knight.sqBounce,          Hannah.sqIdle,Ha'na.sqIdle,Sammy.sqIdle,   Ha'na.Neutral,Knight.Bad",
 			"text":"Surely you have heard enough stories of me to know you will lose this fight!"
-		},
-				
+		},		
 		{	
 			"actor":"Ha'na",
 			"actions":"Ha'na.sqBounce,           Hannah.sqIdle,Knight.sqIdle,Sammy.sqIdle,  Ha'na.Good,Knight.Bad",
 			"text":"you're right, i have heard enough. SCHWINK."
-		},
-				
+		},		
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.goFront,Sammy.sqBounce,Knight.goBack,           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle,  Ha'na.Good,Sammy.Neutral",
 			"text":"Schwink?"
-		},
-				
+		},		
 		{	
 			"actor":"Hannah",
 			"actions":"Hannah.goFront,Hannah.sqBounce,Ha'na.goBack,          Ha'na.sqIdle,Knight.sqIdle,Sammy.sqIdle,   Hannah.Neutral,Sammy.Neutral",
 			"text":"like- a sword drawing, man. let me have this."
-		},
-				
+		},		
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle,  Hannah.Neutral,Sammy.Good",
 			"text":"Alright, so you schwink out your sword and schwonk it in front of you."
-		},
-				
+		},		
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle,  Hannah.Neutral,Sammy.Good",
