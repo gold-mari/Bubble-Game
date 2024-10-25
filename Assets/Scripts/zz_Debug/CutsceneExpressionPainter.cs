@@ -42,7 +42,7 @@ public class CutsceneExpressionPainter : MonoBehaviour
         int pos = currentChunk.IndexOf(term); // Find the first instance (after actor)
         pos = currentChunk.IndexOf(term, pos+1); // Find the second instance (after actions)
 
-        chunks[i] = currentChunk[..pos] + $",\t{extraActions}{term}" + currentChunk[(pos + term.Length)..];
+        chunks[i] = currentChunk[..pos] + $",        {extraActions}{term}" + currentChunk[(pos + term.Length)..];
 
         CopyToClipboard();
     }

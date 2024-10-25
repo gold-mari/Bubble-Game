@@ -231,7 +231,7 @@ public class DialogueHandler : MonoBehaviour
         // Changes the line of text to be displayed, along with associated actions and actor names.
         // ================
 
-        OnAdvance.Invoke(line);
+        OnAdvance?.Invoke(line);
 
         textbox.maxVisibleCharacters = 0;
         textbox.text = lineDict[line].text;

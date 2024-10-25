@@ -41,7 +41,7 @@ public class RecedeHandler : MonoBehaviour
         // ================
 
         transform.localPosition = Vector3.Lerp(frontPosition, backPosition, backgroundness);
-        if (sprite) sprite.color = Color.Lerp(frontColor, backColor, backgroundness);
         if (image) image.color = Color.Lerp(frontColor, backColor, backgroundness);
+        if (sprite && !image) sprite.color = Color.Lerp(frontColor, backColor, backgroundness);
     }
 }

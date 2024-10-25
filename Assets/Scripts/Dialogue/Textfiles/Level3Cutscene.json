@@ -3,103 +3,122 @@
 	[		
 		{	
 			"actor":"Ghost",
-			"actions":"Ghost.sqBounce,Hannah.startBack,Sammy.startBack,Jester.startBack,           Jester.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"actions":"Ghost.sqBounce,Hannah.startBack,Sammy.startBack,Jester.startBack,           Jester.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Ha'na.Neutral,Ghost.Bad",
 			"text":"no no no no no!!!! come on!!!! (T^T) i swear if i get written up for this,,"
-		},	
+		},
+				
 		{	
 			"actor":"Ha'na",
-			"actions":"Ha'na.sqBounce,           Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle",
+			"actions":"Ha'na.sqBounce,           Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,        Ha'na.Good,Ghost.Bad",
 			"text":"consider yourself... busted..."
-		},	
+		},
+				
 		{	
 			"actor":"Ghost",
-			"actions":"Ghost.sqBounce,           Jester.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"actions":"Ghost.sqBounce,           Jester.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Ha'na.Good,Ghost.Bad",
 			"text":">_< that wasn't even *sniff* a good line!........"
-		},	
+		},
+				
 		{	
 			"actor":"Sammy",
-			"actions":"Sammy.goFront,Sammy.sqBounce,Ghost.goBack,           Jester.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"actions":"Sammy.goFront,Sammy.sqBounce,Ghost.goBack,           Jester.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Ha'na.Good,Sammy.Good",
 			"text":"Bursting into tears, the poltergeist floats back up through the ceiling."
-		},	
+		},
+				
 		{	
 			"actor":"Sammy",
-			"actions":"Sammy.sqBounce,           Jester.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"actions":"Sammy.sqBounce,           Jester.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Ha'na.Good,Sammy.Neutral",
 			"text":"A line of candles illuminates the way down with a FWOOSH."
-		},	
+		},
+				
 		{	
 			"actor":"Hannah",
-			"actions":"Hannah.goFront,Hannah.sqBounce,Ha'na.goBack,           Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Ha'na.sqIdle",
+			"actions":"Hannah.goFront,Hannah.sqBounce,Ha'na.goBack,           Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Ha'na.sqIdle,        Hannah.Neutral,Sammy.Neutral",
 			"text":"ok, i head downstairs. also fwoosh haha"
-		},	
+		},
+				
 		{	
 			"actor":"Sammy",
-			"actions":"Sammy.sqBounce,           Jester.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
-			"text":"You can't mock all of my onomatopoeias! They're all I have. :'<"
-		},	
+			"actions":"Sammy.sqBounce,           Jester.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Hannah.Neutral,Sammy.Good",
+			"text":"You can't mock all of my onomatopoeias! They're all I have. ^,w;^"
+		},
+				
 		{	
 			"actor":"Hannah",
-			"actions":"Hannah.sqBounce,           Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Ha'na.sqIdle",
+			"actions":"Hannah.sqBounce,           Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Ha'na.sqIdle,        Hannah.Good,Sammy.Good",
 			"text":"that's not true, you also have the world record for largest ears ever of all time in the history of-"
-		},	
+		},
+				
 		{	
 			"actor":"Sammy",
-			"actions":"Sammy.sqBounce,           Jester.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"actions":"Sammy.sqBounce,           Jester.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Hannah.Good,Sammy.Good",
 			"text":"ANYWAY AS YOU ENTER FLOOR two, you find yourself in a white room illuminated by colored spotlights."
-		},	
+		},
+				
 		{	
 			"actor":"Sammy",
-			"actions":"Sammy.sqBounce,           Jester.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"actions":"Sammy.sqBounce,           Jester.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Hannah.Neutral,Sammy.Neutral",
 			"text":"A small disco-ball spins in the center of the room. Underneath it sits a jester in a polka-dotted wizard hat."
-		},	
+		},
+				
 		{	
 			"actor":"Jester",
-			"actions":"Jester.goFront,Jester.sqBounce,Sammy.goBack,          Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"actions":"Jester.goFront,Jester.sqBounce,Sammy.goBack,          Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Hannah.Neutral,Jester.Neutral",
 			"text":"Fwa-ha! So you defeated our precious poltergeist on floor one; but you'll see STARS when I'm done~!"
-		},	
+		},
+				
 		{	
 			"actor":"Ha'na",
-			"actions":"Ha'na.goFront,Ha'na.sqBounce,Hannah.goBack,           Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle",
+			"actions":"Ha'na.goFront,Ha'na.sqBounce,Hannah.goBack,           Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,        Hannah.Neutral,Jester.Neutral",
 			"text":"and who are you?"
-		},	
+		},
+				
 		{	
 			"actor":"Jester",
-			"actions":"Jester.sqBounce,          Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"actions":"Jester.sqBounce,          Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Hannah.Neutral,Jester.Good",
 			"text":"The wizard-class-clown of the Highclaw crew! Also, pit boss Beast on floor number two~!"
-		},	
+		},
+				
 		{	
 			"actor":"Ha'na",
-			"actions":"Ha'na.sqBounce,           Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle",
+			"actions":"Ha'na.sqBounce,           Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,        Ha'na.Neutral,Jester.Good",
 			"text":"do you rehearse these???"
-		},	
+		},
+				
 		{	
 			"actor":"Jester",
-			"actions":"Jester.sqBounce,          Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"actions":"Jester.sqBounce,          Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Ha'na.Neutral,Jester.Neutral",
 			"text":"My magic demands me to rhyme all the time. I've practiced! I'll still blow your ass sky high!!"
-		},	
+		},
+				
 		{	
 			"actor":"Ha'na",
-			"actions":"Ha'na.sqBounce,           Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle",
+			"actions":"Ha'na.sqBounce,           Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,        Ha'na.Neutral,Jester.Neutral",
 			"text":"that was a stretch."
-		},	
+		},
+				
 		{	
 			"actor":"Jester",
-			"actions":"Jester.sqBounce,          Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"actions":"Jester.sqBounce,          Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Ha'na.Neutral,Jester.Good",
 			"text":"Oh no, kitty, that's wrong, instead: the REAL stretch is that HAT over your head!\nFwo-ho-ho~!! >:3"
-		},	
+		},
+				
 		{	
 			"actor":"Hannah",
-			"actions":"Hannah.goFront,Hannah.sqBounce,Ha'na.goBack,          Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Ha'na.sqIdle",
+			"actions":"Hannah.goFront,Hannah.sqBounce,Ha'na.goBack,          Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Ha'na.sqIdle,        Hannah.Neutral,Jester.Good",
 			"text":"i shed a single solitary tear and pull out my sword."
-		},	
+		},
+				
 		{	
 			"actor":"Ha'na",
-			"actions":"Ha'na.goFront,Ha'na.sqBounce,Hannah.goBack,           Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle",
+			"actions":"Ha'na.goFront,Ha'na.sqBounce,Hannah.goBack,           Jester.sqIdle,Ghost.sqIdle,Sammy.sqIdle,Hannah.sqIdle,        Ha'na.Bad,Jester.Good",
 			"text":"you'll pay for that one... i swear it..."
-		},	
+		},
+				
 		{	
 			"actor":"Sammy",
-			"actions":"Sammy.goFront,Sammy.sqBounce,Jester.goBack,           Jester.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Ha'na.sqIdle",
+			"actions":"Sammy.goFront,Sammy.sqBounce,Jester.goBack,           Jester.sqIdle,Ghost.sqIdle,Hannah.sqIdle,Ha'na.sqIdle,        Ha'na.Bad,Sammy.Neutral",
 			"text":"They laugh and ready a magic bomb, rainbow energy gathering between their palms. Preset 3!!"
 		}	
 	]		
-}			
+}

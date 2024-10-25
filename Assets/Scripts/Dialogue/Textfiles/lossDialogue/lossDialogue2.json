@@ -3,7 +3,7 @@
 	[
 		{
 			"actor":"Sammy",
-			"actions":"Sammy.sqBounce,  Hannah.startBack",
+			"actions":"Sammy.sqBounce,  Hannah.startBack,        Sammy.Good",
 			"text":"But you won't yield yet!"
 		}
 	]
