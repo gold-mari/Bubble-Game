@@ -13,8 +13,8 @@ public class DialogueHandler : MonoBehaviour
 
     [SerializeField, Tooltip("Whether or not we choose between multiple dialogue files on start-up.\n\nDefault: false")]
     private bool shuffleFiles = false;
-    [SerializeField, HideIf("shuffleFiles"), Tooltip("The JSON file holding our script as a serialized Dialogue object.")]
-    private TextAsset dialogueFile;
+    [HideIf("shuffleFiles"), Tooltip("The JSON file holding our script as a serialized Dialogue object.")]
+    public TextAsset dialogueFile;
     [SerializeField, ShowIf("shuffleFiles"), Tooltip("The JSON file holding our script as a serialized Dialogue object.")]
     private TextAsset[] dialogueFiles = new TextAsset[]{};
     [SerializeField, ShowIf("shuffleFiles"), Tooltip("An unsigned uintVar used to make sure that the same Dialogue index " +
@@ -73,6 +73,8 @@ public class DialogueHandler : MonoBehaviour
     FMODUnity.EventReference currentBeep;
     // The number of characters until we beep again.
     int untilBeep = 0;
+    // Called whenever we advance a line, with our current index.
+    public System.Action<int> OnAdvance;
 
     // ==============================================================
     // Initialization methods
@@ -228,6 +230,8 @@ public class DialogueHandler : MonoBehaviour
     {
         // Changes the line of text to be displayed, along with associated actions and actor names.
         // ================
+
+        OnAdvance.Invoke(line);
 
         textbox.maxVisibleCharacters = 0;
         textbox.text = lineDict[line].text;
