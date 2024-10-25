@@ -88,6 +88,7 @@
 		},	
 		{	
 			"actor":"Hannah",
+			"actions":"Hannah.sqBounce,Sammy.sqIdle",
 			"text":"woah. okay. you think you're up to it?"
 			
 		},	

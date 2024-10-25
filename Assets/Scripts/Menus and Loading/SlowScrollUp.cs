@@ -55,7 +55,6 @@ public class SlowScrollUp : MonoBehaviour
         // ...
         // ================
         
-        print("hiding");
         gameObject.SetActive(false);
     }
 
@@ -73,7 +72,7 @@ public class SlowScrollUp : MonoBehaviour
         // ================
         
         currentFrameIndex = keyframe;
-        print($"Scanned to index {keyframe}, height {heightKeyframes[keyframe]}!");
+        // print($"Scanned to index {keyframe}, height {heightKeyframes[keyframe]}!");
         transform.localPosition = heightKeyframes[keyframe] * Vector3.up;
     }
 }
