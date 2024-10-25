@@ -79,15 +79,15 @@ public class CutsceneExpressionPainterEditor : Editor
     {
         base.OnInspectorGUI();
 
-        leftChar = SelectCharacter(leftChar);
-        leftExpr = SelectExpression(leftExpr);
+        leftChar = SelectCharacter(leftChar, leftExpr);
+        leftExpr = SelectExpression(leftExpr, leftChar);
 
         GUILayout.Label($"left ==== {leftChar}.{leftExpr}");
 
         GUILayout.Space(8);
 
-        rightChar = SelectCharacter(rightChar);
-        rightExpr = SelectExpression(rightExpr);
+        rightChar = SelectCharacter(rightChar, rightExpr);
+        rightExpr = SelectExpression(rightExpr, rightChar);
 
         GUILayout.Label($"right ==== {rightChar}.{rightExpr}");
 
@@ -107,39 +107,46 @@ public class CutsceneExpressionPainterEditor : Editor
         GUILayout.Label($"{painter.GetCurrentChunk()}");
     }
 
-    public CutsceneExpressionPainter.Ch SelectCharacter(CutsceneExpressionPainter.Ch original)
+    public CutsceneExpressionPainter.Ch SelectCharacter(
+        CutsceneExpressionPainter.Ch original,
+        CutsceneExpressionPainter.Ex expression)
     {
+        var temp = original;
+
         GUILayout.BeginHorizontal();
-        if (GUILayout.Button("Hannah")) return CutsceneExpressionPainter.Ch.Hannah;
-        if (GUILayout.Button("Hana")) return CutsceneExpressionPainter.Ch.Hana;
-        if (GUILayout.Button("Sammy")) return CutsceneExpressionPainter.Ch.Sammy;
-        if (GUILayout.Button("Knight")) return CutsceneExpressionPainter.Ch.Knight;
-        if (GUILayout.Button("Ghost")) return CutsceneExpressionPainter.Ch.Ghost;
-        if (GUILayout.Button("Jester")) return CutsceneExpressionPainter.Ch.Jester;
-        if (GUILayout.Button("Brute")) return CutsceneExpressionPainter.Ch.Brute;
+        if (GUILayout.Button("Hannah")) temp = CutsceneExpressionPainter.Ch.Hannah;
+        if (GUILayout.Button("Hana")) temp = CutsceneExpressionPainter.Ch.Hana;
+        if (GUILayout.Button("Sammy")) temp = CutsceneExpressionPainter.Ch.Sammy;
+        if (GUILayout.Button("Knight")) temp = CutsceneExpressionPainter.Ch.Knight;
+        if (GUILayout.Button("Ghost")) temp = CutsceneExpressionPainter.Ch.Ghost;
+        if (GUILayout.Button("Jester")) temp = CutsceneExpressionPainter.Ch.Jester;
+        if (GUILayout.Button("Brute")) temp = CutsceneExpressionPainter.Ch.Brute;
         GUILayout.EndHorizontal();
 
-        return original;
+        if (temp != original) {
+            painter.dialogueHandler.TestExpression(temp, expression);
+        }
+
+        return temp;
     }
 
-    public CutsceneExpressionPainter.Ex SelectExpression(CutsceneExpressionPainter.Ex original)
+    public CutsceneExpressionPainter.Ex SelectExpression(
+        CutsceneExpressionPainter.Ex original,
+        CutsceneExpressionPainter.Ch character)
     {
+        var temp = original;
+        
         GUILayout.BeginHorizontal();
-        if (GUILayout.Button("Neutral"))
-        {
-            return CutsceneExpressionPainter.Ex.Neutral;
-        }
-        if (GUILayout.Button("Good"))
-        {
-            return CutsceneExpressionPainter.Ex.Good;
-        }
-        if (GUILayout.Button("Bad"))
-        {
-            return CutsceneExpressionPainter.Ex.Bad;
-        }
+        if (GUILayout.Button("Neutral")) temp = CutsceneExpressionPainter.Ex.Neutral;
+        if (GUILayout.Button("Good")) temp = CutsceneExpressionPainter.Ex.Good;
+        if (GUILayout.Button("Bad")) temp = CutsceneExpressionPainter.Ex.Bad;
         GUILayout.EndHorizontal();
 
-        return original;
+        if (temp != original) {
+            painter.dialogueHandler.TestExpression(character, temp);
+        }
+
+        return temp;
     }
 
 }

@@ -285,6 +285,22 @@ public class DialogueHandler : MonoBehaviour
             lineFinished = true;
         }
     }
+
+    // ==============================================================
+    // Manipulator methods
+    // ==============================================================
+
+    public void TestExpression(CutsceneExpressionPainter.Ch ch, CutsceneExpressionPainter.Ex ex)
+    {
+        string character = ch.ToString();
+        if (character == "Hana") character = "Ha'na";
+
+        string expression = ex.ToString();
+
+        if (actorDict.ContainsKey(character)) {
+            actorDict[character].Trigger(expression);
+        }
+    }
 }
 
 // ==============================================================
