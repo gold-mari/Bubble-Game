@@ -165,7 +165,7 @@
 	<object class="MixerBusPanner" id="{51bc3ba1-74ee-49d2-a6a1-1c666c9d479b}" />
 	<object class="SingleSound" id="{e12b0f7a-a215-4173-835d-603db9b6039b}">
 		<property name="length">
-			<value>401.4675684666779</value>
+			<value>190.21321995464854</value>
 		</property>
 		<relationship name="automators">
 			<destination>{43c1711b-4e40-4d64-baa5-23bd833d4189}</destination>
