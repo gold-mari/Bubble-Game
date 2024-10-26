@@ -1619,7 +1619,7 @@ MonoBehaviour:
       Data3: -1163619680
       Data4: 130900427
     Path: event:/SFX/Menus/MenuButtonClick
-  beepDelay: 2
+  beepDelay: 1
 --- !u!1 &1580428552
 GameObject:
   m_ObjectHideFlags: 0
