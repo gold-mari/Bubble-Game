@@ -90,14 +90,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35758da0bdf0aeb45bff7439dc9867a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatIndicator: {fileID: 0}
+  beatReader: {fileID: 0}
   minorSFX:
     Guid:
-      Data1: 1397795370
-      Data2: 1215291488
-      Data3: -689953376
-      Data4: -1045925633
-    Path: event:/SFX/Gameplay/Test-Ticks/8th
+      Data1: -224291954
+      Data2: 1305924205
+      Data3: 1368571059
+      Data4: 1729246189
+    Path: event:/SFX/Gameplay/preShoot
 --- !u!1 &5264208117344287334
 GameObject:
   m_ObjectHideFlags: 0
