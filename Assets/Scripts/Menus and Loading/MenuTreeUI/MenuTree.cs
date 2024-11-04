@@ -10,7 +10,7 @@ public class MenuTree : MonoBehaviour
 
     [SerializeField, Tooltip("The text asset describing this menu's tree structure.")]
     private TextAsset treeSource;
-    [Tooltip("Something to be displayed if a menu node has node other content.")]
+    [Tooltip("Something to be displayed if a menu node has no other content.")]
     public BaseMenuContent baseContent;
     [SerializeField, Tooltip("A list of string-GameObject, ID-Content pairs.")]
     private List<ContentIDPair> contentIDPairs;
