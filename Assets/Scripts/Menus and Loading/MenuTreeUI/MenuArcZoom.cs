@@ -7,19 +7,25 @@ public class MenuArcZoom : MonoBehaviour
     [System.Serializable]
     private class RectTransformValues
     {
+        [Tooltip("The local position of the state.")]
         public Vector3 position;
+        [Tooltip("The local scale of the state.")]
         public Vector3 scale;
+        [Tooltip("The local rotation of the state along the z-axis.")]
         public float zRotation;
     }
 
-    [Range(0,1), SerializeField]
+    [Range(0,1), SerializeField, Tooltip("The amount (0-1) that we're zoomed in by.")]
     private float zoomAmount = 0;
-    [SerializeField]
+    [SerializeField, Tooltip("The rect transform values used for the non-zoomed-in state.")]
     private RectTransformValues regularState;
-    [SerializeField]
+    [SerializeField, Tooltip("The rect transform values used for the zoomed-in state.")]
     private RectTransformValues zoomState;
 
+    // Cached ref to the rect transform.
     private RectTransform rectTransform;
+    // Cache the last value, for edge detection.
+    private float lastZoomAmount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -33,12 +39,17 @@ public class MenuArcZoom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 pos = Vector3.Lerp(regularState.position, zoomState.position, zoomAmount);
-        Vector3 scale = Vector3.Lerp(regularState.scale, zoomState.scale, zoomAmount);
-        float zRotation = Mathf.Lerp(regularState.zRotation, zoomState.zRotation, zoomAmount);
+        if (lastZoomAmount != zoomAmount) {
 
-        rectTransform.anchoredPosition = pos;
-        rectTransform.localScale = scale;
-        rectTransform.localRotation = Quaternion.Euler(0, 0, zRotation);
+            Vector3 pos = Vector3.Lerp(regularState.position, zoomState.position, zoomAmount);
+            Vector3 scale = Vector3.Lerp(regularState.scale, zoomState.scale, zoomAmount);
+            float zRotation = Mathf.Lerp(regularState.zRotation, zoomState.zRotation, zoomAmount);
+
+            rectTransform.anchoredPosition = pos;
+            rectTransform.localScale = scale;
+            rectTransform.localRotation = Quaternion.Euler(0, 0, zRotation);
+
+            lastZoomAmount = zoomAmount;
+        }
     }
 }
