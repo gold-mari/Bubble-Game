@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3608077492403256105}
   - component: {fileID: -2306629731323004741}
   - component: {fileID: 3868141724027523857}
+  - component: {fileID: 7950453223601257576}
   m_Layer: 5
   m_Name: Menu Button
   m_TagString: Untagged
@@ -137,6 +138,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconSprites: {fileID: 11400000, guid: d92f8b45d038cff47b8cd337b4140ed3, type: 2}
   icon: {fileID: 4187645033431426182}
+  spinDuration: 0.5
+  fadeDuration: 0.1
+--- !u!225 &7950453223601257576
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3608077492403256100}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5566232497622479059
 GameObject:
   m_ObjectHideFlags: 0

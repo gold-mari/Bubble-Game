@@ -19,6 +19,8 @@ public class MenuTreeButton : MonoBehaviour
     [SerializeField, Tooltip("The amount of time it takes our icon to fully rotate when the button is hovered over."
                             +"\n\nDefault: 0.5")]
     private float spinDuration = 0.5f;
+    [SerializeField, Tooltip("The amount of time it takes our icon to fade in when initialized.\n\nDefault: 0.2")]
+    private float fadeDuration = 0.2f;
 
     // ==============================================================
     // Internal variables
@@ -28,6 +30,8 @@ public class MenuTreeButton : MonoBehaviour
     private MenuTreeNode node;
     // The base scale of this object.
     private Vector3 baseScale;
+    // The canvas group on this object.
+    private CanvasGroup canvasGroup;
 
     // ==============================================================
     // Initializers
@@ -36,9 +40,10 @@ public class MenuTreeButton : MonoBehaviour
     void Awake()
     {
         baseScale = transform.localScale;
+        canvasGroup = GetComponent<CanvasGroup>();
     }
 
-    public void Initialize(MenuTreeNode _node)
+    public void Initialize(MenuTreeNode _node, int index)
     {
         node = _node;
 
@@ -51,6 +56,9 @@ public class MenuTreeButton : MonoBehaviour
         }
 
         icon.transform.rotation = Quaternion.identity;
+
+        StopAllCoroutines();
+        if (canvasGroup && index >= 0) StartCoroutine(FadeRoutine(index));
     }
 
     // ==============================================================
@@ -93,5 +101,25 @@ public class MenuTreeButton : MonoBehaviour
         }
 
         icon.transform.rotation = Quaternion.identity;
+    }
+
+    private IEnumerator FadeRoutine(int index)
+    {
+        // Fades in our icon!
+        // ================
+
+        float elapsed = 0;
+        canvasGroup.alpha = 0;
+
+        yield return new WaitForSeconds(index*fadeDuration*0.5f);
+
+        while (elapsed < fadeDuration) {
+            canvasGroup.alpha = LerpKit.EaseIn(elapsed/fadeDuration, 3);
+
+            yield return null;
+            elapsed += Time.deltaTime;
+        }
+
+        canvasGroup.alpha = 1;
     }
 }

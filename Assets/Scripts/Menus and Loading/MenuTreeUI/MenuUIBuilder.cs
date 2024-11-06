@@ -18,11 +18,17 @@ public class MenuUIBuilder : MonoBehaviour
     private Transform anchorCenter;
     [SerializeField, Tooltip("The transform representing the right anchor of our button arc.")]
     private Transform anchorRight;
+    [SerializeField, Tooltip("The MenuArcZoom component in our scene.")]
+    private MenuArcZoom menuArcZoom;
     [Header("Prefab References")]
     [SerializeField, Tooltip("The UISpriteBinder used for our buttons.")]
     private UISpriteBinder iconSprites;
     [SerializeField, Tooltip("The prefab for our buttons.")]
     private GameObject buttonPrefab;
+    [Header("Parameters")]
+    [SerializeField, Tooltip("The amount of time, in seconds, it takes for the menu arc to zoom in/out."
+                            +"\n\nDefault: 0.2")]
+    private float menuArcZoomTime = 0.2f;
 
     private ObjectPool buttonPool;
     private ButtonSoundPlayer buttonSoundPlayer;
@@ -79,7 +85,7 @@ public class MenuUIBuilder : MonoBehaviour
                 buttonObj.transform.localPosition = position;
                 
                 MenuTreeButton menuTreeButton = buttonObj.GetComponent<MenuTreeButton>();
-                menuTreeButton.Initialize(newNode.children[i]);
+                menuTreeButton.Initialize(newNode.children[i], i);
                 menuTreeButton.SetStyle(MenuTreeButton.Style.Main);
 
                 // Also, for debug purposes, name the button.
@@ -101,7 +107,8 @@ public class MenuUIBuilder : MonoBehaviour
 
                 // Initialize the menuTreeButton.
                 MenuTreeButton menuTreeButton = buttonObj.GetComponent<MenuTreeButton>();
-                menuTreeButton.Initialize(null); // For MenuTreeButtons, null is "Back".
+                // For MenuTreeButtons, null is "Back".
+                menuTreeButton.Initialize(null, -1);
                 menuTreeButton.SetStyle(MenuTreeButton.Style.Back);
 
                 // Initialize the button events.
@@ -129,6 +136,10 @@ public class MenuUIBuilder : MonoBehaviour
             // and I don't know off the top of my head how to distinguish between
             // the SFX event triggers and the hover event triggers.
             buttonSoundPlayer.SupplySFX();
+
+            // Zoom in/out depending on whether or not the new node has content.
+            StopAllCoroutines();
+            StartCoroutine(ZoomRoutine(newNode.content));
         }
     }
 
@@ -142,8 +153,6 @@ public class MenuUIBuilder : MonoBehaviour
         // AGAIN, IMPORTANT: THIS METHOD WIPES ALL OF THE BUTTON'S TRIGGERS.
         // YOU MUST RE-ADD LOST TRIGGERS ELSEWHERE.
         // ================
-
-        Debug.Log("hover events added for button", button);
 
         // Find the EventTrigger on this object, or make one if one doesn't exist.
         if (!button.TryGetComponent<EventTrigger>(out var trigger)) {
@@ -181,5 +190,23 @@ public class MenuUIBuilder : MonoBehaviour
             trigger.triggers.Add(pointerEnterEvent);
             trigger.triggers.Add(pointerExitEvent);
         } 
+    }
+
+    private IEnumerator ZoomRoutine(GameObject content)
+    {
+        float start = menuArcZoom.ZoomAmount;
+        float end = (content == null) ? 0 : 1;
+
+        float distance = Mathf.Abs(end-start);
+        float duration = menuArcZoomTime*distance; // If we have less to go, take less time.
+
+        float elapsed = 0;
+        while (elapsed < duration) {
+            menuArcZoom.ZoomAmount = Mathf.Lerp(start, end, LerpKit.EaseInOut(elapsed/duration));
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        menuArcZoom.ZoomAmount = end;
     }
 }
