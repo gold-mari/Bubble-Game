@@ -127,6 +127,10 @@ public class MenuTree : MonoBehaviour
                 } else {
                     string[] terms = line.Trim().Split('\\'); // 0th term is the ID, 1st term is the description.
                     currentNode = new(terms[0], terms[1], parent, GetContent(terms[0]));
+
+                    if (terms.Length == 3 && terms[2] == "disable") {
+                        currentNode.enabled = false;
+                    }
                 }
             }
 
@@ -239,6 +243,8 @@ public class MenuTreeNode
     public string id;
     // The description of the menu
     public string description;
+    // The description of the menu
+    public bool enabled = true;
     // The to this node.
     public GameObject content = null;
     // The parent to this node.

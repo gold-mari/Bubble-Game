@@ -68,7 +68,9 @@ public class MenuUIBuilder : MonoBehaviour
                 Button button = buttonObj.GetComponent<Button>();
                 if (button) {
                     button.interactable = false;
-                    button.interactable = true;
+                    if (newNode.children[i].enabled) {
+                        button.interactable = true;
+                    }
 
                     button.onClick.RemoveAllListeners();
                     button.onClick.AddListener(() => {
