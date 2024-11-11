@@ -145,6 +145,7 @@ public class DialogueHandler : MonoBehaviour
         // ================
 
         if (!started) return;
+        if (Time.timeScale == 0) return;
 
         // On input...
         if (!done && Input.GetButtonDown("Fire1"))
