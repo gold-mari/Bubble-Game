@@ -240,6 +240,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1409663811593010413, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
+      propertyPath: ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1745968667}
+    - target: {fileID: 1409663811593010413, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
+      propertyPath: ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Pause
+      objectReference: {fileID: 0}
     - target: {fileID: 2330432771876135682, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -339,6 +347,14 @@ PrefabInstance:
     - target: {fileID: 3967049617441656948, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
       propertyPath: m_Name
       value: === Pause Menu Canvas ===
+      objectReference: {fileID: 0}
+    - target: {fileID: 4050573968918075875, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1703767368}
+    - target: {fileID: 4050573968918075875, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadLevel
       objectReference: {fileID: 0}
     - target: {fileID: 7175543262344956565, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

@@ -15,10 +15,10 @@ public class PauseManager : MonoBehaviour
     [SerializeField, Tooltip("Whether or not we can pause when entering this scene.\n\nDefault: true")]
     public bool canPauseOnEnter = true;
     
-    // Whether or not the game is actively paused.
-    private bool paused;
-    [SerializeField, ReadOnly, Tooltip("Whether or not the game is actively paused.")]
+    [SerializeField, ReadOnly, Tooltip("Whether or not the game is currently able to be paused.")]
     private bool canPause;
+    [SerializeField, ReadOnly, Tooltip("Whether or not the game is actively paused.")]
+    private bool paused;
 
     private void Awake()
     {

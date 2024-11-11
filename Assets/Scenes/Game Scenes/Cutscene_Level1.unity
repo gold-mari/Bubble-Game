@@ -2076,54 +2076,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 120389243683122203, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 822639723587630432, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: m_Name
-      value: Resume Menu Content
-      objectReference: {fileID: 0}
-    - target: {fileID: 1409663811593010413, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 1409663811593010413, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
       propertyPath: ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1948547927}
-    - target: {fileID: 1409663811593010413, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Pause
-      objectReference: {fileID: 0}
-    - target: {fileID: 1409663811593010413, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PauseManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1409663811593010413, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1409663811593010413, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 2330432771876135682, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 624003434}
-    - target: {fileID: 2330432771876135682, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadLevel
-      objectReference: {fileID: 0}
-    - target: {fileID: 2343803970594973851, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3762190153102663125, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: m_Color.a
-      value: 0.8784314
-      objectReference: {fileID: 0}
     - target: {fileID: 3967049617441656944, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2216,62 +2172,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: === Pause Menu Canvas ===
       objectReference: {fileID: 0}
-    - target: {fileID: 3967049617441656948, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4050573968918075875, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 624003434}
-    - target: {fileID: 4168248375556617659, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6432219205811847877, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6489903731055704740, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: contentIDPairs.Array.data[1].id
-      value: Resume
-      objectReference: {fileID: 0}
-    - target: {fileID: 7095132535262008917, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7175543262344956565, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7175543262344956565, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7175543262344956565, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1948547927}
-    - target: {fileID: 7175543262344956565, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Pause
-      objectReference: {fileID: 0}
-    - target: {fileID: 7175543262344956565, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PauseManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7175543262344956565, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 7504281440670787948, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7984193430785849696, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
 --- !u!1 &2052537115 stripped
