@@ -13,7 +13,7 @@ EditorBuildSettings:
     guid: 5680d651293fbc141b3db6ba8bc59279
   - enabled: 1
     path: Assets/Scenes/Game Scenes/MainMenu.unity
-    guid: 6edef8830c1639d42b88acf2019010e9
+    guid: 701716388d7b51b46a598b844f7b9860
   - enabled: 1
     path: Assets/Scenes/Game Scenes/Cutscene_Level1.unity
     guid: 8187881c10c7009488bbbece103cf302
