@@ -143,7 +143,8 @@ public class MenuUIBuilder : MonoBehaviour
 
             // Zoom in/out depending on whether or not the new node has content.
             StopAllCoroutines();
-            StartCoroutine(ZoomRoutine(newNode.content));
+            bool skipAnimation = oldNode == null; // If the old node was null, skip the animation.
+            StartCoroutine(ZoomRoutine(newNode.content, skipAnimation));
         }
     }
 
@@ -196,20 +197,22 @@ public class MenuUIBuilder : MonoBehaviour
         } 
     }
 
-    private IEnumerator ZoomRoutine(GameObject content)
+    private IEnumerator ZoomRoutine(GameObject content, bool impatient=false)
     {
         float start = menuArcZoom.ZoomAmount;
         float end = (content == null) ? 0 : 1;
 
-        float distance = Mathf.Abs(end-start);
-        float duration = menuArcZoomTime*distance; // If we have less to go, take less time.
+        if (!impatient) {
+            float distance = Mathf.Abs(end-start);
+            float duration = menuArcZoomTime*distance; // If we have less to go, take less time.
 
-        float elapsed = 0;
-        while (elapsed < duration) {
-            menuArcZoom.ZoomAmount = Mathf.Lerp(start, end, LerpKit.EaseInOut(elapsed/duration));
-            float deltaTime = unscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
-            elapsed += deltaTime;
-            yield return null;
+            float elapsed = 0;
+            while (elapsed < duration) {
+                menuArcZoom.ZoomAmount = Mathf.Lerp(start, end, LerpKit.EaseInOut(elapsed/duration));
+                float deltaTime = unscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
+                elapsed += deltaTime;
+                yield return null;
+            }
         }
 
         menuArcZoom.ZoomAmount = end;
