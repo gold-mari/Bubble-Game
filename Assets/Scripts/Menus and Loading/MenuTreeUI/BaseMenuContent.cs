@@ -46,12 +46,13 @@ public class BaseMenuContent : MonoBehaviour
             if (currentNode.parent == null) {
                 Debug.LogError("BaseMenuContent Error: node was null, implying we're hovering " +
                                "over a 'Back' button. However, BaseMenuContent's currentNode has no parent.");
+                return;
             } else {
                 titleTextObj.text = backTitleContent;
                 FormatAndUpdate(subtitleTextObj, backSubtitleFormula, currentNode.parent.id);
             }
         } else { // Display something other than "Back".
-            FormatAndUpdate(titleTextObj, titleFormula, node.id);
+            FormatAndUpdate(titleTextObj, titleFormula, node.id, node.overrideTitle);
             subtitleTextObj.text = node.description;
         }
     }
@@ -60,8 +61,13 @@ public class BaseMenuContent : MonoBehaviour
     // Helper methods
     // ==============================================================
 
-    private void FormatAndUpdate(TMP_Text textObject, string formula, string id)
+    private void FormatAndUpdate(TMP_Text textObject, string formula, string id, bool overrideTitle=false)
     {
+        if (overrideTitle) {
+            textObject.text = id;
+            return;
+        }
+
         string tagOpen = "_{";
         string tagClose = "}";
 

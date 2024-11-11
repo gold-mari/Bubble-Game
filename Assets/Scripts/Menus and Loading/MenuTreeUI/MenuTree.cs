@@ -144,8 +144,13 @@ public class MenuTree : MonoBehaviour
                     string[] terms = line.Trim().Split('\\'); // 0th term is the ID, 1st term is the description.
                     currentNode = new(terms[0], terms[1], parent, GetContent(terms[0]));
 
-                    if (terms.Length == 3 && terms[2] == "disable") {
-                        currentNode.enabled = false;
+                    // Overrides
+                    if (terms.Length == 3) {
+                        if (terms[2] == "disable") {
+                            currentNode.enabled = false;
+                        } else if (terms[2] == "overrideTitle") {
+                            currentNode.overrideTitle = true;
+                        }
                     }
                 }
             }
@@ -259,8 +264,10 @@ public class MenuTreeNode
     public string id;
     // The description of the menu
     public string description;
-    // The description of the menu
+    // Whether or not this node is enabled in the menu
     public bool enabled = true;
+    // Whether or not this node's title is always overridden by it's id
+    public bool overrideTitle = false;
     // The to this node.
     public GameObject content = null;
     // The parent to this node.
