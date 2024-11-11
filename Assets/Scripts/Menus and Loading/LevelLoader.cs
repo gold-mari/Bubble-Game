@@ -9,7 +9,7 @@ public class SceneData
 {
     [Tooltip("The name of this scene data.")]
     public string name;
-    [Scene, Tooltip("The scene associate with this name.")]
+    [Scene, Tooltip("The scene associated with this name.")]
     public string scene;
 }
 
@@ -22,11 +22,14 @@ public class LevelLoader : MonoBehaviour
 
     private Dictionary<string, string> sceneDict = new();
     private Animator transitionAnimator;
+    private PauseManager pauseManager;
     private string queuedLevel = "NULL";
 
     void Awake()
     {
         transitionAnimator = GetComponentInChildren<Animator>(true);
+        pauseManager = transform.parent.GetComponentInChildren<PauseManager>();
+
         if (transitionAnimator && transitionStart)
         {
             transitionAnimator.gameObject.SetActive(true);
@@ -65,6 +68,11 @@ public class LevelLoader : MonoBehaviour
             if (flavorRandomizer)
             {
                 flavorRandomizer.Randomize();
+            }
+
+            if (pauseManager) {
+                print("Locked pause to true");
+                pauseManager.LockPause(true);
             }
 
             transitionAnimator.gameObject.SetActive(true);

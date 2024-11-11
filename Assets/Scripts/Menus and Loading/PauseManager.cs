@@ -16,7 +16,7 @@ public class PauseManager : MonoBehaviour
     public bool canPauseOnEnter = true;
     
     [SerializeField, ReadOnly, Tooltip("Whether or not the game is currently able to be paused.")]
-    private bool canPause;
+    private bool pauseLocked;
     [SerializeField, ReadOnly, Tooltip("Whether or not the game is actively paused.")]
     private bool paused;
 
@@ -25,7 +25,9 @@ public class PauseManager : MonoBehaviour
         // Awake is called before start.
         // ================
 
-        canPause = canPauseOnEnter;
+        // Default state is always unpaused.
+        // If we can't pause on enter, lock to unpaused.
+        pauseLocked = !canPauseOnEnter;
     }
 
     private void Update()
@@ -33,7 +35,7 @@ public class PauseManager : MonoBehaviour
         // Update is called once per frame. We use it to detect a pause key input.
         // ================
 
-        if (canPause)
+        if (!pauseLocked)
         {
             foreach (KeyCode key in pauseKeys)
             {
@@ -75,9 +77,11 @@ public class PauseManager : MonoBehaviour
         }
     }
 
-    /*public void CanPause(bool status)
+    public void LockPause(bool status)
     {
-        // 
+        // Sets whether or not we can change the pause state by user input.
         // ================
-    }*/
+
+        pauseLocked = status;
+    }
 }
