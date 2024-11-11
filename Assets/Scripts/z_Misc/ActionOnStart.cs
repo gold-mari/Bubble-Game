@@ -5,12 +5,23 @@ using UnityEngine.Events;
 
 public class ActionOnStart : MonoBehaviour
 {
+    [SerializeField, Tooltip("If true, our action is called in Start.\n\nDefault: true")]
+    private bool onStart = true;
+    [SerializeField, Tooltip("If true, our action is called in OnEnable.\n\nDefault: false")]
+    private bool onEnable = false;
     [SerializeField]
     UnityEvent ourEvent;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        ourEvent?.Invoke();
+        if (onStart) ourEvent?.Invoke();
+    }
+
+    private void OnEnable()
+    {
+        if (onEnable) {
+            ourEvent?.Invoke();
+        }
     }
 }

@@ -39,6 +39,8 @@ public class MenuTree : MonoBehaviour
     }
     // A list of IDs being used in our tree already, to avoid doublecounting.
     private HashSet<string> idsInUse = new();
+    // Check if we have already called start once before.
+    bool calledStart = false;
 
     // ==============================================================
     // Initializers
@@ -61,6 +63,20 @@ public class MenuTree : MonoBehaviour
         // ================
         
         Current = root;
+        calledStart = true;
+    }
+
+    private void OnEnable()
+    {
+        // We want the menu to restart when the menu is set to inactive and
+        // active again. Thus, if start has already been called before, and
+        // we recieve the OnEnable signal, reinitialize.
+        // ================
+
+        if (calledStart) {
+            Current = null;
+            Current = root;
+        }
     }
 
     private MenuTreeNode ConstructTree()

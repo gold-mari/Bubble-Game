@@ -9,12 +9,14 @@ using NaughtyAttributes;
 
 public class LeapfrogTextTicker : MonoBehaviour
 {
+    [Header("Text")]
     [SerializeField, Tooltip("The text formula used to fill out textContent.")]
     private string textFormula;
     [SerializeField, ReadOnly, Tooltip("The actual text currently applied to our text objects.")]
     private string textContent;
-    [SerializeField, Tooltip("The text prefab that we spawn.")]
-    private GameObject prefab;
+    [Header("Animation and Format")]
+    [SerializeField, Tooltip("Whether we should use unscaled time for our animations.\n\nDefault: false")]
+    bool unscaledTime = false;
     [SerializeField, Tooltip("The speed, in units per second, at which our text scrolls.\n\nDefault: 15")]
     private float baseScrollSpeed = 15;
     [SerializeField, Tooltip("The factor by which our speed multiplicatively increases when speeding up.\n\nDefault: 5")]
@@ -23,6 +25,9 @@ public class LeapfrogTextTicker : MonoBehaviour
     private float speedUpDuration = 0.5f;
     [SerializeField, Tooltip("The width of text objects, relative to its preferredWidth.\n\nDefault: 1.1")]
     private float paddingWidth = 1.1f;
+    [Header("References")]
+    [SerializeField, Tooltip("The text prefab that we spawn.")]
+    private GameObject prefab;
     [SerializeField, Tooltip("The RectTransform that bounds this text.")]
     private RectTransform boundingRect;
     [SerializeField, Tooltip("The MenuTree we're reading from to update our text.")]
@@ -50,13 +55,20 @@ public class LeapfrogTextTicker : MonoBehaviour
                 Initialize();
             }
 
-            // And always update the text content and animate the speedup.
-            UpdateTextContent(newNode.id);
-
-            if (speedCoroutine != null) {
-                StopCoroutine(speedCoroutine);
+            // And always update the text content.
+            if (newNode != null) {
+                UpdateTextContent(newNode.id);
+            } else {
+                UpdateTextContent("Null");
             }
-            speedCoroutine = StartCoroutine(SpeedUpRoutine());
+
+            // If we're transitioning from another node, animate the speedup.
+            if (oldNode != null) {
+                if (speedCoroutine != null) {
+                    StopCoroutine(speedCoroutine);
+                }
+                speedCoroutine = StartCoroutine(SpeedUpRoutine());
+            }
         };
     }
 
@@ -133,7 +145,8 @@ public class LeapfrogTextTicker : MonoBehaviour
             if (!currentObject.activeSelf) continue;
 
             // Move all our objects to the left.
-            rectDict[currentObject].localPosition += scrollSpeed * Time.deltaTime * Vector3.right;
+            float deltaTime = unscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
+            rectDict[currentObject].localPosition += scrollSpeed * deltaTime * Vector3.right;
 
             // If the object is out of bounds...
             if (FullyOut(rectDict[currentObject], boundingRect)) {
@@ -275,7 +288,8 @@ public class LeapfrogTextTicker : MonoBehaviour
             );
 
             yield return null;
-            elapsed += Time.deltaTime;
+            float deltaTime = unscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
+            elapsed += deltaTime;
         }
 
         scrollSpeed = baseScrollSpeed;

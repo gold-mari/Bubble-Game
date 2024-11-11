@@ -32,6 +32,8 @@ public class MenuTreeButton : MonoBehaviour
     private Vector3 baseScale;
     // The canvas group on this object.
     private CanvasGroup canvasGroup;
+    // Whether or not animations on this button should use unscaled time.
+    bool unscaledTime = false;
 
     // ==============================================================
     // Initializers
@@ -43,9 +45,10 @@ public class MenuTreeButton : MonoBehaviour
         canvasGroup = GetComponent<CanvasGroup>();
     }
 
-    public void Initialize(MenuTreeNode _node, int index)
+    public void Initialize(MenuTreeNode _node, int index, bool _unscaledTime=false)
     {
         node = _node;
+        unscaledTime = _unscaledTime;
 
         // If the node is null, treat this as a Back button.
         // Hacky, but it'll work for our purposes.
@@ -97,7 +100,8 @@ public class MenuTreeButton : MonoBehaviour
             icon.transform.rotation = Quaternion.Euler(0, amount*360, 0);
 
             yield return null;
-            elapsed += Time.deltaTime;
+            float deltaTime = unscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
+            elapsed += deltaTime;
         }
 
         icon.transform.rotation = Quaternion.identity;
@@ -111,13 +115,15 @@ public class MenuTreeButton : MonoBehaviour
         float elapsed = 0;
         canvasGroup.alpha = 0;
 
-        yield return new WaitForSeconds(index*fadeDuration*0.5f);
+        float waitTime = index*fadeDuration*0.5f;
+        yield return unscaledTime ? new WaitForSecondsRealtime(waitTime) : new WaitForSeconds(waitTime);
 
         while (elapsed < fadeDuration) {
             canvasGroup.alpha = LerpKit.EaseIn(elapsed/fadeDuration, 3);
 
             yield return null;
-            elapsed += Time.deltaTime;
+            float deltaTime = unscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
+            elapsed += deltaTime;
         }
 
         canvasGroup.alpha = 1;

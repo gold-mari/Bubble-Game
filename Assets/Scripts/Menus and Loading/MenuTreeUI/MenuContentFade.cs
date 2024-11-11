@@ -9,6 +9,8 @@ public class MenuContentFade : MonoBehaviour
     // Parameters
     // ==============================================================
 
+    [SerializeField, Tooltip("Whether we should use unscaled time for our animations.\n\nDefault: false")]
+    bool unscaledTime = false;
     [SerializeField, Tooltip("The amount of time it takes our icon to fade in when initialized.\n\nDefault: 0.1")]
     private float fadeDuration = 0.1f;
 
@@ -48,7 +50,8 @@ public class MenuContentFade : MonoBehaviour
             canvasGroup.alpha = LerpKit.EaseIn(elapsed/fadeDuration, 3);
 
             yield return null;
-            elapsed += Time.deltaTime;
+            float deltaTime = unscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
+            elapsed += deltaTime;
         }
 
         canvasGroup.alpha = 1;

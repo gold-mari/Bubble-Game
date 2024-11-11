@@ -26,6 +26,8 @@ public class MenuUIBuilder : MonoBehaviour
     [SerializeField, Tooltip("The prefab for our buttons.")]
     private GameObject buttonPrefab;
     [Header("Parameters")]
+    [SerializeField, Tooltip("Whether we should use unscaled time for our animations.\n\nDefault: false")]
+    bool unscaledTime = false;
     [SerializeField, Tooltip("The amount of time, in seconds, it takes for the menu arc to zoom in/out."
                             +"\n\nDefault: 0.2")]
     private float menuArcZoomTime = 0.2f;
@@ -87,7 +89,7 @@ public class MenuUIBuilder : MonoBehaviour
                 buttonObj.transform.localPosition = position;
                 
                 MenuTreeButton menuTreeButton = buttonObj.GetComponent<MenuTreeButton>();
-                menuTreeButton.Initialize(newNode.children[i], i);
+                menuTreeButton.Initialize(newNode.children[i], i, unscaledTime);
                 menuTreeButton.SetStyle(MenuTreeButton.Style.Main);
 
                 // Also, for debug purposes, name the button.
@@ -110,7 +112,7 @@ public class MenuUIBuilder : MonoBehaviour
                 // Initialize the menuTreeButton.
                 MenuTreeButton menuTreeButton = buttonObj.GetComponent<MenuTreeButton>();
                 // For MenuTreeButtons, null is "Back".
-                menuTreeButton.Initialize(null, -1);
+                menuTreeButton.Initialize(null, -1, unscaledTime);
                 menuTreeButton.SetStyle(MenuTreeButton.Style.Back);
 
                 // Initialize the button events.
@@ -205,7 +207,8 @@ public class MenuUIBuilder : MonoBehaviour
         float elapsed = 0;
         while (elapsed < duration) {
             menuArcZoom.ZoomAmount = Mathf.Lerp(start, end, LerpKit.EaseInOut(elapsed/duration));
-            elapsed += Time.deltaTime;
+            float deltaTime = unscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
+            elapsed += deltaTime;
             yield return null;
         }
 

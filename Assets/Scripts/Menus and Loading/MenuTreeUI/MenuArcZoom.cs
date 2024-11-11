@@ -14,7 +14,7 @@ public class MenuArcZoom : MonoBehaviour
         public float zRotation;
     }
 
-    [Range(0,1), SerializeField, Tooltip("The UI image displaying our arc.")]
+    [SerializeField, Tooltip("The UI image displaying our arc.")]
     private Image arcImage;
     [Range(0,1), SerializeField, Tooltip("The amount (0-1) that we're zoomed in by.")]
     private float zoomAmount = 0;

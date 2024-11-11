@@ -70,6 +70,7 @@ public class PauseManager : MonoBehaviour
         }
         else
         {
+            print("Unpaused!");
             Time.timeScale = 1;
             onUnpause.Invoke();
         }
