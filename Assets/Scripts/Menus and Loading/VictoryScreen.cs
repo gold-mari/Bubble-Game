@@ -15,10 +15,10 @@ public class VictoryScreen : MonoBehaviour
     private CanvasGroup group;
     private bool isVisible = false;
 
-    [SerializeField, Tooltip("The SFX played on score counter incrementing.")]
+    [Tooltip("The SFX played on score counter incrementing.")]
     public FMODUnity.EventReference scoreClickerSFX;
 
-    [SerializeField, Tooltip("The SFX played on score display.")]
+    [Tooltip("The SFX played on score display.")]
     public FMODUnity.EventReference scoreSFX;
 
 
@@ -37,6 +37,7 @@ public class VictoryScreen : MonoBehaviour
     void Update()
     {
         if (!isVisible) return;
+        if (Time.timeScale == 0) return;
             
         if (Input.GetButtonDown("Fire1")) {
             onDismiss?.Invoke();
