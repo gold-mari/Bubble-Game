@@ -28,7 +28,7 @@ public class VictoryStatDisplay : uintVarMonitor
     [SerializeField, Tooltip("The SFX played on score display.")]
     private FMODUnity.EventReference scoreSFX;
 
-    // The lerp amount used with GetUIInt.
+    // The lerp amount used with GetUInt.
     private float lerpAmount;
     // The screenshake component on this component.
     private NaiveScreenshake shaker;

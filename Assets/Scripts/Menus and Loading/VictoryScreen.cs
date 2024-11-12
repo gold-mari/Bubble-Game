@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,8 +11,10 @@ public class VictoryScreen : MonoBehaviour
     private UnityEvent onDismiss;
     [SerializeField, Tooltip("Whether or not this screen starts visible.\n\nDefault: false")]
     private bool startVisible = false;
+    [SerializeField, Tooltip("The transform all our stat tickers live under.")]
+    private Transform statTickerParent;
 
-    private VictoryStatDisplay[] statDisplays = null;
+    private List<VictoryStatDisplay> statDisplays = new();
     private CanvasGroup group;
     private bool isVisible = false;
 
@@ -22,10 +25,24 @@ public class VictoryScreen : MonoBehaviour
     public FMODUnity.EventReference scoreSFX;
 
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        // Awake is called before all Start().
+        // ================
+
+        // GetComponentsInChildren does not have a deterministic order.
+        // Go by transform index order.
+        for (int i = 0; i < statTickerParent.childCount; i++) {
+            print($"First child searched was named {statTickerParent.GetChild(i).name}");
+            VictoryStatDisplay display = statTickerParent.GetChild(i).GetComponentInChildren<VictoryStatDisplay>();
+            if (display != null && display.gameObject.activeInHierarchy) statDisplays.Add(display);
+        }
+    }
+
     void Start()
     {
-        statDisplays = GetComponentsInChildren<VictoryStatDisplay>();
+        // Start is called before the first frame update.
+        // ================
 
         group = GetComponent<CanvasGroup>();
         group.alpha = 0;
