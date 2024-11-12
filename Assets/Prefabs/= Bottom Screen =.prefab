@@ -2625,6 +2625,10 @@ PrefabInstance:
       propertyPath: onDismiss.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: EndgameEventCallback
       objectReference: {fileID: 0}
+    - target: {fileID: 8017540026256855783, guid: 5302bd7eede6a8242960e4e5e2d53631, type: 3}
+      propertyPath: UIntVar
+      value: 
+      objectReference: {fileID: 11400000, guid: e15aa9418dd7baf4da69910e3c762c61, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5302bd7eede6a8242960e4e5e2d53631, type: 3}
 --- !u!114 &2202326575051611753 stripped

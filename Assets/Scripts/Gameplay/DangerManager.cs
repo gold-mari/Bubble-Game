@@ -46,6 +46,9 @@ public class DangerManager : MonoBehaviour
     [SerializeField] 
     private float outOfDangerLerpTime = 0.667f;
 
+    // Used to announce the the safety lock value has changed.
+    public System.Action<bool> SafetyLockChanged;
+
     // ================================================================
     // Internal variables
     // ================================================================
@@ -202,5 +205,6 @@ public class DangerManager : MonoBehaviour
         // ================
         
         safetyLock = value;
+        SafetyLockChanged?.Invoke(value);
     }
 }
