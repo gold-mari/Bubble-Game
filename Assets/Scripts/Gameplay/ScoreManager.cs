@@ -28,16 +28,19 @@ public class ScoreManager : MonoBehaviour
     Image cooldownMeter;
     [SerializeField, Tooltip("The uintVar storing our current combo.")]
     uintVar currentCombo;
-    [SerializeField, Tooltip("The uintVar storing our max combo this stage.")]
-    uintVar maxCombo;
+    [SerializeField, Tooltip("The uintVar storing the max chain length. Used to calculate the overpop bonus.")]
+    uintVar maxChainLength;
+    [Header("Stats")]
     [SerializeField, Tooltip("The uintVar storing our total score.")]
     uintVar scoreVar;
     [SerializeField, Tooltip("The uintVar storing our total number of points from popped straggler bubbles.")]
     uintVar stragglerBonus;
+    [SerializeField, Tooltip("The uintVar storing our total number of points from staying out of danger.")]
+    uintVar safetyBonus;
     [SerializeField, Tooltip("The uintVar storing our total number of bubbles popped.")]
     uintVar bubblesPopped;
-    [SerializeField, Tooltip("The uintVar storing the max chain length. Used to calculate the overpop bonus.")]
-    uintVar maxChainLength;
+    [SerializeField, Tooltip("The uintVar storing our max combo this stage.")]
+    uintVar maxCombo;
 
     // ================================================================
     // Internal variables
@@ -65,7 +68,7 @@ public class ScoreManager : MonoBehaviour
     }
 
     // ================================================================
-    // Chain break methods
+    // Accessor methods
     // ================================================================
 
     public void LogChainBreak(Chain chain)
@@ -114,10 +117,17 @@ public class ScoreManager : MonoBehaviour
         bubblesPopped.value++;
         uint score = (uint)(baseEndPopAmount * index);
         stragglerBonus.value += score;
-        scoreVar.value += score;
 
         popupManager.OnEndPop(bubble, score);
         screenshake.ScaledShake(index * 0.25f);
+    }
+
+    public void SumStatsIntoScore()
+    {
+        scoreVar.value += stragglerBonus.value;
+        scoreVar.value += safetyBonus.value + 1; // So that a perfect score can give you a nice round number.
+        scoreVar.value += bubblesPopped.value * 10;
+        scoreVar.value += maxCombo.value * 100;
     }
 
     // ================================================================
