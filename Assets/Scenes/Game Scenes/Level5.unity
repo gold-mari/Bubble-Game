@@ -1550,17 +1550,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3967049617441656948, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
   m_PrefabInstance: {fileID: 783426622}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &834919079 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4563153436459329213, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-  m_PrefabInstance: {fileID: 8830513069248788194}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0af9e1b7f98946e46b32ecb1a9eebcce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &839535130
 GameObject:
   m_ObjectHideFlags: 0
@@ -1611,7 +1600,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundness: 0
   frontPosition: {x: 0, y: 0, z: 0}
-  frontColor: {r: 0.92156863, g: 0.972549, b: 1, a: 1}
+  frontColor: {r: 1, g: 1, b: 1, a: 1}
   backPosition: {x: 2, y: 0, z: 0}
   backColor: {r: 1, g: 1, b: 1, a: 0.050980393}
 --- !u!114 &839535133
@@ -2022,7 +2011,7 @@ MonoBehaviour:
   musicManager: {fileID: 621005205}
   targetMap: 5a,5b,5c
   invertLogic: 0
-  visibleByDefault: 1
+  visibleByDefault: 0
 --- !u!114 &908316008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5077,6 +5066,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 683199609127237220, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_text
+      value: Level 5 - VS the Dark Lord
+      objectReference: {fileID: 0}
     - target: {fileID: 684793796817074677, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -5104,6 +5097,10 @@ PrefabInstance:
     - target: {fileID: 1973094834159673966, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_Color.r
       value: 0.7264151
+      objectReference: {fileID: 0}
+    - target: {fileID: 2202326575051611766, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2277640446206077593, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: backgroundFrames.Array.data[0].color.b
@@ -5392,11 +5389,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1530969519}
     - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: winEventBank.Array.data[1].events.Array.data[0].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 834919079}
-    - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: winEventBank.Array.data[2].events.Array.data[0].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8830513069248788196}
+    - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: winEventBank.Array.data[3].events.Array.data[0].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1117492334}
     - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
@@ -5436,10 +5433,6 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: winEventBank.Array.data[1].events.Array.data[0].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: lossEventBank.Array.data[0].events.Array.data[0].ourEvent.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -5472,11 +5465,11 @@ PrefabInstance:
       value: OnPlayerWin
       objectReference: {fileID: 0}
     - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: winEventBank.Array.data[1].events.Array.data[0].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetVisibility
+      propertyPath: winEventBank.Array.data[2].events.Array.data[0].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
-      propertyPath: winEventBank.Array.data[2].events.Array.data[0].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      propertyPath: winEventBank.Array.data[3].events.Array.data[0].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadLevel
       objectReference: {fileID: 0}
     - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
@@ -5968,3 +5961,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eceba533a05f0f84195ef5cc618f46cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8830513069248788196 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7236898422397953523, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+  m_PrefabInstance: {fileID: 8830513069248788194}
+  m_PrefabAsset: {fileID: 0}
