@@ -193,6 +193,7 @@ MonoBehaviour:
   formatString: '{0:0}'
   prefix: 
   suffix: 
+  initialValue: 0
   tickTime: 2
   lerpPower: 3
   baseCharSpacing: 0
@@ -609,6 +610,7 @@ MonoBehaviour:
   formatString: '{0:0000}'
   prefix: 
   suffix: 
+  initialValue: 9999
   tickTime: 2
   lerpPower: 3
   baseCharSpacing: 0
@@ -1469,6 +1471,7 @@ MonoBehaviour:
   formatString: '{0:00000}'
   prefix: 
   suffix: 
+  initialValue: 0
   tickTime: 2
   lerpPower: 3
   baseCharSpacing: 0
@@ -2232,6 +2235,7 @@ MonoBehaviour:
   formatString: '{0:00000}'
   prefix: 
   suffix: 
+  initialValue: 0
   tickTime: 2
   lerpPower: 3
   baseCharSpacing: 0
@@ -2842,6 +2846,7 @@ MonoBehaviour:
   formatString: '{0:0}'
   prefix: x
   suffix: 
+  initialValue: 0
   tickTime: 2
   lerpPower: 3
   baseCharSpacing: 0

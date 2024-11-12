@@ -7,6 +7,8 @@ using UnityEngine;
 public class VictoryStatDisplay : uintVarMonitor 
 {
     [Header("VictoryStatDisplay Parameters")]
+    [SerializeField, Tooltip("The default numeric value of this text from which we count to our true value.\n\nDefault: 0")]
+    private uint initialValue = 0;
     [SerializeField, Tooltip("The amount of time, in seconds, it takes this object to tick up.")]
     private float tickTime = 1;
     [SerializeField, Tooltip("The exponential power applied to our lerp functions.\n\nDefault: 2")]
@@ -61,7 +63,7 @@ public class VictoryStatDisplay : uintVarMonitor
         // Overridden in child classes.
         // ================
 
-        return (uint)(UIntVar.value * lerpAmount);
+        return (uint)Mathf.Lerp(initialValue, UIntVar.value, lerpAmount);
     }
 
     // ================================================================
