@@ -111,11 +111,14 @@ public class VictoryStatDisplay : uintVarMonitor
             yield return null;
         }
 
+        float duration = tickTime;
+        if (initialValue == UIntVar.value) duration *= 0.5f; // If we don't have to animate, go way faster.
+
         elapsed = 0;
-        while (elapsed < tickTime) {
-            lerpAmount = LerpKit.EaseInOut(elapsed/tickTime, lerpPower);
-            textObject.characterSpacing = Mathf.Lerp(maxCharSpacing, baseCharSpacing, LerpKit.EaseOut(elapsed/tickTime));
-            textObject.color = Color.Lerp(inactiveFontColor, baseFontColor, LerpKit.EaseOut(elapsed/tickTime));
+        while (elapsed < duration) {
+            lerpAmount = LerpKit.EaseInOut(elapsed/duration, lerpPower);
+            textObject.characterSpacing = Mathf.Lerp(maxCharSpacing, baseCharSpacing, LerpKit.EaseOut(elapsed/duration));
+            textObject.color = Color.Lerp(inactiveFontColor, baseFontColor, LerpKit.EaseOut(elapsed/duration));
 
             FMOD.Studio.EventInstance scoreClickerInstance = FMODUnity.RuntimeManager.CreateInstance(scoreClickerSFX);
             scoreClickerInstance.start();
