@@ -86,6 +86,15 @@ public class VictoryStatDisplay : uintVarMonitor
         scoreSFX = scoreSFXRef;
     }
 
+    public void FinishTickingImpatient()
+    {
+        StopAllCoroutines();
+        lerpAmount = 1;
+        textObject.characterSpacing = baseCharSpacing;
+        textObject.color = baseFontColor;
+        textObject.fontSize = baseFontSize;
+    }
+
     // ================================================================
     // Animation methods
     // ================================================================

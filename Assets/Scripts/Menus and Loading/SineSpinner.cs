@@ -26,6 +26,6 @@ public class SineSpinner : MonoBehaviour
         float time = unscaledTime ? Time.unscaledTime : Time.time;
 
         float amt = magnitude * Mathf.Sin(twopi * time / period);
-        transform.rotation = Quaternion.Euler(0,0,amt);
+        transform.localRotation = Quaternion.Euler(0,0,amt);
     }
 }

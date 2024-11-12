@@ -115,7 +115,7 @@ public class EndgameManager : MonoBehaviour
             if (alreadyLost && bankIndex < lossEventBank.Length) {
                 lossEventBank[bankIndex].Run();
             }
-            if (alreadyWon && bankIndex < lossEventBank.Length) {
+            if (alreadyWon && bankIndex < winEventBank.Length) {
                 winEventBank[bankIndex].Run();
             }
         } else {
@@ -134,8 +134,7 @@ public class EndgameEvent : UnityEvent<EndgameManager> {}
 [Serializable]
 public class DelayedEndgameEvent
 {
-    [SerializeField]
-    private string label;
+    public string label;
     [Tooltip("The amount of time after Invoke() is called before the event is invoked.")]
     public float delay;
     [Tooltip("The event to invoke.")]

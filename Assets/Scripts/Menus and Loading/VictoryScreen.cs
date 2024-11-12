@@ -8,15 +8,13 @@ using UnityEngine.Events;
 public class VictoryScreen : MonoBehaviour
 { 
     [SerializeField, Tooltip("The event that is called when this screen is dismissed.")]
-    private UnityEvent onDismiss;
+    private UnityEvent onDoneTicking;
     [SerializeField, Tooltip("Whether or not this screen starts visible.\n\nDefault: false")]
     private bool startVisible = false;
     [SerializeField, Tooltip("The transform all our stat tickers live under.")]
     private Transform statTickerParent;
 
-    private List<VictoryStatDisplay> statDisplays = new();
-    private CanvasGroup group;
-    private bool isVisible = false;
+
 
     [Tooltip("The SFX played on score counter incrementing.")]
     public FMODUnity.EventReference scoreClickerSFX;
@@ -24,6 +22,12 @@ public class VictoryScreen : MonoBehaviour
     [Tooltip("The SFX played on score display.")]
     public FMODUnity.EventReference scoreSFX;
 
+
+
+    private List<VictoryStatDisplay> statDisplays = new();
+    private CanvasGroup group;
+    private bool isVisible = false;
+    private bool doneTicking = false;
 
     private void Awake()
     {
@@ -33,7 +37,7 @@ public class VictoryScreen : MonoBehaviour
         // GetComponentsInChildren does not have a deterministic order.
         // Go by transform index order.
         for (int i = 0; i < statTickerParent.childCount; i++) {
-            print($"First child searched was named {statTickerParent.GetChild(i).name}");
+            // print($"VictoryScreen: Child {i} searched was named {statTickerParent.GetChild(i).name}");
             VictoryStatDisplay display = statTickerParent.GetChild(i).GetComponentInChildren<VictoryStatDisplay>();
             if (display != null && display.gameObject.activeInHierarchy) statDisplays.Add(display);
         }
@@ -57,7 +61,10 @@ public class VictoryScreen : MonoBehaviour
         if (Time.timeScale == 0) return;
             
         if (Input.GetButtonDown("Fire1")) {
-            onDismiss?.Invoke();
+            if (!doneTicking) {
+                StopAllCoroutines();
+                FinishDisplaysImpatient();
+            }
         }
     }
 
@@ -71,6 +78,7 @@ public class VictoryScreen : MonoBehaviour
 
         if (visibility) {
             StartCoroutine(TickAllDisplays());
+            doneTicking = false;
         }
     }
 
@@ -85,6 +93,19 @@ public class VictoryScreen : MonoBehaviour
             yield return new WaitUntil(display.IsDone);
         }
 
-        print("VictoryScreen: All displays done ticking.");
+        // print("VictoryScreen: All displays done ticking.");
+        doneTicking = true;
+        onDoneTicking?.Invoke();
+    }
+
+    private void FinishDisplaysImpatient()
+    {
+        foreach (VictoryStatDisplay display in statDisplays) {
+            display.FinishTickingImpatient();
+        }
+
+        // print("VictoryScreen: All displays done ticking.");
+        doneTicking = true;
+        onDoneTicking?.Invoke();
     }
 }
