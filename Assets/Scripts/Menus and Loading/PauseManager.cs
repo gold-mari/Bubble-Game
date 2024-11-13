@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.Events;
 
 public class PauseManager : MonoBehaviour
@@ -14,6 +15,8 @@ public class PauseManager : MonoBehaviour
     public UnityEvent onUnpause;
     [SerializeField, Tooltip("Whether or not we can pause when entering this scene.\n\nDefault: true")]
     public bool canPauseOnEnter = true;
+    [SerializeField, Tooltip("Whether or not the game should unpause when regaining application focus.\n\nDefault: false")]
+    public bool unpauseOnRefocus = false;
     
     [SerializeField, ReadOnly, Tooltip("Whether or not the game is currently able to be paused.")]
     private bool pauseLocked;
@@ -54,6 +57,27 @@ public class PauseManager : MonoBehaviour
         // ================
 
         Pause(false);
+    }
+
+    // protected void OnApplicationPause(bool shouldPause)
+    // {
+    //     // Detects when the application pauses or plays. If the app pauses, pause the game.
+    //     // ================
+
+    //     if (shouldPause) {
+    //         Pause(true);
+    //     }
+    // }
+
+    private void OnApplicationFocus(bool hasFocus)
+    {
+        if (!hasFocus) {
+            Pause(true);
+        }
+
+        if (hasFocus && unpauseOnRefocus) {
+            Pause(false);
+        }
     }
 
     public void Pause(bool pauseStatus)

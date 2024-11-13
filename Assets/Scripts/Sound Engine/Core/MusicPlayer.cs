@@ -96,14 +96,23 @@ public class MusicPlayer : MonoBehaviour
     }
 #endif
 
-    protected void OnApplicationPause(bool pauseStatus)
-    {
-        // Detects when the application pauses or plays. If we're paused, stop the timeline
-        // handler from accumulating DSP Time.
-        // ================
+    // protected void OnApplicationPause(bool shouldPause)
+    // {
+    //     // Detects when the application pauses or plays. If we're paused, stop the timeline
+    //     // handler from accumulating DSP Time.
+    //     // ================
 
-        PauseMusic(pauseStatus);
-    }
+    //     if (shouldPause) {
+    //         PauseMusic(true);
+    //     }
+    // }
+
+    // private void OnApplicationFocus(bool hasFocus)
+    // {
+    //     if (!hasFocus) {
+    //         PauseMusic(true);
+    //     }
+    // }
 
     public void PauseMusic(bool pauseStatus)
     {
