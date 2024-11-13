@@ -15,7 +15,7 @@ MonoBehaviour:
   stats:
   - ID: stragglerBonus
     variable: {fileID: 11400000, guid: f25e6fc62d50fc646ad8d728d602b032, type: 2}
-  - ID: dangerBonus
+  - ID: safetyBonus
     variable: {fileID: 11400000, guid: e15aa9418dd7baf4da69910e3c762c61, type: 2}
   - ID: bubblesPopped
     variable: {fileID: 11400000, guid: dcdf45039d79bed4b97d1902105babe9, type: 2}
@@ -24,4 +24,10 @@ MonoBehaviour:
   - ID: score
     variable: {fileID: 11400000, guid: 469cd48f67736334697981d9c30f97ef, type: 2}
   id: 7496
-  log: 
+  log: '7496,Level2,455,0,13,0,586
+
+    7496,Level2,855,3008,18,0,4044
+
+    7496,Level2,855,1619,18,0,2655
+
+    7496,Level2,3330,420,36,0,4111'
