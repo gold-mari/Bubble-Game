@@ -11,6 +11,7 @@ public class VictoryMusicHandler : MonoBehaviour
 
 
     public System.Action ShowBody;
+    private NaiveScreenshake naiveScreenshake;
 
 
 
@@ -18,6 +19,8 @@ public class VictoryMusicHandler : MonoBehaviour
     {
         headerParent.gameObject.SetActive(false);
         bodyParent.gameObject.SetActive(false);
+
+        naiveScreenshake = Camera.main.GetComponent<NaiveScreenshake>();
 
         musicPlayer.handler.markerUpdated += OnMarkerUpdated;
 
@@ -27,8 +30,10 @@ public class VictoryMusicHandler : MonoBehaviour
     private void OnMarkerUpdated(string marker)
     {
         if (marker == "showHeader") {
+            if (naiveScreenshake != null) naiveScreenshake.BaseShake();
             headerParent.gameObject.SetActive(true);
         } else if (marker == "showBody") {
+            if (naiveScreenshake != null) naiveScreenshake.BaseShake();
             bodyParent.gameObject.SetActive(true);
             ShowBody?.Invoke();
         }
