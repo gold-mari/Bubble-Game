@@ -84,6 +84,7 @@ public class EndgameManager : MonoBehaviour
         }
     }
 
+#if UNITY_EDITOR
     private void OnGUI()
     {
         if (GUI.Button(new Rect(10, 10, 50, 50), "Win!"))
@@ -95,6 +96,7 @@ public class EndgameManager : MonoBehaviour
             TriggerLoss();
         }
     }
+#endif
 
     bool IsPlaying(FMOD.Studio.EventInstance instance) {
         instance.getPlaybackState(out FMOD.Studio.PLAYBACK_STATE state);
