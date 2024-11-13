@@ -26,6 +26,7 @@ public class RankDisplay : MonoBehaviour
 
         if (!gameObject.activeInHierarchy) return;
         if (dismissed) return;
+        if (Time.timeScale == 0) return;
 
         if (Input.GetButtonDown("Fire1")) {
             onDismiss?.Invoke();
