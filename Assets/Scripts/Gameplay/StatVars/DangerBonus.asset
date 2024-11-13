@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65cd3fec2f0678548ba391a6383b05ac, type: 3}
-  m_Name: SafetyBonus
+  m_Name: DangerBonus
   m_EditorClassIdentifier: 
   value: 0

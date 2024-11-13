@@ -659,7 +659,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 9999
+  m_text: 09999
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a0e3c82283684a45a83cb6d803ee3c1, type: 2}
   m_sharedMaterial: {fileID: -6908427891558946073, guid: 9a0e3c82283684a45a83cb6d803ee3c1, type: 2}
@@ -742,10 +742,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIntVar: {fileID: 0}
   scale: 1
-  formatString: '{0:0000}'
+  formatString: '{0:00000}'
   prefix: 
   suffix: 
-  initialValue: 9999
+  initialValue: 0
   tickTime: 2
   lerpPower: 3
   baseCharSpacing: 0
@@ -2773,7 +2773,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Safety Bonus:'
+  m_text: 'Danger Bonus:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a0e3c82283684a45a83cb6d803ee3c1, type: 2}
   m_sharedMaterial: {fileID: -6908427891558946073, guid: 9a0e3c82283684a45a83cb6d803ee3c1, type: 2}
@@ -3752,7 +3752,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6900739212490295513}
   m_Layer: 5
-  m_Name: Safety Bonus
+  m_Name: Danger Bonus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -302,7 +302,7 @@ MonoBehaviour:
   maxChainLength: {fileID: 11400000, guid: f8135a0e4c086004b969a200daef9671, type: 2}
   scoreVar: {fileID: 11400000, guid: 469cd48f67736334697981d9c30f97ef, type: 2}
   stragglerBonus: {fileID: 11400000, guid: f25e6fc62d50fc646ad8d728d602b032, type: 2}
-  safetyBonus: {fileID: 11400000, guid: e15aa9418dd7baf4da69910e3c762c61, type: 2}
+  dangerBonus: {fileID: 11400000, guid: e15aa9418dd7baf4da69910e3c762c61, type: 2}
   bubblesPopped: {fileID: 11400000, guid: dcdf45039d79bed4b97d1902105babe9, type: 2}
   maxCombo: {fileID: 11400000, guid: 8ee12194ce8989e4dadecc02f27a09e3, type: 2}
 --- !u!114 &7318956119765026642
@@ -1017,7 +1017,7 @@ GameObject:
   - component: {fileID: 1792636944717046928}
   - component: {fileID: 1196368650203210768}
   m_Layer: 0
-  m_Name: Safety Bonus Logger
+  m_Name: Danger Bonus Logger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1052,9 +1052,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dangerManager: {fileID: 8830513069823740373}
   inDanger: {fileID: 11400000, guid: 777dc729eac653f408c903a2f488b24a, type: 2}
-  safetyBonus: {fileID: 11400000, guid: e15aa9418dd7baf4da69910e3c762c61, type: 2}
-  initialSafetyBonus: 9999
-  timeAllowedInDanger: 10
+  dangerBonus: {fileID: 11400000, guid: e15aa9418dd7baf4da69910e3c762c61, type: 2}
+  pointsPerSecond: 100
 --- !u!1 &5239164506021978383
 GameObject:
   m_ObjectHideFlags: 0

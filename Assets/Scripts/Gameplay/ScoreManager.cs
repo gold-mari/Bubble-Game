@@ -36,7 +36,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField, Tooltip("The uintVar storing our total number of points from popped straggler bubbles.")]
     uintVar stragglerBonus;
     [SerializeField, Tooltip("The uintVar storing our total number of points from staying out of danger.")]
-    uintVar safetyBonus;
+    uintVar dangerBonus;
     [SerializeField, Tooltip("The uintVar storing our total number of bubbles popped.")]
     uintVar bubblesPopped;
     [SerializeField, Tooltip("The uintVar storing our max combo this stage.")]
@@ -125,7 +125,7 @@ public class ScoreManager : MonoBehaviour
     public void SumStatsIntoScore()
     {
         scoreVar.value += stragglerBonus.value;
-        scoreVar.value += safetyBonus.value + 1; // So that a perfect score can give you a nice round number.
+        scoreVar.value += dangerBonus.value + 1;
         scoreVar.value += bubblesPopped.value * 10;
         scoreVar.value += maxCombo.value * 100;
     }
