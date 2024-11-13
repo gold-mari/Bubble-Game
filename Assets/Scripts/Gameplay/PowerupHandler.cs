@@ -16,14 +16,21 @@ public class PowerupHandler : MonoBehaviour
     private BubbleSpawner bubbleSpawner;
     [SerializeField, Tooltip("The amount we scale bubble size by. 1 is no change in size.\n\nDefault: 0.8")]
     private float bubbleScale = 0.8f;
+    [SerializeField, Tooltip("The boolVar determining if we reload to the timeout.")]
+    private boolVar reloadToTimeout;
 
 
-    void Awake()
+    private void Awake()
     {
         // Awake is called before start. We use it to set our initial values.
         // ================
 
         maxChainLength.value = (uint)chainLengthValues.x;
+    }
+
+    private void Start()
+    {
+        if (reloadToTimeout.value) PowerUp();
     }
 
     public void PowerUp()

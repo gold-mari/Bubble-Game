@@ -10,7 +10,7 @@ public class BoolVarToFMODParam : MonoBehaviour
     string fmodParamName;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName(fmodParamName, boolVar.value ? 1 : 0);
     }
