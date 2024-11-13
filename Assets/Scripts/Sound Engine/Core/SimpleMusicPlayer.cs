@@ -12,6 +12,8 @@ public class SimpleMusicPlayer : MusicPlayer
 
     [SerializeField, Tooltip("The music event to be played.")]
     private FMODUnity.EventReference musicEvent;
+    [SerializeField, Tooltip("Whether or not we begin the music in Start().")]
+    private bool beginOnStart = true;
 
     // ================================================================
     // Initializer and finalizer methods
@@ -25,5 +27,15 @@ public class SimpleMusicPlayer : MusicPlayer
         eventRef = musicEvent;
 
         base.Awake();
+    }
+
+    protected override void Start()
+    {
+        if (beginOnStart) Begin();
+    }
+
+    public void BeginMusic()
+    {
+        Begin();
     }
 }

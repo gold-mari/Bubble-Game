@@ -13,6 +13,8 @@ public class VictoryScreen : MonoBehaviour
     private bool startVisible = false;
     [SerializeField, Tooltip("The transform all our stat tickers live under.")]
     private Transform statTickerParent;
+    [SerializeField, Tooltip("The VictoryMusicHandler that fully starts us.")]
+    private VictoryMusicHandler musicHandler;
 
 
 
@@ -38,8 +40,8 @@ public class VictoryScreen : MonoBehaviour
         // Go by transform index order.
         for (int i = 0; i < statTickerParent.childCount; i++) {
             // print($"VictoryScreen: Child {i} searched was named {statTickerParent.GetChild(i).name}");
-            VictoryStatDisplay display = statTickerParent.GetChild(i).GetComponentInChildren<VictoryStatDisplay>();
-            if (display != null && display.gameObject.activeInHierarchy) statDisplays.Add(display);
+            VictoryStatDisplay display = statTickerParent.GetChild(i).GetComponentInChildren<VictoryStatDisplay>(true);
+            if (display != null) statDisplays.Add(display);
         }
     }
 
@@ -77,8 +79,17 @@ public class VictoryScreen : MonoBehaviour
         group.alpha = visibility ? 1 : 0;
 
         if (visibility) {
-            StartCoroutine(TickAllDisplays());
+            // Prepare to start ticking.
             doneTicking = false;
+
+            // When the music tells us to show the body,
+            // start ticking up our displays.
+            musicHandler.ShowBody += () => {
+                StartCoroutine(TickAllDisplays());
+            };
+
+            // Start the music.
+            musicHandler.StartMusic();
         }
     }
 

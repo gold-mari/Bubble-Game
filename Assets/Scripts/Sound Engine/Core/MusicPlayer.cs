@@ -55,6 +55,11 @@ public class MusicPlayer : MonoBehaviour
 
     protected virtual void Start()
     {
+        Begin();
+    }
+
+    protected void Begin()
+    {
         // Starts our instance and our clock.
         // ================
 
