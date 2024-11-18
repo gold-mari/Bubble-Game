@@ -58,8 +58,14 @@ public class MenuUIBuilder : MonoBehaviour
         buttonPool.DeactivateAll();
 
         if (newNode != null) {
+            // Get a list of visible children.
+            List<MenuTreeNode> visibleChildren = new();
+            foreach (MenuTreeNode child in newNode.children) {
+                if (child.visible) visibleChildren.Add(child);
+            }
+
             // For each child in our menu...
-            int childCount = newNode.children.Count;
+            int childCount = visibleChildren.Count;
             for (int i=0; i<childCount; i++)
             {
                 // We need to redeclare this variable, otherwise the onClick event
@@ -70,7 +76,7 @@ public class MenuUIBuilder : MonoBehaviour
                 Button button = buttonObj.GetComponent<Button>();
                 if (button) {
                     button.interactable = false;
-                    if (newNode.children[i].enabled) {
+                    if (visibleChildren[i].enabled) {
                         button.interactable = true;
                     }
 
@@ -80,7 +86,7 @@ public class MenuUIBuilder : MonoBehaviour
                     });
                 }
                 // Add events for the BaseMenuContent object.
-                AddHoverEvents(button, newNode, newNode.children[i]);
+                AddHoverEvents(button, newNode, visibleChildren[i]);
 
                 PointsOnCircle.GetArcPosition(anchorLeft.localPosition, anchorCenter.localPosition, anchorRight.localPosition,
                                               i/(float)(childCount-1), Mathf.Min(1, (childCount-1)*0.333f),
@@ -89,11 +95,11 @@ public class MenuUIBuilder : MonoBehaviour
                 buttonObj.transform.localPosition = position;
                 
                 MenuTreeButton menuTreeButton = buttonObj.GetComponent<MenuTreeButton>();
-                menuTreeButton.Initialize(newNode.children[i], i, unscaledTime);
+                menuTreeButton.Initialize(visibleChildren[i], i, unscaledTime);
                 menuTreeButton.SetStyle(MenuTreeButton.Style.Main);
 
                 // Also, for debug purposes, name the button.
-                buttonObj.name = $"Button ({newNode.children[i].id})";
+                buttonObj.name = $"Button ({visibleChildren[i].id})";
             }
 
             // If this isn't the root, create a back button.

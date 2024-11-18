@@ -145,11 +145,23 @@ public class MenuTree : MonoBehaviour
                     currentNode = new(terms[0], terms[1], parent, GetContent(terms[0]));
 
                     // Overrides
-                    if (terms.Length == 3) {
-                        if (terms[2] == "disable") {
-                            currentNode.enabled = false;
-                        } else if (terms[2] == "overrideTitle") {
-                            currentNode.overrideTitle = true;
+                    if (terms.Length > 2) {
+                        for (int j = 2; j < terms.Length; j++) {
+                            switch (terms[j]) {
+                                case "disable":
+                                    currentNode.enabled = false;
+                                    break;
+                                case "overrideTitle":
+                                    currentNode.overrideTitle = true;
+                                    print($"Set overrideTitle to true for node named ({currentNode.id})");
+                                    break;
+                                case "gamelayOnly":
+                                    if (true) { // TODO: if this is a gameplay level
+                                        currentNode.visible = true;
+                                        print($"Found a node that should be invisible ({currentNode.id}). For now, it stays visible.");
+                                    }
+                                    break;
+                            }
                         }
                     }
                 }
@@ -264,6 +276,8 @@ public class MenuTreeNode
     public string id;
     // The description of the menu
     public string description;
+    // Whether or not this node is enabled in the menu
+    public bool visible = true;
     // Whether or not this node is enabled in the menu
     public bool enabled = true;
     // Whether or not this node's title is always overridden by it's id

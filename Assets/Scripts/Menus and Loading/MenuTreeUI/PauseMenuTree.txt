@@ -1,5 +1,6 @@
 Pause\Stop the music and take a moment.
     Quit\Return to the main menu.
+    Restart\Concede this level and try again.\overrideTitle\gameplayOnly
     Resume\Continue playing the game.\overrideTitle
     Settings\Change the game's settings.\disable
         Sound\Change audio-related settings.
