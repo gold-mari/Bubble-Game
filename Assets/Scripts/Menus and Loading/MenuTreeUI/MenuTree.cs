@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuTree : MonoBehaviour 
 {
@@ -41,6 +42,8 @@ public class MenuTree : MonoBehaviour
     private HashSet<string> idsInUse = new();
     // Check if we have already called start once before.
     bool calledStart = false;
+    // Scenes that count as 'gameplay levels' for the "gameplayOnly" menu tree tag.
+    List<string> gameplayScenes = new() { "Level1", "Level2", "Level3", "Level4", "Level5" };
 
     // ==============================================================
     // Initializers
@@ -153,13 +156,10 @@ public class MenuTree : MonoBehaviour
                                     break;
                                 case "overrideTitle":
                                     currentNode.overrideTitle = true;
-                                    print($"Set overrideTitle to true for node named ({currentNode.id})");
                                     break;
-                                case "gamelayOnly":
-                                    if (true) { // TODO: if this is a gameplay level
-                                        currentNode.visible = true;
-                                        print($"Found a node that should be invisible ({currentNode.id}). For now, it stays visible.");
-                                    }
+                                case "gameplayOnly":
+                                    string sceneName = SceneManager.GetActiveScene().name;
+                                    currentNode.visible = gameplayScenes.Contains(sceneName);
                                     break;
                             }
                         }
