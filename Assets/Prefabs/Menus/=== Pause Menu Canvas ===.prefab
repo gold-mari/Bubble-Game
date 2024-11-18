@@ -2089,6 +2089,8 @@ MonoBehaviour:
     content: {fileID: 4472773982142000090}
   - id: Resume
     content: {fileID: 822639723587630432}
+  - id: Restart
+    content: {fileID: 5571775010327617972}
   - id: Sound
     content: {fileID: 2183921096553650466}
   - id: Graphics
@@ -2315,7 +2317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3967049617441656944
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2530,7 +2532,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MainMenu
+          m_StringArgument: Reload
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4153930132097850875
