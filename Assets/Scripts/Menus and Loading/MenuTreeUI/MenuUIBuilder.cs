@@ -89,9 +89,11 @@ public class MenuUIBuilder : MonoBehaviour
                 // Add events for the BaseMenuContent object.
                 AddHoverEvents(button, newNode, visibleChildren[i]);
 
+                float progress = (childCount > 1) ? i/(float)(childCount-1) : 0.75f;
+                float usableRange = Mathf.Min(1, (childCount-1)*0.333f);
+
                 PointsOnCircle.GetArcPosition(anchorLeft.localPosition, anchorCenter.localPosition, anchorRight.localPosition,
-                                              i/(float)(childCount-1), Mathf.Min(1, (childCount-1)*0.333f),
-                                              out Vector3 position, out Quaternion _);
+                                              progress, usableRange, out Vector3 position, out Quaternion _);
 
                 buttonObj.transform.localPosition = position;
                 

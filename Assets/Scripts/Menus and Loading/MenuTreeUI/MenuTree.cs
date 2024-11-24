@@ -102,6 +102,9 @@ public class MenuTree : MonoBehaviour
 
         for (int i = 0; i < lines.Length; i++) {
             string line = lines[i];
+
+            // Skipped commented lines.
+            if (line.StartsWith("//")) continue;
             
             // ================================
             // Part 1: Calculate indent level
