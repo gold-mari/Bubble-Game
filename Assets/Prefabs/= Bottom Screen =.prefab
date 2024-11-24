@@ -2202,16 +2202,16 @@ PrefabInstance:
       value: Level5
       objectReference: {fileID: 0}
     - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: winEventBank.Array.data[0].events.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: winEventBank.Array.data[0].events.Array.data[3].delay
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: winEventBank.Array.data[0].events.Array.data[3].label
       value: safety lock
+      objectReference: {fileID: 0}
+    - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
+      propertyPath: winEventBank.Array.data[0].events.Array.data[4].delay
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: winEventBank.Array.data[1].events.Array.data[0].delay
@@ -2257,6 +2257,10 @@ PrefabInstance:
       propertyPath: winEventBank.Array.data[0].events.Array.data[3].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8830513069823740373}
+    - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
+      propertyPath: winEventBank.Array.data[0].events.Array.data[4].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: winEventBank.Array.data[1].events.Array.data[0].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

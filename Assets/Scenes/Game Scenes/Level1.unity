@@ -1117,6 +1117,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16ac93cecab1c024898ec5a4cd6788c8, type: 3}
+--- !u!114 &5965403197239750188 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1069536463, guid: 16ac93cecab1c024898ec5a4cd6788c8, type: 3}
+  m_PrefabInstance: {fileID: 5965403197239750187}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f61d7d97bba7e4fbecc55f17ad0d29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8624468519741681446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1477,6 +1488,10 @@ PrefabInstance:
       propertyPath: winEventBank.Array.data[0].events.Array.data[0].ourEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2078172877}
+    - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: winEventBank.Array.data[0].events.Array.data[4].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5965403197239750188}
     - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: winEventBank.Array.data[3].events.Array.data[0].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
