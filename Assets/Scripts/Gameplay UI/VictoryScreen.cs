@@ -28,6 +28,7 @@ public class VictoryScreen : MonoBehaviour
 
     private List<VictoryStatDisplay> statDisplays = new();
     private CanvasGroup group;
+    private VictoryRankCalculator rankCalculator;
     private bool isVisible = false;
     private bool doneTicking = false;
 
@@ -52,6 +53,8 @@ public class VictoryScreen : MonoBehaviour
 
         group = GetComponent<CanvasGroup>();
         group.alpha = 0;
+
+        rankCalculator = GetComponent<VictoryRankCalculator>();
 
         SetVisibility(startVisible);
     }
@@ -90,6 +93,11 @@ public class VictoryScreen : MonoBehaviour
 
             // Start the music.
             musicHandler.StartMusic();
+            // Calculate the rank.
+            string rank = rankCalculator.CalculateRank();
+            Debug.Log( "=================================");
+            Debug.Log($"          our rank is: {rank}         ");
+            Debug.Log( "=================================");
         }
     }
 

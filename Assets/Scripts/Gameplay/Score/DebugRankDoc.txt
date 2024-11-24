@@ -1,0 +1,6 @@
+// Debug rankings!
+// Any score below a B is a C.
+-1,C
+1000,B
+2000,A
+3000,S
