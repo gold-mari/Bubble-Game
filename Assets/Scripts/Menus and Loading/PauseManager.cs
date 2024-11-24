@@ -9,6 +9,9 @@ public class PauseManager : MonoBehaviour
 {
     [SerializeField, Tooltip("The key which, when pressed, pauses the game.")]
     private KeyCode[] pauseKeys;
+    [SerializeField, Tooltip("The path of the FMOD nonmenu SFX bus. Find it in the mixer by right clicking the " +
+                             "NonMenuSFX group and selecting Copy Path.")]
+    public string nonmenuSFXBusPath = "bus:/SFX/NonMenuSFX";
     [SerializeField, Tooltip("Called when the pause state changes to true.")]
     public UnityEvent onPause;
     [SerializeField, Tooltip("Called when the pause state changes to false.")]
@@ -23,6 +26,8 @@ public class PauseManager : MonoBehaviour
     [SerializeField, ReadOnly, Tooltip("Whether or not the game is actively paused.")]
     private bool paused;
 
+    private FMOD.Studio.Bus bus;
+
     private void Awake()
     {
         // Awake is called before start.
@@ -31,6 +36,8 @@ public class PauseManager : MonoBehaviour
         // Default state is always unpaused.
         // If we can't pause on enter, lock to unpaused.
         pauseLocked = !canPauseOnEnter;
+
+        bus = FMODUnity.RuntimeManager.GetBus(nonmenuSFXBusPath);
     }
 
     private void Update()
@@ -92,11 +99,13 @@ public class PauseManager : MonoBehaviour
         if (pauseStatus)
         {
             Time.timeScale = 0;
+            bus.setPaused(true);
             onPause.Invoke();
         }
         else
         {
             Time.timeScale = 1;
+            bus.setPaused(false);
             onUnpause.Invoke();
         }
     }
