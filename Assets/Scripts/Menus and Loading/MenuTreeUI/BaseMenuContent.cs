@@ -52,7 +52,7 @@ public class BaseMenuContent : MonoBehaviour
                 FormatAndUpdate(subtitleTextObj, backSubtitleFormula, currentNode.parent.id);
             }
         } else { // Display something other than "Back".
-            print($"BaseMenuContent: for node ({node.id}), override title is {node.overrideTitle}");
+            // print($"BaseMenuContent: for node ({node.id}), override title is {node.overrideTitle}");
             FormatAndUpdate(titleTextObj, titleFormula, node.id, node.overrideTitle);
             subtitleTextObj.text = node.description;
         }

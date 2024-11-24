@@ -52,8 +52,9 @@ public class MenuUIBuilder : MonoBehaviour
     {   
         // Called whenever the current node in our menuTree changes. Used to:
         //  * Update our visible buttons, using our buttonPool
-        //  * Do other things (ADD THEM HERE)
         // ================
+
+        if (newNode != null && newNode.terminalOverlay) return;
 
         buttonPool.DeactivateAll();
 
@@ -133,9 +134,7 @@ public class MenuUIBuilder : MonoBehaviour
                     });
                 }
                 // Add events for the BaseMenuContent object.
-                AddHoverEvents(button, newNode, null);
-
-                
+                AddHoverEvents(button, newNode, null);   
 
                 // Also, for debug purposes, name the button.
                 buttonObj.name = $"Button (Back)";

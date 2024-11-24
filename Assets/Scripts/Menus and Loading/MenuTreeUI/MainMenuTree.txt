@@ -1,6 +1,7 @@
 Root\Welcome to BubbleBeast DigiDungeon!
     Quit\Exit the game.
     Play\Begin the game.
+    Rewatch Intro\Play the intro cutscene again.\overrideTitle\terminalOverlay
     Settings\Change the game's settings.\disable
         Sound\Change audio-related settings.
         Graphics\Change video-related settings.

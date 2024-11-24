@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Overlays;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -31,9 +32,13 @@ public class MenuTree : MonoBehaviour
     public MenuTreeNode Current {
         get { return current; }
         private set {
-            // Invoke the update action with params (old, new).
+            // If overlay is true and content is null, we are prevented from
+            // navigating to this MenuTreeNode.
+            if (value.terminalOverlay && value.content == null) return;
+
+            // Elsewise, invoke the update action with params (old, new).
             CurrentNodeUpdated?.Invoke(current, value);
-            SetNodeVisible(current, false);
+            if (!value.terminalOverlay) SetNodeVisible(current, false);
             SetNodeVisible(value, true);
             current = value;
         }
@@ -161,6 +166,9 @@ public class MenuTree : MonoBehaviour
                                     string sceneName = SceneManager.GetActiveScene().name;
                                     currentNode.visible = gameplayScenes.Contains(sceneName);
                                     break;
+                                case "terminalOverlay":
+                                    currentNode.terminalOverlay = true;
+                                    break;
                             }
                         }
                     }
@@ -282,7 +290,12 @@ public class MenuTreeNode
     public bool enabled = true;
     // Whether or not this node's title is always overridden by it's id
     public bool overrideTitle = false;
-    // The to this node.
+    // Whether or not this node's content should be displayed on top of
+    // the parent menu's content.
+    // If overlay is true and content is null, we are prevented from
+    // navigating to this MenuTreeNode.
+    public bool terminalOverlay = false;
+    // The content of this node.
     public GameObject content = null;
     // The parent to this node.
     public MenuTreeNode parent = null;
