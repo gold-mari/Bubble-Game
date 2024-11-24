@@ -11,15 +11,15 @@ public class PauseManager : MonoBehaviour
     private KeyCode[] pauseKeys;
     [SerializeField, Tooltip("The path of the FMOD nonmenu SFX bus. Find it in the mixer by right clicking the " +
                              "NonMenuSFX group and selecting Copy Path.")]
-    public string nonmenuSFXBusPath = "bus:/SFX/NonMenuSFX";
+    private string nonmenuSFXBusPath = "bus:/SFX/NonMenuSFX";
     [SerializeField, Tooltip("Called when the pause state changes to true.")]
-    public UnityEvent onPause;
+    private UnityEvent onPause;
     [SerializeField, Tooltip("Called when the pause state changes to false.")]
-    public UnityEvent onUnpause;
+    private UnityEvent onUnpause;
     [SerializeField, Tooltip("Whether or not we can pause when entering this scene.\n\nDefault: true")]
-    public bool canPauseOnEnter = true;
+    private bool canPauseOnEnter = true;
     [SerializeField, Tooltip("Whether or not the game should unpause when regaining application focus.\n\nDefault: false")]
-    public bool unpauseOnRefocus = false;
+    private bool unpauseOnRefocus = false;
     
     [SerializeField, ReadOnly, Tooltip("Whether or not the game is currently able to be paused.")]
     private bool pauseLocked;

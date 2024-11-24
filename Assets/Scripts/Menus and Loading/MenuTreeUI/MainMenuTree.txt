@@ -1,10 +1,11 @@
+// Sound\Change audio-related settings.
 Root\Welcome to BubbleBeast DigiDungeon!
     Quit\Exit the game.
     Play\Begin the game.
 //  Rewatch Intro\Play the intro cutscene again.\overrideTitle\terminalOverlay
     Credits\Check out the developers!\overrideTitle
-    Settings\Change the game's settings.\disable
-        Sound\Change audio-related settings.
-        Graphics\Change video-related settings.
-        Controls\Change input/output-related settings.
-        Accessibility\Change accessibility-related settings.
+    Settings\Change the game's settings.
+        Sound\Change audio-related settings.\overrideTitle
+        Graphics\Change video-related settings.\overrideTitle\disable
+        Controls\Change input-related settings.\overrideTitle\disable
+        Accessibility\Change accessibility-related settings.\overrideTitle\disable
