@@ -1604,6 +1604,20 @@ MonoBehaviour:
   scenes:
   - name: MainMenu
     scene: MainMenu
+  inSFX:
+    Guid:
+      Data1: 1624195471
+      Data2: 1229713443
+      Data3: 2032172991
+      Data4: 1088449002
+    Path: event:/SFX/Menus/TransIn
+  outSFX:
+    Guid:
+      Data1: -1234811853
+      Data2: 1327410236
+      Data3: -1245301097
+      Data4: 489915786
+    Path: event:/SFX/Menus/TransOut
   transitionStart: 1
 --- !u!114 &287574405878620592
 MonoBehaviour:
@@ -1820,6 +1834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseKeys: 440100001b000000
+  nonmenuSFXBusPath: bus:/SFX/NonMenuSFX
   onPause:
     m_PersistentCalls:
       m_Calls:
@@ -1875,7 +1890,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   canPauseOnEnter: 1
-  canPause: 0
+  unpauseOnRefocus: 0
+  pauseLocked: 0
+  paused: 0
 --- !u!1 &7098958957643826426
 GameObject:
   m_ObjectHideFlags: 0

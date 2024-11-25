@@ -17,6 +17,10 @@ public class LevelLoader : MonoBehaviour
 {
     [SerializeField, Tooltip("The scenes we can transition to from this level.")]
     private SceneData[] scenes;
+    [SerializeField, Tooltip("The SFX used when transitioning in.")]
+    private FMODUnity.EventReference inSFX;
+    [SerializeField, Tooltip("The SFX used when transitioning out.")]
+    private FMODUnity.EventReference outSFX;
     [SerializeField, Tooltip("Whether or not we should play the transition animation when starting the scene.\n\nDefault: true")]
     private bool transitionStart = true;
 
@@ -34,6 +38,7 @@ public class LevelLoader : MonoBehaviour
         {
             transitionAnimator.gameObject.SetActive(true);
             transitionAnimator.SetTrigger("out");
+            FMODUnity.RuntimeManager.PlayOneShot(outSFX);
         }
     }
 
@@ -77,6 +82,7 @@ public class LevelLoader : MonoBehaviour
 
             transitionAnimator.gameObject.SetActive(true);
             transitionAnimator.SetTrigger("in");
+            FMODUnity.RuntimeManager.PlayOneShot(inSFX);
         }
     }
 
