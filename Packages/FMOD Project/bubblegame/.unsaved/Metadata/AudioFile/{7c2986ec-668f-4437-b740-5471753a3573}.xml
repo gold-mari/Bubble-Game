@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{7c2986ec-668f-4437-b740-5471753a3573}">
-		<property name="assetPath">
-			<value>SFX/fall-sfx-debug.mp3</value>
-		</property>
+		<property name="assetPath" />
 		<property name="frequencyInKHz">
 			<value>48</value>
 		</property>
