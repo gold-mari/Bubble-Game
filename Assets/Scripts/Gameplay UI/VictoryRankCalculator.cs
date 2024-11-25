@@ -31,7 +31,7 @@ public class VictoryRankCalculator : MonoBehaviour
             if (tokens.Length == 1) {
                 id = tokens[0];
             } else if (tokens.Length == 2) {
-                RankEntry entry = new(tokens[1], int.Parse(tokens[0]));
+                RankEntry entry = new(tokens[1].Trim(), int.Parse(tokens[0]));
                 rankData.Add(entry);
             }
         }

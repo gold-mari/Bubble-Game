@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -17,10 +19,14 @@ public class VictoryScreen : MonoBehaviour
     private VictoryMusicHandler musicHandler;
 
 
+    [Tooltip("The text object we write our rank to.")]
+    public TMP_Text rankTextObj;
+    [Tooltip("Different colors for our ranks.")]
+    public RankColors rankColors;
+
 
     [Tooltip("The SFX played on score counter incrementing.")]
     public FMODUnity.EventReference scoreClickerSFX;
-
     [Tooltip("The SFX played on score display.")]
     public FMODUnity.EventReference scoreSFX;
 
@@ -56,6 +62,7 @@ public class VictoryScreen : MonoBehaviour
 
         rankCalculator = GetComponent<VictoryRankCalculator>();
 
+        rankColors.InitializeDict();
         SetVisibility(startVisible);
     }
 
@@ -95,9 +102,12 @@ public class VictoryScreen : MonoBehaviour
             musicHandler.StartMusic();
             // Calculate the rank.
             string rank = rankCalculator.CalculateRank();
-            Debug.Log( "=================================");
-            Debug.Log($"          our rank is: {rank}         ");
-            Debug.Log( "=================================");
+            rankTextObj.text = rank;
+
+            if (rankColors.pairDict.ContainsKey(rank)) {
+                RankColors.RankColor rc = rankColors.pairDict[rank];
+                rankTextObj.colorGradient = new(rc.color1, rc.color2, rc.color1, rc.color2);
+            }
         }
     }
 
@@ -126,5 +136,26 @@ public class VictoryScreen : MonoBehaviour
         // print("VictoryScreen: All displays done ticking.");
         doneTicking = true;
         onDoneTicking?.Invoke();
+    }
+}
+
+[System.Serializable]
+public class RankColors
+{
+    [System.Serializable]
+    public struct RankColor
+    {
+        public string rank;
+        public Color color1, color2;
+    }
+
+    public RankColor[] pairs;
+    public Dictionary<string, RankColor> pairDict = new();
+
+    public void InitializeDict()
+    {
+        foreach (RankColor pair in pairs) {
+            pairDict.Add(pair.rank, pair);
+        }
     }
 }
