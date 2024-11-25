@@ -54,8 +54,6 @@ public class MenuUIBuilder : MonoBehaviour
         //  * Update our visible buttons, using our buttonPool
         // ================
 
-        if (newNode != null && newNode.terminalOverlay) return;
-
         buttonPool.DeactivateAll();
 
         if (newNode != null) {
