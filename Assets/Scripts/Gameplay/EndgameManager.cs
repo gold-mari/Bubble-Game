@@ -164,6 +164,8 @@ public class DelayedEndgameEvent
         // ================
 
         if (invokeQueue.Count > 0) {
+            if (Time.timeScale == 0) return;
+            
             for (int i = 0; i < invokeQueue.Count; i++) 
             {
                invokeQueue[i] -= Time.deltaTime;

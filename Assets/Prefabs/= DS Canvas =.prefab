@@ -1618,6 +1618,7 @@ MonoBehaviour:
       Data3: -1245301097
       Data4: 489915786
     Path: event:/SFX/Menus/TransOut
+  musicBusPath: bus:/Music
   transitionStart: 1
 --- !u!114 &287574405878620592
 MonoBehaviour:
@@ -1835,6 +1836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseKeys: 440100001b000000
   nonmenuSFXBusPath: bus:/SFX/NonMenuSFX
+  musicBusPath: bus:/Music
   onPause:
     m_PersistentCalls:
       m_Calls:

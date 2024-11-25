@@ -12,6 +12,9 @@ public class PauseManager : MonoBehaviour
     [SerializeField, Tooltip("The path of the FMOD nonmenu SFX bus. Find it in the mixer by right clicking the " +
                              "NonMenuSFX group and selecting Copy Path.")]
     private string nonmenuSFXBusPath = "bus:/SFX/NonMenuSFX";
+    [SerializeField, Tooltip("The path of the FMOD music bus. Find it in the mixer by right clicking the " +
+                             "NonMenuSFX group and selecting Copy Path.")]
+    private string musicBusPath = "bus:/Music";
     [SerializeField, Tooltip("Called when the pause state changes to true.")]
     private UnityEvent onPause;
     [SerializeField, Tooltip("Called when the pause state changes to false.")]
@@ -26,7 +29,8 @@ public class PauseManager : MonoBehaviour
     [SerializeField, ReadOnly, Tooltip("Whether or not the game is actively paused.")]
     private bool paused;
 
-    private FMOD.Studio.Bus bus;
+    private FMOD.Studio.Bus sfxBus;
+    private FMOD.Studio.Bus musicBus;
 
     private void Awake()
     {
@@ -37,7 +41,8 @@ public class PauseManager : MonoBehaviour
         // If we can't pause on enter, lock to unpaused.
         pauseLocked = !canPauseOnEnter;
 
-        bus = FMODUnity.RuntimeManager.GetBus(nonmenuSFXBusPath);
+        sfxBus = FMODUnity.RuntimeManager.GetBus(nonmenuSFXBusPath);
+        musicBus = FMODUnity.RuntimeManager.GetBus(musicBusPath);
     }
 
     private void Update()
@@ -99,14 +104,16 @@ public class PauseManager : MonoBehaviour
         if (pauseStatus)
         {
             Time.timeScale = 0;
-            bus.setPaused(true);
+            sfxBus.setPaused(true);
             onPause.Invoke();
+            musicBus.setPaused(true);
         }
         else
         {
             Time.timeScale = 1;
-            bus.setPaused(false);
+            sfxBus.setPaused(false);
             onUnpause.Invoke();
+            musicBus.setPaused(false);
         }
     }
 
