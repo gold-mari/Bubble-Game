@@ -890,7 +890,8 @@ MonoBehaviour:
       Data2: 1215931040
       Data3: 334797713
       Data4: -1803752076
-    Path: event:/Music/Cutscenes/AdventureQuest
+    Path: event:/Music/AdventureQuest
+  beginOnStart: 1
 --- !u!224 &766826160
 RectTransform:
   m_ObjectHideFlags: 0
