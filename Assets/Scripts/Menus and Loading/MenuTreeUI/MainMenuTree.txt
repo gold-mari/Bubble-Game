@@ -2,6 +2,9 @@
 Root\Welcome to BubbleBeast DigiDungeon!
     Quit\Exit the game.
     Play\Begin the game.
+        New Game\Start a new game!\overrideTitle
+        Continue\Pick up where you left off.\overrideTitle\alsoShowBase
+        Tutorial and Extras\Learn how to play, view high scores, and more!\overrideTitle
     Credits\Check out the developers!\overrideTitle
     Settings\Change the game's settings.
         Sound\Change audio-related settings.\overrideTitle

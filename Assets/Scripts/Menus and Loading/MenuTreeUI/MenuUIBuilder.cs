@@ -72,20 +72,22 @@ public class MenuUIBuilder : MonoBehaviour
                 int index = i;
                 // Request a new button and set up the listener.
                 GameObject buttonObj = buttonPool.Request();
+
                 Button button = buttonObj.GetComponent<Button>();
                 if (button) {
+                    button.onClick.RemoveAllListeners();
+                    button.onClick.AddListener(() => {
+                        menuTree.DescendByIndex(index);
+                    });
+
                     button.interactable = false;
                     if (visibleChildren[i].enabled) {
                         button.interactable = true;
                     }
 
-                    button.onClick.RemoveAllListeners();
-                    button.onClick.AddListener(() => {
-                        menuTree.DescendByIndex(index);
-                    });
+                    // Add events for the BaseMenuContent object.
+                    AddHoverEvents(button, newNode, visibleChildren[i]);
                 }
-                // Add events for the BaseMenuContent object.
-                AddHoverEvents(button, newNode, visibleChildren[i]);
 
                 float progress = (childCount > 1) ? i/(float)(childCount-1) : 0.75f;
                 float usableRange = Mathf.Min(1, (childCount-1)*0.333f);
@@ -149,7 +151,7 @@ public class MenuUIBuilder : MonoBehaviour
             // Zoom in/out depending on whether or not the new node has content.
             StopAllCoroutines();
             bool skipAnimation = oldNode == null; // If the old node was null, skip the animation.
-            StartCoroutine(ZoomRoutine(newNode.content, skipAnimation));
+            StartCoroutine(ZoomRoutine(newNode, skipAnimation));
         }
     }
 
@@ -202,10 +204,10 @@ public class MenuUIBuilder : MonoBehaviour
         } 
     }
 
-    private IEnumerator ZoomRoutine(GameObject content, bool impatient=false)
+    private IEnumerator ZoomRoutine(MenuTreeNode node, bool impatient=false)
     {
         float start = menuArcZoom.ZoomAmount;
-        float end = (content == null) ? 0 : 1;
+        float end = (node.content == null || node.alsoShowBase) ? 0 : 1;
 
         if (!impatient) {
             float distance = Mathf.Abs(end-start);

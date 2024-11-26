@@ -165,6 +165,9 @@ public class MenuTree : MonoBehaviour
                                     string sceneName = SceneManager.GetActiveScene().name;
                                     currentNode.visible = gameplayScenes.Contains(sceneName);
                                     break;
+                                case "alsoShowBase":
+                                    currentNode.alsoShowBase = true;
+                                    break;
                             }
                         }
                     }
@@ -260,7 +263,7 @@ public class MenuTree : MonoBehaviour
                 node.content.SetActive(visible);
             }
 
-            else { // Node content is null, display base content.
+            if (node.content == null || node.alsoShowBase) { // Display base content.
                 baseContent.UpdateCurrentNode(node);
                 baseContent.ChangeText(node);
                 baseContent.gameObject.SetActive(visible);
@@ -286,6 +289,8 @@ public class MenuTreeNode
     public bool enabled = true;
     // Whether or not this node's title is always overridden by it's id
     public bool overrideTitle = false;
+    // Whether or not this node's content should also allow the base content to show.
+    public bool alsoShowBase = false;
     // The content of this node.
     public GameObject content = null;
     // The parent to this node.
