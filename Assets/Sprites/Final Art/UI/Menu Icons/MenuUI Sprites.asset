@@ -34,3 +34,7 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 4fd0c94524e3d0f428d2a90a0f97f555, type: 3}
   - id: Credits
     sprite: {fileID: 21300000, guid: 0817b44d966b9e34c96f1369c215822b, type: 3}
+  - id: Tutorial and Extras
+    sprite: {fileID: 21300000, guid: 2b9c47f1c2ba04c49a059b4a7b52672f, type: 3}
+  - id: New Game
+    sprite: {fileID: 21300000, guid: 3c4b9fddf3b89824eb308e9bcc3e85b2, type: 3}
