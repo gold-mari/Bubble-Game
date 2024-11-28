@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class InitializeSettings : MonoBehaviour
 {
+    public bool disable = true;
+
     private void Awake()
     {
         // Initializes the settings handler under us, and then disables us.
@@ -16,6 +18,6 @@ public class InitializeSettings : MonoBehaviour
             handler.Initialize();
         }
 
-        gameObject.SetActive(false);
+        if (disable) gameObject.SetActive(false);
     }
 }

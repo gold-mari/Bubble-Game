@@ -1393,6 +1393,7 @@ GameObject:
   - component: {fileID: 3169445195650152965}
   - component: {fileID: 3857164917522945260}
   - component: {fileID: 2825982447011525985}
+  - component: {fileID: 4757328411584947785}
   m_Layer: 5
   m_Name: Curtains
   m_TagString: Untagged
@@ -1458,6 +1459,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4757328411584947785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4878353760489557813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9561ca271ded50d4782e7439537fc770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteVar: {fileID: 11400000, guid: 78e31a4b24f58074fa89e5c234d9d7f0, type: 2}
 --- !u!1 &5269398543553009040
 GameObject:
   m_ObjectHideFlags: 0

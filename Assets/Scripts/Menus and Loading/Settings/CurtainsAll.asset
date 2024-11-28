@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc0833f2d579994c8cb5591f7c31912, type: 3}
+  m_Name: CurtainsAll
+  m_EditorClassIdentifier: 
+  defaultSprite: {fileID: 21300000, guid: 8458f18cc511a094482b8dab945f0d08, type: 3}
+  pairList:
+  - id: DigiBubble Beat DX
+    sprite: {fileID: 21300000, guid: 1ce29e0779a792a43a3aa8a3337a0024, type: 3}
+  - id: Beast Dungeon
+    sprite: {fileID: 21300000, guid: da50ea49e97cb0349b8c40be70f5336d, type: 3}
+  - id: Bitter Green
+    sprite: {fileID: 21300000, guid: 8ea77898acc72954eb9d992bff2d8568, type: 3}
+  - id: Salty Blue
+    sprite: {fileID: 21300000, guid: cf46b4d96789a3c46964a4a8e5ccdc3c, type: 3}
+  - id: Sour Yellow
+    sprite: {fileID: 21300000, guid: 11cef67f8a21a344186efab2fac515da, type: 3}
+  - id: Umami Red
+    sprite: {fileID: 21300000, guid: bb21327a2c2b49048bd1752d6ac9ee1e, type: 3}
+  - id: Sweet Purple
+    sprite: {fileID: 21300000, guid: ea1199d0cd5a3af47a4cd184226054af, type: 3}
