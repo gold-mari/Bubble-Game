@@ -29,7 +29,7 @@ public class FMODVolumeHandler : MonoBehaviour
     // Initializers
     // ==============================================================
 
-    private void Start()
+    public void Initialize()
     {
         masterBus = FMODUnity.RuntimeManager.GetBus(masterBusPath);
         musicBus = FMODUnity.RuntimeManager.GetBus(musicBusPath);

@@ -4220,6 +4220,8 @@ MonoBehaviour:
   screenshakeScaling: {fileID: 11400000, guid: eedb913d0a4fa5d40b0a1b3966a834cb, type: 2}
   screenshakeSlider: {fileID: 7450376500485720759}
   screenshakeReadout: {fileID: 4296212751621113581}
+  reduceFlashing: {fileID: 11400000, guid: 7f97a7887923e474781a10af95a736ce, type: 2}
+  flashingToggle: {fileID: 2599514465270995111}
 --- !u!1 &970639748137293601
 GameObject:
   m_ObjectHideFlags: 0
@@ -5467,7 +5469,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -120, y: 0}
+  m_AnchoredPosition: {x: -105, y: 0}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2599514465270995111
@@ -5516,8 +5518,20 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
-  m_IsOn: 1
+      m_Calls:
+      - m_Target: {fileID: 6303443527320643193}
+        m_TargetAssemblyTypeName: AccessibilitySettingsHandler, Assembly-CSharp
+        m_MethodName: SetReduceFlashing
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_IsOn: 0
 --- !u!1 &2512432329228916074
 GameObject:
   m_ObjectHideFlags: 0
@@ -7059,7 +7073,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4475590049881843680}
   m_Layer: 5
-  m_Name: Flashing Colors
+  m_Name: Reduce Flashing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7306,7 +7320,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Flashing Colors
+  m_text: Reduce Flashing
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a0e3c82283684a45a83cb6d803ee3c1, type: 2}
   m_sharedMaterial: {fileID: -6908427891558946073, guid: 9a0e3c82283684a45a83cb6d803ee3c1, type: 2}

@@ -67,6 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showOnBeat: 0
   reader: {fileID: 0}
+  reduceFlashing: {fileID: 11400000, guid: 7f97a7887923e474781a10af95a736ce, type: 2}
   pulseRange: {x: 1.5, y: 2}
 --- !u!212 &-2897325825451052766
 SpriteRenderer:
