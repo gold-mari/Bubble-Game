@@ -5,5 +5,5 @@ Pause\Stop the music and take a moment.
     Settings\Change the game's settings.
         Sound\Change audio-related settings.
         Graphics\Change video-related settings.
-        Accessibility\Change accessibility-related settings.\overrideTitle
-        Bubble Color\Adjust the colors of flavor bubbles.\overrideTitle
+        Controls\Change input/output-related settings.
+        Accessibility\Change accessibility-related settings.
