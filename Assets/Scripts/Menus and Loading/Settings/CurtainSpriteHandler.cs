@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CurtainSpriteHandler : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class CurtainSpriteHandler : MonoBehaviour
     UISpriteBinder allCurtains;
     [SerializeField, Tooltip("The text object we write the id of the selected curtain to.")]
     TMP_Text monitorText;
+    [SerializeField, Tooltip("The buttons used to increment or decrement our curtain selection.")]
+    Button[] curtainChangeButtons;
     /*[SerializeField, Tooltip("The binder of the curtain sprites available by default.")]
     UISpriteBinder baseCurtains;
     [SerializeField, Tooltip("The binder of the curtain sprites currently available.")]
@@ -23,6 +26,8 @@ public class CurtainSpriteHandler : MonoBehaviour
 
 
     private int selection = 0;
+    private float lastAspect = -1;
+    private bool isSquare;
 
     private void Awake()
     {
@@ -41,6 +46,34 @@ public class CurtainSpriteHandler : MonoBehaviour
         UISpriteData data = allCurtains.GetPairList()[selection];
         curtainSprite.value = data.sprite;
         monitorText.text = data.id;
+    }
+
+    private void Update()
+    {
+        // Update is called once per frame.
+        // We use it to check if the aspect ratio ever changes to square,
+        // in which case curtain changing will be disabled.
+        // ================
+
+        float aspect = Screen.width/(float)Screen.height;
+
+        if (aspect == lastAspect) return;
+
+        // Otherwise, aspect ratio has changed.
+        // If the aspect ratio is square or thinner...
+        if (aspect <= 1) {
+            // Stop us from changing the curtains. We can't see them, anyway.
+            isSquare = true;
+            foreach (Button button in curtainChangeButtons) button.interactable = false;
+            monitorText.text = "Change Aspect Ratio";
+        } else {
+            isSquare = false;
+            foreach (Button button in curtainChangeButtons) button.interactable = true;
+            UISpriteData data = allCurtains.GetPairList()[selection];
+            curtainSprite.value = data.sprite;
+            monitorText.text = data.id;
+        }
+        lastAspect = aspect;
     }
 
    /* public void UnlockCurtain(string curtainID)
@@ -62,6 +95,8 @@ public class CurtainSpriteHandler : MonoBehaviour
 
     public void IncrementCurtainSelection()
     {
+        if (isSquare) return;
+
         selection = (selection+1)%allCurtains.GetCount();
 
         UISpriteData data = allCurtains.GetPairList()[selection];
@@ -71,6 +106,8 @@ public class CurtainSpriteHandler : MonoBehaviour
 
     public void DecrementCurtainSelection()
     {
+        if (isSquare) return;
+
         selection--;
         // Wrap around if underflow!
         if (selection < 0) {

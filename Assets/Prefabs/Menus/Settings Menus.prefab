@@ -3125,6 +3125,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allCurtains: {fileID: 11400000, guid: 4ec5aaafd43e00841b7c9d1fb958678e, type: 2}
   monitorText: {fileID: 2567456457789918651}
+  curtainChangeButtons:
+  - {fileID: 2073823741381779362}
+  - {fileID: 3414417759252136836}
   curtainSprite: {fileID: 11400000, guid: 78e31a4b24f58074fa89e5c234d9d7f0, type: 2}
 --- !u!1 &970639747426247901
 GameObject:
