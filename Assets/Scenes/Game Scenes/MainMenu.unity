@@ -10802,6 +10802,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 782878684}
     m_Modifications:
+    - target: {fileID: 970639747413705930, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2075883797524182355, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
       propertyPath: m_Name
       value: Settings Menus
