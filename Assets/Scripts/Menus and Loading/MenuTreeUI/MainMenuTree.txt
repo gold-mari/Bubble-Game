@@ -8,6 +8,6 @@ Root\Welcome to BubbleBeast DigiDungeon!
     Credits\Check out the developers!\overrideTitle
     Settings\Change the game's settings.
         Sound\Change audio-related settings.\overrideTitle
-        Graphics\Change video-related settings.\overrideTitle\disable
+        Graphics\Change video-related settings.\overrideTitle
         Controls\Change input-related settings.\overrideTitle\disable
         Accessibility\Change accessibility-related settings.\overrideTitle\disable

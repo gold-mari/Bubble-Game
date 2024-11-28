@@ -4218,7 +4218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &935470636
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10784,66 +10784,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 782878684}
     m_Modifications:
-    - target: {fileID: 970639746810330646, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 970639746810330646, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 970639746945990585, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 970639746945990585, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 970639746945990585, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 970639746985349022, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 970639746985349022, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 970639748095276219, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 970639748095276219, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 970639748622433485, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 970639748622433485, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 970639748622433485, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 970639748734992488, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 970639748734992488, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 970639748734992488, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2075883797524182355, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
       propertyPath: m_Name
       value: Settings Menus

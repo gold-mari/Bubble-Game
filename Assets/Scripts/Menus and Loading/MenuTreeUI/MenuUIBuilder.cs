@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using NaughtyAttributes;
 using UnityEngine.EventSystems;
+using System.Linq;
 
 public class MenuUIBuilder : MonoBehaviour 
 {
@@ -54,43 +54,52 @@ public class MenuUIBuilder : MonoBehaviour
         //  * Update our visible buttons, using our buttonPool
         // ================
 
+        print($"the newnode has id {(newNode!=null ? newNode.id : "NULL")}");
+
         buttonPool.DeactivateAll();
 
         if (newNode != null) {
-            // Get a list of visible children.
-            List<MenuTreeNode> visibleChildren = new();
-            foreach (MenuTreeNode child in newNode.children) {
-                if (child.visible) visibleChildren.Add(child);
-            }
+            // Determine the number of invisible nodes.
+            int skipped = newNode.children.Count(child => !child.visible);
+            int skippedSoFar = 0;
 
-            // For each child in our menu...
-            int childCount = visibleChildren.Count;
+             // For each child in our menu...
+            int childCount = newNode.children.Count;
             for (int i=0; i<childCount; i++)
             {
-                // We need to redeclare this variable, otherwise the onClick event
-                // delegate stores the reference to i, instead of the value.
-                int index = i;
+                MenuTreeNode child = newNode.children[i];
+
+                if (!child.visible) {
+                    skippedSoFar++;
+                    continue;
+                }
+
                 // Request a new button and set up the listener.
                 GameObject buttonObj = buttonPool.Request();
 
                 Button button = buttonObj.GetComponent<Button>();
                 if (button) {
                     button.onClick.RemoveAllListeners();
+
+                    // We need to redeclare this variable, otherwise the onClick event
+                    // delegate stores the reference to i, instead of the value.
+                    int index = i;
+
                     button.onClick.AddListener(() => {
                         menuTree.DescendByIndex(index);
                     });
 
                     button.interactable = false;
-                    if (visibleChildren[i].enabled) {
+                    if (newNode.children[i].enabled) {
                         button.interactable = true;
                     }
 
                     // Add events for the BaseMenuContent object.
-                    AddHoverEvents(button, newNode, visibleChildren[i]);
+                    AddHoverEvents(button, newNode, newNode.children[i]);
                 }
 
-                float progress = (childCount > 1) ? i/(float)(childCount-1) : 0.75f;
-                float usableRange = Mathf.Min(1, (childCount-1)*0.333f);
+                float progress = (childCount-skipped > 1) ? (i-skippedSoFar)/(float)(childCount-skipped-1) : 0.75f;
+                float usableRange = Mathf.Min(1, (childCount-skipped-1)*0.333f);
 
                 PointsOnCircle.GetArcPosition(anchorLeft.localPosition, anchorCenter.localPosition, anchorRight.localPosition,
                                               progress, usableRange, out Vector3 position, out Quaternion _);
@@ -98,11 +107,11 @@ public class MenuUIBuilder : MonoBehaviour
                 buttonObj.transform.localPosition = position;
                 
                 MenuTreeButton menuTreeButton = buttonObj.GetComponent<MenuTreeButton>();
-                menuTreeButton.Initialize(visibleChildren[i], i, unscaledTime);
+                menuTreeButton.Initialize(newNode.children[i], i, unscaledTime);
                 menuTreeButton.SetStyle(MenuTreeButton.Style.Main);
 
                 // Also, for debug purposes, name the button.
-                buttonObj.name = $"Button ({visibleChildren[i].id})";
+                buttonObj.name = $"Button ({newNode.children[i].id})";
             }
 
             // If this isn't the root, create a back button.
