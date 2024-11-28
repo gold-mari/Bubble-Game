@@ -9,5 +9,5 @@ Root\Welcome to BubbleBeast DigiDungeon!
     Settings\Change the game's settings.
         Sound\Change audio-related settings.\overrideTitle
         Graphics\Change video-related settings.\overrideTitle
-        Controls\Change input-related settings.\overrideTitle\disable
-        Accessibility\Change accessibility-related settings.\overrideTitle\disable
+        Controls\Change input-related settings.\overrideTitle
+        Accessibility\Change accessibility-related settings.\overrideTitle
