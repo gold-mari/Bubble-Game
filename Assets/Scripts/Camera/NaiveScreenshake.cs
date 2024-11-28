@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Lumin;
 
 public class NaiveScreenshake : MonoBehaviour
 {
@@ -19,6 +18,7 @@ public class NaiveScreenshake : MonoBehaviour
     // Internal variables
     // ==============================================================
 
+    private floatVar shakeScaling;
     private Vector3 basePosition;
     private Coroutine shakeRoutine;
 
@@ -32,6 +32,11 @@ public class NaiveScreenshake : MonoBehaviour
         // ================
 
         basePosition = transform.position;
+    }
+
+    public void SetShakeScalingVar(floatVar _shakeScaling)
+    {
+        shakeScaling = _shakeScaling;
     }
 
     // ==============================================================
@@ -66,6 +71,8 @@ public class NaiveScreenshake : MonoBehaviour
     {
         // Applies the shake transformation to our camera.
         // ================
+
+        magnitude *= shakeScaling.value; // Accessibility setting.
 
         float elapsed = 0;
         while (elapsed < duration)

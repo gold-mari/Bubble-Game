@@ -45,7 +45,7 @@ public class VictoryStatDisplay : uintVarMonitor
 
     private void Start()
     {
-        shaker = GetComponent<NaiveScreenshake>();
+        shaker = Camera.main.GetComponent<NaiveScreenshake>();
 
         baseFontSize = textObject.fontSize;
         baseFontColor = textObject.color;

@@ -50,7 +50,6 @@ GameObject:
   - component: {fileID: 8457990726716528785}
   - component: {fileID: 8106498903518226307}
   - component: {fileID: 1103688790576639600}
-  - component: {fileID: 8077427863075522663}
   m_Layer: 5
   m_Name: NumberText
   m_TagString: Untagged
@@ -214,19 +213,6 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
---- !u!114 &8077427863075522663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 697995447896053160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50125d4c0fd96ab4c807cbe96d32a2a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseShakeMagnitude: 0.05
 --- !u!1 &750233384151116398
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +589,6 @@ GameObject:
   - component: {fileID: 8101902705420690240}
   - component: {fileID: 8146407204472917221}
   - component: {fileID: 8017540026256855783}
-  - component: {fileID: 5352403076892073524}
   m_Layer: 5
   m_Name: NumberText
   m_TagString: Untagged
@@ -767,19 +752,6 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
---- !u!114 &5352403076892073524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2101075662725215838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50125d4c0fd96ab4c807cbe96d32a2a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseShakeMagnitude: 0.05
 --- !u!1 &2554554099205533455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1627,7 +1599,6 @@ GameObject:
   - component: {fileID: 5847706470084602112}
   - component: {fileID: 4198558557531767616}
   - component: {fileID: 3946329563278487397}
-  - component: {fileID: 5853565445424009766}
   m_Layer: 5
   m_Name: NumberText
   m_TagString: Untagged
@@ -1791,19 +1762,6 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
---- !u!114 &5853565445424009766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4405967691944617591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50125d4c0fd96ab4c807cbe96d32a2a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseShakeMagnitude: 0.05
 --- !u!1 &4550800363099230754
 GameObject:
   m_ObjectHideFlags: 0
@@ -2522,7 +2480,6 @@ GameObject:
   - component: {fileID: 5803532433537522744}
   - component: {fileID: 5803532433537522745}
   - component: {fileID: 5803532433537522747}
-  - component: {fileID: 5803532433537522746}
   m_Layer: 5
   m_Name: NumberText
   m_TagString: Untagged
@@ -2686,19 +2643,6 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
---- !u!114 &5803532433537522746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5803532433537522740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50125d4c0fd96ab4c807cbe96d32a2a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseShakeMagnitude: 0.05
 --- !u!1 &6152242965320793425
 GameObject:
   m_ObjectHideFlags: 0
@@ -3095,7 +3039,6 @@ GameObject:
   - component: {fileID: 7710912009754998440}
   - component: {fileID: 8809394205283671656}
   - component: {fileID: 8854438767568709863}
-  - component: {fileID: 205675096280799300}
   m_Layer: 5
   m_Name: NumberText
   m_TagString: Untagged
@@ -3259,19 +3202,6 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
---- !u!114 &205675096280799300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7058509943457639843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50125d4c0fd96ab4c807cbe96d32a2a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseShakeMagnitude: 0.05
 --- !u!1 &7212893489805606610
 GameObject:
   m_ObjectHideFlags: 0
