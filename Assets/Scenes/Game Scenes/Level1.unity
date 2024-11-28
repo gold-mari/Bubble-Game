@@ -873,10 +873,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: === Pause Menu Canvas ===
       objectReference: {fileID: 0}
-    - target: {fileID: 3967049617441656948, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4050573968918075875, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

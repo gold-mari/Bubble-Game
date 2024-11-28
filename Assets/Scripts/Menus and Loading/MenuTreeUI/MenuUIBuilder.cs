@@ -54,8 +54,6 @@ public class MenuUIBuilder : MonoBehaviour
         //  * Update our visible buttons, using our buttonPool
         // ================
 
-        print($"the newnode has id {(newNode!=null ? newNode.id : "NULL")}");
-
         buttonPool.DeactivateAll();
 
         if (newNode != null) {
