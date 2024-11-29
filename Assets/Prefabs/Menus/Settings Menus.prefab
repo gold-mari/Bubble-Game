@@ -2763,6 +2763,7 @@ GameObject:
   - component: {fileID: 1934957400072913010}
   - component: {fileID: 5569799861898798075}
   - component: {fileID: 1594617236544842443}
+  - component: {fileID: 6165079799152482950}
   m_Layer: 5
   m_Name: Sweet
   m_TagString: Untagged
@@ -2828,6 +2829,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6165079799152482950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793767234680347150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474c8c3c453d4a74494632ae1378a627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unscaledTime: 0
+  period: 2
+  magnitude: 5
 --- !u!1 &845469219001707366
 GameObject:
   m_ObjectHideFlags: 0
@@ -8227,6 +8243,7 @@ GameObject:
   - component: {fileID: 3786251068465094951}
   - component: {fileID: 4222958384890248978}
   - component: {fileID: 1116309348755550881}
+  - component: {fileID: 5737336328886670123}
   m_Layer: 5
   m_Name: Salty
   m_TagString: Untagged
@@ -8292,6 +8309,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5737336328886670123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4816264273242930666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474c8c3c453d4a74494632ae1378a627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unscaledTime: 0
+  period: 2.1
+  magnitude: 5
 --- !u!1 &4869229249868018343
 GameObject:
   m_ObjectHideFlags: 0
@@ -10122,7 +10154,7 @@ MonoBehaviour:
   bitterImage: {fileID: 2001280316148794680}
   umamiImage: {fileID: 6020921221790601638}
   workingColors:
-  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0.25, g: 0.5, b: 0.5, a: 1}
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
@@ -10139,6 +10171,7 @@ GameObject:
   - component: {fileID: 714796522726923856}
   - component: {fileID: 6687220594106166274}
   - component: {fileID: 8961028736943704557}
+  - component: {fileID: 8326530977945803923}
   m_Layer: 5
   m_Name: Sour
   m_TagString: Untagged
@@ -10204,6 +10237,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8326530977945803923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6246408546077343976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474c8c3c453d4a74494632ae1378a627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unscaledTime: 0
+  period: 2.2
+  magnitude: 5
 --- !u!1 &6320762475675183230
 GameObject:
   m_ObjectHideFlags: 0
@@ -10350,6 +10398,7 @@ GameObject:
   - component: {fileID: 4796908329351723260}
   - component: {fileID: 58934287123873479}
   - component: {fileID: 6020921221790601638}
+  - component: {fileID: 6589728784161734355}
   m_Layer: 5
   m_Name: Umami
   m_TagString: Untagged
@@ -10415,6 +10464,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6589728784161734355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6755498539413173732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474c8c3c453d4a74494632ae1378a627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unscaledTime: 0
+  period: 2.4
+  magnitude: 5
 --- !u!1 &6792683540343018091
 GameObject:
   m_ObjectHideFlags: 0
@@ -11264,6 +11328,7 @@ GameObject:
   - component: {fileID: 1065680768584323674}
   - component: {fileID: 4396440046327645305}
   - component: {fileID: 2001280316148794680}
+  - component: {fileID: 5256078405624752072}
   m_Layer: 5
   m_Name: Bitter
   m_TagString: Untagged
@@ -11329,6 +11394,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5256078405624752072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7755803960032441343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474c8c3c453d4a74494632ae1378a627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unscaledTime: 0
+  period: 2.3
+  magnitude: 5
 --- !u!1 &7810801565600055985
 GameObject:
   m_ObjectHideFlags: 0
