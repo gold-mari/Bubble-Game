@@ -11,3 +11,4 @@ Root\Welcome to BubbleBeast DigiDungeon!
         Graphics\Change video-related settings.\overrideTitle
         Controls\Change input-related settings.\overrideTitle
         Accessibility\Change accessibility-related settings.\overrideTitle
+            Bubble Color Editor\Modify the colors of different bubble flavors.\overrideTitle\invisible

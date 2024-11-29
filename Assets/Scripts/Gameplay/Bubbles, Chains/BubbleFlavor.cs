@@ -76,6 +76,17 @@ public class BubbleFlavorMethods
         };
     }
 
+    public static Color[] GetColors()
+    {
+        return new[]{
+            colorSweet,
+            colorSalty, 
+            colorSour, 
+            colorBitter, 
+            colorUmami
+        };
+    }
+    
     public static Color[] GetBaseColors()
     {
         return new[]{

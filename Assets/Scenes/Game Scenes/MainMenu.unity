@@ -292,7 +292,7 @@ RectTransform:
   - {fileID: 935470636}
   - {fileID: 782878684}
   m_Father: {fileID: 1964592856}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5255,7 +5255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1177831434
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8108,6 +8108,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772210038}
   m_CullTransparentMesh: 1
+--- !u!1 &1781824770 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6197642724524913193, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
+  m_PrefabInstance: {fileID: 970639747033263613}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1789129470
 GameObject:
   m_ObjectHideFlags: 0
@@ -9576,8 +9581,8 @@ RectTransform:
   - {fileID: 1872247396}
   - {fileID: 1663756175}
   - {fileID: 847603935}
-  - {fileID: 40964999}
   - {fileID: 1979304355}
+  - {fileID: 40964999}
   m_Father: {fileID: 8624468520213912688}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9645,6 +9650,8 @@ MonoBehaviour:
     content: {fileID: 1754342412}
   - id: Accessibility
     content: {fileID: 1089629297}
+  - id: Bubble Color Editor
+    content: {fileID: 1781824770}
 --- !u!114 &1964592859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9778,7 +9785,7 @@ RectTransform:
   m_Children:
   - {fileID: 1740489684}
   m_Father: {fileID: 1964592856}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10804,31 +10811,67 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 970639748097409420, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1269294324769403561, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1269294324769403561, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2075883797524182355, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
       propertyPath: m_Name
       value: Settings Menus
       objectReference: {fileID: 0}
+    - target: {fileID: 4114498871805869640, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4163147934877644749, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4163147934877644749, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4163147934877644749, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362153902207795146, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362153902207795146, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362153902207795146, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1964592858}
+    - target: {fileID: 7362153902207795146, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362153902207795146, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DescendByName
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362153902207795146, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuTree, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362153902207795146, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Bubble Color Editor
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362153902207795146, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8087342646468999495, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
       propertyPath: m_AnchorMax.x

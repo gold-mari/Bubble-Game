@@ -167,6 +167,9 @@ public class MenuTree : MonoBehaviour
                                 case "alsoShowBase":
                                     currentNode.alsoShowBase = true;
                                     break;
+                                case "invisible":
+                                    currentNode.visible = false;
+                                    break;
                             }
                         }
                     }
