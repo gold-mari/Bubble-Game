@@ -1,19 +1,27 @@
 using System;
 using NaughtyAttributes;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BubbleColorController : MonoBehaviour
 {
+    [SerializeField, Tooltip("The readout text we write the current flavor to.")]
+    private TMP_Text readoutText;
+    [SerializeField, Tooltip("The sliders for our 3 color components.")]
+    private Slider hueSlider, saturationSlider, valueSlider;
     [SerializeField, Tooltip("The image display for the respective flavor.")]
     private Image sweetImage, saltyImage, sourImage, bitterImage, umamiImage;
 
-    private float H, S, V;
 
     [SerializeField, ReadOnly]
     private Color[] workingColors = new Color[BubbleFlavorMethods.length-1];
     [SerializeField, ReadOnly]
     private int index = 0;
+
+
+    private float H, S, V;
+
 
     // private void OnGUI()
     // {
@@ -30,10 +38,10 @@ public class BubbleColorController : MonoBehaviour
         LoadIntoWorking();
     }
 
-    private void OnDisable()
-    {
-        SaveFromWorking();
-    }
+    // private void OnDisable()
+    // {
+    //     SaveFromWorking();
+    // }
 
     //===============================================================
     // Save/Load working colors
@@ -42,6 +50,12 @@ public class BubbleColorController : MonoBehaviour
     public void LoadIntoWorking()
     {
         Array.Copy(BubbleFlavorMethods.GetColors(), workingColors, BubbleFlavorMethods.length-1);
+
+        for (int i = 0; i < workingColors.Length; i++) {
+            UpdatePreview(i);
+        }
+
+        InitializeHSV();
     }
 
     public void PresetBase()
@@ -51,6 +65,8 @@ public class BubbleColorController : MonoBehaviour
         for (int i = 0; i < workingColors.Length; i++) {
             UpdatePreview(i);
         }
+
+        InitializeHSV();
     }
 
     public void PresetHighContrast()
@@ -60,6 +76,8 @@ public class BubbleColorController : MonoBehaviour
         for (int i = 0; i < workingColors.Length; i++) {
             UpdatePreview(i);
         }
+
+        InitializeHSV();
     }
 
     public void SaveFromWorking()
@@ -99,15 +117,24 @@ public class BubbleColorController : MonoBehaviour
     // Display previews
     //===============================================================
 
-    private void UpdatePreview(int index)
+    private void UpdatePreview(int i)
     {
-        switch (index) {
-            case 0: sweetImage.color = workingColors[index];    break;
-            case 1: saltyImage.color = workingColors[index];    break;
-            case 2: sourImage.color = workingColors[index];     break;
-            case 3: bitterImage.color = workingColors[index];   break;
-            case 4: umamiImage.color = workingColors[index];    break;
+        switch (i) {
+            case 0: sweetImage.color = workingColors[i];    break;
+            case 1: saltyImage.color = workingColors[i];    break;
+            case 2: sourImage.color = workingColors[i];     break;
+            case 3: bitterImage.color = workingColors[i];   break;
+            case 4: umamiImage.color = workingColors[i];    break;
         }
+    }
+
+    private void InitializeHSV()
+    {
+        Color.RGBToHSV(workingColors[index], out float _H, out float _S, out float _V);
+
+        H = hueSlider.value = _H;
+        S = saturationSlider.value = _S;
+        V = valueSlider.value = _V;
     }
 
     //===============================================================
@@ -117,10 +144,16 @@ public class BubbleColorController : MonoBehaviour
     public void Increment() 
     { 
         index = (index+1)%workingColors.Length;
+        readoutText.text = ((BubbleFlavor)(index+1)).ToString();
+
+        InitializeHSV();
     }
 
     public void Decrement() 
     {
         index = (index == 0) ? workingColors.Length-1 : index-1;
+        readoutText.text = ((BubbleFlavor)(index+1)).ToString();
+
+        InitializeHSV();
     }
 }
