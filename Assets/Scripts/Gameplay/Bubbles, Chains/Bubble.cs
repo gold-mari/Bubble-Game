@@ -11,7 +11,7 @@ public class Bubble : MonoBehaviour
 
     // Bubbles of like flavors are eligible to join in chains together.
     [Tooltip("This bubble's flavor, represented as a Bubble_Flavor variable.")]
-    public Bubble_Flavor bubbleFlavor = Bubble_Flavor.Sweet;
+    public BubbleFlavor bubbleFlavor = BubbleFlavor.Sweet;
     // When a collision occurs, to avoid doublecounting, the Bubble with the oldest/smallest age
     // runs the calculation.
     [Tooltip("This bubble's age, assigned normally by BubbleSpawner, and used to prevent double "

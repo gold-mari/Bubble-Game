@@ -19,7 +19,7 @@ public class FlavorBomb : MonoBehaviour
     // The bubble spawner present in the scene. Provided in Initialize().
     private BubbleSpawner spawner;
     // The flavor of the bubble we're attached to
-    private Bubble_Flavor ourFlavor = Bubble_Flavor.NONE;
+    private BubbleFlavor ourFlavor = BubbleFlavor.NONE;
     // A flavor bomb on a hyperbubble spawns other hyperbubbles.
     private bool spawnHyperbubbles = false;
     // The final position of the bubble we're attached to, cached when it begins getting destroyed.
@@ -29,7 +29,7 @@ public class FlavorBomb : MonoBehaviour
     // Initialization / Finalization methods
     // ==============================================================
 
-    public void Initialize(BubbleSpawner bubbleSpawner, Bubble_Flavor flav, bool isHyperbubble)
+    public void Initialize(BubbleSpawner bubbleSpawner, BubbleFlavor flav, bool isHyperbubble)
     {
         // Initializes fields we reference elsewhere.
         // ================
@@ -66,16 +66,16 @@ public class FlavorBomb : MonoBehaviour
 
         FMODUnity.RuntimeManager.PlayOneShot(explodeSFX);
 
-        for (int i = 1; i < Bubble_Flavor_Methods.length; i++)
+        for (int i = 1; i < BubbleFlavorMethods.length; i++)
         {
             // Don't spawn another bubble of the type that we were attached to.
-            if ((Bubble_Flavor)i == ourFlavor)
+            if ((BubbleFlavor)i == ourFlavor)
             {
                 continue;
             }
 
-            Quaternion rot = Quaternion.Euler(0,0,360 * (i-1)/(Bubble_Flavor_Methods.length-1));
-            spawner.SpawnBubble(finalPosition, (Bubble_Flavor)i, rot * Vector2.right, spawnHyperbubbles);
+            Quaternion rot = Quaternion.Euler(0,0,360 * (i-1)/(BubbleFlavorMethods.length-1));
+            spawner.SpawnBubble(finalPosition, (BubbleFlavor)i, rot * Vector2.right, spawnHyperbubbles);
         }
     }
 }

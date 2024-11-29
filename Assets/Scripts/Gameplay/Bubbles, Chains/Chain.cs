@@ -17,7 +17,7 @@ public class Chain : ScriptableObject
     public int ID = 0;
     [Tooltip("The Bubble_Flavor of the bubbles in this chain.")]
     [ReadOnly]
-    public Bubble_Flavor chainFlavor = Bubble_Flavor.NONE;
+    public BubbleFlavor chainFlavor = BubbleFlavor.NONE;
     [Tooltip("The list of bubbles in this chain.")]
     [ReadOnly]
     public List<Bubble> members = new List<Bubble>();
@@ -102,7 +102,7 @@ public class Chain : ScriptableObject
         // ================
 
         // If we have not decided a chainFlavor yet, set our chainFlavor to bubbleFlavor.
-        if (chainFlavor == Bubble_Flavor.NONE) {
+        if (chainFlavor == BubbleFlavor.NONE) {
             chainFlavor = bubble.bubbleFlavor;
         }
 
@@ -125,7 +125,7 @@ public class Chain : ScriptableObject
         // ================
 
         // If we have not decided a chainFlavor yet, set our chainFlavor to theirs.
-        if (chainFlavor == Bubble_Flavor.NONE) {
+        if (chainFlavor == BubbleFlavor.NONE) {
             chainFlavor = chain.chainFlavor;
         }
 

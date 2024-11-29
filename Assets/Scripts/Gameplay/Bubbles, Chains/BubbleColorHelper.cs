@@ -25,6 +25,8 @@ public class BubbleColorHelper : MonoBehaviour
     private float lastBrightness;
     // The SpriteRenderer on this object.
     SpriteRenderer sprite;
+    // The flavor associated with this color helper.
+    BubbleFlavor flavor;
 
     // ==============================================================
     // Default methods
@@ -38,8 +40,9 @@ public class BubbleColorHelper : MonoBehaviour
 
         brightness = lastBrightness = 0;
         
+        flavor = transform.parent.GetComponent<Bubble>().bubbleFlavor;
         // Get the color from our parent's Bubble component.
-        baseColor = Bubble_Flavor_Methods.getColor(transform.parent.GetComponent<Bubble>().bubbleFlavor);
+        baseColor = BubbleFlavorMethods.GetColor(flavor);
         // Define sprite and apply baseColor to it.
         sprite = GetComponent<SpriteRenderer>();
         sprite.color = baseColor;
@@ -51,6 +54,12 @@ public class BubbleColorHelper : MonoBehaviour
         if (brightness != lastBrightness) {
             UpdateBrightness();
             lastBrightness = brightness;
+        }
+
+        // If the base color has changed (because of settings, etc.), change the base color.
+        if (baseColor != BubbleFlavorMethods.GetColor(flavor)) {
+            baseColor = BubbleFlavorMethods.GetColor(flavor);
+            sprite.color = baseColor;
         }
     }
 

@@ -49,7 +49,7 @@ public class ColorIndicator : MonoBehaviour
         // to the Color which corresponds to our Bubble_Flavor.
         // ================
 
-        Color c = Bubble_Flavor_Methods.getColor(flavor.value);
+        Color c = BubbleFlavorMethods.GetColor(flavor.value);
         if (sprite)
         {
             if (changeColor)
@@ -58,7 +58,7 @@ public class ColorIndicator : MonoBehaviour
             }
             if (changeSprite)
             {
-                sprite.sprite = Bubble_Flavor_Methods.getSprite(flavor.value, binder);
+                sprite.sprite = BubbleFlavorMethods.GetSprite(flavor.value, binder);
             }
         }
         if (image)
@@ -69,7 +69,7 @@ public class ColorIndicator : MonoBehaviour
             }
             if (changeSprite)
             {
-                image.sprite = Bubble_Flavor_Methods.getSprite(flavor.value, binder);
+                image.sprite = BubbleFlavorMethods.GetSprite(flavor.value, binder);
             }
         }
     }
