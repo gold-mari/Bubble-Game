@@ -46,7 +46,7 @@ public class BubbleFlavorMethods
     private static Color colorUmami = colorUmami_b;
 
     //===============================================================
-    // Static methods
+    // Color accessors
     //===============================================================
 
     public static BubbleFlavor Random()
@@ -98,6 +98,25 @@ public class BubbleFlavorMethods
         };
     }
 
+    //===============================================================
+    // Color manipulators
+    //===============================================================
+
+    public static void SetColor(BubbleFlavor flavor, Color color)
+    {
+        // Depending on the inputted BubbleFlavor, sets the active
+        // color for that flavor.
+        // ================
+
+        switch (flavor) {
+            case BubbleFlavor.Sweet:    colorSweet = color;     break;
+            case BubbleFlavor.Salty:    colorSalty = color;     break;
+            case BubbleFlavor.Sour:     colorSour = color;      break;
+            case BubbleFlavor.Bitter:   colorBitter = color;    break;
+            case BubbleFlavor.Umami:    colorUmami = color;     break;
+        }
+    }
+
     public static void SetColors(Color[] colors)
     {
         // Sets the active colors for the bubbles.
@@ -115,6 +134,10 @@ public class BubbleFlavorMethods
         colorBitter = colors[3];
         colorUmami = colors[4];
     }
+
+    //===============================================================
+    // Sprite accessors
+    //===============================================================
 
     public static Sprite GetSprite(BubbleFlavor flavor, BubbleSpriteBinder binder)
     {

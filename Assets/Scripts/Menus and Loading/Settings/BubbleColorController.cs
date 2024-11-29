@@ -6,11 +6,23 @@ public class BubbleColorController : MonoBehaviour
     {
         if (GUI.Button(new Rect(70, 10, 50, 50), "Base!"))
         {
-            BubbleFlavorMethods.SetColors(BubbleFlavorMethods.GetBaseColors());
+            PresetBase();
         }
         if (GUI.Button(new Rect(70, 70, 50, 50), "HiCon!"))
         {
-            BubbleFlavorMethods.SetColors(BubbleFlavorMethods.GetHiConColors());
+            PresetHighContrast();
         }
     }
+
+    public void PresetBase()
+    {
+        BubbleFlavorMethods.SetColors(BubbleFlavorMethods.GetBaseColors());
+    }
+
+    public void PresetHighContrast()
+    {
+        BubbleFlavorMethods.SetColors(BubbleFlavorMethods.GetHiConColors());
+    }
+
+
 }
