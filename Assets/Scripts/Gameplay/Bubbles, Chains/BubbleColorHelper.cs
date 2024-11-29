@@ -15,6 +15,8 @@ public class BubbleColorHelper : MonoBehaviour
     [Tooltip("A float (-1 to 1) which is used to lerp the base color towards white, if Brightness "
            + "is positive, or towards black, if Brightness is negative.")]
     public float brightness = 0;
+    [Tooltip("A float (0 to 1) which changes this bubble's transparency.")]
+    public float alpha = 1;
 
     // ==============================================================
     // Internal variables
@@ -45,7 +47,7 @@ public class BubbleColorHelper : MonoBehaviour
         baseColor = BubbleFlavorMethods.GetColor(flavor);
         // Define sprite and apply baseColor to it.
         sprite = GetComponent<SpriteRenderer>();
-        sprite.color = baseColor;
+        sprite.color = new(baseColor.r, baseColor.g, baseColor.b, alpha);
     }
 
     void Update()
@@ -59,7 +61,7 @@ public class BubbleColorHelper : MonoBehaviour
         // If the base color has changed (because of settings, etc.), change the base color.
         if (baseColor != BubbleFlavorMethods.GetColor(flavor)) {
             baseColor = BubbleFlavorMethods.GetColor(flavor);
-            sprite.color = baseColor;
+            sprite.color = new(baseColor.r, baseColor.g, baseColor.b, alpha);
         }
     }
 
@@ -74,16 +76,18 @@ public class BubbleColorHelper : MonoBehaviour
         // towards black.
         // ================
 
+        Color baseAlpha = new(baseColor.r, baseColor.g, baseColor.b, alpha);
+
         if (brightness == 0) {
-            sprite.color = baseColor;
+            sprite.color = baseAlpha;
         }
         else if (brightness > 0) {
-            Color white = new Color(1,1,1,baseColor.a);
-            sprite.color = Color.Lerp(baseColor, white, brightness);
+            Color white = new(1,1,1,alpha);
+            sprite.color = Color.Lerp(baseAlpha, white, brightness);
         }
         else { // if (Brightness < 0)
-            Color black = new Color(0,0,0,baseColor.a);
-            sprite.color = Color.Lerp(baseColor, black, -brightness);
+            Color black = new(0,0,0,alpha);
+            sprite.color = Color.Lerp(baseAlpha, black, -brightness);
         }
     }
 
