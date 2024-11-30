@@ -151,7 +151,7 @@
 			<value>3</value>
 		</property>
 		<property name="targetValue">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="commandTarget">
 			<destination>{1e480ce7-02b3-4bff-b6fb-d552fcd6084f}</destination>
@@ -179,7 +179,7 @@
 			<value>3</value>
 		</property>
 		<property name="targetValue">
-			<value>6.2000002861022949</value>
+			<value>6</value>
 		</property>
 		<relationship name="commandTarget">
 			<destination>{52bf1c54-0c4c-4a92-aab3-9d58d0f69b1a}</destination>
