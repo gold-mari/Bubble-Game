@@ -123,7 +123,7 @@
 			<value>3</value>
 		</property>
 		<property name="targetValue">
-			<value>7</value>
+			<value>6</value>
 		</property>
 		<relationship name="commandTarget">
 			<destination>{f21b79d5-5704-4390-a8ef-76902aea03d4}</destination>
@@ -151,7 +151,7 @@
 			<value>3</value>
 		</property>
 		<property name="targetValue">
-			<value>3</value>
+			<value>2</value>
 		</property>
 		<relationship name="commandTarget">
 			<destination>{1e480ce7-02b3-4bff-b6fb-d552fcd6084f}</destination>
@@ -179,7 +179,7 @@
 			<value>3</value>
 		</property>
 		<property name="targetValue">
-			<value>7</value>
+			<value>6.2000002861022949</value>
 		</property>
 		<relationship name="commandTarget">
 			<destination>{52bf1c54-0c4c-4a92-aab3-9d58d0f69b1a}</destination>
@@ -207,7 +207,7 @@
 			<value>3</value>
 		</property>
 		<property name="targetValue">
-			<value>3</value>
+			<value>9</value>
 		</property>
 		<relationship name="commandTarget">
 			<destination>{4dd328e8-ceae-4706-846f-8bf294c78506}</destination>
