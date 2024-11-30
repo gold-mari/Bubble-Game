@@ -4,49 +4,109 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Works in editor!
+
 public class CurtainSpriteHandler : MonoBehaviour
 {
-    [Header("Curtain Data")]
+    // ==============================================================
+    // Parameters
+    // ==============================================================
+
+    [Header("Data")]
     [SerializeField, Tooltip("The binder of all possible curtain sprites.")]
     UISpriteBinder allCurtains;
+    [SerializeField, Tooltip("The current curtain sprite.")]
+    spriteVar curtainSprite;
+    [Header("Display")]
     [SerializeField, Tooltip("The text object we write the id of the selected curtain to.")]
     TMP_Text monitorText;
     [SerializeField, Tooltip("The buttons used to increment or decrement our curtain selection.")]
     Button[] curtainChangeButtons;
-    /*[SerializeField, Tooltip("The binder of the curtain sprites available by default.")]
-    UISpriteBinder baseCurtains;
-    [SerializeField, Tooltip("The binder of the curtain sprites currently available.")]
-    UISpriteBinder availableCurtains;
-    [SerializeField, Tooltip("The curtain sprite for a locked image.")]
-    Sprite lockedCurtain;*/
 
-
-    [SerializeField, Tooltip("The current curtain sprite.")]
-    spriteVar curtainSprite;
-
+    // ==============================================================
+    // Misc. internal variables
+    // ==============================================================
 
     private int selection = 0;
     private float lastAspect = -1;
     private bool isSquare;
 
-    private void Awake()
+    // ==============================================================
+    // Initializers
+    // ==============================================================
+
+    public void Initialize()
     {
+        // THIS FUNCTION IS CALLED ONLY ONCE PER SCENE, on Awake().
+        // ================
+
         allCurtains.Initialize();
 
-        for (int i = 0; i < allCurtains.GetCount(); i++) {
-            UISpriteData pair = allCurtains.GetPairList()[i];
-            if (pair.sprite == curtainSprite.value) {
-                selection = i;
-                break;
-            }
+        if (PlayerPrefs.HasKey("CurtainIndexPref")) {
+            selection = PlayerPrefs.GetInt("CurtainIndexPref");
+        } else { // Default value.
+            selection = 0;
         }
 
-        // If we're here, we didn't get a match.
-        // Reset the curtain to match the selection.
+        UISpriteData pair = allCurtains.GetPairList()[selection];
+        curtainSprite.value = pair.sprite;
+
+        // Force a call to Update, which will update whether or not we can change
+        // our current curtain.
+        Update();
+    }
+
+    private void OnEnable()
+    {
+        // Make visible and update UI.
+
+        UISpriteData pair = allCurtains.GetPairList()[selection];
+
+        monitorText.text = pair.id;
+        curtainSprite.value = pair.sprite;
+    }
+
+    private void OnDisable()
+    {
+        // Save selection to player prefs
+
+        PlayerPrefs.SetInt("CurtainIndexPref", selection);
+    }
+
+    // ==============================================================
+    // Indexing manipulators
+    // ==============================================================
+
+    public void IncrementCurtainSelection()
+    {
+        if (isSquare) return;
+
+        selection = (selection+1)%allCurtains.GetCount();
+
         UISpriteData data = allCurtains.GetPairList()[selection];
         curtainSprite.value = data.sprite;
         monitorText.text = data.id;
     }
+
+    public void DecrementCurtainSelection()
+    {
+        if (isSquare) return;
+
+        selection--;
+        // Wrap around if underflow!
+        if (selection < 0) {
+            selection = allCurtains.GetCount()-1;
+            print($"Underflowed! Selection is now {selection}");
+        }
+
+        UISpriteData data = allCurtains.GetPairList()[selection];
+        curtainSprite.value = data.sprite;
+        monitorText.text = data.id;
+    }
+
+    // ==============================================================
+    // Misc.
+    // ==============================================================
 
     private void Update()
     {
@@ -74,49 +134,5 @@ public class CurtainSpriteHandler : MonoBehaviour
             monitorText.text = data.id;
         }
         lastAspect = aspect;
-    }
-
-   /* public void UnlockCurtain(string curtainID)
-    {
-        Sprite curtain = allCurtains.Query(curtainID);
-        if (curtain != allCurtains.GetDefault()) {
-            // Query was valid! Add the new pair.
-            availableCurtains.AddPair(curtainID, curtain);
-        } else {
-            Debug.LogError($"CurtainSpriteHandler Error: UnlockCurtain failed. " 
-                          + "curtainID ({curtainID}) was not found in allCurtains.");
-        }
-    }
-
-    public void ResetAvailableCurtains()
-    {
-        availableCurtains.CopyFrom(baseCurtains);
-    }*/
-
-    public void IncrementCurtainSelection()
-    {
-        if (isSquare) return;
-
-        selection = (selection+1)%allCurtains.GetCount();
-
-        UISpriteData data = allCurtains.GetPairList()[selection];
-        curtainSprite.value = data.sprite;
-        monitorText.text = data.id;
-    }
-
-    public void DecrementCurtainSelection()
-    {
-        if (isSquare) return;
-
-        selection--;
-        // Wrap around if underflow!
-        if (selection < 0) {
-            selection = allCurtains.GetCount()-1;
-            print($"Underflowed! Selection is now {selection}");
-        }
-
-        UISpriteData data = allCurtains.GetPairList()[selection];
-        curtainSprite.value = data.sprite;
-        monitorText.text = data.id;
     }
 }

@@ -7,11 +7,47 @@ public enum BubbleFlavor {NONE, Sweet, Salty, Sour, Bitter, Umami}
 public class BubbleFlavorMethods
 {
     //===============================================================
-    // Static fields
+    // Utilities
     //===============================================================
 
     // Returns the number of Bubble_Flavors
     public static int length = System.Enum.GetValues(typeof(BubbleFlavor)).Length;
+
+    public static Color HexToColor(string hex)
+    {
+        // Converts a 6-digit hex string to a color.
+        // ================
+
+        if (hex.Length != 6) {
+            Debug.LogWarning($"BubbleFlavorMethods Error: HexToColor failed. Expecting 6 characters, recieved {hex.Length}.");
+            return Color.white;
+        }
+
+        foreach (char c in hex) {
+        	if (!"0123456789AaBbCcDdEeFf".Contains(c)) {
+            	Debug.LogWarning($"BubbleFlavorMethods Error: HexToColor failed. String contains non-hex character: {hex}.");
+                return Color.white;
+            }
+        }
+
+        int r = System.Convert.ToInt32($"0x{hex[0]}{hex[1]}", 16);
+        int g = System.Convert.ToInt32($"0x{hex[2]}{hex[3]}", 16);
+        int b = System.Convert.ToInt32($"0x{hex[4]}{hex[5]}", 16);
+
+        return new(r/255f, g/255f, b/255f);
+    }
+
+    public static string ColorToHex(Color color)
+    {
+        // Converts a color to a 6-digit hex string.
+        // ================
+
+        string r = ((int)(color.r*255)).ToString("X");
+        string g = ((int)(color.g*255)).ToString("X");
+        string b = ((int)(color.b*255)).ToString("X");
+
+        return $"{r}{g}{b}";
+    }
 
     //===============================================================
     // Private data
@@ -20,21 +56,21 @@ public class BubbleFlavorMethods
     // ================
     // Base colors
     // ================
-    private static Color colorSweet_b = new(0.781f,0.27f,0.9f);     // C745E6
-    private static Color colorSalty_b = new(0.298f,0.671f,1f);      // 4CABFF
-    private static Color colorSour_b = new(0.996f,1f,0.298f);       // FEFF4C
-    private static Color colorBitter_b = new(0.298f,1f,0.521f);     // 4CFF85
-    private static Color colorUmami_b = new(1f,0.296f,0.296f);      // FF4C4C
+    private static readonly Color colorSweet_b = new(0.781f,0.27f,0.9f);     // C745E6
+    private static readonly Color colorSalty_b = new(0.298f,0.671f,1f);      // 4CABFF
+    private static readonly Color colorSour_b = new(0.996f,1f,0.298f);       // FEFF4C
+    private static readonly Color colorBitter_b = new(0.298f,1f,0.521f);     // 4CFF85
+    private static readonly Color colorUmami_b = new(1f,0.296f,0.296f);      // FF4C4C
     
 
     // ================
     // Hi-contrast colors
     // ================
-    private static Color colorSweet_h = new(0.870f,0.329f,0.996f);  // DE54FE
-    private static Color colorSalty_h = new(0.207f,0.462f,0.709f);  // 3576B5
-    private static Color colorSour_h = new(0.980f,0.984f,0.733f);   // FAFBBB
-    private static Color colorBitter_h = new(0.176f,0.792f,0.368f); // 2DCA5E
-    private static Color colorUmami_h = new(0.603f,0.125f,0.125f);  // 9A2020
+    private static readonly Color colorSweet_h = new(0.870f,0.329f,0.996f);  // DE54FE
+    private static readonly Color colorSalty_h = new(0.207f,0.462f,0.709f);  // 3576B5
+    private static readonly Color colorSour_h = new(0.980f,0.984f,0.733f);   // FAFBBB
+    private static readonly Color colorBitter_h = new(0.176f,0.792f,0.368f); // 2DCA5E
+    private static readonly Color colorUmami_h = new(0.603f,0.125f,0.125f);  // 9A2020
 
     // ================
     // Active colors

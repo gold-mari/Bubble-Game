@@ -10,7 +10,8 @@ public class InitializeSettings : MonoBehaviour
 
     private void Awake()
     {
-        // Initializes the settings handler under us, and then disables us.
+        // Initializes the settings handler under us, and then (maybe) disables us.
+        // IS CALLED ONLY ONCE PER SCENE.
         // ================
 
         SettingsHandler handler = GetComponentInChildren<SettingsHandler>(includeInactive:true);
