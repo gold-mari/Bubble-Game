@@ -11,7 +11,7 @@ public class Bubble : MonoBehaviour
 
     // Bubbles of like flavors are eligible to join in chains together.
     [Tooltip("This bubble's flavor, represented as a Bubble_Flavor variable.")]
-    public Bubble_Flavor bubbleFlavor = Bubble_Flavor.Sweet;
+    public BubbleFlavor bubbleFlavor = BubbleFlavor.Sweet;
     // When a collision occurs, to avoid doublecounting, the Bubble with the oldest/smallest age
     // runs the calculation.
     [Tooltip("This bubble's age, assigned normally by BubbleSpawner, and used to prevent double "
@@ -82,15 +82,13 @@ public class Bubble : MonoBehaviour
 
             // Set transparency to 25% through the BubbleColorHelper.
             BubbleColorHelper helper = GetComponentInChildren<BubbleColorHelper>();
-            if (helper)
-            {
-                helper.baseColor = new Color(helper.baseColor.r, helper.baseColor.g, helper.baseColor.b, 0.25f);
+            if (helper) {
+                helper.alpha = 0.25f;
             }
 
-            // Bubbles are normally at sortingOrder 10- put destroyed bubbles in the back.
+            // Bubbles are normally at sortingOrder 10: put destroyed bubbles in the back.
             SpriteRenderer sprite = GetComponentInChildren<SpriteRenderer>();
-            if (sprite)
-            {
+            if (sprite) {
                 sprite.sortingOrder = 5;
             }
             

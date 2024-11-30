@@ -64,6 +64,7 @@ MonoBehaviour:
   maxCharWidth: 20
   baseFontSize: 30
   sizePerComboRank: 2.5
+  reduceFlashing: {fileID: 11400000, guid: 7f97a7887923e474781a10af95a736ce, type: 2}
 --- !u!114 &700670980116155770
 MonoBehaviour:
   m_ObjectHideFlags: 0

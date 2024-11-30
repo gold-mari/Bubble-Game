@@ -9,19 +9,28 @@ public class PauseManager : MonoBehaviour
 {
     [SerializeField, Tooltip("The key which, when pressed, pauses the game.")]
     private KeyCode[] pauseKeys;
+    [SerializeField, Tooltip("The path of the FMOD nonmenu SFX bus. Find it in the mixer by right clicking the " +
+                             "NonMenuSFX group and selecting Copy Path.")]
+    private string nonmenuSFXBusPath = "bus:/SFX/NonMenuSFX";
+    [SerializeField, Tooltip("The path of the FMOD music bus. Find it in the mixer by right clicking the " +
+                             "NonMenuSFX group and selecting Copy Path.")]
+    private string musicBusPath = "bus:/Music";
     [SerializeField, Tooltip("Called when the pause state changes to true.")]
-    public UnityEvent onPause;
+    private UnityEvent onPause;
     [SerializeField, Tooltip("Called when the pause state changes to false.")]
-    public UnityEvent onUnpause;
+    private UnityEvent onUnpause;
     [SerializeField, Tooltip("Whether or not we can pause when entering this scene.\n\nDefault: true")]
-    public bool canPauseOnEnter = true;
+    private bool canPauseOnEnter = true;
     [SerializeField, Tooltip("Whether or not the game should unpause when regaining application focus.\n\nDefault: false")]
-    public bool unpauseOnRefocus = false;
+    private bool unpauseOnRefocus = false;
     
     [SerializeField, ReadOnly, Tooltip("Whether or not the game is currently able to be paused.")]
     private bool pauseLocked;
     [SerializeField, ReadOnly, Tooltip("Whether or not the game is actively paused.")]
     private bool paused;
+
+    private FMOD.Studio.Bus sfxBus;
+    private FMOD.Studio.Bus musicBus;
 
     private void Awake()
     {
@@ -31,6 +40,9 @@ public class PauseManager : MonoBehaviour
         // Default state is always unpaused.
         // If we can't pause on enter, lock to unpaused.
         pauseLocked = !canPauseOnEnter;
+
+        sfxBus = FMODUnity.RuntimeManager.GetBus(nonmenuSFXBusPath);
+        musicBus = FMODUnity.RuntimeManager.GetBus(musicBusPath);
     }
 
     private void Update()
@@ -92,12 +104,16 @@ public class PauseManager : MonoBehaviour
         if (pauseStatus)
         {
             Time.timeScale = 0;
+            sfxBus.setPaused(true);
             onPause.Invoke();
+            musicBus.setPaused(true);
         }
         else
         {
             Time.timeScale = 1;
+            sfxBus.setPaused(false);
             onUnpause.Invoke();
+            musicBus.setPaused(false);
         }
     }
 

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ChangeSpriteOnInput : MonoBehaviour
 {
     [SerializeField]
-    KeyCode key = KeyCode.Mouse0;
+    KeyCode[] keys;
     [SerializeField]
     Sprite upSprite, downSprite;
 
@@ -21,13 +21,13 @@ public class ChangeSpriteOnInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(key))
-        {
-            image.sprite = downSprite;
-        }   
-        else
-        {
-            image.sprite = upSprite;
+        foreach (KeyCode key in keys) {
+            if (Input.GetKey(key)) {
+                image.sprite = downSprite;
+                return;
+            }
         }
+        
+        image.sprite = upSprite;
     }
 }

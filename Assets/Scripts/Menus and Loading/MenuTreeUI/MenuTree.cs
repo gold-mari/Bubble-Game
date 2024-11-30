@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuTree : MonoBehaviour 
 {
@@ -41,6 +42,8 @@ public class MenuTree : MonoBehaviour
     private HashSet<string> idsInUse = new();
     // Check if we have already called start once before.
     bool calledStart = false;
+    // Scenes that count as 'gameplay levels' for the "gameplayOnly" menu tree tag.
+    List<string> gameplayScenes = new() { "Level1", "Level2", "Level3", "Level4", "Level5" };
 
     // ==============================================================
     // Initializers
@@ -94,6 +97,9 @@ public class MenuTree : MonoBehaviour
 
         for (int i = 0; i < lines.Length; i++) {
             string line = lines[i];
+
+            // Skipped commented lines.
+            if (line.StartsWith("//")) continue;
             
             // ================================
             // Part 1: Calculate indent level
@@ -145,11 +151,26 @@ public class MenuTree : MonoBehaviour
                     currentNode = new(terms[0], terms[1], parent, GetContent(terms[0]));
 
                     // Overrides
-                    if (terms.Length == 3) {
-                        if (terms[2] == "disable") {
-                            currentNode.enabled = false;
-                        } else if (terms[2] == "overrideTitle") {
-                            currentNode.overrideTitle = true;
+                    if (terms.Length > 2) {
+                        for (int j = 2; j < terms.Length; j++) {
+                            switch (terms[j]) {
+                                case "disable":
+                                    currentNode.enabled = false;
+                                    break;
+                                case "overrideTitle":
+                                    currentNode.overrideTitle = true;
+                                    break;
+                                case "gameplayOnly":
+                                    string sceneName = SceneManager.GetActiveScene().name;
+                                    currentNode.visible = gameplayScenes.Contains(sceneName);
+                                    break;
+                                case "alsoShowBase":
+                                    currentNode.alsoShowBase = true;
+                                    break;
+                                case "invisible":
+                                    currentNode.visible = false;
+                                    break;
+                            }
                         }
                     }
                 }
@@ -244,7 +265,7 @@ public class MenuTree : MonoBehaviour
                 node.content.SetActive(visible);
             }
 
-            else { // Node content is null, display base content.
+            if (node.content == null || node.alsoShowBase) { // Display base content.
                 baseContent.UpdateCurrentNode(node);
                 baseContent.ChangeText(node);
                 baseContent.gameObject.SetActive(visible);
@@ -265,10 +286,14 @@ public class MenuTreeNode
     // The description of the menu
     public string description;
     // Whether or not this node is enabled in the menu
+    public bool visible = true;
+    // Whether or not this node is enabled in the menu
     public bool enabled = true;
     // Whether or not this node's title is always overridden by it's id
     public bool overrideTitle = false;
-    // The to this node.
+    // Whether or not this node's content should also allow the base content to show.
+    public bool alsoShowBase = false;
+    // The content of this node.
     public GameObject content = null;
     // The parent to this node.
     public MenuTreeNode parent = null;

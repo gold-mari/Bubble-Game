@@ -415,7 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abfe5e99e2bf212449266202b579a9ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 323
+  keys: 43010000
   upSprite: {fileID: -1652702171, guid: 570f73c10294b534fbbafc6d5509a94a, type: 3}
   downSprite: {fileID: -553741669, guid: 570f73c10294b534fbbafc6d5509a94a, type: 3}
 --- !u!1 &1248837759054905236
@@ -1393,6 +1393,7 @@ GameObject:
   - component: {fileID: 3169445195650152965}
   - component: {fileID: 3857164917522945260}
   - component: {fileID: 2825982447011525985}
+  - component: {fileID: 4757328411584947785}
   m_Layer: 5
   m_Name: Curtains
   m_TagString: Untagged
@@ -1458,6 +1459,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4757328411584947785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4878353760489557813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9561ca271ded50d4782e7439537fc770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteVar: {fileID: 11400000, guid: 78e31a4b24f58074fa89e5c234d9d7f0, type: 2}
 --- !u!1 &5269398543553009040
 GameObject:
   m_ObjectHideFlags: 0
@@ -1547,7 +1561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abfe5e99e2bf212449266202b579a9ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 324
+  keys: 1b00000044010000
   upSprite: {fileID: 847958343, guid: 570f73c10294b534fbbafc6d5509a94a, type: 3}
   downSprite: {fileID: 275794185, guid: 570f73c10294b534fbbafc6d5509a94a, type: 3}
 --- !u!1 &5915848774446401514
@@ -1604,6 +1618,21 @@ MonoBehaviour:
   scenes:
   - name: MainMenu
     scene: MainMenu
+  inSFX:
+    Guid:
+      Data1: 1624195471
+      Data2: 1229713443
+      Data3: 2032172991
+      Data4: 1088449002
+    Path: event:/SFX/Menus/TransIn
+  outSFX:
+    Guid:
+      Data1: -1234811853
+      Data2: 1327410236
+      Data3: -1245301097
+      Data4: 489915786
+    Path: event:/SFX/Menus/TransOut
+  musicBusPath: bus:/Music
   transitionStart: 1
 --- !u!114 &287574405878620592
 MonoBehaviour:
@@ -1820,6 +1849,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseKeys: 440100001b000000
+  nonmenuSFXBusPath: bus:/SFX/NonMenuSFX
+  musicBusPath: bus:/Music
   onPause:
     m_PersistentCalls:
       m_Calls:
@@ -1875,7 +1906,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   canPauseOnEnter: 1
-  canPause: 0
+  unpauseOnRefocus: 0
+  pauseLocked: 0
+  paused: 0
 --- !u!1 &7098958957643826426
 GameObject:
   m_ObjectHideFlags: 0

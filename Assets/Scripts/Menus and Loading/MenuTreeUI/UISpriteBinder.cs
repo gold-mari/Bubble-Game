@@ -10,6 +10,7 @@ public class UISpriteBinder : ScriptableObject
     private List<UISpriteData> pairList;
     // The queryable dict.
     private Dictionary<string, Sprite> pairDict = new();
+    private Dictionary<string, Sprite> intDict = new();
 
     public void Initialize()
     {
@@ -20,6 +21,26 @@ public class UISpriteBinder : ScriptableObject
         foreach (UISpriteData pair in pairList) {
             pairDict[pair.id] = pair.sprite;
         }
+    }
+
+    public void CopyFrom(UISpriteBinder other)
+    {
+        // Copy over the pair list.
+        pairList.Clear();
+        pairList.AddRange(other.pairList);
+
+        // Reinitialize the pair dict.
+        Initialize();
+    }
+
+    public void AddPair(string id, Sprite sprite)
+    {
+        if (pairDict.ContainsKey(id)) {
+            Debug.LogError($"UISpriteBinder Warning: Called AddPair on an id ({id}) that already existed in pairDict.");
+            return;
+        }
+
+        pairDict[id] = sprite;
     }
 
     public Sprite Query(string queriedID)
@@ -39,6 +60,16 @@ public class UISpriteBinder : ScriptableObject
     {
         return defaultSprite;
     }
+
+    public List<UISpriteData> GetPairList()
+    {
+        return pairList;
+    }
+
+    public int GetCount()
+    {
+        return pairDict.Keys.Count;
+    }
 }
 
 [System.Serializable]
@@ -46,4 +77,10 @@ public class UISpriteData
 {
     public string id;
     public Sprite sprite;
+
+    public UISpriteData(string _id, Sprite _sprite)
+    {
+        id = _id;
+        sprite = _sprite;
+    }
 }

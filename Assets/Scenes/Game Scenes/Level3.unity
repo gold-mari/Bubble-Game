@@ -130,6 +130,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 415328091082287554, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 415328091082287554, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 415328091176840289, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 415328091176840289, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 415328091176840289, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 415328091194840764, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000019073486
+      objectReference: {fileID: 0}
     - target: {fileID: 1409663811593010413, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
       propertyPath: ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

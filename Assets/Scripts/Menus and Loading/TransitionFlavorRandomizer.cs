@@ -7,6 +7,6 @@ public class TransitionFlavorRandomizer : MonoBehaviour
 
     public void Randomize()
     {
-        transitionAnimFlavorVar.value = Bubble_Flavor_Methods.random();
+        transitionAnimFlavorVar.value = BubbleFlavorMethods.Random();
     }
 }

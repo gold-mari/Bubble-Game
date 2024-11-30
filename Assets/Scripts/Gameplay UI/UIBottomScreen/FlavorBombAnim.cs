@@ -15,6 +15,8 @@ public class FlavorBombAnim : MonoBehaviour
     private bool showOnBeat = false;
     [SerializeField, ShowIf("showOnBeat")]
     private BeatReader reader;
+    [SerializeField, Tooltip("The boolVar holding whether or not we should reduce flashing.")]
+    private boolVar reduceFlashing;
 
     // ==============================================================
     // Animation parameters and objects
@@ -84,14 +86,21 @@ public class FlavorBombAnim : MonoBehaviour
             // Animate color (hue shift).
             sprite.color = Color.Lerp(Color.HSVToRGB((Time.time*colorTimeFactor)%1f,0.8f,1f), clearWhite, 0.4f);
 
-            // Animate scale (pulsation).
-            float pulseAmt = Mathf.Lerp(pulseRange.x, pulseRange.y, Mathf.Sin(pulseTimeFactor*Time.time));
-            transform.localScale = new Vector3(pulseAmt,pulseAmt,1);
+            if (!reduceFlashing.value) {
+                // Animate scale (pulsation).
+                float pulseAmt = Mathf.Lerp(pulseRange.x, pulseRange.y, Mathf.Sin(pulseTimeFactor*Time.time));
+                transform.localScale = new Vector3(pulseAmt,pulseAmt,1);
 
-            // Animate position (jitter).
-            transform.localPosition = new Vector3(Random.Range(-jitterMagnitude,jitterMagnitude), 
-                                                Random.Range(-jitterMagnitude,jitterMagnitude), 
-                                                0);
+                // Animate position (jitter).
+                transform.localPosition = new Vector3(
+                    Random.Range(-jitterMagnitude,jitterMagnitude), 
+                    Random.Range(-jitterMagnitude,jitterMagnitude), 
+                    0
+                );
+            } else {
+                transform.localScale = new Vector3(pulseRange.y, pulseRange.y, 1);
+                transform.localPosition = Vector3.zero;
+            }
 
             // Animate rotation.
             transform.localRotation = Quaternion.Euler(0,0,rotationTimeFactor*Time.time%360f);

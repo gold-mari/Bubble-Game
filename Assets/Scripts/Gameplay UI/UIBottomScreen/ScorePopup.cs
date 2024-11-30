@@ -20,6 +20,8 @@ public class ScorePopup : MonoBehaviour
     private float baseFontSize = 30;
     [SerializeField, Tooltip("The amount we increase the font size by per combo rank.\n\nDefault: 2.5")]
     private float sizePerComboRank = 2.5f;
+    [SerializeField, Tooltip("The boolVar holding whether or not we should reduce flashing.")]
+    private boolVar reduceFlashing;
 
     // ==============================================================
     // Internal variables
@@ -103,6 +105,11 @@ public class ScorePopup : MonoBehaviour
     {
         while (true)
         {
+            if (reduceFlashing.value) {
+                // If we're reducing flashing, loop through color slower.
+                colorLoopPeriod *= 3;
+            }
+
             float elapsed = 0;
             while (elapsed < colorLoopPeriod)
             {

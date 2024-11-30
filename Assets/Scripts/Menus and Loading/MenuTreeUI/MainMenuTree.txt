@@ -1,8 +1,13 @@
+// Sound\Change audio-related settings.
 Root\Welcome to BubbleBeast DigiDungeon!
     Quit\Exit the game.
     Play\Begin the game.
-    Settings\Change the game's settings.\disable
-        Sound\Change audio-related settings.
-        Graphics\Change video-related settings.
-        Controls\Change input/output-related settings.
-        Accessibility\Change accessibility-related settings.
+        New Game\Start a new game!\overrideTitle
+        Continue\Pick up where you left off.\overrideTitle\alsoShowBase
+        Tutorial and Extras\Learn how to play, view high scores, and more!\overrideTitle
+    Credits\Check out the developers!\overrideTitle
+    Settings\Change the game's settings.
+        Sound\Change audio-related settings.\overrideTitle
+        Graphics\Change video-related settings.\overrideTitle
+        Accessibility\Change accessibility-related settings.\overrideTitle
+            Bubble Color Editor\Modify the colors of different bubble flavors.\overrideTitle\invisible

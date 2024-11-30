@@ -145,8 +145,8 @@ public class BubbleSpawner : MonoBehaviour
         beforeFlavorBombSFX_i.release();
         hyperbubbleSFX_i.release();
         beforeHyperbubbleSFX_i.release();
-    }
-
+    } 
+   
     // ==============================================================
     // Bubble-making methods
     // ==============================================================
@@ -184,9 +184,9 @@ public class BubbleSpawner : MonoBehaviour
         massBubbleSFX_i.start();
 
         // Used to generate Bubble_Flavors non-repetitiously.
-        Bubble_Flavor currentFlavor;
-        Bubble_Flavor lastFlavor = Bubble_Flavor.NONE;
-        Bubble_Flavor flavorBeforeThat = Bubble_Flavor.NONE;
+        BubbleFlavor currentFlavor;
+        BubbleFlavor lastFlavor = BubbleFlavor.NONE;
+        BubbleFlavor flavorBeforeThat = BubbleFlavor.NONE;
 
         for (int i = 0; i < massRoundSize; i++) {
             // Each spawnPoint should be a unit vector, equally spaced out depending on
@@ -197,7 +197,7 @@ public class BubbleSpawner : MonoBehaviour
             // If the Flavor we generated was one of the last two Flavors we generated,
             // regenerate it.
             do {
-                currentFlavor = Bubble_Flavor_Methods.random();
+                currentFlavor = BubbleFlavorMethods.Random();
             } while (currentFlavor == lastFlavor || currentFlavor == flavorBeforeThat);
 
             SpawnBubble(spawnPoint, currentFlavor, Vector2.zero, HYPERMassBubbles);
@@ -259,7 +259,7 @@ public class BubbleSpawner : MonoBehaviour
         UpdateFlavors();
     }
 
-    public Bubble SpawnBubble(Vector2 spawnPoint, Bubble_Flavor flavor, Vector2 direction, bool hyper=false)
+    public Bubble SpawnBubble(Vector2 spawnPoint, BubbleFlavor flavor, Vector2 direction, bool hyper=false)
     {
         // Spawns a Bubble at spawnPoint and initializes its Bubble_Flavor, age, and
         // sprite color. Applies initialForce if direction is not the zero vector.
@@ -283,7 +283,7 @@ public class BubbleSpawner : MonoBehaviour
         age++;
 
         // Initialize sprite.
-        obj.GetComponentInChildren<SpriteRenderer>().sprite = Bubble_Flavor_Methods.getSprite(flavor, binder);
+        obj.GetComponentInChildren<SpriteRenderer>().sprite = BubbleFlavorMethods.GetSprite(flavor, binder);
 
         // Intialize dangerManager reference in dangerTracker.
         obj.GetComponent<DangerTracker>().dangerManager = dangerManager;
@@ -341,14 +341,14 @@ public class BubbleSpawner : MonoBehaviour
         // Rerolls a color if it was seen in the last two generations.
         // ================
 
-        Bubble_Flavor lastFlavor = Bubble_Flavor.NONE;
-        Bubble_Flavor flavorBeforeThat = Bubble_Flavor.NONE;
+        BubbleFlavor lastFlavor = BubbleFlavor.NONE;
+        BubbleFlavor flavorBeforeThat = BubbleFlavor.NONE;
         
         for (int i = 0; i < flavors.Count; i++)
         {
             // Generate flavors nonrepetitively.
             do {
-                flavors[i].value = Bubble_Flavor_Methods.random();
+                flavors[i].value = BubbleFlavorMethods.Random();
             } while (flavors[i].value == lastFlavor || flavors[i].value == flavorBeforeThat);
 
             // After selecting, pass back the Flavors we've seen.
@@ -374,7 +374,7 @@ public class BubbleSpawner : MonoBehaviour
 
         // Regenerate the final flavor, ensuring it wasn't either of the last two flavors.
         do {
-            flavors[count-1].value = Bubble_Flavor_Methods.random();  
+            flavors[count-1].value = BubbleFlavorMethods.Random();  
         } while (flavors[count-1].value == flavors[count-2].value || flavors[count-1].value == flavors[count-3].value);
     }
 

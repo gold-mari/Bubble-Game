@@ -23,12 +23,12 @@ public class ScorePopupManager : MonoBehaviour
         centroid /= members.Length;
 
         ScorePopup scorePopup = Instantiate(popup, centroid, Quaternion.identity, transform).GetComponent<ScorePopup>();
-        scorePopup.Initialize(score, combo, exceptionalCombo, overpop, Bubble_Flavor_Methods.getColor(chain.chainFlavor));
+        scorePopup.Initialize(score, combo, exceptionalCombo, overpop, BubbleFlavorMethods.GetColor(chain.chainFlavor));
     }
 
     public void OnEndPop(Bubble bubble, uint score)
     {
         ScorePopup scorePopup = Instantiate(popup, bubble.transform.position, Quaternion.identity, transform).GetComponent<ScorePopup>();
-        scorePopup.Initialize(score, Bubble_Flavor_Methods.getColor(bubble.bubbleFlavor));
+        scorePopup.Initialize(score, BubbleFlavorMethods.GetColor(bubble.bubbleFlavor));
     }
 }
