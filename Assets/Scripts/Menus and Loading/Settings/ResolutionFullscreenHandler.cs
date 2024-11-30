@@ -138,6 +138,8 @@ public class ResolutionFullscreenHandler : MonoBehaviour
 
     public void SetResolution(int index)
     {
+        if (index < 0 || index >= resolutions.Length) return;
+
         Vector2Int dim = resolutions[index];
         resolutionIndex = index;
         Screen.SetResolution(dim.x, dim.y, Screen.fullScreen);
