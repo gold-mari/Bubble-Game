@@ -970,11 +970,11 @@ MonoBehaviour:
   musicBusPath: bus:/Music
   musicEvent:
     Guid:
-      Data1: 1055583534
-      Data2: 1215931040
-      Data3: 334797713
-      Data4: -1803752076
-    Path: event:/Music/AdventureQuest
+      Data1: -750314534
+      Data2: 1074532357
+      Data3: -2088337240
+      Data4: -1990463611
+    Path: event:/Music/CutsceneTheme
   beginOnStart: 1
 --- !u!224 &1107454328
 RectTransform:
