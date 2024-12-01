@@ -2217,6 +2217,7 @@ GameObject:
   - component: {fileID: 5803532432083480366}
   - component: {fileID: 5803532432083480369}
   - component: {fileID: 5803532432083480368}
+  - component: {fileID: 4068424004707908261}
   m_Layer: 5
   m_Name: Victory Display
   m_TagString: Untagged
@@ -2318,6 +2319,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &4068424004707908261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5803532432083480367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6b3c417fd147bf45bb29b9191adda0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rankDocument: {fileID: 4900000, guid: f4dfc20499b4ca349863cd34a3db5b97, type: 3}
+  scoreVar: {fileID: 11400000, guid: 469cd48f67736334697981d9c30f97ef, type: 2}
 --- !u!1 &5803532433316533868
 GameObject:
   m_ObjectHideFlags: 0
