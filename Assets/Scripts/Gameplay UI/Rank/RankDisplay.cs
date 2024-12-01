@@ -14,7 +14,7 @@ public class RankDisplay : MonoBehaviour
 
 
 
-    void OnEnable()
+    public void PlaySFX()
     {
         FMODUnity.RuntimeManager.PlayOneShot(rankRevealSFX);
     }

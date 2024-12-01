@@ -58,7 +58,7 @@ public class SaveHandler : MonoBehaviour
 
         string sceneName = SceneManager.GetActiveScene().name;
 
-        print($"SaveHandler: Current scene is {sceneName}");
+        // print($"SaveHandler: Current scene is {sceneName}");
 
         if (gameLevels.Contains(sceneName)) {
             // If it's a level, note the scene and note that we've played.

@@ -64,7 +64,7 @@ public class LosePinholeShrink : MonoBehaviour
             }
             else
             {
-                if (endgameManager != null) endgameManager.EndgameEventCallback();
+                if (endgameManager != null) endgameManager.EndgameEventCallback("LosePinholeShrink");
                 doShrinking = false;
             }
         }

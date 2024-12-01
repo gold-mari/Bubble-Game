@@ -107,7 +107,7 @@ public class EndgameManager : MonoBehaviour
     // Callback methods
     // ================================================================
 
-    public void EndgameEventCallback()
+    public void EndgameEventCallback(string id)
     {
         //
         // ================
@@ -121,7 +121,8 @@ public class EndgameManager : MonoBehaviour
                 winEventBank[bankIndex].Run();
             }
         } else {
-            Debug.LogError("EndgameManager error: EndgameEventCallback failed. No endgame is currently active.");
+            Debug.LogError($"EndgameManager error: EndgameEventCallback failed. No endgame is currently active. "
+                         + $"(Callback ID: {id})");
         }
     }
 }
