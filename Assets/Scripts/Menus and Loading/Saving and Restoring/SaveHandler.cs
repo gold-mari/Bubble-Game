@@ -42,10 +42,10 @@ public class SaveHandler : MonoBehaviour
             saveData = FileDataHandler.Load();
             if (saveData == null) {
                 // If it's STILL null, make a new one!
-                print($"SaveHandler: No save found. Creating new struct.");
+                // print($"SaveHandler: No save found. Creating new struct.");
                 saveData = new();
             } else {
-                print($"SaveHandler: Loaded data from file.");
+                // print($"SaveHandler: Loaded data from file.");
             }
         }
     }
@@ -64,12 +64,12 @@ public class SaveHandler : MonoBehaviour
             // If it's a level, note the scene and note that we've played.
             saveData.lastPlayedScene = sceneName;
             saveData.playedBefore = true;
-            print($"SaveHandler: Saved lastPlayedScene and playedBefore");
+            // print($"SaveHandler: Saved lastPlayedScene and playedBefore");
             Save();
         } else if (gameCutscenes.Contains(sceneName)) {
             // If it's a cutscene, just note the scene.
             saveData.lastPlayedScene = sceneName;
-            print($"SaveHandler: Saved lastPlayedScene");
+            // print($"SaveHandler: Saved lastPlayedScene");
             Save();
         }
     }

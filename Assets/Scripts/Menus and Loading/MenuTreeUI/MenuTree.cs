@@ -175,10 +175,7 @@ public class MenuTree : MonoBehaviour
                                     break;
                                 case "disableIfNoLastLevel":
                                     if (saveHandler != null && saveHandler.GetLastPlayedScene() == null) {
-                                        print("Message from MenuTree: node was disabled");
                                         currentNode.enabled = false;
-                                    } else {
-                                        print("Message from MenuTree: node was enabled");
                                     }
                                     break;
                             }
