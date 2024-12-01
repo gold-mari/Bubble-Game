@@ -51,6 +51,7 @@ public static class FileDataHandler
             using FileStream stream = new(fullPath, FileMode.Create);
             using StreamWriter writer = new(stream);
             writer.Write(JSON);
+            Debug.Log($"FileDataHandler: Finished saving to {fullPath}");
         } catch (Exception e) {
             Debug.LogError($"FileDataHandler Error: Save failed. "
                          + $"Ran into exception while trying to save to {fullPath}:\n{e}");

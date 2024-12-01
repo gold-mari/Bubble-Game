@@ -16,6 +16,9 @@ public class MenuTree : MonoBehaviour
     [SerializeField, Tooltip("A list of string-GameObject, ID-Content pairs.")]
     private List<ContentIDPair> contentIDPairs;
 
+    [SerializeField, Tooltip("The SaveHandler in this scene. Messy, but sue me!")]
+    private SaveHandler saveHandler = null;
+
     // ==============================================================
     // Internal variables
     // ==============================================================
@@ -169,6 +172,14 @@ public class MenuTree : MonoBehaviour
                                     break;
                                 case "invisible":
                                     currentNode.visible = false;
+                                    break;
+                                case "disableIfNoLastLevel":
+                                    if (saveHandler != null && saveHandler.GetLastPlayedScene() == null) {
+                                        print("Message from MenuTree: node was disabled");
+                                        currentNode.enabled = false;
+                                    } else {
+                                        print("Message from MenuTree: node was enabled");
+                                    }
                                     break;
                             }
                         }

@@ -1,7 +1,5 @@
 using System;
 using System.Linq;
-using NaughtyAttributes;
-using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,7 +14,7 @@ public class SaveHandler : MonoBehaviour
     };
 
     private static readonly string[] gameCutscenes = new string[]{
-        "Cutscene_Level1", "Cutscene_Level2", "Cutscene_Level3", "Cutscene_Level4", "Cutscene_Level5"
+        "Cutscene_Level1", "Cutscene_Level2", "Cutscene_Level3", "Cutscene_Level4", "Cutscene_Level5", "Cutscene_Outro"
     };
 
     // ==============================================================
@@ -24,17 +22,33 @@ public class SaveHandler : MonoBehaviour
     // ==============================================================
 
     public class SaveData {
-        public string lastPlayedScene = "NULL";
+        public string lastPlayedScene = null;
         public RankStats[] highScores = new RankStats[5]{
             null, null, null, null, null
         };
         public bool playedBefore = false;
     }
-    private static SaveData saveData;
+    private static SaveData saveData = null;
 
     // ==============================================================
     // Data-writing methods
     // ==============================================================
+
+    private void Awake()
+    {
+        // saveData should (I think) be null once per game, when we have first opened the app.
+        if (saveData == null) {
+            // If it's null, load data from file.
+            saveData = FileDataHandler.Load();
+            if (saveData == null) {
+                // If it's STILL null, make a new one!
+                print($"SaveHandler: No save found. Creating new struct.");
+                saveData = new();
+            } else {
+                print($"SaveHandler: Loaded data from file.");
+            }
+        }
+    }
 
     private void Start()
     {
@@ -44,14 +58,18 @@ public class SaveHandler : MonoBehaviour
 
         string sceneName = SceneManager.GetActiveScene().name;
 
+        print($"SaveHandler: Current scene is {sceneName}");
+
         if (gameLevels.Contains(sceneName)) {
             // If it's a level, note the scene and note that we've played.
             saveData.lastPlayedScene = sceneName;
             saveData.playedBefore = true;
+            print($"SaveHandler: Saved lastPlayedScene and playedBefore");
             Save();
         } else if (gameCutscenes.Contains(sceneName)) {
             // If it's a cutscene, just note the scene.
             saveData.lastPlayedScene = sceneName;
+            print($"SaveHandler: Saved lastPlayedScene");
             Save();
         }
     }
@@ -61,6 +79,11 @@ public class SaveHandler : MonoBehaviour
         // Compares a rankStats against the high score for the current level.
         // If the new score is higher, set the new high score!
         // ================
+
+        if (stats == null) {
+            Debug.LogError($"SaveHandler Error: SetRankStats failed. stats was null.");
+            return;
+        }
 
         // If the game is not a level, throw an error.
         string sceneName = SceneManager.GetActiveScene().name;
@@ -73,7 +96,7 @@ public class SaveHandler : MonoBehaviour
         int index = Array.IndexOf(gameLevels, sceneName);
         
         // If the score is better, mark it as the new high score!
-        if (stats.score > saveData.highScores[index].score) {
+        if (saveData.highScores[index] == null || stats.score > saveData.highScores[index].score) {
             saveData.highScores[index] = stats;
             Save();
         }
@@ -101,5 +124,18 @@ public class SaveHandler : MonoBehaviour
         SaveData loadedData = FileDataHandler.Load();
         // LoadedData if nonnull, else new SaveData.
         saveData = loadedData ?? new SaveData();
+    }
+
+    // ==============================================================
+    // Accessors
+    // ==============================================================
+
+    public string GetLastPlayedScene()
+    {
+        // Returns saveData.LastPlayedScene.
+        // Used to Continue the game.
+        // ================
+
+        return saveData.lastPlayedScene;
     }
 }

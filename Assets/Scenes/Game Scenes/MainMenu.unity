@@ -699,6 +699,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112215921}
   m_CullTransparentMesh: 1
+--- !u!114 &177624380 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2271278218467693635, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+  m_PrefabInstance: {fileID: 1482361498}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb2c969552ac7b4491a7abf469a432c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &214411896
 GameObject:
   m_ObjectHideFlags: 0
@@ -6563,7 +6574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
       propertyPath: scenes.Array.size
-      value: 3
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
       propertyPath: scenes.Array.data[1].name
@@ -6574,12 +6585,108 @@ PrefabInstance:
       value: New Game
       objectReference: {fileID: 0}
     - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[3].name
+      value: Cutscene_Level1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[4].name
+      value: Level1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[5].name
+      value: Cutscene_Level2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[6].name
+      value: Level2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[7].name
+      value: Cutscene_Level3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[8].name
+      value: Level3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[9].name
+      value: Cutscene_Level4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[10].name
+      value: Level4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[11].name
+      value: Cutscene_Level5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[12].name
+      value: Level5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[13].name
+      value: Cutscene_Outro
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[14].name
+      value: Cutscene_Outro
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
       propertyPath: scenes.Array.data[1].scene
       value: Cutscene_Intro
       objectReference: {fileID: 0}
     - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
       propertyPath: scenes.Array.data[2].scene
       value: Cutscene_Level1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[3].scene
+      value: Cutscene_Level1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[4].scene
+      value: Level1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[5].scene
+      value: Cutscene_Level2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[6].scene
+      value: Level2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[7].scene
+      value: Cutscene_Level3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[8].scene
+      value: Level3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[9].scene
+      value: Cutscene_Level4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[10].scene
+      value: Level4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[11].scene
+      value: Cutscene_Level5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[12].scene
+      value: Level5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[13].scene
+      value: Cutscene_Outro
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+      propertyPath: scenes.Array.data[14].scene
+      value: Cutscene_Outro
       objectReference: {fileID: 0}
     - target: {fileID: 6275499595512373943, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
       propertyPath: m_IsActive
@@ -6700,7 +6807,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1497157364
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7680,8 +7787,8 @@ MonoBehaviour:
 
     <size=14>
 
-    <size=18>Starting a new game will clear
-    all progress except unlocks and high scores.'
+    <size=18>You will keep unlocks and high
+    scores, but will lose your progress in the story.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0539ba517723d6d43bf03748c8281f6b, type: 2}
   m_sharedMaterial: {fileID: 880974728737460417, guid: 0539ba517723d6d43bf03748c8281f6b, type: 2}
@@ -7758,11 +7865,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1741045326}
   m_CullTransparentMesh: 1
---- !u!1 &1754342412 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 970639748502374897, guid: 108d0495f78daf947854dc18dd03668f, type: 3}
-  m_PrefabInstance: {fileID: 970639747033263613}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1760121069
 GameObject:
   m_ObjectHideFlags: 0
@@ -9646,12 +9748,11 @@ MonoBehaviour:
     content: {fileID: 1992261731}
   - id: Graphics
     content: {fileID: 733145399}
-  - id: Controls
-    content: {fileID: 1754342412}
   - id: Accessibility
     content: {fileID: 1089629297}
   - id: Bubble Color Editor
     content: {fileID: 1781824770}
+  saveHandler: {fileID: 177624380}
 --- !u!114 &1964592859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10083,6 +10184,7 @@ GameObject:
   - component: {fileID: 2009988678}
   - component: {fileID: 2009988677}
   - component: {fileID: 2009988679}
+  - component: {fileID: 2009988680}
   m_Layer: 5
   m_Name: Continue Menu Content
   m_TagString: Untagged
@@ -10153,10 +10255,10 @@ MonoBehaviour:
   ourEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1244456256}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 5
+      - m_Target: {fileID: 2009988680}
+        m_TargetAssemblyTypeName: ContinueGame, Assembly-CSharp
+        m_MethodName: LoadLastPlayedScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10165,6 +10267,20 @@ MonoBehaviour:
           m_StringArgument: MainMenu
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2009988680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009988675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780fe2ba714db7b43be29d28c437185b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveHandler: {fileID: 177624380}
+  levelLoader: {fileID: 1244456256}
 --- !u!1 &2028626971
 GameObject:
   m_ObjectHideFlags: 0
