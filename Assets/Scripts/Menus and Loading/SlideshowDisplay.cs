@@ -41,16 +41,8 @@ public class SlideshowDisplay : MonoBehaviour
         backButton.interactable = false;
 
         currentSlide = slides[currentIndex];
-        foreach (GameObject slide in slides)
-        {
-            if (slide == currentSlide)
-            {
-                slide.SetActive(true);
-            }
-            else
-            {
-                slide.SetActive(false);
-            }
+        foreach (GameObject slide in slides) {
+            slide.SetActive(slide == currentSlide);
         }
     }
 
@@ -75,8 +67,7 @@ public class SlideshowDisplay : MonoBehaviour
         // ================
 
         // Don't do anything if we're at the end of our list.
-        if (currentIndex == slides.Length-1)
-        {
+        if (currentIndex == slides.Length-1) {
             return;
         }
 
@@ -102,8 +93,7 @@ public class SlideshowDisplay : MonoBehaviour
         // ================
 
         // Don't do anything if we're at the start of our list.
-        if (currentIndex == 0)
-        {
+        if (currentIndex == 0) {
             return;
         }
 
