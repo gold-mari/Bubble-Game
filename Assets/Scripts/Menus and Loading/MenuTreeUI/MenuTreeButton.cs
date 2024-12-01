@@ -16,6 +16,8 @@ public class MenuTreeButton : MonoBehaviour
     private UISpriteBinder iconSprites;
     [SerializeField, Tooltip("The image displaying our icon.")]
     private Image icon;
+    [SerializeField, Tooltip("The child of us that parents the tutorial badge.")]
+    private GameObject tutorialBadge;
     [SerializeField, Tooltip("The amount of time it takes our icon to fully rotate when the button is hovered over."
                             +"\n\nDefault: 0.5")]
     private float spinDuration = 0.5f;
@@ -59,6 +61,10 @@ public class MenuTreeButton : MonoBehaviour
         }
 
         icon.transform.rotation = Quaternion.identity;
+
+        if (node != null) {
+            tutorialBadge.SetActive(node.showBadge);
+        }
 
         StopAllCoroutines();
         if (canvasGroup && index >= 0) StartCoroutine(FadeRoutine(index));

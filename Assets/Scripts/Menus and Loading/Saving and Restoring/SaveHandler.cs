@@ -23,10 +23,11 @@ public class SaveHandler : MonoBehaviour
 
     public class SaveData {
         public string lastPlayedScene = null;
+        public bool playedBefore = false;
+        public bool seenTutorial = false;
         public RankStats[] highScores = new RankStats[5]{
             null, null, null, null, null
         };
-        public bool playedBefore = false;
     }
     private static SaveData saveData = null;
 
@@ -72,6 +73,11 @@ public class SaveHandler : MonoBehaviour
         }
 
         Save();
+    }
+
+    public void SawTutorial()
+    {
+        saveData.seenTutorial = true;
     }
 
     public bool TrySetHighScore(RankStats stats)
@@ -137,10 +143,17 @@ public class SaveHandler : MonoBehaviour
 
     public string GetLastPlayedScene()
     {
-        // Returns saveData.LastPlayedScene.
         // Used to Continue the game.
         // ================
 
         return saveData.lastPlayedScene;
+    }
+
+    public bool GetSeenTutorial()
+    {   
+        // Used to show / hide the tutorial badges.
+        // ================
+
+        return saveData.seenTutorial;
     }
 }

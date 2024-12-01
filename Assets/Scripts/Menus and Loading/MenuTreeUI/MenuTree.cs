@@ -178,6 +178,10 @@ public class MenuTree : MonoBehaviour
                                         currentNode.enabled = false;
                                     }
                                     break;
+                                case "tutorialBadge":
+                                    // If we have not played before, show the badge.
+                                    currentNode.showBadge = !saveHandler.GetSeenTutorial();
+                                    break;
                             }
                         }
                     }
@@ -301,6 +305,8 @@ public class MenuTreeNode
     public bool overrideTitle = false;
     // Whether or not this node's content should also allow the base content to show.
     public bool alsoShowBase = false;
+    // Whether or not we should show the notification badge.
+    public bool showBadge = false;
     // The content of this node.
     public GameObject content = null;
     // The parent to this node.
