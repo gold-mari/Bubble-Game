@@ -4242,7 +4242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &935470636
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5334,7 +5334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 860938520627367104, guid: b3ee32c628b3b1e44824838b7ebc072f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 860938520627367105, guid: b3ee32c628b3b1e44824838b7ebc072f, type: 3}
       propertyPath: m_Pivot.x
@@ -8735,55 +8735,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1837779349}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc07cc5c818a340449547824dcb60a7d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a5da2cab0ab4464fbd5be0ce01a6d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 11400000, guid: 88e8a5e5f0068da4ba197ccb43aa9b4e, type: 2}
-  actionValue: 1
-  action:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1837779349}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1837779351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837779349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49bfe7786b3c05c47bf00e29f256c16d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onStart: 0
-  onEnable: 1
-  ourEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1837779350}
-        m_TargetAssemblyTypeName: ActionOnBoolVar, Assembly-CSharp
-        m_MethodName: Query
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  saveHandler: {fileID: 177624380}
 --- !u!1 &1842608610
 GameObject:
   m_ObjectHideFlags: 0
