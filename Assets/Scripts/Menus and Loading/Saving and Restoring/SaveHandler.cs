@@ -78,6 +78,7 @@ public class SaveHandler : MonoBehaviour
     public void SawTutorial()
     {
         saveData.seenTutorial = true;
+        Save();
     }
 
     public bool TrySetHighScore(RankStats stats)

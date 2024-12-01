@@ -16,8 +16,8 @@ public class MenuTree : MonoBehaviour
     [SerializeField, Tooltip("A list of string-GameObject, ID-Content pairs.")]
     private List<ContentIDPair> contentIDPairs;
 
-    [SerializeField, Tooltip("The SaveHandler in this scene. Messy, but sue me!")]
-    private SaveHandler saveHandler = null;
+    [Tooltip("The SaveHandler in this scene. Messy, but sue me!")]
+    public SaveHandler saveHandler = null;
 
     // ==============================================================
     // Internal variables
@@ -179,6 +179,7 @@ public class MenuTree : MonoBehaviour
                                     }
                                     break;
                                 case "tutorialBadge":
+                                    currentNode.tutorialBadge = true;
                                     // If we have not played before, show the badge.
                                     currentNode.showBadge = !saveHandler.GetSeenTutorial();
                                     break;
@@ -307,6 +308,8 @@ public class MenuTreeNode
     public bool alsoShowBase = false;
     // Whether or not we should show the notification badge.
     public bool showBadge = false;
+    // Whether or not the save's seenTutorial value should control our notif badge visibility.
+    public bool tutorialBadge = false;
     // The content of this node.
     public GameObject content = null;
     // The parent to this node.

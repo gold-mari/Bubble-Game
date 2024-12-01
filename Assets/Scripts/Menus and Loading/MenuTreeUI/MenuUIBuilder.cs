@@ -72,6 +72,10 @@ public class MenuUIBuilder : MonoBehaviour
                     continue;
                 }
 
+                if (child.tutorialBadge) {
+                    child.showBadge = !menuTree.saveHandler.GetSeenTutorial();
+                }
+
                 // Request a new button and set up the listener.
                 GameObject buttonObj = buttonPool.Request();
 
