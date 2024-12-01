@@ -147,7 +147,11 @@ public class SaveHandler : MonoBehaviour
         // Used to Continue the game.
         // ================
 
-        return saveData.lastPlayedScene;
+        if (saveData.lastPlayedScene == "") {
+            return null;
+        } else {
+            return saveData.lastPlayedScene;
+        }
     }
 
     public bool GetSeenTutorial()
