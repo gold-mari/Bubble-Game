@@ -1,10 +1,11 @@
-// Sound\Change audio-related settings.
 Root\Welcome to BubbleBeast DigiDungeon!
     Quit\Exit the game.
     Play\Begin the game.\tutorialBadge
         New Game\Start a new game!\overrideTitle
         Continue\Pick up where you left off.\overrideTitle\alsoShowBase\disableIfNoLastLevel
         Tutorial and Extras\Learn how to play, view high scores, and more!\overrideTitle\tutorialBadge
+            Tutorial\Learn the basics of play!\overrideTitle\invisible
+        _\_\invisible
     Credits\Check out the developers!\overrideTitle
     Settings\Change the game's settings.
         Sound\Change audio-related settings.\overrideTitle
