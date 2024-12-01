@@ -74,22 +74,23 @@ public class SaveHandler : MonoBehaviour
         }
     }
 
-    public void TrySetHighScore(RankStats stats)
+    public bool TrySetHighScore(RankStats stats)
     {
         // Compares a rankStats against the high score for the current level.
         // If the new score is higher, set the new high score!
+        // Returns whether or not it was a high score.
         // ================
 
         if (stats == null) {
             Debug.LogError($"SaveHandler Error: SetRankStats failed. stats was null.");
-            return;
+            return false;
         }
 
         // If the game is not a level, throw an error.
         string sceneName = SceneManager.GetActiveScene().name;
         if (!gameLevels.Contains(sceneName)) {
             Debug.LogError($"SaveHandler Error: SetRankStats failed. Current scene ({sceneName}) is not a level.");
-            return;
+            return false;
         }
 
         // Find where the current scene is in our array, using it to index our highScores array.
@@ -97,9 +98,13 @@ public class SaveHandler : MonoBehaviour
         
         // If the score is better, mark it as the new high score!
         if (saveData.highScores[index] == null || stats.score > saveData.highScores[index].score) {
-            saveData.highScores[index] = stats;
+            print($"SaveHandler: Saving high score into index {index}");
+            saveData.highScores[index] = new RankStats(stats);
             Save();
+            return true;
         }
+
+        return false;
     }
 
     // ==============================================================

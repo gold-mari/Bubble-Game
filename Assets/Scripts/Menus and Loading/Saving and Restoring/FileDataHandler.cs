@@ -46,7 +46,7 @@ public static class FileDataHandler
             // Create directory if it doesn't exist!
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
             // Serialize our save to JSON.
-            string JSON = JsonUtility.ToJson(data);
+            string JSON = JsonUtility.ToJson(data, true);
             // Begin writing to file. We use using() to ensure garbage collection.
             using FileStream stream = new(fullPath, FileMode.Create);
             using StreamWriter writer = new(stream);

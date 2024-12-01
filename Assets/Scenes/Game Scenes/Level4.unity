@@ -1230,6 +1230,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17b9362fdbedd2d4aa3cf59169784b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1473183610 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2271278218467693635, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+  m_PrefabInstance: {fileID: 1473183608}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb2c969552ac7b4491a7abf469a432c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8830513069248788194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1285,6 +1296,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 5955104156231506439, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: saveHandler
+      value: 
+      objectReference: {fileID: 1473183610}
     - target: {fileID: 5955104156231506439, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: screenshake
       value: 

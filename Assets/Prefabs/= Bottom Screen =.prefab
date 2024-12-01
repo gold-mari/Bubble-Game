@@ -305,6 +305,9 @@ MonoBehaviour:
   dangerBonus: {fileID: 11400000, guid: e15aa9418dd7baf4da69910e3c762c61, type: 2}
   bubblesPopped: {fileID: 11400000, guid: dcdf45039d79bed4b97d1902105babe9, type: 2}
   maxCombo: {fileID: 11400000, guid: 8ee12194ce8989e4dadecc02f27a09e3, type: 2}
+  rankCalculator: {fileID: 8534189034876472317}
+  saveHandler: {fileID: 0}
+  newHighScore: {fileID: 11400000, guid: 1ae5c8340773a8c40ae525e864fa9697, type: 2}
 --- !u!114 &7318956119765026642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2682,6 +2685,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3059304655705904299, guid: 5302bd7eede6a8242960e4e5e2d53631, type: 3}
   m_PrefabInstance: {fileID: 5627940038593605976}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8534189034876472317 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4068424004707908261, guid: 5302bd7eede6a8242960e4e5e2d53631, type: 3}
+  m_PrefabInstance: {fileID: 5627940038593605976}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6b3c417fd147bf45bb29b9191adda0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5871912622121354352
 PrefabInstance:
   m_ObjectHideFlags: 0

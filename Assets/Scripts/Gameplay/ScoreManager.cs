@@ -30,6 +30,7 @@ public class ScoreManager : MonoBehaviour
     uintVar currentCombo;
     [SerializeField, Tooltip("The uintVar storing the max chain length. Used to calculate the overpop bonus.")]
     uintVar maxChainLength;
+
     [Header("Stats")]
     [SerializeField, Tooltip("The uintVar storing our total score.")]
     uintVar scoreVar;
@@ -41,6 +42,16 @@ public class ScoreManager : MonoBehaviour
     uintVar bubblesPopped;
     [SerializeField, Tooltip("The uintVar storing our max combo this stage.")]
     uintVar maxCombo;
+
+
+    
+    [Header("High Scores")]
+    [SerializeField, Tooltip("The VictoryRankCalculator in this scene.")]
+    VictoryRankCalculator rankCalculator;
+    [SerializeField, Tooltip("The SaveHandler in this scene.")]
+    private SaveHandler saveHandler;
+    [SerializeField, Tooltip("A boolVar tracking whether or not we've set a new high score.")]
+    boolVar newHighScore;
 
     // ================================================================
     // Internal variables
@@ -65,6 +76,8 @@ public class ScoreManager : MonoBehaviour
         bubblesPopped.value = 0;
         stragglerBonus.value = 0;
         popupManager = GetComponent<ScorePopupManager>();
+
+        newHighScore.value = false;
     }
 
     // ================================================================
@@ -128,6 +141,17 @@ public class ScoreManager : MonoBehaviour
         scoreVar.value += dangerBonus.value + 1;
         scoreVar.value += bubblesPopped.value * 10;
         scoreVar.value += maxCombo.value * 100;
+
+        string rank = rankCalculator.CalculateRank();
+
+        newHighScore.value = saveHandler.TrySetHighScore(new(
+            (int)stragglerBonus.value,
+            (int)dangerBonus.value,
+            (int)bubblesPopped.value,
+            (int)maxCombo.value,
+            (int)scoreVar.value,
+            rank
+        ));
     }
 
     // ================================================================

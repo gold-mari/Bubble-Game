@@ -1201,6 +1201,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac22ccdaf70d6ac4f9ff5c3a43525cd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1703767369 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2271278218467693635, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+  m_PrefabInstance: {fileID: 1703767367}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb2c969552ac7b4491a7abf469a432c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1718862955 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7236898422397953523, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
@@ -1316,6 +1327,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5955104156231506439, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: saveHandler
+      value: 
+      objectReference: {fileID: 1703767369}
     - target: {fileID: 5955104156231506439, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: screenshake
       value: 
