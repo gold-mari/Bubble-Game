@@ -65,13 +65,13 @@ public class SaveHandler : MonoBehaviour
             saveData.lastPlayedScene = sceneName;
             saveData.playedBefore = true;
             // print($"SaveHandler: Saved lastPlayedScene and playedBefore");
-            Save();
         } else if (gameCutscenes.Contains(sceneName)) {
             // If it's a cutscene, just note the scene.
             saveData.lastPlayedScene = sceneName;
             // print($"SaveHandler: Saved lastPlayedScene");
-            Save();
         }
+
+        Save();
     }
 
     public bool TrySetHighScore(RankStats stats)
