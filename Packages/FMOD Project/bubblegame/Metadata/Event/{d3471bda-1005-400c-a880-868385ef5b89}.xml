@@ -347,11 +347,8 @@
 		</property>
 	</object>
 	<object class="CommandSound" id="{3fef35c9-81c7-4f1e-9650-7675bbcd2932}">
-		<property name="start">
-			<value>1.0000000000000002</value>
-		</property>
 		<property name="length">
-			<value>2</value>
+			<value>3</value>
 		</property>
 		<relationship name="commandTarget">
 			<destination>{236f1932-97e7-4053-a667-0a559b7f5cbb}</destination>
