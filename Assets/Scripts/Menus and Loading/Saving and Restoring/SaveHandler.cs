@@ -169,4 +169,12 @@ public class SaveHandler : MonoBehaviour
 
         return saveData.seenTutorial;
     }
+
+    public bool GetPlayedBefore()
+    {
+        // Used to determine the scene we load after LoggerInit.
+        // ================
+
+        return saveData.playedBefore;
+    }
 }
