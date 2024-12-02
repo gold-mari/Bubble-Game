@@ -62,7 +62,7 @@ public class CurtainSpriteHandler : MonoBehaviour
 
         UISpriteData pair = allCurtains.GetPairList()[selection];
 
-        monitorText.text = pair.id;
+        if (monitorText != null) monitorText.text = pair.id;
         curtainSprite.value = pair.sprite;
     }
 
@@ -124,13 +124,16 @@ public class CurtainSpriteHandler : MonoBehaviour
             // Stop us from changing the curtains. We can't see them, anyway.
             isSquare = true;
             foreach (Button button in curtainChangeButtons) button.interactable = false;
-            monitorText.text = "Change Aspect Ratio";
+
+            if (monitorText != null) monitorText.text = "Change Aspect Ratio";
         } else {
             isSquare = false;
             foreach (Button button in curtainChangeButtons) button.interactable = true;
+            
             UISpriteData data = allCurtains.GetPairList()[selection];
             curtainSprite.value = data.sprite;
-            monitorText.text = data.id;
+
+            if (monitorText != null) monitorText.text = data.id;
         }
         lastAspect = aspect;
     }

@@ -178,21 +178,21 @@ public class BubbleColorController : MonoBehaviour
     private void UpdatePreview(int i)
     {
         switch (i) {
-            case 0: sweetImage.color = workingColors[i];    break;
-            case 1: saltyImage.color = workingColors[i];    break;
-            case 2: sourImage.color = workingColors[i];     break;
-            case 3: bitterImage.color = workingColors[i];   break;
-            case 4: umamiImage.color = workingColors[i];    break;
+            case 0: if (sweetImage != null) sweetImage.color = workingColors[i];    break;
+            case 1: if (saltyImage != null) saltyImage.color = workingColors[i];    break;
+            case 2: if (sourImage != null) sourImage.color = workingColors[i];      break;
+            case 3: if (bitterImage != null) bitterImage.color = workingColors[i];  break;
+            case 4: if (umamiImage != null) umamiImage.color = workingColors[i];    break;
         }
     }
 
     private void InitializeHSV()
     {
-        Color.RGBToHSV(workingColors[index], out float _H, out float _S, out float _V);
+        Color.RGBToHSV(workingColors[index], out float H, out float S, out float V);
 
-        H = hueSlider.value = _H;
-        S = saturationSlider.value = _S;
-        V = valueSlider.value = _V;
+        if (hueSlider != null) hueSlider.value = H;
+        if (saturationSlider != null) saturationSlider.value = S;
+        if (valueSlider != null) valueSlider.value = V;
     }
 
     //===============================================================

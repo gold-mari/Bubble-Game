@@ -78,9 +78,9 @@ public class FMODVolumeHandler : MonoBehaviour
 
     private void InitializeSliders()
     {
-        masterSlider.value = masterVolume;
-        musicSlider.value = musicVolume;
-        sfxSlider.value = sfxVolume;
+        if (masterSlider != null) masterSlider.value = masterVolume;
+        if (musicSlider != null) musicSlider.value = musicVolume;
+        if (sfxSlider != null) sfxSlider.value = sfxVolume;
     }
 
     private void OnDisable()

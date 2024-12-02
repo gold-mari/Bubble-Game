@@ -78,18 +78,21 @@ public class ResolutionFullscreenHandler : MonoBehaviour
         }
         resolutions = resolutionSet.ToArray();
 
-        resolutionDropdown.ClearOptions();
-        List<string> options = new();
+        if (resolutionDropdown != null) {
+            resolutionDropdown.ClearOptions();
+        
+            List<string> options = new();
 
-        for (int i = 0; i < resolutions.Length; i++) {
-            Vector2Int res = resolutions[i];
-            string option = $"{res.x} x {res.y}";
-            // The recommended resolution is the highest one.
-            if (i == resolutions.Length-1) option += " (Recommended)";
-            options.Add(option);
+            for (int i = 0; i < resolutions.Length; i++) {
+                Vector2Int res = resolutions[i];
+                string option = $"{res.x} x {res.y}";
+                // The recommended resolution is the highest one.
+                if (i == resolutions.Length-1) option += " (Recommended)";
+                options.Add(option);
+            }
+
+            resolutionDropdown.AddOptions(options);
         }
-
-        resolutionDropdown.AddOptions(options);
 
         // Load the saved preference.
 
@@ -115,10 +118,14 @@ public class ResolutionFullscreenHandler : MonoBehaviour
 
     private void InitializeDisplay()
     {
-        resolutionDropdown.value = resolutionIndex;
-        resolutionDropdown.RefreshShownValue();
+        if (resolutionDropdown != null) {
+            resolutionDropdown.value = resolutionIndex;
+            resolutionDropdown.RefreshShownValue();
+        }
 
-        fullscreenToggle.isOn = isFullscreen == 1;
+        if (fullscreenToggle != null) {
+            fullscreenToggle.isOn = isFullscreen == 1;
+        }
     }
 
     private void OnDisable()

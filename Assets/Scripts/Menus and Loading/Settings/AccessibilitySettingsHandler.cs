@@ -48,10 +48,11 @@ public class AccessibilitySettingsHandler : MonoBehaviour
         foreach (NaiveScreenshake s in screenshakes) {
             s.SetShakeScalingVar(screenshakeScaling);   
         }
-        screenshakeSlider.value = screenshakeScaling.value;
-        screenshakeReadout.UpdateText(screenshakeScaling.value);
 
-        flashingToggle.isOn = reduceFlashing.value;
+        if (screenshakeSlider != null) screenshakeSlider.value = screenshakeScaling.value;
+        if (screenshakeReadout != null) screenshakeReadout.UpdateText(screenshakeScaling.value);
+
+        if (flashingToggle != null) flashingToggle.isOn = reduceFlashing.value;
     }
 
     private void OnDisable()
