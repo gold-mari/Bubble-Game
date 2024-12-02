@@ -10,6 +10,7 @@ public static class FileDataHandler
     private static readonly string dirPath = Application.persistentDataPath;
     private static readonly string fileName = "save.dat";
     private static readonly string fullPath = Path.Combine(dirPath, fileName);
+    private static readonly string codeword = ")Mx␎-PA␟Z␇C&␆|(5hx%Zp-(IB␙␞HEg)d";
 
     public static SaveHandler.SaveData Load()
     {
@@ -22,6 +23,7 @@ public static class FileDataHandler
                 using FileStream stream = new(fullPath, FileMode.Open);
                 using StreamReader reader = new(stream);
                 string JSON = reader.ReadToEnd();
+                JSON = EncryptDecrypt(JSON);
 
                 // Deserialize from JSON.
                 return JsonUtility.FromJson<SaveHandler.SaveData>(JSON);
@@ -47,6 +49,7 @@ public static class FileDataHandler
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
             // Serialize our save to JSON.
             string JSON = JsonUtility.ToJson(data, true);
+            JSON = EncryptDecrypt(JSON);
             // Begin writing to file. We use using() to ensure garbage collection.
             using FileStream stream = new(fullPath, FileMode.Create);
             using StreamWriter writer = new(stream);
@@ -56,5 +59,16 @@ public static class FileDataHandler
             Debug.LogError($"FileDataHandler Error: Save failed. "
                          + $"Ran into exception while trying to save to {fullPath}:\n{e}");
         }
+    }
+
+    private static string EncryptDecrypt(string data)
+    {
+        string modifiedData = "";
+
+        for (int i = 0; i < data.Length; i++) {
+            modifiedData += (char)(data[i] ^ codeword[i % codeword.Length]);
+        }
+
+        return modifiedData;
     }
 }
