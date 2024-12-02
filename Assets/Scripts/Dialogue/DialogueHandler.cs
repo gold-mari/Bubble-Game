@@ -203,6 +203,7 @@ public class DialogueHandler : MonoBehaviour
     {
         if (!done) {
             done = true;
+            print("DialogueHandler: ActionOnEnd invoked");
             ActionOnEnd?.Invoke();
         }
     }
@@ -217,7 +218,6 @@ public class DialogueHandler : MonoBehaviour
 
         if (index >= lineDict.Count) { // Advancing from final line- end dialogue.
             FinishDialogue();
-            print("DialogueHandler: ActionOnEnd invoked");
         } else { // Advancing from any other line- behave normally.
             lineFinished = false;
             canAdvance = false;
