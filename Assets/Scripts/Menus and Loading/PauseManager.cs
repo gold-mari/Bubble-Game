@@ -37,9 +37,12 @@ public class PauseManager : MonoBehaviour
         // Awake is called before start.
         // ================
 
-        // Default state is always unpaused.
+        // Default state is to always allow pauses.
         // If we can't pause on enter, lock to unpaused.
         pauseLocked = !canPauseOnEnter;
+
+        // If we can pause, and we're unfocused in Awake(), pause immediately.
+        if (!pauseLocked && !Application.isFocused) { Pause(true); }
 
         sfxBus = FMODUnity.RuntimeManager.GetBus(nonmenuSFXBusPath);
         musicBus = FMODUnity.RuntimeManager.GetBus(musicBusPath);
