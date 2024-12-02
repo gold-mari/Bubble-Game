@@ -25,6 +25,7 @@ public class SaveHandler : MonoBehaviour
         public string lastPlayedScene = null;
         public bool playedBefore = false;
         public bool seenTutorial = false;
+        public bool finishedGame = false;
         public RankStats[] highScores = new RankStats[5]{
             null, null, null, null, null
         };
@@ -78,6 +79,12 @@ public class SaveHandler : MonoBehaviour
     public void SawTutorial()
     {
         saveData.seenTutorial = true;
+        Save();
+    }
+
+    public void FinishedGame()
+    {
+        saveData.finishedGame = true;
         Save();
     }
 
@@ -176,5 +183,13 @@ public class SaveHandler : MonoBehaviour
         // ================
 
         return saveData.playedBefore;
+    }
+
+    public bool GetFinishedGame()
+    {
+        // Used to show / hide our level select AND determine the scene we load after outro cutscene.
+        // ================
+
+        return saveData.finishedGame;
     }
 }

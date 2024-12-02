@@ -284,29 +284,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 140124560}
-  - component: {fileID: 140124559}
+  - component: {fileID: 140124561}
   m_Layer: 0
-  m_Name: Set Timeout BoolVar
+  m_Name: Pick Scene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &140124559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140124558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 515c01348b431114ba4db750eff141fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boolVar: {fileID: 11400000, guid: 99ad7f5d5dae21a4996387cb6fc85604, type: 2}
-  setOnStart: 1
-  boolValue: 0
 --- !u!4 &140124560
 Transform:
   m_ObjectHideFlags: 0
@@ -322,6 +307,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &140124561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140124558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ce6678b0a593f409b9fe764f2a775b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveHandler: {fileID: 624003435}
 --- !u!1 &425548602
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,11 +624,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
       propertyPath: scenes.Array.data[1].name
-      value: Ending
+      value: Coda
       objectReference: {fileID: 0}
     - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
       propertyPath: scenes.Array.data[1].scene
-      value: MainMenu
+      value: Coda
       objectReference: {fileID: 0}
     - target: {fileID: 8624468519417057040, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
       propertyPath: m_Camera
@@ -735,6 +733,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac22ccdaf70d6ac4f9ff5c3a43525cd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &624003435 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2271278218467693635, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+  m_PrefabInstance: {fileID: 624003433}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb2c969552ac7b4491a7abf469a432c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &727408260
@@ -2274,10 +2283,10 @@ MonoBehaviour:
   ActionOnEnd:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 624003434}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 5
+      - m_Target: {fileID: 140124561}
+        m_TargetAssemblyTypeName: OutroLoader, Assembly-CSharp
+        m_MethodName: PickScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

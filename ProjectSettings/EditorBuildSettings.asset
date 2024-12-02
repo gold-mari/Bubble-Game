@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game Scenes/Cutscene_Outro.unity
     guid: dd2e6230125a1ea4a9595b22cf6e0a6f
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/Coda.unity
+    guid: e0d9e0081516a3b499fccb79059bd463
   m_configObjects: {}
