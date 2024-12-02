@@ -33,7 +33,7 @@ public class AccessibilitySettingsHandler : MonoBehaviour
         if (PlayerPrefs.HasKey("ScreenshakeAmountPref")) {
             screenshakeScaling.value = PlayerPrefs.GetFloat("ScreenshakeAmountPref");
         } else { // Default value.
-            screenshakeScaling.value = 1.0f;
+            screenshakeScaling.value = 0.8f;
         }
         if (PlayerPrefs.HasKey("ReduceFlashingPref")) {
             // If ReduceFlashingPref is 1, then reduce flashing is true.
