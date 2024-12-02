@@ -88,15 +88,23 @@ public class SaveHandler : MonoBehaviour
         // Returns whether or not it was a high score.
         // ================
 
-        if (stats == null) {
-            Debug.LogError($"SaveHandler Error: SetRankStats failed. stats was null.");
-            return false;
-        }
-
         // If the game is not a level, throw an error.
         string sceneName = SceneManager.GetActiveScene().name;
         if (!gameLevels.Contains(sceneName)) {
             Debug.LogError($"SaveHandler Error: SetRankStats failed. Current scene ({sceneName}) is not a level.");
+            return false;
+        }
+
+        // Before we go any further...
+        // At this point in execution, we know that:
+        //  * We're in a level
+        //  * We have won, and are awaiting results.
+        // In case of a crash, save our level as the NEXT one.
+        saveData.lastPlayedScene = LevelLoader.Instance.QuerySceneDict("Next");
+        Save();
+
+        if (stats == null) {
+            Debug.LogError($"SaveHandler Error: SetRankStats failed. stats was null.");
             return false;
         }
 

@@ -35,7 +35,7 @@ public class LevelLoader : MonoBehaviour
     private Animator transitionAnimator;
     private PauseManager pauseManager;
     private string queuedLevel = "NULL";
-    private FMOD.Studio.Bus musicBus;
+    private Bus musicBus;
 
     void Awake()
     {
@@ -65,8 +65,7 @@ public class LevelLoader : MonoBehaviour
 
         musicBus = FMODUnity.RuntimeManager.GetBus(musicBusPath);
 
-        foreach (SceneData sceneData in scenes)
-        {
+        foreach (SceneData sceneData in scenes) {
             sceneDict.Add(sceneData.name, sceneData.scene);
         }
     }
@@ -76,15 +75,14 @@ public class LevelLoader : MonoBehaviour
         // Loads a level based on our levelName.
         // ================
 
-        Debug.Assert(sceneDict.ContainsKey(levelName), $"LevelLoader error: LoadLevel failed. {levelName} was not found " +
-                                                        "as a name in the scenes array.", this);
-
-        if (!transitionAnimator)
-        {
-            SceneManager.LoadScene(sceneDict[levelName]);
+        if (!sceneDict.ContainsKey(levelName)) {
+            Debug.LogError($"LevelLoader Error: LoadLevel failed. {levelName} was not found " +
+                            "as a name in the scenes array.", this);
         }
-        else
-        {
+
+        if (!transitionAnimator) {
+            SceneManager.LoadScene(sceneDict[levelName]);
+        } else {
             queuedLevel = levelName;
             
             TransitionFlavorRandomizer flavorRandomizer = GetComponent<TransitionFlavorRandomizer>();
@@ -123,5 +121,10 @@ public class LevelLoader : MonoBehaviour
     public Animator GetAnimator()
     {
         return transitionAnimator;
+    }
+
+    public string QuerySceneDict(string key)
+    {
+        return sceneDict[key];
     }
 }
