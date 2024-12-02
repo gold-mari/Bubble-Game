@@ -38,3 +38,5 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 2b9c47f1c2ba04c49a059b4a7b52672f, type: 3}
   - id: New Game
     sprite: {fileID: 21300000, guid: 3c4b9fddf3b89824eb308e9bcc3e85b2, type: 3}
+  - id: Continue
+    sprite: {fileID: 21300000, guid: 6c4c7cdd60e777a488bd4ad146518575, type: 3}

@@ -96,7 +96,6 @@ public class CurtainSpriteHandler : MonoBehaviour
         // Wrap around if underflow!
         if (selection < 0) {
             selection = allCurtains.GetCount()-1;
-            print($"Underflowed! Selection is now {selection}");
         }
 
         UISpriteData data = allCurtains.GetPairList()[selection];
