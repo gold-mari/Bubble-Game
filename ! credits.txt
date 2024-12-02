@@ -1,2 +1,30 @@
-Overload Burn Regular by ???
-Rimouski Semi-Bold Regular by ???
+// The Team!
+Athena Patronas - 
+	Art Production
+EchoLane - 
+	Game Design, 
+	Music, 
+	Production, 
+	Programming, 
+	UI Art, 
+	Writing
+ken kennedy - 
+	Character Art
+Sophie Martin - 
+	SFX,
+	Sound Implementation, 
+	QA Lead, 
+	Voices
+Zephyr Laytart - 
+	Character Art
+	Accessibility Design
+
+// 3rd-Party Art Assets
+alexindy - Catgirl Quinn sticker
+Kenney - Board Game Icons & Kenney Game Icons
+stargyaru - Banana Slug sticker
+
+// Fonts
+Overload - Typodermic Fonts via FontMeme
+Overload Burn - Typodermic Fonts via FontMeme
+Rimouski - Typodermic Fonts via FontMeme
