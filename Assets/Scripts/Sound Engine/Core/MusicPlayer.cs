@@ -127,13 +127,13 @@ public class MusicPlayer : MonoBehaviour
         {
             instance.setPaused(true);
             instance.getTimelinePosition(out timelinePosition);
-            handler.StopDSPClock();
+            handler?.StopDSPClock();
         }
         else
         {
             instance.setPaused(false);
             instance.setTimelinePosition(timelinePosition);
-            handler.StartDSPClock(IsInstancePlaying());
+            handler?.StartDSPClock(IsInstancePlaying());
         }
     }
 
