@@ -9,11 +9,11 @@ public class SaveHandler : MonoBehaviour
     // Data
     // ==============================================================
 
-    private static readonly string[] gameLevels = new string[]{
+    public static readonly string[] gameLevels = new string[]{
         "Level1", "Level2", "Level3", "Level4", "Level5"
     };
 
-    private static readonly string[] gameCutscenes = new string[]{
+    public static readonly string[] gameCutscenes = new string[]{
         "Cutscene_Level1", "Cutscene_Level2", "Cutscene_Level3", "Cutscene_Level4", "Cutscene_Level5", "Cutscene_Outro"
     };
 
@@ -191,5 +191,10 @@ public class SaveHandler : MonoBehaviour
         // ================
 
         return saveData.finishedGame;
+    }
+
+    public RankStats GetHighScore(int index)
+    {
+        return saveData.highScores[index];
     }
 }
