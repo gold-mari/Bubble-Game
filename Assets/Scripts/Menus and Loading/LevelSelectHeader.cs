@@ -2,9 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System.Linq;
-using UnityEditor.Rendering.LookDev;
-
 public class LevelSelectHeader : MonoBehaviour
 {
     public TMP_Text title, subtitle;

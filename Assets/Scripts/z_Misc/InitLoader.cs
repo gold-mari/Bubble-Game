@@ -11,7 +11,7 @@ public class InitLoader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!loaded && Input.GetButtonDown("Fire1")) {
+        if (!loaded && !LevelLoader.Instance.GetAnimator().gameObject.activeInHierarchy && Input.GetButtonDown("Fire1")) {
             loaded = true;
 
             if (!saveHandler.GetPlayedBefore()) {
