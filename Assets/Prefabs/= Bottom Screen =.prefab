@@ -1895,13 +1895,13 @@ MonoBehaviour:
       - m_Target: {fileID: 8830513068594716646}
         m_TargetAssemblyTypeName: EndgameManager, Assembly-CSharp
         m_MethodName: EndgameEventCallback
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Lose DialogueHandler
           m_BoolArgument: 0
         m_CallState: 2
   advanceSFX:
@@ -2730,7 +2730,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 5627940038593605976}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7236898422397953523}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 150fbcef21e8cf5468ea2af43b8b80cd, type: 3}
   m_Name: 
