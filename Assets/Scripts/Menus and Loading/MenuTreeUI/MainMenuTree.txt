@@ -5,6 +5,7 @@ Root\Welcome to BubbleBeast DigiDungeon!
         Continue\Pick up where you left off.\overrideTitle\alsoShowBase\disableIfNoLastLevel
         Tutorial and Extras\Learn how to play, view high scores, and more!\overrideTitle\tutorialBadge
             Tutorial\Learn the basics of play!\overrideTitle\invisible
+            Level Select\Play the game from a specific scene.\invisible
         _\_\invisible
     Credits\Check out the developers!\overrideTitle
     Settings\Change the game's settings.

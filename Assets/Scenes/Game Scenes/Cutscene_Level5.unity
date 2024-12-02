@@ -1049,6 +1049,17 @@ Transform:
   m_Father: {fileID: 1580428553}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &865680680 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2271278218467693635, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
+  m_PrefabInstance: {fileID: 624003433}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb2c969552ac7b4491a7abf469a432c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &866020602
 GameObject:
   m_ObjectHideFlags: 0
@@ -2650,6 +2661,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1409663811593010413, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
+      propertyPath: ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1948547927}
+    - target: {fileID: 1409663811593010413, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
+      propertyPath: ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Pause
+      objectReference: {fileID: 0}
     - target: {fileID: 2330432771876135682, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2750,6 +2769,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: === Pause Menu Canvas ===
       objectReference: {fileID: 0}
+    - target: {fileID: 4050573968918075875, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 624003434}
+    - target: {fileID: 4050573968918075875, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6489903731055704740, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
+      propertyPath: saveHandler
+      value: 
+      objectReference: {fileID: 865680680}
     - target: {fileID: 7175543262344956565, guid: 9ca5d4ca3fa612542b8c78707f6b5877, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
