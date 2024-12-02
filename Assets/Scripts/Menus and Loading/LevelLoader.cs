@@ -16,6 +16,9 @@ public class SceneData
 
 public class LevelLoader : MonoBehaviour
 {
+    // Bad practice to make things willy nilly global, but we're on a tight deadline.
+    public static LevelLoader Instance = null;
+
     [SerializeField, Tooltip("The scenes we can transition to from this level.")]
     private SceneData[] scenes;
     [SerializeField, Tooltip("The SFX used when transitioning in.")]
@@ -36,6 +39,14 @@ public class LevelLoader : MonoBehaviour
 
     void Awake()
     {
+        // Singleton stuff.
+        if (Instance == null) {
+            Instance = this;
+        } else { // We're not the first.
+            Destroy(this);
+            return;
+        }
+
         transitionAnimator = GetComponentInChildren<Animator>(true);
         pauseManager = transform.parent.GetComponentInChildren<PauseManager>();
 
@@ -103,5 +114,14 @@ public class LevelLoader : MonoBehaviour
                                                         "found as a name in the scenes array.", this);
 
         SceneManager.LoadScene(sceneDict[queuedLevel]);
+    }
+
+    // ==============================================================
+    // Accessors
+    // ==============================================================
+
+    public Animator GetAnimator()
+    {
+        return transitionAnimator;
     }
 }
