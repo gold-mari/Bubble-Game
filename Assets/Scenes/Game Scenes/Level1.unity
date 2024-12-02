@@ -1499,6 +1499,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8534189034876472317, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: rankDocument
+      value: 
+      objectReference: {fileID: 4900000, guid: 63e2ee1b501ab004b917bd633cc5a9cd, type: 3}
     - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: loader
       value: 

@@ -1332,6 +1332,10 @@ PrefabInstance:
       propertyPath: beatReader
       value: 
       objectReference: {fileID: 8830513069248788198}
+    - target: {fileID: 8534189034876472317, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: rankDocument
+      value: 
+      objectReference: {fileID: 4900000, guid: cf4e0ee563d175a4b877822ac5c383ce, type: 3}
     - target: {fileID: 8634881949700311681, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_IsActive
       value: 1

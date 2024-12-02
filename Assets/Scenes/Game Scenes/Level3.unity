@@ -1388,6 +1388,10 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8534189034876472317, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: rankDocument
+      value: 
+      objectReference: {fileID: 4900000, guid: 9a23c09e7dee9c241a0c7a2b86a8e96e, type: 3}
     - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: loader
       value: 
