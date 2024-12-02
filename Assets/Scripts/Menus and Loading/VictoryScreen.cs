@@ -36,7 +36,7 @@ public class VictoryScreen : MonoBehaviour
     private CanvasGroup group;
     private VictoryRankCalculator rankCalculator;
     private bool isVisible = false;
-    private bool doneTicking = false;
+    private bool startedTicking = false, doneTicking = false;
 
     private void Awake()
     {
@@ -73,7 +73,7 @@ public class VictoryScreen : MonoBehaviour
         if (Time.timeScale == 0) return;
             
         if (Input.GetButtonDown("Fire1")) {
-            if (!doneTicking) {
+            if (startedTicking && !doneTicking) {
                 StopAllCoroutines();
                 FinishDisplaysImpatient();
             }
@@ -115,6 +115,8 @@ public class VictoryScreen : MonoBehaviour
     {
         // To allow all colors in the displays to initialize.
         yield return null;
+
+        startedTicking = true;
 
         foreach (VictoryStatDisplay display in statDisplays) {
             display.setSFXRefs(scoreClickerSFX, scoreSFX);
