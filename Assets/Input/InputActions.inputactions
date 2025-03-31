@@ -34,12 +34,12 @@
                 },
                 {
                     "name": "Stick",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "59da6e5b-867d-4ed0-a2b7-1aef78e1ac17",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -50,6 +50,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
+                    "action": "Affirm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1a2866a6-96e1-4b01-bdf1-220c13d25db8",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "Affirm",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -78,6 +89,17 @@
                 },
                 {
                     "name": "",
+                    "id": "b87dfa19-6f6d-411d-b847-9ad5242a1ffd",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Deny",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "fd57ead4-a046-4358-bb33-a03077d48301",
                     "path": "<Mouse>/position",
                     "interactions": "",
@@ -89,8 +111,8 @@
                 },
                 {
                     "name": "",
-                    "id": "a785250e-56c9-4a32-a304-7a3b764971b6",
-                    "path": "",
+                    "id": "8eba643d-11a9-4b5a-a359-3715393cf66f",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
