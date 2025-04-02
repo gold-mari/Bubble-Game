@@ -56,23 +56,27 @@ public class MenuUIBuilder : MonoBehaviour
 
         buttonPool.DeactivateAll();
 
-        if (newNode != null) {
+        if (newNode != null)
+        {
             // Determine the number of invisible nodes.
             int skipped = newNode.children.Count(child => !child.visible);
             int skippedSoFar = 0;
 
+            List<Button> navButtons = new();
             // For each child in our menu...
             int childCount = newNode.children.Count;
-            for (int i=0; i<childCount; i++)
+            for (int i = 0; i < childCount; i++)
             {
                 MenuTreeNode child = newNode.children[i];
 
-                if (!child.visible) {
+                if (!child.visible)
+                {
                     skippedSoFar++;
                     continue;
                 }
 
-                if (child.tutorialBadge) {
+                if (child.tutorialBadge)
+                {
                     child.showBadge = !menuTree.saveHandler.GetSeenTutorial();
                 }
 
@@ -80,25 +84,31 @@ public class MenuUIBuilder : MonoBehaviour
                 GameObject buttonObj = buttonPool.Request();
 
                 Button button = buttonObj.GetComponent<Button>();
-                if (button) {
+                if (button)
+                {
+                    // Track this button to setup navigation later.
+                    navButtons.Add(button);
+
+                    // Clear events for this button.
                     button.onClick.RemoveAllListeners();
 
                     // We need to redeclare this variable, otherwise the onClick event
                     // delegate stores the reference to i, instead of the value.
                     int index = i;
 
-                    button.onClick.AddListener(() => {
+                    button.onClick.AddListener(() =>
+                    {
                         menuTree.DescendByIndex(index);
                     });
 
+                    // Always set to false first to clear UI styles.
                     button.interactable = false;
-                    if (newNode.children[i].enabled) {
-                        button.interactable = true;
-                    }
+                    button.interactable = newNode.children[i].enabled;
 
                     // Only one Selectable can be selected at once.
                     // By default, use the first one, and override if needed.
-                    if (i == 0 || newNode.children[i].selected) {
+                    if (i == 0 || newNode.children[i].selected)
+                    {
                         button.Select();
                     }
 
@@ -106,14 +116,14 @@ public class MenuUIBuilder : MonoBehaviour
                     AddHoverEvents(button, newNode, newNode.children[i]);
                 }
 
-                float progress = (childCount-skipped > 1) ? (i-skippedSoFar)/(float)(childCount-skipped-1) : 0.75f;
-                float usableRange = Mathf.Min(1, (childCount-skipped-1)*0.333f);
+                float progress = (childCount - skipped > 1) ? (i - skippedSoFar) / (float)(childCount - skipped - 1) : 0.75f;
+                float usableRange = Mathf.Min(1, (childCount - skipped - 1) * 0.333f);
 
                 PointsOnCircle.GetArcPosition(anchorLeft.localPosition, anchorCenter.localPosition, anchorRight.localPosition,
                                               progress, usableRange, out Vector3 position, out Quaternion _);
 
                 buttonObj.transform.localPosition = position;
-                
+
                 MenuTreeButton menuTreeButton = buttonObj.GetComponent<MenuTreeButton>();
                 menuTreeButton.Initialize(newNode.children[i], i, unscaledTime);
                 menuTreeButton.SetStyle(MenuTreeButton.Style.Main);
@@ -123,7 +133,8 @@ public class MenuUIBuilder : MonoBehaviour
             }
 
             // If this isn't the root, create a back button.
-            if (newNode != menuTree.root) {
+            if (newNode != menuTree.root)
+            {
                 // Request a new button.
                 GameObject buttonObj = buttonPool.Request();
                 // Place it.
@@ -143,26 +154,36 @@ public class MenuUIBuilder : MonoBehaviour
 
                 // Initialize the button events.
                 Button button = buttonObj.GetComponent<Button>();
-                if (button) {
+                if (button)
+                {
+                    // Track this button to setup navigation later.
+                    navButtons.Add(button);
+
+                    // Always set to false first to clear UI styles.
                     button.interactable = false;
                     button.interactable = true;
-                    
+
                     button.onClick.RemoveAllListeners();
-                    button.onClick.AddListener(() => {
+                    button.onClick.AddListener(() =>
+                    {
                         menuTree.Ascend();
                     });
 
                     // If this node is terminal, select the back button by default.
-                    if (newNode.terminal) {
+                    if (newNode.terminal)
+                    {
                         button.Select();
                     }
                 }
                 // Add events for the BaseMenuContent object.
-                AddHoverEvents(button, newNode, null);   
+                AddHoverEvents(button, newNode, null);
 
                 // Also, for debug purposes, name the button.
                 buttonObj.name = $"Button (Back)";
             }
+
+            // Set up button navigation. Each one in the arc should have another to the left/right.
+            LinkNavButtons(navButtons);
 
             // Ough this is awful, I truly hate this solution.
             // But this deadline is tight, I've got a million other things to do,
@@ -174,6 +195,31 @@ public class MenuUIBuilder : MonoBehaviour
             StopAllCoroutines();
             bool skipAnimation = oldNode == null; // If the old node was null, skip the animation.
             StartCoroutine(ZoomRoutine(newNode, skipAnimation));
+        }
+    }
+
+    private static void LinkNavButtons(List<Button> navButtons)
+    {
+        // CASE ONE: child buttons + back button
+        if (navButtons.Count > 1)
+        {
+            for (int i = 0; i < navButtons.Count; i++)
+            {
+                var workingCopy = navButtons[i].navigation;
+
+                workingCopy.mode = Navigation.Mode.Explicit;
+                workingCopy.selectOnLeft = navButtons[i == 0 ? navButtons.Count - 1 : i - 1];
+                workingCopy.selectOnRight = navButtons[(i + 1) % navButtons.Count];
+                navButtons[i].navigation = workingCopy;
+            }
+        }
+        
+        // CASE TWO: just back button
+        else if (navButtons.Count == 1)
+        {
+            var workingCopy = navButtons[0].navigation;
+            workingCopy.mode = Navigation.Mode.Automatic;
+            navButtons[0].navigation = workingCopy;
         }
     }
 
