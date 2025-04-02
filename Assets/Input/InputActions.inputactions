@@ -33,6 +33,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Stick",
+                    "type": "Value",
+                    "id": "069cccf7-fb54-457f-bf81-0648c391566d",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "UIMove",
                     "type": "Value",
                     "id": "59da6e5b-867d-4ed0-a2b7-1aef78e1ac17",
@@ -40,13 +49,22 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "UIClick",
+                    "type": "Button",
+                    "id": "e5650806-cc23-4a4b-8732-6c27444280a1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "037601cd-cbbb-4343-9964-e131bff90c9e",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
@@ -218,6 +236,28 @@
                     "action": "UIMove",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "d88eae35-cc10-44a4-b4e6-89db40803445",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UIClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a8449288-2976-4e35-8469-1228e55369c9",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Stick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
