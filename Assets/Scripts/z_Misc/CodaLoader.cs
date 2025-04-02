@@ -10,7 +10,7 @@ public class CodaLoader : MonoBehaviour
 
     void Update()
     {
-        if (!loaded && !LevelLoader.Instance.GetAnimator().gameObject.activeInHierarchy && Input.GetButtonDown("Fire1")) {
+        if (!loaded && !LevelLoader.Instance.GetAnimator().gameObject.activeInHierarchy && InputHandler.GetAffirmDown()) {
             loaded = true;
 
             saveHandler.FinishedGame();

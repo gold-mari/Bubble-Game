@@ -17,8 +17,8 @@ public class CursorVectorMonitor : MonoBehaviour
         if (Mathf.Abs(Time.timeScale) < float.Epsilon) return;
 
         // Get the mouse position on the screen.
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(InputHandler.GetPointer());
         // Define the cursorPointVector
-        cursorPointVector.value = (mousePosition - center);
+        cursorPointVector.value = mousePosition - center;
     }
 }

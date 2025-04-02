@@ -72,11 +72,9 @@ public class VictoryScreen : MonoBehaviour
         if (!isVisible) return;
         if (Time.timeScale == 0) return;
             
-        if (Input.GetButtonDown("Fire1")) {
-            if (startedTicking && !doneTicking) {
-                StopAllCoroutines();
-                FinishDisplaysImpatient();
-            }
+        if (InputHandler.GetAffirmDown() && startedTicking && !doneTicking) {
+            StopAllCoroutines();
+            FinishDisplaysImpatient();
         }
     }
 

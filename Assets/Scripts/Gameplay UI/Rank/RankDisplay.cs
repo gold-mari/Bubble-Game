@@ -28,7 +28,7 @@ public class RankDisplay : MonoBehaviour
         if (dismissed) return;
         if (Time.timeScale == 0) return;
 
-        if (Input.GetButtonDown("Fire1")) {
+        if (InputHandler.GetAffirmDown()) {
             onDismiss?.Invoke();
             dismissed = true;
         }

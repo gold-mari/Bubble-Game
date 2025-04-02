@@ -127,6 +127,7 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
     // Functionality for these inputs is handled by the Event System.
     public void OnUIMove(InputAction.CallbackContext context) { UpdateLastUsedScheme(context); }
     public void OnUIClick(InputAction.CallbackContext context) { UpdateLastUsedScheme(context); }
+    public void OnUISubmit(InputAction.CallbackContext context) { UpdateLastUsedScheme(context); }
 
     // Public Accessor Methods ====================================================================
 

@@ -53,16 +53,9 @@ public class PauseManager : MonoBehaviour
         // Update is called once per frame. We use it to detect a pause key input.
         // ================
 
-        if (!pauseLocked)
-        {
-            foreach (KeyCode key in pauseKeys)
-            {
-                if (Input.GetKeyDown(key))
-                {
-                    Pause(!paused);
-                    return;
-                }
-            }
+        if (!pauseLocked && InputHandler.GetDenyDown()) {
+            Pause(!paused);
+            return;
         }
     }
 

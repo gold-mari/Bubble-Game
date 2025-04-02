@@ -80,13 +80,44 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UISubmit"",
+                    ""type"": ""Button"",
+                    ""id"": ""308d144a-c5a5-443f-b31d-ac10380539d4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
+                    ""id"": ""ac5d43a6-7964-442a-98a7-90f8707574c2"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Affirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""037601cd-cbbb-4343-9964-e131bff90c9e"",
                     ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Affirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""45c9afa2-d26f-493a-86d6-b7cf990f9627"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
@@ -280,6 +311,28 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Stick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c26d2a5-f73f-4ca7-baed-bc906ac349ba"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""UISubmit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""267b3b42-4313-4023-9391-16923931d461"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""UISubmit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -322,6 +375,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Main_Stick = m_Main.FindAction("Stick", throwIfNotFound: true);
         m_Main_UIMove = m_Main.FindAction("UIMove", throwIfNotFound: true);
         m_Main_UIClick = m_Main.FindAction("UIClick", throwIfNotFound: true);
+        m_Main_UISubmit = m_Main.FindAction("UISubmit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -387,6 +441,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Main_Stick;
     private readonly InputAction m_Main_UIMove;
     private readonly InputAction m_Main_UIClick;
+    private readonly InputAction m_Main_UISubmit;
     public struct MainActions
     {
         private @InputActions m_Wrapper;
@@ -397,6 +452,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @Stick => m_Wrapper.m_Main_Stick;
         public InputAction @UIMove => m_Wrapper.m_Main_UIMove;
         public InputAction @UIClick => m_Wrapper.m_Main_UIClick;
+        public InputAction @UISubmit => m_Wrapper.m_Main_UISubmit;
         public InputActionMap Get() { return m_Wrapper.m_Main; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -424,6 +480,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @UIClick.started -= m_Wrapper.m_MainActionsCallbackInterface.OnUIClick;
                 @UIClick.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnUIClick;
                 @UIClick.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnUIClick;
+                @UISubmit.started -= m_Wrapper.m_MainActionsCallbackInterface.OnUISubmit;
+                @UISubmit.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnUISubmit;
+                @UISubmit.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnUISubmit;
             }
             m_Wrapper.m_MainActionsCallbackInterface = instance;
             if (instance != null)
@@ -446,6 +505,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @UIClick.started += instance.OnUIClick;
                 @UIClick.performed += instance.OnUIClick;
                 @UIClick.canceled += instance.OnUIClick;
+                @UISubmit.started += instance.OnUISubmit;
+                @UISubmit.performed += instance.OnUISubmit;
+                @UISubmit.canceled += instance.OnUISubmit;
             }
         }
     }
@@ -476,5 +538,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnStick(InputAction.CallbackContext context);
         void OnUIMove(InputAction.CallbackContext context);
         void OnUIClick(InputAction.CallbackContext context);
+        void OnUISubmit(InputAction.CallbackContext context);
     }
 }

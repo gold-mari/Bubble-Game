@@ -148,7 +148,7 @@ public class DialogueHandler : MonoBehaviour
         if (Time.timeScale == 0) return;
 
         // On input...
-        if (!done && Input.GetButtonDown("Fire1"))
+        if (!done && InputHandler.GetAffirmDown())
         {
             // If we're currently animating a transition, ignore the input.
             if (LevelLoader.Instance.GetAnimator().gameObject.activeInHierarchy) return;
