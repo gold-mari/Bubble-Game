@@ -61,7 +61,7 @@ public class MenuUIBuilder : MonoBehaviour
             int skipped = newNode.children.Count(child => !child.visible);
             int skippedSoFar = 0;
 
-             // For each child in our menu...
+            // For each child in our menu...
             int childCount = newNode.children.Count;
             for (int i=0; i<childCount; i++)
             {
@@ -94,6 +94,12 @@ public class MenuUIBuilder : MonoBehaviour
                     button.interactable = false;
                     if (newNode.children[i].enabled) {
                         button.interactable = true;
+                    }
+
+                    // Only one Selectable can be selected at once.
+                    // By default, use the first one, and override if needed.
+                    if (i == 0 || newNode.children[i].selected) {
+                        button.Select();
                     }
 
                     // Add events for the BaseMenuContent object.
@@ -145,6 +151,11 @@ public class MenuUIBuilder : MonoBehaviour
                     button.onClick.AddListener(() => {
                         menuTree.Ascend();
                     });
+
+                    // If this node is terminal, select the back button by default.
+                    if (newNode.terminal) {
+                        button.Select();
+                    }
                 }
                 // Add events for the BaseMenuContent object.
                 AddHoverEvents(button, newNode, null);   
