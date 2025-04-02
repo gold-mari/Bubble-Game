@@ -9108,10 +9108,6 @@ PrefabInstance:
       propertyPath: scenes.Array.data[14].scene
       value: Cutscene_Outro
       objectReference: {fileID: 0}
-    - target: {fileID: 4421979086607203798, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
-      propertyPath: m_DeselectOnBackgroundClick
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6275499595512373943, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
       propertyPath: m_IsActive
       value: 1
