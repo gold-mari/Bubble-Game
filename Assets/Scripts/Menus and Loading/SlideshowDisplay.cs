@@ -84,6 +84,7 @@ public class SlideshowDisplay : MonoBehaviour
         if (currentIndex == slides.Length-1)
         {
             advanceButton.interactable = false;
+            backButton.Select();
         }
     }
 
@@ -110,6 +111,7 @@ public class SlideshowDisplay : MonoBehaviour
         if (currentIndex == 0)
         {
             backButton.interactable = false;
+            advanceButton.Select();
         }
     }
 }

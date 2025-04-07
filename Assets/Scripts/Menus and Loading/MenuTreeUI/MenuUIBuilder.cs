@@ -48,6 +48,16 @@ public class MenuUIBuilder : MonoBehaviour
         buttonSoundPlayer = GetComponent<ButtonSoundPlayer>();
     }
 
+    private void Update()
+    {
+        // If we detect a deny input, ascend.
+        // ================
+
+        if (InputHandler.GetDenyDown() && menuTree.Current != menuTree.root) {
+            menuTree.Ascend();
+        }
+    }
+
     private void OnCurrentNodeUpdated(MenuTreeNode oldNode, MenuTreeNode newNode) 
     {   
         // Called whenever the current node in our menuTree changes. Used to:
@@ -183,7 +193,7 @@ public class MenuUIBuilder : MonoBehaviour
             }
 
             // Set up button navigation. Each one in the arc should have another to the left/right.
-            LinkNavButtons(navButtons);
+            LinkNavButtons(navButtons, newNode.content);
 
             // Ough this is awful, I truly hate this solution.
             // But this deadline is tight, I've got a million other things to do,
@@ -198,7 +208,7 @@ public class MenuUIBuilder : MonoBehaviour
         }
     }
 
-    private static void LinkNavButtons(List<Button> navButtons)
+    private static void LinkNavButtons(List<Button> navButtons, GameObject content)
     {
         // CASE ONE: child buttons + back button
         if (navButtons.Count > 1)
@@ -217,9 +227,22 @@ public class MenuUIBuilder : MonoBehaviour
         // CASE TWO: just back button
         else if (navButtons.Count == 1)
         {
-            var workingCopy = navButtons[0].navigation;
-            workingCopy.mode = Navigation.Mode.Automatic;
-            navButtons[0].navigation = workingCopy;
+            if (content != null && content.TryGetComponent<SelectableInitializer>(out var initializer)) {
+                var workingCopy = navButtons[0].navigation;
+                workingCopy.mode = Navigation.Mode.Explicit;
+                workingCopy.selectOnDown = initializer.EntryPoint;
+                navButtons[0].navigation = workingCopy;
+
+                foreach (var exitPoint in initializer.ExitPoints) {
+                    workingCopy = exitPoint.navigation;
+                    workingCopy.selectOnUp = navButtons[0];
+                    exitPoint.navigation = workingCopy;
+                }
+            } else {
+                var workingCopy = navButtons[0].navigation;
+                workingCopy.mode = Navigation.Mode.Automatic;
+                navButtons[0].navigation = workingCopy;
+            }
         }
     }
 
