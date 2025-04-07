@@ -108,8 +108,14 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
     }
 
     // Button events ============================
-    public void OnAffirm(InputAction.CallbackContext context) { SetDown(context, "_affirm"); }
-    public void OnDeny(InputAction.CallbackContext context) { SetDown(context, "_deny"); }
+    public void OnAffirm(InputAction.CallbackContext context) { 
+        print("OnAffirm");
+        SetDown(context, "_affirm"); 
+    }
+    public void OnDeny(InputAction.CallbackContext context) { 
+        print("OnDeny");
+        SetDown(context, "_deny"); 
+    }
 
     // Value events =============================
     public void OnPointer(InputAction.CallbackContext context) 
@@ -132,8 +138,14 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
     // UI events ================================
     // Functionality for these inputs is handled by the Event System.
     public void OnUIMove(InputAction.CallbackContext context) { UpdateLastUsedScheme(context); }
-    public void OnUIClick(InputAction.CallbackContext context) { UpdateLastUsedScheme(context); }
-    public void OnUISubmit(InputAction.CallbackContext context) { UpdateLastUsedScheme(context); }
+    public void OnUIClick(InputAction.CallbackContext context) { 
+        print("OnUiClick");
+        UpdateLastUsedScheme(context); 
+    }
+    public void OnUISubmit(InputAction.CallbackContext context) { 
+        print("OnUiSubmit");
+        UpdateLastUsedScheme(context); 
+    }
 
     // Public Accessor Methods ====================================================================
 
