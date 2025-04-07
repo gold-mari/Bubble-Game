@@ -16,9 +16,17 @@ public class CursorVectorMonitor : MonoBehaviour
         // If time scale is 0
         if (Mathf.Abs(Time.timeScale) < float.Epsilon) return;
 
-        // Get the mouse position on the screen.
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(InputHandler.GetPointer());
-        // Define the cursorPointVector
-        cursorPointVector.value = mousePosition - center;
+        if (InputHandler.Instance.LastUsedScheme == InputHandler.Instance.KeyboardScheme) {
+            // Get the mouse position on the screen.
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(InputHandler.GetPointer());
+            // Define the cursorPointVector
+            cursorPointVector.value = mousePosition - center;
+        } else { // Gamepad
+            Vector2 stick = InputHandler.GetStick();
+            if (stick.magnitude != 0) {
+                cursorPointVector.value = stick.normalized;
+            }
+        }
+        
     }
 }

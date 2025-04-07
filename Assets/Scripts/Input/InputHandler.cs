@@ -34,6 +34,7 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
     // Misc
 
     private bool _mouseLastUsed;
+    private Vector2 _lastPointerPos;
    
     // Initializers and Finalizers ================================================================
 
@@ -92,9 +93,9 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
         UpdateLastUsedScheme(context);
     }
 
-    private void UpdateLastUsedScheme(InputAction.CallbackContext context)
+    private void UpdateLastUsedScheme(InputAction.CallbackContext context, bool forceUpdate=false)
     {
-        if (!context.started) return;
+        if (!context.started && !forceUpdate) return;
 
         _mouseLastUsed = context.control.device is Mouse;
 
@@ -114,7 +115,12 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
     public void OnPointer(InputAction.CallbackContext context) 
     {
         _pointerPos = context.ReadValue<Vector2>();
-        UpdateLastUsedScheme(context);
+
+        // If we've moved the pointer, force update the last used scheme.
+        if (_lastPointerPos != _pointerPos) {
+            _lastPointerPos = _pointerPos;
+            UpdateLastUsedScheme(context, true);
+        }
     }
 
     public void OnStick(InputAction.CallbackContext context) 
