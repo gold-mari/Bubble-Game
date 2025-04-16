@@ -2718,6 +2718,7 @@ GameObject:
   - component: {fileID: 2834348532667920045}
   - component: {fileID: 2165192858064459598}
   - component: {fileID: 5619706441565232495}
+  - component: {fileID: 883360916370373663}
   m_Layer: 5
   m_Name: Quit Menu Content
   m_TagString: Untagged
@@ -2773,6 +2774,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unscaledTime: 1
   fadeDuration: 0.1
+--- !u!114 &883360916370373663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4472773982142000090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55465519ab80ab748993764d03508edc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntryPoint: {fileID: 4050573968918075875}
+  ExitPoints:
+  - {fileID: 1575360631917989852}
+  - {fileID: 4050573968918075875}
 --- !u!1 &4947039312568415385
 GameObject:
   m_ObjectHideFlags: 0
@@ -2919,7 +2936,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Yes!
 
-    <size=35>Peace out!'
+    <size=35>Try again!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0539ba517723d6d43bf03748c8281f6b, type: 2}
   m_sharedMaterial: {fileID: 880974728737460417, guid: 0539ba517723d6d43bf03748c8281f6b, type: 2}
@@ -2999,6 +3016,7 @@ GameObject:
   - component: {fileID: 7131297444389670296}
   - component: {fileID: 5343908456130731229}
   - component: {fileID: 3379680605684798035}
+  - component: {fileID: 1109157211034792887}
   m_Layer: 5
   m_Name: Restart Menu Content
   m_TagString: Untagged
@@ -3054,6 +3072,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unscaledTime: 1
   fadeDuration: 0.1
+--- !u!114 &1109157211034792887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5571775010327617972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55465519ab80ab748993764d03508edc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntryPoint: {fileID: 3287693135947631890}
+  ExitPoints:
+  - {fileID: 2380383272855365302}
+  - {fileID: 3287693135947631890}
 --- !u!1 &5572849643847148151
 GameObject:
   m_ObjectHideFlags: 0
