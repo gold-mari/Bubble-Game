@@ -251,10 +251,11 @@ public class MenuUIBuilder : MonoBehaviour
         // Given a button, wipes all of its hover events, and adds a
         // PointerEnter event and a PointerExit event which:
         //  * Spin the button's icon
-        //  * Can update the sprite for our menuTree's baseContent
+        //  * Selects it
+        //  * Can update the text on our menuTree's baseContent
         //
         // AGAIN, IMPORTANT: THIS METHOD WIPES ALL OF THE BUTTON'S TRIGGERS.
-        // YOU MUST RE-ADD LOST TRIGGERS ELSEWHERE.
+        // YOU MUST RE-ADD OTHER LOST TRIGGERS ELSEWHERE.
         // ================
 
         // Find the EventTrigger on this object, or make one if one doesn't exist.
@@ -271,27 +272,50 @@ public class MenuUIBuilder : MonoBehaviour
         pointerEnterEvent.callback.AddListener((eventData) => { 
             // When we hover over the button, spin our lil icon :3
             treeButton.SpinIcon();
+            // Also, mark us as selected.
+            button.Select();
         });
     
+        // If we are using the base menu content.
         if (currentNode.content == null) {
+            
+            // Part 1: Selection Events ===================
+
+            EventTrigger.Entry selectEvent = new(){ eventID = EventTriggerType.Select };
+
             // If this node corresponds to a node which uses the base content,
             // change the baseContent's text.
 
-            pointerEnterEvent.callback.AddListener((eventData) => { 
+            void ChangeToChild(BaseEventData eventData) {
                 // When we hover over the button, display the text for the menu we're
                 // about to traverse into.
                 menuTree.baseContent.ChangeText(childNode);
-            });
+            }
+
+            pointerEnterEvent.callback.AddListener(ChangeToChild);
+            selectEvent.callback.AddListener(ChangeToChild);
+
+            // Part 2: Deselection Events =================
+
             EventTrigger.Entry pointerExitEvent = new(){ eventID = EventTriggerType.PointerExit };
-            pointerExitEvent.callback.AddListener((eventData) => { 
+            EventTrigger.Entry deselectEvent = new(){ eventID = EventTriggerType.Deselect };
+
+            void ChangeToCurrent(BaseEventData eventData) {
                 // When we stop hovering over a button, display the text for the menu
                 // we're already inside of.
                 menuTree.baseContent.ChangeText(currentNode);
-            });
+            }
 
-            // Add our pointerEnterEvent from earlier.
+            pointerExitEvent.callback.AddListener(ChangeToCurrent);
+            deselectEvent.callback.AddListener(ChangeToCurrent);
+
+            // Part 3: Applying Events ====================
+
+            // Add our events from earlier.
             trigger.triggers.Add(pointerEnterEvent);
+            trigger.triggers.Add(selectEvent);
             trigger.triggers.Add(pointerExitEvent);
+            trigger.triggers.Add(deselectEvent);
         } 
     }
 
