@@ -108,14 +108,8 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
     }
 
     // Button events ============================
-    public void OnAffirm(InputAction.CallbackContext context) { 
-        print("OnAffirm");
-        SetDown(context, "_affirm"); 
-    }
-    public void OnDeny(InputAction.CallbackContext context) { 
-        print("OnDeny");
-        SetDown(context, "_deny"); 
-    }
+    public void OnAffirm(InputAction.CallbackContext context) { SetDown(context, "_affirm"); }
+    public void OnDeny(InputAction.CallbackContext context) { SetDown(context, "_deny"); }
 
     // Value events =============================
     public void OnPointer(InputAction.CallbackContext context) 
@@ -138,14 +132,8 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
     // UI events ================================
     // Functionality for these inputs is handled by the Event System.
     public void OnUIMove(InputAction.CallbackContext context) { UpdateLastUsedScheme(context); }
-    public void OnUIClick(InputAction.CallbackContext context) { 
-        print("OnUiClick");
-        UpdateLastUsedScheme(context); 
-    }
-    public void OnUISubmit(InputAction.CallbackContext context) { 
-        print("OnUiSubmit");
-        UpdateLastUsedScheme(context); 
-    }
+    public void OnUIClick(InputAction.CallbackContext context) { UpdateLastUsedScheme(context); }
+    public void OnUISubmit(InputAction.CallbackContext context) { UpdateLastUsedScheme(context); }
 
     // Public Accessor Methods ====================================================================
 
@@ -158,7 +146,7 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
         if (Instance != null) {
             return Instance._pointerPos;
         } else {
-            Debug.LogWarning("InputHandler Warning: No instance of InputHandler in scene.");
+            NoHandlerError();
             return Vector2.zero;
         }
     }
@@ -172,28 +160,43 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
         if (Instance != null) {
             return Vector2.ClampMagnitude(Instance._stickDir, 1); 
         } else {
-            Debug.LogWarning("InputHandler Warning: No instance of InputHandler in scene.");
+            NoHandlerError();
             return Vector2.zero;
         }
     }
 
+    /// <summary>
+    /// Accessor for if Affirm was set down on the last frame.
+    /// </summary>
+    /// <returns>bool - if Affirm was just pressed down.</returns>
     public static bool GetAffirmDown()
     { 
         if (Instance != null) {
             return Instance._getDown["_affirm"]; 
         } else {
-            Debug.LogWarning("InputHandler Warning: No instance of InputHandler in scene.");
+            NoHandlerError();
             return false;
         }
     }
 
+    /// <summary>
+    /// Accessor for if Deny was set down on the last frame.
+    /// </summary>
+    /// <returns>bool - if Deny was just pressed down.</returns>
     public static bool GetDenyDown()
     { 
         if (Instance != null) {
             return Instance._getDown["_deny"]; 
         } else {
-            Debug.LogWarning("InputHandler Warning: No instance of InputHandler in scene.");
+            NoHandlerError();
             return false;
         }
+    }
+
+    // Helper Methods =============================================================================
+
+    private static void NoHandlerError()
+    {
+        Debug.LogWarning("InputHandler Warning: No instance of InputHandler in scene.");
     }
 }
