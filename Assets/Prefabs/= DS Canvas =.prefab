@@ -2294,6 +2294,7 @@ MonoBehaviour:
   pointVector: {fileID: 11400000, guid: d897fa1b5632702439a181ff7e697313, type: 2}
   radiusScale: 4.5
   maxRadius: 28
+  stickScalar: 9
 --- !u!1 &8624468521204566170
 GameObject:
   m_ObjectHideFlags: 0

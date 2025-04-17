@@ -14,6 +14,8 @@ public class VectorFollower : MonoBehaviour
     private float radiusScale;
     [SerializeField]
     private float maxRadius;
+    [SerializeField]
+    private float stickScalar = 1;
 
     // ================================================================
     // Internal variables
@@ -43,7 +45,12 @@ public class VectorFollower : MonoBehaviour
         // center.
         // ================
         
-        Vector2 scaledVector = (pointVector.value * radiusScale);
+        Vector2 scaledVector = pointVector.value * radiusScale;
+
+        if (InputHandler.Instance.LastUsedScheme == InputHandler.Instance.GamepadScheme) {
+            scaledVector *= stickScalar;
+        }
+
         if (scaledVector.magnitude > maxRadius) {
             scaledVector = scaledVector.normalized * maxRadius;
         }
