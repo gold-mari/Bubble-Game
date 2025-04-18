@@ -1,8 +1,9 @@
 Root\Welcome to BubbleBeast DigiDungeon!
     Quit\Exit the game.
-    Play\Begin the game.\tutorialBadge
+    Play\Begin the game.\selected\tutorialBadge
         New Game\Start a new game!\overrideTitle
         Continue\Pick up where you left off.\overrideTitle\alsoShowBase\disableIfNoLastLevel
+        Controls\Review the game's controls!\overrideTitle
         Tutorial and Extras\Learn how to play, view high scores, and more!\overrideTitle\tutorialBadge
             Tutorial\Learn the basics of play!\overrideTitle\invisible
             Level Select\Play the game from a specific scene.\invisible

@@ -157,6 +157,9 @@ public class MenuTree : MonoBehaviour
                     if (terms.Length > 2) {
                         for (int j = 2; j < terms.Length; j++) {
                             switch (terms[j]) {
+                                case "selected":
+                                    currentNode.selected = true;
+                                    break;
                                 case "disable":
                                     currentNode.enabled = false;
                                     break;
@@ -298,10 +301,12 @@ public class MenuTreeNode
     public string id;
     // The description of the menu
     public string description;
-    // Whether or not this node is enabled in the menu
+    // Whether or not this node is visible in the menu
     public bool visible = true;
     // Whether or not this node is enabled in the menu
     public bool enabled = true;
+    // Whether or not this node is selected by default
+    public bool selected = false;
     // Whether or not this node's title is always overridden by it's id
     public bool overrideTitle = false;
     // Whether or not this node's content should also allow the base content to show.
@@ -321,6 +326,7 @@ public class MenuTreeNode
     // Debug values, mainly used in DEBUG_TreeVis.
     public readonly int generation;
     public readonly int siblingIndex;
+    public bool terminal => children.Count == 0 || children.TrueForAll(n => !n.visible);
 
     public MenuTreeNode(string _id, string _description, MenuTreeNode _parent, GameObject _content=null)
     {

@@ -12,7 +12,7 @@ public class ReticleFollowMouse : MonoBehaviour
         // If time scale is 0
         if (Mathf.Abs(Time.timeScale) < float.Epsilon) return;
 
-        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 pos = Camera.main.ScreenToWorldPoint(InputHandler.GetPointer());
         transform.position = new(pos.x, pos.y, 0);
     }
 }

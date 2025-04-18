@@ -48,6 +48,16 @@ public class MenuUIBuilder : MonoBehaviour
         buttonSoundPlayer = GetComponent<ButtonSoundPlayer>();
     }
 
+    private void Update()
+    {
+        // If we detect a deny input, ascend.
+        // ================
+
+        if (InputHandler.GetDenyDown() && menuTree.Current != menuTree.root) {
+            menuTree.Ascend();
+        }
+    }
+
     private void OnCurrentNodeUpdated(MenuTreeNode oldNode, MenuTreeNode newNode) 
     {   
         // Called whenever the current node in our menuTree changes. Used to:
@@ -56,23 +66,27 @@ public class MenuUIBuilder : MonoBehaviour
 
         buttonPool.DeactivateAll();
 
-        if (newNode != null) {
+        if (newNode != null)
+        {
             // Determine the number of invisible nodes.
             int skipped = newNode.children.Count(child => !child.visible);
             int skippedSoFar = 0;
 
-             // For each child in our menu...
+            List<Button> navButtons = new();
+            // For each child in our menu...
             int childCount = newNode.children.Count;
-            for (int i=0; i<childCount; i++)
+            for (int i = 0; i < childCount; i++)
             {
                 MenuTreeNode child = newNode.children[i];
 
-                if (!child.visible) {
+                if (!child.visible)
+                {
                     skippedSoFar++;
                     continue;
                 }
 
-                if (child.tutorialBadge) {
+                if (child.tutorialBadge)
+                {
                     child.showBadge = !menuTree.saveHandler.GetSeenTutorial();
                 }
 
@@ -80,34 +94,46 @@ public class MenuUIBuilder : MonoBehaviour
                 GameObject buttonObj = buttonPool.Request();
 
                 Button button = buttonObj.GetComponent<Button>();
-                if (button) {
+                if (button)
+                {
+                    // Track this button to setup navigation later.
+                    navButtons.Add(button);
+
+                    // Clear events for this button.
                     button.onClick.RemoveAllListeners();
 
                     // We need to redeclare this variable, otherwise the onClick event
                     // delegate stores the reference to i, instead of the value.
                     int index = i;
 
-                    button.onClick.AddListener(() => {
+                    button.onClick.AddListener(() =>
+                    {
                         menuTree.DescendByIndex(index);
                     });
 
+                    // Always set to false first to clear UI styles.
                     button.interactable = false;
-                    if (newNode.children[i].enabled) {
-                        button.interactable = true;
+                    button.interactable = newNode.children[i].enabled;
+
+                    // Only one Selectable can be selected at once.
+                    // By default, use the first one, and override if needed.
+                    if (i == 0 || newNode.children[i].selected)
+                    {
+                        button.Select();
                     }
 
                     // Add events for the BaseMenuContent object.
                     AddHoverEvents(button, newNode, newNode.children[i]);
                 }
 
-                float progress = (childCount-skipped > 1) ? (i-skippedSoFar)/(float)(childCount-skipped-1) : 0.75f;
-                float usableRange = Mathf.Min(1, (childCount-skipped-1)*0.333f);
+                float progress = (childCount - skipped > 1) ? (i - skippedSoFar) / (float)(childCount - skipped - 1) : 0.75f;
+                float usableRange = Mathf.Min(1, (childCount - skipped - 1) * 0.333f);
 
                 PointsOnCircle.GetArcPosition(anchorLeft.localPosition, anchorCenter.localPosition, anchorRight.localPosition,
                                               progress, usableRange, out Vector3 position, out Quaternion _);
 
                 buttonObj.transform.localPosition = position;
-                
+
                 MenuTreeButton menuTreeButton = buttonObj.GetComponent<MenuTreeButton>();
                 menuTreeButton.Initialize(newNode.children[i], i, unscaledTime);
                 menuTreeButton.SetStyle(MenuTreeButton.Style.Main);
@@ -117,7 +143,8 @@ public class MenuUIBuilder : MonoBehaviour
             }
 
             // If this isn't the root, create a back button.
-            if (newNode != menuTree.root) {
+            if (newNode != menuTree.root)
+            {
                 // Request a new button.
                 GameObject buttonObj = buttonPool.Request();
                 // Place it.
@@ -137,21 +164,36 @@ public class MenuUIBuilder : MonoBehaviour
 
                 // Initialize the button events.
                 Button button = buttonObj.GetComponent<Button>();
-                if (button) {
+                if (button)
+                {
+                    // Track this button to setup navigation later.
+                    navButtons.Add(button);
+
+                    // Always set to false first to clear UI styles.
                     button.interactable = false;
                     button.interactable = true;
-                    
+
                     button.onClick.RemoveAllListeners();
-                    button.onClick.AddListener(() => {
+                    button.onClick.AddListener(() =>
+                    {
                         menuTree.Ascend();
                     });
+
+                    // If this node is terminal, select the back button by default.
+                    if (newNode.terminal)
+                    {
+                        button.Select();
+                    }
                 }
                 // Add events for the BaseMenuContent object.
-                AddHoverEvents(button, newNode, null);   
+                AddHoverEvents(button, newNode, null);
 
                 // Also, for debug purposes, name the button.
                 buttonObj.name = $"Button (Back)";
             }
+
+            // Set up button navigation. Each one in the arc should have another to the left/right.
+            LinkNavButtons(navButtons, newNode.content);
 
             // Ough this is awful, I truly hate this solution.
             // But this deadline is tight, I've got a million other things to do,
@@ -166,15 +208,54 @@ public class MenuUIBuilder : MonoBehaviour
         }
     }
 
+    private static void LinkNavButtons(List<Button> navButtons, GameObject content)
+    {
+        // CASE ONE: child buttons + back button
+        if (navButtons.Count > 1)
+        {
+            for (int i = 0; i < navButtons.Count; i++)
+            {
+                var workingCopy = navButtons[i].navigation;
+
+                workingCopy.mode = Navigation.Mode.Explicit;
+                workingCopy.selectOnLeft = navButtons[i == 0 ? navButtons.Count - 1 : i - 1];
+                workingCopy.selectOnRight = navButtons[(i + 1) % navButtons.Count];
+                navButtons[i].navigation = workingCopy;
+            }
+        }
+        
+        // CASE TWO: just back button
+        else if (navButtons.Count == 1)
+        {
+            if (content != null && content.TryGetComponent<SelectableInitializer>(out var initializer)) {
+                var workingCopy = navButtons[0].navigation;
+                workingCopy.mode = Navigation.Mode.Explicit;
+                workingCopy.selectOnDown = initializer.EntryPoint;
+                navButtons[0].navigation = workingCopy;
+
+                foreach (var exitPoint in initializer.ExitPoints) {
+                    workingCopy = exitPoint.navigation;
+                    workingCopy.selectOnUp = navButtons[0];
+                    exitPoint.navigation = workingCopy;
+                }
+            } else {
+                var workingCopy = navButtons[0].navigation;
+                workingCopy.mode = Navigation.Mode.Automatic;
+                navButtons[0].navigation = workingCopy;
+            }
+        }
+    }
+
     private void AddHoverEvents(Button button, MenuTreeNode currentNode, MenuTreeNode childNode)
     {
         // Given a button, wipes all of its hover events, and adds a
         // PointerEnter event and a PointerExit event which:
         //  * Spin the button's icon
-        //  * Can update the sprite for our menuTree's baseContent
+        //  * Selects it
+        //  * Can update the text on our menuTree's baseContent
         //
         // AGAIN, IMPORTANT: THIS METHOD WIPES ALL OF THE BUTTON'S TRIGGERS.
-        // YOU MUST RE-ADD LOST TRIGGERS ELSEWHERE.
+        // YOU MUST RE-ADD OTHER LOST TRIGGERS ELSEWHERE.
         // ================
 
         // Find the EventTrigger on this object, or make one if one doesn't exist.
@@ -191,27 +272,50 @@ public class MenuUIBuilder : MonoBehaviour
         pointerEnterEvent.callback.AddListener((eventData) => { 
             // When we hover over the button, spin our lil icon :3
             treeButton.SpinIcon();
+            // Also, mark us as selected.
+            button.Select();
         });
     
+        // If we are using the base menu content.
         if (currentNode.content == null) {
+            
+            // Part 1: Selection Events ===================
+
+            EventTrigger.Entry selectEvent = new(){ eventID = EventTriggerType.Select };
+
             // If this node corresponds to a node which uses the base content,
             // change the baseContent's text.
 
-            pointerEnterEvent.callback.AddListener((eventData) => { 
+            void ChangeToChild(BaseEventData eventData) {
                 // When we hover over the button, display the text for the menu we're
                 // about to traverse into.
                 menuTree.baseContent.ChangeText(childNode);
-            });
+            }
+
+            pointerEnterEvent.callback.AddListener(ChangeToChild);
+            selectEvent.callback.AddListener(ChangeToChild);
+
+            // Part 2: Deselection Events =================
+
             EventTrigger.Entry pointerExitEvent = new(){ eventID = EventTriggerType.PointerExit };
-            pointerExitEvent.callback.AddListener((eventData) => { 
+            EventTrigger.Entry deselectEvent = new(){ eventID = EventTriggerType.Deselect };
+
+            void ChangeToCurrent(BaseEventData eventData) {
                 // When we stop hovering over a button, display the text for the menu
                 // we're already inside of.
                 menuTree.baseContent.ChangeText(currentNode);
-            });
+            }
 
-            // Add our pointerEnterEvent from earlier.
+            pointerExitEvent.callback.AddListener(ChangeToCurrent);
+            deselectEvent.callback.AddListener(ChangeToCurrent);
+
+            // Part 3: Applying Events ====================
+
+            // Add our events from earlier.
             trigger.triggers.Add(pointerEnterEvent);
+            trigger.triggers.Add(selectEvent);
             trigger.triggers.Add(pointerExitEvent);
+            trigger.triggers.Add(deselectEvent);
         } 
     }
 
