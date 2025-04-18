@@ -592,6 +592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655844daecacfa54a9c033d2ccc8bc52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rumbleScaling: {fileID: 11400000, guid: 566d6bf1691522e4d98d096959691494, type: 2}
   LastUsedScheme:
     m_Name: 
     m_BindingGroup: 

@@ -9,6 +9,9 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class InputHandler : MonoBehaviour, InputActions.IMainActions
 {
+    [SerializeField, Tooltip("A floatVar holding the 0-1 value that we scale our rumble by.")]
+    floatVar rumbleScaling;
+
     public static InputHandler Instance { get; private set; }
 
     [ReadOnly] public InputControlScheme LastUsedScheme;
@@ -152,7 +155,8 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
     public static void SetRumble(float lowFrequency, float highFrequency)
     {
         if (Instance != null) {
-            Instance.LastUsedGamepad?.SetMotorSpeeds(lowFrequency, highFrequency);
+            float scale = Instance.rumbleScaling ? Instance.rumbleScaling.value : 1;
+            Instance.LastUsedGamepad?.SetMotorSpeeds(lowFrequency*scale, highFrequency*scale);
         } else {
             NoHandlerError();
         }
