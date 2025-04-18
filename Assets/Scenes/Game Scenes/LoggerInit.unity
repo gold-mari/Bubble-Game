@@ -1003,7 +1003,7 @@ MonoBehaviour:
     index=1 tint=1><sprite index=4 tint=1><size=40> Advance/Submit
 
     <size=80><sprite
-    index=2 tint=1><sprite index=5 tint=1><size=40> Cancel/Return</b>'
+    index=2 tint=1><sprite index=5 tint=1><size=40> Pause/Cancel</b>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0539ba517723d6d43bf03748c8281f6b, type: 2}
   m_sharedMaterial: {fileID: 880974728737460417, guid: 0539ba517723d6d43bf03748c8281f6b, type: 2}
