@@ -1464,6 +1464,9 @@ MonoBehaviour:
   screenshakeScaling: {fileID: 11400000, guid: eedb913d0a4fa5d40b0a1b3966a834cb, type: 2}
   screenshakeSlider: {fileID: 0}
   screenshakeReadout: {fileID: 0}
+  rumbleScaling: {fileID: 11400000, guid: 566d6bf1691522e4d98d096959691494, type: 2}
+  rumbleSlider: {fileID: 0}
+  rumbleReadout: {fileID: 0}
   reduceFlashing: {fileID: 11400000, guid: 7f97a7887923e474781a10af95a736ce, type: 2}
   flashingToggle: {fileID: 0}
 --- !u!114 &1316943976
@@ -1898,19 +1901,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Thank you for playing
-
-    BubbleBeast DigiDungeon! ^w^
-
-
-    Level Select
-    is now available
-
-    in the Tutorial and Extras menu.
-
-
-    <b>Left click to
-    return.</b>'
+  m_text: "Thank you for playing\nBubbleBeast DigiDungeon! ^w^\n\nLevel Select is
+    now available\nin the Tutorial and Extras menu.\n\n\n<b><sprite index=1 tint=1>/<sprite
+    index=4 tint=1> \u2014 Return</b>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0539ba517723d6d43bf03748c8281f6b, type: 2}
   m_sharedMaterial: {fileID: 880974728737460417, guid: 0539ba517723d6d43bf03748c8281f6b, type: 2}
@@ -1929,7 +1922,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: 415b8435bc2f75f4f9197cfe4110b6a6, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
