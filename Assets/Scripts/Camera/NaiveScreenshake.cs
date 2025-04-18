@@ -14,6 +14,14 @@ public class NaiveScreenshake : MonoBehaviour
     [Tooltip("The duration of the base screenshake, in seconds.n\nDefault: 0.5")]
     public float BaseShakeDuration { get; private set; } = 0.5f;
 
+    [SerializeField, Range(0,1), Tooltip("The magnitude of the gamepad's low-frequency rumble.+\n\nDefault: 0.5")]
+    private float lowGamepadRumble = 0.5f;
+    [SerializeField, Range(0,1), Tooltip("The magnitude of the gamepad's high-frequency rumble.+\n\nDefault: 0.25")]
+    private float highGamepadRumble = 0.25f;
+    [SerializeField, Min(1), Tooltip("How quickly rumble magnitude falls off on screenshake. "
+                                   + "Higher numbers are faster.\n\nDefault: 6")]
+    private float rumbleFalloff = 6f;
+
     // ==============================================================
     // Internal variables
     // ==============================================================
@@ -74,8 +82,6 @@ public class NaiveScreenshake : MonoBehaviour
 
         magnitude *= shakeScaling.value; // Accessibility setting.
 
-        // InputHandler.SetRumble(0.25f, 0.75f);
-
         float elapsed = 0;
         while (elapsed < duration)
         {
@@ -83,6 +89,9 @@ public class NaiveScreenshake : MonoBehaviour
                 float currentMagnitude = Mathf.Lerp(magnitude, 0, elapsed/duration);
                 // Give us a random unit vector multiplied by our currentMagnitude.
                 Vector3 offset = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0).normalized * currentMagnitude;
+
+                float rumbleAmount = LerpKit.EaseIn(1-elapsed/duration, rumbleFalloff);
+                InputHandler.SetRumble(lowGamepadRumble*rumbleAmount, highGamepadRumble*rumbleAmount);
                 
                 transform.position = basePosition + offset;
                 elapsed += Time.deltaTime;
@@ -91,7 +100,7 @@ public class NaiveScreenshake : MonoBehaviour
             yield return null;
         }
 
-        // InputHandler.SetRumble(0f, 0f);
+        InputHandler.SetRumble(0f, 0f);
 
         transform.position = basePosition;
     }
