@@ -933,7 +933,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Click to Continue...
+  m_text: "<b><sprite index=1 tint=1>/<sprite index=4 tint=1> \u2014 Continue</b>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a0e3c82283684a45a83cb6d803ee3c1, type: 2}
   m_sharedMaterial: {fileID: -6908427891558946073, guid: 9a0e3c82283684a45a83cb6d803ee3c1, type: 2}
@@ -952,7 +952,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 11400000, guid: 69a525efa7e6472eab268f6ea605f06e, type: 2}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: 415b8435bc2f75f4f9197cfe4110b6a6, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
