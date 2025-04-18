@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{096e7491-798e-4da8-b109-1cfbf56ace36}">
 		<property name="name">
 			<value>BeepspeechPitchChooser</value>
@@ -240,8 +240,8 @@
 			<destination>{f21b79d5-5704-4390-a8ef-76902aea03d4}</destination>
 		</relationship>
 		<relationship name="automationPoints">
-			<destination>{55ad2096-0df7-4fca-ba73-4674172dc4fd}</destination>
 			<destination>{ff4817f9-8dc4-40e8-8ab1-1cb2f9cefd13}</destination>
+			<destination>{55ad2096-0df7-4fca-ba73-4674172dc4fd}</destination>
 		</relationship>
 	</object>
 	<object class="AutomationCurve" id="{9f5ecef8-e06b-410d-9355-0c0ae09ebdb3}">
@@ -271,20 +271,20 @@
 			<destination>{4371010a-315e-4030-b04b-02b78adb81f4}</destination>
 		</relationship>
 	</object>
-	<object class="AutomationPoint" id="{55ad2096-0df7-4fca-ba73-4674172dc4fd}">
-		<property name="position">
-			<value>0</value>
-		</property>
-		<property name="value">
-			<value>0</value>
-		</property>
-	</object>
 	<object class="AutomationPoint" id="{ff4817f9-8dc4-40e8-8ab1-1cb2f9cefd13}">
 		<property name="position">
 			<value>11</value>
 		</property>
 		<property name="value">
 			<value>11</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{55ad2096-0df7-4fca-ba73-4674172dc4fd}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>0</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{afdde5d9-d0d6-4713-94cf-6b8db0789e0c}">

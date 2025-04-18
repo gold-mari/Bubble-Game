@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{f88feedd-9555-4506-a4af-514751adb1fd}">
 		<property name="assetPath">
 			<value>brute_7.wav</value>

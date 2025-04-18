@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{c936583e-6b24-4d7d-9ba7-3ce9b34ed5c9}">
 		<property name="name">
 			<value>ChainDestroy Mini</value>
@@ -264,8 +264,8 @@
 			<destination>{b6a23483-de66-4a16-8881-db3d035ae682}</destination>
 		</relationship>
 		<relationship name="automationPoints">
-			<destination>{8ef48b7c-1cac-4784-96d9-c0b11745686c}</destination>
 			<destination>{692bf931-2fb5-4262-aa35-34758d2fdf57}</destination>
+			<destination>{8ef48b7c-1cac-4784-96d9-c0b11745686c}</destination>
 		</relationship>
 	</object>
 	<object class="AutomationCurve" id="{542aa150-5a0c-45a7-acfc-2d5e8990a075}">
@@ -278,6 +278,14 @@
 	</object>
 	<object class="MixerBusFader" id="{86fa179b-c00a-4f64-9cfe-1a7b894cf608}" />
 	<object class="MixerBusFader" id="{b35b9dbb-562d-4598-9797-863b06a58431}" />
+	<object class="AutomationPoint" id="{692bf931-2fb5-4262-aa35-34758d2fdf57}">
+		<property name="position">
+			<value>5</value>
+		</property>
+		<property name="value">
+			<value>5</value>
+		</property>
+	</object>
 	<object class="AutomationPoint" id="{8ef48b7c-1cac-4784-96d9-c0b11745686c}">
 		<property name="position">
 			<value>0</value>
@@ -287,14 +295,6 @@
 		</property>
 		<property name="curveShape">
 			<value>-0.0802189931</value>
-		</property>
-	</object>
-	<object class="AutomationPoint" id="{692bf931-2fb5-4262-aa35-34758d2fdf57}">
-		<property name="position">
-			<value>5</value>
-		</property>
-		<property name="value">
-			<value>5</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{4d56912b-e10b-40bc-9352-346f03086479}">

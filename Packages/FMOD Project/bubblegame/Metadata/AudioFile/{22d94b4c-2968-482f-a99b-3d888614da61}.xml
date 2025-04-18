@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{22d94b4c-2968-482f-a99b-3d888614da61}">
 		<property name="assetPath">
 			<value>knightSpeech_7.wav</value>

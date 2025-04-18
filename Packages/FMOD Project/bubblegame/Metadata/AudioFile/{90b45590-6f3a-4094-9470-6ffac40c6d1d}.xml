@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{90b45590-6f3a-4094-9470-6ffac40c6d1d}">
 		<property name="assetPath">
 			<value>preShoot_5.wav</value>

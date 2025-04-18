@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{299817f1-cf0c-4175-a518-17e6f111426f}">
 		<property name="assetPath">
 			<value>SFX/hyperShoot_v1.wav</value>

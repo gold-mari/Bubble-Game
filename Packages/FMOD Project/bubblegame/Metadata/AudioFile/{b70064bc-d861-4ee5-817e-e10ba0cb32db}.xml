@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{b70064bc-d861-4ee5-817e-e10ba0cb32db}">
 		<property name="assetPath">
 			<value>hannnaSpeech_36.wav</value>

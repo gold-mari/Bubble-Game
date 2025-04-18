@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{b06c0ea8-153d-43c7-b9a2-f9484f6bdb71}">
 		<property name="assetPath">
 			<value>sammyBeepC_17.wav</value>

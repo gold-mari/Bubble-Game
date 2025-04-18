@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{2a60e485-3a94-488c-8b37-3181ed1c5362}">
 		<property name="name">
 			<value>G#</value>
@@ -92,10 +92,10 @@
 	</object>
 	<object class="Timeline" id="{2efc8714-2dd5-446c-87e3-f632d40f9581}">
 		<relationship name="modules">
-			<destination>{abdec551-4efe-47ad-b823-2ea02348dec7}</destination>
 			<destination>{e77816af-2496-44bb-8e3e-b6f29f9535ec}</destination>
-			<destination>{3aa2dc05-9286-4080-bddf-e1a8e61f43ad}</destination>
 			<destination>{b8b863a7-9c3f-442d-b35e-c859a47cd9e1}</destination>
+			<destination>{3aa2dc05-9286-4080-bddf-e1a8e61f43ad}</destination>
+			<destination>{abdec551-4efe-47ad-b823-2ea02348dec7}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{023dd663-d3dd-4991-b6e1-52fae0ef7deb}">

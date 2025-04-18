@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{1dd9861b-2131-4433-b3df-f3892df342ba}">
 		<property name="assetPath">
 			<value>menuHover_v1.wav</value>

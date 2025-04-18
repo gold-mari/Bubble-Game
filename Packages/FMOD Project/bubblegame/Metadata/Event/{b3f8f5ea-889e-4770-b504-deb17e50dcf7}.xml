@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{b3f8f5ea-889e-4770-b504-deb17e50dcf7}">
 		<property name="name">
 			<value>Score</value>
@@ -77,8 +77,8 @@
 	</object>
 	<object class="Timeline" id="{b84df36d-2923-41c9-a240-c7d4e9fe424b}">
 		<relationship name="modules">
-			<destination>{57102b3c-e68e-43d3-a440-b9b401b601be}</destination>
 			<destination>{d8e58b31-f980-4697-b65b-e0e3ec2c68f1}</destination>
+			<destination>{57102b3c-e68e-43d3-a440-b9b401b601be}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{d4783aaf-0b6f-4458-b2ab-488048e58c87}">

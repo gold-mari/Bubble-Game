@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="ParameterPreset" id="{e6c6ddfb-f813-4f57-af5d-fa15bc20a726}">
 		<property name="name">
 			<value>beepSpeechChordState3</value>

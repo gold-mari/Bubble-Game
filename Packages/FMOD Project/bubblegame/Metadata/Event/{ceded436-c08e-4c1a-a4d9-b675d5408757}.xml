@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{ceded436-c08e-4c1a-a4d9-b675d5408757}">
 		<property name="name">
 			<value>BM9</value>
@@ -93,9 +93,9 @@
 	<object class="Timeline" id="{24c62628-7f59-4d11-859e-ff4e52344fa6}">
 		<relationship name="modules">
 			<destination>{7a874128-98b9-45f5-aff0-4e3cd13e07a4}</destination>
+			<destination>{d4dc4ee7-a39d-4b26-9c5c-fdcf71312cab}</destination>
 			<destination>{4dfb6c63-06ba-475b-ae01-e5358e6eaf97}</destination>
 			<destination>{57d20f90-b41f-4045-8147-089a70e501ef}</destination>
-			<destination>{d4dc4ee7-a39d-4b26-9c5c-fdcf71312cab}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{6c762916-b4b0-4e12-b55a-1b775aac40b1}">
