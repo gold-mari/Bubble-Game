@@ -74,6 +74,8 @@ public class NaiveScreenshake : MonoBehaviour
 
         magnitude *= shakeScaling.value; // Accessibility setting.
 
+        // InputHandler.SetRumble(0.25f, 0.75f);
+
         float elapsed = 0;
         while (elapsed < duration)
         {
@@ -88,6 +90,8 @@ public class NaiveScreenshake : MonoBehaviour
 
             yield return null;
         }
+
+        // InputHandler.SetRumble(0f, 0f);
 
         transform.position = basePosition;
     }

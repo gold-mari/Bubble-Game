@@ -12,6 +12,7 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
     public static InputHandler Instance { get; private set; }
 
     [ReadOnly] public InputControlScheme LastUsedScheme;
+    [ReadOnly] public Gamepad LastUsedGamepad = null;
     public InputControlScheme KeyboardScheme => _controls.KeyboardMouseScheme;
     public InputControlScheme GamepadScheme => _controls.GamepadScheme;
     public bool MouseLastUsed => _mouseLastUsed;
@@ -99,6 +100,12 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
 
         _mouseLastUsed = context.control.device is Mouse;
 
+        if (context.control.device is Gamepad) {
+            LastUsedGamepad = context.control.device as Gamepad;
+        } else {
+            LastUsedGamepad = null;
+        }
+
         foreach (InputControlScheme scheme in _controls.controlSchemes) {
             if (scheme.SupportsDevice(context.control.device)) {
                 LastUsedScheme = scheme;
@@ -134,6 +141,22 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
     public void OnUIMove(InputAction.CallbackContext context) { UpdateLastUsedScheme(context); }
     public void OnUIClick(InputAction.CallbackContext context) { UpdateLastUsedScheme(context); }
     public void OnUISubmit(InputAction.CallbackContext context) { UpdateLastUsedScheme(context); }
+
+    // Public Manipulator Methods ====================================================================
+
+    /// <summary>
+    /// Sets the motor frequencies of the LastUsedGamepad, if any.
+    /// </summary>
+    /// <param name="lowFrequency">float - The frequency [0,1] of the low-freq motor, usually on the left.</param>
+    /// <param name="highFrequency">float - The frequency [0,1] of the high-freq motor, usually on the right.</param>
+    public static void SetRumble(float lowFrequency, float highFrequency)
+    {
+        if (Instance != null) {
+            Instance.LastUsedGamepad?.SetMotorSpeeds(lowFrequency, highFrequency);
+        } else {
+            NoHandlerError();
+        }
+    }
 
     // Public Accessor Methods ====================================================================
 
