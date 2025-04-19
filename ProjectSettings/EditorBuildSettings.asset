@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game Scenes/Coda.unity
     guid: e0d9e0081516a3b499fccb79059bd463
+  - enabled: 1
+    path: Assets/Scenes/Tests/LevelE.unity
+    guid: 9cc8cca60e2d4e44bb7f7a7819e71bee
   m_configObjects: {}

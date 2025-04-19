@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using NaughtyAttributes;
 
 public class MusicPlayer : MonoBehaviour
 {
@@ -64,6 +61,7 @@ public class MusicPlayer : MonoBehaviour
         // ================
 
         instance.start();
+        print("Instance started");
         handler.StartDSPClock(true);
     }
 
