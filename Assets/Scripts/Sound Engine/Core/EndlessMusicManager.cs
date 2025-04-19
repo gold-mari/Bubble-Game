@@ -24,8 +24,34 @@ public class EndlessMusicManager : MusicManager
 
     protected override void Awake()
     {
+        _index = 0;
+        mainSong = songs[_index];
 
+        base.Awake();
+    }
 
-        mainSong = songs[0];
+    protected override void Update()
+    {
+        if (InputHandler.GetAffirmDown()) {
+            StopMusic();
+            NextSong();
+            Begin();
+        }
+
+        base.Update();
+    }
+
+    private void NextSong()
+    {
+        _index++;
+
+        if (_index >= songs.Length) {
+            _index = 0;
+            _semitoneOffset += 1;
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("SemitoneOffset", _semitoneOffset);
+        }
+
+        mainSong = songs[_index];
+        InitializeSong();
     }
 }
