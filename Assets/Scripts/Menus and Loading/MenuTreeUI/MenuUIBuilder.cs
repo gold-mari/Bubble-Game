@@ -218,8 +218,8 @@ public class MenuUIBuilder : MonoBehaviour
                 var workingCopy = navButtons[i].navigation;
 
                 workingCopy.mode = Navigation.Mode.Explicit;
-                workingCopy.selectOnLeft = navButtons[i == 0 ? navButtons.Count - 1 : i - 1];
-                workingCopy.selectOnRight = navButtons[(i + 1) % navButtons.Count];
+                workingCopy.selectOnDown = workingCopy.selectOnLeft = navButtons[i == 0 ? navButtons.Count - 1 : i - 1];
+                workingCopy.selectOnUp = workingCopy.selectOnRight = navButtons[(i + 1) % navButtons.Count];
                 navButtons[i].navigation = workingCopy;
             }
         }
