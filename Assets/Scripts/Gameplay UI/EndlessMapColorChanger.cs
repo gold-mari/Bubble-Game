@@ -10,7 +10,6 @@ public class EndlessMapColorChanger : MapColorChanger
     {
         if (musicManager is EndlessMusicManager) {
             (musicManager as EndlessMusicManager).OnNextStage += OnNextStage;
-            print("Initialized with EndlessMusicManager");
         }
 
         base.Awake();

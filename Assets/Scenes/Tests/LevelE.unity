@@ -1907,6 +1907,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 512483413}
     m_Modifications:
+    - target: {fileID: 1069536464, guid: 16ac93cecab1c024898ec5a4cd6788c8, type: 3}
+      propertyPath: m_text
+      value: 99900
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069536464, guid: 16ac93cecab1c024898ec5a4cd6788c8, type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069536464, guid: 16ac93cecab1c024898ec5a4cd6788c8, type: 3}
+      propertyPath: m_margin.x
+      value: 23.804634
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069536464, guid: 16ac93cecab1c024898ec5a4cd6788c8, type: 3}
+      propertyPath: m_lineSpacing
+      value: -35
+      objectReference: {fileID: 0}
+    - target: {fileID: 142718611787022199, guid: 16ac93cecab1c024898ec5a4cd6788c8, type: 3}
+      propertyPath: m_text
+      value: level E - ENDLESS MODE
+      objectReference: {fileID: 0}
     - target: {fileID: 6686941092444551178, guid: 16ac93cecab1c024898ec5a4cd6788c8, type: 3}
       propertyPath: m_Camera
       value: 
@@ -2763,23 +2783,23 @@ MonoBehaviour:
   endgameManager: {fileID: 8830513069248788195}
   spawner: {fileID: 176480471}
   stages:
-  - song: {fileID: 11400000, guid: 6e7e7baca9f3af2489d873a4b9c1d9b1, type: 2}
-    ringSize: 11
-    switchColorOnMap: 0
-    baseColor: {r: 0.14509805, g: 0.67058825, b: 0.9450981, a: 1}
-    orbColor: {r: 0.24705884, g: 0.33333334, b: 0.86666673, a: 1}
   - song: {fileID: 11400000, guid: e3e72b33ebfda6746af99d30f7555f24, type: 2}
     ringSize: 10
     switchColorOnMap: 0
     baseColor: {r: 0.3254902, g: 0.7176471, b: 0.5568628, a: 1}
     orbColor: {r: 0.49411768, g: 0.9607844, b: 0.5058824, a: 1}
+  - song: {fileID: 11400000, guid: 6e7e7baca9f3af2489d873a4b9c1d9b1, type: 2}
+    ringSize: 11
+    switchColorOnMap: 0
+    baseColor: {r: 0.14509805, g: 0.67058825, b: 0.9450981, a: 1}
+    orbColor: {r: 0.24705884, g: 0.33333334, b: 0.86666673, a: 1}
   - song: {fileID: 11400000, guid: 976fd071e3a9d3c42a0531fa38b92d65, type: 2}
     ringSize: 8
     switchColorOnMap: 0
     baseColor: {r: 0.8196079, g: 0.4431373, b: 0.18039216, a: 1}
     orbColor: {r: 0.9607844, g: 0.7137255, b: 0.26666668, a: 1}
   - song: {fileID: 11400000, guid: 3f9f54315f04db445a05b8be9109234c, type: 2}
-    ringSize: 9
+    ringSize: 8
     switchColorOnMap: 0
     baseColor: {r: 0.65882355, g: 0.24705884, b: 0.29411766, a: 1}
     orbColor: {r: 0.92549026, g: 0.39607847, b: 0.5411765, a: 1}

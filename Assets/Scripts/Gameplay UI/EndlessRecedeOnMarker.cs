@@ -15,7 +15,6 @@ public class EndlessRecedeOnMarker : RecedeOnMarker
 
         if (musicManager is EndlessMusicManager) {
             (musicManager as EndlessMusicManager).OnNextStage += OnNextStage;
-            print("Initialized with EndlessMusicManager");
         }
     }
 
