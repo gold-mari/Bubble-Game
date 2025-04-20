@@ -137,6 +137,8 @@ public class MusicManager : MusicPlayer
                         return;
                     }
                 }
+
+                // If the map was not found, don't do anything.
             }
         }
     }
