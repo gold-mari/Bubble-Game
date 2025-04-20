@@ -1636,8 +1636,8 @@ MonoBehaviour:
   tapeStopDuration: 4
   endgameManager: {fileID: 8830513069248788195}
   songs:
+  - {fileID: 11400000, guid: 1b3bf3dd50fd7ef49a7dce597212699f, type: 2}
   - {fileID: 11400000, guid: e3e72b33ebfda6746af99d30f7555f24, type: 2}
   - {fileID: 11400000, guid: e710665ef28c75748a95f42209360529, type: 2}
   - {fileID: 11400000, guid: 976fd071e3a9d3c42a0531fa38b92d65, type: 2}
   - {fileID: 11400000, guid: 3f9f54315f04db445a05b8be9109234c, type: 2}
-  - {fileID: 11400000, guid: 1b3bf3dd50fd7ef49a7dce597212699f, type: 2}

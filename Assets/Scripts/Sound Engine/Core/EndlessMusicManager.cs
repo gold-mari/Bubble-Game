@@ -11,8 +11,6 @@ public class EndlessMusicManager : MusicManager
     [Expandable, SerializeField, Tooltip("The songs to play in this scene.")]
     private Song[] songs;
 
-    public System.Action OnNextSong;
-
     // ================================================================
     // Misc Internal Variables
     // ================================================================
@@ -32,12 +30,16 @@ public class EndlessMusicManager : MusicManager
         base.Awake();
     }
 
+    protected override void Start()
+    {
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("EndlessMode", 1);
+        base.Start();
+    }
+
     protected override void OnMarkerUpdated(string lastMarker)
     {
         if (lastMarker == "endlessNextSong") {
             StopMusic(false);
-
-            OnNextSong?.Invoke();
 
             TimelineHandler newHandler = NextSong();
             handler.PassAllSubscribersTo(newHandler);
