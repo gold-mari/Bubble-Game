@@ -34,6 +34,7 @@ public class MusicManager : MusicPlayer
     protected TimelineHandler InitializeSong()
     {
         // Define our beatmap, set our eventRef, and subscribe to markerUpdated.
+        // Returns the TimelineHandler produced by initializing the FMOD event.
         // ================
 
         Debug.Assert(!mainSong.musicEvent.IsNull, "MusicManager Error: Start() failed. mainSong.musicEvent is null.");
@@ -122,6 +123,8 @@ public class MusicManager : MusicPlayer
 
     protected virtual void OnMarkerUpdated(string lastMarker)
     {
+        Debug.Log($"MusicManager.OnMarkerUpdated - {lastMarker}");
+
         if (lastMarker == "end" && !songEnded) {
             songEnded = true;
             endgameManager.TriggerWin();

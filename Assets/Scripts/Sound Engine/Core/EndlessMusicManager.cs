@@ -1,15 +1,29 @@
-using System.Collections;
 using UnityEngine;
 using NaughtyAttributes;
 
 public class EndlessMusicManager : MusicManager
 {
     // ================================================================
+    // Helper structs
+    // ================================================================
+
+    [System.Serializable]
+    public struct EndlessStage
+    {
+        [Expandable]
+        public Song song;
+        public uint ringSize;
+    }
+
+    // ================================================================
     // Parameters
     // ================================================================
 
-    [Expandable, SerializeField, Tooltip("The songs to play in this scene.")]
-    private Song[] songs;
+    [Header("Endless Parameters")]
+    [SerializeField, Tooltip("The BubbleSpawner in this stage (for setting mass spawn sizes).")]
+    private BubbleSpawner spawner;
+    [SerializeField, Tooltip("The stages to cycle through in this scene.")]
+    private EndlessStage[] stages;
 
     // ================================================================
     // Misc Internal Variables
@@ -25,7 +39,8 @@ public class EndlessMusicManager : MusicManager
     protected override void Awake()
     {
         _index = 0;
-        mainSong = songs[_index];
+        mainSong = stages[_index].song;
+        spawner.SetMassRoundSize(stages[_index].ringSize);
 
         base.Awake();
     }
@@ -38,6 +53,8 @@ public class EndlessMusicManager : MusicManager
 
     protected override void OnMarkerUpdated(string lastMarker)
     {
+        Debug.Log($"EndlessMusicManager.OnMarkerUpdated - {lastMarker}");
+
         if (lastMarker == "endlessNextSong") {
             StopMusic(false);
 
@@ -57,13 +74,16 @@ public class EndlessMusicManager : MusicManager
     {
         _index++;
 
-        if (_index >= songs.Length) {
+        if (_index >= stages.Length) {
             _index = 0;
             _semitoneOffset += 1;
             FMODUnity.RuntimeManager.StudioSystem.setParameterByName("SemitoneOffset", _semitoneOffset);
         }
 
-        mainSong = songs[_index];
+        mainSong = stages[_index].song;
+        spawner.SetMassRoundSize(stages[_index].ringSize);
+
+        // Returns the TimelineHandler produced by initializing the new FMOD event.
         return InitializeSong();
     }
 }

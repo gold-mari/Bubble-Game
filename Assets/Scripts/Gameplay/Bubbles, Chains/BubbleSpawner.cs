@@ -316,7 +316,38 @@ public class BubbleSpawner : MonoBehaviour
     }
 
     // ==============================================================
-    // Data-manipulation methods
+    // Public manipulators
+    // ==============================================================
+
+    public void SetBubbleScale(float value)
+    {
+        // Sets our bubble scale variable, and then loops through every
+        // extant bubble and changes their scale to match.
+        // ================
+
+        bubbleScaleFactor = value;
+
+        Bubble[] bubbles = bubbleParent.GetComponentsInChildren<Bubble>();
+        foreach (Bubble bubble in bubbles) {
+            if (bubble.isHyperbubble) {
+                bubble.transform.localScale = baseHyperbubbleScale * bubbleScaleFactor;
+            } else {
+                bubble.transform.localScale = baseBubbleScale * bubbleScaleFactor;
+            }
+        }
+    }
+
+    public void SetMassRoundSize(uint amount)
+    {
+        // Sets the number of bubbles in a ring spawn.
+        // ================
+
+        massRoundSize = amount;
+    }
+
+
+    // ==============================================================
+    // Misc methods
     // ==============================================================
 
     private float GetCurrentRadius()
@@ -376,23 +407,5 @@ public class BubbleSpawner : MonoBehaviour
         do {
             flavors[count-1].value = BubbleFlavorMethods.Random();  
         } while (flavors[count-1].value == flavors[count-2].value || flavors[count-1].value == flavors[count-3].value);
-    }
-
-    public void SetBubbleScale(float value)
-    {
-        // Sets our bubble scale variable, and then loops through every
-        // extant bubble and changes their scale to match.
-        // ================
-
-        bubbleScaleFactor = value;
-
-        Bubble[] bubbles = bubbleParent.GetComponentsInChildren<Bubble>();
-        foreach (Bubble bubble in bubbles) {
-            if (bubble.isHyperbubble) {
-                bubble.transform.localScale = baseHyperbubbleScale * bubbleScaleFactor;
-            } else {
-                bubble.transform.localScale = baseBubbleScale * bubbleScaleFactor;
-            }
-        }
     }
 }

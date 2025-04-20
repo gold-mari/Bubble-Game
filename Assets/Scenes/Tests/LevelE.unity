@@ -134,6 +134,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f61d7d97bba7e4fbecc55f17ad0d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &176480471 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8830513070003073486, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+  m_PrefabInstance: {fileID: 8830513069248788194}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed0092414a7a99442b2f355f836d469f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &309071424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,6 +1605,10 @@ PrefabInstance:
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2078172877}
+    - target: {fileID: 8830513070003073486, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: massRoundSize
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 9101860828579778444, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1635,9 +1650,15 @@ MonoBehaviour:
   songCompletion: {fileID: 11400000, guid: 72fe7a4437dc6904aba3d760043dfdc3, type: 2}
   tapeStopDuration: 4
   endgameManager: {fileID: 8830513069248788195}
-  songs:
-  - {fileID: 11400000, guid: e3e72b33ebfda6746af99d30f7555f24, type: 2}
-  - {fileID: 11400000, guid: 6e7e7baca9f3af2489d873a4b9c1d9b1, type: 2}
-  - {fileID: 11400000, guid: 976fd071e3a9d3c42a0531fa38b92d65, type: 2}
-  - {fileID: 11400000, guid: 3f9f54315f04db445a05b8be9109234c, type: 2}
-  - {fileID: 11400000, guid: 1b3bf3dd50fd7ef49a7dce597212699f, type: 2}
+  spawner: {fileID: 176480471}
+  stages:
+  - song: {fileID: 11400000, guid: e3e72b33ebfda6746af99d30f7555f24, type: 2}
+    ringSize: 10
+  - song: {fileID: 11400000, guid: 6e7e7baca9f3af2489d873a4b9c1d9b1, type: 2}
+    ringSize: 11
+  - song: {fileID: 11400000, guid: 976fd071e3a9d3c42a0531fa38b92d65, type: 2}
+    ringSize: 8
+  - song: {fileID: 11400000, guid: 3f9f54315f04db445a05b8be9109234c, type: 2}
+    ringSize: 9
+  - song: {fileID: 11400000, guid: 1b3bf3dd50fd7ef49a7dce597212699f, type: 2}
+    ringSize: 9

@@ -98,7 +98,7 @@ public class LoopTracker
             update?.Invoke();
         }
 
-        Debug.Log(currentLoopBeat);
+        // Debug.Log(currentLoopBeat);
     }
 
     private void OnMarkerUpdated(string lastMarker)
