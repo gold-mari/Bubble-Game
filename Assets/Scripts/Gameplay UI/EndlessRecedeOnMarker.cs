@@ -1,27 +1,35 @@
+using System.Linq;
 using UnityEngine;
 using NaughtyAttributes;
 
-public class EndlessMapColorChanger : MapColorChanger
+public class EndlessRecedeOnMarker : RecedeOnMarker
 {
+    [SerializeField]
+    private Song targetSong;
     [SerializeField, ReadOnly]
     private bool listenToMarkers;
 
     protected override void Awake()
     {
+        animator = GetComponentInChildren<Animator>();
+
         if (musicManager is EndlessMusicManager) {
             (musicManager as EndlessMusicManager).OnNextStage += OnNextStage;
             print("Initialized with EndlessMusicManager");
         }
-
-        base.Awake();
     }
 
     private void OnNextStage(EndlessMusicManager.EndlessStage stage)
     {
         listenToMarkers = stage.switchColorOnMap;
 
-        halftoneBackManager.baseColor = stage.baseColor;
-        halftoneBackManager.orbColor = stage.orbColor;
+        if (stage.song == targetSong || (listenToMarkers && visibleByDefault)) {
+            animator.ResetTrigger("goBack");
+            animator.SetTrigger("goFront");
+        } else {
+            animator.ResetTrigger("goFront");
+            animator.SetTrigger("goBack");
+        }
     }
 
     protected override void OnSwitchMap(string mapName)

@@ -653,7 +653,7 @@ GameObject:
   - component: {fileID: 985171210}
   - component: {fileID: 985171213}
   - component: {fileID: 985171212}
-  - component: {fileID: 985171211}
+  - component: {fileID: 985171214}
   m_Layer: 0
   m_Name: Jester
   m_TagString: Untagged
@@ -677,22 +677,6 @@ Transform:
   m_Father: {fileID: 877559568}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &985171211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 985171209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edca11ce94cd8e6489577156f3e61118, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicManager: {fileID: 8830513069248788197}
-  targetMap: 3a,3b
-  invertLogic: 0
-  visibleByDefault: 0
 --- !u!114 &985171212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -789,6 +773,24 @@ MonoBehaviour:
   baseScale: {x: 1.5, y: 1.5, z: 1.5}
   squetch: 0
   magnitude: 1.25
+--- !u!114 &985171214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985171209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b852f1de29be9745bd1bb12c18562c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicManager: {fileID: 8830513069248788197}
+  targetMap: 3a,3b
+  invertLogic: 0
+  visibleByDefault: 0
+  targetSong: {fileID: 11400000, guid: 976fd071e3a9d3c42a0531fa38b92d65, type: 2}
+  listenToMarkers: 0
 --- !u!114 &1189538589 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4568130228044926512, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
@@ -1096,7 +1098,7 @@ GameObject:
   - component: {fileID: 1539586834}
   - component: {fileID: 1539586837}
   - component: {fileID: 1539586836}
-  - component: {fileID: 1539586835}
+  - component: {fileID: 1539586838}
   m_Layer: 0
   m_Name: Brute
   m_TagString: Untagged
@@ -1120,22 +1122,6 @@ Transform:
   m_Father: {fileID: 877559568}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1539586835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1539586833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edca11ce94cd8e6489577156f3e61118, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicManager: {fileID: 8830513069248788197}
-  targetMap: 4a,4b
-  invertLogic: 0
-  visibleByDefault: 0
 --- !u!114 &1539586836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1232,6 +1218,24 @@ MonoBehaviour:
   baseScale: {x: 1.5, y: 1.5, z: 1.5}
   squetch: 0
   magnitude: 1.25
+--- !u!114 &1539586838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539586833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b852f1de29be9745bd1bb12c18562c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicManager: {fileID: 8830513069248788197}
+  targetMap: 4a,4b
+  invertLogic: 0
+  visibleByDefault: 0
+  targetSong: {fileID: 11400000, guid: 3f9f54315f04db445a05b8be9109234c, type: 2}
+  listenToMarkers: 0
 --- !u!1 &1574730270
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,7 +1247,7 @@ GameObject:
   - component: {fileID: 1574730271}
   - component: {fileID: 1574730274}
   - component: {fileID: 1574730273}
-  - component: {fileID: 1574730272}
+  - component: {fileID: 1574730275}
   m_Layer: 0
   m_Name: Poltergeist
   m_TagString: Untagged
@@ -1267,22 +1271,6 @@ Transform:
   m_Father: {fileID: 877559568}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1574730272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1574730270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edca11ce94cd8e6489577156f3e61118, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicManager: {fileID: 8830513069248788197}
-  targetMap: 2a,2b
-  invertLogic: 0
-  visibleByDefault: 0
 --- !u!114 &1574730273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1379,6 +1367,24 @@ MonoBehaviour:
   baseScale: {x: 1.5, y: 1.5, z: 1.5}
   squetch: 0
   magnitude: 1.25
+--- !u!114 &1574730275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574730270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b852f1de29be9745bd1bb12c18562c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicManager: {fileID: 8830513069248788197}
+  targetMap: 2a,2b
+  invertLogic: 0
+  visibleByDefault: 0
+  targetSong: {fileID: 11400000, guid: 6e7e7baca9f3af2489d873a4b9c1d9b1, type: 2}
+  listenToMarkers: 0
 --- !u!1 &1590934900
 GameObject:
   m_ObjectHideFlags: 0
@@ -1876,7 +1882,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4568130228720782260, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
   m_PrefabInstance: {fileID: 4568130227010626861}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4568130227010626863
+--- !u!114 &4568130227010626867
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1885,13 +1891,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4568130227010626862}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edca11ce94cd8e6489577156f3e61118, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b852f1de29be9745bd1bb12c18562c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   musicManager: {fileID: 8830513069248788197}
   targetMap: 1a,5a,5b,5c
   invertLogic: 0
   visibleByDefault: 1
+  targetSong: {fileID: 11400000, guid: e3e72b33ebfda6746af99d30f7555f24, type: 2}
+  listenToMarkers: 0
 --- !u!1001 &5965403197239750187
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2568,6 +2576,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: === Bottom Screen ===
       objectReference: {fileID: 0}
+    - target: {fileID: 8830513069823740373, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: inDangerLerpTime
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 8830513070003073481, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: chainBreak.m_PersistentCalls.m_Calls.Array.size
       value: 6
@@ -2751,16 +2763,16 @@ MonoBehaviour:
   endgameManager: {fileID: 8830513069248788195}
   spawner: {fileID: 176480471}
   stages:
-  - song: {fileID: 11400000, guid: e3e72b33ebfda6746af99d30f7555f24, type: 2}
-    ringSize: 10
-    switchColorOnMap: 0
-    baseColor: {r: 0.3254902, g: 0.7176471, b: 0.5568628, a: 1}
-    orbColor: {r: 0.49411768, g: 0.9607844, b: 0.5058824, a: 1}
   - song: {fileID: 11400000, guid: 6e7e7baca9f3af2489d873a4b9c1d9b1, type: 2}
     ringSize: 11
     switchColorOnMap: 0
     baseColor: {r: 0.14509805, g: 0.67058825, b: 0.9450981, a: 1}
     orbColor: {r: 0.24705884, g: 0.33333334, b: 0.86666673, a: 1}
+  - song: {fileID: 11400000, guid: e3e72b33ebfda6746af99d30f7555f24, type: 2}
+    ringSize: 10
+    switchColorOnMap: 0
+    baseColor: {r: 0.3254902, g: 0.7176471, b: 0.5568628, a: 1}
+    orbColor: {r: 0.49411768, g: 0.9607844, b: 0.5058824, a: 1}
   - song: {fileID: 11400000, guid: 976fd071e3a9d3c42a0531fa38b92d65, type: 2}
     ringSize: 8
     switchColorOnMap: 0
@@ -2772,7 +2784,7 @@ MonoBehaviour:
     baseColor: {r: 0.65882355, g: 0.24705884, b: 0.29411766, a: 1}
     orbColor: {r: 0.92549026, g: 0.39607847, b: 0.5411765, a: 1}
   - song: {fileID: 11400000, guid: 1b3bf3dd50fd7ef49a7dce597212699f, type: 2}
-    ringSize: 9
+    ringSize: 5
     switchColorOnMap: 1
     baseColor: {r: 0.08627451, g: 0.101960786, b: 0.09803922, a: 1}
     orbColor: {r: 0.07450981, g: 0.40392157, b: 0.13333334, a: 1}
