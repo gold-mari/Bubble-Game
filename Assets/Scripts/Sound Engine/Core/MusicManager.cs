@@ -66,7 +66,7 @@ public class MusicManager : MusicPlayer
         // ================
 
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("TapeStop", 0);
-        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("SemitoneOffset", 6);
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("SemitoneOffset", 0);
         base.Start();
     }
 

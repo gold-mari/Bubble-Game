@@ -54,7 +54,7 @@ public class EndlessMusicManager : MusicManager
     {
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("EndlessMode", 1);
         OnNextStage?.Invoke(stages[_index]);
-        
+
         base.Start();
     }
 

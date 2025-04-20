@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
+using System.Linq;
 
 public class RecedeOnMarker : ActionOnSwitchMap
 {
@@ -26,7 +27,7 @@ public class RecedeOnMarker : ActionOnSwitchMap
 
     protected override void OnSwitchMap(string mapName)
     {
-        bool isTarget = targetMap.Contains(mapName);
+        bool isTarget = targetMap.Split(',').ToList().Contains(mapName);
 
         // We should go front if:
         //    1. Logic isn't inverted and we're on our target map
