@@ -11,6 +11,8 @@ public class EndlessMusicManager : MusicManager
     [Expandable, SerializeField, Tooltip("The songs to play in this scene.")]
     private Song[] songs;
 
+    public System.Action OnNextSong;
+
     // ================================================================
     // Misc Internal Variables
     // ================================================================
@@ -30,18 +32,26 @@ public class EndlessMusicManager : MusicManager
         base.Awake();
     }
 
-    protected override void Update()
+    protected override void OnMarkerUpdated(string lastMarker)
     {
-        if (InputHandler.GetAffirmDown()) {
-            StopMusic();
-            NextSong();
+        if (lastMarker == "endlessNextSong") {
+            StopMusic(false);
+
+            OnNextSong?.Invoke();
+
+            TimelineHandler newHandler = NextSong();
+            handler.PassAllSubscribersTo(newHandler);
+            handler = newHandler;
+
             Begin();
         }
-
-        base.Update();
+        
+        if (lastMarker != "end") { // Intercept the song ending. This is ENDLESS mode <3
+            base.OnMarkerUpdated(lastMarker);
+        }
     }
 
-    private void NextSong()
+    private TimelineHandler NextSong()
     {
         _index++;
 
@@ -52,6 +62,6 @@ public class EndlessMusicManager : MusicManager
         }
 
         mainSong = songs[_index];
-        InitializeSong();
+        return InitializeSong();
     }
 }

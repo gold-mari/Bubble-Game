@@ -28,10 +28,10 @@ public class MusicManager : MusicPlayer
         // Set things up!
         // ================
         
-        InitializeSong();
+        handler = InitializeSong();
     }
 
-    protected void InitializeSong()
+    protected TimelineHandler InitializeSong()
     {
         // Define our beatmap, set our eventRef, and subscribe to markerUpdated.
         // ================
@@ -51,10 +51,12 @@ public class MusicManager : MusicPlayer
         songCompletion.value = 0;
 
         // Call our base awake function, which includes creating our timeline handler.
-        base.Awake();
+        TimelineHandler newHandler = MakeHandlerFromInstance();
 
         // Subscribe to the markerUpdated function. Used to know when the song ends.
-        handler.markerUpdated += OnMarkerUpdated;
+        newHandler.markerUpdated += OnMarkerUpdated;
+
+        return newHandler;
     }
 
     protected override void Start()
@@ -63,7 +65,7 @@ public class MusicManager : MusicPlayer
         // ================
 
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("TapeStop", 0);
-        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("SemitoneOffset", 0);
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("SemitoneOffset", 6);
         base.Start();
     }
 
@@ -118,7 +120,7 @@ public class MusicManager : MusicPlayer
     // Event handling methods
     // ================================================================
 
-    private void OnMarkerUpdated(string lastMarker)
+    protected virtual void OnMarkerUpdated(string lastMarker)
     {
         if (lastMarker == "end" && !songEnded) {
             songEnded = true;

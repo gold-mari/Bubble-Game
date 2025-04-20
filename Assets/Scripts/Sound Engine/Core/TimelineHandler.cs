@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Runtime.InteropServices;
@@ -49,8 +47,8 @@ public class TimelineHandler
     // An instance of our timelineInfo class which other scripts will refer to.
     public TimelineInfo timelineInfo { get; private set; }
     // Actions shouted each beat, when the tempo updates, and at a new marker, respectively.
-    public System.Action beatUpdated, tempoUpdated;
-    public System.Action<string> markerUpdated;
+    public Action beatUpdated, tempoUpdated;
+    public Action<string> markerUpdated;
 
     // Internal fields
 
@@ -107,7 +105,7 @@ public class TimelineHandler
     public double length16th { get; private set; }
     public double length32nd { get; private set; }
     // Actions shouted each eighth note, each sixteenth note, and each thirtysecond note.
-    public System.Action eighthNoteEvent, sixteenthNoteEvent, thirtysecondNoteEvent;
+    public Action eighthNoteEvent, sixteenthNoteEvent, thirtysecondNoteEvent;
 
     // Internal fields
 
@@ -122,6 +120,8 @@ public class TimelineHandler
 
     public TimelineHandler(FMOD.Studio.EventInstance eventInstance, string busPath, string ID)
     {
+        Debug.Log($"Called constructor on {ID}");
+
         // Constructor.
         // ================
 
@@ -171,11 +171,54 @@ public class TimelineHandler
         fire8th = fire16th = fire32nd = true;
     }
 
+    public void PassAllSubscribersTo(TimelineHandler other)
+    {
+        Debug.Log($"Passing from {id} to {other.id}");
+
+        other.beatUpdated = PassFrom(beatUpdated);
+        other.tempoUpdated = PassFrom(tempoUpdated);
+        other.markerUpdated = PassFromString(markerUpdated);
+
+        other.eighthNoteEvent = PassFrom(eighthNoteEvent);
+        other.sixteenthNoteEvent = PassFrom(sixteenthNoteEvent);
+        other.thirtysecondNoteEvent = PassFrom(thirtysecondNoteEvent);
+
+        static Action PassFrom(Action from) 
+        {
+            Action newAction = null;
+
+            if (from != null) {
+                foreach (Delegate d in from.GetInvocationList()) {
+                    newAction += (Action)d;
+                    from -= (Action)d;
+                }
+            }
+
+            return newAction;
+        }
+
+        static Action<string> PassFromString(Action<string> from) 
+        {
+            Action<string> newAction = null;
+
+            if (from != null) {
+                foreach (Delegate d in from?.GetInvocationList()) {
+                    newAction += (Action<string>)d;
+                    from -= (Action<string>)d;
+                }
+            }
+
+            return newAction;
+        }
+    }
+
     ~TimelineHandler()
     {
         // Finalizer.
         // When this object is destroyed, stop the music and free the GCHandle.
         // ================
+
+        Debug.Log($"Called destructor on {id}");
 
         // Reset the instance's data.
         instance.setUserData(IntPtr.Zero);

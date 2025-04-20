@@ -36,22 +36,27 @@ public class MusicPlayer : MonoBehaviour
     {
         // Set things up!
         // ================
-        
+
+        handler = MakeHandlerFromInstance();
+    }
+
+    protected TimelineHandler MakeHandlerFromInstance()
+    {
         // Create the instance. If it's valid, create the timeline handler and continue.
         instance = FMODUnity.RuntimeManager.CreateInstance(eventRef);
 
         Debug.Assert(instance.isValid(), "MusicPlayer Error, Awake() failed. instance was not valid.", this);
 
-        handler = new TimelineHandler(instance, musicBusPath, transform.name);
-
-#if UNITY_EDITOR
-        // If we're in the editor, subscribe to the editor-pausing event.
-        EditorApplication.pauseStateChanged += OnEditorPause;
-#endif
+        return new TimelineHandler(instance, musicBusPath, $"{transform.name}({eventRef.Path})");
     }
 
     protected virtual void Start()
     {
+#if UNITY_EDITOR
+        // If we're in the editor, subscribe to the editor-pausing event.
+        EditorApplication.pauseStateChanged += OnEditorPause;
+#endif
+
         Begin();
     }
 
@@ -61,7 +66,6 @@ public class MusicPlayer : MonoBehaviour
         // ================
 
         instance.start();
-        print("Instance started");
         handler.StartDSPClock(true);
     }
 

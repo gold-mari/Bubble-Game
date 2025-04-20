@@ -26,6 +26,7 @@
 			<destination>{06fd1d1b-1a04-40b1-8b69-d3ceed62fa26}</destination>
 			<destination>{0ba12a8a-8f61-4427-9084-6621dd158a41}</destination>
 			<destination>{ebd93aab-712b-4b70-9a83-058c14ada823}</destination>
+			<destination>{ca012228-d070-4478-b886-8c871be085c3}</destination>
 		</relationship>
 		<relationship name="groupTracks">
 			<destination>{b339a4f8-53a6-4fb8-acdf-2ad708288d81}</destination>
@@ -65,6 +66,7 @@
 	<object class="MarkerTrack" id="{06fd1d1b-1a04-40b1-8b69-d3ceed62fa26}" />
 	<object class="MarkerTrack" id="{0ba12a8a-8f61-4427-9084-6621dd158a41}" />
 	<object class="MarkerTrack" id="{ebd93aab-712b-4b70-9a83-058c14ada823}" />
+	<object class="MarkerTrack" id="{ca012228-d070-4478-b886-8c871be085c3}" />
 	<object class="GroupTrack" id="{b339a4f8-53a6-4fb8-acdf-2ad708288d81}">
 		<relationship name="modules">
 			<destination>{93334948-6ad2-490b-a42e-7bd6c6ce7742}</destination>
@@ -87,6 +89,8 @@
 			<destination>{cbda9705-3d3a-4bb8-bd73-ec42fa11b88c}</destination>
 			<destination>{276fb5f3-9a3d-40b2-896a-c2ef35dda07a}</destination>
 			<destination>{df266423-9b54-4444-bd19-66999a7433b9}</destination>
+			<destination>{47117753-fa81-4716-844d-c88273101f00}</destination>
+			<destination>{85aa5b82-01cc-4359-97ad-ec23c01cbdae}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{f110e2f1-70c7-4dfe-a8ce-0ed2f2acba51}">
@@ -232,7 +236,7 @@
 	</object>
 	<object class="NamedMarker" id="{cbda9705-3d3a-4bb8-bd73-ec42fa11b88c}">
 		<property name="position">
-			<value>1.8389423076923077</value>
+			<value>1.8461458333333334</value>
 		</property>
 		<property name="name">
 			<value>doTrack</value>
@@ -270,6 +274,34 @@
 		</relationship>
 		<relationship name="markerTrack">
 			<destination>{ebd93aab-712b-4b70-9a83-058c14ada823}</destination>
+		</relationship>
+	</object>
+	<object class="NamedMarker" id="{47117753-fa81-4716-844d-c88273101f00}">
+		<property name="position">
+			<value>149.509625</value>
+		</property>
+		<property name="name">
+			<value>endlessNextSong</value>
+		</property>
+		<relationship name="timeline">
+			<destination>{b1ee955d-315e-4c1a-b088-ec48428c1735}</destination>
+		</relationship>
+		<relationship name="markerTrack">
+			<destination>{ca012228-d070-4478-b886-8c871be085c3}</destination>
+		</relationship>
+	</object>
+	<object class="NamedMarker" id="{85aa5b82-01cc-4359-97ad-ec23c01cbdae}">
+		<property name="position">
+			<value>145.84614583333334</value>
+		</property>
+		<property name="name">
+			<value>DEBUG_END</value>
+		</property>
+		<relationship name="timeline">
+			<destination>{b1ee955d-315e-4c1a-b088-ec48428c1735}</destination>
+		</relationship>
+		<relationship name="markerTrack">
+			<destination>{06fd1d1b-1a04-40b1-8b69-d3ceed62fa26}</destination>
 		</relationship>
 	</object>
 	<object class="Automator" id="{c9776d4d-3ce7-4ae0-9080-b08f3e22d9c2}">

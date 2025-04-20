@@ -35,7 +35,7 @@ public class BeatReader : MonoBehaviour
 
     private void Start()
     {
-        tracker = new LoopTracker(musicManager.handler, currentBeatmap.length);
+        tracker = new LoopTracker(musicManager, currentBeatmap);
         tracker.switchMap += OnSwitchMap;
         tracker.update += OnTrackerUpdate;
     }
@@ -69,8 +69,6 @@ public class BeatReader : MonoBehaviour
         // beat event, the actual spawning of the even is overwritten by the mapchange.
         // By storing the lastNextType, we can invoke the event that went missing.
         // ================
-
-        tracker.UpdateLoopLength(currentBeatmap.length);
 
         if (lastNextType == BeatType.SingleSpawn)
         {
