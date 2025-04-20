@@ -123,8 +123,6 @@ public class MusicManager : MusicPlayer
 
     protected virtual void OnMarkerUpdated(string lastMarker)
     {
-        Debug.Log($"MusicManager.OnMarkerUpdated - {lastMarker}");
-
         if (lastMarker == "end" && !songEnded) {
             songEnded = true;
             endgameManager.TriggerWin();

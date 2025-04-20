@@ -1,14 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using NaughtyAttributes;
 
 public class ActionOnSwitchMap : MonoBehaviour
 {
     [SerializeField, Tooltip("The music manager present in this scene.")]
     protected MusicManager musicManager;
 
-    protected void Start()
+    protected virtual void Start()
     {
         musicManager.handler.markerUpdated += OnMarkerUpdated;
     }

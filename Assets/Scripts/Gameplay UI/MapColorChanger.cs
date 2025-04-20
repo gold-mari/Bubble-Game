@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using NaughtyAttributes;
-using Unity.Mathematics;
 
 [System.Serializable]
 public class ColorFrame
@@ -20,9 +16,9 @@ public class MapColorChanger : ActionOnSwitchMap
     [SerializeField, Tooltip("The list of background color keyframes.")]
     ColorFrame[] backgroundFrames;
 
-    HalftoneBackManager halftoneBackManager;
+    protected HalftoneBackManager halftoneBackManager;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         halftoneBackManager = GetComponent<HalftoneBackManager>();
     }

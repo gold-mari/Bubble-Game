@@ -140,8 +140,7 @@ public class LoopTracker
             // and loopStart events as is proper.
             currentLoopBeat = loopSize;
         }
-
-        Debug.Log($"Reset currentLoopBeat to {currentLoopBeat}");
+        
         shouldUpdate = true;
     }
 }

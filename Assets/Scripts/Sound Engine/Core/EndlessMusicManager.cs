@@ -13,6 +13,8 @@ public class EndlessMusicManager : MusicManager
         [Expandable]
         public Song song;
         public uint ringSize;
+        public bool switchColorOnMap;
+        public Color baseColor, orbColor;
     }
 
     // ================================================================
@@ -24,6 +26,8 @@ public class EndlessMusicManager : MusicManager
     private BubbleSpawner spawner;
     [SerializeField, Tooltip("The stages to cycle through in this scene.")]
     private EndlessStage[] stages;
+
+    public System.Action<EndlessStage> OnNextStage;
 
     // ================================================================
     // Misc Internal Variables
@@ -39,6 +43,7 @@ public class EndlessMusicManager : MusicManager
     protected override void Awake()
     {
         _index = 0;
+
         mainSong = stages[_index].song;
         spawner.SetMassRoundSize(stages[_index].ringSize);
 
@@ -48,13 +53,13 @@ public class EndlessMusicManager : MusicManager
     protected override void Start()
     {
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("EndlessMode", 1);
+        OnNextStage?.Invoke(stages[_index]);
+        
         base.Start();
     }
 
     protected override void OnMarkerUpdated(string lastMarker)
     {
-        Debug.Log($"EndlessMusicManager.OnMarkerUpdated - {lastMarker}");
-
         if (lastMarker == "endlessNextSong") {
             StopMusic(false);
 
@@ -82,6 +87,7 @@ public class EndlessMusicManager : MusicManager
 
         mainSong = stages[_index].song;
         spawner.SetMassRoundSize(stages[_index].ringSize);
+        OnNextStage?.Invoke(stages[_index]);
 
         // Returns the TimelineHandler produced by initializing the new FMOD event.
         return InitializeSong();

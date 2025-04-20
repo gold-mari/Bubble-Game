@@ -511,6 +511,7 @@ GameObject:
   - component: {fileID: 1502883718}
   - component: {fileID: 1502883717}
   - component: {fileID: 1502883716}
+  - component: {fileID: 1502883719}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -599,6 +600,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1502883719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502883715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c642d13fb0e1d8d47b4e9ebd82a91538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicManager: {fileID: 8830513069248788197}
+  backgroundFrames:
+  - mapName: 1a,timeout,5a,5b,5c
+    baseColor: {r: 0.08627451, g: 0.10196079, b: 0.098039225, a: 1}
+    orbColor: {r: 0.07450981, g: 0.40392157, b: 0.13333334, a: 1}
+  - mapName: 2a,2b
+    baseColor: {r: 0.14509805, g: 0.67058825, b: 0.9450981, a: 1}
+    orbColor: {r: 0.24705884, g: 0.33333334, b: 0.86666673, a: 1}
+  - mapName: 3a,3b
+    baseColor: {r: 0.8196079, g: 0.4431373, b: 0.18039216, a: 1}
+    orbColor: {r: 0.9607844, g: 0.7137255, b: 0.26666668, a: 1}
+  - mapName: 4a,4b
+    baseColor: {r: 0.65882355, g: 0.24705884, b: 0.29411766, a: 1}
+    orbColor: {r: 0.92549026, g: 0.39607847, b: 0.5411765, a: 1}
+  listenToMarkers: 0
 --- !u!114 &2078172877 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4568130228801438688, guid: 8ab00c57d7770f04ba80710f60027bf2, type: 3}
@@ -1654,11 +1682,26 @@ MonoBehaviour:
   stages:
   - song: {fileID: 11400000, guid: e3e72b33ebfda6746af99d30f7555f24, type: 2}
     ringSize: 10
+    switchColorOnMap: 0
+    baseColor: {r: 0.3254902, g: 0.7176471, b: 0.5568628, a: 1}
+    orbColor: {r: 0.49411768, g: 0.9607844, b: 0.5058824, a: 1}
   - song: {fileID: 11400000, guid: 6e7e7baca9f3af2489d873a4b9c1d9b1, type: 2}
     ringSize: 11
+    switchColorOnMap: 0
+    baseColor: {r: 0.14509805, g: 0.67058825, b: 0.9450981, a: 1}
+    orbColor: {r: 0.24705884, g: 0.33333334, b: 0.86666673, a: 1}
   - song: {fileID: 11400000, guid: 976fd071e3a9d3c42a0531fa38b92d65, type: 2}
     ringSize: 8
+    switchColorOnMap: 0
+    baseColor: {r: 0.8196079, g: 0.4431373, b: 0.18039216, a: 1}
+    orbColor: {r: 0.9607844, g: 0.7137255, b: 0.26666668, a: 1}
   - song: {fileID: 11400000, guid: 3f9f54315f04db445a05b8be9109234c, type: 2}
     ringSize: 9
+    switchColorOnMap: 0
+    baseColor: {r: 0.65882355, g: 0.24705884, b: 0.29411766, a: 1}
+    orbColor: {r: 0.92549026, g: 0.39607847, b: 0.5411765, a: 1}
   - song: {fileID: 11400000, guid: 1b3bf3dd50fd7ef49a7dce597212699f, type: 2}
     ringSize: 9
+    switchColorOnMap: 1
+    baseColor: {r: 0.08627451, g: 0.101960786, b: 0.09803922, a: 1}
+    orbColor: {r: 0.07450981, g: 0.40392157, b: 0.13333334, a: 1}
