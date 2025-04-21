@@ -1,0 +1,5 @@
+name,Level6-a
+loopLength,32
+singleSpawn, 4,8,12,     20,24,28,31
+gravityFlip,        16,17
+massSpawn,                          32
