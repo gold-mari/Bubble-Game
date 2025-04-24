@@ -24,6 +24,4 @@ MonoBehaviour:
   beatmapFile: {fileID: 4900000, guid: fe7b61708abd89e458a1d402f594f6bd, type: 3}
   beatmapFiles:
   - beatmapName: a
-    beatmapFile: {fileID: 4900000, guid: 8bbad5e84042be946bcaf478d9316ee5, type: 3}
-  - beatmapName: b
-    beatmapFile: {fileID: 4900000, guid: bf3a8702211f564438b0cecb24780fcc, type: 3}
+    beatmapFile: {fileID: 4900000, guid: 9a5e1914cc83d714687764652f81da90, type: 3}
