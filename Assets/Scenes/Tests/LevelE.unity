@@ -770,7 +770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicManager: {fileID: 8830513069248788197}
-  targetMap: 4a,4b
+  targetMap: 6a
   invertLogic: 0
   visibleByDefault: 0
   targetSong: {fileID: 11400000, guid: 3f9f54315f04db445a05b8be9109234c, type: 2}
@@ -3110,6 +3110,11 @@ MonoBehaviour:
     switchColorOnMap: 1
     baseColor: {r: 0.08627451, g: 0.101960786, b: 0.09803922, a: 1}
     orbColor: {r: 0.07450981, g: 0.40392157, b: 0.13333334, a: 1}
+  - song: {fileID: 11400000, guid: 3078df03699cab149ba9fde67dfc38f7, type: 2}
+    ringSize: 16
+    switchColorOnMap: 0
+    baseColor: {r: 0.32156864, g: 0.1764706, b: 0.38039216, a: 1}
+    orbColor: {r: 0.6039216, g: 0.043137256, b: 0.6, a: 1}
 --- !u!114 &8830513069248788198 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5955104156231506439, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
