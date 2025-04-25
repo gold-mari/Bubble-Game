@@ -64,6 +64,8 @@ public class MenuUIBuilder : MonoBehaviour
         //  * Update our visible buttons, using our buttonPool
         // ================
 
+        bool foundAscendantChild = false;
+
         buttonPool.DeactivateAll();
 
         if (newNode != null)
@@ -122,10 +124,23 @@ public class MenuUIBuilder : MonoBehaviour
                     button.interactable = newNode.children[i].enabled;
 
                     // Only one Selectable can be selected at once.
-                    // By default, use the first one, and override if needed.
-                    if (i == 0 || newNode.children[i].selected)
-                    {
+                    // From lowest to highest priority, select a button if...
+                    //  * it is first
+                    //  * it is explicitly selected in the menu
+                    //  * we are ascendant and it is our ascendant child
+                    if (i == 0) {
                         button.Select();
+                    }
+                    
+                    if (!foundAscendantChild) {
+                        if (newNode.children[i].selected) {
+                            button.Select();
+                        }
+                        
+                        if (newNode.children[i] == oldNode) {
+                            foundAscendantChild = true;
+                            button.Select();
+                        }
                     }
 
                     // Add events for the BaseMenuContent object.
