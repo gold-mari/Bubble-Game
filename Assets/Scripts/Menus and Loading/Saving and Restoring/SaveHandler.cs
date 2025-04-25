@@ -27,6 +27,7 @@ public class SaveHandler : MonoBehaviour
         public bool playedBefore = false;
         public bool seenTutorial = false;
         public bool finishedGame = false;
+        public bool beatEndless = false;
         public RankStats[] highScores = new RankStats[6]{
             null, null, null, null, null, null
         };
@@ -69,6 +70,22 @@ public class SaveHandler : MonoBehaviour
         Save();
     }
 
+#if UNITY_EDITOR
+    private void OnGUI()
+    {
+        if (GUI.Button(new Rect(70, 10, 50, 50), "SET 6"))
+        {
+            saveData.beatEndless = true;
+            Save();
+        }
+        if (GUI.Button(new Rect(70, 70, 50, 50), "UNSET 6"))
+        {
+            saveData.beatEndless = false;
+            Save();
+        }
+    }
+#endif
+
     public void SawTutorial()
     {
         saveData.seenTutorial = true;
@@ -78,6 +95,12 @@ public class SaveHandler : MonoBehaviour
     public void FinishedGame()
     {
         saveData.finishedGame = true;
+        Save();
+    }
+
+    public void BeatEndless()
+    {
+        saveData.beatEndless = true;
         Save();
     }
 
@@ -204,6 +227,14 @@ public class SaveHandler : MonoBehaviour
         // ================
 
         return saveData.finishedGame;
+    }
+
+    public bool GetBeatEndless()
+    {
+        // Used to show / hide our 6th level.
+        // ================
+
+        return saveData.beatEndless;
     }
 
     public RankStats GetHighScore(int index)
