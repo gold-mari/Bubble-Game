@@ -186,6 +186,12 @@ public class MenuTree : MonoBehaviour
                                     // If we have not played before, show the badge.
                                     currentNode.showBadge = !saveHandler.GetSeenTutorial();
                                     break;
+                                case "level6Badge":
+                                    currentNode.level6Badge = true;
+                                    // If we have unlocked but not played level 6, show the badge.
+                                    bool showBadge = saveHandler.GetBeatEndless() && !saveHandler.GetPlayedLevel6();
+                                    currentNode.showBadge = showBadge;
+                                    break;
                             }
                         }
                     }
@@ -315,6 +321,8 @@ public class MenuTreeNode
     public bool showBadge = false;
     // Whether or not the save's seenTutorial value should control our notif badge visibility.
     public bool tutorialBadge = false;
+    // Whether or not the save's values regarding endless mode and level 6 should control badge visibility.
+    public bool level6Badge = false;
     // The content of this node.
     public GameObject content = null;
     // The parent to this node.

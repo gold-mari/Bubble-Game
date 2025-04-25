@@ -28,6 +28,7 @@ public class SaveHandler : MonoBehaviour
         public bool seenTutorial = false;
         public bool finishedGame = false;
         public bool beatEndless = false;
+        public bool playedLevel6 = false;
         public RankStats[] highScores = new RankStats[6]{
             null, null, null, null, null, null
         };
@@ -73,14 +74,14 @@ public class SaveHandler : MonoBehaviour
 #if UNITY_EDITOR
     private void OnGUI()
     {
-        if (GUI.Button(new Rect(70, 10, 50, 50), "SET 6"))
-        {
-            saveData.beatEndless = true;
-            Save();
-        }
-        if (GUI.Button(new Rect(70, 70, 50, 50), "UNSET 6"))
+        if (GUI.Button(new Rect(70, 10, 50, 50), "!HAS6"))
         {
             saveData.beatEndless = false;
+            Save();
+        }
+        if (GUI.Button(new Rect(70, 70, 50, 50), "!PLAY6"))
+        {
+            saveData.playedLevel6 = false;
             Save();
         }
     }
@@ -101,6 +102,12 @@ public class SaveHandler : MonoBehaviour
     public void BeatEndless()
     {
         saveData.beatEndless = true;
+        Save();
+    }
+
+    public void PlayedLevel6()
+    {
+        saveData.playedLevel6 = true;
         Save();
     }
 
@@ -235,6 +242,14 @@ public class SaveHandler : MonoBehaviour
         // ================
 
         return saveData.beatEndless;
+    }
+
+    public bool GetPlayedLevel6()
+    {
+        // Used to show / hide the notif badge for our 6th level.
+        // ================
+
+        return saveData.playedLevel6;
     }
 
     public RankStats GetHighScore(int index)

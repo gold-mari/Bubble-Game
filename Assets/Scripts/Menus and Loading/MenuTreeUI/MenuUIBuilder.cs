@@ -90,6 +90,12 @@ public class MenuUIBuilder : MonoBehaviour
                     child.showBadge = !menuTree.saveHandler.GetSeenTutorial();
                 }
 
+                if (child.level6Badge)
+                {
+                    bool showBadge = menuTree.saveHandler.GetBeatEndless() && !menuTree.saveHandler.GetPlayedLevel6();
+                    child.showBadge |= showBadge;
+                }
+
                 // Request a new button and set up the listener.
                 GameObject buttonObj = buttonPool.Request();
 
