@@ -50,6 +50,7 @@ public class BubbleSpawner : MonoBehaviour
     [SerializeField, Tooltip("The number of bubbles to spawn in mass rounds.\n\nDefault: 20")]
     private uint massRoundSize = 20;
 
+    [Header("SFX")]
     [SerializeField, Tooltip("The SFX played on spawning a single bubble.")]
     FMODUnity.EventReference singleBubbleSFX;
     [SerializeField, Tooltip("The SFX played on spawning a mass round of bubbles.")]
@@ -64,6 +65,11 @@ public class BubbleSpawner : MonoBehaviour
     FMODUnity.EventReference hyperbubbleSFX;
     [SerializeField, Tooltip("The SFX played before spawning a HYPERBUBBLE.")]
     FMODUnity.EventReference beforeHyperbubbleSFX;
+
+    [Header("Rumble")]
+    public Vector2 rumbleAmount = new(0.4f, 0.2f);
+    public float rumbleDuration = 0.5f;
+    public float rumbleFalloff = 6;
 
     // ==============================================================
     // Internal variables
@@ -159,6 +165,7 @@ public class BubbleSpawner : MonoBehaviour
 
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Flavor", (int)flavors[0].value-1);
         singleBubbleSFX_i.start();
+        Rumble();
 
         // The spawn point is the cursor point vector, normalized and then multiplied by the radius.
         Vector2 spawnPoint = cursorPointVector.value.normalized * GetCurrentRadius() + center;
@@ -182,6 +189,7 @@ public class BubbleSpawner : MonoBehaviour
         // ================
 
         massBubbleSFX_i.start();
+        Rumble();
 
         // Used to generate Bubble_Flavors non-repetitiously.
         BubbleFlavor currentFlavor;
@@ -215,6 +223,7 @@ public class BubbleSpawner : MonoBehaviour
         // ================
 
         flavorBombSFX_i.start();
+        Rumble();
 
         // The spawn point is the cursor point vector, normalized and then multiplied by the radius.
         Vector2 spawnPoint = cursorPointVector.value.normalized * GetCurrentRadius() + center;
@@ -244,6 +253,7 @@ public class BubbleSpawner : MonoBehaviour
         // ================
 
         hyperbubbleSFX_i.start();
+        Rumble();
 
         // The spawn point is the cursor point vector, normalized and then multiplied by the radius.
         Vector2 spawnPoint = cursorPointVector.value.normalized * GetCurrentRadius()  + center;
@@ -407,5 +417,37 @@ public class BubbleSpawner : MonoBehaviour
         do {
             flavors[count-1].value = BubbleFlavorMethods.Random();  
         } while (flavors[count-1].value == flavors[count-2].value || flavors[count-1].value == flavors[count-3].value);
+    }
+
+    public void Rumble()
+    {
+        // Calls a version of our rumbleRoutine with a magnitude scaled by our float parameter.
+        // ================
+
+        StopAllCoroutines();
+        StartCoroutine(RumbleRoutine(rumbleAmount, rumbleDuration));
+    }
+
+    private IEnumerator RumbleRoutine(Vector2 magnitude, float duration)
+    {
+        // Applies the shake transformation to our camera.
+        // ================
+
+        float elapsed = 0;
+        while (elapsed < duration)
+        {
+            if (Time.timeScale != 0) {
+                float rumbleAmount = LerpKit.EaseIn(LerpKit.Flip(elapsed/duration), rumbleFalloff);
+                Vector2 currentMagnitude = Vector2.Lerp(magnitude, Vector2.zero, rumbleAmount);
+
+                InputHandler.SetRumble(currentMagnitude.x, currentMagnitude.y);
+
+                elapsed += Time.deltaTime;
+            }
+
+            yield return null;
+        }
+
+        InputHandler.SetRumble(0f, 0f);
     }
 }

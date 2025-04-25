@@ -1254,6 +1254,9 @@ MonoBehaviour:
       Data3: -649331026
       Data4: 1949675514
     Path: event:/SFX/Gameplay/Hyperbubble/pre
+  rumbleAmount: {x: 0.1, y: 0.1}
+  rumbleDuration: 0.15
+  rumbleFalloff: 10
 --- !u!114 &5750587619172000191
 MonoBehaviour:
   m_ObjectHideFlags: 0

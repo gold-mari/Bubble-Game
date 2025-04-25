@@ -599,8 +599,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseShakeMagnitude: 0.05
-  lowGamepadRumble: 0.5
-  highGamepadRumble: 0.25
+  lowRumble: 0.4
+  highRumble: 0.2
   rumbleFalloff: 6
 --- !u!1001 &613527162
 PrefabInstance:
