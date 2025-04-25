@@ -3094,16 +3094,6 @@ MonoBehaviour:
   endgameManager: {fileID: 8830513069248788195}
   spawner: {fileID: 176480471}
   stages:
-  - song: {fileID: 11400000, guid: 1b3bf3dd50fd7ef49a7dce597212699f, type: 2}
-    ringSize: 5
-    switchColorOnMap: 1
-    baseColor: {r: 0.08627451, g: 0.101960786, b: 0.09803922, a: 1}
-    orbColor: {r: 0.07450981, g: 0.40392157, b: 0.13333334, a: 1}
-  - song: {fileID: 11400000, guid: 3078df03699cab149ba9fde67dfc38f7, type: 2}
-    ringSize: 16
-    switchColorOnMap: 0
-    baseColor: {r: 0.32156864, g: 0.1764706, b: 0.38039216, a: 1}
-    orbColor: {r: 0.6039216, g: 0.043137256, b: 0.6, a: 1}
   - song: {fileID: 11400000, guid: e3e72b33ebfda6746af99d30f7555f24, type: 2}
     ringSize: 10
     switchColorOnMap: 0
@@ -3124,6 +3114,16 @@ MonoBehaviour:
     switchColorOnMap: 0
     baseColor: {r: 0.65882355, g: 0.24705884, b: 0.29411766, a: 1}
     orbColor: {r: 0.92549026, g: 0.39607847, b: 0.5411765, a: 1}
+  - song: {fileID: 11400000, guid: 1b3bf3dd50fd7ef49a7dce597212699f, type: 2}
+    ringSize: 5
+    switchColorOnMap: 1
+    baseColor: {r: 0.08627451, g: 0.101960786, b: 0.09803922, a: 1}
+    orbColor: {r: 0.07450981, g: 0.40392157, b: 0.13333334, a: 1}
+  - song: {fileID: 11400000, guid: 3078df03699cab149ba9fde67dfc38f7, type: 2}
+    ringSize: 16
+    switchColorOnMap: 0
+    baseColor: {r: 0.32156864, g: 0.1764706, b: 0.38039216, a: 1}
+    orbColor: {r: 0.6039216, g: 0.043137256, b: 0.6, a: 1}
   OnBeatEndless:
     m_PersistentCalls:
       m_Calls:

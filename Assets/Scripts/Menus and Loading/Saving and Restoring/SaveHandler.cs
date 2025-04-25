@@ -180,10 +180,10 @@ public class SaveHandler : MonoBehaviour
         SaveData freshSave = new();
         if (saveData == null) {
             // If it's STILL null, make a new one!
-            print($"SaveHandler: No save found. Creating new struct.");
+            // print($"SaveHandler: No save found. Creating new struct.");
             saveData = freshSave;
         } else {
-            print($"SaveHandler: Loaded data from file.");
+            // print($"SaveHandler: Loaded data from file.");
 
             // If we're missing high scores, add nulls until we have enough.
             // This is only relevant for if we add a level, like in the Endless Mode Update
@@ -196,7 +196,7 @@ public class SaveHandler : MonoBehaviour
                 saveData.highScores = scores.ToArray();
             }
 
-            Debug.Log($"Extended high scores slots by {scoresMissing}. New length is {saveData.highScores.Length}");
+            // Debug.Log($"Extended high scores slots by {scoresMissing}. New length is {saveData.highScores.Length}");
         }
     }
 
