@@ -56,14 +56,11 @@ public class EndgameManager : MonoBehaviour
     {
         // IE don't run anything if we're inactive.
         if (!alreadyLost && !alreadyWon && gameObject.activeInHierarchy) {
-            lossSFX_i = FMODUnity.RuntimeManager.CreateInstance(lossSFX);
             alreadyWon = true;
-            //StartCoroutine(LossRoutine());
 
-            // lossSFX_i.start();
-            //lossSFX_i.release();
-
-            winEventBank[bankIndex].Run();
+            if (winEventBank != null && winEventBank.Length > 0) {
+                winEventBank[bankIndex].Run();
+            }
         }
     }
 
@@ -73,12 +70,13 @@ public class EndgameManager : MonoBehaviour
         if (!alreadyLost && !alreadyWon && gameObject.activeInHierarchy) {
             lossSFX_i = FMODUnity.RuntimeManager.CreateInstance(lossSFX);
             alreadyLost = true;
-            //StartCoroutine(LossRoutine());
-
+            
             lossSFX_i.start();
             lossSFX_i.release();
 
-            lossEventBank[bankIndex].Run();
+            if (lossEventBank != null && lossEventBank.Length > 0) {
+                lossEventBank[bankIndex].Run();
+            }
         }
     }
 

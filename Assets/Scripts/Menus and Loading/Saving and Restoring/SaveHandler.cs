@@ -11,10 +11,12 @@ public class SaveHandler : MonoBehaviour
     // ==============================================================
 
     public static readonly string[] gameLevels = new string[]{
-        "Level1", "Level2", "Level3", "Level4", "Level5", "Level6"
+        "Level1", "Level2", "Level3", "Level4", "Level5", "Level6", "LevelE"
     };
 
-    public static readonly string level6Name = "Level6";
+    public static readonly string[] specialLevels =  new string[]{
+        "Level6", "LevelE"
+    };
 
     public static readonly string[] gameCutscenes = new string[]{
         "Cutscene_Level1", "Cutscene_Level2", "Cutscene_Level3", "Cutscene_Level4", "Cutscene_Level5", "Cutscene_Outro"
@@ -31,8 +33,8 @@ public class SaveHandler : MonoBehaviour
         public bool finishedGame = false;
         public bool beatEndless = false;
         public bool playedLevel6 = false;
-        public RankStats[] highScores = new RankStats[6]{
-            null, null, null, null, null, null
+        public RankStats[] highScores = new RankStats[7]{
+            null, null, null, null, null, null, null
         };
     }
     private static SaveData saveData = null;
@@ -59,7 +61,7 @@ public class SaveHandler : MonoBehaviour
 
         // print($"SaveHandler: Current scene is {sceneName}");
 
-        if (gameLevels.Contains(sceneName) && sceneName != level6Name) {
+        if (gameLevels.Contains(sceneName) && !specialLevels.Contains(sceneName)) {
             // If it's a level, note the scene and note that we've played.
             saveData.lastPlayedScene = sceneName;
             saveData.playedBefore = true;
@@ -132,7 +134,7 @@ public class SaveHandler : MonoBehaviour
         //  * We're in a level
         //  * We have won, and are awaiting results.
         // In case of a crash, save our level as the NEXT one.
-        if (sceneName != level6Name) {
+        if (!specialLevels.Contains(sceneName)) {
             saveData.lastPlayedScene = LevelLoader.Instance.QuerySceneDict("Next");
             Save();
         }
@@ -147,7 +149,7 @@ public class SaveHandler : MonoBehaviour
         
         // If the score is better, mark it as the new high score!
         if (saveData.highScores[index] == null || stats.score > saveData.highScores[index].score) {
-            print($"SaveHandler: Saving high score into index {index}");
+            print($"SaveHandler: Saving high score into index {index}. Old was {saveData.highScores[index].score}, new is {stats.score}.");
             saveData.highScores[index] = new RankStats(stats);
             Save();
             return true;
@@ -196,7 +198,7 @@ public class SaveHandler : MonoBehaviour
                 saveData.highScores = scores.ToArray();
             }
 
-            // Debug.Log($"Extended high scores slots by {scoresMissing}. New length is {saveData.highScores.Length}");
+            Debug.Log($"Extended high scores slots by {scoresMissing}. New length is {saveData.highScores.Length}");
         }
     }
 

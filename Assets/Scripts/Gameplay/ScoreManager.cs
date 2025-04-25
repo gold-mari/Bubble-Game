@@ -144,6 +144,8 @@ public class ScoreManager : MonoBehaviour
 
         string rank = rankCalculator.CalculateRank();
 
+        Debug.Log($"Summing stats into score - rank {rank}");
+
         newHighScore.value = saveHandler.TrySetHighScore(new(
             (int)stragglerBonus.value,
             (int)dangerBonus.value,
@@ -152,6 +154,8 @@ public class ScoreManager : MonoBehaviour
             (int)scoreVar.value,
             rank
         ));
+
+        Debug.Log($"New high score: {newHighScore.value}");
     }
 
     // ================================================================
