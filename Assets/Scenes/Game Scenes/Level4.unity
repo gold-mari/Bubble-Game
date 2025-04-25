@@ -584,6 +584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
   attenuationObject: {fileID: 0}
 --- !u!114 &519420034
 MonoBehaviour:
@@ -598,6 +599,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseShakeMagnitude: 0.05
+  lowGamepadRumble: 0.5
+  highGamepadRumble: 0.25
+  rumbleFalloff: 6
 --- !u!1001 &613527162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1361,6 +1365,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8830513069248788196}
     - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: winEventBank.Array.data[1].events.Array.data[1].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1473183609}
+    - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: winEventBank.Array.data[2].events.Array.data[0].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8830513069248788197}
@@ -1403,6 +1411,10 @@ PrefabInstance:
     - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: winEventBank.Array.data[1].events.Array.data[0].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SumStatsIntoScore
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: winEventBank.Array.data[1].events.Array.data[1].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LockPause
       objectReference: {fileID: 0}
     - target: {fileID: 8830513068594716646, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: winEventBank.Array.data[2].events.Array.data[0].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName

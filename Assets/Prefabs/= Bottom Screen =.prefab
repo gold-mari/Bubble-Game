@@ -2542,20 +2542,8 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: winEventBank.Array.data[1].events.Array.data[1].delay
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: winEventBank.Array.data[1].events.Array.data[1].label
-      value: display victory (callback)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: winEventBank.Array.data[2].events.Array.data[1].label
       value: rank SFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: winEventBank.Array.data[1].events.Array.data[1].ourEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: winEventBank.Array.data[2].events.Array.data[1].ourEvent.m_PersistentCalls.m_Calls.Array.size
@@ -2563,10 +2551,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: winEventBank.Array.data[0].events.Array.data[3].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: winEventBank.Array.data[1].events.Array.data[1].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
@@ -2650,10 +2634,6 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: winEventBank.Array.data[1].events.Array.data[1].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: winEventBank.Array.data[1].events.Array.data[1].ourEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -2664,10 +2644,6 @@ PrefabInstance:
     - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: winEventBank.Array.data[0].events.Array.data[3].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetSafetyLock
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: winEventBank.Array.data[1].events.Array.data[1].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetVisibility
       objectReference: {fileID: 0}
     - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: winEventBank.Array.data[1].events.Array.data[1].ourEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -2682,10 +2658,6 @@ PrefabInstance:
       value: DangerManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: winEventBank.Array.data[1].events.Array.data[1].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: VictoryScreen, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: winEventBank.Array.data[1].events.Array.data[1].ourEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: LoggerHolder, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -2698,20 +2670,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: winEventBank.Array.data[1].events.Array.data[1].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: winEventBank.Array.data[1].events.Array.data[1].ourEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: winEventBank.Array.data[2].events.Array.data[1].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: winEventBank.Array.data[1].events.Array.data[1].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Next
       objectReference: {fileID: 0}
     - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: winEventBank.Array.data[1].events.Array.data[1].ourEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
@@ -2723,10 +2687,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
       propertyPath: winEventBank.Array.data[0].events.Array.data[3].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}
-      propertyPath: winEventBank.Array.data[1].events.Array.data[1].ourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5750587618818772880, guid: f2a3dce7f09f2314f89da87ad22c0d07, type: 3}

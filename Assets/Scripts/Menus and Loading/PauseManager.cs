@@ -4,13 +4,11 @@ using UnityEngine.Events;
 
 public class PauseManager : MonoBehaviour
 {
-    [SerializeField, Tooltip("The key which, when pressed, pauses the game.")]
-    private KeyCode[] pauseKeys;
     [SerializeField, Tooltip("The path of the FMOD nonmenu SFX bus. Find it in the mixer by right clicking the " +
                              "NonMenuSFX group and selecting Copy Path.")]
     private string nonmenuSFXBusPath = "bus:/SFX/NonMenuSFX";
     [SerializeField, Tooltip("The path of the FMOD music bus. Find it in the mixer by right clicking the " +
-                             "NonMenuSFX group and selecting Copy Path.")]
+                             "Music group and selecting Copy Path.")]
     private string musicBusPath = "bus:/Music";
     [SerializeField, Tooltip("Called when the pause state changes to true.")]
     private UnityEvent onPause;
@@ -76,7 +74,7 @@ public class PauseManager : MonoBehaviour
 
     private void OnApplicationFocus(bool hasFocus)
     {
-        if (!hasFocus) {
+        if (!hasFocus && !paused && !pauseLocked) {
             Pause(true);
         }
 

@@ -46,7 +46,9 @@ public class MenuTree : MonoBehaviour
     // Check if we have already called start once before.
     bool calledStart = false;
     // Scenes that count as 'gameplay levels' for the "gameplayOnly" menu tree tag.
-    List<string> gameplayScenes = new() { "Level1", "Level2", "Level3", "Level4", "Level5" };
+    List<string> gameplayScenes = new() { 
+        "Level1", "Level2", "Level3", "Level4", "Level5", "Level6", "LevelE"
+    };
 
     // ==============================================================
     // Initializers

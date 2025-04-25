@@ -902,6 +902,23 @@ MonoBehaviour:
               m_StringArgument: Next
               m_BoolArgument: 1
             m_CallState: 2
+    - label: unlock pause
+      delay: 0.5
+      ourEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
+            m_MethodName: LockPause
+            m_Mode: 6
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
   - events:
     - label: display rank (callback)
       delay: 0
@@ -1117,6 +1134,7 @@ MonoBehaviour:
   currentBeatmap: {fileID: 11400000, guid: d655ab3fc26d86c4a98bfb5dd074e822, type: 2}
   songCompletion: {fileID: 0}
   tapeStopDuration: 4
+  winOnEnd: 1
   endgameManager: {fileID: 5750587618818772880}
 --- !u!1 &5750587618922182494
 GameObject:
