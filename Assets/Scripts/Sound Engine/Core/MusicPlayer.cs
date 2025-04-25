@@ -129,7 +129,7 @@ public class MusicPlayer : MonoBehaviour
         {
             instance.setPaused(true);
             instance.getTimelinePosition(out timelinePosition);
-            handler?.StopDSPClock();
+            handler?.StopDSPClock(true);
         }
         else
         {
@@ -182,9 +182,9 @@ public class MusicPlayer : MonoBehaviour
         instance.setParameterByName(name, value);
     }
 
-    private bool IsInstancePlaying()
+    public bool IsInstancePlaying()
     {
-        // Returns if an FMOD instance is currently playing.
+        // Returns if the FMOD instance is currently playing.
         // ================
 
         instance.getPlaybackState(out playbackState);

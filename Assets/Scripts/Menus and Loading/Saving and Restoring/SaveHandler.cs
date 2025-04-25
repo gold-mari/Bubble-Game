@@ -18,6 +18,10 @@ public class SaveHandler : MonoBehaviour
         "Level6", "LevelE"
     };
 
+    public static readonly string[] endlessLevels =  new string[]{
+        "LevelE"
+    };
+
     public static readonly string[] gameCutscenes = new string[]{
         "Cutscene_Level1", "Cutscene_Level2", "Cutscene_Level3", "Cutscene_Level4", "Cutscene_Level5", "Cutscene_Outro"
     };
@@ -36,6 +40,7 @@ public class SaveHandler : MonoBehaviour
         public RankStats[] highScores = new RankStats[7]{
             null, null, null, null, null, null, null
         };
+        public uint endlessBestTime = 0;
     }
     private static SaveData saveData = null;
 
@@ -146,11 +151,39 @@ public class SaveHandler : MonoBehaviour
 
         // Find where the current scene is in our array, using it to index our highScores array.
         int index = Array.IndexOf(gameLevels, sceneName);
-        
+        // print($"SaveHandler: High Score --- old was {saveData.highScores[index].score}, new is {stats.score}.");
+
         // If the score is better, mark it as the new high score!
         if (saveData.highScores[index] == null || stats.score > saveData.highScores[index].score) {
-            print($"SaveHandler: Saving high score into index {index}. Old was {saveData.highScores[index].score}, new is {stats.score}.");
+            print($"SaveHandler: Saving high score into index {index}.");
             saveData.highScores[index] = new RankStats(stats);
+            Save();
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool TrySetBestTime(uint time)
+    {
+        // Compares a rankStats against the high score for the current level.
+        // If the new score is higher, set the new high score!
+        // Returns whether or not it was a high score.
+        // ================
+
+        // If the game is not a level, throw an error.
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (!endlessLevels.Contains(sceneName)) {
+            Debug.Log($"SaveHandler Notice: TrySetBestTime failed. Current scene ({sceneName}) is not an endless level.");
+            return false;
+        }
+
+        // print($"SaveHandler: Best Time --- old was {saveData.endlessBestTime}, new is {time}.");
+
+        // If the score is better, mark it as the new high score!
+        if (time > saveData.endlessBestTime) {
+            print($"SaveHandler: Saving best time. Old was {saveData.endlessBestTime}, new is {time}.");
+            saveData.endlessBestTime = time;
             Save();
             return true;
         }
@@ -189,7 +222,7 @@ public class SaveHandler : MonoBehaviour
 
             // If we're missing high scores, add nulls until we have enough.
             // This is only relevant for if we add a level, like in the Endless Mode Update
-            // when Level 6 was added.
+            // when Level 6 and Level E were added.
 
             int scoresMissing = freshSave.highScores.Length-saveData.highScores.Length;
             if (scoresMissing > 0) {
@@ -198,7 +231,7 @@ public class SaveHandler : MonoBehaviour
                 saveData.highScores = scores.ToArray();
             }
 
-            Debug.Log($"Extended high scores slots by {scoresMissing}. New length is {saveData.highScores.Length}");
+            // Debug.Log($"Extended high scores slots by {scoresMissing}. New length is {saveData.highScores.Length}");
         }
     }
 

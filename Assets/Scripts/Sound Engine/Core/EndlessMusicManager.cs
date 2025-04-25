@@ -23,6 +23,8 @@ public class EndlessMusicManager : MusicManager
     // ================================================================
 
     [Header("Endless Parameters")]
+    [SerializeField, Tooltip("The uintVar representing how long we've been alive for, in seconds.")]
+    private uintVar secondsAlive;
     [SerializeField, Tooltip("The BubbleSpawner in this stage (for setting mass spawn sizes).")]
     private BubbleSpawner spawner;
     [SerializeField, Tooltip("The stages to cycle through in this scene.")]
@@ -39,6 +41,8 @@ public class EndlessMusicManager : MusicManager
     
     private int _index = 0;
     private float _semitoneOffset = 0;
+    private double _timeAliveDouble = 0;
+    private bool _accumulateTimeAlive = false;
 
     // ================================================================
     // Initializers
@@ -47,6 +51,7 @@ public class EndlessMusicManager : MusicManager
     protected override void Awake()
     {
         _index = 0;
+        _timeAliveDouble = secondsAlive.value = 0;
 
         mainSong = stages[_index].song;
         spawner.SetMassRoundSize(stages[_index].ringSize);
@@ -60,7 +65,25 @@ public class EndlessMusicManager : MusicManager
         OnNextStage?.Invoke(stages[_index]);
 
         base.Start();
+        _accumulateTimeAlive = true;
     }
+
+    // ================================================================
+    // Update methods
+    // ================================================================
+
+    protected override void Update()
+    {
+        base.Update();
+        if (_accumulateTimeAlive) {
+            _timeAliveDouble += Time.deltaTime;
+            secondsAlive.value = System.Convert.ToUInt32(_timeAliveDouble);
+        }
+    }
+
+    // ================================================================
+    // Controls methods
+    // ================================================================
 
     protected override void OnMarkerUpdated(string lastMarker)
     {
@@ -97,5 +120,10 @@ public class EndlessMusicManager : MusicManager
 
         // Returns the TimelineHandler produced by initializing the new FMOD event.
         return InitializeSong();
+    }
+
+    public void StopAccumulatingTimeAlive()
+    {
+        _accumulateTimeAlive = false;
     }
 }

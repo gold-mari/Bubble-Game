@@ -306,9 +306,11 @@ MonoBehaviour:
   dangerBonus: {fileID: 11400000, guid: e15aa9418dd7baf4da69910e3c762c61, type: 2}
   bubblesPopped: {fileID: 11400000, guid: dcdf45039d79bed4b97d1902105babe9, type: 2}
   maxCombo: {fileID: 11400000, guid: 8ee12194ce8989e4dadecc02f27a09e3, type: 2}
+  secondsAlive: {fileID: 11400000, guid: 410c09456d6d7b44391bc886c9bc7fd8, type: 2}
   rankCalculator: {fileID: 8534189034876472317}
   saveHandler: {fileID: 0}
   newHighScore: {fileID: 11400000, guid: 1ae5c8340773a8c40ae525e864fa9697, type: 2}
+  newBestTime: {fileID: 11400000, guid: 300bb1b126a6e01429f0b6ab623b2e5d, type: 2}
 --- !u!114 &7318956119765026642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,6 +550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIntVar: {fileID: 11400000, guid: 968a11a7a9011d448bee73fff971cee1, type: 2}
+  doTimecode: 0
   scale: 1
   formatString: '{0}'
   prefix: x
@@ -2057,6 +2060,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicManager: {fileID: 8830513068628213623}
   uiFader: {fileID: 7024367785050853182}
+  duration: 5
 --- !u!1 &6893855905369506713
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,6 +42,8 @@ public class ScoreManager : MonoBehaviour
     uintVar bubblesPopped;
     [SerializeField, Tooltip("The uintVar storing our max combo this stage.")]
     uintVar maxCombo;
+    [SerializeField, Tooltip("The uintVar storing the amount of time, in seconds, this level has been played.")]
+    uintVar secondsAlive;
 
 
     
@@ -52,6 +54,8 @@ public class ScoreManager : MonoBehaviour
     private SaveHandler saveHandler;
     [SerializeField, Tooltip("A boolVar tracking whether or not we've set a new high score.")]
     boolVar newHighScore;
+    [SerializeField, Tooltip("A boolVar tracking whether or not we've set a new best time.")]
+    boolVar newBestTime;
 
     // ================================================================
     // Internal variables
@@ -77,7 +81,7 @@ public class ScoreManager : MonoBehaviour
         stragglerBonus.value = 0;
         popupManager = GetComponent<ScorePopupManager>();
 
-        newHighScore.value = false;
+        newBestTime.value = newHighScore.value = false;
     }
 
     // ================================================================
@@ -144,8 +148,6 @@ public class ScoreManager : MonoBehaviour
 
         string rank = rankCalculator.CalculateRank();
 
-        Debug.Log($"Summing stats into score - rank {rank}");
-
         newHighScore.value = saveHandler.TrySetHighScore(new(
             (int)stragglerBonus.value,
             (int)dangerBonus.value,
@@ -155,7 +157,7 @@ public class ScoreManager : MonoBehaviour
             rank
         ));
 
-        Debug.Log($"New high score: {newHighScore.value}");
+        newBestTime.value = saveHandler.TrySetBestTime(secondsAlive.value);
     }
 
     // ================================================================

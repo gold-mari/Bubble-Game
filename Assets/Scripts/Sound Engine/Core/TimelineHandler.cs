@@ -218,8 +218,6 @@ public class TimelineHandler
         // When this object is destroyed, stop the music and free the GCHandle.
         // ================
 
-        // Debug.Log($"Called destructor on {id}");
-
         // Reset the instance's data.
         instance.setUserData(IntPtr.Zero);
         // Stop the instance.
@@ -325,7 +323,7 @@ public class TimelineHandler
         musicChannelGroup.setPaused(false);
     }
 
-    public void StopDSPClock()
+    public void StopDSPClock(bool pauseMusicChannelGroup=false)
     {
         // DSP time runs whether or not the FMOD event is playing. In order to ensure
         // rawCurrentTime produces an accurate output, we call StopDSPClock when 
@@ -333,7 +331,7 @@ public class TimelineHandler
         // ================
 
         accumulateDSPTime = false;
-        musicChannelGroup.setPaused(true);
+        musicChannelGroup.setPaused(pauseMusicChannelGroup);
     }
 
     public void ResetDSPClock()
@@ -344,6 +342,7 @@ public class TimelineHandler
         // ====
 
         DSPTime = 0;
+        musicChannelGroup.setPaused(false);
     }
 
     void UpdateDSPTime()

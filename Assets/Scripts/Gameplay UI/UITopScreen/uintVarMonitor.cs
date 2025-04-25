@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
 
@@ -12,9 +13,11 @@ public class uintVarMonitor : MonoBehaviour
 
     [SerializeField, Tooltip("The floatVar we're monitoring.")]
     protected uintVar UIntVar;
-    [SerializeField, Tooltip("The amount to scale our uintVar by.\n\nDefault: 1.")]
+    [SerializeField, Tooltip("If we should ignore other display parameters and just format as a timecode.")]
+    private bool doTimecode = false;
+    [SerializeField, HideIf("doTimecode"), Tooltip("The amount to scale our uintVar by.\n\nDefault: 1.")]
     private uint scale = 1;
-    [SerializeField, Tooltip("Used to format our scaled UIntVar for printing.")]
+    [SerializeField, HideIf("doTimecode"), Tooltip("Used to format our scaled UIntVar for printing.")]
     private string formatString;
     [SerializeField, Tooltip("A prefix added to the start of our printed string.")]
     private string prefix;
@@ -44,7 +47,18 @@ public class uintVarMonitor : MonoBehaviour
         // Update is called once per frame. We use it to update our text.
         // ================
 
-        textObject.text = prefix + string.Format(formatString, GetUInt() * scale) + suffix;
+        string text = "";
+
+        if (doTimecode) {
+            uint totalSeconds = GetUInt();
+            TimeSpan time = TimeSpan.FromSeconds(totalSeconds);
+
+            text = time.ToString(@"mm\:ss");
+        } else {
+            text = string.Format(formatString, GetUInt() * scale) + suffix;
+        }
+
+        textObject.text = prefix + text + suffix;
     }
 
     // ================================================================
