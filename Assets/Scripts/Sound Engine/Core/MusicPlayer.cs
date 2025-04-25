@@ -47,7 +47,12 @@ public class MusicPlayer : MonoBehaviour
 
         Debug.Assert(instance.isValid(), "MusicPlayer Error, Awake() failed. instance was not valid.", this);
 
-        return new TimelineHandler(instance, musicBusPath, $"{transform.name}({eventRef.Path})");
+        string id = transform.name;
+#if UNITY_EDITOR
+        id += $"({eventRef.Path})";
+#endif
+
+        return new TimelineHandler(instance, musicBusPath, id);
     }
 
     protected virtual void Start()
