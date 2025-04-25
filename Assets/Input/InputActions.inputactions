@@ -259,6 +259,17 @@
                 },
                 {
                     "name": "",
+                    "id": "769d6bff-6482-4d14-9241-3d43525f6dc9",
+                    "path": "<Gamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "UIMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d88eae35-cc10-44a4-b4e6-89db40803445",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
