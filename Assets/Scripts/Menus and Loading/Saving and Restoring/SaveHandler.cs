@@ -26,6 +26,10 @@ public class SaveHandler : MonoBehaviour
         "Cutscene_Level1", "Cutscene_Level2", "Cutscene_Level3", "Cutscene_Level4", "Cutscene_Level5", "Cutscene_Outro"
     };
 
+    public static readonly string[] rankLookup = new string[]{
+        "C", "B", "A", "S"
+    };
+
     // ==============================================================
     // Saved fields
     // ==============================================================
@@ -164,8 +168,13 @@ public class SaveHandler : MonoBehaviour
         int index = Array.IndexOf(gameLevels, sceneName);
         // print($"SaveHandler: High Score --- old was {saveData.highScores[index].score}, new is {stats.score}.");
 
+        string newRank = stats.rank;
+        string oldRank = saveData.highScores[index].rank;
+        bool rankIsBetter = rankLookup.Contains(newRank) && rankLookup.Contains(oldRank) &&
+                            rankLookup.ToList().IndexOf(newRank) > rankLookup.ToList().IndexOf(oldRank);
+
         // If the score is better, mark it as the new high score!
-        if (saveData.highScores[index] == null || stats.score > saveData.highScores[index].score) {
+        if (saveData.highScores[index] == null || stats.score > saveData.highScores[index].score || rankIsBetter) {
             print($"SaveHandler: Saving high score into index {index}.");
             saveData.highScores[index] = new RankStats(stats);
             Save();
