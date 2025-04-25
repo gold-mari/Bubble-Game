@@ -107,6 +107,7 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
         if (context.control.device is Gamepad) {
             LastUsedGamepad = context.control.device as Gamepad;
         } else {
+            SetRumble(0, 0);
             LastUsedGamepad = null;
         }
 
