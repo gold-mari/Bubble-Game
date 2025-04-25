@@ -93,6 +93,17 @@ public class SaveHandler : MonoBehaviour
             saveData.playedLevel6 = false;
             Save();
         }
+        if (GUI.Button(new Rect(140, 10, 50, 50), "RESET"))
+        {
+            saveData.endlessBestTime = 0;
+            saveData.highScores[6] = null;
+            Save();
+        }
+        if (GUI.Button(new Rect(140, 70, 50, 50), "GAME"))
+        {
+            saveData.finishedGame = true;
+            Save();
+        }
     }
 #endif
 
@@ -294,5 +305,10 @@ public class SaveHandler : MonoBehaviour
     public RankStats GetHighScore(int index)
     {
         return saveData.highScores[index];
+    }
+
+    public uint GetEndlessBestTime()
+    {
+        return saveData.endlessBestTime;
     }
 }
