@@ -11,8 +11,10 @@ public class SaveHandler : MonoBehaviour
     // ==============================================================
 
     public static readonly string[] gameLevels = new string[]{
-        "Level1", "Level2", "Level3", "Level4", "Level5"
+        "Level1", "Level2", "Level3", "Level4", "Level5", "Level6"
     };
+
+    public static readonly string level6Name = "Level6";
 
     public static readonly string[] gameCutscenes = new string[]{
         "Cutscene_Level1", "Cutscene_Level2", "Cutscene_Level3", "Cutscene_Level4", "Cutscene_Level5", "Cutscene_Outro"
@@ -57,7 +59,7 @@ public class SaveHandler : MonoBehaviour
 
         // print($"SaveHandler: Current scene is {sceneName}");
 
-        if (gameLevels.Contains(sceneName)) {
+        if (gameLevels.Contains(sceneName) && sceneName != level6Name) {
             // If it's a level, note the scene and note that we've played.
             saveData.lastPlayedScene = sceneName;
             saveData.playedBefore = true;
@@ -130,8 +132,10 @@ public class SaveHandler : MonoBehaviour
         //  * We're in a level
         //  * We have won, and are awaiting results.
         // In case of a crash, save our level as the NEXT one.
-        saveData.lastPlayedScene = LevelLoader.Instance.QuerySceneDict("Next");
-        Save();
+        if (sceneName != level6Name) {
+            saveData.lastPlayedScene = LevelLoader.Instance.QuerySceneDict("Next");
+            Save();
+        }
 
         if (stats == null) {
             Debug.LogError($"SaveHandler Error: SetRankStats failed. stats was null.");
