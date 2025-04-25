@@ -83,9 +83,9 @@ public class SaveHandler : MonoBehaviour
 #if UNITY_EDITOR
     private void OnGUI()
     {
-        if (GUI.Button(new Rect(70, 10, 50, 50), "!HAS6"))
+        if (GUI.Button(new Rect(70, 10, 50, 50), "HAS6"))
         {
-            saveData.beatEndless = false;
+            saveData.beatEndless = true;
             Save();
         }
         if (GUI.Button(new Rect(70, 70, 50, 50), "!PLAY6"))
