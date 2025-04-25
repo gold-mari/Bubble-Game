@@ -74,7 +74,7 @@
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,      Ha'na.sqIdle,Brute.sqIdle,Ghost.sqIdle,Knight.sqIdle,Jester.sqIdle,        Ha'na.Good,Sammy.Good",
-			"text":"Balthazar eyes burn with white-hot rage."
+			"text":"Balthazar's eyes burn with white-hot rage."
 		},	
 		{	
 			"actor":"Knight",
