@@ -136,7 +136,8 @@ public class ScoreManager : MonoBehaviour
         stragglerBonus.value += score;
 
         popupManager.OnEndPop(bubble, score);
-        screenshake.ScaledShake(index * 0.25f);
+        float shakeAmount = Mathf.Min(index*0.25f, 5);
+        screenshake.ScaledShake(shakeAmount);
     }
 
     public void SumStatsIntoScore()
