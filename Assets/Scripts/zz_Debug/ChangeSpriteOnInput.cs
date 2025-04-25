@@ -1,12 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ChangeSpriteOnInput : MonoBehaviour
 {
+    public enum Input {
+        AFFIRM,
+        DENY
+    }
+
     [SerializeField]
-    KeyCode[] keys;
+    Input input;
     [SerializeField]
     Sprite upSprite, downSprite;
 
@@ -21,11 +24,9 @@ public class ChangeSpriteOnInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (KeyCode key in keys) {
-            if (Input.GetKey(key)) {
-                image.sprite = downSprite;
-                return;
-            }
+        if (input == Input.AFFIRM && InputHandler.GetAffirm() || input == Input.DENY && InputHandler.GetDeny()) {
+            image.sprite = downSprite;
+            return;
         }
         
         image.sprite = upSprite;

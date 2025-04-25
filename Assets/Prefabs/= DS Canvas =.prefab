@@ -415,7 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abfe5e99e2bf212449266202b579a9ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keys: 43010000
+  input: 0
   upSprite: {fileID: -1652702171, guid: 570f73c10294b534fbbafc6d5509a94a, type: 3}
   downSprite: {fileID: -553741669, guid: 570f73c10294b534fbbafc6d5509a94a, type: 3}
 --- !u!1 &1151409288159572480
@@ -1742,7 +1742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abfe5e99e2bf212449266202b579a9ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keys: 1b00000044010000
+  input: 1
   upSprite: {fileID: 847958343, guid: 570f73c10294b534fbbafc6d5509a94a, type: 3}
   downSprite: {fileID: 275794185, guid: 570f73c10294b534fbbafc6d5509a94a, type: 3}
 --- !u!1 &5915848774446401514
@@ -2029,7 +2029,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17b9362fdbedd2d4aa3cf59169784b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseKeys: 440100001b000000
   nonmenuSFXBusPath: bus:/SFX/NonMenuSFX
   musicBusPath: bus:/Music
   onPause:

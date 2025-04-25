@@ -207,6 +207,20 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
     }
 
     /// <summary>
+    /// Accessor for if Affirm is down.
+    /// </summary>
+    /// <returns>bool - if Affirm is currently held.</returns>
+    public static bool GetAffirm()
+    { 
+        if (Instance != null) {
+            return Instance._get["_affirm"]; 
+        } else {
+            NoHandlerError();
+            return false;
+        }
+    }
+
+    /// <summary>
     /// Accessor for if Deny was set down on the last frame.
     /// </summary>
     /// <returns>bool - if Deny was just pressed down.</returns>
@@ -214,6 +228,20 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
     { 
         if (Instance != null) {
             return Instance._getDown["_deny"]; 
+        } else {
+            NoHandlerError();
+            return false;
+        }
+    }
+
+    /// <summary>
+    /// Accessor for if Deny is down.
+    /// </summary>
+    /// <returns>bool - if Deny is currently held.</returns>
+    public static bool GetDeny()
+    { 
+        if (Instance != null) {
+            return Instance._get["_deny"]; 
         } else {
             NoHandlerError();
             return false;
