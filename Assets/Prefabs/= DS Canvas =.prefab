@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorPointVector: {fileID: 11400000, guid: d897fa1b5632702439a181ff7e697313, type: 2}
-  center: {x: 0, y: 0}
+  center: {x: -1, y: 0}
 --- !u!1 &157759410797239734
 GameObject:
   m_ObjectHideFlags: 0
