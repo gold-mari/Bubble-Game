@@ -23,5 +23,7 @@ MonoBehaviour:
   isMedley: 1
   beatmapFile: {fileID: 4900000, guid: fe7b61708abd89e458a1d402f594f6bd, type: 3}
   beatmapFiles:
+  - beatmapName: intro
+    beatmapFile: {fileID: 4900000, guid: 0af78aa472c67484f9e91b77dcce5eba, type: 3}
   - beatmapName: a
     beatmapFile: {fileID: 4900000, guid: 9a5e1914cc83d714687764652f81da90, type: 3}

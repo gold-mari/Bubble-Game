@@ -1301,6 +1301,10 @@ PrefabInstance:
       propertyPath: majorColor.r
       value: 0.16470589
       objectReference: {fileID: 0}
+    - target: {fileID: 4161504457777188041, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4751819187092467717, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_Camera
       value: 
@@ -1327,6 +1331,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6889384533516477387, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024367785050853182, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: defaultVisibility
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8059869883956108860, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}

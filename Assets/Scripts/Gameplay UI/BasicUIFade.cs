@@ -1,8 +1,7 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CanvasGroup))]
 public class BasicUIFade : MonoBehaviour
 {
     [SerializeField, Tooltip("The amount of time it takes to fade out.\n\nDefault: 0.5")]
@@ -26,18 +25,30 @@ public class BasicUIFade : MonoBehaviour
 
     public void FadeIn()
     {
+        FadeIn(fadeInTime);
+    }
+
+    public void FadeIn(float duration)
+    {
         if (activeRoutine != null) 
         {
             StopCoroutine(activeRoutine);
         }
-        activeRoutine = StartCoroutine(LerpVisibility(1, fadeInTime));
+        activeRoutine = StartCoroutine(LerpVisibility(1, duration));
     }
 
     public void FadeOut()
     {
-        StopCoroutine(activeRoutine);
-        print("Starting the fade out");
-        activeRoutine = StartCoroutine(LerpVisibility(0, fadeOutTime));
+        FadeOut(fadeOutTime);
+    }
+
+    public void FadeOut(float duration)
+    {
+        if (activeRoutine != null) 
+        {
+            StopCoroutine(activeRoutine);
+        }
+        activeRoutine = StartCoroutine(LerpVisibility(0, duration));
     }
 
     IEnumerator LerpVisibility(float target, float duration)
@@ -59,7 +70,7 @@ public class BasicUIFade : MonoBehaviour
         group.alpha = target;
     }
 
-    public void SetFade(float value)
+    public void SetAlpha(float value)
     {
         // Immediately sets the fade amount and stops all coroutines.
         // ================

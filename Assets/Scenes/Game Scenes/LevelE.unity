@@ -2630,6 +2630,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1966141341231059269, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1966141341231059269, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
+      propertyPath: musicManager
+      value: 
+      objectReference: {fileID: 8830513069248788197}
     - target: {fileID: 2708931529567253766, guid: e1313bf58eb98844592fbd5ec4432e38, type: 3}
       propertyPath: musicPlayer
       value: 
@@ -3082,9 +3090,20 @@ MonoBehaviour:
   currentBeatmap: {fileID: 11400000, guid: d655ab3fc26d86c4a98bfb5dd074e822, type: 2}
   songCompletion: {fileID: 11400000, guid: 72fe7a4437dc6904aba3d760043dfdc3, type: 2}
   tapeStopDuration: 4
+  winOnEnd: 1
   endgameManager: {fileID: 8830513069248788195}
   spawner: {fileID: 176480471}
   stages:
+  - song: {fileID: 11400000, guid: 1b3bf3dd50fd7ef49a7dce597212699f, type: 2}
+    ringSize: 5
+    switchColorOnMap: 1
+    baseColor: {r: 0.08627451, g: 0.101960786, b: 0.09803922, a: 1}
+    orbColor: {r: 0.07450981, g: 0.40392157, b: 0.13333334, a: 1}
+  - song: {fileID: 11400000, guid: 3078df03699cab149ba9fde67dfc38f7, type: 2}
+    ringSize: 16
+    switchColorOnMap: 0
+    baseColor: {r: 0.32156864, g: 0.1764706, b: 0.38039216, a: 1}
+    orbColor: {r: 0.6039216, g: 0.043137256, b: 0.6, a: 1}
   - song: {fileID: 11400000, guid: e3e72b33ebfda6746af99d30f7555f24, type: 2}
     ringSize: 10
     switchColorOnMap: 0
@@ -3105,16 +3124,6 @@ MonoBehaviour:
     switchColorOnMap: 0
     baseColor: {r: 0.65882355, g: 0.24705884, b: 0.29411766, a: 1}
     orbColor: {r: 0.92549026, g: 0.39607847, b: 0.5411765, a: 1}
-  - song: {fileID: 11400000, guid: 1b3bf3dd50fd7ef49a7dce597212699f, type: 2}
-    ringSize: 5
-    switchColorOnMap: 1
-    baseColor: {r: 0.08627451, g: 0.101960786, b: 0.09803922, a: 1}
-    orbColor: {r: 0.07450981, g: 0.40392157, b: 0.13333334, a: 1}
-  - song: {fileID: 11400000, guid: 3078df03699cab149ba9fde67dfc38f7, type: 2}
-    ringSize: 16
-    switchColorOnMap: 0
-    baseColor: {r: 0.32156864, g: 0.1764706, b: 0.38039216, a: 1}
-    orbColor: {r: 0.6039216, g: 0.043137256, b: 0.6, a: 1}
   OnBeatEndless:
     m_PersistentCalls:
       m_Calls:

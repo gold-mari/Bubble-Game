@@ -16,6 +16,8 @@ public class MusicManager : MusicPlayer
     private floatVar songCompletion;
     [SerializeField, Tooltip("How long, in seconds, it takes us to tape stop on a loss.\n\nDefault: 2")]
     private float tapeStopDuration = 2;
+    [SerializeField, Tooltip("If we win when the song ends.\n\nDefault: true")]
+    private bool winOnEnd = true;
     [SerializeField, Tooltip("The endgame manager present in this scene.")]
     private EndgameManager endgameManager;
 
@@ -125,7 +127,9 @@ public class MusicManager : MusicPlayer
     {
         if (lastMarker == "end" && !songEnded) {
             songEnded = true;
-            endgameManager.TriggerWin();
+            if (winOnEnd) {
+                endgameManager.TriggerWin();
+            }
         } else if (mainSong.isMedley) {
             string[] medleyStrings = lastMarker.Split('-');
             if (medleyStrings[0] == "switchMap") {

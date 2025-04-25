@@ -98,6 +98,7 @@
 			<destination>{98f38cae-c3bf-47cd-be67-f86099514e3f}</destination>
 			<destination>{ea9e425a-852a-456c-b550-67c7a0ad101d}</destination>
 			<destination>{fbea70f8-145f-4590-87a0-1af996f93e84}</destination>
+			<destination>{c3554ee7-4e14-4dcb-9471-bf5390f4484b}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{98131842-ac4e-45db-a1bb-95e19a370bda}">
@@ -364,6 +365,17 @@
 		</property>
 		<property name="name">
 			<value>DEBUG_END</value>
+		</property>
+		<relationship name="timeline">
+			<destination>{f1241ce9-2ba0-4491-bd93-911befb37227}</destination>
+		</relationship>
+		<relationship name="markerTrack">
+			<destination>{6d5843dc-5279-4993-a189-0994b50811fe}</destination>
+		</relationship>
+	</object>
+	<object class="TransitionMarker" id="{c3554ee7-4e14-4dcb-9471-bf5390f4484b}">
+		<property name="position">
+			<value>3.5555625000000002</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{f1241ce9-2ba0-4491-bd93-911befb37227}</destination>
