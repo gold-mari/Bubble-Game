@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using NaughtyAttributes;
 
 public class EndlessMusicManager : MusicManager
@@ -27,6 +28,9 @@ public class EndlessMusicManager : MusicManager
     [SerializeField, Tooltip("The stages to cycle through in this scene.")]
     private EndlessStage[] stages;
 
+    // "Beating Endless Mode" refers to clearing all stages once. 
+    // IE, this action is called whenever we loop back to the start.
+    public UnityEvent OnBeatEndless;
     public System.Action<EndlessStage> OnNextStage;
 
     // ================================================================
@@ -83,6 +87,8 @@ public class EndlessMusicManager : MusicManager
             _index = 0;
             _semitoneOffset += 1;
             FMODUnity.RuntimeManager.StudioSystem.setParameterByName("SemitoneOffset", _semitoneOffset);
+
+            OnBeatEndless?.Invoke();
         }
 
         mainSong = stages[_index].song;
