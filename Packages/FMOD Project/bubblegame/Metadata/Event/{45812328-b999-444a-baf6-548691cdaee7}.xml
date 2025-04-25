@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{45812328-b999-444a-baf6-548691cdaee7}">
 		<property name="name">
 			<value>BubbleSpawn</value>
@@ -80,8 +80,8 @@
 	</object>
 	<object class="Timeline" id="{0ff9732a-43d0-448a-9f0c-18d7fc52a239}">
 		<relationship name="modules">
-			<destination>{6a7c8771-4dbd-4f57-965b-ea6105da06e5}</destination>
 			<destination>{0117619f-8ed9-4712-9139-c6487c67c33b}</destination>
+			<destination>{6a7c8771-4dbd-4f57-965b-ea6105da06e5}</destination>
 		</relationship>
 	</object>
 	<object class="ParameterProxy" id="{83b46443-a4ce-4702-be0c-c61382f80d4d}">

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{f61828d8-a50f-43d6-8df0-1b5e73f5716b}">
 		<property name="assetPath">
 			<value>trans_Out.wav</value>

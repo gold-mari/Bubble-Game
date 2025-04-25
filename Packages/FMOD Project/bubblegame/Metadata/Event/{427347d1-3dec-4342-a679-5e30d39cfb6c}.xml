@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{427347d1-3dec-4342-a679-5e30d39cfb6c}">
 		<property name="name">
 			<value>G#Ab</value>

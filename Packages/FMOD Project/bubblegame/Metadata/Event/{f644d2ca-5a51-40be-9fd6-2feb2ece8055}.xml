@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{f644d2ca-5a51-40be-9fd6-2feb2ece8055}">
 		<property name="name">
 			<value>ChainDestroy</value>
@@ -88,8 +88,8 @@
 	</object>
 	<object class="Timeline" id="{549b48be-899e-46ce-8465-17e92d678a4c}">
 		<relationship name="modules">
-			<destination>{dbd8859b-44cc-4d9d-a234-30643c2f11e0}</destination>
 			<destination>{6a5ea417-e129-434a-8ea1-9950b18e2d5e}</destination>
+			<destination>{dbd8859b-44cc-4d9d-a234-30643c2f11e0}</destination>
 			<destination>{9d83587f-e443-4ae3-a966-178681bd1ef5}</destination>
 		</relationship>
 	</object>
@@ -254,8 +254,8 @@
 			<destination>{b6a23483-de66-4a16-8881-db3d035ae682}</destination>
 		</relationship>
 		<relationship name="automationPoints">
-			<destination>{8202be37-5bce-4df6-ab6e-3d810f37b56b}</destination>
 			<destination>{0c025854-3132-426c-851b-9a78e5fd8618}</destination>
+			<destination>{8202be37-5bce-4df6-ab6e-3d810f37b56b}</destination>
 		</relationship>
 	</object>
 	<object class="AutomationCurve" id="{7ea8e5fa-0319-4588-a234-26c2f06600f9}">
@@ -268,6 +268,14 @@
 	</object>
 	<object class="MixerBusFader" id="{f6124cec-2e6f-41a3-8c5b-8fb668e558df}" />
 	<object class="MixerBusFader" id="{e8f1028d-fd59-4702-8ca3-689e7871f183}" />
+	<object class="AutomationPoint" id="{0c025854-3132-426c-851b-9a78e5fd8618}">
+		<property name="position">
+			<value>5</value>
+		</property>
+		<property name="value">
+			<value>5</value>
+		</property>
+	</object>
 	<object class="AutomationPoint" id="{8202be37-5bce-4df6-ab6e-3d810f37b56b}">
 		<property name="position">
 			<value>0</value>
@@ -277,14 +285,6 @@
 		</property>
 		<property name="curveShape">
 			<value>-0.0802189931</value>
-		</property>
-	</object>
-	<object class="AutomationPoint" id="{0c025854-3132-426c-851b-9a78e5fd8618}">
-		<property name="position">
-			<value>5</value>
-		</property>
-		<property name="value">
-			<value>5</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{0414ee29-6dc2-40a9-bad4-b6730feb4619}">

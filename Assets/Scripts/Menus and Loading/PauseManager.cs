@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
-using UnityEditor;
 using UnityEngine.Events;
 
 public class PauseManager : MonoBehaviour

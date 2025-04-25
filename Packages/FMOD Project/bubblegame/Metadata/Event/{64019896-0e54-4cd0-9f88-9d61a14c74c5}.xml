@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{64019896-0e54-4cd0-9f88-9d61a14c74c5}">
 		<property name="name">
 			<value>Lose</value>
@@ -77,8 +77,8 @@
 	</object>
 	<object class="Timeline" id="{2330430e-93c6-4272-96d9-facd40ecb96e}">
 		<relationship name="modules">
-			<destination>{6bdbbbaf-846c-463a-bfbc-8c7728b5dfdc}</destination>
 			<destination>{031ef24c-1076-455f-9e2c-40d799bef7c7}</destination>
+			<destination>{6bdbbbaf-846c-463a-bfbc-8c7728b5dfdc}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{ab751676-1373-44c6-af48-c093fcb8ea7e}">

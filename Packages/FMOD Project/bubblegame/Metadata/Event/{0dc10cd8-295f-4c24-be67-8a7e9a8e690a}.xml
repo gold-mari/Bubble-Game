@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{0dc10cd8-295f-4c24-be67-8a7e9a8e690a}">
 		<property name="name">
 			<value>CAUG</value>
@@ -92,10 +92,10 @@
 	</object>
 	<object class="Timeline" id="{fc842dbe-69ab-4680-a8cb-435594c7cb18}">
 		<relationship name="modules">
-			<destination>{f67a6bd2-a289-4473-a6ea-26f21c155527}</destination>
-			<destination>{41f95e1a-6e3d-45e6-b477-ca9e46991d6e}</destination>
-			<destination>{2595679d-abc7-40bf-a4f7-d88fbcf6acc8}</destination>
 			<destination>{b6f0dd38-06e4-4203-a8ae-fc2fd8da8353}</destination>
+			<destination>{f67a6bd2-a289-4473-a6ea-26f21c155527}</destination>
+			<destination>{2595679d-abc7-40bf-a4f7-d88fbcf6acc8}</destination>
+			<destination>{41f95e1a-6e3d-45e6-b477-ca9e46991d6e}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{a3a982f2-06a4-4a29-a814-8d2cbc8ce574}">

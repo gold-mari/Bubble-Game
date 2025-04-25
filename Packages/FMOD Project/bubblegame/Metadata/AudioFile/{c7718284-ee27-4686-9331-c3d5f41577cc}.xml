@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{c7718284-ee27-4686-9331-c3d5f41577cc}">
 		<property name="assetPath">
 			<value>Music/Final/cutscene-master.ogg</value>

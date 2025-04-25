@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{35c8943a-904f-4f63-ac7e-ab8a83f49d42}">
 		<property name="assetPath">
 			<value>SFX/burst_v3.wav</value>

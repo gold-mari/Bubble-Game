@@ -593,6 +593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
   attenuationObject: {fileID: 0}
 --- !u!1 &549023722
 GameObject:
@@ -1901,9 +1902,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Thank you for playing\nBubbleBeast DigiDungeon! ^w^\n\nLevel Select is
-    now available\nin the Tutorial and Extras menu.\n\n\n<b><sprite index=1 tint=1>/<sprite
-    index=4 tint=1> \u2014 Return</b>"
+  m_text: "Thank you for playing\nBubbleBeast DigiDungeon! ^w^\n\nLevel Select and
+    Endless Mode\nare now available in the \nTutorial and Extras menu.\n\n\n<b><sprite
+    index=1 tint=1>/<sprite index=4 tint=1> \u2014 Return</b>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0539ba517723d6d43bf03748c8281f6b, type: 2}
   m_sharedMaterial: {fileID: 880974728737460417, guid: 0539ba517723d6d43bf03748c8281f6b, type: 2}

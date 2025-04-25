@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,7 +11,15 @@ public class SaveHandler : MonoBehaviour
     // ==============================================================
 
     public static readonly string[] gameLevels = new string[]{
-        "Level1", "Level2", "Level3", "Level4", "Level5"
+        "Level1", "Level2", "Level3", "Level4", "Level5", "Level6", "LevelE"
+    };
+
+    public static readonly string[] specialLevels =  new string[]{
+        "Level6", "LevelE"
+    };
+
+    public static readonly string[] endlessLevels =  new string[]{
+        "LevelE"
     };
 
     public static readonly string[] gameCutscenes = new string[]{
@@ -26,9 +35,12 @@ public class SaveHandler : MonoBehaviour
         public bool playedBefore = false;
         public bool seenTutorial = false;
         public bool finishedGame = false;
-        public RankStats[] highScores = new RankStats[5]{
-            null, null, null, null, null
+        public bool beatEndless = false;
+        public bool playedLevel6 = false;
+        public RankStats[] highScores = new RankStats[7]{
+            null, null, null, null, null, null, null
         };
+        public uint endlessBestTime = 0;
     }
     private static SaveData saveData = null;
 
@@ -38,17 +50,9 @@ public class SaveHandler : MonoBehaviour
 
     private void Awake()
     {
-        // saveData should (I think) be null once per game, when we have first opened the app.
+        // saveData should (I think) be null once per game session, when we have first opened the app.
         if (saveData == null) {
-            // If it's null, load data from file.
-            saveData = FileDataHandler.Load();
-            if (saveData == null) {
-                // If it's STILL null, make a new one!
-                // print($"SaveHandler: No save found. Creating new struct.");
-                saveData = new();
-            } else {
-                // print($"SaveHandler: Loaded data from file.");
-            }
+            Load();
         }
     }
 
@@ -62,7 +66,7 @@ public class SaveHandler : MonoBehaviour
 
         // print($"SaveHandler: Current scene is {sceneName}");
 
-        if (gameLevels.Contains(sceneName)) {
+        if (gameLevels.Contains(sceneName) && !specialLevels.Contains(sceneName)) {
             // If it's a level, note the scene and note that we've played.
             saveData.lastPlayedScene = sceneName;
             saveData.playedBefore = true;
@@ -76,6 +80,33 @@ public class SaveHandler : MonoBehaviour
         Save();
     }
 
+#if UNITY_EDITOR
+    private void OnGUI()
+    {
+        if (GUI.Button(new Rect(70, 10, 50, 50), "!HAS6"))
+        {
+            saveData.beatEndless = false;
+            Save();
+        }
+        if (GUI.Button(new Rect(70, 70, 50, 50), "!PLAY6"))
+        {
+            saveData.playedLevel6 = false;
+            Save();
+        }
+        if (GUI.Button(new Rect(140, 10, 50, 50), "RESET"))
+        {
+            saveData.endlessBestTime = 0;
+            saveData.highScores[6] = null;
+            Save();
+        }
+        if (GUI.Button(new Rect(140, 70, 50, 50), "GAME"))
+        {
+            saveData.finishedGame = true;
+            Save();
+        }
+    }
+#endif
+
     public void SawTutorial()
     {
         saveData.seenTutorial = true;
@@ -85,6 +116,18 @@ public class SaveHandler : MonoBehaviour
     public void FinishedGame()
     {
         saveData.finishedGame = true;
+        Save();
+    }
+
+    public void BeatEndless()
+    {
+        saveData.beatEndless = true;
+        Save();
+    }
+
+    public void PlayedLevel6()
+    {
+        saveData.playedLevel6 = true;
         Save();
     }
 
@@ -107,8 +150,10 @@ public class SaveHandler : MonoBehaviour
         //  * We're in a level
         //  * We have won, and are awaiting results.
         // In case of a crash, save our level as the NEXT one.
-        saveData.lastPlayedScene = LevelLoader.Instance.QuerySceneDict("Next");
-        Save();
+        if (!specialLevels.Contains(sceneName)) {
+            saveData.lastPlayedScene = LevelLoader.Instance.QuerySceneDict("Next");
+            Save();
+        }
 
         if (stats == null) {
             Debug.LogError($"SaveHandler Error: SetRankStats failed. stats was null.");
@@ -117,11 +162,39 @@ public class SaveHandler : MonoBehaviour
 
         // Find where the current scene is in our array, using it to index our highScores array.
         int index = Array.IndexOf(gameLevels, sceneName);
-        
+        // print($"SaveHandler: High Score --- old was {saveData.highScores[index].score}, new is {stats.score}.");
+
         // If the score is better, mark it as the new high score!
         if (saveData.highScores[index] == null || stats.score > saveData.highScores[index].score) {
-            print($"SaveHandler: Saving high score into index {index}");
+            print($"SaveHandler: Saving high score into index {index}.");
             saveData.highScores[index] = new RankStats(stats);
+            Save();
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool TrySetBestTime(uint time)
+    {
+        // Compares a rankStats against the high score for the current level.
+        // If the new score is higher, set the new high score!
+        // Returns whether or not it was a high score.
+        // ================
+
+        // If the game is not a level, throw an error.
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (!endlessLevels.Contains(sceneName)) {
+            Debug.Log($"SaveHandler Notice: TrySetBestTime failed. Current scene ({sceneName}) is not an endless level.");
+            return false;
+        }
+
+        // print($"SaveHandler: Best Time --- old was {saveData.endlessBestTime}, new is {time}.");
+
+        // If the score is better, mark it as the new high score!
+        if (time > saveData.endlessBestTime) {
+            print($"SaveHandler: Saving best time. Old was {saveData.endlessBestTime}, new is {time}.");
+            saveData.endlessBestTime = time;
             Save();
             return true;
         }
@@ -148,9 +221,29 @@ public class SaveHandler : MonoBehaviour
         // the game, in an initializer scene.
         // ================
 
-        SaveData loadedData = FileDataHandler.Load();
-        // LoadedData if nonnull, else new SaveData.
-        saveData = loadedData ?? new SaveData();
+        // If it's null, load data from file.
+        saveData = FileDataHandler.Load();
+        SaveData freshSave = new();
+        if (saveData == null) {
+            // If it's STILL null, make a new one!
+            // print($"SaveHandler: No save found. Creating new struct.");
+            saveData = freshSave;
+        } else {
+            // print($"SaveHandler: Loaded data from file.");
+
+            // If we're missing high scores, add nulls until we have enough.
+            // This is only relevant for if we add a level, like in the Endless Mode Update
+            // when Level 6 and Level E were added.
+
+            int scoresMissing = freshSave.highScores.Length-saveData.highScores.Length;
+            if (scoresMissing > 0) {
+                List<RankStats> scores = saveData.highScores.ToList();
+                scores.AddRange(Enumerable.Repeat<RankStats>(null, scoresMissing));
+                saveData.highScores = scores.ToArray();
+            }
+
+            // Debug.Log($"Extended high scores slots by {scoresMissing}. New length is {saveData.highScores.Length}");
+        }
     }
 
     // ==============================================================
@@ -193,8 +286,29 @@ public class SaveHandler : MonoBehaviour
         return saveData.finishedGame;
     }
 
+    public bool GetBeatEndless()
+    {
+        // Used to show / hide our 6th level.
+        // ================
+
+        return saveData.beatEndless;
+    }
+
+    public bool GetPlayedLevel6()
+    {
+        // Used to show / hide the notif badge for our 6th level.
+        // ================
+
+        return saveData.playedLevel6;
+    }
+
     public RankStats GetHighScore(int index)
     {
         return saveData.highScores[index];
+    }
+
+    public uint GetEndlessBestTime()
+    {
+        return saveData.endlessBestTime;
     }
 }

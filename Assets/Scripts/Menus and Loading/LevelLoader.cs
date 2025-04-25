@@ -92,7 +92,7 @@ public class LevelLoader : MonoBehaviour
             }
 
             if (pauseManager) {
-                print("Locked pause to true");
+                // print("Locked pause to true");
                 pauseManager.LockPause(true);
             }
 

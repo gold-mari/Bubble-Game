@@ -19,8 +19,7 @@ namespace FMODUnity
         private const string AssetsFolderName = "Assets";
 
         private const string CacheAssetName = "FMODStudioCache";
-        public static string CacheAssetFullName =>
-            $"Assets/{RuntimeUtils.PluginBasePath}/Cache/Editor/{CacheAssetName}.asset";
+        public static string CacheAssetFullName = EditorUtils.WritableAssetPath(CacheAssetName);
         private static EventCache eventCache;
 
         private const string StringBankExtension = "strings.bank";
@@ -50,6 +49,7 @@ namespace FMODUnity
             eventCache.CacheTime = DateTime.MinValue;
             eventCache.EditorBanks.Clear();
             eventCache.EditorEvents.Clear();
+            eventCache.EditorEventsDict.Clear();
             eventCache.EditorParameters.Clear();
             eventCache.StringsBanks.Clear();
             eventCache.MasterBanks.Clear();
@@ -355,6 +355,7 @@ namespace FMODUnity
                 });
                 eventCache.EditorParameters.RemoveAll((x) => x == null);
 
+                eventCache.BuildDictionary();
                 AssetDatabase.SaveAssets();
             }
             finally
@@ -419,7 +420,7 @@ namespace FMODUnity
                         FMOD.GUID guid;
                         eventDesc.getID(out guid);
 
-                        EditorEventRef eventRef = eventCache.EditorEvents.Find((x) => x.Path == path);
+                        EditorEventRef eventRef = eventCache.EditorEvents.Find((x) => string.Compare(x.Path, path, StringComparison.CurrentCultureIgnoreCase) == 0);
                         if (eventRef == null)
                         {
                             eventRef = ScriptableObject.CreateInstance<EditorEventRef>();
@@ -1052,9 +1053,13 @@ namespace FMODUnity
         private static void BuildTargetChanged()
         {
             RefreshBanks();
-            #if UNITY_ANDROID
+#if UNITY_ANDROID
+#if UNITY_2023_1_OR_NEWER
+            Settings.Instance.AndroidUseOBB = PlayerSettings.Android.splitApplicationBinary;
+#else
             Settings.Instance.AndroidUseOBB = PlayerSettings.Android.useAPKExpansionFiles;
-            #endif
+#endif //UNITY_2023_1_OR_NEWER
+#endif //UNITY_ANDROID
         }
 
         private static void OnCacheChange()
@@ -1219,7 +1224,13 @@ namespace FMODUnity
         public static EditorEventRef EventFromString(string path)
         {
             AffirmEventCache();
-            return eventCache.EditorEvents.Find((x) => x.Path.Equals(path, StringComparison.CurrentCultureIgnoreCase));
+
+            if (eventCache.EditorEventsDict.TryGetValue(path, out int index))
+            {
+                return eventCache.EditorEvents[index];
+            }
+
+            return null;
         }
 
         public static EditorEventRef EventFromGUID(FMOD.GUID guid)

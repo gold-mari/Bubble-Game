@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{6be16542-f974-444f-abfb-bd6c2883161e}">
 		<property name="assetPath">
 			<value>catSpeech_E_v8.wav</value>

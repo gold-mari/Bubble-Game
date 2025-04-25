@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cdcce0fc639a87448c0374e75ad9b2d, type: 3}
+  m_Name: Level6
+  m_EditorClassIdentifier: 
+  musicEvent:
+    Guid:
+      Data1: 174594326
+      Data2: 1324192367
+      Data3: -106246977
+      Data4: 328147395
+    Path: event:/Music/Level6
+  endTime: 128.8
+  isMedley: 1
+  beatmapFile: {fileID: 4900000, guid: fe7b61708abd89e458a1d402f594f6bd, type: 3}
+  beatmapFiles:
+  - beatmapName: intro
+    beatmapFile: {fileID: 4900000, guid: 0af78aa472c67484f9e91b77dcce5eba, type: 3}
+  - beatmapName: a
+    beatmapFile: {fileID: 4900000, guid: 9a5e1914cc83d714687764652f81da90, type: 3}

@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using NaughtyAttributes;
 
 public class MusicManager : MusicPlayer
@@ -11,13 +9,15 @@ public class MusicManager : MusicPlayer
     // ================================================================
 
     [Expandable, SerializeField, Tooltip("The main gameplay song to play in this scene.")]
-    private Song mainSong;
+    protected Song mainSong;
     [SerializeField, Tooltip("The 'Current Beatmap' variable in the scene.")]
     private Beatmap currentBeatmap;
     [SerializeField, Tooltip("The floatVar representing how far we are into the song.")]
     private floatVar songCompletion;
     [SerializeField, Tooltip("How long, in seconds, it takes us to tape stop on a loss.\n\nDefault: 2")]
     private float tapeStopDuration = 2;
+    [SerializeField, Tooltip("If we win when the song ends.\n\nDefault: true")]
+    private bool winOnEnd = true;
     [SerializeField, Tooltip("The endgame manager present in this scene.")]
     private EndgameManager endgameManager;
 
@@ -30,16 +30,22 @@ public class MusicManager : MusicPlayer
         // Set things up!
         // ================
         
+        handler = InitializeSong();
+    }
+
+    protected TimelineHandler InitializeSong()
+    {
+        // Define our beatmap, set our eventRef, and subscribe to markerUpdated.
+        // Returns the TimelineHandler produced by initializing the FMOD event.
+        // ================
+
         Debug.Assert(!mainSong.musicEvent.IsNull, "MusicManager Error: Start() failed. mainSong.musicEvent is null.");
 
         // Define the beatmap.
         currentBeatmap.Clear();
-        if (!mainSong.isMedley)
-        {
+        if (!mainSong.isMedley) {
             currentBeatmap.Populate(mainSong.beatmapFile);
-        }
-        else // if (mainSong.isMedley)
-        {
+        } else { // if (mainSong.isMedley) 
             currentBeatmap.Populate(mainSong.beatmapFiles[0].beatmapFile);
         }
 
@@ -48,10 +54,12 @@ public class MusicManager : MusicPlayer
         songCompletion.value = 0;
 
         // Call our base awake function, which includes creating our timeline handler.
-        base.Awake();
+        TimelineHandler newHandler = MakeHandlerFromInstance();
 
         // Subscribe to the markerUpdated function. Used to know when the song ends.
-        handler.markerUpdated += OnMarkerUpdated;
+        newHandler.markerUpdated += OnMarkerUpdated;
+
+        return newHandler;
     }
 
     protected override void Start()
@@ -60,6 +68,7 @@ public class MusicManager : MusicPlayer
         // ================
 
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("TapeStop", 0);
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("SemitoneOffset", 0);
         base.Start();
     }
 
@@ -87,6 +96,7 @@ public class MusicManager : MusicPlayer
 
         StartCoroutine(TapeStopRoutine());
     }
+
     private IEnumerator TapeStopRoutine()
     {
         // Applies the tape stop effect to the currently playing event. Also ends the music after.
@@ -95,8 +105,7 @@ public class MusicManager : MusicPlayer
         handler.StopUpdating();
 
         float elapsed = 0;
-        while (elapsed < tapeStopDuration)
-        {
+        while (elapsed < tapeStopDuration) {
             FMODUnity.RuntimeManager.StudioSystem.setParameterByName("TapeStop", elapsed/tapeStopDuration);
             elapsed += Time.deltaTime;
             yield return null;
@@ -114,28 +123,27 @@ public class MusicManager : MusicPlayer
     // Event handling methods
     // ================================================================
 
-    private void OnMarkerUpdated(string lastMarker)
+    protected virtual void OnMarkerUpdated(string lastMarker)
     {
         if (lastMarker == "end" && !songEnded) {
             songEnded = true;
-            endgameManager.TriggerWin();
-        }
-        else if (mainSong.isMedley)
-        {
+            if (winOnEnd) {
+                endgameManager.TriggerWin();
+            }
+        } else if (mainSong.isMedley) {
             string[] medleyStrings = lastMarker.Split('-');
-            if (medleyStrings[0] == "switchMap")
-            {
+            if (medleyStrings[0] == "switchMap") {
                 Debug.Assert(medleyStrings.Length == 2, $"MusicManager error: OnMarkerUpdated failed. "
                                                       + $"Unable to parse switchMap marker: {lastMarker}");
-                foreach (MedleyBeatmap map in mainSong.beatmapFiles)
-                {
-                    if (map.beatmapName == medleyStrings[1])
-                    {
+                foreach (MedleyBeatmap map in mainSong.beatmapFiles) {
+                    if (map.beatmapName == medleyStrings[1]) {
                         currentBeatmap.Clear();
                         currentBeatmap.Populate(map.beatmapFile);
                         return;
                     }
                 }
+
+                // If the map was not found, don't do anything.
             }
         }
     }
