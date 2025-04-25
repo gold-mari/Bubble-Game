@@ -96,6 +96,7 @@ public class PauseManager : MonoBehaviour
         {
             Time.timeScale = 0;
             sfxBus.setPaused(true);
+            InputHandler.SetRumblePaused(true);
             onPause.Invoke();
             musicBus.setPaused(true);
         }
@@ -103,6 +104,7 @@ public class PauseManager : MonoBehaviour
         {
             Time.timeScale = 1;
             sfxBus.setPaused(false);
+            InputHandler.SetRumblePaused(false);
             onUnpause.Invoke();
             musicBus.setPaused(false);
         }

@@ -39,6 +39,7 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
 
     private bool _mouseLastUsed;
     private Vector2 _lastPointerPos;
+    private Vector2 _lastRumble;
    
     // Initializers and Finalizers ================================================================
 
@@ -156,7 +157,25 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
     {
         if (Instance != null) {
             float scale = Instance.rumbleScaling ? Instance.rumbleScaling.value : 1;
-            Instance.LastUsedGamepad?.SetMotorSpeeds(lowFrequency*scale, highFrequency*scale);
+            Instance._lastRumble = new(lowFrequency*scale, highFrequency*scale);
+            Instance.LastUsedGamepad?.SetMotorSpeeds(Instance._lastRumble.x, Instance._lastRumble.y);
+        } else {
+            NoHandlerError();
+        }
+    }
+
+    /// <summary>
+    /// Pauses / unpauses the gamepad rumble
+    /// </summary>
+    /// <param name="paused">bool - if we are paused or not.</param>
+    public static void SetRumblePaused(bool paused)
+    {
+        if (Instance != null) {
+            if (paused) {
+                Instance.LastUsedGamepad?.SetMotorSpeeds(0, 0);
+            } else {
+                Instance.LastUsedGamepad?.SetMotorSpeeds(Instance._lastRumble.x, Instance._lastRumble.y);
+            }
         } else {
             NoHandlerError();
         }
