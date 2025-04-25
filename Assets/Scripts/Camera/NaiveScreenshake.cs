@@ -14,10 +14,10 @@ public class NaiveScreenshake : MonoBehaviour
     [Tooltip("The duration of the base screenshake, in seconds.n\nDefault: 0.5")]
     public float BaseShakeDuration { get; private set; } = 0.5f;
 
-    [SerializeField, Range(0,1), Tooltip("The magnitude of the gamepad's low-frequency rumble.+\n\nDefault: 0.5")]
-    private float lowGamepadRumble = 0.5f;
-    [SerializeField, Range(0,1), Tooltip("The magnitude of the gamepad's high-frequency rumble.+\n\nDefault: 0.25")]
-    private float highGamepadRumble = 0.25f;
+    [SerializeField, Range(0,1), Tooltip("The magnitude of the gamepad's low-frequency rumble.+\n\nDefault: 0.4")]
+    private float lowRumble = 0.4f;
+    [SerializeField, Range(0,1), Tooltip("The magnitude of the gamepad's high-frequency rumble.+\n\nDefault: 0.2")]
+    private float highRumble = 0.2f;
     [SerializeField, Min(1), Tooltip("How quickly rumble magnitude falls off on screenshake. "
                                    + "Higher numbers are faster.\n\nDefault: 6")]
     private float rumbleFalloff = 6f;
@@ -91,7 +91,7 @@ public class NaiveScreenshake : MonoBehaviour
                 Vector3 offset = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0).normalized * currentMagnitude;
 
                 float rumbleAmount = LerpKit.EaseIn(1-elapsed/duration, rumbleFalloff);
-                InputHandler.SetRumble(lowGamepadRumble*rumbleAmount, highGamepadRumble*rumbleAmount);
+                InputHandler.SetRumble(lowRumble*rumbleAmount, highRumble*rumbleAmount);
                 
                 transform.position = basePosition + offset;
                 elapsed += Time.deltaTime;
