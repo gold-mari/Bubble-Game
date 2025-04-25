@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
   attenuationObject: {fileID: 0}
 --- !u!1 &681426333
 GameObject:
@@ -598,7 +599,7 @@ MonoBehaviour:
   screenshakeScaling: {fileID: 11400000, guid: eedb913d0a4fa5d40b0a1b3966a834cb, type: 2}
   screenshakeSlider: {fileID: 0}
   screenshakeReadout: {fileID: 0}
-  rumbleScaling: {fileID: 0}
+  rumbleScaling: {fileID: 11400000, guid: 566d6bf1691522e4d98d096959691494, type: 2}
   rumbleSlider: {fileID: 0}
   rumbleReadout: {fileID: 0}
   reduceFlashing: {fileID: 11400000, guid: 7f97a7887923e474781a10af95a736ce, type: 2}

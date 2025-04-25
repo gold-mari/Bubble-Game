@@ -120,7 +120,7 @@ public class TimelineHandler
 
     public TimelineHandler(FMOD.Studio.EventInstance eventInstance, string busPath, string ID)
     {
-        Debug.Log($"Called constructor on {ID}");
+        // Debug.Log($"Called constructor on {ID}");
 
         // Constructor.
         // ================
@@ -173,7 +173,7 @@ public class TimelineHandler
 
     public void PassAllSubscribersTo(TimelineHandler other)
     {
-        Debug.Log($"Passing from {id} to {other.id}");
+        // Debug.Log($"Passing from {id} to {other.id}");
 
         other.beatUpdated = PassFrom(beatUpdated);
         other.tempoUpdated = PassFrom(tempoUpdated);
@@ -218,7 +218,7 @@ public class TimelineHandler
         // When this object is destroyed, stop the music and free the GCHandle.
         // ================
 
-        Debug.Log($"Called destructor on {id}");
+        // Debug.Log($"Called destructor on {id}");
 
         // Reset the instance's data.
         instance.setUserData(IntPtr.Zero);

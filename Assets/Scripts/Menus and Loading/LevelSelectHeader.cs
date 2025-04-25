@@ -24,7 +24,7 @@ public class LevelSelectHeader : MonoBehaviour
     {
         RankStats stats = saveHandler.GetHighScore(levelIndex);
         title.text = $"Level {levelIndex+1}";
-        if (stats.score == -1) {
+        if (stats == null || stats.score == -1) {
             subtitle.text = $"Level has not yet been won!";
         } else {
             subtitle.text = $"High Score: {stats.score} - Rank: {stats.rank}";

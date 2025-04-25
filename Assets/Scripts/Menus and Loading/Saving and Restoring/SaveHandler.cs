@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -26,8 +27,8 @@ public class SaveHandler : MonoBehaviour
         public bool playedBefore = false;
         public bool seenTutorial = false;
         public bool finishedGame = false;
-        public RankStats[] highScores = new RankStats[5]{
-            null, null, null, null, null
+        public RankStats[] highScores = new RankStats[6]{
+            null, null, null, null, null, null
         };
     }
     private static SaveData saveData = null;
@@ -38,17 +39,9 @@ public class SaveHandler : MonoBehaviour
 
     private void Awake()
     {
-        // saveData should (I think) be null once per game, when we have first opened the app.
+        // saveData should (I think) be null once per game session, when we have first opened the app.
         if (saveData == null) {
-            // If it's null, load data from file.
-            saveData = FileDataHandler.Load();
-            if (saveData == null) {
-                // If it's STILL null, make a new one!
-                // print($"SaveHandler: No save found. Creating new struct.");
-                saveData = new();
-            } else {
-                // print($"SaveHandler: Loaded data from file.");
-            }
+            Load();
         }
     }
 
@@ -148,9 +141,29 @@ public class SaveHandler : MonoBehaviour
         // the game, in an initializer scene.
         // ================
 
-        SaveData loadedData = FileDataHandler.Load();
-        // LoadedData if nonnull, else new SaveData.
-        saveData = loadedData ?? new SaveData();
+        // If it's null, load data from file.
+        saveData = FileDataHandler.Load();
+        SaveData freshSave = new();
+        if (saveData == null) {
+            // If it's STILL null, make a new one!
+            print($"SaveHandler: No save found. Creating new struct.");
+            saveData = freshSave;
+        } else {
+            print($"SaveHandler: Loaded data from file.");
+
+            // If we're missing high scores, add nulls until we have enough.
+            // This is only relevant for if we add a level, like in the Endless Mode Update
+            // when Level 6 was added.
+
+            int scoresMissing = freshSave.highScores.Length-saveData.highScores.Length;
+            if (scoresMissing > 0) {
+                List<RankStats> scores = saveData.highScores.ToList();
+                scores.AddRange(Enumerable.Repeat<RankStats>(null, scoresMissing));
+                saveData.highScores = scores.ToArray();
+            }
+
+            Debug.Log($"Extended high scores slots by {scoresMissing}. New length is {saveData.highScores.Length}");
+        }
     }
 
     // ==============================================================
