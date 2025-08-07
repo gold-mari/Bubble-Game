@@ -58,7 +58,7 @@ public class AccessibilitySettingsHandler : MonoBehaviour
 
         // Load UI and variable values from settings
 
-        NaiveScreenshake[] screenshakes = FindObjectsOfType<NaiveScreenshake>(includeInactive:true);
+        NaiveScreenshake[] screenshakes = FindObjectsByType<NaiveScreenshake>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         foreach (NaiveScreenshake s in screenshakes) {
             s.SetShakeScalingVar(screenshakeScaling);   
         }
