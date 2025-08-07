@@ -55,11 +55,11 @@ public class RadialGravity : MonoBehaviour
         vector *= strength.value;
         body.AddForce(vector);
         
-        body.drag = 0;
+        body.linearDamping = 0;
          // gravity points in and we're outside our radius...
         if (strength.value < 0 && ((Vector2)transform.position - center).magnitude > dragRadius)
         {
-            body.drag = dragAmount;
+            body.linearDamping = dragAmount;
         }
     }
 
@@ -70,6 +70,6 @@ public class RadialGravity : MonoBehaviour
     public void PseudoFreeze(bool value)
     {
         frozen = value;
-        if (value) body.velocity = Vector2.zero;
+        if (value) body.linearVelocity = Vector2.zero;
     }
 }

@@ -75,7 +75,7 @@ public class Bubble : MonoBehaviour
             if (body)
             {
                 // Cancel out most of our existing velocity, apply gravity, and give us a random horizontal force.
-                body.velocity *= 0.1f;
+                body.linearVelocity *= 0.1f;
                 body.gravityScale = 2f;
                 body.AddForce(new Vector2(Random.Range(-1,1)*100, 0f));
             }
