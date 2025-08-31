@@ -52,13 +52,13 @@ public class InitLoader : MonoBehaviour
         
         loaded = true;
 
-        if (!saveHandler.GetPlayedBefore())
-        {
-            LevelLoader.Instance.LoadLevel("Cutscene Intro");
-        }
-        else
-        { // Not our first rodeo
+        // if (!saveHandler.GetPlayedBefore())
+        // {
+        //     LevelLoader.Instance.LoadLevel("Cutscene Intro");
+        // }
+        // else
+        // { // Not our first rodeo
             LevelLoader.Instance.LoadLevel("MainMenu");
-        }
+        // }
     }
 }
