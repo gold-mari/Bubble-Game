@@ -12,10 +12,14 @@ public class SIXAttractVid : MonoBehaviour
     public VideoPlayer player;
     public CanvasGroup transGroup;
 
-    public float transTime = 0.2f;
+    public float transTime = 0.5f;
+    public float timeBeforeAttract = 10f;
 
     private WaitForSecondsRealtime transWait;
     private EventSystem eventSystem;
+    private bool attracting = false;
+    private bool alreadyChanging = false;
+    [SerializeField] [ReadOnly] private float idleTime = 0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,9 +28,36 @@ public class SIXAttractVid : MonoBehaviour
         eventSystem = EventSystem.current;
     }
 
-    [Button]
+    void Update()
+    {
+        if (alreadyChanging) return;
+
+        if (attracting) {
+            idleTime = 0;
+
+            if (InputHandler.Instance && InputHandler.Instance.AnyDown) {
+                ExitAttract();
+            }
+        } else { // !attracting
+
+            // Build idle time.
+            idleTime += Time.unscaledDeltaTime;
+
+            // If not idle, reset it.
+            if (InputHandler.Instance && InputHandler.Instance.AnyDown) {
+                idleTime = 0;
+            }
+
+            if (idleTime > timeBeforeAttract) {
+                EnterAttract();
+            }
+        }
+    }
+    
+
     public void EnterAttract()
     {
+        alreadyChanging = true;
         StopCoroutine(EnterAttractRoutine());
         StartCoroutine(EnterAttractRoutine());
 
@@ -61,12 +92,16 @@ public class SIXAttractVid : MonoBehaviour
             }
 
             transGroup.alpha = 0;
+
+            attracting = true;
+            alreadyChanging = false;
         }
     }
 
-    [Button]
+
     public void ExitAttract()
     {
+        alreadyChanging = true;
         StopCoroutine(ExitAttractRoutine());
         StartCoroutine(ExitAttractRoutine());
 
@@ -98,6 +133,9 @@ public class SIXAttractVid : MonoBehaviour
             mainGroup.alpha = 0;
             eventSystem.enabled = true;
             levelSelect.enabled = true;
+
+            attracting = false;
+            alreadyChanging = false;
         }
     }
 }

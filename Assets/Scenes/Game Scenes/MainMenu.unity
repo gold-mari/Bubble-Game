@@ -10496,6 +10496,8 @@ MonoBehaviour:
   player: {fileID: 222495693}
   transGroup: {fileID: 205410910}
   transTime: 0.5
+  timeBeforeAttract: 20
+  idleTime: 0
 --- !u!1 &1346097580
 GameObject:
   m_ObjectHideFlags: 0

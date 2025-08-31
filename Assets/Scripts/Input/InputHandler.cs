@@ -19,6 +19,7 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
     public InputControlScheme KeyboardScheme => _controls.KeyboardMouseScheme;
     public InputControlScheme GamepadScheme => _controls.GamepadScheme;
     public bool MouseLastUsed => _mouseLastUsed;
+    public bool AnyDown => _anyDown;
 
     // Misc Internal Variables ====================================================================
 
@@ -39,6 +40,7 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
     // Misc
 
     private bool _mouseLastUsed;
+    private bool _anyDown;
     private Vector2 _lastPointerPos;
     private Vector2 _lastRumble;
    
@@ -90,11 +92,12 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
         _getDown["_affirm"] = false;
         _getDown["_deny"] = false;
         _getDown["_DEBUG"] = false;
+        _anyDown = false;
     }
 
     private void SetDown(InputAction.CallbackContext context, string input)
     {
-        if (context.started) _getDown[input] = _get[input] = true; 
+        if (context.started) _anyDown = _getDown[input] = _get[input] = true; 
         if (context.canceled) _getDown[input] = _get[input] = false;
 
         UpdateLastUsedScheme(context);
@@ -134,6 +137,7 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
         // If we've moved the pointer, force update the last used scheme.
         if (_lastPointerPos != _pointerPos) {
             _lastPointerPos = _pointerPos;
+            _anyDown = true;
             UpdateLastUsedScheme(context, true);
         }
     }
@@ -141,14 +145,15 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
     public void OnStick(InputAction.CallbackContext context) 
     {
         _stickDir = context.ReadValue<Vector2>();
+        _anyDown = true;
         UpdateLastUsedScheme(context);
     }
 
     // UI events ================================
     // Functionality for these inputs is handled by the Event System.
-    public void OnUIMove(InputAction.CallbackContext context) { UpdateLastUsedScheme(context); }
-    public void OnUIClick(InputAction.CallbackContext context) { UpdateLastUsedScheme(context); }
-    public void OnUISubmit(InputAction.CallbackContext context) { UpdateLastUsedScheme(context); }
+    public void OnUIMove(InputAction.CallbackContext context) { _anyDown = true; UpdateLastUsedScheme(context); }
+    public void OnUIClick(InputAction.CallbackContext context) { _anyDown = true; UpdateLastUsedScheme(context); }
+    public void OnUISubmit(InputAction.CallbackContext context) { _anyDown = true; UpdateLastUsedScheme(context); }
 
     // Public Manipulator Methods ====================================================================
 
