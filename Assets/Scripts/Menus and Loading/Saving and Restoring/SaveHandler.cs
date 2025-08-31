@@ -221,7 +221,9 @@ public class SaveHandler : MonoBehaviour
         // our saved fields changes.
         // ================
 
-        FileDataHandler.Save(saveData);
+        // SIX --- Do NOT SAVE data.
+
+        // FileDataHandler.Save(saveData);
     }
 
     public void Load()
