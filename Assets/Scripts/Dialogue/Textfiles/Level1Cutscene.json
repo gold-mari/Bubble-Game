@@ -2,8 +2,28 @@
 	"lines":		
 	[		
 		{	
+			"actor":"Narrator",
+			"actions":"Sammy.startBack,Hannah.startBack,Ha'na.startBack,Knight.startBack,           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle, Hannah.Neutral,Sammy.Neutral",
+			"text":"Besties Sammy and Hannah relax by playing their favorite tabletop role-playing game, Beast Dungeon."
+		},
+        {	
+			"actor":"Narrator",
+			"actions":"",
+			"text":"But when Hannah distractedly pulls out a handheld and boots up music puzzle game DIGIBUBBLE BEAT DX..."
+		},
+        {	
+			"actor":"Narrator",
+			"actions":"",
+			"text":"...gamemaster Sammy devises a sick and twisted little fusion: <i>BubbleBeast DigiDungeon</i>."
+		},
+        {	
+			"actor":"Narrator",
+			"actions":"",
+			"text":"With adventure in our hearts, we enter our scene..."
+		},
+        {	
 			"actor":"Sammy",
-			"actions":"Ha'na.startBack,Knight.startBack,Sammy.sqBounce,           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle, Hannah.Neutral,Sammy.Neutral",
+			"actions":"Hannah.goFront,Sammy.goFront,Ha'na.startBack,Knight.startBack,Sammy.sqBounce,           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle, Hannah.Neutral,Sammy.Neutral",
 			"text":"After a long trek through the Largosan hills, you arrive at the gates of the Highclaw Plains <font=\"caslon-antique-regular\"><b>BEAST DUNGEON</b></font>."
 		},	
 		{	
@@ -20,12 +40,7 @@
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle,  Hannah.Neutral,Sammy.Neutral",
 			"text":"At the gates, you notice a knight laying down by a campfire."
-		},	
-		{	
-			"actor":"Sammy",
-			"actions":"Sammy.sqBounce,           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle,  Hannah.Neutral,Sammy.Bad",
-			"text":"You have to shield your eyes from the light bouncing off their comically-well-polished armor."
-		},	
+		},
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.sqBounce,           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle,  Hannah.Neutral,Sammy.Neutral",
@@ -44,7 +59,7 @@
 		{	
 			"actor":"Sammy",
 			"actions":"Sammy.goFront,Sammy.sqBounce,Knight.goBack,           Hannah.sqIdle,Ha'na.sqIdle,Knight.sqIdle,  Hannah.Neutral,Sammy.Bad",
-			"text":"A-ba-bap. You lost the bet, this session is IN character!"
+			"text":"A-ba-bap. IN character!"
 		},	
 		{	
 			"actor":"Hannah",
