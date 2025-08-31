@@ -2676,7 +2676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
       propertyPath: scenes.Array.data[1].scene
-      value: Cutscene_Outro
+      value: MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 3883997713851276182, guid: e843d287467b5194da21beefc77e2b3b, type: 3}
       propertyPath: scenes.Array.data[2].scene
@@ -4353,7 +4353,6 @@ MonoBehaviour:
   comboTimeScale: 2
   bubbleSpawner: {fileID: 1712134299}
   bubbleScale: 0.85
-  reloadToTimeout: {fileID: 11400000, guid: b1cd60a7725240e4b813c60e35e0cf42, type: 2}
 --- !u!1 &1866544372
 GameObject:
   m_ObjectHideFlags: 0
