@@ -104,7 +104,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""name"": ""Deny"",
                     ""type"": ""Button"",
                     ""id"": ""265465be-f42f-4d04-adad-89db7ed840fe"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -227,6 +227,28 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
+                    ""action"": ""Deny"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""77f37a87-4b0c-42ab-a4d2-d747908d1ea2"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Deny"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0fb693b9-ef51-419e-8a14-058060dcba79"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
                     ""action"": ""Deny"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -379,7 +401,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""id"": ""a8449288-2976-4e35-8469-1228e55369c9"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone"",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Stick"",
                     ""isComposite"": false,
