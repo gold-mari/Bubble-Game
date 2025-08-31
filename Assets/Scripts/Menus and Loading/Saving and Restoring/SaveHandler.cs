@@ -113,24 +113,28 @@ public class SaveHandler : MonoBehaviour
 
     public void SawTutorial()
     {
+        return;
         saveData.seenTutorial = true;
         Save();
     }
 
     public void FinishedGame()
     {
+        return;
         saveData.finishedGame = true;
         Save();
     }
 
     public void BeatEndless()
     {
+        return;
         saveData.beatEndless = true;
         Save();
     }
 
     public void PlayedLevel6()
     {
+        return;
         saveData.playedLevel6 = true;
         Save();
     }
@@ -142,7 +146,7 @@ public class SaveHandler : MonoBehaviour
         // Returns whether or not it was a high score.
         // ================
 
-        return true;
+        return false;
 
         // If the game is not a level, throw an error.
         string sceneName = SceneManager.GetActiveScene().name;
