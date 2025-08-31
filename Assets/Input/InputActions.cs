@@ -95,7 +95,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""name"": ""Affirm"",
                     ""type"": ""Button"",
                     ""id"": ""ecde2c04-d1c6-4d41-abe9-df9bf2738813"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -150,6 +150,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""type"": ""Button"",
                     ""id"": ""f37a9820-bc8e-4875-a514-08b42eaddea5"",
                     ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DEBUG"",
+                    ""type"": ""Button"",
+                    ""id"": ""c13bae89-0d8d-4f4a-a48a-72acc038b6b3"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -397,6 +406,28 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""UISubmit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c42d2caf-59d2-4fa7-9b45-e7a317c12636"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";KeyboardMouse"",
+                    ""action"": ""DEBUG"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""48894b7a-f691-4a7f-8e43-5d67ddaa29c8"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""DEBUG"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -440,6 +471,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Main_UIMove = m_Main.FindAction("UIMove", throwIfNotFound: true);
         m_Main_UIClick = m_Main.FindAction("UIClick", throwIfNotFound: true);
         m_Main_UISubmit = m_Main.FindAction("UISubmit", throwIfNotFound: true);
+        m_Main_DEBUG = m_Main.FindAction("DEBUG", throwIfNotFound: true);
     }
 
     ~@InputActions()
@@ -527,6 +559,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Main_UIMove;
     private readonly InputAction m_Main_UIClick;
     private readonly InputAction m_Main_UISubmit;
+    private readonly InputAction m_Main_DEBUG;
     /// <summary>
     /// Provides access to input actions defined in input action map "Main".
     /// </summary>
@@ -566,6 +599,10 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Main/UISubmit".
         /// </summary>
         public InputAction @UISubmit => m_Wrapper.m_Main_UISubmit;
+        /// <summary>
+        /// Provides access to the underlying input action "Main/DEBUG".
+        /// </summary>
+        public InputAction @DEBUG => m_Wrapper.m_Main_DEBUG;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -613,6 +650,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @UISubmit.started += instance.OnUISubmit;
             @UISubmit.performed += instance.OnUISubmit;
             @UISubmit.canceled += instance.OnUISubmit;
+            @DEBUG.started += instance.OnDEBUG;
+            @DEBUG.performed += instance.OnDEBUG;
+            @DEBUG.canceled += instance.OnDEBUG;
         }
 
         /// <summary>
@@ -645,6 +685,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @UISubmit.started -= instance.OnUISubmit;
             @UISubmit.performed -= instance.OnUISubmit;
             @UISubmit.canceled -= instance.OnUISubmit;
+            @DEBUG.started -= instance.OnDEBUG;
+            @DEBUG.performed -= instance.OnDEBUG;
+            @DEBUG.canceled -= instance.OnDEBUG;
         }
 
         /// <summary>
@@ -760,5 +803,12 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnUISubmit(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "DEBUG" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDEBUG(InputAction.CallbackContext context);
     }
 }

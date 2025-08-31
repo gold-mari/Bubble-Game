@@ -34,6 +34,8 @@ public class MenuTree : MonoBehaviour
     public MenuTreeNode Current {
         get { return current; }
         private set {
+            if (current == value) return;
+            
             // Invoke the update action with params (old, new).
             CurrentNodeUpdated?.Invoke(current, value);
             SetNodeVisible(current, false);
@@ -275,6 +277,33 @@ public class MenuTree : MonoBehaviour
             Current = Current.parent;
         } else {
             Debug.Log("MenuTree Message: Attempted to call Ascend from root.", this);
+        }
+    }
+
+    public void WarpToName(string id)
+    {
+        MenuTreeNode target = WarpRecurse(root, id);
+        if (target != null) {
+            Current = target;
+        }
+
+        static MenuTreeNode WarpRecurse(MenuTreeNode from, string id)
+        {
+            if (from.children.Count == 0) {
+                return (from.id == id) ? from : null;
+            }
+            
+            foreach (MenuTreeNode child in from.children) {
+                // If we found a hit somewhere, return it.
+                MenuTreeNode result = WarpRecurse(child, id);
+                if (result != null) return result;
+            }
+
+            // If we're here, then...
+            // * We're not terminal
+            // * None of our children are the target.
+            // Return null.
+            return null;
         }
     }
 

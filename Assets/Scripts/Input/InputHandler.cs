@@ -30,7 +30,8 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
     private Vector2 _stickDir;
     private readonly Dictionary<string, bool> _getDown = new() {
         {"_affirm", false},
-        {"_deny", false}
+        {"_deny", false},
+        {"_DEBUG", false}
     };
 
     private readonly Dictionary<string, bool> _get = new() {};
@@ -88,6 +89,7 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
 
         _getDown["_affirm"] = false;
         _getDown["_deny"] = false;
+        _getDown["_DEBUG"] = false;
     }
 
     private void SetDown(InputAction.CallbackContext context, string input)
@@ -122,6 +124,7 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
     // Button events ============================
     public void OnAffirm(InputAction.CallbackContext context) { SetDown(context, "_affirm"); }
     public void OnDeny(InputAction.CallbackContext context) { SetDown(context, "_deny"); }
+    public void OnDEBUG(InputAction.CallbackContext context) { SetDown(context, "_DEBUG"); }
 
     // Value events =============================
     public void OnPointer(InputAction.CallbackContext context) 
@@ -262,6 +265,26 @@ public class InputHandler : MonoBehaviour, InputActions.IMainActions
     { 
         if (Instance != null) {
             return Instance._get["_deny"]; 
+        } else {
+            NoHandlerError();
+            return false;
+        }
+    }
+
+    public static bool GetDEBUGDown()
+    { 
+        if (Instance != null) {
+            return Instance._getDown["_DEBUG"]; 
+        } else {
+            NoHandlerError();
+            return false;
+        }
+    }
+    
+    public static bool GetDEBUG()
+    { 
+        if (Instance != null) {
+            return Instance._get["_DEBUG"]; 
         } else {
             NoHandlerError();
             return false;
