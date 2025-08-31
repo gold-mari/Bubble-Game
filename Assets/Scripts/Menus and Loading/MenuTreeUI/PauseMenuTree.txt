@@ -1,6 +1,7 @@
 Pause\Stop the music and take a moment.
     Quit\Return to the main menu.
     Resume\Continue playing the game.\selected\overrideTitle
+    Skip\Skip this cutscene.\overrideTitle\cutsceneOnly
     Restart\Try this level again from the beginning.\overrideTitle\gameplayOnly
     Settings\Change the game's settings.
         Sound\Change audio-related settings.
