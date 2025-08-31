@@ -280,6 +280,11 @@ public class MenuTree : MonoBehaviour
         }
     }
 
+    public void WarpToRoot()
+    {
+        Current = root;
+    }
+
     public void WarpToName(string id)
     {
         MenuTreeNode target = WarpRecurse(root, id);
