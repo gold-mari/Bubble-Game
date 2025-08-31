@@ -13,7 +13,7 @@ public class CodaLoader : MonoBehaviour
         if (!loaded && !LevelLoader.Instance.GetAnimator().gameObject.activeInHierarchy && InputHandler.GetAffirmDown()) {
             loaded = true;
 
-            saveHandler.FinishedGame();
+            // saveHandler.FinishedGame();
             LevelLoader.Instance.LoadLevel("MainMenu");
         }
     }

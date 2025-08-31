@@ -142,6 +142,8 @@ public class SaveHandler : MonoBehaviour
         // Returns whether or not it was a high score.
         // ================
 
+        return true;
+
         // If the game is not a level, throw an error.
         string sceneName = SceneManager.GetActiveScene().name;
         if (!gameLevels.Contains(sceneName)) {
