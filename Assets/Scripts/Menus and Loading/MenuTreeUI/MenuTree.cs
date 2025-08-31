@@ -47,7 +47,7 @@ public class MenuTree : MonoBehaviour
     private HashSet<string> idsInUse = new();
     // Check if we have already called start once before.
     bool calledStart = false;
-    // Scenes that count as 'gameplay levels' for the "gameplayOnly" menu tree tag.
+    // Scenes that count as 'gameplay levels' for the "gameplayOnly" and "cutsceneOnly" menu tree tags.
     List<string> gameplayScenes = new() { 
         "Level1", "Level2", "Level3", "Level4", "Level5", "Level6", "LevelE"
     };
@@ -173,6 +173,10 @@ public class MenuTree : MonoBehaviour
                                 case "gameplayOnly":
                                     string sceneName = SceneManager.GetActiveScene().name;
                                     currentNode.visible = gameplayScenes.Contains(sceneName);
+                                    break;
+                                case "cutsceneOnly":
+                                    sceneName = SceneManager.GetActiveScene().name;
+                                    currentNode.visible = !gameplayScenes.Contains(sceneName);
                                     break;
                                 case "alsoShowBase":
                                     currentNode.alsoShowBase = true;
