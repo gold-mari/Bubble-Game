@@ -34,6 +34,7 @@ public class SimpleMusicPlayer : MusicPlayer
         if (beginOnStart) Begin();
     }
 
+    [Button]    
     public void BeginMusic()
     {
         Begin();
