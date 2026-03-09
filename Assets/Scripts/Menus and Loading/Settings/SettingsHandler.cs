@@ -29,4 +29,10 @@ public class SettingsHandler : MonoBehaviour
         colorController = GetComponentInChildren<BubbleColorController>(includeInactive:true);
         colorController.Initialize();
     }
+
+    public void ResetAndInitialize()
+    {
+        PlayerPrefs.DeleteAll();
+        Initialize();
+    }
 }

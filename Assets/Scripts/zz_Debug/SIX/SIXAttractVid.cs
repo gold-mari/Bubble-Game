@@ -6,7 +6,7 @@ using UnityEngine.Video;
 
 public class SIXAttractVid : MonoBehaviour
 {
-    public SIXLevelSelect levelSelect;
+    public SettingsHandler settingsHandler;
     public MenuTree menuTree;
     public CanvasGroup mainGroup;
     public VideoPlayer player;
@@ -50,6 +50,7 @@ public class SIXAttractVid : MonoBehaviour
 
             if (idleTime > timeBeforeAttract) {
                 EnterAttract();
+                settingsHandler.ResetAndInitialize();
             }
         }
     }
@@ -64,7 +65,6 @@ public class SIXAttractVid : MonoBehaviour
         IEnumerator EnterAttractRoutine()
         {
             eventSystem.enabled = false;
-            levelSelect.enabled = false;
             float elapsed = 0;
 
             mainGroup.alpha = 0;
@@ -73,7 +73,7 @@ public class SIXAttractVid : MonoBehaviour
                 mainGroup.alpha = LerpKit.EaseIn(elapsed/transTime);
                 elapsed += Time.unscaledDeltaTime;
                 yield return null;
-                Debug.Log($"elapsed:{elapsed} | elapsed<transTime:{elapsed<transTime}");
+                // Debug.Log($"elapsed:{elapsed} | elapsed<transTime:{elapsed<transTime}");
             }
 
             mainGroup.alpha = 1;
@@ -132,7 +132,6 @@ public class SIXAttractVid : MonoBehaviour
 
             mainGroup.alpha = 0;
             eventSystem.enabled = true;
-            levelSelect.enabled = true;
 
             attracting = false;
             alreadyChanging = false;

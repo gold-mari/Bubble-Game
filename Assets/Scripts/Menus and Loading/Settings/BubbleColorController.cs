@@ -62,13 +62,15 @@ public class BubbleColorController : MonoBehaviour
 
             if (PlayerPrefs.HasKey(key)) {
                 string hex = PlayerPrefs.GetString(key);
-                prefColors[i] = BubbleFlavorMethods.HexToColor(hex);
+                workingColors[i] = prefColors[i] = BubbleFlavorMethods.HexToColor(hex);
             } else { // Default value.
-                prefColors[i] = baseColors[i];
+                workingColors[i] = prefColors[i] = baseColors[i];
             }
         }
 
         BubbleFlavorMethods.SetColors(prefColors);
+        SaveFromWorking();
+        SaveToPrefs();
     }
 
     private void OnEnable()
