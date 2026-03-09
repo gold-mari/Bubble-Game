@@ -2249,7 +2249,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SIX Edition!
+  m_text: IGF Edition!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: be4c6b941bd1fed49a3b308328c9ccb0, type: 2}
   m_sharedMaterial: {fileID: -6908427891558946073, guid: be4c6b941bd1fed49a3b308328c9ccb0, type: 2}
@@ -2574,7 +2574,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SIX Edition!
+  m_text: IGF Edition!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: be4c6b941bd1fed49a3b308328c9ccb0, type: 2}
   m_sharedMaterial: {fileID: -6908427891558946073, guid: be4c6b941bd1fed49a3b308328c9ccb0, type: 2}
@@ -3437,7 +3437,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SIX Edition!
+  m_text: IGF Edition!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: be4c6b941bd1fed49a3b308328c9ccb0, type: 2}
   m_sharedMaterial: {fileID: -6908427891558946073, guid: be4c6b941bd1fed49a3b308328c9ccb0, type: 2}
@@ -4072,7 +4072,7 @@ GameObject:
   - component: {fileID: 502508911}
   - component: {fileID: 502508910}
   m_Layer: 5
-  m_Name: SIX Edition!
+  m_Name: IGF Edition!
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8498,7 +8498,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SIX Edition!
+  m_text: IGF Edition!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 41db2b2d59f90fe4fa4d62c3c5ad0c79, type: 2}
   m_sharedMaterial: {fileID: 6580249777332710688, guid: 41db2b2d59f90fe4fa4d62c3c5ad0c79, type: 2}
@@ -10555,7 +10555,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SIX Edition!
+  m_text: IGF Edition!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: be4c6b941bd1fed49a3b308328c9ccb0, type: 2}
   m_sharedMaterial: {fileID: -6908427891558946073, guid: be4c6b941bd1fed49a3b308328c9ccb0, type: 2}
@@ -16710,7 +16710,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SIX Edition!
+  m_text: IGF Edition!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 41db2b2d59f90fe4fa4d62c3c5ad0c79, type: 2}
   m_sharedMaterial: {fileID: 6580249777332710688, guid: 41db2b2d59f90fe4fa4d62c3c5ad0c79, type: 2}
@@ -18073,7 +18073,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2066089912
 Transform:
   m_ObjectHideFlags: 0
