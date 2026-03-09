@@ -1994,9 +1994,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Thanks for playing! ^w^\n\nThe full game is \nFREE on Steam! \nPlay more
-    levels, \nchase high \nscores, and see\nthe dramatic end\nto Ha'na's story!\n\n\n<b><sprite
-    index=1 tint=1>/<sprite index=4 tint=1> \u2014 Return</b>"
+  m_text: "Thanks for playing! ^w^\n\nThe full game is \nFREE on Steam! \nChase high
+    scores, \ntry out Endless \nMode,  and \ndiscover secrets...?\n\nOST available
+    \nwherever you \nget music!\n\n<b><sprite index=4 tint=1> \u2014 Return</b>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0539ba517723d6d43bf03748c8281f6b, type: 2}
   m_sharedMaterial: {fileID: 880974728737460417, guid: 0539ba517723d6d43bf03748c8281f6b, type: 2}
@@ -2023,8 +2023,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
