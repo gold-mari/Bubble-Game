@@ -1995,7 +1995,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Thanks for playing! ^w^\n\nThe full game is \nFREE on Steam! \nChase high
-    scores, \ntry out Endless \nMode,  and \ndiscover secrets...?\n\nOST available
+    scores, \ntry out Endless \nMode,  and \ndiscover secrets...?\n\nOST also available
     \nwherever you \nget music!\n\n<b><sprite index=4 tint=1> \u2014 Return</b>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0539ba517723d6d43bf03748c8281f6b, type: 2}
