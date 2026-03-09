@@ -30,6 +30,8 @@ public class SaveHandler : MonoBehaviour
         "C", "B", "A", "S"
     };
 
+    public static readonly string mainMenuScene = "MainMenu";
+
     // ==============================================================
     // Saved fields
     // ==============================================================
@@ -56,7 +58,7 @@ public class SaveHandler : MonoBehaviour
     {
         // saveData should (I think) be null once per game session, when we have first opened the app.
         if (saveData == null) {
-            Load();
+            LoadFresh();
         }
     }
 
@@ -79,6 +81,8 @@ public class SaveHandler : MonoBehaviour
             // If it's a cutscene, just note the scene.
             saveData.lastPlayedScene = sceneName;
             // print($"SaveHandler: Saved lastPlayedScene");
+        } else if (mainMenuScene.Equals(sceneName)) {
+            LoadFresh();
         }
 
         Save();
@@ -87,33 +91,32 @@ public class SaveHandler : MonoBehaviour
 #if UNITY_EDITOR
     private void OnGUI()
     {
-        if (GUI.Button(new Rect(70, 10, 50, 50), "HAS6"))
-        {
-            saveData.beatEndless = true;
-            Save();
-        }
-        if (GUI.Button(new Rect(70, 70, 50, 50), "!PLAY6"))
-        {
-            saveData.playedLevel6 = false;
-            Save();
-        }
-        if (GUI.Button(new Rect(140, 10, 50, 50), "RESET"))
-        {
-            saveData.endlessBestTime = 0;
-            saveData.highScores[6] = null;
-            Save();
-        }
-        if (GUI.Button(new Rect(140, 70, 50, 50), "GAME"))
-        {
-            saveData.finishedGame = true;
-            Save();
-        }
+    //     if (GUI.Button(new Rect(70, 10, 50, 50), "HAS6"))
+    //     {
+    //         saveData.beatEndless = true;
+    //         Save();
+    //     }
+    //     if (GUI.Button(new Rect(70, 70, 50, 50), "!PLAY6"))
+    //     {
+    //         saveData.playedLevel6 = false;
+    //         Save();
+    //     }
+    //     if (GUI.Button(new Rect(140, 10, 50, 50), "RESET"))
+    //     {
+    //         saveData.endlessBestTime = 0;
+    //         saveData.highScores[6] = null;
+    //         Save();
+    //     }
+    //     if (GUI.Button(new Rect(140, 70, 50, 50), "GAME"))
+    //     {
+    //         saveData.finishedGame = true;
+    //         Save();
+    //     }
     }
 #endif
 
     public void SawTutorial()
     {
-        return;
         saveData.seenTutorial = true;
         Save();
     }
@@ -229,7 +232,7 @@ public class SaveHandler : MonoBehaviour
 
         // SIX --- Do NOT SAVE data.
 
-        // FileDataHandler.Save(saveData);
+        FileDataHandler.Save(saveData);
     }
 
     public void Load()
@@ -261,6 +264,12 @@ public class SaveHandler : MonoBehaviour
 
             // Debug.Log($"Extended high scores slots by {scoresMissing}. New length is {saveData.highScores.Length}");
         }
+    }
+
+    public void LoadFresh()
+    {
+        FileDataHandler.Save(null);
+        Load();
     }
 
     // ==============================================================
