@@ -11,7 +11,7 @@ public class IGFTimeoutToMenu : MonoBehaviour
     public LevelLoader levelLoader;
     public TMP_Text labelText;
     public string labelPrefix, labelSuffix;
-    [Scene] public string mainMenuScene = "MainMenu";
+    public string mainMenuScene = "MainMenu";
 
     public float transTime = 0.5f;
     public float timeBeforeCountdown = 10f;
