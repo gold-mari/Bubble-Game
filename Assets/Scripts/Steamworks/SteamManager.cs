@@ -22,7 +22,7 @@ using Steamworks;
 // It handles the basics of starting up and shutting down the SteamAPI for use.
 //
 [DisallowMultipleComponent]
-public class SteamManager : MonoBehaviour {
+public class SteamManager : MonoBehaviour, ISteamAchievements {
 
     const int APP_ID = 3071280;
 
@@ -173,6 +173,27 @@ public class SteamManager : MonoBehaviour {
 		// Run Steam client callbacks
 		SteamAPI.RunCallbacks();
 	}
+
+    // ==============================================================
+    // ISteamAchievements methods
+    // ==============================================================
+
+    public static ISteamAchievements GetInstance() => Instance ? Instance : null;
+
+    private bool GetAchievement(string name, out bool achieved)
+    {
+        return SteamUserStats.GetAchievement(name, out achieved);
+    }
+
+    public bool SetAchievement(string name)
+    {
+        return SteamUserStats.SetAchievement(name);
+    }
+
+    // ==============================================================
+    // End ISteamAchievements methods
+    // ==============================================================
+
 #else
 	public static bool Initialized {
 		get {

@@ -1,46 +1,69 @@
 using UnityEngine;
-using System.Collections;
-using Steamworks;
-using System;
 using NaughtyAttributes;
 
+/// <summary>
+/// Utility class for reading from the SaveData and writing to Steamworks.
+/// </summary>
 public class AchievementManager : MonoBehaviour {
+    public Achievement.Id queried_Id;
+    public SaveHandler saveHandler;
     
-    public enum Achievement_Id
-    {
-        ACH_STORY_LVL1,
-        ACH_STORY_LVL2,
-        ACH_STORY_LVL3,
-        ACH_STORY_LVL4,
-        ACH_STORY_LVL5,
-        ACH_SKILL_SRANK,
-        ACH_SKILL_STRAGGLER,
-        ACH_SKILL_COMBO,
-        ACH_SKILL_LOSE,
-        ACH_SKILL_ENDLESS,
-        ACH_SKILL_HARDMODE
-    }
     
-    public Achievement_Id achievement_Id;
+    
+    private ISteamAchievements STEAM_ACHIEVEMENT_INTERFACE;
 
-    void Start() {
-		if(SteamManager.Initialized) {
-			string name = SteamFriends.GetPersonaName();
-			Debug.Log(name);
-		}
-	}
 
-    public void GetAchievementStatus(Achievement_Id id)
+    public void Start()
     {
-        string achievementName = Enum.GetName(typeof(Achievement_Id), id);
-        bool success = SteamUserStats.GetAchievement(achievementName, out bool achieved);
-        if (success) Debug.Log($"Achieved: {achieved}");
-        else Debug.Log($"Achievement not found!");
+        if (saveHandler) {
+            saveHandler.UnlockedAchievement += WriteAchievement;
+        }
+
+        if (SteamManager.Initialized) {
+            WriteAllAchievements();
+
+            STEAM_ACHIEVEMENT_INTERFACE = AchievementsStub.GetInstance();
+            // STEAM_ACHIEVEMENT_INTERFACE = SteamManager.GetInstance();
+        }
     }
 
-    [Button]
-    public void QueryAchievement()
+    public int ReadAchievementStatus(Achievement.Id id)
     {
-        GetAchievementStatus(achievement_Id);
+        // Returns:
+        // * 1  --- achievement is unlocked
+        // * 0  --- achievement is not unlocked
+        // * -1 --- achievement does not exist
+        // * -2 --- SteamManager is not initialized
+        // ================
+
+        if(SteamManager.Initialized) {
+            bool success = STEAM_ACHIEVEMENT_INTERFACE.GetAchievement(Achievement.GetName(id), out bool achieved);
+
+            if (success) return achieved ? 1 : 0;
+            else return -1;
+        } 
+
+        return -2;
     }
+
+    public void WriteAchievement(Achievement.Id id)
+    {
+        if(SteamManager.Initialized) {
+            STEAM_ACHIEVEMENT_INTERFACE.SetAchievement(Achievement.GetName(id));
+        }
+    }
+
+    public void WriteAllAchievements()
+    {
+        if (saveHandler) {
+            foreach (Achievement.Id id in Achievement.GetValues()) {
+                if (saveHandler.GetUnlockedAchievement(id) && ReadAchievementStatus(id) == 0) {
+                    WriteAchievement(id);
+                }
+            }
+        }
+    }
+
+    [Button] public void Query() => ReadAchievementStatus(queried_Id);
+    [Button] public void Unlock() => WriteAchievement(queried_Id);
 }

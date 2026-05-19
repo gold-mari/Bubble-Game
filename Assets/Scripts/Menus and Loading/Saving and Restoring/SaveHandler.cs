@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -31,6 +30,12 @@ public class SaveHandler : MonoBehaviour
     };
 
     // ==============================================================
+    // Actions
+    // ==============================================================
+
+    public System.Action<Achievement.Id> UnlockedAchievement;
+
+    // ==============================================================
     // Saved fields
     // ==============================================================
 
@@ -45,6 +50,20 @@ public class SaveHandler : MonoBehaviour
             null, null, null, null, null, null, null
         };
         public uint endlessBestTime = 0;
+
+        public Dictionary<Achievement.Id, bool> achievements = new(){
+            {Achievement.Id.ACH_STORY_LVL1,         false},
+            {Achievement.Id.ACH_STORY_LVL2,         false},
+            {Achievement.Id.ACH_STORY_LVL3,         false},
+            {Achievement.Id.ACH_STORY_LVL4,         false},
+            {Achievement.Id.ACH_STORY_LVL5,         false},
+            {Achievement.Id.ACH_SKILL_SRANK,        false},
+            {Achievement.Id.ACH_SKILL_STRAGGLER,    false},
+            {Achievement.Id.ACH_SKILL_COMBO,        false},
+            {Achievement.Id.ACH_SKILL_LOSE,         false},
+            {Achievement.Id.ACH_SKILL_ENDLESS,      false},
+            {Achievement.Id.ACH_SKILL_HARDMODE,     false}
+        };
     }
     private static SaveData saveData = null;
 
@@ -165,7 +184,7 @@ public class SaveHandler : MonoBehaviour
         }
 
         // Find where the current scene is in our array, using it to index our highScores array.
-        int index = Array.IndexOf(gameLevels, sceneName);
+        int index = System.Array.IndexOf(gameLevels, sceneName);
         // print($"SaveHandler: High Score --- old was {saveData.highScores[index].score}, new is {stats.score}.");
 
         string newRank = stats.rank;
@@ -209,6 +228,16 @@ public class SaveHandler : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void TrySetAchievement(Achievement.Id id)
+    {
+        if (saveData.achievements.ContainsKey(id)) {
+            saveData.achievements[id] = true;
+            Save();
+
+            UnlockedAchievement?.Invoke(id);
+        }
     }
 
     // ==============================================================
@@ -319,5 +348,12 @@ public class SaveHandler : MonoBehaviour
     public uint GetEndlessBestTime()
     {
         return saveData.endlessBestTime;
+    }
+
+    public bool GetUnlockedAchievement(Achievement.Id id)
+    {
+        // Returns false if achievement is not found.
+        if (!saveData.achievements.ContainsKey(id)) return false;
+        else return saveData.achievements[id];
     }
 }
