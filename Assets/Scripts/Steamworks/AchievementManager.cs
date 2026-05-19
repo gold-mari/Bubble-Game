@@ -10,6 +10,8 @@ public class AchievementManager : MonoBehaviour {
     public Achievement.Stat queried_Stat;
     public int queried_Value;
     public SaveHandler saveHandler;
+    [Expandable]
+    public AchievementsStub stub;
     
     
     
@@ -31,7 +33,7 @@ public class AchievementManager : MonoBehaviour {
             UploadOfflineStats();
             DownloadOnlineAchievements();
 
-            STEAM_ACHIEVEMENT_INTERFACE = AchievementsStub.GetInstance();
+            STEAM_ACHIEVEMENT_INTERFACE = stub;
             // STEAM_ACHIEVEMENT_INTERFACE = SteamManager.GetInstance();
         }
     }
@@ -112,6 +114,7 @@ public class AchievementManager : MonoBehaviour {
                 // If the achievement was unlocked on Steamworks (like for stat-based achievements 
                 // that are automatically unlocked), but it's not unlocked in our save...
                 if (ReadAchievement(id) == 1 && !saveHandler.GetUnlockedAchievement(id)) {
+                    Debug.Log($"AchievementManager: Downloading online achievement {id}.");
                     // Add the achievement to our save.
                     saveHandler.TrySetAchievement(id);
                 }
@@ -130,6 +133,7 @@ public class AchievementManager : MonoBehaviour {
                 // If the achievement was unlocked offline, and we are now online...
                 if (saveHandler.GetUnlockedAchievement(id) && ReadAchievement(id) == 0) {
                     // Write the achievement to Steamworks.
+                    Debug.Log($"AchievementManager: Uploading offline achievement {id}.");
                     WriteAchievement(id);
                 }
             }
@@ -150,6 +154,7 @@ public class AchievementManager : MonoBehaviour {
                 int offlineValue = saveHandler.GetStat(stat);
                 // If the stat got nuked offline, and we're not getting an error code while reading Steam...
                 if (offlineValue < onlineValue && onlineValue >= 0) {
+                    Debug.Log($"AchievementManager: Downloading online stat {stat}.");
                     // Update the stat in our save.
                     saveHandler.TrySetStat(stat, onlineValue);
                 }
@@ -171,6 +176,7 @@ public class AchievementManager : MonoBehaviour {
                 int offlineValue = saveHandler.GetStat(stat);
                 // If the stat got better offline, and we're not getting an error code while reading Steam...
                 if (offlineValue > onlineValue && onlineValue >= 0) {
+                    Debug.Log($"AchievementManager: Uploading offline stat {stat}.");
                     // Write the new, greater stat to Steamworks.
                     WriteStat(stat, offlineValue);
                 }
@@ -182,8 +188,6 @@ public class AchievementManager : MonoBehaviour {
     // Debug / testing methods
     // ==============================================================   
 
-    [Button] public void QueryAchievement() => ReadAchievement(queried_Id);
     [Button] public void UnlockAchievement() => WriteAchievement(queried_Id);
-    [Button] public void QueryStat() => ReadStat(queried_Stat);
     [Button] public void UpdateStat() => WriteStat(queried_Stat, queried_Value);
 }
