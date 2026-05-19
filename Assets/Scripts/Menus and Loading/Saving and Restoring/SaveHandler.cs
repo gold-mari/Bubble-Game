@@ -34,6 +34,7 @@ public class SaveHandler : MonoBehaviour
     // ==============================================================
 
     public System.Action<Achievement.Id> UnlockedAchievement;
+    public System.Action SyncSaveToOnline;
 
     // ==============================================================
     // Saved fields
@@ -63,6 +64,12 @@ public class SaveHandler : MonoBehaviour
             {Achievement.Id.ACH_SKILL_LOSE,         false},
             {Achievement.Id.ACH_SKILL_ENDLESS,      false},
             {Achievement.Id.ACH_SKILL_HARDMODE,     false}
+        };
+
+        public Dictionary<Achievement.Stat, int> stats = new(){
+            {Achievement.Stat.stat_Best_SRanks,     0},
+            {Achievement.Stat.stat_Best_Straggler,  0},
+            {Achievement.Stat.stat_Best_Combo,      0}
         };
     }
     private static SaveData saveData = null;
@@ -100,6 +107,7 @@ public class SaveHandler : MonoBehaviour
             // print($"SaveHandler: Saved lastPlayedScene");
         }
 
+        SyncSaveToOnline?.Invoke();
         Save();
     }
 
@@ -240,6 +248,16 @@ public class SaveHandler : MonoBehaviour
         }
     }
 
+    public void TrySetStat(Achievement.Stat stat, int value)
+    {
+        if (saveData.stats.ContainsKey(stat)) {
+            saveData.stats[stat] = value;
+            Save();
+
+            SyncSaveToOnline?.Invoke();
+        }
+    }
+
     // ==============================================================
     // Save/Load methods
     // ==============================================================
@@ -250,6 +268,7 @@ public class SaveHandler : MonoBehaviour
         // our saved fields changes.
         // ================
 
+        SyncSaveToOnline?.Invoke();
         FileDataHandler.Save(saveData);
     }
 
@@ -282,6 +301,8 @@ public class SaveHandler : MonoBehaviour
 
             // Debug.Log($"Extended high scores slots by {scoresMissing}. New length is {saveData.highScores.Length}");
         }
+
+        SyncSaveToOnline?.Invoke();
     }
 
     // ==============================================================
@@ -355,5 +376,12 @@ public class SaveHandler : MonoBehaviour
         // Returns false if achievement is not found.
         if (!saveData.achievements.ContainsKey(id)) return false;
         else return saveData.achievements[id];
+    }
+
+    public int GetStat(Achievement.Stat stat)
+    {
+        // Returns -1 if stat is not found.
+        if (!saveData.stats.ContainsKey(stat)) return -1;
+        else return saveData.stats[stat];
     }
 }

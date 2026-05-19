@@ -17,5 +17,20 @@ public class Achievement
 
     public static string GetName(Id id) => System.Enum.GetName(typeof(Id), id);
 
-    public static Id[] GetValues() => (Id[])System.Enum.GetValues(typeof(Id));
+    public static Id[] GetAchievementValues() => (Id[])System.Enum.GetValues(typeof(Id));
+
+    // ==============================================================
+    // Stats
+    // ==============================================================
+
+    public enum Stat
+    {
+        stat_Best_SRanks,
+        stat_Best_Straggler,
+        stat_Best_Combo
+    }
+
+    public static string GetName(Stat stat) => System.Enum.GetName(typeof(Stat), stat);
+
+    public static Stat[] GetStatValues() => (Stat[])System.Enum.GetValues(typeof(Stat));
 }

@@ -180,7 +180,7 @@ public class SteamManager : MonoBehaviour, ISteamAchievements {
 
     public static ISteamAchievements GetInstance() => Instance ? Instance : null;
 
-    private bool GetAchievement(string name, out bool achieved)
+    public bool GetAchievement(string name, out bool achieved)
     {
         return SteamUserStats.GetAchievement(name, out achieved);
     }
@@ -188,6 +188,16 @@ public class SteamManager : MonoBehaviour, ISteamAchievements {
     public bool SetAchievement(string name)
     {
         return SteamUserStats.SetAchievement(name);
+    }
+    
+    public bool GetStat(string name, out int value)
+    {
+        return SteamUserStats.GetStat(name, out value);
+    }
+
+    public bool SetStat(string name, int value)
+    {
+        return SteamUserStats.SetStat(name, value);
     }
 
     // ==============================================================
