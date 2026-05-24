@@ -63,8 +63,6 @@ public static class FileDataHandler
 
     private static string EncryptDecrypt(string data)
     {
-        return data;
-
         string modifiedData = "";
 
         for (int i = 0; i < data.Length; i++) {
