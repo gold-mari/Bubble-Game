@@ -52,24 +52,24 @@ public class SaveHandler : MonoBehaviour
         };
         public uint endlessBestTime = 0;
 
-        public Dictionary<Achievement.Id, bool> achievements = new(){
-            {Achievement.Id.ACH_STORY_LVL1,         false},
-            {Achievement.Id.ACH_STORY_LVL2,         false},
-            {Achievement.Id.ACH_STORY_LVL3,         false},
-            {Achievement.Id.ACH_STORY_LVL4,         false},
-            {Achievement.Id.ACH_STORY_LVL5,         false},
-            {Achievement.Id.ACH_SKILL_SRANK,        false},
-            {Achievement.Id.ACH_SKILL_STRAGGLER,    false},
-            {Achievement.Id.ACH_SKILL_COMBO,        false},
-            {Achievement.Id.ACH_SKILL_LOSE,         false},
-            {Achievement.Id.ACH_SKILL_ENDLESS,      false},
-            {Achievement.Id.ACH_SKILL_HARDMODE,     false}
+        public SerializedSteamAchievement[] achievements = new SerializedSteamAchievement[11]{
+            new(Achievement.Id.ACH_STORY_LVL1,      false),
+            new(Achievement.Id.ACH_STORY_LVL2,      false),
+            new(Achievement.Id.ACH_STORY_LVL3,      false),
+            new(Achievement.Id.ACH_STORY_LVL4,      false),
+            new(Achievement.Id.ACH_STORY_LVL5,      false),
+            new(Achievement.Id.ACH_SKILL_SRANK,     false),
+            new(Achievement.Id.ACH_SKILL_STRAGGLER, false),
+            new(Achievement.Id.ACH_SKILL_COMBO,     false),
+            new(Achievement.Id.ACH_SKILL_LOSE,      false),
+            new(Achievement.Id.ACH_SKILL_ENDLESS,   false),
+            new(Achievement.Id.ACH_SKILL_HARDMODE,  false)
         };
 
-        public Dictionary<Achievement.Stat, int> stats = new(){
-            {Achievement.Stat.stat_Best_SRanks,     0},
-            {Achievement.Stat.stat_Best_Straggler,  0},
-            {Achievement.Stat.stat_Best_Combo,      0}
+        public SerializedSteamStat[] stats = new SerializedSteamStat[3]{
+            new(Achievement.Stat.stat_Best_SRanks,      0),
+            new(Achievement.Stat.stat_Best_Straggler,   0),
+            new(Achievement.Stat.stat_Best_Combo,       0)
         };
     }
     private static SaveData saveData = null;
@@ -240,8 +240,9 @@ public class SaveHandler : MonoBehaviour
 
     public void TrySetAchievement(Achievement.Id id)
     {
-        if (saveData.achievements.ContainsKey(id)) {
-            saveData.achievements[id] = true;
+        SerializedSteamAchievement match = saveData.achievements.FirstOrDefault(a => a.id == id);
+        if (match != null) {
+            match.value = true;
             Save();
 
             UnlockedAchievement?.Invoke(id);
@@ -250,8 +251,9 @@ public class SaveHandler : MonoBehaviour
 
     public void TrySetStat(Achievement.Stat stat, int value)
     {
-        if (saveData.stats.ContainsKey(stat)) {
-            saveData.stats[stat] = value;
+        SerializedSteamStat match = saveData.stats.FirstOrDefault(s => s.id == stat);
+        if (match != null) {
+            match.value = value;
             Save();
 
             SyncSaveToOnline?.Invoke();
@@ -374,14 +376,16 @@ public class SaveHandler : MonoBehaviour
     public bool GetUnlockedAchievement(Achievement.Id id)
     {
         // Returns false if achievement is not found.
-        if (!saveData.achievements.ContainsKey(id)) return false;
-        else return saveData.achievements[id];
+        SerializedSteamAchievement match = saveData.achievements.FirstOrDefault(a => a.id == id);
+        if (match == null) return false;
+        else return match.value;
     }
 
     public int GetStat(Achievement.Stat stat)
     {
         // Returns -1 if stat is not found.
-        if (!saveData.stats.ContainsKey(stat)) return -1;
-        else return saveData.stats[stat];
+        SerializedSteamStat match = saveData.stats.FirstOrDefault(s => s.id == stat);
+        if (match == null) return -1;
+        else return match.value;
     }
 }

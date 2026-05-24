@@ -61,10 +61,10 @@ public class AchievementsStub : ScriptableObject, ISteamAchievements
         var target = achievementDatabase.FirstOrDefault(p => p.s == name);
         if (target !=  null) {
             achieved = target.b;
-            Debug.Log($"AchievementStub: Achievement '{name}' is {(achieved ? "unlocked" : "NOT unlocked")}.");
+            // Debug.Log($"AchievementStub: Achievement '{name}' is {(achieved ? "unlocked" : "NOT unlocked")}.");
             return true;
         } else {
-            Debug.LogError($"AchievementsStub Error: Achievement '{name}' not found in database.");
+            // Debug.LogError($"AchievementsStub Error: Achievement '{name}' not found in database.");
             achieved = false;
             return false;
         }
@@ -75,15 +75,15 @@ public class AchievementsStub : ScriptableObject, ISteamAchievements
         var target = achievementDatabase.FirstOrDefault(p => p.s == name);
         if (target !=  null) {
             if (target.b == true) {
-                Debug.Log($"AchievementStub: Achievement '{name}' is already unlocked.");
+                // Debug.Log($"AchievementStub: Achievement '{name}' is already unlocked.");
             } else {
-                Debug.Log($"AchievementStub: Unlocked achievement '{name}'.");                
+                // Debug.Log($"AchievementStub: Unlocked achievement '{name}'.");  
             }
 
             target.b = true;
             return true;
         } else {
-            Debug.LogError($"AchievementsStub Error: Achievement '{name}' not found in database.");
+            // Debug.LogError($"AchievementsStub Error: Achievement '{name}' not found in database.");
             return false;   
         }
     }
@@ -93,10 +93,10 @@ public class AchievementsStub : ScriptableObject, ISteamAchievements
         var target = statsDatabase.FirstOrDefault(p => p.s == name);
         if (target != null) {
             value = target.i;
-            Debug.Log($"AchievementStub: Stat '{name}' is {value}.");
+            // Debug.Log($"AchievementStub: Stat '{name}' is {value}.");
             return true;
         } else {
-            Debug.LogError($"AchievementsStub Error: Stat '{name}' not found in database.");
+            // Debug.LogError($"AchievementsStub Error: Stat '{name}' not found in database.");
             value = -1;
             return false;
         }
@@ -107,10 +107,10 @@ public class AchievementsStub : ScriptableObject, ISteamAchievements
         var target = statsDatabase.FirstOrDefault(p => p.s == name);
         if (target != null) {
             target.i = value;
-            Debug.Log($"AchievementStub: Set stat '{name}' to {target.i}.");
+            // Debug.Log($"AchievementStub: Set stat '{name}' to {target.i}.");
             return true;
         } else {
-            Debug.LogError($"AchievementsStub Error: Stat '{name}' not found in database.");
+            // Debug.LogError($"AchievementsStub Error: Stat '{name}' not found in database.");
             return false;   
         }
     }

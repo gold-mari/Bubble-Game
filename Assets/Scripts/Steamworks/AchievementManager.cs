@@ -17,6 +17,11 @@ public class AchievementManager : MonoBehaviour {
     
     private ISteamAchievements STEAM_ACHIEVEMENT_INTERFACE;
 
+    public void Awake()
+    {
+        STEAM_ACHIEVEMENT_INTERFACE = stub;
+        // STEAM_ACHIEVEMENT_INTERFACE = SteamManager.GetInstance();
+    }
 
     public void Start()
     {
@@ -29,12 +34,10 @@ public class AchievementManager : MonoBehaviour {
         }
 
         if (SteamManager.Initialized) {
-            UploadOfflineAchievements();
             UploadOfflineStats();
+            UploadOfflineAchievements();
+            DownloadOnlineStats();
             DownloadOnlineAchievements();
-
-            STEAM_ACHIEVEMENT_INTERFACE = stub;
-            // STEAM_ACHIEVEMENT_INTERFACE = SteamManager.GetInstance();
         }
     }
 
@@ -52,7 +55,7 @@ public class AchievementManager : MonoBehaviour {
         // TODO: Change these sentinel values if we start using stats that can be negative.
         // ================
 
-        if(SteamManager.Initialized) {
+        if(SteamManager.Initialized && STEAM_ACHIEVEMENT_INTERFACE != null) {
             bool success = STEAM_ACHIEVEMENT_INTERFACE.GetStat(Achievement.GetName(stat), out int value);
 
             if (success) return value;
@@ -71,7 +74,7 @@ public class AchievementManager : MonoBehaviour {
         // * -2 --- SteamManager is not initialized
         // ================
 
-        if(SteamManager.Initialized) {
+        if(SteamManager.Initialized && STEAM_ACHIEVEMENT_INTERFACE != null) {
             bool success = STEAM_ACHIEVEMENT_INTERFACE.GetAchievement(Achievement.GetName(id), out bool achieved);
 
             if (success) return achieved ? 1 : 0;
@@ -184,10 +187,20 @@ public class AchievementManager : MonoBehaviour {
         }
     }
 
+    public void DEBUG_FORCE_SYNC()
+    {
+        UploadOfflineStats();
+        UploadOfflineAchievements();
+
+        DownloadOnlineStats();
+        DownloadOnlineAchievements();
+    }
+
     // ==============================================================
     // Debug / testing methods
     // ==============================================================   
 
-    [Button] public void UnlockAchievement() => WriteAchievement(queried_Id);
-    [Button] public void UpdateStat() => WriteStat(queried_Stat, queried_Value);
+    [Button] public void UnlockAchievement() => saveHandler.TrySetAchievement(queried_Id);
+    [Button] public void SetStat() => saveHandler.TrySetStat(queried_Stat, queried_Value);
+    [Button] public void FORCE_SYNC() => DEBUG_FORCE_SYNC();
 }

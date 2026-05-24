@@ -12,4 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d3db9b22c8af7e4994107e27a22b376, type: 3}
   m_Name: AchievementsStub
   m_EditorClassIdentifier: Assembly-CSharp::AchievementsStub
-  contents: 
+  achievementDatabase:
+  - s: ACH_STORY_LVL1
+    b: 0
+  - s: ACH_STORY_LVL2
+    b: 0
+  - s: ACH_STORY_LVL3
+    b: 0
+  - s: ACH_STORY_LVL4
+    b: 0
+  - s: ACH_STORY_LVL5
+    b: 0
+  - s: ACH_SKILL_SRANK
+    b: 0
+  - s: ACH_SKILL_STRAGGLER
+    b: 0
+  - s: ACH_SKILL_COMBO
+    b: 0
+  - s: ACH_SKILL_LOSE
+    b: 0
+  - s: ACH_SKILL_ENDLESS
+    b: 0
+  - s: ACH_SKILL_HARDMODE
+    b: 0
+  statsDatabase:
+  - s: stat_Best_SRanks
+    i: 0
+  - s: stat_Best_Straggler
+    i: 0
+  - s: stat_Best_Combo
+    i: 0
