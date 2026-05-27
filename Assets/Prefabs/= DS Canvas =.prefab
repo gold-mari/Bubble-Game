@@ -534,6 +534,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248837759054905236}
   m_CullTransparentMesh: 1
+--- !u!1 &2281608610176447206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1984284086293881435}
+  - component: {fileID: 5894951208892073785}
+  m_Layer: 0
+  m_Name: AchievementManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1984284086293881435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2281608610176447206}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8624468519417057041}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5894951208892073785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2281608610176447206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7cecb204f13b7c4296df7dd98223bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AchievementManager
+  queried_Id: 0
+  queried_Stat: 0
+  queried_Value: 0
+  saveHandler: {fileID: 2271278218467693635}
+  stub: {fileID: 11400000, guid: 7aeb6c6306014094a990b475a62800e9, type: 2}
 --- !u!1 &2662551046128010929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,68 +1685,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteVar: {fileID: 11400000, guid: 78e31a4b24f58074fa89e5c234d9d7f0, type: 2}
---- !u!1 &5194251596276416871
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4415164380667900769}
-  - component: {fileID: 8311593476753216975}
-  - component: {fileID: 7531913074848459907}
-  m_Layer: 0
-  m_Name: AchievementManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4415164380667900769
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5194251596276416871}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8624468519417057041}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8311593476753216975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5194251596276416871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 944b831ff8a010446888a3f92b54cd8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SteamManager
---- !u!114 &7531913074848459907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5194251596276416871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7cecb204f13b7c4296df7dd98223bfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AchievementManager
-  queried_Id: 0
-  queried_Stat: 0
-  queried_Value: 0
-  saveHandler: {fileID: 0}
-  stub: {fileID: 11400000, guid: 7aeb6c6306014094a990b475a62800e9, type: 2}
 --- !u!1 &5269398543553009040
 GameObject:
   m_ObjectHideFlags: 0
@@ -2209,7 +2196,7 @@ RectTransform:
   - {fileID: 3635616068348693528}
   - {fileID: 1925115719146993590}
   - {fileID: 8160456601108303790}
-  - {fileID: 4415164380667900769}
+  - {fileID: 1984284086293881435}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
