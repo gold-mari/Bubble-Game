@@ -77,7 +77,7 @@ public class AchievementsStub : ScriptableObject, ISteamAchievements
             if (target.b == true) {
                 // Debug.Log($"AchievementStub: Achievement '{name}' is already unlocked.");
             } else {
-                // Debug.Log($"AchievementStub: Unlocked achievement '{name}'.");  
+                Debug.Log($"AchievementStub: '{name}': UNLOCKED!");  
             }
 
             target.b = true;
