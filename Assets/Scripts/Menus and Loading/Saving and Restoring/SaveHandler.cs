@@ -120,27 +120,27 @@ public class SaveHandler : MonoBehaviour
 #if UNITY_EDITOR
     private void OnGUI()
     {
-        if (GUI.Button(new Rect(70, 10, 50, 50), "HAS6"))
-        {
-            saveData.beatEndless = true;
-            Save();
-        }
-        if (GUI.Button(new Rect(70, 70, 50, 50), "!PLAY6"))
-        {
-            saveData.playedLevel6 = false;
-            Save();
-        }
-        if (GUI.Button(new Rect(140, 10, 50, 50), "RESET"))
-        {
-            saveData.endlessBestTime = 0;
-            saveData.highScores[6] = null;
-            Save();
-        }
-        if (GUI.Button(new Rect(140, 70, 50, 50), "GAME"))
-        {
-            saveData.finishedGame = true;
-            Save();
-        }
+        // if (GUI.Button(new Rect(70, 10, 50, 50), "HAS6"))
+        // {
+        //     saveData.beatEndless = true;
+        //     Save();
+        // }
+        // if (GUI.Button(new Rect(70, 70, 50, 50), "!PLAY6"))
+        // {
+        //     saveData.playedLevel6 = false;
+        //     Save();
+        // }
+        // if (GUI.Button(new Rect(140, 10, 50, 50), "RESET"))
+        // {
+        //     saveData.endlessBestTime = 0;
+        //     saveData.highScores[6] = null;
+        //     Save();
+        // }
+        // if (GUI.Button(new Rect(140, 70, 50, 50), "GAME"))
+        // {
+        //     saveData.finishedGame = true;
+        //     Save();
+        // }
     }
 #endif
 
@@ -190,6 +190,20 @@ public class SaveHandler : MonoBehaviour
         if (!specialLevels.Contains(sceneName)) {
             saveData.lastPlayedScene = LevelLoader.Instance.QuerySceneDict("Next");
             Save();
+
+            // Also, if this is a main level, unlock the corresponding achievement.
+            switch (sceneName) {
+                case "Level1":
+                    TrySetAchievement(Achievement.Id.ACH_STORY_LVL1);   break;
+                case "Level2":
+                    TrySetAchievement(Achievement.Id.ACH_STORY_LVL2);   break;
+                case "Level3":
+                    TrySetAchievement(Achievement.Id.ACH_STORY_LVL3);   break;
+                case "Level4":
+                    TrySetAchievement(Achievement.Id.ACH_STORY_LVL4);   break;
+                case "Level5":
+                    TrySetAchievement(Achievement.Id.ACH_STORY_LVL5);   break;
+            }
         }
 
         if (stats == null) {
@@ -224,7 +238,7 @@ public class SaveHandler : MonoBehaviour
         // Returns whether or not it was a high score.
         // ================
 
-        // If the game is not a level, throw an error.
+        // If the game is not an endless level, quit early.
         string sceneName = SceneManager.GetActiveScene().name;
         if (!endlessLevels.Contains(sceneName)) {
             Debug.Log($"SaveHandler Notice: TrySetBestTime failed. Current scene ({sceneName}) is not an endless level.");
