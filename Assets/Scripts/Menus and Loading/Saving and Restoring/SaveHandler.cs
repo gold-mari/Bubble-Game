@@ -159,6 +159,7 @@ public class SaveHandler : MonoBehaviour
     public void BeatEndless()
     {
         saveData.beatEndless = true;
+        TrySetAchievement(Achievement.Id.ACH_SKILL_ENDLESS);
         Save();
     }
 
