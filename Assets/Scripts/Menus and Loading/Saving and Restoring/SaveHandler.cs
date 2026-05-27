@@ -29,6 +29,12 @@ public class SaveHandler : MonoBehaviour
         "C", "B", "A", "S"
     };
 
+    public static readonly SerializedSteamStat[] statMaxes = new SerializedSteamStat[3]{
+        new(Achievement.Stat.stat_Best_SRanks,      5),
+        new(Achievement.Stat.stat_Best_Straggler,   20),
+        new(Achievement.Stat.stat_Best_Combo,       10)
+    };
+
     // ==============================================================
     // Actions
     // ==============================================================
@@ -260,6 +266,32 @@ public class SaveHandler : MonoBehaviour
         }
     }
 
+    public void NUKE_EVERYTHING(bool areUSure=false, bool areUReallySure=false, bool areUReallyReallySure=false)
+    {
+        if (areUSure && areUReallySure && areUReallyReallySure) {
+            saveData.achievements = new SerializedSteamAchievement[11]{
+                new(Achievement.Id.ACH_STORY_LVL1,      false),
+                new(Achievement.Id.ACH_STORY_LVL2,      false),
+                new(Achievement.Id.ACH_STORY_LVL3,      false),
+                new(Achievement.Id.ACH_STORY_LVL4,      false),
+                new(Achievement.Id.ACH_STORY_LVL5,      false),
+                new(Achievement.Id.ACH_SKILL_SRANK,     false),
+                new(Achievement.Id.ACH_SKILL_STRAGGLER, false),
+                new(Achievement.Id.ACH_SKILL_COMBO,     false),
+                new(Achievement.Id.ACH_SKILL_LOSE,      false),
+                new(Achievement.Id.ACH_SKILL_ENDLESS,   false),
+                new(Achievement.Id.ACH_SKILL_HARDMODE,  false)
+            };
+
+            saveData.stats = new SerializedSteamStat[3]{
+                new(Achievement.Stat.stat_Best_SRanks,      0),
+                new(Achievement.Stat.stat_Best_Straggler,   0),
+                new(Achievement.Stat.stat_Best_Combo,       0)
+            };
+            Save();
+        }
+    }
+
     // ==============================================================
     // Save/Load methods
     // ==============================================================
@@ -385,6 +417,14 @@ public class SaveHandler : MonoBehaviour
     {
         // Returns -1 if stat is not found.
         SerializedSteamStat match = saveData.stats.FirstOrDefault(s => s.id == stat);
+        if (match == null) return -1;
+        else return match.value;
+    }
+
+    public int GetStatMax(Achievement.Stat stat)
+    {
+        // Returns -1 if stat is not found.
+        SerializedSteamStat match = statMaxes.FirstOrDefault(s => s.id == stat);
         if (match == null) return -1;
         else return match.value;
     }

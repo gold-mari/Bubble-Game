@@ -95,10 +95,10 @@ public class AchievementManager : MonoBehaviour {
         }
     }
 
-    public void WriteStat(Achievement.Stat stat, int value)
+    public void WriteStat(Achievement.Stat stat, int value, int max)
     {
         if(SteamManager.Initialized) {
-            STEAM_ACHIEVEMENT_INTERFACE.SetStat(Achievement.GetName(stat), value);
+            STEAM_ACHIEVEMENT_INTERFACE.SetStat(Achievement.GetName(stat), value, max);
         }
     }
 
@@ -177,11 +177,12 @@ public class AchievementManager : MonoBehaviour {
             foreach (Achievement.Stat stat in Achievement.GetStatValues()) {
                 int onlineValue = ReadStat(stat);
                 int offlineValue = saveHandler.GetStat(stat);
+                int maxValue = saveHandler.GetStatMax(stat);
                 // If the stat got better offline, and we're not getting an error code while reading Steam...
                 if (offlineValue > onlineValue && onlineValue >= 0) {
                     Debug.Log($"AchievementManager: Uploading offline stat {stat}.");
                     // Write the new, greater stat to Steamworks.
-                    WriteStat(stat, offlineValue);
+                    WriteStat(stat, offlineValue, maxValue);
                 }
             }
         }
@@ -203,4 +204,11 @@ public class AchievementManager : MonoBehaviour {
     [Button] public void UnlockAchievement() => saveHandler.TrySetAchievement(queried_Id);
     [Button] public void SetStat() => saveHandler.TrySetStat(queried_Stat, queried_Value);
     [Button] public void FORCE_SYNC() => DEBUG_FORCE_SYNC();
+    [Button] public void NUKE_EVERYTHING()
+    {
+        if (STEAM_ACHIEVEMENT_INTERFACE is AchievementsStub) {
+            STEAM_ACHIEVEMENT_INTERFACE.NUKE_EVERYTHING(true, true, true);
+            saveHandler.NUKE_EVERYTHING(true, true, true);
+        }
+    }
 }

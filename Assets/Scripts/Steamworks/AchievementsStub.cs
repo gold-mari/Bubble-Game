@@ -102,16 +102,63 @@ public class AchievementsStub : ScriptableObject, ISteamAchievements
         }
     }
 
-    public bool SetStat(string name, int value)
+    public bool SetStat(string name, int value, int max)
     {
         var target = statsDatabase.FirstOrDefault(p => p.s == name);
         if (target != null) {
             target.i = value;
-            // Debug.Log($"AchievementStub: Set stat '{name}' to {target.i}.");
+            Debug.Log($"AchievementStub: '{name}': {target.i}/{max}.");
+
+            // Simulate stat-setting unlocking achievements.
+            if (target.i >= max) {
+                switch (name) {
+                    case "stat_Best_SRanks": {
+                        SetAchievement("ACH_SKILL_SRANK");
+                        break;
+                    }
+                    case "stat_Best_Straggler": {
+                        SetAchievement("ACH_SKILL_STRAGGLER");
+                        break;
+                    }
+                    case "stat_Best_Combo": {
+                        SetAchievement("ACH_SKILL_COMBO");
+                        break;
+                    }
+                    default: {
+                        break;
+                    }
+                }
+            }
+            
             return true;
         } else {
             // Debug.LogError($"AchievementsStub Error: Stat '{name}' not found in database.");
             return false;   
+        }
+    }
+
+    public void NUKE_EVERYTHING(bool areUSure=false, bool areUReallySure=false, bool areUReallyReallySure=false)
+    {
+        if (areUSure && areUReallySure && areUReallyReallySure) {
+            achievementDatabase = new(){
+                new("ACH_STORY_LVL1",      false),
+                new("ACH_STORY_LVL2",      false),
+                new("ACH_STORY_LVL3",      false),
+                new("ACH_STORY_LVL4",      false),
+                new("ACH_STORY_LVL5",      false),
+                new("ACH_SKILL_SRANK",     false),
+                new("ACH_SKILL_STRAGGLER", false),
+                new("ACH_SKILL_COMBO",     false),
+                new("ACH_SKILL_LOSE",      false),
+                new("ACH_SKILL_ENDLESS",   false),
+                new("ACH_SKILL_HARDMODE",  false)
+            };
+
+            statsDatabase = new(){
+                new("stat_Best_SRanks",    0),
+                new("stat_Best_Straggler", 0),
+                new("stat_Best_Combo",     0)
+            };
         }
     }
 }

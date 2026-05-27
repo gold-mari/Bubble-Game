@@ -182,22 +182,48 @@ public class SteamManager : MonoBehaviour, ISteamAchievements {
 
     public bool GetAchievement(string name, out bool achieved)
     {
+        if (!m_bInitialized) {
+            achieved = false;
+            return false;
+        }
+
         return SteamUserStats.GetAchievement(name, out achieved);
     }
 
     public bool SetAchievement(string name)
     {
-        return SteamUserStats.SetAchievement(name);
+        if (!m_bInitialized) return false;
+
+        SteamUserStats.SetAchievement(name);
+        return SteamUserStats.StoreStats();
     }
     
     public bool GetStat(string name, out int value)
     {
+        if (!m_bInitialized) {
+            value = -1;
+            return false;
+        }
+
         return SteamUserStats.GetStat(name, out value);
     }
 
-    public bool SetStat(string name, int value)
+    public bool SetStat(string name, int value, int max)
     {
-        return SteamUserStats.SetStat(name, value);
+        if (!m_bInitialized) return false;
+
+        SteamUserStats.SetStat(name, value);
+        SteamUserStats.IndicateAchievementProgress(name, (uint)value, (uint)max);
+        return SteamUserStats.StoreStats();
+    }
+
+    public void NUKE_EVERYTHING(bool areUSure=false, bool areUReallySure=false, bool areUReallyReallySure=false)
+    {
+        // if (!m_bInitialized) return;
+
+        // if (areUSure && areUReallySure && areUReallyReallySure) {
+        //     SteamUserStats.ResetAllStats(true);
+        // }
     }
 
     // ==============================================================

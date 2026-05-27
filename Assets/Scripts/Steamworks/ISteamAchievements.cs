@@ -28,9 +28,14 @@ public interface ISteamAchievements
         return false;
     }
 
-    public bool SetStat(string name, int value)
+    public bool SetStat(string name, int value, int max)
     {
         Debug.LogError("ISteamAchievements Error: SetStat was called directly.");
         return false;
+    }
+
+    public void NUKE_EVERYTHING(bool areUSure=false, bool areUReallySure=false, bool areUReallyReallySure=false)
+    {
+        Debug.LogError("ISteamAchievements Error: NUKE_EVERYTHING was called directly.");
     }
 }
