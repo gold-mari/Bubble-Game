@@ -17,6 +17,22 @@ public class Achievement
 
     public static string GetName(Id id) => System.Enum.GetName(typeof(Id), id);
 
+    public static Id GetStoryAchievement_ZERO_INDEX(int i)
+    {
+        if (i < 0 || i >= 5) {
+            throw new System.ArgumentOutOfRangeException($"Index was not between 0 and 5: {i}");
+        }
+
+        return i switch {
+            0 => Id.ACH_STORY_LVL1,
+            1 => Id.ACH_STORY_LVL2,
+            2 => Id.ACH_STORY_LVL3,
+            3 => Id.ACH_STORY_LVL4,
+            4 => Id.ACH_STORY_LVL5,
+            _ => (Id)(-1)
+        };
+    }
+
     public static Id[] GetAchievementValues() => (Id[])System.Enum.GetValues(typeof(Id));
 
     // ==============================================================

@@ -116,11 +116,12 @@ public class SaveHandler : MonoBehaviour
 
         // Check and update any achievements we can.
         // STORY UNLOCKS ==========================
-        if (saveData.highScores[0] != null) TrySetAchievement(Achievement.Id.ACH_STORY_LVL1);
-        if (saveData.highScores[1] != null) TrySetAchievement(Achievement.Id.ACH_STORY_LVL2);
-        if (saveData.highScores[2] != null) TrySetAchievement(Achievement.Id.ACH_STORY_LVL3);
-        if (saveData.highScores[3] != null) TrySetAchievement(Achievement.Id.ACH_STORY_LVL4);
-        if (saveData.highScores[4] != null) TrySetAchievement(Achievement.Id.ACH_STORY_LVL5);
+        for (int i = 0; i < 5; i++) {
+            if (saveData.highScores[i] != null && saveData.highScores[i].score != -1) {
+                Achievement.Id id = Achievement.GetStoryAchievement_ZERO_INDEX(i);
+                TrySetAchievement(id);
+            }
+        }
         // S RANKS ================================
         int sRanks = CountSRanks();
         if (sRanks > GetStat(Achievement.Stat.stat_Best_SRanks)) {
