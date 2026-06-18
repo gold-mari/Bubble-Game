@@ -42,9 +42,9 @@ public class BubbleFlavorMethods
         // Converts a color to a 6-digit hex string.
         // ================
 
-        string r = ((int)(color.r*255)).ToString("X");
-        string g = ((int)(color.g*255)).ToString("X");
-        string b = ((int)(color.b*255)).ToString("X");
+        string r = ((int)(color.r*255)).ToString("X2");
+        string g = ((int)(color.g*255)).ToString("X2");
+        string b = ((int)(color.b*255)).ToString("X2");
 
         return $"{r}{g}{b}";
     }
