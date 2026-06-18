@@ -21,6 +21,10 @@ public class SaveHandler : MonoBehaviour
         "LevelE"
     };
 
+    public static readonly string[] timeoutLevels =  new string[]{
+        "Level5"
+    };
+
     public static readonly string[] gameCutscenes = new string[]{
         "Cutscene_Level1", "Cutscene_Level2", "Cutscene_Level3", "Cutscene_Level4", "Cutscene_Level5", "Cutscene_Outro"
     };
@@ -82,6 +86,13 @@ public class SaveHandler : MonoBehaviour
     private static SaveData saveData = null;
 
     // ==============================================================
+    // Misc internal variables
+    // ==============================================================
+
+    // Hacky as hell, etc. etc. etc.
+    private string currentSceneName = "";
+
+    // ==============================================================
     // Data-writing methods
     // ==============================================================
 
@@ -99,18 +110,18 @@ public class SaveHandler : MonoBehaviour
         // We use it to check the scene name- if it's a game scene, hold onto it.
         // ================
 
-        string sceneName = SceneManager.GetActiveScene().name;
+        currentSceneName = SceneManager.GetActiveScene().name;
 
-        // print($"SaveHandler: Current scene is {sceneName}");
+        // print($"SaveHandler: Current scene is {currentSceneName}");
 
-        if (gameLevels.Contains(sceneName) && !specialLevels.Contains(sceneName)) {
+        if (gameLevels.Contains(currentSceneName) && !specialLevels.Contains(currentSceneName)) {
             // If it's a level, note the scene and note that we've played.
-            saveData.lastPlayedScene = sceneName;
+            saveData.lastPlayedScene = currentSceneName;
             saveData.playedBefore = true;
             // print($"SaveHandler: Saved lastPlayedScene and playedBefore");
-        } else if (gameCutscenes.Contains(sceneName)) {
+        } else if (gameCutscenes.Contains(currentSceneName)) {
             // If it's a cutscene, just note the scene.
-            saveData.lastPlayedScene = sceneName;
+            saveData.lastPlayedScene = currentSceneName;
             // print($"SaveHandler: Saved lastPlayedScene");
         }
 
@@ -199,9 +210,9 @@ public class SaveHandler : MonoBehaviour
         // ================
 
         // If the game is not a level, throw an error.
-        string sceneName = SceneManager.GetActiveScene().name;
-        if (!gameLevels.Contains(sceneName)) {
-            Debug.LogError($"SaveHandler Error: SetRankStats failed. Current scene ({sceneName}) is not a level.");
+        currentSceneName = SceneManager.GetActiveScene().name;
+        if (!gameLevels.Contains(currentSceneName)) {
+            Debug.LogError($"SaveHandler Error: SetRankStats failed. Current scene ({currentSceneName}) is not a level.");
             return false;
         }
 
@@ -210,12 +221,12 @@ public class SaveHandler : MonoBehaviour
         //  * We're in a level
         //  * We have won, and are awaiting results.
         // In case of a crash, save our level as the NEXT one.
-        if (!specialLevels.Contains(sceneName)) {
+        if (!specialLevels.Contains(currentSceneName)) {
             saveData.lastPlayedScene = LevelLoader.Instance.QuerySceneDict("Next");
             Save();
 
             // Also, if this is a main level, unlock the corresponding achievement.
-            switch (sceneName) {
+            switch (currentSceneName) {
                 case "Level1":
                     TrySetAchievement(Achievement.Id.ACH_STORY_LVL1);   break;
                 case "Level2":
@@ -241,7 +252,7 @@ public class SaveHandler : MonoBehaviour
         }
 
         // Find where the current scene is in our array, using it to index our highScores array.
-        int index = System.Array.IndexOf(gameLevels, sceneName);
+        int index = System.Array.IndexOf(gameLevels, currentSceneName);
         // print($"SaveHandler: High Score --- old was {saveData.highScores[index].score}, new is {stats.score}.");
 
         string newRank = stats.rank;
@@ -302,9 +313,9 @@ public class SaveHandler : MonoBehaviour
         // ================
 
         // If the game is not an endless level, quit early.
-        string sceneName = SceneManager.GetActiveScene().name;
-        if (!endlessLevels.Contains(sceneName)) {
-            Debug.Log($"SaveHandler Notice: TrySetBestTime failed. Current scene ({sceneName}) is not an endless level.");
+        currentSceneName = SceneManager.GetActiveScene().name;
+        if (!endlessLevels.Contains(currentSceneName)) {
+            Debug.Log($"SaveHandler Notice: TrySetBestTime failed. Current scene ({currentSceneName}) is not an endless level.");
             return false;
         }
 
@@ -442,6 +453,11 @@ public class SaveHandler : MonoBehaviour
         }
     }
 
+    public string GetSceneName()
+    {
+        return currentSceneName;
+    }
+
     public bool GetSeenTutorial()
     {   
         // Used to show / hide the tutorial badges.
@@ -508,7 +524,7 @@ public class SaveHandler : MonoBehaviour
         else return match.value;
     }
 
-public int GetStatMax(Achievement.Stat stat)
+    public int GetStatMax(Achievement.Stat stat)
     {
         // Returns -1 if stat is not found.
         SerializedSteamStat match = statMaxes.FirstOrDefault(s => s.id == stat);

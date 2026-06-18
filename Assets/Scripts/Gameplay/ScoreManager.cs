@@ -1,9 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using NaughtyAttributes;
 using UnityEngine.UI;
-using System;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -185,6 +183,11 @@ public class ScoreManager : MonoBehaviour
         }
         if (comboLevel > maxCombo.value) {
             maxCombo.value = (uint)comboLevel;
+
+            // Achievement code is below! Don't proceed if we're not in the right scene for it.
+            string sceneName = saveHandler.GetSceneName();
+            if (!SaveHandler.gameLevels.Contains(sceneName)) return;
+            if (SaveHandler.timeoutLevels.Contains(sceneName) && manager.AfterTimeout()) return;
 
             // See if we ought to set the maxCombo in our save!
             int bestMaxCombo = saveHandler.GetStat(Achievement.Stat.stat_Best_Combo);

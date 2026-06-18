@@ -26,6 +26,7 @@ public class MusicManager : MusicPlayer
     // ================================================================
 
     private double firstBubbleTime = -1;
+    private bool reachedTimeout = false;
 
     // ================================================================
     // Initializer and finalizer methods
@@ -59,6 +60,7 @@ public class MusicManager : MusicPlayer
 
         songCompletion.value = 0;
         firstBubbleTime = -1;
+        reachedTimeout = false;
 
         // Call our base awake function, which includes creating our timeline handler.
         TimelineHandler newHandler = MakeHandlerFromInstance();
@@ -160,10 +162,13 @@ public class MusicManager : MusicPlayer
         }
     }
 
+    public void ReachedTimeout() => reachedTimeout = true;
+
     // ================================================================
     // Misc accessors
     // ================================================================
 
     public double GetDSPTime() => handler == null ? -1 : handler.DSPTime;
     public double GetFirstBubbleTime() => firstBubbleTime;
+    public bool AfterTimeout() => reachedTimeout;
 }

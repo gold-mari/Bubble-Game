@@ -49,6 +49,7 @@ public class Level5TimeoutHandler : ActionOnSwitchMap
     public void WeAreNotDone()
     {
         musicManager.SetParameter(endTimeoutParameter, 1);
+        musicManager.ReachedTimeout();
     }
 }
 
