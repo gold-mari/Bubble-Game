@@ -22,6 +22,12 @@ public class MusicManager : MusicPlayer
     private EndgameManager endgameManager;
 
     // ================================================================
+    // Parameters
+    // ================================================================
+
+    private double firstBubbleTime = -1;
+
+    // ================================================================
     // Initializer and finalizer methods
     // ================================================================
 
@@ -52,6 +58,7 @@ public class MusicManager : MusicPlayer
         eventRef = mainSong.musicEvent;
 
         songCompletion.value = 0;
+        firstBubbleTime = -1;
 
         // Call our base awake function, which includes creating our timeline handler.
         TimelineHandler newHandler = MakeHandlerFromInstance();
@@ -60,6 +67,11 @@ public class MusicManager : MusicPlayer
         newHandler.markerUpdated += OnMarkerUpdated;
 
         return newHandler;
+    }
+
+    public void InitializeFirstBubbleTime()
+    {
+        firstBubbleTime = handler.DSPTime;
     }
 
     protected override void Start()
@@ -147,4 +159,11 @@ public class MusicManager : MusicPlayer
             }
         }
     }
+
+    // ================================================================
+    // Misc accessors
+    // ================================================================
+
+    public double GetDSPTime() => handler == null ? -1 : handler.DSPTime;
+    public double GetFirstBubbleTime() => firstBubbleTime;
 }

@@ -28,6 +28,7 @@ public class BeatReader : MonoBehaviour
     // ================================================================
 
     private LoopTracker tracker;
+    private bool shotFirstBubble = false;
 
     // ================================================================
     // Initializers and finalizers
@@ -38,6 +39,20 @@ public class BeatReader : MonoBehaviour
         tracker = new LoopTracker(musicManager, currentBeatmap);
         tracker.switchMap += OnSwitchMap;
         tracker.update += OnTrackerUpdate;
+
+        // Achievement stuff. Used for the "FALSE START" achievement (lose a level quickly)        
+        shotFirstBubble = false;
+
+        singleSpawn += ShotFirstBubble;
+        massSpawn += ShotFirstBubble;
+        makeFlavorBomb += ShotFirstBubble;
+        hyperSpawn += ShotFirstBubble;
+
+        void ShotFirstBubble()
+        {
+            if (!shotFirstBubble) musicManager.InitializeFirstBubbleTime();
+            shotFirstBubble = true;
+        }
     }
 
     private void OnDestroy()

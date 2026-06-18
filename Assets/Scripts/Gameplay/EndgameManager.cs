@@ -34,6 +34,20 @@ public class EndgameManager : MonoBehaviour
     // Instances of our SFX.
     private FMOD.Studio.EventInstance lossSFX_i;
 
+    // Hacky, for achievement stuff.
+    private MusicManager musicManager;
+    private SaveHandler saveHandler;
+
+    // ================================================================
+    // Initializers
+    // ================================================================
+
+    private void Start()
+    {
+        musicManager = FindAnyObjectByType(typeof(MusicManager)) as MusicManager;
+        saveHandler = FindAnyObjectByType(typeof(SaveHandler)) as SaveHandler;
+    }
+
     // ================================================================
     // Update methods
     // ================================================================
@@ -76,6 +90,18 @@ public class EndgameManager : MonoBehaviour
 
             if (lossEventBank != null && lossEventBank.Length > 0) {
                 lossEventBank[bankIndex].Run();
+            }
+
+            // Achievement stuff for the "lose quickly" achievement!
+            // In an ideal world, this would be done as part of the loss Event bank, but proper
+            // integration would take time I don't have right now.
+            if (!saveHandler.GetUnlockedAchievement(Achievement.Id.ACH_SKILL_LOSE)) {
+                double lossTime = musicManager.GetDSPTime();
+                double timeToLoss = lossTime - musicManager.GetFirstBubbleTime();
+                Debug.Log($"lossTime: {lossTime} --- bubbleTime: {musicManager.GetFirstBubbleTime()}\ntimeToLoss: {timeToLoss}");
+                if (timeToLoss <= 15) {
+                    saveHandler.TrySetAchievement(Achievement.Id.ACH_SKILL_LOSE);
+                }
             }
         }
     }
