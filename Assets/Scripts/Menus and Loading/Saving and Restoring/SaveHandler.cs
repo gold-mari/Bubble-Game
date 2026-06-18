@@ -245,10 +245,11 @@ public class SaveHandler : MonoBehaviour
             return false;
         }
 
-        // Check to see if our new stat has hit our combo!
-        // Ideally, also check this during gameplay.
-        if (stats.maxCombo > GetStat(Achievement.Stat.stat_Best_Combo)) {
-            TrySetStat(Achievement.Stat.stat_Best_Combo, stats.maxCombo);
+        // If this isn't Level 5, check to see if our new stat has hit our combo!
+        if (!timeoutLevels.Contains(currentSceneName)) {
+            if (stats.maxCombo > GetStat(Achievement.Stat.stat_Best_Combo)) {
+                TrySetStat(Achievement.Stat.stat_Best_Combo, stats.maxCombo);
+            }
         }
 
         // Find where the current scene is in our array, using it to index our highScores array.
