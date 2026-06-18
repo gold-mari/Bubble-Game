@@ -27,6 +27,7 @@ public class AchievementManager : MonoBehaviour {
     {
         if (saveHandler) {
             saveHandler.UnlockedAchievement += WriteAchievement;
+            saveHandler.SetStat += WriteStat;
             saveHandler.SyncSaveToOnline += () => {
                 DownloadOnlineAchievements();
                 DownloadOnlineStats();

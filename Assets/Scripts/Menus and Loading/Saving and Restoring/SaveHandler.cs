@@ -40,6 +40,7 @@ public class SaveHandler : MonoBehaviour
     // ==============================================================
 
     public System.Action<Achievement.Id> UnlockedAchievement;
+    public System.Action<Achievement.Stat, int, int> SetStat;
     public System.Action SyncSaveToOnline;
 
     // ==============================================================
@@ -112,6 +113,21 @@ public class SaveHandler : MonoBehaviour
             saveData.lastPlayedScene = sceneName;
             // print($"SaveHandler: Saved lastPlayedScene");
         }
+
+        // Check and update any achievements we can.
+        // STORY UNLOCKS ==========================
+        if (saveData.highScores[0] != null) TrySetAchievement(Achievement.Id.ACH_STORY_LVL1);
+        if (saveData.highScores[1] != null) TrySetAchievement(Achievement.Id.ACH_STORY_LVL2);
+        if (saveData.highScores[2] != null) TrySetAchievement(Achievement.Id.ACH_STORY_LVL3);
+        if (saveData.highScores[3] != null) TrySetAchievement(Achievement.Id.ACH_STORY_LVL4);
+        if (saveData.highScores[4] != null) TrySetAchievement(Achievement.Id.ACH_STORY_LVL5);
+        // S RANKS ================================
+        TrySetStat(Achievement.Stat.stat_Best_SRanks, CountSRanks());
+        // ENDLESS ================================
+        if (saveData.beatEndless) TrySetAchievement(Achievement.Id.ACH_SKILL_ENDLESS);
+
+        // G. HARD_MODE?
+            // NOT CURRENTLY TRACKED. NO WAY TO DERIVE.
 
         SyncSaveToOnline?.Invoke();
         Save();
@@ -222,14 +238,27 @@ public class SaveHandler : MonoBehaviour
                             rankLookup.ToList().IndexOf(newRank) > rankLookup.ToList().IndexOf(oldRank);
 
         // If the score is better, mark it as the new high score!
-        if (saveData.highScores[index] == null || stats.score > saveData.highScores[index].score || rankIsBetter) {
-            print($"SaveHandler: Saving high score into index {index}.");
+        if (saveData.highScores[index] == null || stats.score > saveData.highScores[index].score || rankIsBetter)
+        {
+            // print($"SaveHandler: Saving high score into index {index}.");
             saveData.highScores[index] = new RankStats(stats);
+
+            // Check if we have all S-ranks now!
+            TrySetStat(Achievement.Stat.stat_Best_SRanks, CountSRanks());
+
             Save();
             return true;
         }
 
         return false;
+    }
+
+    private int CountSRanks()
+    {
+        int sRanks = 0;
+        for (int i = 0; i < 5; i++) if (saveData.highScores[i]?.rank == "S") sRanks++;
+        // We don't need to set the achievement manually; Steamworks should do that for us. Hopefully!
+        return sRanks;
     }
 
     public bool TrySetBestTime(uint time)
@@ -274,9 +303,19 @@ public class SaveHandler : MonoBehaviour
     {
         SerializedSteamStat match = saveData.stats.FirstOrDefault(s => s.id == stat);
         if (match != null) {
+            // Don't push worse stats.
+            if (match.value >= value) return;
+
             match.value = value;
             Save();
 
+            int max = GetStatMax(stat);
+            if (max == -1) {
+                Debug.Log("SaveHandler Error: TrySetStat failed. Stat had no max value in the statMaxes array.");
+                return;
+            }
+
+            SetStat?.Invoke(stat, value, max);
             SyncSaveToOnline?.Invoke();
         }
     }
@@ -436,7 +475,7 @@ public class SaveHandler : MonoBehaviour
         else return match.value;
     }
 
-    public int GetStatMax(Achievement.Stat stat)
+public int GetStatMax(Achievement.Stat stat)
     {
         // Returns -1 if stat is not found.
         SerializedSteamStat match = statMaxes.FirstOrDefault(s => s.id == stat);
