@@ -122,12 +122,17 @@ public class SaveHandler : MonoBehaviour
         if (saveData.highScores[3] != null) TrySetAchievement(Achievement.Id.ACH_STORY_LVL4);
         if (saveData.highScores[4] != null) TrySetAchievement(Achievement.Id.ACH_STORY_LVL5);
         // S RANKS ================================
-        TrySetStat(Achievement.Stat.stat_Best_SRanks, CountSRanks());
+        int sRanks = CountSRanks();
+        if (sRanks > GetStat(Achievement.Stat.stat_Best_SRanks)) {
+            TrySetStat(Achievement.Stat.stat_Best_SRanks, sRanks);   
+        }
+        // COMBO ==================================
+        int maxCombo = FindMaxCombo();
+        if (maxCombo > GetStat(Achievement.Stat.stat_Best_Combo)) {
+            TrySetStat(Achievement.Stat.stat_Best_Combo, maxCombo);
+        }
         // ENDLESS ================================
         if (saveData.beatEndless) TrySetAchievement(Achievement.Id.ACH_SKILL_ENDLESS);
-
-        // G. HARD_MODE?
-            // NOT CURRENTLY TRACKED. NO WAY TO DERIVE.
 
         SyncSaveToOnline?.Invoke();
         Save();
@@ -228,6 +233,12 @@ public class SaveHandler : MonoBehaviour
             return false;
         }
 
+        // Check to see if our new stat has hit our combo!
+        // Ideally, also check this during gameplay.
+        if (stats.maxCombo > GetStat(Achievement.Stat.stat_Best_Combo)) {
+            TrySetStat(Achievement.Stat.stat_Best_Combo, stats.maxCombo);
+        }
+
         // Find where the current scene is in our array, using it to index our highScores array.
         int index = System.Array.IndexOf(gameLevels, sceneName);
         // print($"SaveHandler: High Score --- old was {saveData.highScores[index].score}, new is {stats.score}.");
@@ -244,7 +255,10 @@ public class SaveHandler : MonoBehaviour
             saveData.highScores[index] = new RankStats(stats);
 
             // Check if we have all S-ranks now!
-            TrySetStat(Achievement.Stat.stat_Best_SRanks, CountSRanks());
+            int sRanks = CountSRanks();
+            if (sRanks > GetStat(Achievement.Stat.stat_Best_SRanks)) {
+                TrySetStat(Achievement.Stat.stat_Best_SRanks, sRanks);   
+            }
 
             Save();
             return true;
@@ -259,6 +273,24 @@ public class SaveHandler : MonoBehaviour
         for (int i = 0; i < 5; i++) if (saveData.highScores[i]?.rank == "S") sRanks++;
         // We don't need to set the achievement manually; Steamworks should do that for us. Hopefully!
         return sRanks;
+    }
+
+    private int FindMaxCombo()
+    {
+        int trueMax = -1;
+        // Check combo for every level except 5. There's no way to know if a combo from that level was
+        // achieved before Sammy started helping, so we can't infer from the save.
+        for (int i = 0; i < 6; i++) {
+            // Skip level 5.
+            if (i == 4) continue;
+            // Skip unplayed levels.
+            if (saveData.highScores[i] == null) continue;
+            
+            int newMax = saveData.highScores[i].maxCombo;
+            if (trueMax < newMax) trueMax = newMax;
+        }
+        // We don't need to set the achievement manually; Steamworks should do that for us. Hopefully!
+        return trueMax;
     }
 
     public bool TrySetBestTime(uint time)

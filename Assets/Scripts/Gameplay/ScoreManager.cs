@@ -185,6 +185,12 @@ public class ScoreManager : MonoBehaviour
         }
         if (comboLevel > maxCombo.value) {
             maxCombo.value = (uint)comboLevel;
+
+            // See if we ought to set the maxCombo in our save!
+            int bestMaxCombo = saveHandler.GetStat(Achievement.Stat.stat_Best_Combo);
+            if (maxCombo.value > bestMaxCombo) {
+                saveHandler.TrySetStat(Achievement.Stat.stat_Best_Combo, (int)maxCombo.value);
+            }
         }
     }
 
