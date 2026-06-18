@@ -29,4 +29,22 @@ public class SettingsHandler : MonoBehaviour
         colorController = GetComponentInChildren<BubbleColorController>(includeInactive:true);
         colorController.Initialize();
     }
+
+    public bool CheckHardMode()
+    {
+        bool isSilent = volumeHandler.GetMasterVolume() == 0
+                     || volumeHandler.GetMusicVolume() == 0;
+
+        bool isMonochrome = colorController.GetAllMonochrome();
+
+        return isSilent && isMonochrome;
+    }
+
+    // private void Update()
+    // {
+    //     bool isSilent = volumeHandler.GetMasterVolume() == 0
+    //                  || volumeHandler.GetMusicVolume() == 0;
+
+    //     bool isMonochrome = colorController.GetAllMonochrome();
+    // }
 }

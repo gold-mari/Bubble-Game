@@ -136,4 +136,7 @@ public class FMODVolumeHandler : MonoBehaviour
 
         bus.setVolume(volume);
     }
+
+    public float GetMasterVolume() => masterVolume;
+    public float GetMusicVolume() => musicVolume;
 }

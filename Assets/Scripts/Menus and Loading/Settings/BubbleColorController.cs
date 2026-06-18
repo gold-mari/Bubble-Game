@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
@@ -213,5 +214,16 @@ public class BubbleColorController : MonoBehaviour
         readoutText.text = ((BubbleFlavor)(index+1)).ToString();
 
         InitializeHSV();
+    }
+
+    //===============================================================
+    // Misc accessors
+    //===============================================================
+
+    public bool GetAllMonochrome()
+    {
+        Color[] colors = BubbleFlavorMethods.GetColors();
+        // Only returns true if all flavors have the same color as the first; AKA if they're all equal.
+        return colors.All(c => c == colors[0]);
     }
 }
