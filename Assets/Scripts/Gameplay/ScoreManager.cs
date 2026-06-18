@@ -65,6 +65,7 @@ public class ScoreManager : MonoBehaviour
     private TimelineHandler handler;
     private Coroutine cooldown = null;
     private int comboLevel = 0;
+    private int lastStragglerIndex;
 
     // ================================================================
     // Initializer methods
@@ -138,6 +139,9 @@ public class ScoreManager : MonoBehaviour
         popupManager.OnEndPop(bubble, score);
         float shakeAmount = Mathf.Min(index*0.25f, 5);
         screenshake.ScaledShake(shakeAmount);
+
+        // For achievement purposes.
+        lastStragglerIndex = index;
     }
 
     public void SumStatsIntoScore()
@@ -159,6 +163,10 @@ public class ScoreManager : MonoBehaviour
         ));
 
         newBestTime.value = saveHandler.TrySetBestTime(secondsAlive.value);
+
+        // Infer how many stragglers we had.
+        // This assumes that index is not reset during the EndBubbleClear procedure.
+        saveHandler.TrySetStat(Achievement.Stat.stat_Best_Straggler, lastStragglerIndex);
     }
 
     // ================================================================
