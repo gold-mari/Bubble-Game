@@ -77,8 +77,9 @@ public class BubbleColorController : MonoBehaviour
         // Loads from BubbleFlavorMethods to our local working copies.
         // Also updates UI.
         LoadIntoWorking();
-        // Reset our array index.
+        // Reset our array index and our "current color" label.
         index = 0;
+        readoutText.text = ((BubbleFlavor)(index+1)).ToString();
     }
 
     private void OnDisable()
