@@ -222,11 +222,6 @@ public class SaveHandler : MonoBehaviour
         if (hardModeMonitor && hardModeMonitor.HardModeValid()) {
             // We beat hard mode!
             TrySetAchievement(Achievement.Id.ACH_SKILL_HARDMODE);
-            Debug.Log("HARD MODE ACHIEVED!");
-        } else if (hardModeMonitor) {
-            Debug.Log("HARD MODE INVALID");
-        } else {
-            Debug.Log("HARD MODE MONITOR NOT FOUND");
         }
 
         // Before we go any further...
