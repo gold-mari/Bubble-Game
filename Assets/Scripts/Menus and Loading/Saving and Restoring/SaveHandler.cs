@@ -89,7 +89,7 @@ public class SaveHandler : MonoBehaviour
     // Misc internal variables
     // ==============================================================
 
-    // Hacky as hell, etc. etc. etc.
+    private HardModeMonitor hardModeMonitor;
     private string currentSceneName = "";
 
     // ==============================================================
@@ -109,6 +109,9 @@ public class SaveHandler : MonoBehaviour
         // Start is called before the first frame update, ONCE per scene.
         // We use it to check the scene name- if it's a game scene, hold onto it.
         // ================
+
+        // Hacky but better than a whole-scene search.
+        hardModeMonitor = transform.parent.GetComponentInChildren<HardModeMonitor>();
 
         currentSceneName = SceneManager.GetActiveScene().name;
 
@@ -214,6 +217,16 @@ public class SaveHandler : MonoBehaviour
         if (!gameLevels.Contains(currentSceneName)) {
             Debug.LogError($"SaveHandler Error: SetRankStats failed. Current scene ({currentSceneName}) is not a level.");
             return false;
+        }
+
+        if (hardModeMonitor && hardModeMonitor.HardModeValid()) {
+            // We beat hard mode!
+            TrySetAchievement(Achievement.Id.ACH_SKILL_HARDMODE);
+            Debug.Log("HARD MODE ACHIEVED!");
+        } else if (hardModeMonitor) {
+            Debug.Log("HARD MODE INVALID");
+        } else {
+            Debug.Log("HARD MODE MONITOR NOT FOUND");
         }
 
         // Before we go any further...

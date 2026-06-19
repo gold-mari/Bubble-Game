@@ -39,12 +39,4 @@ public class SettingsHandler : MonoBehaviour
 
         return isSilent && isMonochrome;
     }
-
-    // private void Update()
-    // {
-    //     bool isSilent = volumeHandler.GetMasterVolume() == 0
-    //                  || volumeHandler.GetMusicVolume() == 0;
-
-    //     bool isMonochrome = colorController.GetAllMonochrome();
-    // }
 }
